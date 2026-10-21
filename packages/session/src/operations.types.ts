@@ -17,8 +17,7 @@ export type BrandingUpdatePutResponse = import("@faiber/sdk-core").ApiEnvelope<i
 /** Backend request type: multipart/form-data. */
 export type BrandingUploadPostInput = FormData;
 /** Backend response type: serde_json::Value. */
-export interface BrandingUploadPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type BrandingUploadPostResponse = import("./reviewed-wire.js").SessionBrandingUploadResponse;
 
 /** Backend response type: LiveKitConfigResponse. */
 export interface ConfigurationLivekitConfigShowGetResponseData extends JsonObject {
@@ -128,8 +127,7 @@ export interface IntegrationIntegrationDocsShowGetResponse extends ApiEnvelope<I
 }
 
 /** Backend response type: Value. */
-export interface AssistantToolsToolSchemaGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AssistantToolsToolSchemaGetResponse = import("./reviewed-wire.js").SessionToolSchemaResponse;
 
 /** Backend query type: SessionQuery. */
 export interface AssistantToolsListUserSessionsGetQuery extends QueryParams {
@@ -137,12 +135,10 @@ export interface AssistantToolsListUserSessionsGetQuery extends QueryParams {
   "limit"?: number | null;
 }
 /** Backend response type: Value. */
-export interface AssistantToolsListUserSessionsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AssistantToolsListUserSessionsGetResponse = import("./reviewed-wire.js").SessionAssistantListResponse;
 
 /** Backend response type: Value. */
-export interface AssistantToolsUserSessionDetailGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AssistantToolsUserSessionDetailGetResponse = import("./reviewed-wire.js").SessionAssistantDetailResponse;
 
 /** Backend response type: NotificationState. */
 export type NotificationStateSnapshotGetResponse = import("./contracts.types.js").SessionNotificationStateResponse;
@@ -152,8 +148,7 @@ export type BrandingPublicShowGetResponseData = import("./branding.types.js").Se
 export type BrandingPublicShowGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").SessionPublicBranding>;
 
 /** Backend response type: raw-response. */
-export interface BrandingAssetGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type BrandingAssetGetResponse = import("./reviewed-wire.js").SessionBrandingAssetBytes;
 
 /** Backend query type: RecordingQueueQuery. */
 export interface RecordingRecordingsIndexGetQuery extends QueryParams {
@@ -1728,5 +1723,4 @@ export type RouterProxyViewServiceAnyResponse = import("./contracts.types.js").S
 export type RouterStatusRouteGetHealthResponse = import("@faiber/sdk-core").ServiceHealthResponse;
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
-}
+export type IntegrationFlowIntegrationShowGetResponse = import("./reviewed-wire.js").SessionFlowIntegrationResponse;

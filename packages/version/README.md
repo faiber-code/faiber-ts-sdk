@@ -13,13 +13,17 @@ import { FaiberClient } from "@faiber/sdk-core";
 import { VersionApi } from "@faiber/faiber-version";
 
 const client = new FaiberClient("version", {
-  domains: { version: import.meta.env.FAIBER_VERSION_URL },
+  domains: { version: "https://version.example.com" },
 });
 const versions = new VersionApi(client);
 
 const current = await versions.service("profile");
 const history = await versions.allVersions("profile");
-const release = await versions.version(versionId);
+const latest = current.data.data.service.last_version;
+if (latest) {
+  const release = await versions.version(latest.id);
+  console.log(release.data.data.version.download_url);
+}
 ```
 
 ## Capabilities
@@ -32,6 +36,7 @@ const release = await versions.version(versionId);
 | `GET` | `/api/v1/services/{service_slug}` | `service(slug)` |
 | `GET` | `/api/v1/services/{service_slug}/all` | `allVersions(slug)` |
 | `GET` | `/api/v1/versions/{version_id}` | `version(id)` |
+| `POST` | `/api/v1/apk/releases` | `operations.routerPublishApkPost(input)` |
 
 Responses retain the backend envelopes: service lists use `data.services`, single services and their complete history use `data.service`, and releases use `data.version`. Exported types include service identity/status, latest version, version code/name, channel, scope, changelog, download URL, status, and timestamps.
 
@@ -39,7 +44,11 @@ All calls return full Axios responses and accept `RequestOptions` for cancellati
 
 ### APK publishing
 
-`versions.operations.routerPublishApkPost({serviceSlug, appName, version, versionCode, downloadUrl}, options)` publishes an idempotent APK release. The download URL must use HTTPS and `versionCode` must be positive. Supply the sandbox's dedicated APK publisher bearer credential through the configured server client; this is not an end-user publishing permission. The raw response is `{status:"success", id}`. Invalid metadata returns 400 and unavailable publisher configuration returns 503.
+`versions.operations.routerPublishApkPost({serviceSlug, appName, version, versionCode, downloadUrl}, options)` publishes an idempotent APK release. The download URL must use HTTPS and `versionCode` must be positive. Supply the sandbox's dedicated APK publisher bearer credential through the configured server client; this is not an end-user publishing permission. The raw response is `{status:"success", id}`. Invalid metadata returns 400, missing/incorrect credentials return 401, and unavailable publisher configuration returns 503.
+
+The slug contains 1–100 ASCII letters, digits or hyphens. `appName` must contain non-whitespace text and be at most 80 characters; `version` contains 1–40 ASCII letters, digits, dots, hyphens or underscores. The URL must not contain user credentials. `versionCode` is a positive integer; use JavaScript safe integers to avoid losing precision.
+
+Release identity is stable for the same slug and version string. A retry can update its metadata and code; an older code cannot overwrite a higher stored code. The publisher creates active `Release`/`Closed` records but leaves an existing inactive parent service inactive. A successful receipt can therefore coexist with a service lookup returning 404. Download URLs are stored as metadata; the service does not fetch or validate the APK contents.
 
 ### Registry behavior
 
@@ -54,3 +63,9 @@ and `updated_at`; they are not omitted. History uses `versions` and has no
 `last_version` field. Version timestamps are naive database timestamp strings; no
 UTC offset is promised. Successful read envelopes always include `status`, `message`
 and `data`. The publisher receipt remains raw.
+
+Use an in-memory `TokenProvider` for gateway credentials, or configure Axios `withCredentials` when your gateway supports secure HttpOnly cookies. Keep the dedicated publisher credential on a trusted server. Configure a separate publisher client when end-user and publisher tokens differ.
+
+Axios rejects unsuccessful responses; service application errors usually expose `{error: string}` in `error.response.data`, while extractor errors may use a different body. An aborted `AbortSignal` rejects with Axios cancellation code `ERR_CANCELED`.
+
+The complete multi-service client is [@faiber/faiber-ts-sdk](https://www.npmjs.com/package/@faiber/faiber-ts-sdk).

@@ -39,3 +39,28 @@ html.data;
 declare const callback: PaymentWebCallbackPostResponse;
 const callbackBody: string = callback;
 void [htmlBody,callbackBody];
+
+import type { PaymentFlowIntegrationResponse, PaymentIntegrationDocsResponse, PaymentSettingsResponse, PaymentSessionResponse, VerifiedAssetPurchaseReceipt } from '@faiber/faiber-payment';
+declare const flow: PaymentFlowIntegrationResponse;
+const queue: string = flow.data.queue;
+const required: boolean = flow.data.events[0]!.payload_fields[0]!.required;
+// @ts-expect-error concrete flow metadata declares no arbitrary property
+flow.data.not_a_field;
+declare const docs: PaymentIntegrationDocsResponse;
+const optionalQueue: string | undefined = docs.data.direct.queue;
+// @ts-expect-error absent optional integration queue is omitted rather than null
+const nullQueue: NonNullable<typeof docs.data.direct>['queue'] = null;
+declare const settings: PaymentSettingsResponse;
+const fallback: string = settings.data.safe_fallback_url;
+// @ts-expect-error required Payment envelope message is not optional
+const incompleteSettings: PaymentSettingsResponse = { status: 'success', data: { safe_fallback_url: fallback } };
+declare const session: PaymentSessionResponse;
+const permissions: string[] = session.data.permissions;
+declare const receipt: VerifiedAssetPurchaseReceipt;
+// @ts-expect-error receipt handler guards kind before returning it
+const nullKind: typeof receipt.kind = null;
+// @ts-expect-error transaction convenience accepts UUID string only
+api.transactions.show(7);
+api.transactions.show('00000000-0000-4000-8000-000000000007', { signal: new AbortController().signal });
+api.gateways.show(7, { signal: new AbortController().signal });
+void [queue, required, optionalQueue, nullQueue, fallback, incompleteSettings, permissions, nullKind];

@@ -60,7 +60,7 @@ This package exposes 235 registered operations from the profiles service. Common
 | `survey` | 2 | `GET`, `POST` |
 | `trusted-service` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
-`updateProfile` sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields stay unchanged; `null` clears nullable fields. System-managed balances, gems, enrollment state, roles, IDs, and avatar objects are not mass-assignable. Use `uploadAvatar` and IDP role operations for those concerns.
+`updateProfile` sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields stay unchanged. In the pinned general patch handler, `job: null` clears the job; other nullable scalar fields deserialize explicit `null` as omission. Use `educationInformation` for explicit clearing of its education/referral/attendance fields. Balances, enrollment state, roles, IDs, and avatar objects are not mass-assignable. The patch model does accept `status`, `employee_type`, and `freemium_session_limit` under `profile:update`. Use `uploadAvatar` and IDP role operations for those concerns.
 
 ## Learner balances and education
 
@@ -86,13 +86,34 @@ await api.customTypes.create({ name: "job", value_type: "select", options: ["Ø¨Û
 
 ## Authentication and authorization
 
-Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Permission requirements copied from service route guards are included in each operation's JSDoc. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.
+Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Declared IDP permissions are included in each operation's JSDoc. Most CRUD routes consume identity headers supplied by a trusted IDP gateway; the permission annotations export metadata and do not enforce permissions inside the handler. Summary routes additionally validate Bearer/cookie credentials with IDP on each call. Internal fitness credit/gift operations require their separately configured service Bearer tokens. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.
 
 ## Inputs, queries, responses, and transport
 
-All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Nested pagination uses keys such as `page[number]` and `page[size]` where required by the service. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
+All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Profile list pagination uses `page` and `per_page`; filters use names such as `filter[role]` and `filter[status]`. Summary pages also use their exported query types. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
 
 Generic REST resources are capability-guarded. Calling a legacy method that the service does not register throws `UnsupportedOperationError` before sending a request instead of producing a backend `405`.
+
+## Media and command responses
+
+`api.operations.profileAvatarShowGetApiV1ProfileMediaUuidAvatar(ownerUuid, {key})`,
+`profileAvatarShowGetApiV1ProfileUuidAvatar`, `profileImageShowGet`, and
+`profileMediaShowGet` return raw binary bytes (`ArrayBuffer | Uint8Array`), with the
+service content type and cache policy in Axios response headers. Their `key` query
+is required. Avatar and content image reads are public; private media requires IDP
+authentication. Invalid owner prefixes or traversal return 403; missing objects
+return 404.
+
+Uploads accept a multipart `file` field containing JPEG, PNG or WebP up to 5 MiB.
+The caller must own the target user UUID or have `profile:update`. Successful uploads
+return `{url, key}`; unsupported types return 415, missing/empty files 422, oversize
+files 413, and unconfigured storage 503.
+
+Property updates return `updated_keys` and `array_item_changes` (added/removed IDs
+and counts), rather than the complete profile. Address, parent-link, delete and
+restore commands generally acknowledge success with an empty object. Bulk parent
+lookups return stored link rows with both IDP user UUIDs; bulk addresses resolve
+IDP UUIDs to rows whose `profile_id` is a separate Profile UUID.
 
 ## Errors and cancellation
 

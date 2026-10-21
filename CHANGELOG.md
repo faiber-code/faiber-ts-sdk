@@ -3,8 +3,17 @@
 ## 1.0.0 — unreleased integration candidate
 
 This source version is pending full service, permission, workflow and consumer
-acceptance. It has not been published by the knowledge-brain implementation task.
+acceptance. This integration candidate has not been published by this task.
 
+- Align public request and response models with the selected backend handlers, including
+  required/nullable fields, tagged unions, pagination, mutation receipts, and media responses.
+- Preserve reviewed wire metadata when adding operation documentation. Recognize qualified
+  Rust query extractors and serialize Rust unit responses as JSON null in generated types.
+- Let REST resources declare service-specific delete responses. Infer audio Blob content
+  types and use the fetch adapter for reviewed browser event streams while retaining
+  per-request adapter overrides.
+- Correct consumer guidance for Profile null updates and server-side confidential login.
+  Source review, native runtime evidence, and deployed compatibility remain distinct.
 - Match Version's required nullable response keys and distinct history shape, preserve
   required success-envelope fields and restrict slug/UUID inputs to strings.
 - Select the tested Session source repair disabling compile-time development identity
@@ -12,7 +21,7 @@ acceptance. It has not been published by the knowledge-brain implementation task
 - Preserve tracked shared Rust dependencies in immutable discovery/source snapshots.
   The incoming four-domain Summary source handoff is independently verified and remains
   pending composition, mounted HTTP acceptance and canonical integration.
-- Follow the actual mounted router graphs for all18 SDK HTTP service inventories.
+- Follow the actual mounted router graphs for all19 SDK HTTP service inventories.
   Add explicit dynamic-method Session peer and CRM fallback operations and named State
   process health. Preserve wildcard separators while rejecting traversal/ambiguous escapes.
   Session uses the current notification-state source and root `/integration/flow`.

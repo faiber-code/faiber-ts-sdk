@@ -80,7 +80,7 @@ export interface TransactionListData {
   service_names: string[];
   gateways: GatewayOption[];
 }
-export interface TransactionStatusData { status: string; }
+export interface TransactionStatusData { status: PaymentTransactionStatus; }
 /** Positive integer amount in configured service units; this contract declares no currency field. */
 export interface CreatePaymentInput {
   amount: number;
@@ -120,5 +120,37 @@ export type DailyIncomeResponse = PaymentEnvelope<DailyIncome[]>;
 export type VerifyPaymentResponse = PaymentEnvelope<VerifyPaymentResult>;
 export type PaymentVerificationLogsResponse = PaymentEnvelope<PaymentVerification[]>;
 
-/** HTML payment navigation body; callbacks can instead return303 with an empty body and Location. */
+/** HTML payment navigation body; callbacks can instead return 303 with an empty body and Location. */
 export type PaymentHtmlResponse = string;
+
+/** Process liveness only; does not probe database, broker or payment providers. */
+export interface PaymentHealth { version: string; }
+export type PaymentHealthResponse = PaymentEnvelope<PaymentHealth>;
+/** Session identity from trusted ingress headers; requires an authenticated non-nil user. */
+export interface PaymentSession { user_id: string; roles: string[]; permissions: string[]; }
+export type PaymentSessionResponse = PaymentEnvelope<PaymentSession>;
+export interface PaymentSettings { safe_fallback_url: string; }
+/** Absolute HTTP(S) URL without embedded credentials; backend trims and normalizes it. */
+export interface UpdatePaymentSettingsInput { safe_fallback_url: string; }
+export type PaymentSettingsResponse = PaymentEnvelope<PaymentSettings>;
+export interface PaymentIntegrationField { name: string; field_type: string; required: boolean; description: string; }
+export interface PaymentIntegrationEvent { event_name: string; payload_fields: PaymentIntegrationField[]; }
+/** Rust skips absent optional metadata members; it never serializes those members as null. */
+export interface PaymentDirectIntegration {
+  transport: string;
+  queue?: string;
+  base_url?: string;
+  broker_url_hint?: string;
+  sample_profile_id?: string;
+  events: PaymentIntegrationEvent[];
+}
+export interface PaymentIntegrationSnippet { event_name: string; method: string; language: string; cargo_dep: string; code: string; }
+export interface PaymentIntegrationDocs { direct: PaymentDirectIntegration; sdk: PaymentIntegrationSnippet[]; }
+export type PaymentIntegrationDocsResponse = PaymentEnvelope<PaymentIntegrationDocs>;
+/** Concrete infera-flow-sdk wire model at backend dependency revision 291c81a. */
+export interface PaymentFlowIntegration { queue: string; events: PaymentIntegrationEvent[]; }
+export type PaymentFlowIntegrationResponse = PaymentEnvelope<PaymentFlowIntegration>;
+/** Both callback HTTP verbs read only URL query values, in this precedence order. */
+export interface PaymentCallbackQuery extends QueryParams { Authority?: string | null; transid?: string | null; paymentNumber?: string | null; }
+/** AppError returns this error object; extractor rejections may instead return text. */
+export interface PaymentErrorResponse { error: string; }

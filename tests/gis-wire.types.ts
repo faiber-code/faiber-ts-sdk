@@ -32,3 +32,23 @@ const geometryType: 'FeatureCollection' = geo.type;
 declare const place: Place;
 const canonical: string | null = place.canonical_id;
 void [facade,binary,owner,center,geometryType,canonical];
+
+// Final immutable-source model cases; checked during the combined release type gate.
+import type { Geometry, MapStyle, FeatureWriteResult, PlaceAssertionToken } from '@faiber/faiber-gis';
+const polygon: Geometry = {type:'Polygon',coordinates:[[[49,37],[50,37],[49,38],[49,37]]]};
+const elevated: Geometry = {type:'Point',coordinates:[49,37,10]};
+// @ts-expect-error native valid_geometry rejects GeometryCollection
+const collection: Geometry = {type:'GeometryCollection',geometries:[]};
+// @ts-expect-error Point coordinates are required
+const missingCoordinates: Geometry = {type:'Point'};
+// @ts-expect-error coordinates must match the declared geometry nesting
+const invalidPolygon: Geometry = {type:'Polygon',coordinates:[49,37]};
+declare const style: MapStyle;
+const styleVersion: 8 = style.version;
+const tileUrls: string[] = style.sources.city.tiles;
+const centerPair: [number, number] = style.center;
+declare const writeResult: FeatureWriteResult;
+const featureIds: string[] = writeResult.feature_ids;
+declare const assertionToken: PlaceAssertionToken;
+const assertionIssuer: 'infera-places' = assertionToken.issuer;
+void [polygon,elevated,collection,missingCoordinates,invalidPolygon,styleVersion,tileUrls,centerPair,featureIds,assertionIssuer];

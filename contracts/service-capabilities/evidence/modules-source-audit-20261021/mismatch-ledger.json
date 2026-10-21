@@ -1,0 +1,114 @@
+[
+  {
+    "id": "M01",
+    "before": "Curated CRUD models omitted required identifiers/timestamps and used incorrect fields; request key, sample slug, pricing decimals and post fields drifted.",
+    "fix": "Alias curated models to exact generated audited DTOs.",
+    "source_review": "fixed",
+    "compiled_sdk_verification": "pending_parent_integration",
+    "native_acceptance": "pending"
+  },
+  {
+    "id": "M02",
+    "before": "Curated lists used generic items and deletes generic data-bearing envelopes.",
+    "fix": "Use exact named collection responses and seventh RestResource delete generic.",
+    "source_review": "fixed",
+    "compiled_sdk_verification": "pending_parent_integration",
+    "native_acceptance": "pending"
+  },
+  {
+    "id": "M03",
+    "before": "Content and SEO attachment convenience returned content records instead of junction DTOs.",
+    "fix": "Use concrete attachment DTO aliases.",
+    "source_review": "fixed",
+    "compiled_sdk_verification": "pending_parent_integration",
+    "native_acceptance": "pending"
+  },
+  {
+    "id": "M04",
+    "before": "authSelf exposed a raw session while service returns APIResponse<SessionResponse>.",
+    "fix": "Use exact session envelope.",
+    "source_review": "fixed",
+    "compiled_sdk_verification": "pending_parent_integration",
+    "native_acceptance": "pending"
+  },
+  {
+    "id": "M05",
+    "before": "Raw content/settings handlers were generated as ApiEnvelope<JsonValue>.",
+    "fix": "Concrete raw record response overrides with ETag docs.",
+    "source_review": "fixed",
+    "compiled_sdk_verification": "pending_parent_integration",
+    "native_acceptance": "pending"
+  },
+  {
+    "id": "M06",
+    "before": "SSE agent runs and media downloads were generated as JSON envelopes.",
+    "fix": "SSE textResponse and byte arraybuffer transport overrides.",
+    "source_review": "fixed",
+    "compiled_sdk_verification": "pending_parent_integration",
+    "native_acceptance": "pending"
+  },
+  {
+    "id": "M07",
+    "before": "OpenAPI prettified response was an API envelope and route/model catalogs used JsonValue.",
+    "fix": "Use raw OpenAPI and named route/model catalog contracts.",
+    "source_review": "fixed",
+    "compiled_sdk_verification": "pending_parent_integration",
+    "native_acceptance": "pending"
+  },
+  {
+    "id": "M08",
+    "before": "Flow integration external concrete model remained BackendJson.",
+    "fix": "Named integration field/event/queue contracts.",
+    "source_review": "fixed",
+    "compiled_sdk_verification": "pending_parent_integration",
+    "native_acceptance": "pending"
+  },
+  {
+    "id": "M09",
+    "before": "Order checkout summary remained JsonValue and item unit_price was required despite serde default.",
+    "fix": "Concrete order summary/record/page and optional defaulted price inputs.",
+    "source_review": "fixed",
+    "compiled_sdk_verification": "pending_parent_integration",
+    "native_acceptance": "pending"
+  },
+  {
+    "id": "M10",
+    "before": "Autocomplete scope query used unconstrained QueryValue and query argument optional.",
+    "fix": "Named scope enum query with required query parameter.",
+    "source_review": "fixed",
+    "compiled_sdk_verification": "pending_parent_integration",
+    "native_acceptance": "pending"
+  },
+  {
+    "id": "M11",
+    "before": "Convenience output optionality differed from serialized Rust Option nullability.",
+    "fix": "Alias response DTOs; nullable fields remain required when serialized.",
+    "source_review": "fixed",
+    "compiled_sdk_verification": "pending_parent_integration",
+    "native_acceptance": "pending"
+  },
+  {
+    "id": "M12",
+    "before": "Per-operation documentation was generic and omitted local auth, If-Match, media limits and junction scope.",
+    "fix": "179 source reviewed operation entries and matching review evidence.",
+    "source_review": "fixed",
+    "compiled_sdk_verification": "pending_parent_integration",
+    "native_acceptance": "pending"
+  },
+  {
+    "id": "M13",
+    "before": "Podcast episode input accepted arbitrary audio_source.",
+    "fix": "Named external/drm input and patch models matching validation.",
+    "source_review": "fixed",
+    "compiled_sdk_verification": "pending_parent_integration",
+    "native_acceptance": "pending"
+  },
+  {
+    "id": "M14",
+    "before": "README used bracket pagination unsupported by Modules.",
+    "fix": "Document page_number/page_size, named envelopes, raw management records and SSE/media behavior.",
+    "source_review": "fixed",
+    "compiled_sdk_verification": "pending_parent_integration",
+    "native_acceptance": "pending"
+  }
+]

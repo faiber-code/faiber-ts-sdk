@@ -15,7 +15,7 @@ export const idpMembershipContracts = {
   },
   ...Object.fromEntries(['PATCH','PUT'].map(method => [`idp:${method} /api/v1/users/{user_id}/change-roles`, {
     membershipRevision: true,
-    auth: write,
+    auth: 'current idp:acl:update, rechecked after target user lock; target must already be active',
     purpose: 'Intentionally replace roles using the captured observed membership revision as quoted If-Match. Missing precondition is 428; stale revision is 409 with zero changes. Never refetch a revision to apply a saved stale role union.'
   }]))
 };

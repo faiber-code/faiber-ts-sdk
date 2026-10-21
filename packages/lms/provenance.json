@@ -9,19 +9,20 @@
     }
   },
   "package_source_sha256": {
-    "packages/lms/src/branding.types.ts": "1e4c68b6a3f112d21652775967603e98dab825ff97a835c469dd5083e3559204",
+    "packages/lms/src/branding.types.ts": "0d02d978a28df6b3aa126d0de244e58f252368464b47147d71f92eb7dbea02cd",
     "packages/lms/src/contracts.types.ts": "313429cde46b90bd34c5d5276dc1d8e999c96d22393b67dc65cc0495a4622e30",
-    "packages/lms/src/index.ts": "7a54f72112ad6437bc4b67c97923d0472e73c8756a0d6cdacecbc8d2f63b101d",
-    "packages/lms/src/interactive.ts": "d9ecda72b591449a165fb7e52c5209eff931d53d7143f6183d958c440b5e94c3",
+    "packages/lms/src/index.ts": "70f3caa9c2dba439cf84c44ad1ddf7dd339b99c67a8ee81b351d1895f5763376",
+    "packages/lms/src/interactive.ts": "baa215f4c1ad4f9eda438b94c36a22d3504d0d0d1612510b9b34f3bae7c1d53f",
     "packages/lms/src/media.ts": "d5d72f0efbd6bd237ef306e02f9488b9e912b28bf2d4eac23af02ceb07b75512",
     "packages/lms/src/notification-settings.ts": "2784e29db21a6c2b925c3fa9c35a8523590f53bec8650ad0278791ab2c5f240a",
-    "packages/lms/src/operations.ts": "20db70607febdd54a8f7d379e9a16cf9537a65d40af2f877ae804c65cc2d2970",
-    "packages/lms/src/operations.types.ts": "939a75a36df3a7d183d8b01bcf66a4ba06f90ffb59ad6a35815b6738099ae082",
-    "packages/lms/src/types.ts": "5ebbbcaa438559b3c44aff5ffa316763ac16f75af82728689e66f468575231d9"
+    "packages/lms/src/operations.ts": "8c092f7c62013482e6c24fd49f9cdc88e1969376b4756f375a2cc64565049e34",
+    "packages/lms/src/operations.types.ts": "635827e2ca6fab45ab6e5bb1bb651e4140e7c5b541f6765e23347d02ca09d8bb",
+    "packages/lms/src/types.ts": "2ac3a29d0d588fef38089e1e26d9b88d3367245354440734074fb1209c424c4d",
+    "packages/lms/src/wire.types.ts": "ffc9ab2d035621f9945a99ffb29102080d162cf0a49af02ff8855b776a44d1b4"
   },
-  "capability_review_sha256": "d8c960bd0e028ded635609e5750b8e9136ee9ed0eeaa0ec57d11d7c6220502d9",
+  "capability_review_sha256": "7c7e8a13f29df9943d0381d80b19a70c64ddb0a761922f66143f1df35a11b60f",
   "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
-  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 181,

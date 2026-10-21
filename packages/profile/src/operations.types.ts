@@ -10,8 +10,7 @@ export interface OptionAddressGetPostInput extends JsonObject {
   "user_ids": string[];
 }
 /** Backend response type: Value. */
-export interface OptionAddressGetPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type OptionAddressGetPostResponse = ApiEnvelope<import("./wire.types.js").StoredProfileAddress[]>;
 
 /** Backend response type: Vec<Value>. */
 export type AiSummaryConfigurationsGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryConfigurationRecord[]>;
@@ -25,7 +24,7 @@ export type AiSummaryConfigurationCreatePostResponse = import("@faiber/sdk-core"
 export type AiSummaryConfigurationGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryConfigurationRecord>;
 
 /** Backend request type: ConfigurationWrite. */
-export type AiSummaryConfigurationPutInput = import("./summaries.types.js").SummaryConfigurationWrite;
+export type AiSummaryConfigurationPutInput = import("./summaries.types.js").SummaryConfigurationUpdate;
 /** Backend response type: Value. */
 export type AiSummaryConfigurationPutResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryConfigurationRecord>;
 
@@ -92,153 +91,10 @@ export type AiSummarySummariesGetQuery = import("./summaries.types.js").SummaryL
 export type AiSummarySummariesGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryPage<import("./summaries.types.js").SummaryRun>>;
 
 /** Backend response type: profile_methods::ChatContext. */
-export interface SessionGetChatContextGetResponseData extends JsonObject {
-  "profile": JsonValue;
-  "properties": BackendJson<"Map<String, Value>">;
-}
-export interface SessionGetChatContextGetResponse extends ApiEnvelope<SessionGetChatContextGetResponseData> {
-}
+export type SessionGetChatContextGetResponse = ApiEnvelope<import("./wire.types.js").ProfileChatContext>;
 
 /** Backend response type: SessionResponse. */
-export interface SessionGetSelfGetResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface SessionGetSelfGetResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface SessionGetSelfGetResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface SessionGetSelfGetResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface SessionGetSelfGetResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface SessionGetSelfGetResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface SessionGetSelfGetResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface SessionGetSelfGetResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": SessionGetSelfGetResponseDataProfileOfficeEnrollments[];
-  "transactions": SessionGetSelfGetResponseDataProfileOfficeTransactions[];
-  "installments": SessionGetSelfGetResponseDataProfileOfficeInstallments[];
-  "wallets": SessionGetSelfGetResponseDataProfileOfficeWallets[];
-  "wallet_transactions": SessionGetSelfGetResponseDataProfileOfficeWalletTransactions[];
-}
-export interface SessionGetSelfGetResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface SessionGetSelfGetResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface SessionGetSelfGetResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface SessionGetSelfGetResponseDataProfileLms extends JsonObject {
-  "classrooms": SessionGetSelfGetResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": SessionGetSelfGetResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": SessionGetSelfGetResponseDataProfileLmsClassroomUsers[];
-}
-export interface SessionGetSelfGetResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface SessionGetSelfGetResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": SessionGetSelfGetResponseDataProfileRoles[];
-  "credential": SessionGetSelfGetResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: SessionGetSelfGetResponseDataProfileOffice | null;
-  "lms"?: SessionGetSelfGetResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: SessionGetSelfGetResponseDataProfileParent[] | null;
-}
-export interface SessionGetSelfGetResponseData extends JsonObject {
-  "user_id": string;
-  "roles": string[];
-  "permissions": string[];
-  "profile": SessionGetSelfGetResponseDataProfile;
-}
-export interface SessionGetSelfGetResponse extends ApiEnvelope<SessionGetSelfGetResponseData> {
-}
+export type SessionGetSelfGetResponse = ApiEnvelope<import("./wire.types.js").ProfileSession>;
 
 /** Backend request type: SelfName. */
 export interface SessionUpdateSelfNamePatchInput extends JsonObject {
@@ -247,145 +103,7 @@ export interface SessionUpdateSelfNamePatchInput extends JsonObject {
   "locale": string;
 }
 /** Backend response type: SessionResponse. */
-export interface SessionUpdateSelfNamePatchResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface SessionUpdateSelfNamePatchResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface SessionUpdateSelfNamePatchResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface SessionUpdateSelfNamePatchResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface SessionUpdateSelfNamePatchResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface SessionUpdateSelfNamePatchResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface SessionUpdateSelfNamePatchResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface SessionUpdateSelfNamePatchResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": SessionUpdateSelfNamePatchResponseDataProfileOfficeEnrollments[];
-  "transactions": SessionUpdateSelfNamePatchResponseDataProfileOfficeTransactions[];
-  "installments": SessionUpdateSelfNamePatchResponseDataProfileOfficeInstallments[];
-  "wallets": SessionUpdateSelfNamePatchResponseDataProfileOfficeWallets[];
-  "wallet_transactions": SessionUpdateSelfNamePatchResponseDataProfileOfficeWalletTransactions[];
-}
-export interface SessionUpdateSelfNamePatchResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface SessionUpdateSelfNamePatchResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface SessionUpdateSelfNamePatchResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface SessionUpdateSelfNamePatchResponseDataProfileLms extends JsonObject {
-  "classrooms": SessionUpdateSelfNamePatchResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": SessionUpdateSelfNamePatchResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": SessionUpdateSelfNamePatchResponseDataProfileLmsClassroomUsers[];
-}
-export interface SessionUpdateSelfNamePatchResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface SessionUpdateSelfNamePatchResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": SessionUpdateSelfNamePatchResponseDataProfileRoles[];
-  "credential": SessionUpdateSelfNamePatchResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: SessionUpdateSelfNamePatchResponseDataProfileOffice | null;
-  "lms"?: SessionUpdateSelfNamePatchResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: SessionUpdateSelfNamePatchResponseDataProfileParent[] | null;
-}
-export interface SessionUpdateSelfNamePatchResponseData extends JsonObject {
-  "user_id": string;
-  "roles": string[];
-  "permissions": string[];
-  "profile": SessionUpdateSelfNamePatchResponseDataProfile;
-}
-export interface SessionUpdateSelfNamePatchResponse extends ApiEnvelope<SessionUpdateSelfNamePatchResponseData> {
-}
+export type SessionUpdateSelfNamePatchResponse = ApiEnvelope<import("./wire.types.js").ProfileSession>;
 
 /** Backend request type: OnboardingInput. */
 export interface SessionCompleteOnboardingPutInput extends JsonObject {
@@ -395,145 +113,7 @@ export interface SessionCompleteOnboardingPutInput extends JsonObject {
   "goal": string;
 }
 /** Backend response type: SessionResponse. */
-export interface SessionCompleteOnboardingPutResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface SessionCompleteOnboardingPutResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface SessionCompleteOnboardingPutResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface SessionCompleteOnboardingPutResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface SessionCompleteOnboardingPutResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface SessionCompleteOnboardingPutResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface SessionCompleteOnboardingPutResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface SessionCompleteOnboardingPutResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": SessionCompleteOnboardingPutResponseDataProfileOfficeEnrollments[];
-  "transactions": SessionCompleteOnboardingPutResponseDataProfileOfficeTransactions[];
-  "installments": SessionCompleteOnboardingPutResponseDataProfileOfficeInstallments[];
-  "wallets": SessionCompleteOnboardingPutResponseDataProfileOfficeWallets[];
-  "wallet_transactions": SessionCompleteOnboardingPutResponseDataProfileOfficeWalletTransactions[];
-}
-export interface SessionCompleteOnboardingPutResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface SessionCompleteOnboardingPutResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface SessionCompleteOnboardingPutResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface SessionCompleteOnboardingPutResponseDataProfileLms extends JsonObject {
-  "classrooms": SessionCompleteOnboardingPutResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": SessionCompleteOnboardingPutResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": SessionCompleteOnboardingPutResponseDataProfileLmsClassroomUsers[];
-}
-export interface SessionCompleteOnboardingPutResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface SessionCompleteOnboardingPutResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": SessionCompleteOnboardingPutResponseDataProfileRoles[];
-  "credential": SessionCompleteOnboardingPutResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: SessionCompleteOnboardingPutResponseDataProfileOffice | null;
-  "lms"?: SessionCompleteOnboardingPutResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: SessionCompleteOnboardingPutResponseDataProfileParent[] | null;
-}
-export interface SessionCompleteOnboardingPutResponseData extends JsonObject {
-  "user_id": string;
-  "roles": string[];
-  "permissions": string[];
-  "profile": SessionCompleteOnboardingPutResponseDataProfile;
-}
-export interface SessionCompleteOnboardingPutResponse extends ApiEnvelope<SessionCompleteOnboardingPutResponseData> {
-}
+export type SessionCompleteOnboardingPutResponse = ApiEnvelope<import("./wire.types.js").ProfileSession>;
 
 /** Backend query type: models::ListQuery. */
 export interface CityIndexGetQuery extends QueryParams {
@@ -597,8 +177,7 @@ export interface CityStorePostResponse extends ApiEnvelope<CityStorePostResponse
 }
 
 /** Backend response type: serde_json::Value. */
-export interface CityDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type CityDestroyDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: models::SingleData. */
 export interface CityShowGetResponseDataCity extends JsonObject {
@@ -671,12 +250,10 @@ export interface CityUpdatePutResponse extends ApiEnvelope<CityUpdatePutResponse
 }
 
 /** Backend response type: serde_json::Value. */
-export interface CityForceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type CityForceDestroyDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: serde_json::Value. */
-export interface CityRestoreGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type CityRestoreGetResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend query type: models::ListQuery. */
 export interface CountryIndexGetQuery extends QueryParams {
@@ -736,8 +313,7 @@ export interface CountryStorePostResponse extends ApiEnvelope<CountryStorePostRe
 }
 
 /** Backend response type: serde_json::Value. */
-export interface CountryDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type CountryDestroyDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: models::SingleData. */
 export interface CountryShowGetResponseDataCountry extends JsonObject {
@@ -805,12 +381,10 @@ export interface CountryUpdatePutResponse extends ApiEnvelope<CountryUpdatePutRe
 }
 
 /** Backend response type: serde_json::Value. */
-export interface CountryForceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type CountryForceDestroyDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: serde_json::Value. */
-export interface CountryRestoreGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type CountryRestoreGetResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend query type: models::ListQuery. */
 export interface CustomTypeIndexGetQuery extends QueryParams {
@@ -821,96 +395,26 @@ export interface CustomTypeIndexGetQuery extends QueryParams {
   "filter[active]"?: string | null;
 }
 /** Backend response type: models::ListData. */
-export interface CustomTypeIndexGetResponseDataCustomTypes extends JsonObject {
-  "id": string;
-  "name": string;
-  "value_type": string;
-  "options": JsonValue;
-  "status": string;
-  "created_at": string;
-  "updated_at": string | null;
-}
-export interface CustomTypeIndexGetResponseData extends JsonObject {
-  "custom_types": CustomTypeIndexGetResponseDataCustomTypes[];
-}
-export interface CustomTypeIndexGetMetaData extends JsonObject {
-  "current_page": number;
-  "per_page": number;
-  "total": number;
-  "last_page": number;
-}
-export interface CustomTypeIndexGetResponse extends ApiEnvelope<CustomTypeIndexGetResponseData> {
-  meta: CustomTypeIndexGetMetaData;
-}
+export type CustomTypeIndexGetResponse = import("./wire.types.js").ProfileCustomTypePage;
 
 /** Backend request type: models::Create. */
-export interface CustomTypeStorePostInput extends JsonObject {
-  "name": string;
-  "value_type": string;
-  "options": JsonValue[];
-}
+export type CustomTypeStorePostInput = import("./types.js").CreateCustomTypeInput;
 /** Backend response type: models::SingleData. */
-export interface CustomTypeStorePostResponseDataCustomType extends JsonObject {
-  "id": string;
-  "name": string;
-  "value_type": string;
-  "options": JsonValue;
-  "status": string;
-  "created_at": string;
-  "updated_at": string | null;
-}
-export interface CustomTypeStorePostResponseData extends JsonObject {
-  "custom_type": CustomTypeStorePostResponseDataCustomType;
-}
-export interface CustomTypeStorePostResponse extends ApiEnvelope<CustomTypeStorePostResponseData> {
-}
+export type CustomTypeStorePostResponse = ApiEnvelope<import("./wire.types.js").ProfileCustomTypeData>;
 
 /** Backend response type: serde_json::Value. */
-export interface CustomTypeDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type CustomTypeDestroyDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: models::SingleData. */
-export interface CustomTypeShowGetResponseDataCustomType extends JsonObject {
-  "id": string;
-  "name": string;
-  "value_type": string;
-  "options": JsonValue;
-  "status": string;
-  "created_at": string;
-  "updated_at": string | null;
-}
-export interface CustomTypeShowGetResponseData extends JsonObject {
-  "custom_type": CustomTypeShowGetResponseDataCustomType;
-}
-export interface CustomTypeShowGetResponse extends ApiEnvelope<CustomTypeShowGetResponseData> {
-}
+export type CustomTypeShowGetResponse = ApiEnvelope<import("./wire.types.js").ProfileCustomTypeData>;
 
 /** Backend request type: models::Update. */
-export interface CustomTypeUpdatePatchInput extends JsonObject {
-  "name"?: string | null;
-  "value_type"?: string | null;
-  "options"?: JsonValue[] | null;
-  "status"?: string | null;
-}
+export type CustomTypeUpdatePatchInput = import("./types.js").UpdateCustomTypeInput;
 /** Backend response type: models::SingleData. */
-export interface CustomTypeUpdatePatchResponseDataCustomType extends JsonObject {
-  "id": string;
-  "name": string;
-  "value_type": string;
-  "options": JsonValue;
-  "status": string;
-  "created_at": string;
-  "updated_at": string | null;
-}
-export interface CustomTypeUpdatePatchResponseData extends JsonObject {
-  "custom_type": CustomTypeUpdatePatchResponseDataCustomType;
-}
-export interface CustomTypeUpdatePatchResponse extends ApiEnvelope<CustomTypeUpdatePatchResponseData> {
-}
+export type CustomTypeUpdatePatchResponse = ApiEnvelope<import("./wire.types.js").ProfileCustomTypeData>;
 
 /** Backend response type: Value. */
-export interface OptionDependencyGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type OptionDependencyGetResponse = ApiEnvelope<import("./wire.types.js").ProfileDependencies>;
 
 /** Backend response type: Vec<EducationOption>. */
 export interface EducationIndexGetResponseItem extends JsonObject {
@@ -1072,8 +576,7 @@ export type FitnessRedeemPostResponse = import("@faiber/sdk-core").ApiEnvelope<i
 export type FitnessVoiceSettingsGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./contracts.types.js").FitnessVoiceSettings>;
 
 /** Backend response type: Value. */
-export interface OptionIdentityGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type OptionIdentityGetResponse = ApiEnvelope<import("./types.js").Profile>;
 
 /** Backend response type: crate::integration::models::IntegrationDocsResponse. */
 export interface IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields extends JsonObject {
@@ -1109,8 +612,7 @@ export interface IntegrationIntegrationDocsShowGetResponse extends ApiEnvelope<I
 }
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
-}
+export type IntegrationFlowIntegrationShowGetResponse = ApiEnvelope<import("./wire.types.js").ProfileFlowIntegration>;
 
 /** Backend request type: CreditTurn. */
 export interface FitnessReservePostInput extends JsonObject {
@@ -1158,8 +660,7 @@ export interface LogActionStorePostInput extends JsonObject {
   "meta"?: JsonValue | null;
 }
 /** Backend response type: Value. */
-export interface LogActionStorePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type LogActionStorePostResponse = ApiEnvelope<import("./wire.types.js").ProfileLogAction>;
 
 /** Backend request type: LogActionCreate. */
 export interface LogActionStoreSlugPostInput extends JsonObject {
@@ -1167,8 +668,7 @@ export interface LogActionStoreSlugPostInput extends JsonObject {
   "meta"?: JsonValue | null;
 }
 /** Backend response type: Value. */
-export interface LogActionStoreSlugPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type LogActionStoreSlugPostResponse = ApiEnvelope<import("./wire.types.js").ProfileLogAction>;
 
 /** Backend request type: LogActionCreate. */
 export interface LogActionStoreDirectPostInput extends JsonObject {
@@ -1176,195 +676,46 @@ export interface LogActionStoreDirectPostInput extends JsonObject {
   "meta"?: JsonValue | null;
 }
 /** Backend response type: Value. */
-export interface LogActionStoreDirectPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type LogActionStoreDirectPostResponse = ApiEnvelope<import("./wire.types.js").ProfileLogAction>;
 
 /** Backend response type: Value. */
-export interface LoggerIndexGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type LoggerIndexGetResponse = ApiEnvelope<import("./wire.types.js").ProfileLog[]>;
 
 /** Backend response type: Value. */
-export interface LoggerShowGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type LoggerShowGetResponse = ApiEnvelope<import("./wire.types.js").ProfileLog | null>;
 
 /** Backend request type: BulkParentGet. */
 export interface OptionParentChildrenGetPostInput extends JsonObject {
   "user_ids": string[];
 }
 /** Backend response type: Value. */
-export interface OptionParentChildrenGetPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type OptionParentChildrenGetPostResponse = ApiEnvelope<import("./wire.types.js").StoredParentLink[]>;
 
 /** Backend request type: BulkParentGet. */
 export interface OptionParentGetPostInput extends JsonObject {
   "user_ids": string[];
 }
 /** Backend response type: Value. */
-export interface OptionParentGetPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type OptionParentGetPostResponse = ApiEnvelope<import("./wire.types.js").StoredParentLink[]>;
 
 /** Backend query type: models::ListQuery. */
 export interface ProfileIndexGetQuery extends importProfileListQuery {}
 /** Backend response type: models::ListData. */
-export interface ProfileIndexGetResponseDataProfilesRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileIndexGetResponseDataProfilesCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileIndexGetResponseDataProfilesOfficeEnrollments[];
-  "transactions": ProfileIndexGetResponseDataProfilesOfficeTransactions[];
-  "installments": ProfileIndexGetResponseDataProfilesOfficeInstallments[];
-  "wallets": ProfileIndexGetResponseDataProfilesOfficeWallets[];
-  "wallet_transactions": ProfileIndexGetResponseDataProfilesOfficeWalletTransactions[];
-}
-export interface ProfileIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileIndexGetResponseDataProfilesLms extends JsonObject {
-  "classrooms": ProfileIndexGetResponseDataProfilesLmsClassrooms[];
-  "classroom_sessions": ProfileIndexGetResponseDataProfilesLmsClassroomSessions[];
-  "classroom_users": ProfileIndexGetResponseDataProfilesLmsClassroomUsers[];
-}
-export interface ProfileIndexGetResponseDataProfilesParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileIndexGetResponseDataProfiles extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileIndexGetResponseDataProfilesRoles[];
-  "credential": ProfileIndexGetResponseDataProfilesCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileIndexGetResponseDataProfilesOffice | null;
-  "lms"?: ProfileIndexGetResponseDataProfilesLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileIndexGetResponseDataProfilesParent[] | null;
-}
-export interface ProfileIndexGetResponseData extends JsonObject {
-  "profiles": ProfileIndexGetResponseDataProfiles[];
-}
-export interface ProfileIndexGetMetaData extends JsonObject {
-  "current_page": number;
-  "per_page": number;
-  "total": number;
-  "last_page": number;
-}
-export interface ProfileIndexGetResponse extends ApiEnvelope<ProfileIndexGetResponseData> {
-  meta: ProfileIndexGetMetaData;
-}
+export type ProfileIndexGetResponse = import("./types.js").ProfileListResponse;
 
 /** Backend query type: MediaQuery. */
 export interface ProfileAvatarShowGetApiV1ProfileMediaUuidAvatarQuery extends QueryParams {
   "key": string;
 }
 /** Backend response type: raw-response. */
-export interface ProfileAvatarShowGetApiV1ProfileMediaUuidAvatarResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileAvatarShowGetApiV1ProfileMediaUuidAvatarResponse = ArrayBuffer | Uint8Array;
 
 /** Backend query type: MediaQuery. */
 export interface ProfileImageShowGetQuery extends QueryParams {
   "key": string;
 }
 /** Backend response type: raw-response. */
-export interface ProfileImageShowGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileImageShowGetResponse = ArrayBuffer | Uint8Array;
 
 /** Backend query type: models::ListQuery. */
 export interface ProfilePropertyIndexGetQuery extends QueryParams {
@@ -1452,8 +803,7 @@ export interface ProfilePropertyStorePostResponse extends ApiEnvelope<ProfilePro
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ProfilePropertyDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfilePropertyDestroyDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: models::SingleData. */
 export interface ProfilePropertyShowGetResponseDataProfilePropertyDefinition extends JsonObject {
@@ -1566,12 +916,10 @@ export interface ProfilePropertyUpdatePutResponse extends ApiEnvelope<ProfilePro
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ProfilePropertyForceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfilePropertyForceDestroyDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: serde_json::Value. */
-export interface ProfilePropertyRestoreGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfilePropertyRestoreGetResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: entity::profile::Model. */
 export interface ReferralShowProfileReferralGetResponseData extends JsonObject {
@@ -1678,226 +1026,32 @@ export interface RelationListRelationsGetQuery extends QueryParams {
   "active"?: boolean | null;
 }
 /** Backend response type: Vec<entity::profile_relation::Model>. */
-export interface RelationListRelationsGetResponseItem extends JsonObject {
-  "id": string;
-  "source_profile_id": string;
-  "target_profile_id": string;
-  "relation_type_id": string;
-  "inverse_relation_id": string | null;
-  "metadata": BackendJson<"Json">;
-  "active": boolean;
-  "created_at": string;
-  "updated_at": string | null;
-}
-export interface RelationListRelationsGetResponse extends ApiEnvelope<RelationListRelationsGetResponseItem[]> {
-}
+export type RelationListRelationsGetResponse = ApiEnvelope<import("./wire.types.js").ProfileProfileRelation[]>;
 
 /** Backend request type: RelationWrite. */
-export interface RelationCreateRelationPostInput extends JsonObject {
-  "source_profile_id": string;
-  "target_profile_id": string;
-  "relation_type_id": string;
-  "metadata"?: JsonValue;
-}
+export type RelationCreateRelationPostInput = import("./wire.types.js").ProfileRelationInput;
 /** Backend response type: Vec<entity::profile_relation::Model>. */
-export interface RelationCreateRelationPostResponseItem extends JsonObject {
-  "id": string;
-  "source_profile_id": string;
-  "target_profile_id": string;
-  "relation_type_id": string;
-  "inverse_relation_id": string | null;
-  "metadata": BackendJson<"Json">;
-  "active": boolean;
-  "created_at": string;
-  "updated_at": string | null;
-}
-export interface RelationCreateRelationPostResponse extends ApiEnvelope<RelationCreateRelationPostResponseItem[]> {
-}
+export type RelationCreateRelationPostResponse = ApiEnvelope<import("./wire.types.js").ProfileProfileRelation[]>;
 
 /** Backend response type: serde_json::Value. */
-export interface RelationDeleteRelationDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type RelationDeleteRelationDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: entity::profile_relation::Model. */
-export interface RelationShowRelationGetResponseData extends JsonObject {
-  "id": string;
-  "source_profile_id": string;
-  "target_profile_id": string;
-  "relation_type_id": string;
-  "inverse_relation_id": string | null;
-  "metadata": BackendJson<"Json">;
-  "active": boolean;
-  "created_at": string;
-  "updated_at": string | null;
-}
-export interface RelationShowRelationGetResponse extends ApiEnvelope<RelationShowRelationGetResponseData> {
-}
+export type RelationShowRelationGetResponse = ApiEnvelope<import("./wire.types.js").ProfileProfileRelation>;
 
 /** Backend request type: RelationUpdate. */
-export interface RelationUpdateRelationPutInput extends JsonObject {
-  "metadata"?: JsonValue;
-  "active"?: boolean;
-}
+export type RelationUpdateRelationPutInput = import("./wire.types.js").ProfileRelationUpdateInput;
 /** Backend response type: Vec<entity::profile_relation::Model>. */
-export interface RelationUpdateRelationPutResponseItem extends JsonObject {
-  "id": string;
-  "source_profile_id": string;
-  "target_profile_id": string;
-  "relation_type_id": string;
-  "inverse_relation_id": string | null;
-  "metadata": BackendJson<"Json">;
-  "active": boolean;
-  "created_at": string;
-  "updated_at": string | null;
-}
-export interface RelationUpdateRelationPutResponse extends ApiEnvelope<RelationUpdateRelationPutResponseItem[]> {
-}
+export type RelationUpdateRelationPutResponse = ApiEnvelope<import("./wire.types.js").ProfileProfileRelation[]>;
 
 /** Backend response type: serde_json::Value. */
-export interface ProfileDeleteParentDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileDeleteParentDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: serde_json::Value. */
-export interface ProfileDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileDestroyDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: models::SingleData. */
-export interface ProfileShowGetResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileShowGetResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileShowGetResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileShowGetResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileShowGetResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileShowGetResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileShowGetResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileShowGetResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileShowGetResponseDataProfileOfficeEnrollments[];
-  "transactions": ProfileShowGetResponseDataProfileOfficeTransactions[];
-  "installments": ProfileShowGetResponseDataProfileOfficeInstallments[];
-  "wallets": ProfileShowGetResponseDataProfileOfficeWallets[];
-  "wallet_transactions": ProfileShowGetResponseDataProfileOfficeWalletTransactions[];
-}
-export interface ProfileShowGetResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileShowGetResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileShowGetResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileShowGetResponseDataProfileLms extends JsonObject {
-  "classrooms": ProfileShowGetResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": ProfileShowGetResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": ProfileShowGetResponseDataProfileLmsClassroomUsers[];
-}
-export interface ProfileShowGetResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileShowGetResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileShowGetResponseDataProfileRoles[];
-  "credential": ProfileShowGetResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileShowGetResponseDataProfileOffice | null;
-  "lms"?: ProfileShowGetResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileShowGetResponseDataProfileParent[] | null;
-}
-export interface ProfileShowGetResponseData extends JsonObject {
-  "profile": ProfileShowGetResponseDataProfile;
-}
-export interface ProfileShowGetResponse extends ApiEnvelope<ProfileShowGetResponseData> {
-}
+export type ProfileShowGetResponse = import("./types.js").ProfileResponse;
 
 /** Backend request type: models::ProfilePatch. */
 export interface ProfileUpdatePatchInput extends JsonObject {
@@ -1930,1469 +1084,104 @@ export interface ProfileUpdatePatchInput extends JsonObject {
   "properties"?: Record<string, JsonValue> | null;
 }
 /** Backend response type: models::SingleData. */
-export interface ProfileUpdatePatchResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileUpdatePatchResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileUpdatePatchResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileUpdatePatchResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdatePatchResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdatePatchResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileUpdatePatchResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileUpdatePatchResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileUpdatePatchResponseDataProfileOfficeEnrollments[];
-  "transactions": ProfileUpdatePatchResponseDataProfileOfficeTransactions[];
-  "installments": ProfileUpdatePatchResponseDataProfileOfficeInstallments[];
-  "wallets": ProfileUpdatePatchResponseDataProfileOfficeWallets[];
-  "wallet_transactions": ProfileUpdatePatchResponseDataProfileOfficeWalletTransactions[];
-}
-export interface ProfileUpdatePatchResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileUpdatePatchResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileUpdatePatchResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileUpdatePatchResponseDataProfileLms extends JsonObject {
-  "classrooms": ProfileUpdatePatchResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": ProfileUpdatePatchResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": ProfileUpdatePatchResponseDataProfileLmsClassroomUsers[];
-}
-export interface ProfileUpdatePatchResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileUpdatePatchResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileUpdatePatchResponseDataProfileRoles[];
-  "credential": ProfileUpdatePatchResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileUpdatePatchResponseDataProfileOffice | null;
-  "lms"?: ProfileUpdatePatchResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileUpdatePatchResponseDataProfileParent[] | null;
-}
-export interface ProfileUpdatePatchResponseData extends JsonObject {
-  "profile": ProfileUpdatePatchResponseDataProfile;
-}
-export interface ProfileUpdatePatchResponse extends ApiEnvelope<ProfileUpdatePatchResponseData> {
-}
+export type ProfileUpdatePatchResponse = import("./types.js").ProfileResponse;
 
 /** Backend response type: models::SingleData. */
-export interface ProfileShowAdminGetResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileShowAdminGetResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileShowAdminGetResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileShowAdminGetResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileShowAdminGetResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileShowAdminGetResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileShowAdminGetResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileShowAdminGetResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileShowAdminGetResponseDataProfileOfficeEnrollments[];
-  "transactions": ProfileShowAdminGetResponseDataProfileOfficeTransactions[];
-  "installments": ProfileShowAdminGetResponseDataProfileOfficeInstallments[];
-  "wallets": ProfileShowAdminGetResponseDataProfileOfficeWallets[];
-  "wallet_transactions": ProfileShowAdminGetResponseDataProfileOfficeWalletTransactions[];
-}
-export interface ProfileShowAdminGetResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileShowAdminGetResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileShowAdminGetResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileShowAdminGetResponseDataProfileLms extends JsonObject {
-  "classrooms": ProfileShowAdminGetResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": ProfileShowAdminGetResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": ProfileShowAdminGetResponseDataProfileLmsClassroomUsers[];
-}
-export interface ProfileShowAdminGetResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileShowAdminGetResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileShowAdminGetResponseDataProfileRoles[];
-  "credential": ProfileShowAdminGetResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileShowAdminGetResponseDataProfileOffice | null;
-  "lms"?: ProfileShowAdminGetResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileShowAdminGetResponseDataProfileParent[] | null;
-}
-export interface ProfileShowAdminGetResponseData extends JsonObject {
-  "profile": ProfileShowAdminGetResponseDataProfile;
-}
-export interface ProfileShowAdminGetResponse extends ApiEnvelope<ProfileShowAdminGetResponseData> {
-}
+export type ProfileShowAdminGetResponse = import("./types.js").ProfileResponse;
 
 /** Backend response type: serde_json::Value. */
-export interface ProfileAvatarDeleteDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileAvatarDeleteDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend query type: MediaQuery. */
 export interface ProfileAvatarShowGetApiV1ProfileUuidAvatarQuery extends QueryParams {
   "key": string;
 }
 /** Backend response type: raw-response. */
-export interface ProfileAvatarShowGetApiV1ProfileUuidAvatarResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileAvatarShowGetApiV1ProfileUuidAvatarResponse = ArrayBuffer | Uint8Array;
 
 /** Backend request type: multipart/form-data. */
 export type ProfileAvatarStorePostInput = FormData;
 /** Backend response type: serde_json::Value. */
-export interface ProfileAvatarStorePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileAvatarStorePostResponse = import("./types.js").ProfileMediaResponse;
 
 /** Backend response type: serde_json::Value. */
-export interface ProfileDeleteAddressDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileDeleteAddressDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend request type: models::UpdateEmployeeType. */
 export interface ProfileUpdateEmployeeTypePatchInput extends JsonObject {
   "employee_type": string;
 }
 /** Backend response type: models::SingleData. */
-export interface ProfileUpdateEmployeeTypePatchResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileUpdateEmployeeTypePatchResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileUpdateEmployeeTypePatchResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeEnrollments[];
-  "transactions": ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeTransactions[];
-  "installments": ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeInstallments[];
-  "wallets": ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeWallets[];
-  "wallet_transactions": ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeWalletTransactions[];
-}
-export interface ProfileUpdateEmployeeTypePatchResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileUpdateEmployeeTypePatchResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileUpdateEmployeeTypePatchResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileUpdateEmployeeTypePatchResponseDataProfileLms extends JsonObject {
-  "classrooms": ProfileUpdateEmployeeTypePatchResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": ProfileUpdateEmployeeTypePatchResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": ProfileUpdateEmployeeTypePatchResponseDataProfileLmsClassroomUsers[];
-}
-export interface ProfileUpdateEmployeeTypePatchResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileUpdateEmployeeTypePatchResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileUpdateEmployeeTypePatchResponseDataProfileRoles[];
-  "credential": ProfileUpdateEmployeeTypePatchResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileUpdateEmployeeTypePatchResponseDataProfileOffice | null;
-  "lms"?: ProfileUpdateEmployeeTypePatchResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileUpdateEmployeeTypePatchResponseDataProfileParent[] | null;
-}
-export interface ProfileUpdateEmployeeTypePatchResponseData extends JsonObject {
-  "profile": ProfileUpdateEmployeeTypePatchResponseDataProfile;
-}
-export interface ProfileUpdateEmployeeTypePatchResponse extends ApiEnvelope<ProfileUpdateEmployeeTypePatchResponseData> {
-}
+export type ProfileUpdateEmployeeTypePatchResponse = import("./types.js").ProfileResponse;
 
 /** Backend request type: models::UpdateEmployeeType. */
 export interface ProfileUpdateEmployeeTypePutInput extends JsonObject {
   "employee_type": string;
 }
 /** Backend response type: models::SingleData. */
-export interface ProfileUpdateEmployeeTypePutResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileUpdateEmployeeTypePutResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileUpdateEmployeeTypePutResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateEmployeeTypePutResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateEmployeeTypePutResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateEmployeeTypePutResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileUpdateEmployeeTypePutResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileUpdateEmployeeTypePutResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileUpdateEmployeeTypePutResponseDataProfileOfficeEnrollments[];
-  "transactions": ProfileUpdateEmployeeTypePutResponseDataProfileOfficeTransactions[];
-  "installments": ProfileUpdateEmployeeTypePutResponseDataProfileOfficeInstallments[];
-  "wallets": ProfileUpdateEmployeeTypePutResponseDataProfileOfficeWallets[];
-  "wallet_transactions": ProfileUpdateEmployeeTypePutResponseDataProfileOfficeWalletTransactions[];
-}
-export interface ProfileUpdateEmployeeTypePutResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileUpdateEmployeeTypePutResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileUpdateEmployeeTypePutResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileUpdateEmployeeTypePutResponseDataProfileLms extends JsonObject {
-  "classrooms": ProfileUpdateEmployeeTypePutResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": ProfileUpdateEmployeeTypePutResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": ProfileUpdateEmployeeTypePutResponseDataProfileLmsClassroomUsers[];
-}
-export interface ProfileUpdateEmployeeTypePutResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileUpdateEmployeeTypePutResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileUpdateEmployeeTypePutResponseDataProfileRoles[];
-  "credential": ProfileUpdateEmployeeTypePutResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileUpdateEmployeeTypePutResponseDataProfileOffice | null;
-  "lms"?: ProfileUpdateEmployeeTypePutResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileUpdateEmployeeTypePutResponseDataProfileParent[] | null;
-}
-export interface ProfileUpdateEmployeeTypePutResponseData extends JsonObject {
-  "profile": ProfileUpdateEmployeeTypePutResponseDataProfile;
-}
-export interface ProfileUpdateEmployeeTypePutResponse extends ApiEnvelope<ProfileUpdateEmployeeTypePutResponseData> {
-}
+export type ProfileUpdateEmployeeTypePutResponse = import("./types.js").ProfileResponse;
 
 /** Backend request type: models::UpdateFreemiumLimit. */
 export interface ProfileUpdateFreemiumPatchInput extends JsonObject {
   "freemium_session_limit": number;
 }
 /** Backend response type: models::SingleData. */
-export interface ProfileUpdateFreemiumPatchResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileUpdateFreemiumPatchResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileUpdateFreemiumPatchResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateFreemiumPatchResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateFreemiumPatchResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateFreemiumPatchResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileUpdateFreemiumPatchResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileUpdateFreemiumPatchResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileUpdateFreemiumPatchResponseDataProfileOfficeEnrollments[];
-  "transactions": ProfileUpdateFreemiumPatchResponseDataProfileOfficeTransactions[];
-  "installments": ProfileUpdateFreemiumPatchResponseDataProfileOfficeInstallments[];
-  "wallets": ProfileUpdateFreemiumPatchResponseDataProfileOfficeWallets[];
-  "wallet_transactions": ProfileUpdateFreemiumPatchResponseDataProfileOfficeWalletTransactions[];
-}
-export interface ProfileUpdateFreemiumPatchResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileUpdateFreemiumPatchResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileUpdateFreemiumPatchResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileUpdateFreemiumPatchResponseDataProfileLms extends JsonObject {
-  "classrooms": ProfileUpdateFreemiumPatchResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": ProfileUpdateFreemiumPatchResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": ProfileUpdateFreemiumPatchResponseDataProfileLmsClassroomUsers[];
-}
-export interface ProfileUpdateFreemiumPatchResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileUpdateFreemiumPatchResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileUpdateFreemiumPatchResponseDataProfileRoles[];
-  "credential": ProfileUpdateFreemiumPatchResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileUpdateFreemiumPatchResponseDataProfileOffice | null;
-  "lms"?: ProfileUpdateFreemiumPatchResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileUpdateFreemiumPatchResponseDataProfileParent[] | null;
-}
-export interface ProfileUpdateFreemiumPatchResponseData extends JsonObject {
-  "profile": ProfileUpdateFreemiumPatchResponseDataProfile;
-}
-export interface ProfileUpdateFreemiumPatchResponse extends ApiEnvelope<ProfileUpdateFreemiumPatchResponseData> {
-}
+export type ProfileUpdateFreemiumPatchResponse = import("./types.js").ProfileResponse;
 
 /** Backend request type: models::UpdateFreemiumLimit. */
 export interface ProfileUpdateFreemiumPutInput extends JsonObject {
   "freemium_session_limit": number;
 }
 /** Backend response type: models::SingleData. */
-export interface ProfileUpdateFreemiumPutResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileUpdateFreemiumPutResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileUpdateFreemiumPutResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateFreemiumPutResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateFreemiumPutResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateFreemiumPutResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileUpdateFreemiumPutResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileUpdateFreemiumPutResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileUpdateFreemiumPutResponseDataProfileOfficeEnrollments[];
-  "transactions": ProfileUpdateFreemiumPutResponseDataProfileOfficeTransactions[];
-  "installments": ProfileUpdateFreemiumPutResponseDataProfileOfficeInstallments[];
-  "wallets": ProfileUpdateFreemiumPutResponseDataProfileOfficeWallets[];
-  "wallet_transactions": ProfileUpdateFreemiumPutResponseDataProfileOfficeWalletTransactions[];
-}
-export interface ProfileUpdateFreemiumPutResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileUpdateFreemiumPutResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileUpdateFreemiumPutResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileUpdateFreemiumPutResponseDataProfileLms extends JsonObject {
-  "classrooms": ProfileUpdateFreemiumPutResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": ProfileUpdateFreemiumPutResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": ProfileUpdateFreemiumPutResponseDataProfileLmsClassroomUsers[];
-}
-export interface ProfileUpdateFreemiumPutResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileUpdateFreemiumPutResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileUpdateFreemiumPutResponseDataProfileRoles[];
-  "credential": ProfileUpdateFreemiumPutResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileUpdateFreemiumPutResponseDataProfileOffice | null;
-  "lms"?: ProfileUpdateFreemiumPutResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileUpdateFreemiumPutResponseDataProfileParent[] | null;
-}
-export interface ProfileUpdateFreemiumPutResponseData extends JsonObject {
-  "profile": ProfileUpdateFreemiumPutResponseDataProfile;
-}
-export interface ProfileUpdateFreemiumPutResponse extends ApiEnvelope<ProfileUpdateFreemiumPutResponseData> {
-}
+export type ProfileUpdateFreemiumPutResponse = import("./types.js").ProfileResponse;
 
 /** Backend response type: models::SingleData. */
-export interface ProfileShowFullGetResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileShowFullGetResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileShowFullGetResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileShowFullGetResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileShowFullGetResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileShowFullGetResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileShowFullGetResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileShowFullGetResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileShowFullGetResponseDataProfileOfficeEnrollments[];
-  "transactions": ProfileShowFullGetResponseDataProfileOfficeTransactions[];
-  "installments": ProfileShowFullGetResponseDataProfileOfficeInstallments[];
-  "wallets": ProfileShowFullGetResponseDataProfileOfficeWallets[];
-  "wallet_transactions": ProfileShowFullGetResponseDataProfileOfficeWalletTransactions[];
-}
-export interface ProfileShowFullGetResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileShowFullGetResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileShowFullGetResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileShowFullGetResponseDataProfileLms extends JsonObject {
-  "classrooms": ProfileShowFullGetResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": ProfileShowFullGetResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": ProfileShowFullGetResponseDataProfileLmsClassroomUsers[];
-}
-export interface ProfileShowFullGetResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileShowFullGetResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileShowFullGetResponseDataProfileRoles[];
-  "credential": ProfileShowFullGetResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileShowFullGetResponseDataProfileOffice | null;
-  "lms"?: ProfileShowFullGetResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileShowFullGetResponseDataProfileParent[] | null;
-}
-export interface ProfileShowFullGetResponseData extends JsonObject {
-  "profile": ProfileShowFullGetResponseDataProfile;
-}
-export interface ProfileShowFullGetResponse extends ApiEnvelope<ProfileShowFullGetResponseData> {
-}
+export type ProfileShowFullGetResponse = import("./types.js").ProfileResponse;
 
 /** Backend request type: multipart/form-data. */
 export type ProfileImageStorePostInput = FormData;
 /** Backend response type: serde_json::Value. */
-export interface ProfileImageStorePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileImageStorePostResponse = import("./types.js").ProfileMediaResponse;
 
 /** Backend query type: MediaQuery. */
 export interface ProfileMediaShowGetQuery extends QueryParams {
   "key": string;
 }
 /** Backend response type: raw-response. */
-export interface ProfileMediaShowGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileMediaShowGetResponse = ArrayBuffer | Uint8Array;
 
 /** Backend request type: property_models::PropertiesUpdate. */
 export interface ProfileUpdatePropertiesPatchInput extends JsonObject {
   "properties": Record<string, JsonValue>;
 }
 /** Backend response type: serde_json::Value. */
-export interface ProfileUpdatePropertiesPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileUpdatePropertiesPatchResponse = ApiEnvelope<import("./wire.types.js").ProfilePropertyMutation>;
 
 /** Backend request type: property_models::PropertiesUpdate. */
 export interface ProfileUpdatePropertiesPutInput extends JsonObject {
   "properties": Record<string, JsonValue>;
 }
 /** Backend response type: serde_json::Value. */
-export interface ProfileUpdatePropertiesPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileUpdatePropertiesPutResponse = ApiEnvelope<import("./wire.types.js").ProfilePropertyMutation>;
 
 /** Backend request type: models::UpdateStatus. */
 export interface ProfileUpdateStatusPatchInput extends JsonObject {
   "status": string;
 }
 /** Backend response type: models::SingleData. */
-export interface ProfileUpdateStatusPatchResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileUpdateStatusPatchResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileUpdateStatusPatchResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateStatusPatchResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateStatusPatchResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateStatusPatchResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileUpdateStatusPatchResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileUpdateStatusPatchResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileUpdateStatusPatchResponseDataProfileOfficeEnrollments[];
-  "transactions": ProfileUpdateStatusPatchResponseDataProfileOfficeTransactions[];
-  "installments": ProfileUpdateStatusPatchResponseDataProfileOfficeInstallments[];
-  "wallets": ProfileUpdateStatusPatchResponseDataProfileOfficeWallets[];
-  "wallet_transactions": ProfileUpdateStatusPatchResponseDataProfileOfficeWalletTransactions[];
-}
-export interface ProfileUpdateStatusPatchResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileUpdateStatusPatchResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileUpdateStatusPatchResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileUpdateStatusPatchResponseDataProfileLms extends JsonObject {
-  "classrooms": ProfileUpdateStatusPatchResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": ProfileUpdateStatusPatchResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": ProfileUpdateStatusPatchResponseDataProfileLmsClassroomUsers[];
-}
-export interface ProfileUpdateStatusPatchResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileUpdateStatusPatchResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileUpdateStatusPatchResponseDataProfileRoles[];
-  "credential": ProfileUpdateStatusPatchResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileUpdateStatusPatchResponseDataProfileOffice | null;
-  "lms"?: ProfileUpdateStatusPatchResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileUpdateStatusPatchResponseDataProfileParent[] | null;
-}
-export interface ProfileUpdateStatusPatchResponseData extends JsonObject {
-  "profile": ProfileUpdateStatusPatchResponseDataProfile;
-}
-export interface ProfileUpdateStatusPatchResponse extends ApiEnvelope<ProfileUpdateStatusPatchResponseData> {
-}
+export type ProfileUpdateStatusPatchResponse = import("./types.js").ProfileResponse;
 
 /** Backend request type: models::UpdateStatus. */
 export interface ProfileUpdateStatusPutInput extends JsonObject {
   "status": string;
 }
 /** Backend response type: models::SingleData. */
-export interface ProfileUpdateStatusPutResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileUpdateStatusPutResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileUpdateStatusPutResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateStatusPutResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateStatusPutResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdateStatusPutResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileUpdateStatusPutResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileUpdateStatusPutResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileUpdateStatusPutResponseDataProfileOfficeEnrollments[];
-  "transactions": ProfileUpdateStatusPutResponseDataProfileOfficeTransactions[];
-  "installments": ProfileUpdateStatusPutResponseDataProfileOfficeInstallments[];
-  "wallets": ProfileUpdateStatusPutResponseDataProfileOfficeWallets[];
-  "wallet_transactions": ProfileUpdateStatusPutResponseDataProfileOfficeWalletTransactions[];
-}
-export interface ProfileUpdateStatusPutResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileUpdateStatusPutResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileUpdateStatusPutResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileUpdateStatusPutResponseDataProfileLms extends JsonObject {
-  "classrooms": ProfileUpdateStatusPutResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": ProfileUpdateStatusPutResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": ProfileUpdateStatusPutResponseDataProfileLmsClassroomUsers[];
-}
-export interface ProfileUpdateStatusPutResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileUpdateStatusPutResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileUpdateStatusPutResponseDataProfileRoles[];
-  "credential": ProfileUpdateStatusPutResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileUpdateStatusPutResponseDataProfileOffice | null;
-  "lms"?: ProfileUpdateStatusPutResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileUpdateStatusPutResponseDataProfileParent[] | null;
-}
-export interface ProfileUpdateStatusPutResponseData extends JsonObject {
-  "profile": ProfileUpdateStatusPutResponseDataProfile;
-}
-export interface ProfileUpdateStatusPutResponse extends ApiEnvelope<ProfileUpdateStatusPutResponseData> {
-}
+export type ProfileUpdateStatusPutResponse = import("./types.js").ProfileResponse;
 
 /** Backend query type: models::ListQuery. */
 export interface ProfileAccountantIndexGetQuery extends importProfileListQuery {}
 /** Backend response type: models::ListData. */
-export interface ProfileAccountantIndexGetResponseDataProfilesRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileAccountantIndexGetResponseDataProfilesCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileAccountantIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileAccountantIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileAccountantIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileAccountantIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileAccountantIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileAccountantIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileAccountantIndexGetResponseDataProfilesOfficeEnrollments[];
-  "transactions": ProfileAccountantIndexGetResponseDataProfilesOfficeTransactions[];
-  "installments": ProfileAccountantIndexGetResponseDataProfilesOfficeInstallments[];
-  "wallets": ProfileAccountantIndexGetResponseDataProfilesOfficeWallets[];
-  "wallet_transactions": ProfileAccountantIndexGetResponseDataProfilesOfficeWalletTransactions[];
-}
-export interface ProfileAccountantIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileAccountantIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileAccountantIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileAccountantIndexGetResponseDataProfilesLms extends JsonObject {
-  "classrooms": ProfileAccountantIndexGetResponseDataProfilesLmsClassrooms[];
-  "classroom_sessions": ProfileAccountantIndexGetResponseDataProfilesLmsClassroomSessions[];
-  "classroom_users": ProfileAccountantIndexGetResponseDataProfilesLmsClassroomUsers[];
-}
-export interface ProfileAccountantIndexGetResponseDataProfilesParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileAccountantIndexGetResponseDataProfiles extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileAccountantIndexGetResponseDataProfilesRoles[];
-  "credential": ProfileAccountantIndexGetResponseDataProfilesCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileAccountantIndexGetResponseDataProfilesOffice | null;
-  "lms"?: ProfileAccountantIndexGetResponseDataProfilesLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileAccountantIndexGetResponseDataProfilesParent[] | null;
-}
-export interface ProfileAccountantIndexGetResponseData extends JsonObject {
-  "profiles": ProfileAccountantIndexGetResponseDataProfiles[];
-}
-export interface ProfileAccountantIndexGetMetaData extends JsonObject {
-  "current_page": number;
-  "per_page": number;
-  "total": number;
-  "last_page": number;
-}
-export interface ProfileAccountantIndexGetResponse extends ApiEnvelope<ProfileAccountantIndexGetResponseData> {
-  meta: ProfileAccountantIndexGetMetaData;
-}
+export type ProfileAccountantIndexGetResponse = import("./types.js").ProfileListResponse;
 
 /** Backend request type: models::AddressRequest. */
 export interface ProfileAddAddressPatchInput extends JsonObject {
@@ -3405,8 +1194,7 @@ export interface ProfileAddAddressPatchInput extends JsonObject {
   "detail"?: string | null;
 }
 /** Backend response type: serde_json::Value. */
-export interface ProfileAddAddressPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileAddAddressPatchResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend request type: models::AddressRequest. */
 export interface ProfileAddAddressPutInput extends JsonObject {
@@ -3419,24 +1207,21 @@ export interface ProfileAddAddressPutInput extends JsonObject {
   "detail"?: string | null;
 }
 /** Backend response type: serde_json::Value. */
-export interface ProfileAddAddressPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileAddAddressPutResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend request type: models::AppUpdate. */
 export interface ProfileAddAppPatchInput extends JsonObject {
   "app": JsonValue;
 }
 /** Backend response type: serde_json::Value. */
-export interface ProfileAddAppPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileAddAppPatchResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend request type: models::AppUpdate. */
 export interface ProfileAddAppPutInput extends JsonObject {
   "app": JsonValue;
 }
 /** Backend response type: serde_json::Value. */
-export interface ProfileAddAppPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileAddAppPutResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend request type: models::ParentLinkRequest. */
 export interface ProfileAddParentPatchInput extends JsonObject {
@@ -3444,8 +1229,7 @@ export interface ProfileAddParentPatchInput extends JsonObject {
   "parent_type"?: string | null;
 }
 /** Backend response type: serde_json::Value. */
-export interface ProfileAddParentPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileAddParentPatchResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend request type: models::ParentLinkRequest. */
 export interface ProfileAddParentPutInput extends JsonObject {
@@ -3453,8 +1237,7 @@ export interface ProfileAddParentPutInput extends JsonObject {
   "parent_type"?: string | null;
 }
 /** Backend response type: serde_json::Value. */
-export interface ProfileAddParentPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileAddParentPutResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend request type: models::GeoBulkGetRequest. */
 export interface ProfileCityGetPostInput extends JsonObject {
@@ -3462,289 +1245,12 @@ export interface ProfileCityGetPostInput extends JsonObject {
   "user_ids"?: string[] | null;
 }
 /** Backend response type: models::ListData. */
-export interface ProfileCityGetPostResponseDataProfilesRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileCityGetPostResponseDataProfilesCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileCityGetPostResponseDataProfilesOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileCityGetPostResponseDataProfilesOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileCityGetPostResponseDataProfilesOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileCityGetPostResponseDataProfilesOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileCityGetPostResponseDataProfilesOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileCityGetPostResponseDataProfilesOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileCityGetPostResponseDataProfilesOfficeEnrollments[];
-  "transactions": ProfileCityGetPostResponseDataProfilesOfficeTransactions[];
-  "installments": ProfileCityGetPostResponseDataProfilesOfficeInstallments[];
-  "wallets": ProfileCityGetPostResponseDataProfilesOfficeWallets[];
-  "wallet_transactions": ProfileCityGetPostResponseDataProfilesOfficeWalletTransactions[];
-}
-export interface ProfileCityGetPostResponseDataProfilesLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileCityGetPostResponseDataProfilesLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileCityGetPostResponseDataProfilesLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileCityGetPostResponseDataProfilesLms extends JsonObject {
-  "classrooms": ProfileCityGetPostResponseDataProfilesLmsClassrooms[];
-  "classroom_sessions": ProfileCityGetPostResponseDataProfilesLmsClassroomSessions[];
-  "classroom_users": ProfileCityGetPostResponseDataProfilesLmsClassroomUsers[];
-}
-export interface ProfileCityGetPostResponseDataProfilesParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileCityGetPostResponseDataProfiles extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileCityGetPostResponseDataProfilesRoles[];
-  "credential": ProfileCityGetPostResponseDataProfilesCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileCityGetPostResponseDataProfilesOffice | null;
-  "lms"?: ProfileCityGetPostResponseDataProfilesLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileCityGetPostResponseDataProfilesParent[] | null;
-}
-export interface ProfileCityGetPostResponseData extends JsonObject {
-  "profiles": ProfileCityGetPostResponseDataProfiles[];
-}
-export interface ProfileCityGetPostResponse extends ApiEnvelope<ProfileCityGetPostResponseData> {
-}
+export type ProfileCityGetPostResponse = ApiEnvelope<import("./types.js").ProfileListData>;
 
 /** Backend query type: models::ListQuery. */
 export interface ProfileConsultantIndexGetQuery extends importProfileListQuery {}
 /** Backend response type: models::ListData. */
-export interface ProfileConsultantIndexGetResponseDataProfilesRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileConsultantIndexGetResponseDataProfilesCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileConsultantIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileConsultantIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileConsultantIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileConsultantIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileConsultantIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileConsultantIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileConsultantIndexGetResponseDataProfilesOfficeEnrollments[];
-  "transactions": ProfileConsultantIndexGetResponseDataProfilesOfficeTransactions[];
-  "installments": ProfileConsultantIndexGetResponseDataProfilesOfficeInstallments[];
-  "wallets": ProfileConsultantIndexGetResponseDataProfilesOfficeWallets[];
-  "wallet_transactions": ProfileConsultantIndexGetResponseDataProfilesOfficeWalletTransactions[];
-}
-export interface ProfileConsultantIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileConsultantIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileConsultantIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileConsultantIndexGetResponseDataProfilesLms extends JsonObject {
-  "classrooms": ProfileConsultantIndexGetResponseDataProfilesLmsClassrooms[];
-  "classroom_sessions": ProfileConsultantIndexGetResponseDataProfilesLmsClassroomSessions[];
-  "classroom_users": ProfileConsultantIndexGetResponseDataProfilesLmsClassroomUsers[];
-}
-export interface ProfileConsultantIndexGetResponseDataProfilesParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileConsultantIndexGetResponseDataProfiles extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileConsultantIndexGetResponseDataProfilesRoles[];
-  "credential": ProfileConsultantIndexGetResponseDataProfilesCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileConsultantIndexGetResponseDataProfilesOffice | null;
-  "lms"?: ProfileConsultantIndexGetResponseDataProfilesLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileConsultantIndexGetResponseDataProfilesParent[] | null;
-}
-export interface ProfileConsultantIndexGetResponseData extends JsonObject {
-  "profiles": ProfileConsultantIndexGetResponseDataProfiles[];
-}
-export interface ProfileConsultantIndexGetMetaData extends JsonObject {
-  "current_page": number;
-  "per_page": number;
-  "total": number;
-  "last_page": number;
-}
-export interface ProfileConsultantIndexGetResponse extends ApiEnvelope<ProfileConsultantIndexGetResponseData> {
-  meta: ProfileConsultantIndexGetMetaData;
-}
+export type ProfileConsultantIndexGetResponse = import("./types.js").ProfileListResponse;
 
 /** Backend request type: models::GeoBulkGetRequest. */
 export interface ProfileCountryGetPostInput extends JsonObject {
@@ -3752,455 +1258,38 @@ export interface ProfileCountryGetPostInput extends JsonObject {
   "user_ids"?: string[] | null;
 }
 /** Backend response type: models::ListData. */
-export interface ProfileCountryGetPostResponseDataProfilesRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileCountryGetPostResponseDataProfilesCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileCountryGetPostResponseDataProfilesOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileCountryGetPostResponseDataProfilesOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileCountryGetPostResponseDataProfilesOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileCountryGetPostResponseDataProfilesOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileCountryGetPostResponseDataProfilesOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileCountryGetPostResponseDataProfilesOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileCountryGetPostResponseDataProfilesOfficeEnrollments[];
-  "transactions": ProfileCountryGetPostResponseDataProfilesOfficeTransactions[];
-  "installments": ProfileCountryGetPostResponseDataProfilesOfficeInstallments[];
-  "wallets": ProfileCountryGetPostResponseDataProfilesOfficeWallets[];
-  "wallet_transactions": ProfileCountryGetPostResponseDataProfilesOfficeWalletTransactions[];
-}
-export interface ProfileCountryGetPostResponseDataProfilesLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileCountryGetPostResponseDataProfilesLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileCountryGetPostResponseDataProfilesLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileCountryGetPostResponseDataProfilesLms extends JsonObject {
-  "classrooms": ProfileCountryGetPostResponseDataProfilesLmsClassrooms[];
-  "classroom_sessions": ProfileCountryGetPostResponseDataProfilesLmsClassroomSessions[];
-  "classroom_users": ProfileCountryGetPostResponseDataProfilesLmsClassroomUsers[];
-}
-export interface ProfileCountryGetPostResponseDataProfilesParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileCountryGetPostResponseDataProfiles extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileCountryGetPostResponseDataProfilesRoles[];
-  "credential": ProfileCountryGetPostResponseDataProfilesCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileCountryGetPostResponseDataProfilesOffice | null;
-  "lms"?: ProfileCountryGetPostResponseDataProfilesLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileCountryGetPostResponseDataProfilesParent[] | null;
-}
-export interface ProfileCountryGetPostResponseData extends JsonObject {
-  "profiles": ProfileCountryGetPostResponseDataProfiles[];
-}
-export interface ProfileCountryGetPostResponse extends ApiEnvelope<ProfileCountryGetPostResponseData> {
-}
+export type ProfileCountryGetPostResponse = ApiEnvelope<import("./types.js").ProfileListData>;
 
 /** Backend response type: serde_json::Value. */
-export interface ProfileForceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileForceDestroyDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend request type: models::BulkGetRequest. */
 export interface ProfileBulkGetPostInput extends JsonObject {
   "user_ids": string[];
 }
 /** Backend response type: models::ListData. */
-export interface ProfileBulkGetPostResponseDataProfilesRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileBulkGetPostResponseDataProfilesCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileBulkGetPostResponseDataProfilesOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileBulkGetPostResponseDataProfilesOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileBulkGetPostResponseDataProfilesOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileBulkGetPostResponseDataProfilesOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileBulkGetPostResponseDataProfilesOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileBulkGetPostResponseDataProfilesOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileBulkGetPostResponseDataProfilesOfficeEnrollments[];
-  "transactions": ProfileBulkGetPostResponseDataProfilesOfficeTransactions[];
-  "installments": ProfileBulkGetPostResponseDataProfilesOfficeInstallments[];
-  "wallets": ProfileBulkGetPostResponseDataProfilesOfficeWallets[];
-  "wallet_transactions": ProfileBulkGetPostResponseDataProfilesOfficeWalletTransactions[];
-}
-export interface ProfileBulkGetPostResponseDataProfilesLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileBulkGetPostResponseDataProfilesLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileBulkGetPostResponseDataProfilesLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileBulkGetPostResponseDataProfilesLms extends JsonObject {
-  "classrooms": ProfileBulkGetPostResponseDataProfilesLmsClassrooms[];
-  "classroom_sessions": ProfileBulkGetPostResponseDataProfilesLmsClassroomSessions[];
-  "classroom_users": ProfileBulkGetPostResponseDataProfilesLmsClassroomUsers[];
-}
-export interface ProfileBulkGetPostResponseDataProfilesParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileBulkGetPostResponseDataProfiles extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileBulkGetPostResponseDataProfilesRoles[];
-  "credential": ProfileBulkGetPostResponseDataProfilesCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileBulkGetPostResponseDataProfilesOffice | null;
-  "lms"?: ProfileBulkGetPostResponseDataProfilesLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileBulkGetPostResponseDataProfilesParent[] | null;
-}
-export interface ProfileBulkGetPostResponseData extends JsonObject {
-  "profiles": ProfileBulkGetPostResponseDataProfiles[];
-}
-export interface ProfileBulkGetPostResponse extends ApiEnvelope<ProfileBulkGetPostResponseData> {
-}
+export type ProfileBulkGetPostResponse = ApiEnvelope<import("./types.js").ProfileListData>;
 
 /** Backend response type: serde_json::Value. */
-export interface ProfileChatListGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileChatListGetResponse = ApiEnvelope<never[]>;
 
 /** Backend response type: serde_json::Value. */
-export interface ProfileGetAddressGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileGetAddressGetResponse = ApiEnvelope<import("./wire.types.js").StoredProfileAddress[]>;
 
 /** Backend response type: serde_json::Value. */
 export interface ProfileGetAppGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ProfileGetParentGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileGetParentGetResponse = ApiEnvelope<import("./wire.types.js").StoredParentLink | null>;
 
 /** Backend query type: models::ListQuery. */
 export interface ProfileManagerIndexGetQuery extends importProfileListQuery {}
 /** Backend response type: models::ListData. */
-export interface ProfileManagerIndexGetResponseDataProfilesRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileManagerIndexGetResponseDataProfilesCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileManagerIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileManagerIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileManagerIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileManagerIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileManagerIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileManagerIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileManagerIndexGetResponseDataProfilesOfficeEnrollments[];
-  "transactions": ProfileManagerIndexGetResponseDataProfilesOfficeTransactions[];
-  "installments": ProfileManagerIndexGetResponseDataProfilesOfficeInstallments[];
-  "wallets": ProfileManagerIndexGetResponseDataProfilesOfficeWallets[];
-  "wallet_transactions": ProfileManagerIndexGetResponseDataProfilesOfficeWalletTransactions[];
-}
-export interface ProfileManagerIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileManagerIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileManagerIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileManagerIndexGetResponseDataProfilesLms extends JsonObject {
-  "classrooms": ProfileManagerIndexGetResponseDataProfilesLmsClassrooms[];
-  "classroom_sessions": ProfileManagerIndexGetResponseDataProfilesLmsClassroomSessions[];
-  "classroom_users": ProfileManagerIndexGetResponseDataProfilesLmsClassroomUsers[];
-}
-export interface ProfileManagerIndexGetResponseDataProfilesParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileManagerIndexGetResponseDataProfiles extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileManagerIndexGetResponseDataProfilesRoles[];
-  "credential": ProfileManagerIndexGetResponseDataProfilesCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileManagerIndexGetResponseDataProfilesOffice | null;
-  "lms"?: ProfileManagerIndexGetResponseDataProfilesLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileManagerIndexGetResponseDataProfilesParent[] | null;
-}
-export interface ProfileManagerIndexGetResponseData extends JsonObject {
-  "profiles": ProfileManagerIndexGetResponseDataProfiles[];
-}
-export interface ProfileManagerIndexGetMetaData extends JsonObject {
-  "current_page": number;
-  "per_page": number;
-  "total": number;
-  "last_page": number;
-}
-export interface ProfileManagerIndexGetResponse extends ApiEnvelope<ProfileManagerIndexGetResponseData> {
-  meta: ProfileManagerIndexGetMetaData;
-}
+export type ProfileManagerIndexGetResponse = import("./types.js").ProfileListResponse;
 
 /** Backend response type: serde_json::Value. */
-export interface ProfileGetMyAddressesGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileGetMyAddressesGetResponse = ApiEnvelope<import("./wire.types.js").StoredProfileAddress[]>;
 
 /** Backend request type: models::AddressRequest. */
 export interface ProfileSaveMyAddressPatchInput extends JsonObject {
@@ -4213,8 +1302,7 @@ export interface ProfileSaveMyAddressPatchInput extends JsonObject {
   "detail"?: string | null;
 }
 /** Backend response type: serde_json::Value. */
-export interface ProfileSaveMyAddressPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileSaveMyAddressPatchResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend request type: models::AddressRequest. */
 export interface ProfileSaveMyAddressPutInput extends JsonObject {
@@ -4227,306 +1315,20 @@ export interface ProfileSaveMyAddressPutInput extends JsonObject {
   "detail"?: string | null;
 }
 /** Backend response type: serde_json::Value. */
-export interface ProfileSaveMyAddressPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileSaveMyAddressPutResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: serde_json::Value. */
-export interface ProfileDeleteMyAddressDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileDeleteMyAddressDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend query type: models::ListQuery. */
 export interface ProfileOtherIndexGetQuery extends importProfileListQuery {}
 /** Backend response type: models::ListData. */
-export interface ProfileOtherIndexGetResponseDataProfilesRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileOtherIndexGetResponseDataProfilesCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileOtherIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileOtherIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileOtherIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileOtherIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileOtherIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileOtherIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileOtherIndexGetResponseDataProfilesOfficeEnrollments[];
-  "transactions": ProfileOtherIndexGetResponseDataProfilesOfficeTransactions[];
-  "installments": ProfileOtherIndexGetResponseDataProfilesOfficeInstallments[];
-  "wallets": ProfileOtherIndexGetResponseDataProfilesOfficeWallets[];
-  "wallet_transactions": ProfileOtherIndexGetResponseDataProfilesOfficeWalletTransactions[];
-}
-export interface ProfileOtherIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileOtherIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileOtherIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileOtherIndexGetResponseDataProfilesLms extends JsonObject {
-  "classrooms": ProfileOtherIndexGetResponseDataProfilesLmsClassrooms[];
-  "classroom_sessions": ProfileOtherIndexGetResponseDataProfilesLmsClassroomSessions[];
-  "classroom_users": ProfileOtherIndexGetResponseDataProfilesLmsClassroomUsers[];
-}
-export interface ProfileOtherIndexGetResponseDataProfilesParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileOtherIndexGetResponseDataProfiles extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileOtherIndexGetResponseDataProfilesRoles[];
-  "credential": ProfileOtherIndexGetResponseDataProfilesCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileOtherIndexGetResponseDataProfilesOffice | null;
-  "lms"?: ProfileOtherIndexGetResponseDataProfilesLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileOtherIndexGetResponseDataProfilesParent[] | null;
-}
-export interface ProfileOtherIndexGetResponseData extends JsonObject {
-  "profiles": ProfileOtherIndexGetResponseDataProfiles[];
-}
-export interface ProfileOtherIndexGetMetaData extends JsonObject {
-  "current_page": number;
-  "per_page": number;
-  "total": number;
-  "last_page": number;
-}
-export interface ProfileOtherIndexGetResponse extends ApiEnvelope<ProfileOtherIndexGetResponseData> {
-  meta: ProfileOtherIndexGetMetaData;
-}
+export type ProfileOtherIndexGetResponse = import("./types.js").ProfileListResponse;
 
 /** Backend query type: models::ListQuery. */
 export interface ProfileParentIndexGetQuery extends importProfileListQuery {}
 /** Backend response type: models::ListData. */
-export interface ProfileParentIndexGetResponseDataProfilesRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileParentIndexGetResponseDataProfilesCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileParentIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileParentIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileParentIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileParentIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileParentIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileParentIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileParentIndexGetResponseDataProfilesOfficeEnrollments[];
-  "transactions": ProfileParentIndexGetResponseDataProfilesOfficeTransactions[];
-  "installments": ProfileParentIndexGetResponseDataProfilesOfficeInstallments[];
-  "wallets": ProfileParentIndexGetResponseDataProfilesOfficeWallets[];
-  "wallet_transactions": ProfileParentIndexGetResponseDataProfilesOfficeWalletTransactions[];
-}
-export interface ProfileParentIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileParentIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileParentIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileParentIndexGetResponseDataProfilesLms extends JsonObject {
-  "classrooms": ProfileParentIndexGetResponseDataProfilesLmsClassrooms[];
-  "classroom_sessions": ProfileParentIndexGetResponseDataProfilesLmsClassroomSessions[];
-  "classroom_users": ProfileParentIndexGetResponseDataProfilesLmsClassroomUsers[];
-}
-export interface ProfileParentIndexGetResponseDataProfilesParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileParentIndexGetResponseDataProfiles extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileParentIndexGetResponseDataProfilesRoles[];
-  "credential": ProfileParentIndexGetResponseDataProfilesCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileParentIndexGetResponseDataProfilesOffice | null;
-  "lms"?: ProfileParentIndexGetResponseDataProfilesLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileParentIndexGetResponseDataProfilesParent[] | null;
-}
-export interface ProfileParentIndexGetResponseData extends JsonObject {
-  "profiles": ProfileParentIndexGetResponseDataProfiles[];
-}
-export interface ProfileParentIndexGetMetaData extends JsonObject {
-  "current_page": number;
-  "per_page": number;
-  "total": number;
-  "last_page": number;
-}
-export interface ProfileParentIndexGetResponse extends ApiEnvelope<ProfileParentIndexGetResponseData> {
-  meta: ProfileParentIndexGetMetaData;
-}
+export type ProfileParentIndexGetResponse = import("./types.js").ProfileListResponse;
 
 /** Backend request type: ResolvePeople. */
 export type ProfileSearchResolvePostInput = import("./types.js").ResolvePeopleInput;
@@ -4552,21 +1354,7 @@ export interface ProfileSearchSearchPostApiV1ProfilePeopleSearchInput extends Js
   "search": string;
 }
 /** Backend response type: PeopleResult. */
-export interface ProfileSearchSearchPostApiV1ProfilePeopleSearchResponseDataResults extends JsonObject {
-  "user_id": string;
-  "first_name_fa": string | null;
-  "last_name_fa": string | null;
-  "first_name_en": string | null;
-  "last_name_en": string | null;
-  "email": string | null;
-  "phone": string | null;
-}
-export interface ProfileSearchSearchPostApiV1ProfilePeopleSearchResponseData extends JsonObject {
-  "results": ProfileSearchSearchPostApiV1ProfilePeopleSearchResponseDataResults[];
-  "has_more": boolean;
-}
-export interface ProfileSearchSearchPostApiV1ProfilePeopleSearchResponse extends ApiEnvelope<ProfileSearchSearchPostApiV1ProfilePeopleSearchResponseData> {
-}
+export type ProfileSearchSearchPostApiV1ProfilePeopleSearchResponse = import("./wire.types.js").ProfileSearchResponse;
 
 /** Backend request type: models::GeoBulkGetRequest. */
 export interface ProfileProvinceGetPostInput extends JsonObject {
@@ -4574,142 +1362,7 @@ export interface ProfileProvinceGetPostInput extends JsonObject {
   "user_ids"?: string[] | null;
 }
 /** Backend response type: models::ListData. */
-export interface ProfileProvinceGetPostResponseDataProfilesRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileProvinceGetPostResponseDataProfilesCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileProvinceGetPostResponseDataProfilesOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileProvinceGetPostResponseDataProfilesOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileProvinceGetPostResponseDataProfilesOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileProvinceGetPostResponseDataProfilesOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileProvinceGetPostResponseDataProfilesOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileProvinceGetPostResponseDataProfilesOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileProvinceGetPostResponseDataProfilesOfficeEnrollments[];
-  "transactions": ProfileProvinceGetPostResponseDataProfilesOfficeTransactions[];
-  "installments": ProfileProvinceGetPostResponseDataProfilesOfficeInstallments[];
-  "wallets": ProfileProvinceGetPostResponseDataProfilesOfficeWallets[];
-  "wallet_transactions": ProfileProvinceGetPostResponseDataProfilesOfficeWalletTransactions[];
-}
-export interface ProfileProvinceGetPostResponseDataProfilesLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileProvinceGetPostResponseDataProfilesLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileProvinceGetPostResponseDataProfilesLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileProvinceGetPostResponseDataProfilesLms extends JsonObject {
-  "classrooms": ProfileProvinceGetPostResponseDataProfilesLmsClassrooms[];
-  "classroom_sessions": ProfileProvinceGetPostResponseDataProfilesLmsClassroomSessions[];
-  "classroom_users": ProfileProvinceGetPostResponseDataProfilesLmsClassroomUsers[];
-}
-export interface ProfileProvinceGetPostResponseDataProfilesParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileProvinceGetPostResponseDataProfiles extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileProvinceGetPostResponseDataProfilesRoles[];
-  "credential": ProfileProvinceGetPostResponseDataProfilesCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileProvinceGetPostResponseDataProfilesOffice | null;
-  "lms"?: ProfileProvinceGetPostResponseDataProfilesLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileProvinceGetPostResponseDataProfilesParent[] | null;
-}
-export interface ProfileProvinceGetPostResponseData extends JsonObject {
-  "profiles": ProfileProvinceGetPostResponseDataProfiles[];
-}
-export interface ProfileProvinceGetPostResponse extends ApiEnvelope<ProfileProvinceGetPostResponseData> {
-}
+export type ProfileProvinceGetPostResponse = ApiEnvelope<import("./types.js").ProfileListData>;
 
 /** Backend request type: crate::profile_search::models::SearchRequest. */
 export type ProfileSearchSearchPostInputFiltersOp = "eq" | "neq" | "gt" | "gte" | "lt" | "lte" | "in" | "contains" | "exists" | "json_contains";
@@ -4731,172 +1384,12 @@ export interface ProfileSearchSearchPostInput extends JsonObject {
   "include"?: string[];
 }
 /** Backend response type: SearchData. */
-export interface ProfileSearchSearchPostResponseDataResults extends JsonObject {
-  "profile_id": string;
-  "user_id": string;
-  "core"?: JsonValue | null;
-  "properties"?: JsonValue | null;
-  "services"?: JsonValue | null;
-}
-export interface ProfileSearchSearchPostResponseData extends JsonObject {
-  "results": ProfileSearchSearchPostResponseDataResults[];
-}
-export interface ProfileSearchSearchPostMetaData extends JsonObject {
-  "current_page": number;
-  "per_page": number;
-  "total": number;
-  "last_page": number;
-}
-export interface ProfileSearchSearchPostResponse extends ApiEnvelope<ProfileSearchSearchPostResponseData> {
-  meta: ProfileSearchSearchPostMetaData;
-}
+export type ProfileSearchSearchPostResponse = import("./wire.types.js").ProfileSearchResponse;
 
 /** Backend query type: models::ListQuery. */
 export interface ProfileStudentIndexGetQuery extends importProfileListQuery {}
 /** Backend response type: models::ListData. */
-export interface ProfileStudentIndexGetResponseDataProfilesRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileStudentIndexGetResponseDataProfilesCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileStudentIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileStudentIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileStudentIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileStudentIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileStudentIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileStudentIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileStudentIndexGetResponseDataProfilesOfficeEnrollments[];
-  "transactions": ProfileStudentIndexGetResponseDataProfilesOfficeTransactions[];
-  "installments": ProfileStudentIndexGetResponseDataProfilesOfficeInstallments[];
-  "wallets": ProfileStudentIndexGetResponseDataProfilesOfficeWallets[];
-  "wallet_transactions": ProfileStudentIndexGetResponseDataProfilesOfficeWalletTransactions[];
-}
-export interface ProfileStudentIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileStudentIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileStudentIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileStudentIndexGetResponseDataProfilesLms extends JsonObject {
-  "classrooms": ProfileStudentIndexGetResponseDataProfilesLmsClassrooms[];
-  "classroom_sessions": ProfileStudentIndexGetResponseDataProfilesLmsClassroomSessions[];
-  "classroom_users": ProfileStudentIndexGetResponseDataProfilesLmsClassroomUsers[];
-}
-export interface ProfileStudentIndexGetResponseDataProfilesParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileStudentIndexGetResponseDataProfiles extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileStudentIndexGetResponseDataProfilesRoles[];
-  "credential": ProfileStudentIndexGetResponseDataProfilesCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileStudentIndexGetResponseDataProfilesOffice | null;
-  "lms"?: ProfileStudentIndexGetResponseDataProfilesLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileStudentIndexGetResponseDataProfilesParent[] | null;
-}
-export interface ProfileStudentIndexGetResponseData extends JsonObject {
-  "profiles": ProfileStudentIndexGetResponseDataProfiles[];
-}
-export interface ProfileStudentIndexGetMetaData extends JsonObject {
-  "current_page": number;
-  "per_page": number;
-  "total": number;
-  "last_page": number;
-}
-export interface ProfileStudentIndexGetResponse extends ApiEnvelope<ProfileStudentIndexGetResponseData> {
-  meta: ProfileStudentIndexGetMetaData;
-}
+export type ProfileStudentIndexGetResponse = import("./types.js").ProfileListResponse;
 
 /** Backend response type: models::PesResponse. */
 export interface ProfileStudentPesGetResponseData extends JsonObject {
@@ -4907,155 +1400,12 @@ export interface ProfileStudentPesGetResponse extends ApiEnvelope<ProfileStudent
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ProfileStudentPesSchemaGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileStudentPesSchemaGetResponse = ApiEnvelope<import("./wire.types.js").PesSchema>;
 
 /** Backend query type: models::ListQuery. */
 export interface ProfileSupportIndexGetQuery extends importProfileListQuery {}
 /** Backend response type: models::ListData. */
-export interface ProfileSupportIndexGetResponseDataProfilesRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileSupportIndexGetResponseDataProfilesCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileSupportIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileSupportIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileSupportIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileSupportIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileSupportIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileSupportIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileSupportIndexGetResponseDataProfilesOfficeEnrollments[];
-  "transactions": ProfileSupportIndexGetResponseDataProfilesOfficeTransactions[];
-  "installments": ProfileSupportIndexGetResponseDataProfilesOfficeInstallments[];
-  "wallets": ProfileSupportIndexGetResponseDataProfilesOfficeWallets[];
-  "wallet_transactions": ProfileSupportIndexGetResponseDataProfilesOfficeWalletTransactions[];
-}
-export interface ProfileSupportIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileSupportIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileSupportIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileSupportIndexGetResponseDataProfilesLms extends JsonObject {
-  "classrooms": ProfileSupportIndexGetResponseDataProfilesLmsClassrooms[];
-  "classroom_sessions": ProfileSupportIndexGetResponseDataProfilesLmsClassroomSessions[];
-  "classroom_users": ProfileSupportIndexGetResponseDataProfilesLmsClassroomUsers[];
-}
-export interface ProfileSupportIndexGetResponseDataProfilesParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileSupportIndexGetResponseDataProfiles extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileSupportIndexGetResponseDataProfilesRoles[];
-  "credential": ProfileSupportIndexGetResponseDataProfilesCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileSupportIndexGetResponseDataProfilesOffice | null;
-  "lms"?: ProfileSupportIndexGetResponseDataProfilesLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileSupportIndexGetResponseDataProfilesParent[] | null;
-}
-export interface ProfileSupportIndexGetResponseData extends JsonObject {
-  "profiles": ProfileSupportIndexGetResponseDataProfiles[];
-}
-export interface ProfileSupportIndexGetMetaData extends JsonObject {
-  "current_page": number;
-  "per_page": number;
-  "total": number;
-  "last_page": number;
-}
-export interface ProfileSupportIndexGetResponse extends ApiEnvelope<ProfileSupportIndexGetResponseData> {
-  meta: ProfileSupportIndexGetMetaData;
-}
+export type ProfileSupportIndexGetResponse = import("./types.js").ProfileListResponse;
 
 /** Backend response type: models::PesResponse. */
 export interface ProfileSupportPesGetResponseData extends JsonObject {
@@ -5066,195 +1416,34 @@ export interface ProfileSupportPesGetResponse extends ApiEnvelope<ProfileSupport
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ProfileSupportPesSchemaGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileSupportPesSchemaGetResponse = ApiEnvelope<import("./wire.types.js").PesSchema>;
 
 /** Backend query type: models::ListQuery. */
 export interface ProfileTeacherIndexGetQuery extends importProfileListQuery {}
 /** Backend response type: models::ListData. */
-export interface ProfileTeacherIndexGetResponseDataProfilesRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileTeacherIndexGetResponseDataProfilesCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileTeacherIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileTeacherIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileTeacherIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileTeacherIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileTeacherIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileTeacherIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileTeacherIndexGetResponseDataProfilesOfficeEnrollments[];
-  "transactions": ProfileTeacherIndexGetResponseDataProfilesOfficeTransactions[];
-  "installments": ProfileTeacherIndexGetResponseDataProfilesOfficeInstallments[];
-  "wallets": ProfileTeacherIndexGetResponseDataProfilesOfficeWallets[];
-  "wallet_transactions": ProfileTeacherIndexGetResponseDataProfilesOfficeWalletTransactions[];
-}
-export interface ProfileTeacherIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileTeacherIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileTeacherIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileTeacherIndexGetResponseDataProfilesLms extends JsonObject {
-  "classrooms": ProfileTeacherIndexGetResponseDataProfilesLmsClassrooms[];
-  "classroom_sessions": ProfileTeacherIndexGetResponseDataProfilesLmsClassroomSessions[];
-  "classroom_users": ProfileTeacherIndexGetResponseDataProfilesLmsClassroomUsers[];
-}
-export interface ProfileTeacherIndexGetResponseDataProfilesParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileTeacherIndexGetResponseDataProfiles extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileTeacherIndexGetResponseDataProfilesRoles[];
-  "credential": ProfileTeacherIndexGetResponseDataProfilesCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileTeacherIndexGetResponseDataProfilesOffice | null;
-  "lms"?: ProfileTeacherIndexGetResponseDataProfilesLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileTeacherIndexGetResponseDataProfilesParent[] | null;
-}
-export interface ProfileTeacherIndexGetResponseData extends JsonObject {
-  "profiles": ProfileTeacherIndexGetResponseDataProfiles[];
-}
-export interface ProfileTeacherIndexGetMetaData extends JsonObject {
-  "current_page": number;
-  "per_page": number;
-  "total": number;
-  "last_page": number;
-}
-export interface ProfileTeacherIndexGetResponse extends ApiEnvelope<ProfileTeacherIndexGetResponseData> {
-  meta: ProfileTeacherIndexGetMetaData;
-}
+export type ProfileTeacherIndexGetResponse = import("./types.js").ProfileListResponse;
 
 /** Backend response type: serde_json::Value. */
-export interface ProfileRestoreGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileRestoreGetResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend request type: models::MetaUpdate. */
 export interface ProfileAddMetaPatchInput extends JsonObject {
   "meta": JsonValue;
 }
 /** Backend response type: serde_json::Value. */
-export interface ProfileAddMetaPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileAddMetaPatchResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend request type: models::MetaUpdate. */
 export interface ProfileAddMetaPutInput extends JsonObject {
   "meta": JsonValue;
 }
 /** Backend response type: serde_json::Value. */
-export interface ProfileAddMetaPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProfileAddMetaPutResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend request type: EducationInformationUpdate. */
 export type EducationUpdatePutInput = import("./types.js").EducationInformationInput;
 /** Backend response type: crate::profile::models::SingleData. */
-export interface EducationUpdatePutResponseDataCity extends JsonObject {
-  "id": string;
-  "province_id": string;
-  "name": string;
-  "latitude": number | null;
-  "longitude": number | null;
-  "status": string;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface EducationUpdatePutResponseData extends JsonObject {
-  "city": EducationUpdatePutResponseDataCity;
-}
-export interface EducationUpdatePutResponse extends ApiEnvelope<EducationUpdatePutResponseData> {
-}
+export type EducationUpdatePutResponse = import("./types.js").ProfileResponse;
 
 /** Backend request type: models::PersonalInformationUpdate. */
 export interface ProfileUpdatePersonalPatchInput extends JsonObject {
@@ -5276,142 +1465,7 @@ export interface ProfileUpdatePersonalPatchInput extends JsonObject {
   "city_id"?: string | null;
 }
 /** Backend response type: models::SingleData. */
-export interface ProfileUpdatePersonalPatchResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileUpdatePersonalPatchResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileUpdatePersonalPatchResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileUpdatePersonalPatchResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdatePersonalPatchResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdatePersonalPatchResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileUpdatePersonalPatchResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileUpdatePersonalPatchResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileUpdatePersonalPatchResponseDataProfileOfficeEnrollments[];
-  "transactions": ProfileUpdatePersonalPatchResponseDataProfileOfficeTransactions[];
-  "installments": ProfileUpdatePersonalPatchResponseDataProfileOfficeInstallments[];
-  "wallets": ProfileUpdatePersonalPatchResponseDataProfileOfficeWallets[];
-  "wallet_transactions": ProfileUpdatePersonalPatchResponseDataProfileOfficeWalletTransactions[];
-}
-export interface ProfileUpdatePersonalPatchResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileUpdatePersonalPatchResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileUpdatePersonalPatchResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileUpdatePersonalPatchResponseDataProfileLms extends JsonObject {
-  "classrooms": ProfileUpdatePersonalPatchResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": ProfileUpdatePersonalPatchResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": ProfileUpdatePersonalPatchResponseDataProfileLmsClassroomUsers[];
-}
-export interface ProfileUpdatePersonalPatchResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileUpdatePersonalPatchResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileUpdatePersonalPatchResponseDataProfileRoles[];
-  "credential": ProfileUpdatePersonalPatchResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileUpdatePersonalPatchResponseDataProfileOffice | null;
-  "lms"?: ProfileUpdatePersonalPatchResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileUpdatePersonalPatchResponseDataProfileParent[] | null;
-}
-export interface ProfileUpdatePersonalPatchResponseData extends JsonObject {
-  "profile": ProfileUpdatePersonalPatchResponseDataProfile;
-}
-export interface ProfileUpdatePersonalPatchResponse extends ApiEnvelope<ProfileUpdatePersonalPatchResponseData> {
-}
+export type ProfileUpdatePersonalPatchResponse = import("./types.js").ProfileResponse;
 
 /** Backend request type: models::PersonalInformationUpdate. */
 export interface ProfileUpdatePersonalPutInput extends JsonObject {
@@ -5433,142 +1487,7 @@ export interface ProfileUpdatePersonalPutInput extends JsonObject {
   "city_id"?: string | null;
 }
 /** Backend response type: models::SingleData. */
-export interface ProfileUpdatePersonalPutResponseDataProfileRoles extends JsonObject {
-  "id": string;
-  "name": string;
-}
-export interface ProfileUpdatePersonalPutResponseDataProfileCredential extends JsonObject {
-  "handle_registration": number;
-  "handle_registration_with_installment": number;
-  "handle_await_installment": number;
-  "handle_overdue_installment": number;
-  "handle_freemium_sessions": number;
-  "handle_cancel": number;
-  "total": number;
-}
-export interface ProfileUpdatePersonalPutResponseDataProfileOfficeEnrollments extends JsonObject {
-  "enrollment_id": number;
-  "student_id": number | null;
-  "classroom_id": number | null;
-  "course_id": number | null;
-  "support_user_id": string | null;
-  "amount": number | null;
-  "discount_amount": number | null;
-  "remain_amount": number | null;
-  "total_sessions": number | null;
-  "freemium_sessions": number | null;
-  "freemium_sessions_used": number | null;
-  "education_status_id": number | null;
-  "archive": boolean;
-}
-export interface ProfileUpdatePersonalPutResponseDataProfileOfficeTransactions extends JsonObject {
-  "transaction_id": number;
-  "subject": string | null;
-  "amount": number | null;
-  "status": string | null;
-  "support_user_id": string | null;
-  "deposit_at": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdatePersonalPutResponseDataProfileOfficeInstallments extends JsonObject {
-  "installment_id": number;
-  "amount": number | null;
-  "status": string | null;
-  "paid_at": string | null;
-  "deadline": string | null;
-  "archive": boolean;
-}
-export interface ProfileUpdatePersonalPutResponseDataProfileOfficeWallets extends JsonObject {
-  "wallet_id": number;
-  "balance": number | null;
-}
-export interface ProfileUpdatePersonalPutResponseDataProfileOfficeWalletTransactions extends JsonObject {
-  "wallet_transaction_id": number;
-  "amount": number | null;
-  "transaction_type": string | null;
-}
-export interface ProfileUpdatePersonalPutResponseDataProfileOffice extends JsonObject {
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "enrollments": ProfileUpdatePersonalPutResponseDataProfileOfficeEnrollments[];
-  "transactions": ProfileUpdatePersonalPutResponseDataProfileOfficeTransactions[];
-  "installments": ProfileUpdatePersonalPutResponseDataProfileOfficeInstallments[];
-  "wallets": ProfileUpdatePersonalPutResponseDataProfileOfficeWallets[];
-  "wallet_transactions": ProfileUpdatePersonalPutResponseDataProfileOfficeWalletTransactions[];
-}
-export interface ProfileUpdatePersonalPutResponseDataProfileLmsClassrooms extends JsonObject {
-  "classroom_id": string;
-  "name": string | null;
-  "course_id": string | null;
-  "capacity": number | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "classroom_type_id": string | null;
-  "status": string | null;
-  "consultant_user_id": string | null;
-  "teacher_user_id": string | null;
-  "support_user_id": string | null;
-}
-export interface ProfileUpdatePersonalPutResponseDataProfileLmsClassroomSessions extends JsonObject {
-  "session_id": string;
-  "classroom_id": string | null;
-  "starts_at": string | null;
-  "ends_at": string | null;
-  "status": string | null;
-}
-export interface ProfileUpdatePersonalPutResponseDataProfileLmsClassroomUsers extends JsonObject {
-  "classroom_id": string;
-  "score": number | null;
-  "status": string | null;
-}
-export interface ProfileUpdatePersonalPutResponseDataProfileLms extends JsonObject {
-  "classrooms": ProfileUpdatePersonalPutResponseDataProfileLmsClassrooms[];
-  "classroom_sessions": ProfileUpdatePersonalPutResponseDataProfileLmsClassroomSessions[];
-  "classroom_users": ProfileUpdatePersonalPutResponseDataProfileLmsClassroomUsers[];
-}
-export interface ProfileUpdatePersonalPutResponseDataProfileParent extends JsonObject {
-  "user_id": string;
-  "parent_type"?: string | null;
-}
-export interface ProfileUpdatePersonalPutResponseDataProfile extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "email": string | null;
-  "phone": string | null;
-  "national_code": string | null;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "gender": string | null;
-  "job": string | null;
-  "education_id": string | null;
-  "attendance_mode": string | null;
-  "level": string | null;
-  "referral_source": string | null;
-  "referrer_uuid": string | null;
-  "description": string | null;
-  "account_balance": number | null;
-  "wallet_balance": number | null;
-  "status": string;
-  "employee_type": string | null;
-  "freemium_session_limit": number | null;
-  "avatar": string | null;
-  "has_active_enrollment": boolean;
-  "roles": ProfileUpdatePersonalPutResponseDataProfileRoles[];
-  "credential": ProfileUpdatePersonalPutResponseDataProfileCredential | null;
-  "meta": JsonValue | null;
-  "app": JsonValue | null;
-  "assessment": JsonValue | null;
-  "office"?: ProfileUpdatePersonalPutResponseDataProfileOffice | null;
-  "lms"?: ProfileUpdatePersonalPutResponseDataProfileLms | null;
-  "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "services"?: BackendJson<"serde_json::Map<String, Value>"> | null;
-  "parent"?: ProfileUpdatePersonalPutResponseDataProfileParent[] | null;
-}
-export interface ProfileUpdatePersonalPutResponseData extends JsonObject {
-  "profile": ProfileUpdatePersonalPutResponseDataProfile;
-}
-export interface ProfileUpdatePersonalPutResponse extends ApiEnvelope<ProfileUpdatePersonalPutResponseData> {
-}
+export type ProfileUpdatePersonalPutResponse = import("./types.js").ProfileResponse;
 
 /** Backend query type: models::ListQuery. */
 export interface ProvinceIndexGetQuery extends QueryParams {
@@ -5632,8 +1551,7 @@ export interface ProvinceStorePostResponse extends ApiEnvelope<ProvinceStorePost
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ProvinceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProvinceDestroyDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: models::SingleData. */
 export interface ProvinceShowGetResponseDataProvince extends JsonObject {
@@ -5706,196 +1624,48 @@ export interface ProvinceUpdatePutResponse extends ApiEnvelope<ProvinceUpdatePut
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ProvinceForceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProvinceForceDestroyDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: serde_json::Value. */
-export interface ProvinceRestoreGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ProvinceRestoreGetResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: Vec<entity::referral_source::Model>. */
-export interface ReferralListGetResponseItem extends JsonObject {
-  "id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "metadata": BackendJson<"Json">;
-  "active": boolean;
-  "sort_order": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface ReferralListGetResponse extends ApiEnvelope<ReferralListGetResponseItem[]> {
-}
+export type ReferralListGetResponse = ApiEnvelope<import("./wire.types.js").ProfileReferralSource[]>;
 
 /** Backend request type: SourceWrite. */
-export interface ReferralCreatePostInput extends JsonObject {
-  "code": string;
-  "labels"?: JsonValue;
-  "metadata"?: JsonValue;
-  "active"?: boolean;
-  "sort_order"?: number;
-}
+export type ReferralCreatePostInput = import("./wire.types.js").ProfileReferralSourceInput;
 /** Backend response type: entity::referral_source::Model. */
-export interface ReferralCreatePostResponseData extends JsonObject {
-  "id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "metadata": BackendJson<"Json">;
-  "active": boolean;
-  "sort_order": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface ReferralCreatePostResponse extends ApiEnvelope<ReferralCreatePostResponseData> {
-}
+export type ReferralCreatePostResponse = ApiEnvelope<import("./wire.types.js").ProfileReferralSource>;
 
 /** Backend response type: serde_json::Value. */
-export interface ReferralDeleteDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ReferralDeleteDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: entity::referral_source::Model. */
-export interface ReferralShowGetResponseData extends JsonObject {
-  "id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "metadata": BackendJson<"Json">;
-  "active": boolean;
-  "sort_order": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface ReferralShowGetResponse extends ApiEnvelope<ReferralShowGetResponseData> {
-}
+export type ReferralShowGetResponse = ApiEnvelope<import("./wire.types.js").ProfileReferralSource>;
 
 /** Backend request type: SourceWrite. */
-export interface ReferralUpdatePutInput extends JsonObject {
-  "code": string;
-  "labels"?: JsonValue;
-  "metadata"?: JsonValue;
-  "active"?: boolean;
-  "sort_order"?: number;
-}
+export type ReferralUpdatePutInput = import("./wire.types.js").ProfileReferralSourceInput;
 /** Backend response type: entity::referral_source::Model. */
-export interface ReferralUpdatePutResponseData extends JsonObject {
-  "id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "metadata": BackendJson<"Json">;
-  "active": boolean;
-  "sort_order": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface ReferralUpdatePutResponse extends ApiEnvelope<ReferralUpdatePutResponseData> {
-}
+export type ReferralUpdatePutResponse = ApiEnvelope<import("./wire.types.js").ProfileReferralSource>;
 
 /** Backend response type: Vec<entity::relation_type::Model>. */
-export interface RelationListTypesGetResponseItem extends JsonObject {
-  "id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "inverse_type_id": string | null;
-  "symmetric": boolean;
-  "managed_inverse": boolean;
-  "allow_self": boolean;
-  "constraints": BackendJson<"Json">;
-  "active": boolean;
-  "sort_order": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface RelationListTypesGetResponse extends ApiEnvelope<RelationListTypesGetResponseItem[]> {
-}
+export type RelationListTypesGetResponse = ApiEnvelope<import("./wire.types.js").ProfileRelationType[]>;
 
 /** Backend request type: RelationTypeWrite. */
-export interface RelationCreateTypePostInput extends JsonObject {
-  "code": string;
-  "labels"?: JsonValue;
-  "inverse_type_id"?: string | null;
-  "symmetric"?: boolean;
-  "managed_inverse"?: boolean;
-  "allow_self"?: boolean;
-  "constraints"?: JsonValue;
-  "active"?: boolean;
-  "sort_order"?: number;
-}
+export type RelationCreateTypePostInput = import("./wire.types.js").ProfileRelationTypeInput;
 /** Backend response type: entity::relation_type::Model. */
-export interface RelationCreateTypePostResponseData extends JsonObject {
-  "id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "inverse_type_id": string | null;
-  "symmetric": boolean;
-  "managed_inverse": boolean;
-  "allow_self": boolean;
-  "constraints": BackendJson<"Json">;
-  "active": boolean;
-  "sort_order": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface RelationCreateTypePostResponse extends ApiEnvelope<RelationCreateTypePostResponseData> {
-}
+export type RelationCreateTypePostResponse = ApiEnvelope<import("./wire.types.js").ProfileRelationType>;
 
 /** Backend response type: serde_json::Value. */
-export interface RelationDeleteTypeDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type RelationDeleteTypeDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: entity::relation_type::Model. */
-export interface RelationShowTypeGetResponseData extends JsonObject {
-  "id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "inverse_type_id": string | null;
-  "symmetric": boolean;
-  "managed_inverse": boolean;
-  "allow_self": boolean;
-  "constraints": BackendJson<"Json">;
-  "active": boolean;
-  "sort_order": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface RelationShowTypeGetResponse extends ApiEnvelope<RelationShowTypeGetResponseData> {
-}
+export type RelationShowTypeGetResponse = ApiEnvelope<import("./wire.types.js").ProfileRelationType>;
 
 /** Backend request type: RelationTypeWrite. */
-export interface RelationUpdateTypePutInput extends JsonObject {
-  "code": string;
-  "labels"?: JsonValue;
-  "inverse_type_id"?: string | null;
-  "symmetric"?: boolean;
-  "managed_inverse"?: boolean;
-  "allow_self"?: boolean;
-  "constraints"?: JsonValue;
-  "active"?: boolean;
-  "sort_order"?: number;
-}
+export type RelationUpdateTypePutInput = import("./wire.types.js").ProfileRelationTypeInput;
 /** Backend response type: entity::relation_type::Model. */
-export interface RelationUpdateTypePutResponseData extends JsonObject {
-  "id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "inverse_type_id": string | null;
-  "symmetric": boolean;
-  "managed_inverse": boolean;
-  "allow_self": boolean;
-  "constraints": BackendJson<"Json">;
-  "active": boolean;
-  "sort_order": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface RelationUpdateTypePutResponse extends ApiEnvelope<RelationUpdateTypePutResponseData> {
-}
+export type RelationUpdateTypePutResponse = ApiEnvelope<import("./wire.types.js").ProfileRelationType>;
 
 /** Backend response type: models::ListData. */
 export interface SettingIndexGetResponseDataSetting extends JsonObject {
@@ -5938,353 +1708,82 @@ export interface LifecycleActionsListGetQuery extends QueryParams {
   "state_id"?: string | null;
 }
 /** Backend response type: Vec<entity::state_action::Model>. */
-export interface LifecycleActionsListGetResponseItem extends JsonObject {
-  "id": string;
-  "state_id": string;
-  "phase": string;
-  "action_type": string;
-  "labels": BackendJson<"Json">;
-  "config": BackendJson<"Json">;
-  "condition": BackendJson<"Json"> | null;
-  "delay_seconds": number;
-  "retry_policy": BackendJson<"Json">;
-  "max_attempts": number;
-  "sort_order": number;
-  "enabled": boolean;
-  "created_at": string;
-  "updated_at": string | null;
-}
-export interface LifecycleActionsListGetResponse extends ApiEnvelope<LifecycleActionsListGetResponseItem[]> {
-}
+export type LifecycleActionsListGetResponse = ApiEnvelope<import("./wire.types.js").ProfileStateAction[]>;
 
 /** Backend request type: ActionWrite. */
-export interface LifecycleCreateActionPostInput extends JsonObject {
-  "state_id": string;
-  "phase": string;
-  "action_type": string;
-  "labels"?: JsonValue;
-  "config"?: JsonValue;
-  "condition"?: JsonValue | null;
-  "delay_seconds"?: number;
-  "retry_policy"?: JsonValue;
-  "max_attempts"?: number;
-  "sort_order"?: number;
-  "enabled"?: boolean;
-}
+export type LifecycleCreateActionPostInput = import("./wire.types.js").ProfileLifecycleActionInput;
 /** Backend response type: entity::state_action::Model. */
-export interface LifecycleCreateActionPostResponseData extends JsonObject {
-  "id": string;
-  "state_id": string;
-  "phase": string;
-  "action_type": string;
-  "labels": BackendJson<"Json">;
-  "config": BackendJson<"Json">;
-  "condition": BackendJson<"Json"> | null;
-  "delay_seconds": number;
-  "retry_policy": BackendJson<"Json">;
-  "max_attempts": number;
-  "sort_order": number;
-  "enabled": boolean;
-  "created_at": string;
-  "updated_at": string | null;
-}
-export interface LifecycleCreateActionPostResponse extends ApiEnvelope<LifecycleCreateActionPostResponseData> {
-}
+export type LifecycleCreateActionPostResponse = ApiEnvelope<import("./wire.types.js").ProfileStateAction>;
 
 /** Backend response type: serde_json::Value. */
-export interface LifecycleDeleteActionDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type LifecycleDeleteActionDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: entity::state_action::Model. */
-export interface LifecycleShowActionGetResponseData extends JsonObject {
-  "id": string;
-  "state_id": string;
-  "phase": string;
-  "action_type": string;
-  "labels": BackendJson<"Json">;
-  "config": BackendJson<"Json">;
-  "condition": BackendJson<"Json"> | null;
-  "delay_seconds": number;
-  "retry_policy": BackendJson<"Json">;
-  "max_attempts": number;
-  "sort_order": number;
-  "enabled": boolean;
-  "created_at": string;
-  "updated_at": string | null;
-}
-export interface LifecycleShowActionGetResponse extends ApiEnvelope<LifecycleShowActionGetResponseData> {
-}
+export type LifecycleShowActionGetResponse = ApiEnvelope<import("./wire.types.js").ProfileStateAction>;
 
 /** Backend request type: ActionWrite. */
-export interface LifecycleUpdateActionPutInput extends JsonObject {
-  "state_id": string;
-  "phase": string;
-  "action_type": string;
-  "labels"?: JsonValue;
-  "config"?: JsonValue;
-  "condition"?: JsonValue | null;
-  "delay_seconds"?: number;
-  "retry_policy"?: JsonValue;
-  "max_attempts"?: number;
-  "sort_order"?: number;
-  "enabled"?: boolean;
-}
+export type LifecycleUpdateActionPutInput = import("./wire.types.js").ProfileLifecycleActionInput;
 /** Backend response type: entity::state_action::Model. */
-export interface LifecycleUpdateActionPutResponseData extends JsonObject {
-  "id": string;
-  "state_id": string;
-  "phase": string;
-  "action_type": string;
-  "labels": BackendJson<"Json">;
-  "config": BackendJson<"Json">;
-  "condition": BackendJson<"Json"> | null;
-  "delay_seconds": number;
-  "retry_policy": BackendJson<"Json">;
-  "max_attempts": number;
-  "sort_order": number;
-  "enabled": boolean;
-  "created_at": string;
-  "updated_at": string | null;
-}
-export interface LifecycleUpdateActionPutResponse extends ApiEnvelope<LifecycleUpdateActionPutResponseData> {
-}
+export type LifecycleUpdateActionPutResponse = ApiEnvelope<import("./wire.types.js").ProfileStateAction>;
 
 /** Backend request type: ActionWrite. */
-export interface LifecycleDryRunActionPostInput extends JsonObject {
-  "state_id": string;
-  "phase": string;
-  "action_type": string;
-  "labels"?: JsonValue;
-  "config"?: JsonValue;
-  "condition"?: JsonValue | null;
-  "delay_seconds"?: number;
-  "retry_policy"?: JsonValue;
-  "max_attempts"?: number;
-  "sort_order"?: number;
-  "enabled"?: boolean;
-}
+export type LifecycleDryRunActionPostInput = import("./wire.types.js").ProfileLifecycleActionInput;
 /** Backend response type: serde_json::Value. */
-export interface LifecycleDryRunActionPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type LifecycleDryRunActionPostResponse = ApiEnvelope<import("./wire.types.js").ActionDryRun>;
 
 /** Backend query type: StateQuery. */
 export interface LifecycleStatesGetQuery extends QueryParams {
   "system_id"?: string | null;
 }
 /** Backend response type: Vec<entity::state_definition::Model>. */
-export interface LifecycleStatesGetResponseItem extends JsonObject {
-  "id": string;
-  "system_id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "description": BackendJson<"Json">;
-  "rule": BackendJson<"Json">;
-  "priority": number;
-  "is_fallback": boolean;
-  "active": boolean;
-  "version": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface LifecycleStatesGetResponse extends ApiEnvelope<LifecycleStatesGetResponseItem[]> {
-}
+export type LifecycleStatesGetResponse = ApiEnvelope<import("./wire.types.js").ProfileStateDefinition[]>;
 
 /** Backend request type: StateWrite. */
-export interface LifecycleCreateStatePostInput extends JsonObject {
-  "system_id": string;
-  "code": string;
-  "labels"?: JsonValue;
-  "description"?: JsonValue;
-  "rule"?: JsonValue;
-  "priority"?: number;
-  "is_fallback"?: boolean;
-  "active"?: boolean;
-}
+export type LifecycleCreateStatePostInput = import("./wire.types.js").ProfileLifecycleStateInput;
 /** Backend response type: entity::state_definition::Model. */
-export interface LifecycleCreateStatePostResponseData extends JsonObject {
-  "id": string;
-  "system_id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "description": BackendJson<"Json">;
-  "rule": BackendJson<"Json">;
-  "priority": number;
-  "is_fallback": boolean;
-  "active": boolean;
-  "version": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface LifecycleCreateStatePostResponse extends ApiEnvelope<LifecycleCreateStatePostResponseData> {
-}
+export type LifecycleCreateStatePostResponse = ApiEnvelope<import("./wire.types.js").ProfileStateDefinition>;
 
 /** Backend response type: serde_json::Value. */
-export interface LifecycleDeleteStateDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type LifecycleDeleteStateDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: entity::state_definition::Model. */
-export interface LifecycleShowStateGetResponseData extends JsonObject {
-  "id": string;
-  "system_id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "description": BackendJson<"Json">;
-  "rule": BackendJson<"Json">;
-  "priority": number;
-  "is_fallback": boolean;
-  "active": boolean;
-  "version": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface LifecycleShowStateGetResponse extends ApiEnvelope<LifecycleShowStateGetResponseData> {
-}
+export type LifecycleShowStateGetResponse = ApiEnvelope<import("./wire.types.js").ProfileStateDefinition>;
 
 /** Backend request type: StateWrite. */
-export interface LifecycleUpdateStatePutInput extends JsonObject {
-  "system_id": string;
-  "code": string;
-  "labels"?: JsonValue;
-  "description"?: JsonValue;
-  "rule"?: JsonValue;
-  "priority"?: number;
-  "is_fallback"?: boolean;
-  "active"?: boolean;
-}
+export type LifecycleUpdateStatePutInput = import("./wire.types.js").ProfileLifecycleStateInput;
 /** Backend response type: entity::state_definition::Model. */
-export interface LifecycleUpdateStatePutResponseData extends JsonObject {
-  "id": string;
-  "system_id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "description": BackendJson<"Json">;
-  "rule": BackendJson<"Json">;
-  "priority": number;
-  "is_fallback": boolean;
-  "active": boolean;
-  "version": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface LifecycleUpdateStatePutResponse extends ApiEnvelope<LifecycleUpdateStatePutResponseData> {
-}
+export type LifecycleUpdateStatePutResponse = ApiEnvelope<import("./wire.types.js").ProfileStateDefinition>;
 
 /** Backend query type: AttemptQuery. */
 export interface LifecycleActionAttemptsGetQuery extends QueryParams {
   "outbox_id"?: string | null;
 }
 /** Backend response type: Vec<entity::state_action_attempt::Model>. */
-export interface LifecycleActionAttemptsGetResponseItem extends JsonObject {
-  "id": string;
-  "outbox_id": string;
-  "attempt": number;
-  "status": string;
-  "error": string | null;
-  "started_at": string;
-  "finished_at": string | null;
-}
-export interface LifecycleActionAttemptsGetResponse extends ApiEnvelope<LifecycleActionAttemptsGetResponseItem[]> {
-}
+export type LifecycleActionAttemptsGetResponse = ApiEnvelope<import("./wire.types.js").ProfileStateActionAttempt[]>;
 
 /** Backend request type: EvaluationRequest. */
-export interface LifecycleEvaluatePostInput extends JsonObject {
-  "profile_id": string;
-  "system_id": string;
-  "facts"?: JsonValue;
-  "trigger"?: string | null;
-}
+export type LifecycleEvaluatePostInput = import("./wire.types.js").ProfileLifecycleEvaluationInput;
 /** Backend response type: EvaluationResult. */
-export interface LifecycleEvaluatePostResponseDataCandidates extends JsonObject {
-  "state_id": string;
-  "code": string;
-  "priority": number;
-  "matched": boolean;
-  "is_fallback": boolean;
-}
-export interface LifecycleEvaluatePostResponseData extends JsonObject {
-  "eligible": boolean;
-  "selected_state_id": string | null;
-  "selected_state_code": string | null;
-  "current_state_id": string | null;
-  "changed": boolean;
-  "candidates": LifecycleEvaluatePostResponseDataCandidates[];
-  "facts": JsonValue;
-}
-export interface LifecycleEvaluatePostResponse extends ApiEnvelope<LifecycleEvaluatePostResponseData> {
-}
+export type LifecycleEvaluatePostResponse = ApiEnvelope<import("./wire.types.js").ProfileLifecycleEvaluation>;
 
 /** Backend query type: OutboxQuery. */
 export interface LifecycleOutboxGetQuery extends QueryParams {
   "status"?: string | null;
 }
 /** Backend response type: Vec<entity::state_action_outbox::Model>. */
-export interface LifecycleOutboxGetResponseItem extends JsonObject {
-  "id": string;
-  "transition_id": string;
-  "action_id": string;
-  "idempotency_key": string;
-  "available_at": string;
-  "status": string;
-  "attempts": number;
-  "last_error": string | null;
-  "completed_at": string | null;
-  "created_at": string;
-  "updated_at": string | null;
-}
-export interface LifecycleOutboxGetResponse extends ApiEnvelope<LifecycleOutboxGetResponseItem[]> {
-}
+export type LifecycleOutboxGetResponse = ApiEnvelope<import("./wire.types.js").ProfileStateActionOutbox[]>;
 
 /** Backend response type: entity::state_action_outbox::Model. */
-export interface LifecycleRetryPostResponseData extends JsonObject {
-  "id": string;
-  "transition_id": string;
-  "action_id": string;
-  "idempotency_key": string;
-  "available_at": string;
-  "status": string;
-  "attempts": number;
-  "last_error": string | null;
-  "completed_at": string | null;
-  "created_at": string;
-  "updated_at": string | null;
-}
-export interface LifecycleRetryPostResponse extends ApiEnvelope<LifecycleRetryPostResponseData> {
-}
+export type LifecycleRetryPostResponse = ApiEnvelope<import("./wire.types.js").ProfileStateActionOutbox>;
 
 /** Backend response type: usize. */
 export interface LifecycleProcessOutboxPostResponse extends ApiEnvelope<number> {
 }
 
 /** Backend request type: EvaluationRequest. */
-export interface LifecyclePreviewPostInput extends JsonObject {
-  "profile_id": string;
-  "system_id": string;
-  "facts"?: JsonValue;
-  "trigger"?: string | null;
-}
+export type LifecyclePreviewPostInput = import("./wire.types.js").ProfileLifecycleEvaluationInput;
 /** Backend response type: EvaluationResult. */
-export interface LifecyclePreviewPostResponseDataCandidates extends JsonObject {
-  "state_id": string;
-  "code": string;
-  "priority": number;
-  "matched": boolean;
-  "is_fallback": boolean;
-}
-export interface LifecyclePreviewPostResponseData extends JsonObject {
-  "eligible": boolean;
-  "selected_state_id": string | null;
-  "selected_state_code": string | null;
-  "current_state_id": string | null;
-  "changed": boolean;
-  "candidates": LifecyclePreviewPostResponseDataCandidates[];
-  "facts": JsonValue;
-}
-export interface LifecyclePreviewPostResponse extends ApiEnvelope<LifecyclePreviewPostResponseData> {
-}
+export type LifecyclePreviewPostResponse = ApiEnvelope<import("./wire.types.js").ProfileLifecycleEvaluation>;
 
 /** Backend query type: TransitionQuery. */
 export interface LifecycleTransitionsGetQuery extends QueryParams {
@@ -6292,129 +1791,34 @@ export interface LifecycleTransitionsGetQuery extends QueryParams {
   "system_id"?: string | null;
 }
 /** Backend response type: Vec<entity::state_transition::Model>. */
-export interface LifecycleTransitionsGetResponseItem extends JsonObject {
-  "id": string;
-  "profile_id": string;
-  "system_id": string;
-  "from_state_id": string | null;
-  "to_state_id": string;
-  "definition_version": number;
-  "trigger": string;
-  "facts": BackendJson<"Json">;
-  "matched_rule": BackendJson<"Json">;
-  "transitioned_at": string;
-}
-export interface LifecycleTransitionsGetResponse extends ApiEnvelope<LifecycleTransitionsGetResponseItem[]> {
-}
+export type LifecycleTransitionsGetResponse = ApiEnvelope<import("./wire.types.js").ProfileStateTransition[]>;
 
 /** Backend request type: RulePreviewRequest. */
-export interface LifecycleValidateRulePostInput extends JsonObject {
-  "rule"?: JsonValue;
-  "facts"?: JsonValue;
-}
+export type LifecycleValidateRulePostInput = import("./wire.types.js").ProfileLifecycleRuleInput;
 /** Backend response type: serde_json::Value. */
-export interface LifecycleValidateRulePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type LifecycleValidateRulePostResponse = ApiEnvelope<import("./wire.types.js").RuleValidation>;
 
 /** Backend response type: Vec<entity::state_system::Model>. */
-export interface LifecycleSystemsGetResponseItem extends JsonObject {
-  "id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "description": BackendJson<"Json">;
-  "eligibility_rule": BackendJson<"Json">;
-  "evaluation_schedule": string | null;
-  "publish_mode": string;
-  "active": boolean;
-  "version": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface LifecycleSystemsGetResponse extends ApiEnvelope<LifecycleSystemsGetResponseItem[]> {
-}
+export type LifecycleSystemsGetResponse = ApiEnvelope<import("./wire.types.js").ProfileStateSystem[]>;
 
 /** Backend request type: SystemWrite. */
-export interface LifecycleCreateSystemPostInput extends JsonObject {
-  "code": string;
-  "labels"?: JsonValue;
-  "description"?: JsonValue;
-  "eligibility_rule"?: JsonValue;
-  "evaluation_schedule"?: string | null;
-  "publish_mode"?: string;
-  "active"?: boolean;
-}
+export type LifecycleCreateSystemPostInput = import("./wire.types.js").ProfileLifecycleSystemInput;
 /** Backend response type: entity::state_system::Model. */
-export interface LifecycleCreateSystemPostResponseData extends JsonObject {
-  "id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "description": BackendJson<"Json">;
-  "eligibility_rule": BackendJson<"Json">;
-  "evaluation_schedule": string | null;
-  "publish_mode": string;
-  "active": boolean;
-  "version": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface LifecycleCreateSystemPostResponse extends ApiEnvelope<LifecycleCreateSystemPostResponseData> {
-}
+export type LifecycleCreateSystemPostResponse = ApiEnvelope<import("./wire.types.js").ProfileStateSystem>;
 
 /** Backend response type: serde_json::Value. */
-export interface LifecycleDeleteSystemDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type LifecycleDeleteSystemDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: entity::state_system::Model. */
-export interface LifecycleShowSystemGetResponseData extends JsonObject {
-  "id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "description": BackendJson<"Json">;
-  "eligibility_rule": BackendJson<"Json">;
-  "evaluation_schedule": string | null;
-  "publish_mode": string;
-  "active": boolean;
-  "version": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface LifecycleShowSystemGetResponse extends ApiEnvelope<LifecycleShowSystemGetResponseData> {
-}
+export type LifecycleShowSystemGetResponse = ApiEnvelope<import("./wire.types.js").ProfileStateSystem>;
 
 /** Backend request type: SystemWrite. */
-export interface LifecycleUpdateSystemPutInput extends JsonObject {
-  "code": string;
-  "labels"?: JsonValue;
-  "description"?: JsonValue;
-  "eligibility_rule"?: JsonValue;
-  "evaluation_schedule"?: string | null;
-  "publish_mode"?: string;
-  "active"?: boolean;
-}
+export type LifecycleUpdateSystemPutInput = import("./wire.types.js").ProfileLifecycleSystemInput;
 /** Backend response type: entity::state_system::Model. */
-export interface LifecycleUpdateSystemPutResponseData extends JsonObject {
-  "id": string;
-  "code": string;
-  "labels": BackendJson<"Json">;
-  "description": BackendJson<"Json">;
-  "eligibility_rule": BackendJson<"Json">;
-  "evaluation_schedule": string | null;
-  "publish_mode": string;
-  "active": boolean;
-  "version": number;
-  "created_at": string;
-  "updated_at": string | null;
-  "deleted_at": string | null;
-}
-export interface LifecycleUpdateSystemPutResponse extends ApiEnvelope<LifecycleUpdateSystemPutResponseData> {
-}
+export type LifecycleUpdateSystemPutResponse = ApiEnvelope<import("./wire.types.js").ProfileStateSystem>;
 
 /** Backend response type: Value. */
-export interface SurveyIndexGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type SurveyIndexGetResponse = ApiEnvelope<import("./wire.types.js").ProfileSurvey[]>;
 
 /** Backend request type: CreateSurvey. */
 export interface SurveyStorePostInput extends JsonObject {
@@ -6424,8 +1828,7 @@ export interface SurveyStorePostInput extends JsonObject {
   "meta"?: JsonValue | null;
 }
 /** Backend response type: Value. */
-export interface SurveyStorePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type SurveyStorePostResponse = ApiEnvelope<import("./wire.types.js").ProfileSurvey>;
 
 /** Backend query type: models::ListQuery. */
 export interface TrustedServiceIndexGetQuery extends QueryParams {
@@ -6483,8 +1886,7 @@ export interface TrustedServiceStorePostResponse extends ApiEnvelope<TrustedServ
 }
 
 /** Backend response type: serde_json::Value. */
-export interface TrustedServiceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type TrustedServiceDestroyDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: models::SingleData. */
 export interface TrustedServiceShowGetResponseDataTrustedService extends JsonObject {
@@ -6614,8 +2016,7 @@ export interface TrustedServiceEventStorePostResponse extends ApiEnvelope<Truste
 }
 
 /** Backend response type: serde_json::Value. */
-export interface TrustedServiceEventDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type TrustedServiceEventDestroyDeleteResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
 /** Backend response type: models::EventSingleData. */
 export interface TrustedServiceEventShowGetResponseDataTrustedServiceEvent extends JsonObject {
@@ -6696,16 +2097,13 @@ export interface TrustedServiceEventUpdatePutResponse extends ApiEnvelope<Truste
 }
 
 /** Backend response type: Value. */
-export interface CampaignIndexGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type CampaignIndexGetResponse = ApiEnvelope<import("./wire.types.js").ProfileCampaign[]>;
 
 /** Backend response type: Value. */
-export interface CampaignMyContributionsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type CampaignMyContributionsGetResponse = ApiEnvelope<import("./wire.types.js").CampaignContribution[]>;
 
 /** Backend response type: Value. */
-export interface CampaignShowGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type CampaignShowGetResponse = ApiEnvelope<import("./wire.types.js").ProfileCampaign>;
 
 /** Backend request type: ContributionRequest. */
 export interface CampaignContributePostInput extends JsonObject {
@@ -6715,8 +2113,7 @@ export interface CampaignContributePostInput extends JsonObject {
   "idempotency_key": string;
 }
 /** Backend response type: Value. */
-export interface CampaignContributePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type CampaignContributePostResponse = ApiEnvelope<import("./wire.types.js").CampaignContributionReceipt>;
 
 /** Backend response type: serde_json::Value. */
 export type RouterHealthGetHealthResponse = import("@faiber/sdk-core").ServiceHealthResponse;

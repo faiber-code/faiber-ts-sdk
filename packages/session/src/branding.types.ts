@@ -6,9 +6,10 @@ export interface SessionBranding {
   icon_asset_key: string | null;
   icon_url: string | null;
 }
+export interface SessionBrandTextInput { title?: string | null }
 export interface SessionBrandingInput {
   title?: string | null;
-  localizations?: Record<string, {title?: string | null}>;
+  localizations?: Record<string, SessionBrandTextInput>;
   icon_asset_key?: string | null;
   icon_url?: string | null;
 }

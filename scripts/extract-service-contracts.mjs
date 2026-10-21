@@ -189,8 +189,11 @@ function handlerSignature(source, handler) {
     ?? params.match(/Json\s*<\s*([^>]+(?:<[^>]+>)?[^>]*)\s*>/)?.[1]?.trim()
     ?? params.match(/Form\s*\([^)]*\)\s*:\s*Form\s*<\s*([^>]+)\s*>/)?.[1]?.trim();
   const binary = /(?:^|,)\s*(?:\w+\s*:\s*)?(?:axum::body::)?Bytes\s*(?:,|$)/m.test(params);
-  const query = /(?:super::dynamic::)?DynamicListQuery\s*\(/.test(params) ? "models::ListQuery" : params.match(/Query\s*\([^)]*\)\s*:\s*Query\s*<\s*([^>]+)\s*>/)?.[1]?.trim()
-    ?? params.match(/\b(?:mut\s+)?\w+\s*:\s*Query\s*<\s*([^>]+)\s*>/)?.[1]?.trim();
+  const queryType = params.match(/\bQuery\s*</);
+  const queryOpen = queryType ? params.indexOf("<", queryType.index) : -1;
+  const queryClose = queryOpen < 0 ? -1 : matchingAngle(params, queryOpen);
+  const query = /(?:super::dynamic::)?DynamicListQuery\s*\(/.test(params) ? "models::ListQuery"
+    : queryClose < 0 ? undefined : params.slice(queryOpen + 1, queryClose).trim();
   const pathType = params.match(/\bPath\s*</);
   const pathOpen = pathType ? params.indexOf("<", pathType.index) : -1;
   const pathClose = pathOpen < 0 ? -1 : matchingAngle(params, pathOpen);

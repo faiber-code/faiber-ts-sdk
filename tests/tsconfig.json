@@ -24,6 +24,22 @@
     "knowledge-memory-management.types.ts",
     "manage-durable-actions.types.ts",
     "modules-hosted-search.types.ts",
-    "academy-wire.types.ts"
+    "academy-wire.types.ts",
+    "resource-delete.types.ts",
+    "idp-wire.types.ts",
+    "profile-wire.types.ts",
+    "asset-wire.types.ts",
+    "lms-final-pin-wire.types.ts",
+    "chat-source-wire.types.ts",
+    "crm-wire.types.ts",
+    "modules-final-pin-wire.types.ts",
+    "state-reviewed-wire.types.ts",
+    "task-source-wire.types.ts",
+    "drm-source-wire.types.ts",
+    "messenger-reviewed-wire.types.ts",
+    "session-source-wire.types.ts",
+    "flow-source-wire.types.ts",
+    "reservation-source-wire.types.ts",
+    "reservation-capacity.types.ts"
   ]
 }

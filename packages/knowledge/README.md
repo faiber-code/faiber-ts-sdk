@@ -43,7 +43,7 @@ Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `w
 
 ## Inputs, queries, responses, and transport
 
-All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Nested pagination uses keys such as `page[number]` and `page[size]` where required by the service. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
+All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Knowledge pagination uses flat `page` and `limit` keys; list metadata contains `total`, `page` and `limit`. Actions and editor audit apply only their documented limit/status filters and do not page. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
 
 Generic REST resources are capability-guarded. Calling a legacy method that the service does not register throws `UnsupportedOperationError` before sending a request instead of producing a backend `405`.
 
@@ -61,7 +61,7 @@ Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services 
 
 ### Deterministic published assistant contracts
 
-`knowledge.assistantContracts(assistantId, '2done-assistants')` retrieves complete contract records from the assistant's enabled base binding and immutable published release. It returns `data.release_id` and keyed `data.contracts`, including localized content and versioned JSON Schema metadata. Unlike semantic retrieval, this operation does not rank, truncate, or omit required contracts. It requires `knowledge:runtime`; absent, disabled, unpublished, or inaccessible bindings fail rather than returning partial guidance. Normal Axios authentication, cancellation, and error handling apply.
+`knowledge.assistantContracts(assistantId, '2done-assistants')` retrieves complete contract records from the assistant's enabled base binding and immutable published release. The Axios response contains `response.data.data.release_id` and keyed `response.data.data.contracts`, including localized content and versioned JSON Schema metadata. Unlike semantic retrieval, this operation does not rank, truncate, or omit required contracts. It requires `knowledge:runtime`; absent, disabled, unpublished, or inaccessible bindings fail rather than returning partial guidance. Normal Axios authentication, cancellation, and error handling apply.
 
 Internal operations require a trusted server credential and current tenant scope. Never call them from a browser or expose the service credential to application users.
 
@@ -214,3 +214,17 @@ Configured assistant levels constrain the owning-conversation context request on
 Selected-assistant group slugs are stored configuration, but forwarding and descendant-versus-exact matching are not fully implemented consistently. Do not use those settings as an authorization boundary or promise that unclassified results are excluded. Server-side current tenant, permissions and base bindings remain authoritative.
 
 Knowledge's selected-media chunk cap applies after governance and deduplication across both packing paths (default 8, valid range 1–20). Query limits are not a strict combined count across all returned lanes. Expansion and reranking settings can be retained as requested values while runtime capabilities report unsupported/not applied; storing a flag does not enable an algorithm or provider. Inspect returned trace/capability information instead of assuming these features ran.
+
+### Runtime receipts and platform inventory
+
+`recordMemoryTurn` returns HTTP 202 with either `{queued: true, outbox_id, status,
+idempotency_key}` or `{queued: false, reason}`. Admission is distinct from extraction.
+`recordRetrievalUsage` returns the persisted token/cost receipt for a trace. Platform
+catalog, converters, evaluation cases, recommender groups/items, evidence reads and
+health endpoints expose named response projections through `api.operations`.
+Readiness can return HTTP 503 with a degraded payload, which Axios rejects by default.
+
+Assistant query budgets omit `sections` when the assistant policy is missing. Runtime
+payloads that the service deliberately varies by provider retain documented JSON
+values; database rows and receipts expose their concrete fields. A source-sync or
+reprocess job receipt confirms durable enqueueing, not worker execution.

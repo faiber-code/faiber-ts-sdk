@@ -1,3 +1,20 @@
+import { reservationReviewedOperationContracts } from "./reservation-reviewed-operation-contracts.mjs";
+import { paymentReviewedOperationContracts } from "./payment-reviewed-operation-contracts.mjs";
+import { flowReviewedOperationContracts } from "./flow-reviewed-operation-contracts.mjs";
+import { sessionReviewedOperationContracts } from "./session-reviewed-operation-contracts.mjs";
+import { messengerReviewedOperationContracts } from "./messenger-reviewed-operation-contracts.mjs";
+import { drmReviewedOperationContracts } from "./drm-reviewed-operation-contracts.mjs";
+import { socialReviewedOperationContracts } from "./social-reviewed-operation-contracts.mjs";
+import { taskReviewedOperationContracts } from "./task-reviewed-operation-contracts.mjs";
+import { stateReviewedOperationContracts } from "./state-reviewed-operation-contracts.mjs";
+import { modulesReviewedOperationContracts } from "./modules-reviewed-operation-contracts.mjs";
+import { crmReviewedOperationContracts } from "./crm-reviewed-operation-contracts.mjs";
+import { chatReviewedOperationContracts } from "./chat-reviewed-operation-contracts.mjs";
+import { assetReviewedOperationContracts } from "./asset-reviewed-operation-contracts.mjs";
+import { lmsReviewedOperationContracts } from "./lms-reviewed-operation-contracts.mjs";
+import { idpSourceContracts } from "./idp-source-contracts.mjs";
+import { knowledgeReviewedOperationContracts } from "./knowledge-reviewed-operation-contracts.mjs";
+import { profileWireContracts } from "./profile-wire-contracts.mjs";
 import { knowledgeMemoryManagementContracts } from "./knowledge-memory-management-contracts.mjs";
 import { idpMembershipContracts } from "./idp-membership-contracts.mjs";
 import { gisContracts } from "./gis-contracts.mjs";
@@ -714,3 +731,72 @@ for (const [operation, typeBase, responseType, input] of [
 }
 
 Object.assign(releaseContracts,knowledgeMemoryManagementContracts);
+
+// Apply per-operation reviewed corrections without discarding existing transport metadata.
+for (const [key, correction] of Object.entries(profileWireContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(knowledgeReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(idpSourceContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(lmsReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(assetReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(chatReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(crmReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(modulesReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(stateReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(taskReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(socialReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(drmReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(messengerReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(sessionReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(flowReviewedOperationContracts)) {
+  releaseContracts[key] = { ...releaseContracts[key], ...correction };
+}
+
+for (const [key, correction] of Object.entries(paymentReviewedOperationContracts)) {
+  releaseContracts[key] = { ...releaseContracts[key], ...correction };
+}
+
+for (const [key, correction] of Object.entries(reservationReviewedOperationContracts)) {
+  releaseContracts[key] = { ...releaseContracts[key], ...correction };
+}

@@ -132,8 +132,10 @@ def main():
     members=tar.getmembers();files={m.name:tar.extractfile(m).read() for m in members if m.isfile()}
     assert all(not m.issym() and not m.islnk() and '..' not in Path(m.name).parts and not m.name.startswith('/') for m in members),'Unsafe tar member'
     meta=json.loads(files['package/package.json']);assert meta['name']==manifest['name'] and meta['version']==version
+    provenance=json.loads(files['package/provenance.json']);assert provenance['package']==manifest['name'] and provenance['version']==version
+    assert files['package/provenance.json']==(package/'provenance.json').read_bytes(),'Packed provenance differs from verified local manifest'
     for name,data in files.items():
-     assert name in ['package/package.json','package/README.md'] or name.startswith('package/dist/'),'Unwanted file: '+name
+     assert name in ['package/package.json','package/README.md','package/provenance.json'] or name.startswith('package/dist/'),'Unwanted file: '+name
      assert not any(re.search(pattern,data) for pattern in credential_patterns),'Credential pattern in '+name
     def check_exports(value):
      if isinstance(value,str) and value.startswith('./'):assert 'package/'+value[2:] in files,'Missing export '+value
@@ -144,7 +146,7 @@ def main():
     for name,dep_version in meta.get('dependencies',{}).items():
      if name.startswith('@faiber/'):assert dep_version==version,'Internal version mismatch'
    packages.append({'name':meta['name'],'version':version,'archive':str(archive),'sha256':digest(archive.read_bytes()),'npm_shasum':packed['shasum'],'npm_integrity':packed['integrity'],'files':{name:digest(data) for name,data in sorted(files.items())}})
-  assert len(packages)==22,'Expected22 public workspaces'
+  assert len(packages)==23,'Expected23 public workspaces'
   consumer=OUT/'consumer';consumer.mkdir();(consumer/'package.json').write_text(json.dumps({'name':'infera-private-sdk-verification','private':True,'type':'module','dependencies':{p['name']:'file:'+p['archive'] for p in packages}},indent=2)+'\n')
   run('tarball-consumer-install',['npm','install','--ignore-scripts','--prefer-offline'],consumer)
   (consumer/'exports.mjs').write_text('''import assert from 'node:assert/strict';
@@ -155,11 +157,12 @@ const {FaiberSDK,domainsFromManageProxy}=await import('@faiber/faiber-ts-sdk');
 const sdk=new FaiberSDK({domains:domainsFromManageProxy('https://manage.example.test')});
 for(const method of [sdk.chat.personal.events,sdk.lms.notificationSettings.list,sdk.lms.eligibleContacts.list,sdk.messenger.delivery.events,sdk.task.feedback.submit,sdk.profile.summaries.latest,sdk.manage.listAgentThreadsPage,sdk.social.operations.adminOverviewGet,sdk.social.operations.discoveryFeedGet,sdk.version.operations.routerStatusRouteGet]) assert.equal(typeof method,'function');
 assert.equal(typeof sdk.lms.latestAiSummary,'undefined');
-console.log('All22 actual tarball exports import; published helpers and new Profile/Manage APIs exist; retired LMS summary convenience absent. No network request.');
+console.log('All23 actual tarball exports import; published helpers and new Profile/Manage APIs exist; retired LMS summary convenience absent. No network request.');
 ''')
   run('tarball-consumer-exports',['node','exports.mjs'],consumer)
   import shutil
-  for name in ['type-consumer.ts','release-type-consumer.ts','lms-classroom-counts.types.ts','transport-options.types.ts','version-wire.types.ts','social-admin-wire.types.ts','router-wire.types.ts','reservation-capacity.types.ts']:shutil.copyfile(SDK/'tests'/name,consumer/name)
+  fixtures=json.loads((SDK/'tests/tsconfig.json').read_text())['include']
+  for name in dict.fromkeys([*fixtures,'reservation-capacity.types.ts']):shutil.copyfile(SDK/'tests'/name,consumer/name)
   (consumer/'tsconfig.json').write_text(json.dumps({'compilerOptions':{'target':'ES2022','module':'NodeNext','moduleResolution':'NodeNext','strict':True,'exactOptionalPropertyTypes':True,'noEmit':True,'lib':['ES2022','DOM'],'skipLibCheck':False},'include':['*.ts']},indent=2)+'\n')
   run('tarball-consumer-types',['node',str(SDK/'node_modules/typescript/bin/tsc'),'-p','tsconfig.json','--pretty','false'],consumer)
   # Keep registry availability from suppressing independent local runtime evidence.

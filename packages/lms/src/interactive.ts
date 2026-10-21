@@ -1,6 +1,6 @@
 import { type FaiberClient, type RequestOptions } from '@faiber/sdk-core';
 export interface LearningText { fa: string; en: string }
-export interface LearningCheck { id: string; variable: string | null; expected: string | number; label: LearningText; uses_variables?: string[]; min_assignments?: number }
+export interface LearningCheck { id: string; variable: string | null; expected: string | number | boolean; label: LearningText; uses_variables?: string[]; min_assignments?: number }
 export interface LearningActivity { id: string; kind: 'practice' | 'challenge'; title: LearningText; objective: LearningText; explanation: LearningText; starter_code: string; concepts: string[]; hints: LearningText[]; checks: LearningCheck[] }
 export interface LearningDefinition { title: LearningText; chapter: LearningText; description: LearningText; language: 'fa' | 'en'; runtime: 'python-variables-v1'; concepts: string[]; teacher_guidance: string; activities: LearningActivity[]; knowledge_chat_slug?: string | null }
 export interface LearningDefinitionRecord { id: string; course_session_id: string; version: number; status: 'draft' | 'published'; definition: LearningDefinition }

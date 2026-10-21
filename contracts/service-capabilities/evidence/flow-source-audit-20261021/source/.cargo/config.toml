@@ -1,0 +1,10 @@
+[alias]
+test-int = "test -- --test-threads=1"
+check-all = "check --workspace"
+lint = "clippy --workspace -- -D warnings"
+fmt = "fmt --all"
+
+[patch."https://hamgit.ir/faiber/faiber-sdk.git"]
+infera-idp-sdk = { path = "../faiber-sdk/crates/infera-idp-sdk" }
+infera-idp-macro = { path = "../faiber-sdk/crates/infera-idp-macro" }
+infera-flow-sdk = { path = "../faiber-sdk/crates/infera-flow-sdk" }

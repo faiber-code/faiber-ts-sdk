@@ -1,0 +1,2923 @@
+
+> faiber-ts-sdk-monorepo@1.0.0 test
+> npm run test:types && node --test tests/*.test.mjs
+
+
+> faiber-ts-sdk-monorepo@1.0.0 test:types
+> tsc -p tests/tsconfig.json --pretty false
+
+TAP version 13
+# Subtest: Academy completion and grading preserve UUID response and exact request body
+ok 1 - Academy completion and grading preserve UUID response and exact request body
+  ---
+  duration_ms: 2.362
+  ...
+# Subtest: completion status 401 remains observable without replay
+ok 2 - completion status 401 remains observable without replay
+  ---
+  duration_ms: 0.56675
+  ...
+# Subtest: completion status 403 remains observable without replay
+ok 3 - completion status 403 remains observable without replay
+  ---
+  duration_ms: 0.319875
+  ...
+# Subtest: completion status 404 remains observable without replay
+ok 4 - completion status 404 remains observable without replay
+  ---
+  duration_ms: 0.266917
+  ...
+# Subtest: completion status 409 remains observable without replay
+ok 5 - completion status 409 remains observable without replay
+  ---
+  duration_ms: 0.214625
+  ...
+# Subtest: completion status 422 remains observable without replay
+ok 6 - completion status 422 remains observable without replay
+  ---
+  duration_ms: 0.247125
+  ...
+# Subtest: completion status 500 remains observable without replay
+ok 7 - completion status 500 remains observable without replay
+  ---
+  duration_ms: 0.230167
+  ...
+# Subtest: Asset completion retains event identity, decimal value and server authority errors
+ok 8 - Asset completion retains event identity, decimal value and server authority errors
+  ---
+  duration_ms: 11.449375
+  ...
+# Subtest: Asset typed convenience CRUD carries required wire fields and null delete envelopes
+ok 9 - Asset typed convenience CRUD carries required wire fields and null delete envelopes
+  ---
+  duration_ms: 2.353375
+  ...
+# Subtest: Asset preserves tagged Charge rules, decimal strings, escrow credentials and journal cursors
+ok 10 - Asset preserves tagged Charge rules, decimal strings, escrow credentials and journal cursors
+  ---
+  duration_ms: 10.70525
+  ...
+# Subtest: Knowledge configure sends the captured revision and UUID once without fetching a replacement
+ok 11 - Knowledge configure sends the captured revision and UUID once without fetching a replacement
+  ---
+  duration_ms: 2.569542
+  ...
+# Subtest: Knowledge rejects missing captured revision and nil operation before transport
+ok 12 - Knowledge rejects missing captured revision and nil operation before transport
+  ---
+  duration_ms: 0.241792
+  ...
+# Subtest: Chat update preserves both editor revisions and operation on409 without rebasing
+ok 13 - Chat update preserves both editor revisions and operation on409 without rebasing
+  ---
+  duration_ms: 0.664666
+  ...
+# Subtest: authoritative outcome and explicit recover/cancel use canonical scoped paths and cancellation
+ok 14 - authoritative outcome and explicit recover/cancel use canonical scoped paths and cancellation
+  ---
+  duration_ms: 1.04075
+  ...
+# Subtest: attachment transfers preserve auth, binary bytes, cancellation and media metadata
+ok 15 - attachment transfers preserve auth, binary bytes, cancellation and media metadata
+  ---
+  duration_ms: 2.320167
+  ...
+# Subtest: reports evidence gaps without claiming confirmed defects or removing failures
+ok 16 - reports evidence gaps without claiming confirmed defects or removing failures
+  ---
+  duration_ms: 0.679
+  ...
+# Subtest: separates platform scope without silently exempting its operations
+ok 17 - separates platform scope without silently exempting its operations
+  ---
+  duration_ms: 0.07975
+  ...
+# Subtest: discovery does not count skipped consumer requirements
+ok 18 - discovery does not count skipped consumer requirements
+  ---
+  duration_ms: 0.054916
+  ...
+# Subtest: route counts and unreviewed generated operation metadata cannot satisfy discovery
+ok 19 - route counts and unreviewed generated operation metadata cannot satisfy discovery
+  ---
+  duration_ms: 0.70775
+  ...
+# Subtest: a changed SDK source lock invalidates older semantic and discovery bindings
+ok 20 - a changed SDK source lock invalidates older semantic and discovery bindings
+  ---
+  duration_ms: 0.227208
+  ...
+# Subtest: opaque protocol mounts require their own frozen source-bound consumer evidence
+ok 21 - opaque protocol mounts require their own frozen source-bound consumer evidence
+  ---
+  duration_ms: 1.539584
+  ...
+# Subtest: a review becomes invalid when the handler or wire evidence changes
+ok 22 - a review becomes invalid when the handler or wire evidence changes
+  ---
+  duration_ms: 0.212125
+  ...
+# Subtest: verification cannot be satisfied by a zero-test command or failed run
+ok 23 - verification cannot be satisfied by a zero-test command or failed run
+  ---
+  duration_ms: 0.278833
+  ...
+# Subtest: characterizing a known defect never certifies its correctness
+ok 24 - characterizing a known defect never certifies its correctness
+  ---
+  duration_ms: 0.179667
+  ...
+# Subtest: artifact integrity is recomputed and stale, missing or outside files cannot certify a run
+ok 25 - artifact integrity is recomputed and stale, missing or outside files cannot certify a run
+  ---
+  duration_ms: 2.686
+  ...
+# Subtest: reviewed source-bound fixture passes and an unresolved extra service blocks it
+ok 26 - reviewed source-bound fixture passes and an unresolved extra service blocks it
+  ---
+  duration_ms: 0.099
+  ...
+# Subtest: a previously passing test run against another source revision cannot close a review
+ok 27 - a previously passing test run against another source revision cannot close a review
+  ---
+  duration_ms: 0.2495
+  ...
+# Subtest: discovery defers downstream SDK/panel gaps without concealing backend gaps or allowing completion
+ok 28 - discovery defers downstream SDK/panel gaps without concealing backend gaps or allowing completion
+  ---
+  duration_ms: 0.564583
+  ...
+# Subtest: workflow evidence must bind both participating source revisions
+ok 29 - workflow evidence must bind both participating source revisions
+  ---
+  duration_ms: 0.227625
+  ...
+# Subtest: resolved dependency locks must have retained matching bytes before evidence can certify
+ok 30 - resolved dependency locks must have retained matching bytes before evidence can certify
+  ---
+  duration_ms: 1.872833
+  ...
+# Subtest: unresolved compiler inputs prevent source completion even with otherwise verified operations
+ok 31 - unresolved compiler inputs prevent source completion even with otherwise verified operations
+  ---
+  duration_ms: 0.093708
+  ...
+# Subtest: cross-service supporting locks and logs are all integrity checked
+ok 32 - cross-service supporting locks and logs are all integrity checked
+  ---
+  duration_ms: 4.724583
+  ...
+# Subtest: a retained dirty-working extraction failure remains unresolved drift rather than an empty verified tree
+ok 33 - a retained dirty-working extraction failure remains unresolved drift rather than an empty verified tree
+  ---
+  duration_ms: 0.225292
+  ...
+# Subtest: passing source test counts cannot certify an operation outside the declared coverage
+ok 34 - passing source test counts cannot certify an operation outside the declared coverage
+  ---
+  duration_ms: 0.135375
+  ...
+# Subtest: source-only acceptance cannot certify a missing SDK or Manage consumer
+ok 35 - source-only acceptance cannot certify a missing SDK or Manage consumer
+  ---
+  duration_ms: 0.122333
+  ...
+# Subtest: source unit tests and transport adapters cannot stand in for actual consumer boundaries
+ok 36 - source unit tests and transport adapters cannot stand in for actual consumer boundaries
+  ---
+  duration_ms: 0.107958
+  ...
+# Subtest: raw JSON forms, stale consumer reviews and another Manage source block downstream completion
+ok 37 - raw JSON forms, stale consumer reviews and another Manage source block downstream completion
+  ---
+  duration_ms: 1.2405
+  ...
+# Subtest: malformed consumer evidence fails closed without crashing the release checker
+ok 38 - malformed consumer evidence fails closed without crashing the release checker
+  ---
+  duration_ms: 0.07925
+  ...
+# Subtest: claiming a selected source cannot certify a different actual evidence inventory
+ok 39 - claiming a selected source cannot certify a different actual evidence inventory
+  ---
+  duration_ms: 0.067542
+  ...
+# Subtest: selected runtime evidence rejects middleware hashes taken from a different working tree
+ok 40 - selected runtime evidence rejects middleware hashes taken from a different working tree
+  ---
+  duration_ms: 0.068083
+  ...
+# Subtest: mounted graph follows merged variables and nested aliases while excluding unused routers
+ok 41 - mounted graph follows merged variables and nested aliases while excluding unused routers
+  ---
+  duration_ms: 4.533167
+  ...
+# Subtest: unknown dynamic nesting is recorded instead of invented as a fixed mounted path
+ok 42 - unknown dynamic nesting is recorded instead of invented as a fixed mounted path
+  ---
+  duration_ms: 0.223833
+  ...
+# Subtest: handler import renames and trailing slashes retain exact runtime contracts
+ok 43 - handler import renames and trailing slashes retain exact runtime contracts
+  ---
+  duration_ms: 0.4265
+  ...
+# Subtest: crate reexports, shadowed routers, inline handlers and comments reconcile through actual mounts
+ok 44 - crate reexports, shadowed routers, inline handlers and comments reconcile through actual mounts
+  ---
+  duration_ms: 0.969208
+  ...
+# Subtest: nested root paths follow Axum semantics without erasing explicit trailing slashes
+ok 45 - nested root paths follow Axum semantics without erasing explicit trailing slashes
+  ---
+  duration_ms: 0.92275
+  ...
+# Subtest: service main remains the entry when a nested migration crate sorts first
+ok 46 - service main remains the entry when a nested migration crate sorts first
+  ---
+  duration_ms: 0.662042
+  ...
+# Subtest: qualified sibling handlers resolve through an explicit parent glob without accepting unrelated modules
+ok 47 - qualified sibling handlers resolve through an explicit parent glob without accepting unrelated modules
+  ---
+  duration_ms: 0.997291
+  ...
+# Subtest: an explicit super path is resolved once even beside a parent glob import
+ok 48 - an explicit super path is resolved once even beside a parent glob import
+  ---
+  duration_ms: 0.199583
+  ...
+# Subtest: path dependency routers keep their own handlers and expose protocol boundaries separately
+ok 49 - path dependency routers keep their own handlers and expose protocol boundaries separately
+  ---
+  duration_ms: 0.630916
+  ...
+# Subtest: ambiguous dependency crate names and dynamic service mounts remain unresolved
+ok 50 - ambiguous dependency crate names and dynamic service mounts remain unresolved
+  ---
+  duration_ms: 2.110333
+  ...
+# Subtest: database variant routers retain every branch and cannot hide an unresolved alternative
+ok 51 - database variant routers retain every branch and cannot hide an unresolved alternative
+  ---
+  duration_ms: 0.459375
+  ...
+# Subtest: selected evidence keeps fresh canonical main distinct and requires explicit SDK mode
+ok 52 - selected evidence keeps fresh canonical main distinct and requires explicit SDK mode
+  ---
+  duration_ms: 0.417959
+  ...
+# Subtest: a verified decision is retained only for its exact reviewed source and compiler inputs
+ok 53 - a verified decision is retained only for its exact reviewed source and compiler inputs
+  ---
+  duration_ms: 0.070625
+  ...
+# Subtest: rediscovery retains source-bound SDK and Manage reviews without promoting missing or changed evidence
+ok 54 - rediscovery retains source-bound SDK and Manage reviews without promoting missing or changed evidence
+  ---
+  duration_ms: 0.353459
+  ...
+# Subtest: source evidence ignores braces and fake declarations in raw strings, nested comments and test fixtures
+ok 55 - source evidence ignores braces and fake declarations in raw strings, nested comments and test fixtures
+  ---
+  duration_ms: 2.29075
+  ...
+# Subtest: schema evidence retains renamed filters, flattening, default and nullable distinctions
+ok 56 - schema evidence retains renamed filters, flattening, default and nullable distinctions
+  ---
+  duration_ms: 0.661792
+  ...
+# Subtest: ambiguous handler names stay unresolved and module qualifiers resolve exactly
+ok 57 - ambiguous handler names stay unresolved and module qualifiers resolve exactly
+  ---
+  duration_ms: 0.205041
+  ...
+# Subtest: permission and mutation evidence retains its source location and never implies verification
+ok 58 - permission and mutation evidence retains its source location and never implies verification
+  ---
+  duration_ms: 0.655166
+  ...
+# Subtest: simple role wrapper macros retain the actual invocation and substituted permission
+ok 59 - simple role wrapper macros retain the actual invocation and substituted permission
+  ---
+  duration_ms: 0.509167
+  ...
+# Subtest: test-module stripping preserves runtime handlers after literals with unmatched braces and fake cfg attributes
+ok 60 - test-module stripping preserves runtime handlers after literals with unmatched braces and fake cfg attributes
+  ---
+  duration_ms: 0.117875
+  ...
+# Subtest: private attachment download uses authenticated Chat transport and raw bytes
+ok 61 - private attachment download uses authenticated Chat transport and raw bytes
+  ---
+  duration_ms: 3.551625
+  ...
+# Subtest: Chat TTS generated operation preserves lowercase format and raw response bytes
+ok 62 - Chat TTS generated operation preserves lowercase format and raw response bytes
+  ---
+  duration_ms: 3.633083
+  ...
+# Subtest: Chat transcription infers Blob audio MIME and retains explicit MIME for raw bytes
+ok 63 - Chat transcription infers Blob audio MIME and retains explicit MIME for raw bytes
+  ---
+  duration_ms: 0.870667
+  ...
+# Subtest: Chat reaction returns a reaction record and realtime auth keeps distinct form/JSON encodings
+ok 64 - Chat reaction returns a reaction record and realtime auth keeps distinct form/JSON encodings
+  ---
+  duration_ms: 0.652
+  ...
+# Subtest: private note uploads retain binary transfer options, delete versions and server receipts
+ok 65 - private note uploads retain binary transfer options, delete versions and server receipts
+  ---
+  duration_ms: 3.075458
+  ...
+# Subtest: import approval, scoped retrieval and voice preserve distinct versions and stable retry IDs
+ok 66 - import approval, scoped retrieval and voice preserve distinct versions and stable retry IDs
+  ---
+  duration_ms: 0.861208
+  ...
+# Subtest: contract extraction finds the sibling services tree and emits portable mounted paths
+ok 67 - contract extraction finds the sibling services tree and emits portable mounted paths
+  ---
+  duration_ms: 8909.3335
+  ...
+# Subtest: contract audit rejects an unknown selection instead of verifying zero services
+ok 68 - contract audit rejects an unknown selection instead of verifying zero services
+  ---
+  duration_ms: 36.808375
+  ...
+# Subtest: every extracted endpoint has one documented operation using the shared client
+ok 69 - every extracted endpoint has one documented operation using the shared client
+  ---
+  duration_ms: 71.055416
+  ...
+# Subtest: generated concrete inputs and queries are never empty placeholders
+ok 70 - generated concrete inputs and queries are never empty placeholders
+  ---
+  duration_ms: 26.176292
+  ...
+# Subtest: LMS academy and question deletion preserve routes, bodies, and Bearer authorization
+ok 71 - LMS academy and question deletion preserve routes, bodies, and Bearer authorization
+  ---
+  duration_ms: 2.707875
+  ...
+# Subtest: LMS bank hierarchy keeps definitions separate from assignments and exam delivery
+ok 72 - LMS bank hierarchy keeps definitions separate from assignments and exam delivery
+  ---
+  duration_ms: 8.883959
+  ...
+# Subtest: LMS classroom sessions expose types, today filtering, and Session UI links
+ok 73 - LMS classroom sessions expose types, today filtering, and Session UI links
+  ---
+  duration_ms: 1.771625
+  ...
+# Subtest: LMS classroom create and update forward interactive weekly rules unchanged
+ok 74 - LMS classroom create and update forward interactive weekly rules unchanged
+  ---
+  duration_ms: 0.456417
+  ...
+# Subtest: LMS certificate management exposes typed template, issuance, verification, and SVG routes
+ok 75 - LMS certificate management exposes typed template, issuance, verification, and SVG routes
+  ---
+  duration_ms: 1.158291
+  ...
+# Subtest: LMS student statistics use user-scoped server totals instead of truncated arrays
+ok 76 - LMS student statistics use user-scoped server totals instead of truncated arrays
+  ---
+  duration_ms: 0.974291
+  ...
+# Subtest: IDP and Profile update helpers route canonical user UUIDs to their owning services
+ok 77 - IDP and Profile update helpers route canonical user UUIDs to their owning services
+  ---
+  duration_ms: 0.719375
+  ...
+# Subtest: Social moderation audit uses typed query routing in cookie mode
+ok 78 - Social moderation audit uses typed query routing in cookie mode
+  ---
+  duration_ms: 0.467458
+  ...
+# Subtest: State world updates use PUT through the authorized shared client
+ok 79 - State world updates use PUT through the authorized shared client
+  ---
+  duration_ms: 0.273834
+  ...
+# Subtest: LMS definition filters preserve staff roles and authenticated transport on every public entry point
+ok 80 - LMS definition filters preserve staff roles and authenticated transport on every public entry point
+  ---
+  duration_ms: 7.0905
+  ...
+# Subtest: CRM preserves JSON DELETE/version and compatibility deletion payload differences
+ok 81 - CRM preserves JSON DELETE/version and compatibility deletion payload differences
+  ---
+  duration_ms: 2.313916
+  ...
+# Subtest: CRM keeps lead scalar filters and report period query on bodyless POST
+ok 82 - CRM keeps lead scalar filters and report period query on bodyless POST
+  ---
+  duration_ms: 0.584792
+  ...
+# Subtest: CRM null patch fields and nested reminder body retain wire semantics
+ok 83 - CRM null patch fields and nested reminder body retain wire semantics
+  ---
+  duration_ms: 0.634042
+  ...
+# Subtest: CRM raw health and nullable Office legacy payloads remain unwrapped
+ok 84 - CRM raw health and nullable Office legacy payloads remain unwrapped
+  ---
+  duration_ms: 6.984541
+  ...
+# Subtest: DRM all 96 mounted operations preserve method, path, input/query, identity and Axios response
+ok 85 - DRM all 96 mounted operations preserve method, path, input/query, identity and Axios response
+  ---
+  duration_ms: 24.825667
+  ...
+# Subtest: DRM convenience uploads image multipart metadata and typed binary session chunks
+ok 86 - DRM convenience uploads image multipart metadata and typed binary session chunks
+  ---
+  duration_ms: 0.530041
+  ...
+# Subtest: DRM required query values, nullable/default bodies, ranges and no-content deletes remain exact
+ok 87 - DRM required query values, nullable/default bodies, ranges and no-content deletes remain exact
+  ---
+  duration_ms: 1.676958
+  ...
+# Subtest: DRM wildcard traversal is rejected and cancellation prevents transport
+ok 88 - DRM wildcard traversal is rejected and cancellation prevents transport
+  ---
+  duration_ms: 0.535542
+  ...
+# Subtest: economy operations retain authentication, Axios responses and cancellation
+ok 89 - economy operations retain authentication, Axios responses and cancellation
+  ---
+  duration_ms: 3.382791
+  ...
+# Subtest: embedded runtime scripts change source evidence independently of the Rust wrapper
+ok 90 - embedded runtime scripts change source evidence independently of the Rust wrapper
+  ---
+  duration_ms: 2.73125
+  ...
+# Subtest: missing, dynamic and escaping compiler inputs remain explicit gaps
+ok 91 - missing, dynamic and escaping compiler inputs remain explicit gaps
+  ---
+  duration_ms: 1.616125
+  ...
+# Subtest: included Rust inputs recursively retain their embedded runtime data
+ok 92 - included Rust inputs recursively retain their embedded runtime data
+  ---
+  duration_ms: 8.449667
+  ...
+# Subtest: Cargo manifest concat resolves only with an explicit verified target binding
+ok 93 - Cargo manifest concat resolves only with an explicit verified target binding
+  ---
+  duration_ms: 2.185917
+  ...
+# Subtest: form operation regeneration preserves encoded request option bodies and is idempotent
+ok 94 - form operation regeneration preserves encoded request option bodies and is idempotent
+  ---
+  duration_ms: 1532.621708
+  ...
+# Subtest: the facade and AI catalog cover every sandbox service exactly once
+ok 95 - the facade and AI catalog cover every sandbox service exactly once
+  ---
+  duration_ms: 0.729459
+  ...
+# Subtest: all public service connections share auth, transport, and facade configuration
+ok 96 - all public service connections share auth, transport, and facade configuration
+  ---
+  duration_ms: 5.035
+  ...
+# Subtest: DRM preserves typed filtering, identifiers, cookie auth, and route semantics
+ok 97 - DRM preserves typed filtering, identifiers, cookie auth, and route semantics
+  ---
+  duration_ms: 0.289292
+  ...
+# Subtest: generated contracts have exact route coverage, named outputs, and complete JSDoc
+ok 98 - generated contracts have exact route coverage, named outputs, and complete JSDoc
+  ---
+  duration_ms: 111.317625
+  ...
+# Subtest: every published workspace package includes developer documentation
+ok 99 - every published workspace package includes developer documentation
+  ---
+  duration_ms: 66.334042
+  ...
+# Subtest: project-owned Office is not a platform service
+ok 100 - project-owned Office is not a platform service
+  ---
+  duration_ms: 0.121417
+  ...
+# Subtest: feedback and durable streams keep sandbox auth, idempotency, cursors and cancellation
+ok 101 - feedback and durable streams keep sandbox auth, idempotency, cursors and cancellation
+  ---
+  duration_ms: 7.058375
+  ...
+# Subtest: private feedback downloads honor binary response type and retain authorization and cancellation
+ok 102 - private feedback downloads honor binary response type and retain authorization and cancellation
+  ---
+  duration_ms: 0.416833
+  ...
+# Subtest: Flow all 18 mounted operations preserve exact method/path/body/query and shared authenticated Axios transport
+ok 103 - Flow all 18 mounted operations preserve exact method/path/body/query and shared authenticated Axios transport
+  ---
+  duration_ms: 6.992958
+  ...
+# Subtest: Flow convenience methods use concrete registry/run/delete/validation/sync/import envelopes
+ok 104 - Flow convenience methods use concrete registry/run/delete/validation/sync/import envelopes
+  ---
+  duration_ms: 1.370584
+  ...
+# Subtest: Flow event JSON null is encoded and accepted HTTP200 stays distinct from execution success
+ok 105 - Flow event JSON null is encoded and accepted HTTP200 stays distinct from execution success
+  ---
+  duration_ms: 0.366458
+  ...
+# Subtest: Flow cookie-only clients preserve authorization transport and cancellation
+ok 106 - Flow cookie-only clients preserve authorization transport and cancellation
+  ---
+  duration_ms: 0.45925
+  ...
+# Subtest: array-form redirect headers cannot forward credentials to a different origin
+ok 107 - array-form redirect headers cannot forward credentials to a different origin
+  ---
+  duration_ms: 25.460916
+  ...
+# Subtest: custom sensitive redirect header names are matched literally
+ok 108 - custom sensitive redirect header names are matched literally
+  ---
+  duration_ms: 1.788
+  ...
+# Subtest: prediction replays pending inputs after an authoritative acknowledgement
+ok 109 - prediction replays pending inputs after an authoritative acknowledgement
+  ---
+  duration_ms: 0.337583
+  ...
+# Subtest: ECS queries only return entities with the requested components
+ok 110 - ECS queries only return entities with the requested components
+  ---
+  duration_ms: 0.346333
+  ...
+# Subtest: generation check compares complete output and export wiring without changing bytes or mtimes
+ok 111 - generation check compares complete output and export wiring without changing bytes or mtimes
+  ---
+  duration_ms: 236.815042
+  ...
+# Subtest: unknown service selection fails rather than reporting an empty successful generation
+ok 112 - unknown service selection fails rather than reporting an empty successful generation
+  ---
+  duration_ms: 109.105458
+  ...
+# Subtest: optional OpenAPI import never probes a legacy fallback when explicit source configuration is missing
+ok 113 - optional OpenAPI import never probes a legacy fallback when explicit source configuration is missing
+  ---
+  duration_ms: 469.817333
+  ...
+# Subtest: serde skipped internal fields are absent while conditional wire fields remain
+ok 114 - serde skipped internal fields are absent while conditional wire fields remain
+  ---
+  duration_ms: 119.528792
+  ...
+# Subtest: serde response presence is distinct from request defaults, including nested fields
+ok 115 - serde response presence is distinct from request defaults, including nested fields
+  ---
+  duration_ms: 104.881542
+  ...
+# Subtest: literal bracket query names and legacy nested query fields share one URL parameter
+ok 116 - literal bracket query names and legacy nested query fields share one URL parameter
+  ---
+  duration_ms: 109.408167
+  ...
+# Subtest: Rust unit fields serialize to JSON null rather than an object
+ok 117 - Rust unit fields serialize to JSON null rather than an object
+  ---
+  duration_ms: 109.497125
+  ...
+# Subtest: serde enum payloads preserve tags, fields and wire presence instead of becoming string literals
+ok 118 - serde enum payloads preserve tags, fields and wire presence instead of becoming string literals
+  ---
+  duration_ms: 104.900375
+  ...
+# Subtest: JSON aliases retain an explicit JSON type without an unresolved DTO brand
+ok 119 - JSON aliases retain an explicit JSON type without an unresolved DTO brand
+  ---
+  duration_ms: 110.138416
+  ...
+# Subtest: purpose-only release review preserves existing collaboration wire metadata
+ok 120 - purpose-only release review preserves existing collaboration wire metadata
+  ---
+  duration_ms: 94.181041
+  ...
+# Subtest: GIS final pin retains all 48 individually reviewed contracts and scoped evidence
+ok 121 - GIS final pin retains all 48 individually reviewed contracts and scoped evidence
+  ---
+  duration_ms: 1.131875
+  ...
+# Subtest: GIS final source wire: GET /api/v1/datasets
+ok 122 - GIS final source wire: GET /api/v1/datasets
+  ---
+  duration_ms: 1.419708
+  ...
+# Subtest: GIS final source wire: POST /api/v1/datasets
+ok 123 - GIS final source wire: POST /api/v1/datasets
+  ---
+  duration_ms: 0.436416
+  ...
+# Subtest: GIS final source wire: GET /api/v1/datasets/{id}
+ok 124 - GIS final source wire: GET /api/v1/datasets/{id}
+  ---
+  duration_ms: 0.278875
+  ...
+# Subtest: GIS final source wire: PATCH /api/v1/datasets/{id}
+ok 125 - GIS final source wire: PATCH /api/v1/datasets/{id}
+  ---
+  duration_ms: 0.279875
+  ...
+# Subtest: GIS final source wire: GET /api/v1/datasets/{id}/features
+ok 126 - GIS final source wire: GET /api/v1/datasets/{id}/features
+  ---
+  duration_ms: 0.250875
+  ...
+# Subtest: GIS final source wire: PUT /api/v1/datasets/{id}/features
+ok 127 - GIS final source wire: PUT /api/v1/datasets/{id}/features
+  ---
+  duration_ms: 0.304167
+  ...
+# Subtest: GIS final source wire: PUT /api/v1/datasets/{id}/features/{feature}
+ok 128 - GIS final source wire: PUT /api/v1/datasets/{id}/features/{feature}
+  ---
+  duration_ms: 0.1915
+  ...
+# Subtest: GIS final source wire: GET /api/v1/datasets/{id}/history
+ok 129 - GIS final source wire: GET /api/v1/datasets/{id}/history
+  ---
+  duration_ms: 0.333375
+  ...
+# Subtest: GIS final source wire: GET /api/v1/datasets/{id}/tiles/{z}/{x}/{y}
+ok 130 - GIS final source wire: GET /api/v1/datasets/{id}/tiles/{z}/{x}/{y}
+  ---
+  duration_ms: 0.592625
+  ...
+# Subtest: GIS final source wire: GET /api/v1/imports
+ok 131 - GIS final source wire: GET /api/v1/imports
+  ---
+  duration_ms: 7.199666
+  ...
+# Subtest: GIS final source wire: POST /api/v1/imports
+ok 132 - GIS final source wire: POST /api/v1/imports
+  ---
+  duration_ms: 0.337459
+  ...
+# Subtest: GIS final source wire: POST /api/v1/imports/{id}/retry
+ok 133 - GIS final source wire: POST /api/v1/imports/{id}/retry
+  ---
+  duration_ms: 0.168042
+  ...
+# Subtest: GIS final source wire: GET /api/v1/internal/outbox
+ok 134 - GIS final source wire: GET /api/v1/internal/outbox
+  ---
+  duration_ms: 0.152583
+  ...
+# Subtest: GIS final source wire: PUT /api/v1/internal/outbox/{id}/ack
+ok 135 - GIS final source wire: PUT /api/v1/internal/outbox/{id}/ack
+  ---
+  duration_ms: 0.129125
+  ...
+# Subtest: GIS final source wire: GET /api/v1/maps
+ok 136 - GIS final source wire: GET /api/v1/maps
+  ---
+  duration_ms: 0.129541
+  ...
+# Subtest: GIS final source wire: POST /api/v1/maps
+ok 137 - GIS final source wire: POST /api/v1/maps
+  ---
+  duration_ms: 0.151333
+  ...
+# Subtest: GIS final source wire: GET /api/v1/maps/{id}
+ok 138 - GIS final source wire: GET /api/v1/maps/{id}
+  ---
+  duration_ms: 0.128083
+  ...
+# Subtest: GIS final source wire: PATCH /api/v1/maps/{id}
+ok 139 - GIS final source wire: PATCH /api/v1/maps/{id}
+  ---
+  duration_ms: 0.211959
+  ...
+# Subtest: GIS final source wire: PUT /api/v1/maps/{id}/publish
+ok 140 - GIS final source wire: PUT /api/v1/maps/{id}/publish
+  ---
+  duration_ms: 0.1395
+  ...
+# Subtest: GIS final source wire: GET /api/v1/maps/{id}/style
+ok 141 - GIS final source wire: GET /api/v1/maps/{id}/style
+  ---
+  duration_ms: 0.134209
+  ...
+# Subtest: GIS final source wire: GET /api/v1/me
+ok 142 - GIS final source wire: GET /api/v1/me
+  ---
+  duration_ms: 0.128209
+  ...
+# Subtest: GIS final source wire: GET /api/v1/me/contributions
+ok 143 - GIS final source wire: GET /api/v1/me/contributions
+  ---
+  duration_ms: 0.107083
+  ...
+# Subtest: GIS final source wire: GET /api/v1/me/saves
+ok 144 - GIS final source wire: GET /api/v1/me/saves
+  ---
+  duration_ms: 0.110709
+  ...
+# Subtest: GIS final source wire: GET /api/v1/moderation
+ok 145 - GIS final source wire: GET /api/v1/moderation
+  ---
+  duration_ms: 0.131167
+  ...
+# Subtest: GIS final source wire: POST /api/v1/moderation/{id}
+ok 146 - GIS final source wire: POST /api/v1/moderation/{id}
+  ---
+  duration_ms: 0.120042
+  ...
+# Subtest: GIS final source wire: GET /api/v1/moderation/{id}/history
+ok 147 - GIS final source wire: GET /api/v1/moderation/{id}/history
+  ---
+  duration_ms: 0.10025
+  ...
+# Subtest: GIS final source wire: POST /api/v1/moderation/reports/{id}
+ok 148 - GIS final source wire: POST /api/v1/moderation/reports/{id}
+  ---
+  duration_ms: 0.108959
+  ...
+# Subtest: GIS final source wire: GET /api/v1/my-places
+ok 149 - GIS final source wire: GET /api/v1/my-places
+  ---
+  duration_ms: 0.118125
+  ...
+# Subtest: GIS final source wire: POST /api/v1/my-places
+ok 150 - GIS final source wire: POST /api/v1/my-places
+  ---
+  duration_ms: 0.110917
+  ...
+# Subtest: GIS final source wire: DELETE /api/v1/my-places/{id}
+ok 151 - GIS final source wire: DELETE /api/v1/my-places/{id}
+  ---
+  duration_ms: 0.102917
+  ...
+# Subtest: GIS final source wire: GET /api/v1/my-places/{id}
+ok 152 - GIS final source wire: GET /api/v1/my-places/{id}
+  ---
+  duration_ms: 0.1005
+  ...
+# Subtest: GIS final source wire: PUT /api/v1/my-places/{id}
+ok 153 - GIS final source wire: PUT /api/v1/my-places/{id}
+  ---
+  duration_ms: 0.107833
+  ...
+# Subtest: GIS final source wire: GET /api/v1/places
+ok 154 - GIS final source wire: GET /api/v1/places
+  ---
+  duration_ms: 0.116708
+  ...
+# Subtest: GIS final source wire: POST /api/v1/places
+ok 155 - GIS final source wire: POST /api/v1/places
+  ---
+  duration_ms: 0.115083
+  ...
+# Subtest: GIS final source wire: GET /api/v1/places/{id}
+ok 156 - GIS final source wire: GET /api/v1/places/{id}
+  ---
+  duration_ms: 0.109125
+  ...
+# Subtest: GIS final source wire: POST /api/v1/places/{id}/assertion
+ok 157 - GIS final source wire: POST /api/v1/places/{id}/assertion
+  ---
+  duration_ms: 3.485875
+  ...
+# Subtest: GIS final source wire: GET /api/v1/places/{id}/references
+ok 158 - GIS final source wire: GET /api/v1/places/{id}/references
+  ---
+  duration_ms: 0.18925
+  ...
+# Subtest: GIS final source wire: POST /api/v1/places/{id}/reports
+ok 159 - GIS final source wire: POST /api/v1/places/{id}/reports
+  ---
+  duration_ms: 0.147459
+  ...
+# Subtest: GIS final source wire: DELETE /api/v1/places/{id}/save
+ok 160 - GIS final source wire: DELETE /api/v1/places/{id}/save
+  ---
+  duration_ms: 0.745667
+  ...
+# Subtest: GIS final source wire: PUT /api/v1/places/{id}/save
+ok 161 - GIS final source wire: PUT /api/v1/places/{id}/save
+  ---
+  duration_ms: 0.15525
+  ...
+# Subtest: GIS final source wire: GET /api/v1/public/datasets/{id}/geojson
+ok 162 - GIS final source wire: GET /api/v1/public/datasets/{id}/geojson
+  ---
+  duration_ms: 0.130209
+  ...
+# Subtest: GIS final source wire: GET /api/v1/public/datasets/{id}/tilejson
+ok 163 - GIS final source wire: GET /api/v1/public/datasets/{id}/tilejson
+  ---
+  duration_ms: 0.169125
+  ...
+# Subtest: GIS final source wire: GET /api/v1/public/datasets/{id}/tiles/{z}/{x}/{y}
+ok 164 - GIS final source wire: GET /api/v1/public/datasets/{id}/tiles/{z}/{x}/{y}
+  ---
+  duration_ms: 0.130958
+  ...
+# Subtest: GIS final source wire: GET /api/v1/public/maps
+ok 165 - GIS final source wire: GET /api/v1/public/maps
+  ---
+  duration_ms: 0.117292
+  ...
+# Subtest: GIS final source wire: GET /api/v1/public/maps/{slug}
+ok 166 - GIS final source wire: GET /api/v1/public/maps/{slug}
+  ---
+  duration_ms: 0.100708
+  ...
+# Subtest: GIS final source wire: GET /api/v1/public/maps/{slug}/geojson
+ok 167 - GIS final source wire: GET /api/v1/public/maps/{slug}/geojson
+  ---
+  duration_ms: 0.09475
+  ...
+# Subtest: GIS final source wire: GET /api/v1/public/maps/{slug}/style
+ok 168 - GIS final source wire: GET /api/v1/public/maps/{slug}/style
+  ---
+  duration_ms: 0.0965
+  ...
+# Subtest: GIS final source wire: GET /health
+ok 169 - GIS final source wire: GET /health
+  ---
+  duration_ms: 0.093
+  ...
+# Subtest: GIS candidate explicitly maps every source-reviewed native operation and envelope
+ok 170 - GIS candidate explicitly maps every source-reviewed native operation and envelope
+  ---
+  duration_ms: 12.405875
+  ...
+# Subtest: GIS binary tiles override JSON transport and preserve revision and encoding headers
+ok 171 - GIS binary tiles override JSON transport and preserve revision and encoding headers
+  ---
+  duration_ms: 1.929667
+  ...
+# Subtest: GIS edits preserve revisions, feature IDs and separate publication decisions
+ok 172 - GIS edits preserve revisions, feature IDs and separate publication decisions
+  ---
+  duration_ms: 0.874916
+  ...
+# Subtest: GIS search, import retries and personal places retain their independent contracts
+ok 173 - GIS search, import retries and personal places retain their independent contracts
+  ---
+  duration_ms: 0.66475
+  ...
+# Subtest: current grant helper preserves the native observation and full HTTP response
+ok 174 - current grant helper preserves the native observation and full HTTP response
+  ---
+  duration_ms: 2.077542
+  ...
+# Subtest: active role helper requires native acknowledgement and keeps current filters authoritative
+ok 175 - active role helper requires native acknowledgement and keeps current filters authoritative
+  ---
+  duration_ms: 2.42625
+  ...
+# Subtest: unconfirmed filters and inconsistent members fail once without an all-user fallback
+ok 176 - unconfirmed filters and inconsistent members fail once without an all-user fallback
+  ---
+  duration_ms: 2.094209
+  ...
+# Subtest: role grant helpers retain the reviewed revision, deliberate delta and transport options
+ok 177 - role grant helpers retain the reviewed revision, deliberate delta and transport options
+  ---
+  duration_ms: 0.560084
+  ...
+# Subtest: IDP membership read preserves stored rows, opaque revision and full response
+ok 178 - IDP membership read preserves stored rows, opaque revision and full response
+  ---
+  duration_ms: 2.18875
+  ...
+# Subtest: IDP additions send only explicit additions without a read or destructive role union
+ok 179 - IDP additions send only explicit additions without a read or destructive role union
+  ---
+  duration_ms: 0.664833
+  ...
+# Subtest: facade and generated replacements bind the exact reviewed revision as quoted If-Match
+ok 180 - facade and generated replacements bind the exact reviewed revision as quoted If-Match
+  ---
+  duration_ms: 4.919458
+  ...
+# Subtest: missing or malformed revision fails before any destructive request
+ok 181 - missing or malformed revision fails before any destructive request
+  ---
+  duration_ms: 0.463834
+  ...
+# Subtest: a stale replacement surfaces 409 once and never fetches a fresh revision to apply stale edits
+ok 182 - a stale replacement surfaces 409 once and never fetches a fresh revision to apply stale edits
+  ---
+  duration_ms: 0.4745
+  ...
+# Subtest: IDP session helpers use the self-service session routes
+ok 183 - IDP session helpers use the self-service session routes
+  ---
+  duration_ms: 2.336542
+  ...
+# Subtest: generated IDP session operations use the same routes
+ok 184 - generated IDP session operations use the same routes
+  ---
+  duration_ms: 0.612167
+  ...
+# Subtest: Knowledge pinned inventory has 84 unique callable wire cases
+ok 185 - Knowledge pinned inventory has 84 unique callable wire cases
+  ---
+  duration_ms: 1.679834
+  ...
+# Subtest: Knowledge bearer wire: GET /health
+ok 186 - Knowledge bearer wire: GET /health
+  ---
+  duration_ms: 1.715917
+  ...
+# Subtest: Knowledge bearer wire: GET /health/live
+ok 187 - Knowledge bearer wire: GET /health/live
+  ---
+  duration_ms: 0.350458
+  ...
+# Subtest: Knowledge bearer wire: GET /health/ready
+ok 188 - Knowledge bearer wire: GET /health/ready
+  ---
+  duration_ms: 0.311917
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/knowledge-releases/{id}
+ok 189 - Knowledge bearer wire: GET /api/v1/knowledge-releases/{id}
+  ---
+  duration_ms: 0.245042
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/knowledge-bases
+ok 190 - Knowledge bearer wire: GET /api/v1/knowledge-bases
+  ---
+  duration_ms: 0.32225
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/knowledge-bases
+ok 191 - Knowledge bearer wire: POST /api/v1/knowledge-bases
+  ---
+  duration_ms: 0.265792
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/knowledge-bases/{id}
+ok 192 - Knowledge bearer wire: GET /api/v1/knowledge-bases/{id}
+  ---
+  duration_ms: 0.226292
+  ...
+# Subtest: Knowledge bearer wire: PUT /api/v1/knowledge-bases/{id}
+ok 193 - Knowledge bearer wire: PUT /api/v1/knowledge-bases/{id}
+  ---
+  duration_ms: 0.365084
+  ...
+# Subtest: Knowledge bearer wire: DELETE /api/v1/knowledge-bases/{id}
+ok 194 - Knowledge bearer wire: DELETE /api/v1/knowledge-bases/{id}
+  ---
+  duration_ms: 0.586625
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/knowledge-bases/{id}/publish
+ok 195 - Knowledge bearer wire: POST /api/v1/knowledge-bases/{id}/publish
+  ---
+  duration_ms: 0.3305
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/knowledge-bases/{id}/export
+ok 196 - Knowledge bearer wire: GET /api/v1/knowledge-bases/{id}/export
+  ---
+  duration_ms: 0.208875
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/knowledge-bases/{id}/groups
+ok 197 - Knowledge bearer wire: GET /api/v1/knowledge-bases/{id}/groups
+  ---
+  duration_ms: 0.159417
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/knowledge-bases/{id}/groups
+ok 198 - Knowledge bearer wire: POST /api/v1/knowledge-bases/{id}/groups
+  ---
+  duration_ms: 0.164333
+  ...
+# Subtest: Knowledge bearer wire: PUT /api/v1/groups/{id}
+ok 199 - Knowledge bearer wire: PUT /api/v1/groups/{id}
+  ---
+  duration_ms: 0.153166
+  ...
+# Subtest: Knowledge bearer wire: DELETE /api/v1/groups/{id}
+ok 200 - Knowledge bearer wire: DELETE /api/v1/groups/{id}
+  ---
+  duration_ms: 0.145083
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/knowledge-bases/{id}/items
+ok 201 - Knowledge bearer wire: GET /api/v1/knowledge-bases/{id}/items
+  ---
+  duration_ms: 18.218625
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/knowledge-bases/{id}/items
+ok 202 - Knowledge bearer wire: POST /api/v1/knowledge-bases/{id}/items
+  ---
+  duration_ms: 0.198125
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/items/{id}
+ok 203 - Knowledge bearer wire: GET /api/v1/items/{id}
+  ---
+  duration_ms: 0.165084
+  ...
+# Subtest: Knowledge bearer wire: PUT /api/v1/items/{id}
+ok 204 - Knowledge bearer wire: PUT /api/v1/items/{id}
+  ---
+  duration_ms: 0.141958
+  ...
+# Subtest: Knowledge bearer wire: DELETE /api/v1/items/{id}
+ok 205 - Knowledge bearer wire: DELETE /api/v1/items/{id}
+  ---
+  duration_ms: 1.76475
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/knowledge-bases/{id}/edges
+ok 206 - Knowledge bearer wire: GET /api/v1/knowledge-bases/{id}/edges
+  ---
+  duration_ms: 0.197292
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/knowledge-bases/{id}/edges
+ok 207 - Knowledge bearer wire: POST /api/v1/knowledge-bases/{id}/edges
+  ---
+  duration_ms: 0.15025
+  ...
+# Subtest: Knowledge bearer wire: PUT /api/v1/edges/{id}
+ok 208 - Knowledge bearer wire: PUT /api/v1/edges/{id}
+  ---
+  duration_ms: 0.130708
+  ...
+# Subtest: Knowledge bearer wire: DELETE /api/v1/edges/{id}
+ok 209 - Knowledge bearer wire: DELETE /api/v1/edges/{id}
+  ---
+  duration_ms: 0.118
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/chat-bindings
+ok 210 - Knowledge bearer wire: GET /api/v1/chat-bindings
+  ---
+  duration_ms: 0.122875
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/chat-bindings
+ok 211 - Knowledge bearer wire: POST /api/v1/chat-bindings
+  ---
+  duration_ms: 0.120042
+  ...
+# Subtest: Knowledge bearer wire: PUT /api/v1/chat-bindings/{id}
+ok 212 - Knowledge bearer wire: PUT /api/v1/chat-bindings/{id}
+  ---
+  duration_ms: 0.117541
+  ...
+# Subtest: Knowledge bearer wire: DELETE /api/v1/chat-bindings/{id}
+ok 213 - Knowledge bearer wire: DELETE /api/v1/chat-bindings/{id}
+  ---
+  duration_ms: 0.122166
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/match-rules
+ok 214 - Knowledge bearer wire: GET /api/v1/match-rules
+  ---
+  duration_ms: 0.207292
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/match-rules
+ok 215 - Knowledge bearer wire: POST /api/v1/match-rules
+  ---
+  duration_ms: 0.124458
+  ...
+# Subtest: Knowledge bearer wire: PUT /api/v1/match-rules/{id}
+ok 216 - Knowledge bearer wire: PUT /api/v1/match-rules/{id}
+  ---
+  duration_ms: 0.121625
+  ...
+# Subtest: Knowledge bearer wire: DELETE /api/v1/match-rules/{id}
+ok 217 - Knowledge bearer wire: DELETE /api/v1/match-rules/{id}
+  ---
+  duration_ms: 0.112083
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/actions
+ok 218 - Knowledge bearer wire: GET /api/v1/actions
+  ---
+  duration_ms: 0.114208
+  ...
+# Subtest: Knowledge bearer wire: PATCH /api/v1/actions/{id}/status
+ok 219 - Knowledge bearer wire: PATCH /api/v1/actions/{id}/status
+  ---
+  duration_ms: 0.112875
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/audit
+ok 220 - Knowledge bearer wire: GET /api/v1/audit
+  ---
+  duration_ms: 0.122041
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/platform/status
+ok 221 - Knowledge bearer wire: GET /api/v1/platform/status
+  ---
+  duration_ms: 0.112333
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/platform/catalog
+ok 222 - Knowledge bearer wire: GET /api/v1/platform/catalog
+  ---
+  duration_ms: 0.13025
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/platform/converters
+ok 223 - Knowledge bearer wire: GET /api/v1/platform/converters
+  ---
+  duration_ms: 0.104875
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/processing-jobs
+ok 224 - Knowledge bearer wire: GET /api/v1/processing-jobs
+  ---
+  duration_ms: 0.099708
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/audit-events
+ok 225 - Knowledge bearer wire: GET /api/v1/audit-events
+  ---
+  duration_ms: 0.100333
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/evaluation-cases
+ok 226 - Knowledge bearer wire: GET /api/v1/evaluation-cases
+  ---
+  duration_ms: 0.102792
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/evaluation-cases
+ok 227 - Knowledge bearer wire: POST /api/v1/evaluation-cases
+  ---
+  duration_ms: 0.147375
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/sources
+ok 228 - Knowledge bearer wire: GET /api/v1/sources
+  ---
+  duration_ms: 0.137833
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/sources
+ok 229 - Knowledge bearer wire: POST /api/v1/sources
+  ---
+  duration_ms: 0.113667
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/sources/{id}/sync
+ok 230 - Knowledge bearer wire: POST /api/v1/sources/{id}/sync
+  ---
+  duration_ms: 0.156208
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/sources/{id}/pause
+ok 231 - Knowledge bearer wire: POST /api/v1/sources/{id}/pause
+  ---
+  duration_ms: 0.10925
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/documents
+ok 232 - Knowledge bearer wire: GET /api/v1/documents
+  ---
+  duration_ms: 0.098875
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/documents
+ok 233 - Knowledge bearer wire: POST /api/v1/documents
+  ---
+  duration_ms: 0.100875
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/documents/{id}/reprocess
+ok 234 - Knowledge bearer wire: POST /api/v1/documents/{id}/reprocess
+  ---
+  duration_ms: 0.116084
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/processing-jobs/{id}/retry
+ok 235 - Knowledge bearer wire: POST /api/v1/processing-jobs/{id}/retry
+  ---
+  duration_ms: 0.104375
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/processing-jobs/{id}/cancel
+ok 236 - Knowledge bearer wire: POST /api/v1/processing-jobs/{id}/cancel
+  ---
+  duration_ms: 0.097708
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/platform/cache/invalidate
+ok 237 - Knowledge bearer wire: POST /api/v1/platform/cache/invalidate
+  ---
+  duration_ms: 0.093583
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/recommender-groups
+ok 238 - Knowledge bearer wire: GET /api/v1/recommender-groups
+  ---
+  duration_ms: 0.09675
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/recommender-groups
+ok 239 - Knowledge bearer wire: POST /api/v1/recommender-groups
+  ---
+  duration_ms: 0.101625
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/recommender-groups/{id}/items
+ok 240 - Knowledge bearer wire: POST /api/v1/recommender-groups/{id}/items
+  ---
+  duration_ms: 8.962416
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/memory-subjects
+ok 241 - Knowledge bearer wire: GET /api/v1/memory-subjects
+  ---
+  duration_ms: 0.195542
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/memory-subjects/{id}
+ok 242 - Knowledge bearer wire: GET /api/v1/memory-subjects/{id}
+  ---
+  duration_ms: 0.155959
+  ...
+# Subtest: Knowledge bearer wire: DELETE /api/v1/memory-subjects/{id}
+ok 243 - Knowledge bearer wire: DELETE /api/v1/memory-subjects/{id}
+  ---
+  duration_ms: 0.213083
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/memory-subjects/{subject_id}/memories/{memory_id}
+ok 244 - Knowledge bearer wire: GET /api/v1/memory-subjects/{subject_id}/memories/{memory_id}
+  ---
+  duration_ms: 0.106041
+  ...
+# Subtest: Knowledge bearer wire: DELETE /api/v1/memory-subjects/{subject_id}/memories/{memory_id}
+ok 245 - Knowledge bearer wire: DELETE /api/v1/memory-subjects/{subject_id}/memories/{memory_id}
+  ---
+  duration_ms: 0.10425
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/memory-subjects/{id}/memories
+ok 246 - Knowledge bearer wire: GET /api/v1/memory-subjects/{id}/memories
+  ---
+  duration_ms: 0.093333
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/memory-subjects/{id}/audit-events
+ok 247 - Knowledge bearer wire: GET /api/v1/memory-subjects/{id}/audit-events
+  ---
+  duration_ms: 0.102042
+  ...
+# Subtest: Knowledge bearer wire: PUT /api/v1/memory-subjects/{id}/policy
+ok 248 - Knowledge bearer wire: PUT /api/v1/memory-subjects/{id}/policy
+  ---
+  duration_ms: 0.093625
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/memory-subjects/{id}/corrections
+ok 249 - Knowledge bearer wire: POST /api/v1/memory-subjects/{id}/corrections
+  ---
+  duration_ms: 0.118584
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/memory-outbox/{id}/replay
+ok 250 - Knowledge bearer wire: POST /api/v1/memory-outbox/{id}/replay
+  ---
+  duration_ms: 0.083875
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/runtime/chat/{chat_slug}/query
+ok 251 - Knowledge bearer wire: POST /api/v1/runtime/chat/{chat_slug}/query
+  ---
+  duration_ms: 0.085167
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/runtime/tool-schema
+ok 252 - Knowledge bearer wire: GET /api/v1/runtime/tool-schema
+  ---
+  duration_ms: 0.092417
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/runtime/assistants/{assistant_id}/contracts/{slug}
+ok 253 - Knowledge bearer wire: GET /api/v1/runtime/assistants/{assistant_id}/contracts/{slug}
+  ---
+  duration_ms: 0.0845
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}
+ok 254 - Knowledge bearer wire: GET /api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}
+  ---
+  duration_ms: 0.080833
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}
+ok 255 - Knowledge bearer wire: POST /api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}
+  ---
+  duration_ms: 0.08175
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/runtime/assistants/{assistant_id}/configure
+ok 256 - Knowledge bearer wire: GET /api/v1/runtime/assistants/{assistant_id}/configure
+  ---
+  duration_ms: 0.084625
+  ...
+# Subtest: Knowledge bearer wire: PUT /api/v1/runtime/assistants/{assistant_id}/configure
+ok 257 - Knowledge bearer wire: PUT /api/v1/runtime/assistants/{assistant_id}/configure
+  ---
+  duration_ms: 0.0805
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/runtime/assistants/{assistant_id}/query
+ok 258 - Knowledge bearer wire: POST /api/v1/runtime/assistants/{assistant_id}/query
+  ---
+  duration_ms: 0.07925
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/runtime/assistants/{assistant_id}/preview
+ok 259 - Knowledge bearer wire: POST /api/v1/runtime/assistants/{assistant_id}/preview
+  ---
+  duration_ms: 0.080708
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/runtime/assistants/{assistant_id}/evaluations
+ok 260 - Knowledge bearer wire: POST /api/v1/runtime/assistants/{assistant_id}/evaluations
+  ---
+  duration_ms: 0.079583
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/runtime/assistants/{assistant_id}/memory/turn
+ok 261 - Knowledge bearer wire: POST /api/v1/runtime/assistants/{assistant_id}/memory/turn
+  ---
+  duration_ms: 0.07975
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/runtime/evidence/documents/{id}
+ok 262 - Knowledge bearer wire: GET /api/v1/runtime/evidence/documents/{id}
+  ---
+  duration_ms: 0.077666
+  ...
+# Subtest: Knowledge bearer wire: GET /api/v1/runtime/evidence/session/{id}
+ok 263 - Knowledge bearer wire: GET /api/v1/runtime/evidence/session/{id}
+  ---
+  duration_ms: 0.078833
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/runtime/retrieval-traces/{id}/usage
+ok 264 - Knowledge bearer wire: POST /api/v1/runtime/retrieval-traces/{id}/usage
+  ---
+  duration_ms: 0.094375
+  ...
+# Subtest: Knowledge bearer wire: POST /api/v1/runtime/mcp
+ok 265 - Knowledge bearer wire: POST /api/v1/runtime/mcp
+  ---
+  duration_ms: 0.097208
+  ...
+# Subtest: Knowledge bearer wire: POST /internal/task-projections/sync
+ok 266 - Knowledge bearer wire: POST /internal/task-projections/sync
+  ---
+  duration_ms: 0.106917
+  ...
+# Subtest: Knowledge bearer wire: POST /internal/task-projections/candidates
+ok 267 - Knowledge bearer wire: POST /internal/task-projections/candidates
+  ---
+  duration_ms: 0.083958
+  ...
+# Subtest: Knowledge bearer wire: POST /internal/task-projections/passages
+ok 268 - Knowledge bearer wire: POST /internal/task-projections/passages
+  ---
+  duration_ms: 0.081666
+  ...
+# Subtest: Knowledge bearer wire: POST /internal/task-conversions
+ok 269 - Knowledge bearer wire: POST /internal/task-conversions
+  ---
+  duration_ms: 0.120959
+  ...
+# Subtest: Knowledge cookie wire: GET /health
+ok 270 - Knowledge cookie wire: GET /health
+  ---
+  duration_ms: 0.126
+  ...
+# Subtest: Knowledge cookie wire: GET /health/live
+ok 271 - Knowledge cookie wire: GET /health/live
+  ---
+  duration_ms: 0.11175
+  ...
+# Subtest: Knowledge cookie wire: GET /health/ready
+ok 272 - Knowledge cookie wire: GET /health/ready
+  ---
+  duration_ms: 0.077709
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/knowledge-releases/{id}
+ok 273 - Knowledge cookie wire: GET /api/v1/knowledge-releases/{id}
+  ---
+  duration_ms: 0.0735
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/knowledge-bases
+ok 274 - Knowledge cookie wire: GET /api/v1/knowledge-bases
+  ---
+  duration_ms: 0.082708
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/knowledge-bases
+ok 275 - Knowledge cookie wire: POST /api/v1/knowledge-bases
+  ---
+  duration_ms: 5.801
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/knowledge-bases/{id}
+ok 276 - Knowledge cookie wire: GET /api/v1/knowledge-bases/{id}
+  ---
+  duration_ms: 0.744333
+  ...
+# Subtest: Knowledge cookie wire: PUT /api/v1/knowledge-bases/{id}
+ok 277 - Knowledge cookie wire: PUT /api/v1/knowledge-bases/{id}
+  ---
+  duration_ms: 0.291291
+  ...
+# Subtest: Knowledge cookie wire: DELETE /api/v1/knowledge-bases/{id}
+ok 278 - Knowledge cookie wire: DELETE /api/v1/knowledge-bases/{id}
+  ---
+  duration_ms: 0.118917
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/knowledge-bases/{id}/publish
+ok 279 - Knowledge cookie wire: POST /api/v1/knowledge-bases/{id}/publish
+  ---
+  duration_ms: 0.0905
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/knowledge-bases/{id}/export
+ok 280 - Knowledge cookie wire: GET /api/v1/knowledge-bases/{id}/export
+  ---
+  duration_ms: 0.080333
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/knowledge-bases/{id}/groups
+ok 281 - Knowledge cookie wire: GET /api/v1/knowledge-bases/{id}/groups
+  ---
+  duration_ms: 0.076209
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/knowledge-bases/{id}/groups
+ok 282 - Knowledge cookie wire: POST /api/v1/knowledge-bases/{id}/groups
+  ---
+  duration_ms: 0.080458
+  ...
+# Subtest: Knowledge cookie wire: PUT /api/v1/groups/{id}
+ok 283 - Knowledge cookie wire: PUT /api/v1/groups/{id}
+  ---
+  duration_ms: 0.0765
+  ...
+# Subtest: Knowledge cookie wire: DELETE /api/v1/groups/{id}
+ok 284 - Knowledge cookie wire: DELETE /api/v1/groups/{id}
+  ---
+  duration_ms: 0.071166
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/knowledge-bases/{id}/items
+ok 285 - Knowledge cookie wire: GET /api/v1/knowledge-bases/{id}/items
+  ---
+  duration_ms: 0.073833
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/knowledge-bases/{id}/items
+ok 286 - Knowledge cookie wire: POST /api/v1/knowledge-bases/{id}/items
+  ---
+  duration_ms: 0.072792
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/items/{id}
+ok 287 - Knowledge cookie wire: GET /api/v1/items/{id}
+  ---
+  duration_ms: 0.074041
+  ...
+# Subtest: Knowledge cookie wire: PUT /api/v1/items/{id}
+ok 288 - Knowledge cookie wire: PUT /api/v1/items/{id}
+  ---
+  duration_ms: 0.076333
+  ...
+# Subtest: Knowledge cookie wire: DELETE /api/v1/items/{id}
+ok 289 - Knowledge cookie wire: DELETE /api/v1/items/{id}
+  ---
+  duration_ms: 0.07
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/knowledge-bases/{id}/edges
+ok 290 - Knowledge cookie wire: GET /api/v1/knowledge-bases/{id}/edges
+  ---
+  duration_ms: 0.068417
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/knowledge-bases/{id}/edges
+ok 291 - Knowledge cookie wire: POST /api/v1/knowledge-bases/{id}/edges
+  ---
+  duration_ms: 0.073792
+  ...
+# Subtest: Knowledge cookie wire: PUT /api/v1/edges/{id}
+ok 292 - Knowledge cookie wire: PUT /api/v1/edges/{id}
+  ---
+  duration_ms: 0.073208
+  ...
+# Subtest: Knowledge cookie wire: DELETE /api/v1/edges/{id}
+ok 293 - Knowledge cookie wire: DELETE /api/v1/edges/{id}
+  ---
+  duration_ms: 0.068417
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/chat-bindings
+ok 294 - Knowledge cookie wire: GET /api/v1/chat-bindings
+  ---
+  duration_ms: 0.068792
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/chat-bindings
+ok 295 - Knowledge cookie wire: POST /api/v1/chat-bindings
+  ---
+  duration_ms: 0.0715
+  ...
+# Subtest: Knowledge cookie wire: PUT /api/v1/chat-bindings/{id}
+ok 296 - Knowledge cookie wire: PUT /api/v1/chat-bindings/{id}
+  ---
+  duration_ms: 0.070708
+  ...
+# Subtest: Knowledge cookie wire: DELETE /api/v1/chat-bindings/{id}
+ok 297 - Knowledge cookie wire: DELETE /api/v1/chat-bindings/{id}
+  ---
+  duration_ms: 0.071916
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/match-rules
+ok 298 - Knowledge cookie wire: GET /api/v1/match-rules
+  ---
+  duration_ms: 0.069708
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/match-rules
+ok 299 - Knowledge cookie wire: POST /api/v1/match-rules
+  ---
+  duration_ms: 0.116458
+  ...
+# Subtest: Knowledge cookie wire: PUT /api/v1/match-rules/{id}
+ok 300 - Knowledge cookie wire: PUT /api/v1/match-rules/{id}
+  ---
+  duration_ms: 0.069875
+  ...
+# Subtest: Knowledge cookie wire: DELETE /api/v1/match-rules/{id}
+ok 301 - Knowledge cookie wire: DELETE /api/v1/match-rules/{id}
+  ---
+  duration_ms: 0.587959
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/actions
+ok 302 - Knowledge cookie wire: GET /api/v1/actions
+  ---
+  duration_ms: 0.117916
+  ...
+# Subtest: Knowledge cookie wire: PATCH /api/v1/actions/{id}/status
+ok 303 - Knowledge cookie wire: PATCH /api/v1/actions/{id}/status
+  ---
+  duration_ms: 2.066584
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/audit
+ok 304 - Knowledge cookie wire: GET /api/v1/audit
+  ---
+  duration_ms: 0.113667
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/platform/status
+ok 305 - Knowledge cookie wire: GET /api/v1/platform/status
+  ---
+  duration_ms: 0.099458
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/platform/catalog
+ok 306 - Knowledge cookie wire: GET /api/v1/platform/catalog
+  ---
+  duration_ms: 0.073
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/platform/converters
+ok 307 - Knowledge cookie wire: GET /api/v1/platform/converters
+  ---
+  duration_ms: 0.06625
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/processing-jobs
+ok 308 - Knowledge cookie wire: GET /api/v1/processing-jobs
+  ---
+  duration_ms: 0.067375
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/audit-events
+ok 309 - Knowledge cookie wire: GET /api/v1/audit-events
+  ---
+  duration_ms: 0.083125
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/evaluation-cases
+ok 310 - Knowledge cookie wire: GET /api/v1/evaluation-cases
+  ---
+  duration_ms: 0.071292
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/evaluation-cases
+ok 311 - Knowledge cookie wire: POST /api/v1/evaluation-cases
+  ---
+  duration_ms: 0.074458
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/sources
+ok 312 - Knowledge cookie wire: GET /api/v1/sources
+  ---
+  duration_ms: 0.069834
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/sources
+ok 313 - Knowledge cookie wire: POST /api/v1/sources
+  ---
+  duration_ms: 0.071125
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/sources/{id}/sync
+ok 314 - Knowledge cookie wire: POST /api/v1/sources/{id}/sync
+  ---
+  duration_ms: 0.0665
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/sources/{id}/pause
+ok 315 - Knowledge cookie wire: POST /api/v1/sources/{id}/pause
+  ---
+  duration_ms: 0.074208
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/documents
+ok 316 - Knowledge cookie wire: GET /api/v1/documents
+  ---
+  duration_ms: 0.072875
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/documents
+ok 317 - Knowledge cookie wire: POST /api/v1/documents
+  ---
+  duration_ms: 0.067542
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/documents/{id}/reprocess
+ok 318 - Knowledge cookie wire: POST /api/v1/documents/{id}/reprocess
+  ---
+  duration_ms: 0.066542
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/processing-jobs/{id}/retry
+ok 319 - Knowledge cookie wire: POST /api/v1/processing-jobs/{id}/retry
+  ---
+  duration_ms: 0.135541
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/processing-jobs/{id}/cancel
+ok 320 - Knowledge cookie wire: POST /api/v1/processing-jobs/{id}/cancel
+  ---
+  duration_ms: 0.075334
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/platform/cache/invalidate
+ok 321 - Knowledge cookie wire: POST /api/v1/platform/cache/invalidate
+  ---
+  duration_ms: 0.076291
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/recommender-groups
+ok 322 - Knowledge cookie wire: GET /api/v1/recommender-groups
+  ---
+  duration_ms: 0.064916
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/recommender-groups
+ok 323 - Knowledge cookie wire: POST /api/v1/recommender-groups
+  ---
+  duration_ms: 0.067416
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/recommender-groups/{id}/items
+ok 324 - Knowledge cookie wire: POST /api/v1/recommender-groups/{id}/items
+  ---
+  duration_ms: 0.075917
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/memory-subjects
+ok 325 - Knowledge cookie wire: GET /api/v1/memory-subjects
+  ---
+  duration_ms: 0.080458
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/memory-subjects/{id}
+ok 326 - Knowledge cookie wire: GET /api/v1/memory-subjects/{id}
+  ---
+  duration_ms: 0.066958
+  ...
+# Subtest: Knowledge cookie wire: DELETE /api/v1/memory-subjects/{id}
+ok 327 - Knowledge cookie wire: DELETE /api/v1/memory-subjects/{id}
+  ---
+  duration_ms: 0.06825
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/memory-subjects/{subject_id}/memories/{memory_id}
+ok 328 - Knowledge cookie wire: GET /api/v1/memory-subjects/{subject_id}/memories/{memory_id}
+  ---
+  duration_ms: 0.064833
+  ...
+# Subtest: Knowledge cookie wire: DELETE /api/v1/memory-subjects/{subject_id}/memories/{memory_id}
+ok 329 - Knowledge cookie wire: DELETE /api/v1/memory-subjects/{subject_id}/memories/{memory_id}
+  ---
+  duration_ms: 0.066958
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/memory-subjects/{id}/memories
+ok 330 - Knowledge cookie wire: GET /api/v1/memory-subjects/{id}/memories
+  ---
+  duration_ms: 0.066208
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/memory-subjects/{id}/audit-events
+ok 331 - Knowledge cookie wire: GET /api/v1/memory-subjects/{id}/audit-events
+  ---
+  duration_ms: 0.064792
+  ...
+# Subtest: Knowledge cookie wire: PUT /api/v1/memory-subjects/{id}/policy
+ok 332 - Knowledge cookie wire: PUT /api/v1/memory-subjects/{id}/policy
+  ---
+  duration_ms: 0.069708
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/memory-subjects/{id}/corrections
+ok 333 - Knowledge cookie wire: POST /api/v1/memory-subjects/{id}/corrections
+  ---
+  duration_ms: 0.086125
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/memory-outbox/{id}/replay
+ok 334 - Knowledge cookie wire: POST /api/v1/memory-outbox/{id}/replay
+  ---
+  duration_ms: 0.066625
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/runtime/chat/{chat_slug}/query
+ok 335 - Knowledge cookie wire: POST /api/v1/runtime/chat/{chat_slug}/query
+  ---
+  duration_ms: 0.066625
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/runtime/tool-schema
+ok 336 - Knowledge cookie wire: GET /api/v1/runtime/tool-schema
+  ---
+  duration_ms: 0.064417
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/runtime/assistants/{assistant_id}/contracts/{slug}
+ok 337 - Knowledge cookie wire: GET /api/v1/runtime/assistants/{assistant_id}/contracts/{slug}
+  ---
+  duration_ms: 0.080667
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}
+ok 338 - Knowledge cookie wire: GET /api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}
+  ---
+  duration_ms: 0.076917
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}
+ok 339 - Knowledge cookie wire: POST /api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}
+  ---
+  duration_ms: 0.072417
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/runtime/assistants/{assistant_id}/configure
+ok 340 - Knowledge cookie wire: GET /api/v1/runtime/assistants/{assistant_id}/configure
+  ---
+  duration_ms: 0.060875
+  ...
+# Subtest: Knowledge cookie wire: PUT /api/v1/runtime/assistants/{assistant_id}/configure
+ok 341 - Knowledge cookie wire: PUT /api/v1/runtime/assistants/{assistant_id}/configure
+  ---
+  duration_ms: 0.064
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/runtime/assistants/{assistant_id}/query
+ok 342 - Knowledge cookie wire: POST /api/v1/runtime/assistants/{assistant_id}/query
+  ---
+  duration_ms: 0.0635
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/runtime/assistants/{assistant_id}/preview
+ok 343 - Knowledge cookie wire: POST /api/v1/runtime/assistants/{assistant_id}/preview
+  ---
+  duration_ms: 0.063792
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/runtime/assistants/{assistant_id}/evaluations
+ok 344 - Knowledge cookie wire: POST /api/v1/runtime/assistants/{assistant_id}/evaluations
+  ---
+  duration_ms: 0.07
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/runtime/assistants/{assistant_id}/memory/turn
+ok 345 - Knowledge cookie wire: POST /api/v1/runtime/assistants/{assistant_id}/memory/turn
+  ---
+  duration_ms: 0.063334
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/runtime/evidence/documents/{id}
+ok 346 - Knowledge cookie wire: GET /api/v1/runtime/evidence/documents/{id}
+  ---
+  duration_ms: 0.061041
+  ...
+# Subtest: Knowledge cookie wire: GET /api/v1/runtime/evidence/session/{id}
+ok 347 - Knowledge cookie wire: GET /api/v1/runtime/evidence/session/{id}
+  ---
+  duration_ms: 0.060833
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/runtime/retrieval-traces/{id}/usage
+ok 348 - Knowledge cookie wire: POST /api/v1/runtime/retrieval-traces/{id}/usage
+  ---
+  duration_ms: 0.064167
+  ...
+# Subtest: Knowledge cookie wire: POST /api/v1/runtime/mcp
+ok 349 - Knowledge cookie wire: POST /api/v1/runtime/mcp
+  ---
+  duration_ms: 0.068542
+  ...
+# Subtest: Knowledge cookie wire: POST /internal/task-projections/sync
+ok 350 - Knowledge cookie wire: POST /internal/task-projections/sync
+  ---
+  duration_ms: 0.075958
+  ...
+# Subtest: Knowledge cookie wire: POST /internal/task-projections/candidates
+ok 351 - Knowledge cookie wire: POST /internal/task-projections/candidates
+  ---
+  duration_ms: 0.065375
+  ...
+# Subtest: Knowledge cookie wire: POST /internal/task-projections/passages
+ok 352 - Knowledge cookie wire: POST /internal/task-projections/passages
+  ---
+  duration_ms: 0.065916
+  ...
+# Subtest: Knowledge cookie wire: POST /internal/task-conversions
+ok 353 - Knowledge cookie wire: POST /internal/task-conversions
+  ---
+  duration_ms: 0.0895
+  ...
+# Subtest: memory subject list preserves actual filters, metadata and cancellation
+ok 354 - memory subject list preserves actual filters, metadata and cancellation
+  ---
+  duration_ms: 1.891458
+  ...
+# Subtest: subject, record and audit reads preserve both encoded scope identifiers
+ok 355 - subject, record and audit reads preserve both encoded scope identifiers
+  ---
+  duration_ms: 0.703042
+  ...
+# Subtest: policy writes require captured revision and409 is surfaced once without rebasing
+ok 356 - policy writes require captured revision and409 is surfaced once without rebasing
+  ---
+  duration_ms: 0.722334
+  ...
+# Subtest: source controls send desired state and captured version without blind toggle
+ok 357 - source controls send desired state and captured version without blind toggle
+  ---
+  duration_ms: 0.294625
+  ...
+# Subtest: correction sends explicit reviewed target set and keeps provider response context
+ok 358 - correction sends explicit reviewed target set and keeps provider response context
+  ---
+  duration_ms: 0.262583
+  ...
+# Subtest: selective forgetting keeps reason and type in the canonical query
+ok 359 - selective forgetting keeps reason and type in the canonical query
+  ---
+  duration_ms: 0.461416
+  ...
+# Subtest: MCP forgetting represents committed scope fencing even with zero rows changed
+ok 360 - MCP forgetting represents committed scope fencing even with zero rows changed
+  ---
+  duration_ms: 0.275041
+  ...
+# Subtest: canonical generated memory operations preserve reviewed bodies and query scope
+ok 361 - canonical generated memory operations preserve reviewed bodies and query scope
+  ---
+  duration_ms: 0.674
+  ...
+# Subtest: an HTTP200 MCP error never claims successful forgetting
+ok 362 - an HTTP200 MCP error never claims successful forgetting
+  ---
+  duration_ms: 0.4135
+  ...
+# Subtest: Knowledge publication and release readback preserve release identity and full Axios context
+ok 363 - Knowledge publication and release readback preserve release identity and full Axios context
+  ---
+  duration_ms: 2.23925
+  ...
+# Subtest: Knowledge match-rule convenience and canonical calls preserve all filters and pagination metadata
+ok 364 - Knowledge match-rule convenience and canonical calls preserve all filters and pagination metadata
+  ---
+  duration_ms: 0.5685
+  ...
+# Subtest: Learning transcript and questions preserve scoped routes, transport and cancellation
+ok 365 - Learning transcript and questions preserve scoped routes, transport and cancellation
+  ---
+  duration_ms: 2.217333
+  ...
+# Subtest: assignment creation uses exercise id rather than its parent bank id
+ok 366 - assignment creation uses exercise id rather than its parent bank id
+  ---
+  duration_ms: 3.193125
+  ...
+# Subtest: all classroom listing entry points preserve counts, capacity, pagination, auth and cancellation
+ok 367 - all classroom listing entry points preserve counts, capacity, pagination, auth and cancellation
+  ---
+  duration_ms: 3.105917
+  ...
+# Subtest: LMS raw image downloads select bytes and preserve the authenticated Axios response
+ok 368 - LMS raw image downloads select bytes and preserve the authenticated Axios response
+  ---
+  duration_ms: 2.925375
+  ...
+# Subtest: LMS SVG downloads select text and preserve the public code path
+ok 369 - LMS SVG downloads select text and preserve the public code path
+  ---
+  duration_ms: 0.288333
+  ...
+# Subtest: LMS unmounted legacy resources reject locally, while mounted course deletes return the backend envelope
+ok 370 - LMS unmounted legacy resources reject locally, while mounted course deletes return the backend envelope
+  ---
+  duration_ms: 2.817167
+  ...
+# Subtest: LMS exam session PATCH retains explicit null and filters retain comma-separated statuses
+ok 371 - LMS exam session PATCH retains explicit null and filters retain comma-separated statuses
+  ---
+  duration_ms: 1.062041
+  ...
+# Subtest: LMS image upload forwards progress and cancellation and sends native multipart with authorization
+ok 372 - LMS image upload forwards progress and cancellation and sends native multipart with authorization
+  ---
+  duration_ms: 1.954666
+  ...
+# Subtest: Node upload sends a valid multipart boundary and actual byte progress
+ok 373 - Node upload sends a valid multipart boundary and actual byte progress
+  ---
+  duration_ms: 17.566667
+  ...
+# Subtest: LMS upload preserves server validation and storage failures
+ok 374 - LMS upload preserves server validation and storage failures
+  ---
+  duration_ms: 0.791083
+  ...
+# Subtest: session creation APIs send selected students with authentication and cancellation
+ok 375 - session creation APIs send selected students with authentication and cancellation
+  ---
+  duration_ms: 3.876834
+  ...
+# Subtest: durable Manage named/generated clients use exact canonical direct-JSON routes over real HTTP
+ok 376 - durable Manage named/generated clients use exact canonical direct-JSON routes over real HTTP
+  ---
+  duration_ms: 27.388166
+  ...
+# Subtest: durable mutation validation rejects missing capture, forged authority, internal commands and invalid JSON before transport
+ok 377 - durable mutation validation rejects missing capture, forged authority, internal commands and invalid JSON before transport
+  ---
+  duration_ms: 1.924292
+  ...
+# Subtest: 409 and unavailable protocol surface once without rebasing, dispatch or legacy fallback
+ok 378 - 409 and unavailable protocol surface once without rebasing, dispatch or legacy fallback
+  ---
+  duration_ms: 4.714084
+  ...
+# Subtest: durable SSE is a strict reference and never a legacy executable browser action
+ok 379 - durable SSE is a strict reference and never a legacy executable browser action
+  ---
+  duration_ms: 0.416584
+  ...
+# Subtest: manual proxy refuses path normalization escapes before authenticated transport
+ok 380 - manual proxy refuses path normalization escapes before authenticated transport
+  ---
+  duration_ms: 3.415292
+  ...
+# Subtest: Manage setup/liveness/logout and message pagination use mounted routes and credential path
+ok 381 - Manage setup/liveness/logout and message pagination use mounted routes and credential path
+  ---
+  duration_ms: 1.224
+  ...
+# Subtest: Manage proxy domains preserve project scope for every typed service client
+ok 382 - Manage proxy domains preserve project scope for every typed service client
+  ---
+  duration_ms: 2.43375
+  ...
+# Subtest: Manage durable Agent APIs retain exact methods, encoded identifiers, bodies, and stream options
+ok 383 - Manage durable Agent APIs retain exact methods, encoded identifiers, bodies, and stream options
+  ---
+  duration_ms: 1.334417
+  ...
+# Subtest: Manage SSE parser handles chunk boundaries, CRLF, multiline data, and typed guards
+ok 384 - Manage SSE parser handles chunk boundaries, CRLF, multiline data, and typed guards
+  ---
+  duration_ms: 1.114375
+  ...
+# Subtest: Manage image responses support both current envelopes
+ok 385 - Manage image responses support both current envelopes
+  ---
+  duration_ms: 0.065667
+  ...
+# Subtest: Manage history pages preserve cursor query and upstream pagination headers
+ok 386 - Manage history pages preserve cursor query and upstream pagination headers
+  ---
+  duration_ms: 0.295583
+  ...
+# Subtest: recipient inbox helpers keep bracket pagination, current credentials and cancellation
+ok 387 - recipient inbox helpers keep bracket pagination, current credentials and cancellation
+  ---
+  duration_ms: 2.191917
+  ...
+# Subtest: Messenger reviewed ledger and adapter matrix cover all 47 mounted operations
+ok 388 - Messenger reviewed ledger and adapter matrix cover all 47 mounted operations
+  ---
+  duration_ms: 0.787208
+  ...
+# Subtest: Messenger reviewed adapter: GET /health
+ok 389 - Messenger reviewed adapter: GET /health
+  ---
+  duration_ms: 1.776375
+  ...
+# Subtest: Messenger reviewed adapter: GET /up
+ok 390 - Messenger reviewed adapter: GET /up
+  ---
+  duration_ms: 0.394166
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/openapi.json
+ok 391 - Messenger reviewed adapter: GET /api/openapi.json
+  ---
+  duration_ms: 0.308125
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/templates
+ok 392 - Messenger reviewed adapter: GET /api/v1/templates
+  ---
+  duration_ms: 0.280334
+  ...
+# Subtest: Messenger reviewed adapter: POST /api/v1/templates
+ok 393 - Messenger reviewed adapter: POST /api/v1/templates
+  ---
+  duration_ms: 0.296458
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/templates/{id}
+ok 394 - Messenger reviewed adapter: GET /api/v1/templates/{id}
+  ---
+  duration_ms: 0.231292
+  ...
+# Subtest: Messenger reviewed adapter: PATCH /api/v1/templates/{id}
+ok 395 - Messenger reviewed adapter: PATCH /api/v1/templates/{id}
+  ---
+  duration_ms: 0.194833
+  ...
+# Subtest: Messenger reviewed adapter: DELETE /api/v1/templates/{id}
+ok 396 - Messenger reviewed adapter: DELETE /api/v1/templates/{id}
+  ---
+  duration_ms: 0.414375
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/templates/{id}/contents
+ok 397 - Messenger reviewed adapter: GET /api/v1/templates/{id}/contents
+  ---
+  duration_ms: 0.572792
+  ...
+# Subtest: Messenger reviewed adapter: POST /api/v1/templates/{id}/contents
+ok 398 - Messenger reviewed adapter: POST /api/v1/templates/{id}/contents
+  ---
+  duration_ms: 0.340208
+  ...
+# Subtest: Messenger reviewed adapter: PATCH /api/v1/templates/contents/{content_id}
+ok 399 - Messenger reviewed adapter: PATCH /api/v1/templates/contents/{content_id}
+  ---
+  duration_ms: 0.194209
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/channels
+ok 400 - Messenger reviewed adapter: GET /api/v1/channels
+  ---
+  duration_ms: 0.158542
+  ...
+# Subtest: Messenger reviewed adapter: POST /api/v1/channels
+ok 401 - Messenger reviewed adapter: POST /api/v1/channels
+  ---
+  duration_ms: 2.411917
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/channels/{id}
+ok 402 - Messenger reviewed adapter: GET /api/v1/channels/{id}
+  ---
+  duration_ms: 0.365291
+  ...
+# Subtest: Messenger reviewed adapter: PATCH /api/v1/channels/{id}
+ok 403 - Messenger reviewed adapter: PATCH /api/v1/channels/{id}
+  ---
+  duration_ms: 0.192
+  ...
+# Subtest: Messenger reviewed adapter: DELETE /api/v1/channels/{id}
+ok 404 - Messenger reviewed adapter: DELETE /api/v1/channels/{id}
+  ---
+  duration_ms: 0.136834
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/services
+ok 405 - Messenger reviewed adapter: GET /api/v1/services
+  ---
+  duration_ms: 0.146167
+  ...
+# Subtest: Messenger reviewed adapter: POST /api/v1/services
+ok 406 - Messenger reviewed adapter: POST /api/v1/services
+  ---
+  duration_ms: 0.208041
+  ...
+# Subtest: Messenger reviewed adapter: POST /api/v1/services/setup-check
+ok 407 - Messenger reviewed adapter: POST /api/v1/services/setup-check
+  ---
+  duration_ms: 0.126792
+  ...
+# Subtest: Messenger reviewed adapter: POST /api/v1/services/website-otp-readiness
+ok 408 - Messenger reviewed adapter: POST /api/v1/services/website-otp-readiness
+  ---
+  duration_ms: 0.165458
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/services/{id}
+ok 409 - Messenger reviewed adapter: GET /api/v1/services/{id}
+  ---
+  duration_ms: 0.122875
+  ...
+# Subtest: Messenger reviewed adapter: PATCH /api/v1/services/{id}
+ok 410 - Messenger reviewed adapter: PATCH /api/v1/services/{id}
+  ---
+  duration_ms: 0.13325
+  ...
+# Subtest: Messenger reviewed adapter: DELETE /api/v1/services/{id}
+ok 411 - Messenger reviewed adapter: DELETE /api/v1/services/{id}
+  ---
+  duration_ms: 0.115958
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/notifications/me
+ok 412 - Messenger reviewed adapter: GET /api/v1/notifications/me
+  ---
+  duration_ms: 0.150792
+  ...
+# Subtest: Messenger reviewed adapter: PATCH /api/v1/notifications/me/read-all
+ok 413 - Messenger reviewed adapter: PATCH /api/v1/notifications/me/read-all
+  ---
+  duration_ms: 0.119166
+  ...
+# Subtest: Messenger reviewed adapter: PATCH /api/v1/notifications/me/{id}/read
+ok 414 - Messenger reviewed adapter: PATCH /api/v1/notifications/me/{id}/read
+  ---
+  duration_ms: 0.439834
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/notifications
+ok 415 - Messenger reviewed adapter: GET /api/v1/notifications
+  ---
+  duration_ms: 0.120291
+  ...
+# Subtest: Messenger reviewed adapter: PATCH /api/v1/notifications/read-all
+ok 416 - Messenger reviewed adapter: PATCH /api/v1/notifications/read-all
+  ---
+  duration_ms: 0.118709
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/notifications/realtime/config
+ok 417 - Messenger reviewed adapter: GET /api/v1/notifications/realtime/config
+  ---
+  duration_ms: 0.204792
+  ...
+# Subtest: Messenger reviewed adapter: POST /api/v1/notifications/realtime/auth
+ok 418 - Messenger reviewed adapter: POST /api/v1/notifications/realtime/auth
+  ---
+  duration_ms: 0.26425
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/notifications/{id}
+ok 419 - Messenger reviewed adapter: GET /api/v1/notifications/{id}
+  ---
+  duration_ms: 0.156708
+  ...
+# Subtest: Messenger reviewed adapter: PATCH /api/v1/notifications/{id}/read
+ok 420 - Messenger reviewed adapter: PATCH /api/v1/notifications/{id}/read
+  ---
+  duration_ms: 0.229041
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/dashboard
+ok 421 - Messenger reviewed adapter: GET /api/v1/dashboard
+  ---
+  duration_ms: 0.119792
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/integration/rabbitmq
+ok 422 - Messenger reviewed adapter: GET /api/v1/integration/rabbitmq
+  ---
+  duration_ms: 0.113625
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/integration/docs
+ok 423 - Messenger reviewed adapter: GET /api/v1/integration/docs
+  ---
+  duration_ms: 0.115875
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/integration/flow
+ok 424 - Messenger reviewed adapter: GET /api/v1/integration/flow
+  ---
+  duration_ms: 1.180167
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/notifications/me/events
+ok 425 - Messenger reviewed adapter: GET /api/v1/notifications/me/events
+  ---
+  duration_ms: 0.124458
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/notifications/me/unread-count
+ok 426 - Messenger reviewed adapter: GET /api/v1/notifications/me/unread-count
+  ---
+  duration_ms: 0.101042
+  ...
+# Subtest: Messenger reviewed adapter: POST /api/v1/push/devices
+ok 427 - Messenger reviewed adapter: POST /api/v1/push/devices
+  ---
+  duration_ms: 0.110833
+  ...
+# Subtest: Messenger reviewed adapter: DELETE /api/v1/push/devices/{id}
+ok 428 - Messenger reviewed adapter: DELETE /api/v1/push/devices/{id}
+  ---
+  duration_ms: 0.095917
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/web-push/config
+ok 429 - Messenger reviewed adapter: GET /api/v1/web-push/config
+  ---
+  duration_ms: 0.09175
+  ...
+# Subtest: Messenger reviewed adapter: POST /api/v1/web-push/subscriptions
+ok 430 - Messenger reviewed adapter: POST /api/v1/web-push/subscriptions
+  ---
+  duration_ms: 0.114583
+  ...
+# Subtest: Messenger reviewed adapter: DELETE /api/v1/web-push/subscriptions/{id}
+ok 431 - Messenger reviewed adapter: DELETE /api/v1/web-push/subscriptions/{id}
+  ---
+  duration_ms: 0.099083
+  ...
+# Subtest: Messenger reviewed adapter: POST /api/v1/web-push/subscriptions/{id}/test
+ok 432 - Messenger reviewed adapter: POST /api/v1/web-push/subscriptions/{id}/test
+  ---
+  duration_ms: 0.105959
+  ...
+# Subtest: Messenger reviewed adapter: GET /api/v1/web-push/deliveries/{id}
+ok 433 - Messenger reviewed adapter: GET /api/v1/web-push/deliveries/{id}
+  ---
+  duration_ms: 0.0925
+  ...
+# Subtest: Messenger reviewed adapter: POST /api/v1/notifications
+ok 434 - Messenger reviewed adapter: POST /api/v1/notifications
+  ---
+  duration_ms: 0.102417
+  ...
+# Subtest: Messenger reviewed adapter: POST /api/v1/channels/subscribe
+ok 435 - Messenger reviewed adapter: POST /api/v1/channels/subscribe
+  ---
+  duration_ms: 0.104917
+  ...
+# Subtest: Messenger convenience creates and deletes preserve their distinct native result shapes
+ok 436 - Messenger convenience creates and deletes preserve their distinct native result shapes
+  ---
+  duration_ms: 0.3925
+  ...
+# Subtest: raw content/settings operations preserve payload, ETag precondition and auth
+ok 437 - raw content/settings operations preserve payload, ETag precondition and auth
+  ---
+  duration_ms: 2.100875
+  ...
+# Subtest: agent runs preserve SSE text and idempotency headers
+ok 438 - agent runs preserve SSE text and idempotency headers
+  ---
+  duration_ms: 0.324291
+  ...
+# Subtest: media downloads request bytes and preserve raw key segments
+ok 439 - media downloads request bytes and preserve raw key segments
+  ---
+  duration_ms: 0.385833
+  ...
+# Subtest: curated lists and deletes retain actual named collection and status/message envelopes
+ok 440 - curated lists and deletes retain actual named collection and status/message envelopes
+  ---
+  duration_ms: 2.929167
+  ...
+# Subtest: autocomplete carries required query and its validated enum without client rewriting
+ok 441 - autocomplete carries required query and its validated enum without client rewriting
+  ---
+  duration_ms: 1.229541
+  ...
+# Subtest: cart and current-session convenience retain backend envelopes and dynamic JSON items
+ok 442 - cart and current-session convenience retain backend envelopes and dynamic JSON items
+  ---
+  duration_ms: 4.294958
+  ...
+# Subtest: categories named and generated search preserve literal query, auth, server metadata and full response
+ok 443 - categories named and generated search preserve literal query, auth, server metadata and full response
+  ---
+  duration_ms: 15.193084
+  ...
+# Subtest: tags named and generated search preserve literal query, auth, server metadata and full response
+ok 444 - tags named and generated search preserve literal query, auth, server metadata and full response
+  ---
+  duration_ms: 4.676583
+  ...
+# Subtest: seo named and generated search preserve literal query, auth, server metadata and full response
+ok 445 - seo named and generated search preserve literal query, auth, server metadata and full response
+  ---
+  duration_ms: 3.916083
+  ...
+# Subtest: omitted and blank search are transported without client filtering or pagination rewriting
+ok 446 - omitted and blank search are transported without client filtering or pagination rewriting
+  ---
+  duration_ms: 16.094084
+  ...
+# Subtest: Modules search HTTP 400 retains error context without retries or fallback
+ok 447 - Modules search HTTP 400 retains error context without retries or fallback
+  ---
+  duration_ms: 1.890833
+  ...
+# Subtest: Modules search HTTP 401 retains error context without retries or fallback
+ok 448 - Modules search HTTP 401 retains error context without retries or fallback
+  ---
+  duration_ms: 10.72125
+  ...
+# Subtest: Modules search HTTP 403 retains error context without retries or fallback
+ok 449 - Modules search HTTP 403 retains error context without retries or fallback
+  ---
+  duration_ms: 1.224666
+  ...
+# Subtest: Modules search HTTP 500 retains error context without retries or fallback
+ok 450 - Modules search HTTP 500 retains error context without retries or fallback
+  ---
+  duration_ms: 0.834958
+  ...
+# Subtest: already cancelled search sends no HTTP request
+ok 451 - already cancelled search sends no HTTP request
+  ---
+  duration_ms: 0.8595
+  ...
+# Subtest: Modules management and public clients use only v1 API routes
+ok 452 - Modules management and public clients use only v1 API routes
+  ---
+  duration_ms: 0.377666
+  ...
+# Subtest: Modules settings updates send optimistic concurrency through If-Match
+ok 453 - Modules settings updates send optimistic concurrency through If-Match
+  ---
+  duration_ms: 0.068
+  ...
+# Subtest: Modules public content methods encode exact legacy SEO slugs
+ok 454 - Modules public content methods encode exact legacy SEO slugs
+  ---
+  duration_ms: 0.060083
+  ...
+# Subtest: source extraction follows Social main aliases/admin mounts and Version raw OpenAPI instead of stale annotations
+ok 455 - source extraction follows Social main aliases/admin mounts and Version raw OpenAPI instead of stale annotations
+  ---
+  duration_ms: 244.452125
+  ...
+# Subtest: chat native summary administration retains bearer auth, JSON DELETE bodies and Axios context
+ok 456 - chat native summary administration retains bearer auth, JSON DELETE bodies and Axios context
+  ---
+  duration_ms: 2.388042
+  ...
+# Subtest: chat current authority denials propagate without a success or fallback request
+ok 457 - chat current authority denials propagate without a success or fallback request
+  ---
+  duration_ms: 2.602334
+  ...
+# Subtest: session native summary administration retains bearer auth, JSON DELETE bodies and Axios context
+ok 458 - session native summary administration retains bearer auth, JSON DELETE bodies and Axios context
+  ---
+  duration_ms: 4.342458
+  ...
+# Subtest: session current authority denials propagate without a success or fallback request
+ok 459 - session current authority denials propagate without a success or fallback request
+  ---
+  duration_ms: 2.12825
+  ...
+# Subtest: published provenance binds actual package source and is deterministic
+ok 460 - published provenance binds actual package source and is deterministic
+  ---
+  duration_ms: 113.116708
+  ...
+# Subtest: game provenance identifies local runtime and its actual State dependency
+ok 461 - game provenance identifies local runtime and its actual State dependency
+  ---
+  duration_ms: 0.093125
+  ...
+# Subtest: Payment regeneration retains concrete nested records, required nulls and exact identifiers
+ok 462 - Payment regeneration retains concrete nested records, required nulls and exact identifiers
+  ---
+  duration_ms: 772.008875
+  ...
+# Subtest: Payment source ledger and adapter cases cover all 36 mounted operations
+ok 463 - Payment source ledger and adapter cases cover all 36 mounted operations
+  ---
+  duration_ms: 0.725708
+  ...
+# Subtest: Payment reviewed adapter: GET /
+ok 464 - Payment reviewed adapter: GET /
+  ---
+  duration_ms: 1.493041
+  ...
+# Subtest: Payment reviewed adapter: GET /api/openapi.json
+ok 465 - Payment reviewed adapter: GET /api/openapi.json
+  ---
+  duration_ms: 0.355791
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/auth/self
+ok 466 - Payment reviewed adapter: GET /api/v1/auth/self
+  ---
+  duration_ms: 0.283792
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/gateways
+ok 467 - Payment reviewed adapter: GET /api/v1/gateways
+  ---
+  duration_ms: 0.296542
+  ...
+# Subtest: Payment reviewed adapter: POST /api/v1/gateways
+ok 468 - Payment reviewed adapter: POST /api/v1/gateways
+  ---
+  duration_ms: 0.28125
+  ...
+# Subtest: Payment reviewed adapter: DELETE /api/v1/gateways/{id}
+ok 469 - Payment reviewed adapter: DELETE /api/v1/gateways/{id}
+  ---
+  duration_ms: 0.235458
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/gateways/{id}
+ok 470 - Payment reviewed adapter: GET /api/v1/gateways/{id}
+  ---
+  duration_ms: 0.176708
+  ...
+# Subtest: Payment reviewed adapter: PATCH /api/v1/gateways/{id}
+ok 471 - Payment reviewed adapter: PATCH /api/v1/gateways/{id}
+  ---
+  duration_ms: 0.357166
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/gateways/options
+ok 472 - Payment reviewed adapter: GET /api/v1/gateways/options
+  ---
+  duration_ms: 0.56775
+  ...
+# Subtest: Payment reviewed adapter: POST /api/v1/gateways/setup-check
+ok 473 - Payment reviewed adapter: POST /api/v1/gateways/setup-check
+  ---
+  duration_ms: 0.361417
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/integration/docs
+ok 474 - Payment reviewed adapter: GET /api/v1/integration/docs
+  ---
+  duration_ms: 0.197292
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/integration/flow
+ok 475 - Payment reviewed adapter: GET /api/v1/integration/flow
+  ---
+  duration_ms: 0.1865
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/internal/2done/availability
+ok 476 - Payment reviewed adapter: GET /api/v1/internal/2done/availability
+  ---
+  duration_ms: 0.156625
+  ...
+# Subtest: Payment reviewed adapter: POST /api/v1/internal/2done/payment
+ok 477 - Payment reviewed adapter: POST /api/v1/internal/2done/payment
+  ---
+  duration_ms: 0.171666
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/internal/2done/transactions/{id}
+ok 478 - Payment reviewed adapter: GET /api/v1/internal/2done/transactions/{id}
+  ---
+  duration_ms: 0.173959
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/internal/asset/purchases/{id}
+ok 479 - Payment reviewed adapter: GET /api/v1/internal/asset/purchases/{id}
+  ---
+  duration_ms: 13.47325
+  ...
+# Subtest: Payment reviewed adapter: POST /api/v1/internal/fitness/payment
+ok 480 - Payment reviewed adapter: POST /api/v1/internal/fitness/payment
+  ---
+  duration_ms: 0.29175
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/internal/fitness/transactions/{id}
+ok 481 - Payment reviewed adapter: GET /api/v1/internal/fitness/transactions/{id}
+  ---
+  duration_ms: 0.142125
+  ...
+# Subtest: Payment reviewed adapter: POST /api/v1/internal/fitness/transactions/{id}/retry
+ok 482 - Payment reviewed adapter: POST /api/v1/internal/fitness/transactions/{id}/retry
+  ---
+  duration_ms: 0.124375
+  ...
+# Subtest: Payment reviewed adapter: POST /api/v1/internal/shop/payment
+ok 483 - Payment reviewed adapter: POST /api/v1/internal/shop/payment
+  ---
+  duration_ms: 0.143166
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/internal/shop/readiness
+ok 484 - Payment reviewed adapter: GET /api/v1/internal/shop/readiness
+  ---
+  duration_ms: 0.127042
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/internal/shop/transactions/{id}
+ok 485 - Payment reviewed adapter: GET /api/v1/internal/shop/transactions/{id}
+  ---
+  duration_ms: 0.115208
+  ...
+# Subtest: Payment reviewed adapter: POST /api/v1/payment
+ok 486 - Payment reviewed adapter: POST /api/v1/payment
+  ---
+  duration_ms: 0.120333
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/settings
+ok 487 - Payment reviewed adapter: GET /api/v1/settings
+  ---
+  duration_ms: 0.116125
+  ...
+# Subtest: Payment reviewed adapter: PATCH /api/v1/settings
+ok 488 - Payment reviewed adapter: PATCH /api/v1/settings
+  ---
+  duration_ms: 0.155542
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/transactions
+ok 489 - Payment reviewed adapter: GET /api/v1/transactions
+  ---
+  duration_ms: 0.143333
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/transactions/{uuid}
+ok 490 - Payment reviewed adapter: GET /api/v1/transactions/{uuid}
+  ---
+  duration_ms: 0.123042
+  ...
+# Subtest: Payment reviewed adapter: POST /api/v1/transactions/{uuid}/reject
+ok 491 - Payment reviewed adapter: POST /api/v1/transactions/{uuid}/reject
+  ---
+  duration_ms: 0.129959
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/transactions/{uuid}/verifications
+ok 492 - Payment reviewed adapter: GET /api/v1/transactions/{uuid}/verifications
+  ---
+  duration_ms: 0.11475
+  ...
+# Subtest: Payment reviewed adapter: POST /api/v1/transactions/{uuid}/verify
+ok 493 - Payment reviewed adapter: POST /api/v1/transactions/{uuid}/verify
+  ---
+  duration_ms: 0.117708
+  ...
+# Subtest: Payment reviewed adapter: GET /api/v1/transactions/daily-income
+ok 494 - Payment reviewed adapter: GET /api/v1/transactions/daily-income
+  ---
+  duration_ms: 0.122666
+  ...
+# Subtest: Payment reviewed adapter: GET /health
+ok 495 - Payment reviewed adapter: GET /health
+  ---
+  duration_ms: 0.108459
+  ...
+# Subtest: Payment reviewed adapter: GET /payments/{uuid}/redirect
+ok 496 - Payment reviewed adapter: GET /payments/{uuid}/redirect
+  ---
+  duration_ms: 0.138167
+  ...
+# Subtest: Payment reviewed adapter: GET /payments/callbacks/{provider}
+ok 497 - Payment reviewed adapter: GET /payments/callbacks/{provider}
+  ---
+  duration_ms: 0.2235
+  ...
+# Subtest: Payment reviewed adapter: POST /payments/callbacks/{provider}
+ok 498 - Payment reviewed adapter: POST /payments/callbacks/{provider}
+  ---
+  duration_ms: 0.129041
+  ...
+# Subtest: Payment reviewed adapter: GET /up
+ok 499 - Payment reviewed adapter: GET /up
+  ---
+  duration_ms: 0.110542
+  ...
+# Subtest: Payment convenience detail and transaction calls preserve request options without phantom queries
+ok 500 - Payment convenience detail and transaction calls preserve request options without phantom queries
+  ---
+  duration_ms: 0.261959
+  ...
+# Subtest: Payment raw callback redirects preserve status, Location and empty text body
+ok 501 - Payment raw callback redirects preserve status, Location and empty text body
+  ---
+  duration_ms: 0.168125
+  ...
+# Subtest: generic profile filters preserve JSON clauses, arbitrary roles, authorization and cancellation
+ok 502 - generic profile filters preserve JSON clauses, arbitrary roles, authorization and cancellation
+  ---
+  duration_ms: 2.800667
+  ...
+# Subtest: education, select custom types and transfers preserve typed routes, auth and cancellation
+ok 503 - education, select custom types and transfers preserve typed routes, auth and cancellation
+  ---
+  duration_ms: 3.192125
+  ...
+# Subtest: job and delivery prices preserve values and explicit nulls through both SDK APIs
+ok 504 - job and delivery prices preserve values and explicit nulls through both SDK APIs
+  ---
+  duration_ms: 2.551375
+  ...
+# Subtest: Profile summaries preserve authentication, independent state, precision and transport options
+ok 505 - Profile summaries preserve authentication, independent state, precision and transport options
+  ---
+  duration_ms: 23.232791
+  ...
+# Subtest: CRM source check uses the authenticated Profile transport and exact source identity
+ok 506 - CRM source check uses the authenticated Profile transport and exact source identity
+  ---
+  duration_ms: 0.308792
+  ...
+# Subtest: all twenty Profile summary operations retain reviewed types after repeated generation
+ok 507 - all twenty Profile summary operations retain reviewed types after repeated generation
+  ---
+  duration_ms: 1036.389917
+  ...
+# Subtest: Profile media operations request raw bytes and retain auth, headers and cancellation
+ok 508 - Profile media operations request raw bytes and retain auth, headers and cancellation
+  ---
+  duration_ms: 2.118834
+  ...
+# Subtest: private realtime rejects unsafe transports and public channels before connecting
+ok 509 - private realtime rejects unsafe transports and public channels before connecting
+  ---
+  duration_ms: 0.395583
+  ...
+# Subtest: Chat and Messenger authorize their own channels through credentialed SDK clients
+ok 510 - Chat and Messenger authorize their own channels through credentialed SDK clients
+  ---
+  duration_ms: 5.30925
+  ...
+# Subtest: contract synchronization preserves existing operation names except documented 1.0.0 summary endpoint retirements
+ok 511 - contract synchronization preserves existing operation names except documented 1.0.0 summary endpoint retirements
+  ---
+  duration_ms: 18.234084
+  ...
+# Subtest: Rust fixtures cannot become production endpoints, including braces inside literals
+ok 512 - Rust fixtures cannot become production endpoints, including braces inside literals
+  ---
+  duration_ms: 0.43225
+  ...
+# Subtest: extraction respects pub(crate), nested qualified handlers and namespaced permissions
+ok 513 - extraction respects pub(crate), nested qualified handlers and namespaced permissions
+  ---
+  duration_ms: 181.86725
+  ...
+# Subtest: checkout uses the mounted shop path, camelCase shipping and raw checkout response
+ok 514 - checkout uses the mounted shop path, camelCase shipping and raw checkout response
+  ---
+  duration_ms: 2.1215
+  ...
+# Subtest: game session creation binds the path identity and preserves versioned commands
+ok 515 - game session creation binds the path identity and preserves versioned commands
+  ---
+  duration_ms: 0.470959
+  ...
+# Subtest: handoff, OTP forms, password and fitness updates retain their distinct wire models
+ok 516 - handoff, OTP forms, password and fitness updates retain their distinct wire models
+  ---
+  duration_ms: 0.922375
+  ...
+# Subtest: internal receipts and readiness keep raw responses and server credential headers
+ok 517 - internal receipts and readiness keep raw responses and server credential headers
+  ---
+  duration_ms: 0.648708
+  ...
+# Subtest: v2 realtime sends scoped tickets in the hello frame and supports cancellation
+ok 518 - v2 realtime sends scoped tickets in the hello frame and supports cancellation
+  ---
+  duration_ms: 12.9505
+  ...
+# Subtest: Reservation convenience booking uses numeric slot and customer UUID and preserves cancellation receipt
+ok 519 - Reservation convenience booking uses numeric slot and customer UUID and preserves cancellation receipt
+  ---
+  duration_ms: 2.206792
+  ...
+# Subtest: Reservation convenience schedule, generation, assignments and arrays preserve distinct wire shapes
+ok 520 - Reservation convenience schedule, generation, assignments and arrays preserve distinct wire shapes
+  ---
+  duration_ms: 1.135
+  ...
+# Subtest: Reservation convenience filtered pagination and slot structural patches retain literal query/body fields
+ok 521 - Reservation convenience filtered pagination and slot structural patches retain literal query/body fields
+  ---
+  duration_ms: 0.602958
+  ...
+# Subtest: Reservation all 30 mounted operations have reviewed source behavior and correct management grants
+ok 522 - Reservation all 30 mounted operations have reviewed source behavior and correct management grants
+  ---
+  duration_ms: 0.234625
+  ...
+# Subtest: the exact transaction rejection remains a conditional protocol boundary in both inventories
+ok 523 - the exact transaction rejection remains a conditional protocol boundary in both inventories
+  ---
+  duration_ms: 0.974375
+  ...
+# Subtest: a different body, condition, path or service cannot be hidden as a reviewed protocol fallback
+ok 524 - a different body, condition, path or service cannot be hidden as a reviewed protocol fallback
+  ---
+  duration_ms: 0.151667
+  ...
+# Subtest: exact state-free retired summary handlers stay visible as 410 boundaries without supported SDK operations
+ok 525 - exact state-free retired summary handlers stay visible as 410 boundaries without supported SDK operations
+  ---
+  duration_ms: 1.380083
+  ...
+# Subtest: unknown, stateful or conditionally mounted retirement handlers cannot hide a supported operation
+ok 526 - unknown, stateful or conditionally mounted retirement handlers cannot hide a supported operation
+  ---
+  duration_ms: 2.91025
+  ...
+# Subtest: active business services cannot disappear merely because no SDK source checkout existed
+ok 527 - active business services cannot disappear merely because no SDK source checkout existed
+  ---
+  duration_ms: 0.605375
+  ...
+# Subtest: frontend/worker aliases require a reviewed real service owner instead of hiding unknown runtimes
+ok 528 - frontend/worker aliases require a reviewed real service owner instead of hiding unknown runtimes
+  ---
+  duration_ms: 0.072625
+  ...
+# Subtest: inventory binding rejects changed bytes, missing rows and files outside the evidence directory
+ok 529 - inventory binding rejects changed bytes, missing rows and files outside the evidence directory
+  ---
+  duration_ms: 2.631
+  ...
+# Subtest: catalog release aliases require explicit ownership and do not create duplicate business services
+ok 530 - catalog release aliases require explicit ownership and do not create duplicate business services
+  ---
+  duration_ms: 0.149625
+  ...
+# Subtest: absolute URLs cannot escape the configured service origin
+ok 531 - absolute URLs cannot escape the configured service origin
+  ---
+  duration_ms: 1.03075
+  ...
+# Subtest: concurrent unauthorized requests share refresh and use the replacement token
+ok 532 - concurrent unauthorized requests share refresh and use the replacement token
+  ---
+  duration_ms: 1.932208
+  ...
+# Subtest: cookie mode preserves credentials without requiring a token provider
+ok 533 - cookie mode preserves credentials without requiring a token provider
+  ---
+  duration_ms: 0.227375
+  ...
+# Subtest: cookie refresh can rotate an HttpOnly cookie without returning tokens
+ok 534 - cookie refresh can rotate an HttpOnly cookie without returning tokens
+  ---
+  duration_ms: 0.337208
+  ...
+# Subtest: refresh failure preserves the original protected-request Axios error
+ok 535 - refresh failure preserves the original protected-request Axios error
+  ---
+  duration_ms: 0.590375
+  ...
+# Subtest: CRM convenience client supports panel-compatible and nested workflow routes
+ok 536 - CRM convenience client supports panel-compatible and nested workflow routes
+  ---
+  duration_ms: 4.877583
+  ...
+# Subtest: LMS Office integration uses UUID classroom batches and an explicit legacy-ID bridge
+ok 537 - LMS Office integration uses UUID classroom batches and an explicit legacy-ID bridge
+  ---
+  duration_ms: 0.483708
+  ...
+# Subtest: DRM management facade uses the mounted API prefix and supports binary multipart chunks
+ok 538 - DRM management facade uses the mounted API prefix and supports binary multipart chunks
+  ---
+  duration_ms: 3.750917
+  ...
+# Subtest: Session facade covers room lifecycle, recordings, integrations, and canonical views
+ok 539 - Session facade covers room lifecycle, recordings, integrations, and canonical views
+  ---
+  duration_ms: 1.259
+  ...
+# Subtest: Chat facade exposes assistant administration and AI conversation management
+ok 540 - Chat facade exposes assistant administration and AI conversation management
+  ---
+  duration_ms: 1.992458
+  ...
+# Subtest: Messenger and Payment facades expose their management surfaces
+ok 541 - Messenger and Payment facades expose their management surfaces
+  ---
+  duration_ms: 0.798042
+  ...
+# Subtest: Task client covers protected workspace, grant, proposal, comments, and SSE routes
+ok 542 - Task client covers protected workspace, grant, proposal, comments, and SSE routes
+  ---
+  duration_ms: 0.636833
+  ...
+# Subtest: source snapshots retain exact pinned bytes without changing a dirty service checkout
+ok 543 - source snapshots retain exact pinned bytes without changing a dirty service checkout
+  ---
+  duration_ms: 790.086209
+  ...
+# Subtest: Session all 45 mounted operations preserve method, path, query/body, token and Axios context
+ok 544 - Session all 45 mounted operations preserve method, path, query/body, token and Axios context
+  ---
+  duration_ms: 22.68775
+  ...
+# Subtest: Session convenience room resource uses native query, create input and deleted-room envelope
+ok 545 - Session convenience room resource uses native query, create input and deleted-room envelope
+  ---
+  duration_ms: 0.31475
+  ...
+# Subtest: Social admin regeneration preserves reviewed queries, permission contracts and concrete response types
+ok 546 - Social admin regeneration preserves reviewed queries, permission contracts and concrete response types
+  ---
+  duration_ms: 640.13925
+  ...
+# Subtest: Active Social discovery regeneration preserves scoped contracts and typed graph targets
+ok 547 - Active Social discovery regeneration preserves scoped contracts and typed graph targets
+  ---
+  duration_ms: 615.9635
+  ...
+# Subtest: Social immutable source review covers every mounted operation with named models
+ok 548 - Social immutable source review covers every mounted operation with named models
+  ---
+  duration_ms: 11.874625
+  ...
+# Subtest: Social authenticated media downloads raw bytes through the shared authorized transport
+ok 549 - Social authenticated media downloads raw bytes through the shared authorized transport
+  ---
+  duration_ms: 1.627334
+  ...
+# Subtest: Social request-key, nullable Option input and flat claim pagination pass through unchanged
+ok 550 - Social request-key, nullable Option input and flat claim pagination pass through unchanged
+  ---
+  duration_ms: 0.634083
+  ...
+# Subtest: Social concrete claim, consent, funding and moderation envelopes are retained without reshaping
+ok 551 - Social concrete claim, consent, funding and moderation envelopes are retained without reshaping
+  ---
+  duration_ms: 0.774333
+  ...
+# Subtest: Social graph and worker operations retain shared server credentials and 204 responses
+ok 552 - Social graph and worker operations retain shared server credentials and 204 responses
+  ---
+  duration_ms: 0.544541
+  ...
+# Subtest: native denoising and compact mono Opus; deterministic cleanup
+ok 553 - native denoising and compact mono Opus; deterministic cleanup
+  ---
+  duration_ms: 1.27275
+  ...
+# Subtest: AAC fallback is 64k and works without Web Audio
+ok 554 - AAC fallback is 64k and works without Web Audio
+  ---
+  duration_ms: 0.232
+  ...
+# Subtest: cancelling pending permission closes tracks when acquisition completes
+ok 555 - cancelling pending permission closes tracks when acquisition completes
+  ---
+  duration_ms: 0.645959
+  ...
+# Subtest: active abort releases microphone; invalid bitrate never requests access
+ok 556 - active abort releases microphone; invalid bitrate never requests access
+  ---
+  duration_ms: 0.888834
+  ...
+# Subtest: TTS requests MP3 by default, preserves explicit WAV and authenticated transport
+ok 557 - TTS requests MP3 by default, preserves explicit WAV and authenticated transport
+  ---
+  duration_ms: 1.95925
+  ...
+# Subtest: progressive speech preserves English/Persian text with a short first phrase
+ok 558 - progressive speech preserves English/Persian text with a short first phrase
+  ---
+  duration_ms: 0.724459
+  ...
+# Subtest: live speech chunks inherit auth, signal, ordering and preserve server revision metadata
+ok 559 - live speech chunks inherit auth, signal, ordering and preserve server revision metadata
+  ---
+  duration_ms: 1.035166
+  ...
+# Subtest: progressive playback starts before later synthesis finishes and abort releases audio
+ok 560 - progressive playback starts before later synthesis finishes and abort releases audio
+  ---
+  duration_ms: 12.100541
+  ...
+# Subtest: preloads multiple phrases during playback, schedules contiguous audio and replays locally
+ok 561 - preloads multiple phrases during playback, schedules contiguous audio and replays locally
+  ---
+  duration_ms: 128.485167
+  ...
+# Subtest: Node TTS binary response selection does not change compact MP3 or explicit WAV defaults
+ok 562 - Node TTS binary response selection does not change compact MP3 or explicit WAV defaults
+  ---
+  duration_ms: 0.632875
+  ...
+# Subtest: State source review inventories every mounted operation, including two upgrades
+ok 563 - State source review inventories every mounted operation, including two upgrades
+  ---
+  duration_ms: 3.145916
+  ...
+# Subtest: State game operations preserve snake_case queries, body and authenticated Axios transport
+ok 564 - State game operations preserve snake_case queries, body and authenticated Axios transport
+  ---
+  duration_ms: 1.692417
+  ...
+# Subtest: room replication exposes pong, ack and exact ticket-bound frames
+ok 565 - room replication exposes pong, ack and exact ticket-bound frames
+  ---
+  duration_ms: 3.850792
+  ...
+# Subtest: room connection rejects an expired ticket and a socket closed before opening
+ok 566 - room connection rejects an expired ticket and a socket closed before opening
+  ---
+  duration_ms: 0.117833
+  ...
+# Subtest: match connection sends ticket in hello and never retries consumed tickets without refresh
+ok 567 - match connection sends ticket in hello and never retries consumed tickets without refresh
+  ---
+  duration_ms: 601.66125
+  ...
+# Subtest: Task review covers every pinned mounted HTTP operation exactly once
+ok 568 - Task review covers every pinned mounted HTTP operation exactly once
+  ---
+  duration_ms: 13.870333
+  ...
+# Subtest: governed proposal preserves discriminated payloads, revision and cancellation
+ok 569 - governed proposal preserves discriminated payloads, revision and cancellation
+  ---
+  duration_ms: 4.043208
+  ...
+# Subtest: team assignment and nullable clears survive Task convenience updates
+ok 570 - team assignment and nullable clears survive Task convenience updates
+  ---
+  duration_ms: 0.771208
+  ...
+# Subtest: feedback preconditions, idempotency and raw MIME bytes are preserved
+ok 571 - feedback preconditions, idempotency and raw MIME bytes are preserved
+  ---
+  duration_ms: 0.727125
+  ...
+# Subtest: raw realtime signature and metrics retain unwrapped response data
+ok 572 - raw realtime signature and metrics retain unwrapped response data
+  ---
+  duration_ms: 0.669458
+  ...
+# Subtest: generated SSE selects fetch by default and preserves explicit adapters
+ok 573 - generated SSE selects fetch by default and preserves explicit adapters
+  ---
+  duration_ms: 1.94075
+  ...
+# Subtest: 204 deletion retains empty body and cookie authorization config
+ok 574 - 204 deletion retains empty body and cookie authorization config
+  ---
+  duration_ms: 1.14025
+  ...
+# Subtest: Version regeneration preserves mounted paths, named wire envelopes and permission meaning
+ok 575 - Version regeneration preserves mounted paths, named wire envelopes and permission meaning
+  ---
+  duration_ms: 459.315166
+  ...
+# Subtest: Session dynamic transport uses the requested verb, shared credentials, binary body and segment-preserving path
+ok 576 - Session dynamic transport uses the requested verb, shared credentials, binary body and segment-preserving path
+  ---
+  duration_ms: 3.175292
+  ...
+# Subtest: wildcard paths and unsupported verbs fail before transport can normalize or reroute them
+ok 577 - wildcard paths and unsupported verbs fail before transport can normalize or reroute them
+  ---
+  duration_ms: 0.378625
+  ...
+# Subtest: CRM fallback operations preserve the supplied verb and retain nested path separators
+ok 578 - CRM fallback operations preserve the supplied verb and retain nested path separators
+  ---
+  duration_ms: 2.056458
+  ...
+# Subtest: CONNECT requires an explicit tunnel-capable transport instead of hanging the default adapter
+ok 579 - CONNECT requires an explicit tunnel-capable transport instead of hanging the default adapter
+  ---
+  duration_ms: 0.172292
+  ...
+# Subtest: CRM not-found diagnostics cannot silently call a registered API through wildcard precedence
+ok 580 - CRM not-found diagnostics cannot silently call a registered API through wildcard precedence
+  ---
+  duration_ms: 0.427958
+  ...
+# Subtest: workspace contracts, role discovery and review revisions use authenticated SDK transport
+ok 581 - workspace contracts, role discovery and review revisions use authenticated SDK transport
+  ---
+  duration_ms: 3.138916
+  ...
+1..581
+# tests 581
+# suites 0
+# pass 581
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9069.990041

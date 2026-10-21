@@ -22,13 +22,13 @@ const client = new FaiberClient("session", {
 });
 const api = new SessionApi(client);
 
-const rooms = await api.rooms.list({ "page[number]": 1 });
+const rooms = await api.rooms.list({ page_number: 1, page_size: 10 });
 const token = await api.livekitToken(roomId);
 ```
 
 ## Complete capability
 
-This package exposes 42 source-mounted operations. Common workflows have concise methods on `api`; named operation types are exported from `operations.types`. A router's `ANY` filter is exposed as one operation taking an explicit HTTP method.
+This package exposes 45 source-mounted HTTP operations. Common workflows have concise methods on `api`; named operation types are exported from `operations.types`. A router's `ANY` filter is exposed as one operation taking an explicit HTTP method.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -36,7 +36,8 @@ This package exposes 42 source-mounted operations. Common workflows have concise
 | `assistant-tools` | 3 | `GET` |
 | `branding` | 5 | `GET`, `POST`, `PUT` |
 | `configuration` | 2 | `GET`, `PUT` |
-| `integration` | 3 | `GET`, `POST` |
+| `integration` | 2 | `GET` |
+| `native-access` | 4 | `DELETE`, `GET`, `POST`, `PUT` |
 | `notification-state` | 1 | `GET` |
 | `recording` | 4 | `GET`, `POST` |
 | `room` | 19 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
@@ -60,7 +61,7 @@ Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `w
 
 ## Inputs, queries, responses, and transport
 
-All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Nested pagination uses keys such as `page[number]` and `page[size]` where required by the service. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
+All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Room and recording queries use `page_number` and `page_size`; recording pages include `meta`, while room lists contain `data.rooms` without pagination metadata. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
 
 Generic REST resources are capability-guarded. Calling a legacy method that the service does not register throws `UnsupportedOperationError` before sending a request instead of producing a backend `405`.
 
@@ -167,3 +168,11 @@ separate `/mcp` transport uses signed scoped grants and rejects browser origins;
 these REST methods do not provide an MCP session.
 
 After a transport error or 503, reload current status before retrying a mutation: the source can commit its policy/revocation before a later status read or reconciliation fails. Use the reloaded revision and review the resulting state.
+
+### Native room and configuration contracts
+
+Room creation requires `name`, numeric `capacity` and timezone-free `starts_at` (for example `2026-10-21T12:00:00`). Room status is numeric; room-state enum names use PascalCase such as `Question` and `ChargeLow`. PUT and PATCH both partially update; omitted or null optional update fields preserve stored values. `rooms.delete` returns the deleted room snapshot in `data.room`. Interactive start accepts no JSON body. Playback returns the room and its states, rather than a playback URL.
+
+Branding saves replace the document; omitted values reset to defaults. Use a FormData whose first field is `file` for a PNG/JPEG/WebP logo of at most 8 MiB. Upload returns `data.asset_key` and `data.url`; save the asset key separately. Public asset reads return bytes and Content-Type. Configuration reads expose secret-presence booleans; blank/omitted/null secrets on save preserve existing secrets. Omitted `audio_processing_enabled` defaults false. Assistant session list/detail access uses explicit own/all permission checks and participant membership; global detail access may include other participants' analyses.
+
+Stored model analysis, DRM snapshots, interaction content and Asset receipt extension fields are explicitly documented JSON boundaries; the SDK does not invent provider schemas. This package's source review covers 45 mounted HTTP operations. Compiled SDK checks, exact native acceptance and deployed gateway enforcement are separate release gates.

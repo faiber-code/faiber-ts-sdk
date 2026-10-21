@@ -175,7 +175,7 @@ export class TaskApi extends ServiceApi {
     return this.client.post<T.TaskResponse<T.AgentProposal>, T.AgentProposalInput>("/api/v1/agent-proposals", data, options);
   }
 
-  /** Applies a pending proposal after a distinct actor with `agent.approve` reviews it. */
+  /** Marks a pending agent proposal approved after a distinct actor with `agent.approve` reviews it. The stored payload is not executed. */
   approveAgentProposal(id: Identifier, options?: RequestOptions) {
     return this.client.post<T.TaskResponse<T.ApprovedAgentProposal>>(
       `/api/v1/agent-proposals/${encodeURIComponent(id)}/approve`,
@@ -197,6 +197,7 @@ export class TaskApi extends ServiceApi {
 }
 
 export * from "./types.js";
+export * from "./wire.types.js";
 export * from "./collaboration.js";
 export * from "@faiber/sdk-core";
 export * from "./operations.js";

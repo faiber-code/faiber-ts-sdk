@@ -1,0 +1,19 @@
+[[package]]
+name = "infera-flow-sdk"
+version = "0.1.0"
+source = "git+https://hamgit.ir/faiber/faiber-sdk.git#291c81a67bc302d667fb807da2af3240598bee52"
+dependencies = [
+ "axum",
+ "bytes",
+ "chrono",
+ "futures-lite",
+ "http-body-util",
+ "lapin",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "tokio",
+ "tracing",
+ "uuid",
+]
+

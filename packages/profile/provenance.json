@@ -9,17 +9,18 @@
     }
   },
   "package_source_sha256": {
-    "packages/profile/src/contracts.types.ts": "8556f3835ce6a1f79e262128a7b6fad52ffc26ef0e790e540eaeab09022d5381",
-    "packages/profile/src/index.ts": "4d5a495ed9ca417806839595484268529d4836567f6972a2670f1801ccfb03df",
-    "packages/profile/src/operations.ts": "1376c8554ed3bbd92da6928a9c94126f7452c13c971a2978d7c97fe4e6fc775f",
-    "packages/profile/src/operations.types.ts": "d64f97ae91786845a1b5bf1f1b3f056f0fea00b15d0956f0f7230d072c96476c",
-    "packages/profile/src/summaries.ts": "4ec306ff7987b5ce0cc930baed0c09bfa90b249bd526306603139dce16c11e96",
-    "packages/profile/src/summaries.types.ts": "bb97b4bbb3c476425fd158792da4d9e6742fbde863967370bcd89c125c4f6c3e",
-    "packages/profile/src/types.ts": "63b678d24d3810eabc8a8a2a49d9db7fa7978af7df99c08d8ef797c55a89c638"
+    "packages/profile/src/contracts.types.ts": "3affd8fa185f1f9552f2e0f1b838fef071476c035f3a7d9479868983952caec5",
+    "packages/profile/src/index.ts": "eb81aef92bfc40e6ed80ea408a80fabce2e5cb4abbe2782cdb4d14ad2620357e",
+    "packages/profile/src/operations.ts": "2a6db9f7b58e04ec87b42f3c7ff69393bce8aaa1ccf29f189e958e0cdf41c0e5",
+    "packages/profile/src/operations.types.ts": "ae95affeae99c7dd99262b0dcf62cc7b201ff76f3d7386876ffd25e01c08bc8f",
+    "packages/profile/src/summaries.ts": "5a9ef534ec724d10b0f4251591792a39e1e50adb5c2bfdd3fe45f5699dbd01fa",
+    "packages/profile/src/summaries.types.ts": "721a04a4e857881100372aa40c2a55f1395ed309e68dea33cfb697259e44facb",
+    "packages/profile/src/types.ts": "ac08e159e7a26e44e32bc1bce0b030bb1bdcfe9640685f629ecec57ae381744c",
+    "packages/profile/src/wire.types.ts": "1c05a5a274bc4fdfd5a8b028a1bb2954562bf2b543f3d686b3b10bbf55f3ecbb"
   },
-  "capability_review_sha256": "5225ed619ca0a8e420924de9d3e1dc598ad13fbc68ee3210a3eec721a4d19a0a",
+  "capability_review_sha256": "fb280ef8a146c670faf81da7f6733d1fc3328be67fecb55e03c43a631a059059",
   "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
-  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 235,

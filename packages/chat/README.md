@@ -296,3 +296,32 @@ Configured assistant levels constrain the owning-conversation context request on
 Selected-assistant group slugs are stored configuration, but forwarding and descendant-versus-exact matching are not fully implemented consistently. Do not use those settings as an authorization boundary or promise that unclassified results are excluded. Server-side current tenant, permissions and base bindings remain authoritative.
 
 Knowledge's selected-media chunk cap applies after governance and deduplication across both packing paths (default 8, valid range 1–20). Query limits are not a strict combined count across all returned lanes. Expansion and reranking settings can be retained as requested values while runtime capabilities report unsupported/not applied; storing a flag does not enable an algorithm or provider. Inspect returned trace/capability information instead of assuming these features ran.
+
+### Response records and message history
+
+Conversation records include nullable `agent_slug`, `assistant_id`, `agentic_thread_id`,
+legacy identifiers and deletion timestamps. Members expose `state`,
+`notification_level` and `last_read_sequence`. `react` returns a `ChatReaction`,
+including `message_id`, `user_id`, `emoji` and `created_at`. It does not return a
+message record. Message history includes an `attachments` array on each row and
+`meta: { limit, has_more }`; other ordinary Chat responses serialize `meta: null`.
+`before` and `after` are exclusive sequence bounds, ordered newest first. The
+backend accepts `q` but currently does not apply a text filter.
+
+The generated `routesSynthesizePost` operation returns raw audio bytes and accepts
+lowercase `mp3` or `wav`; omitted/null format selects WAV on the server. The curated
+`synthesize` helper explicitly requests MP3 by default. Raw `routesTranscribePost`
+requires `{ language: 'auto' | 'en' | 'fa' }` and an audio `Content-Type` matching
+the supplied bytes, such as `audio/webm` or `audio/wav`; it is not a multipart upload.
+
+Workspace bindings accept `2done-action` for the `action` role and `2done-chat` for
+`chat`. The shared `2done-assistants` slug is not a valid binding request. Speech
+settings preserve language overrides when `language_models` is omitted or null;
+pass `{}` to clear them. Version conflicts require reloading and reviewing the draft.
+
+Provider catalogs, source-import data, model-generated fitness plans and runtime
+schema/UI values are forwarded as JSON by the selected backend without a local
+schema check. Their exported types document that behavior. Catalog listings and
+assistant lookup scope follow the selected backend: active/managed assistant lists
+and the public assistant lookup do not apply an organization predicate in their
+repositories. Do not infer tenant isolation from an SDK type or a catalog result.

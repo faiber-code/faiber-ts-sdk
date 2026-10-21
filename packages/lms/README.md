@@ -82,7 +82,7 @@ This package exposes 181 registered operations through typed bindings, including
 | `session` | 1 | `GET` |
 | `transfer` | 1 | `POST` |
 
-Course sessions, classroom users and absences, assignments, invitations, club projects, support interactions, and work-time records have dedicated typed operations. Most LMS updates use `PATCH`; unsupported generic deletes are guarded locally.
+Course sessions, classroom users and absences, homework assignments, exam attempts, academy enrollments, reports, and certificate workflows have dedicated typed operations. Most LMS updates use `PATCH`; unsupported generic deletes are guarded locally.
 
 Homework assignments and exam sessions expose explicit `student_user_id`, `teacher_user_id`, `consultant_user_id`, and `support_user_id` list filters. The existing `user_id` filter remains available when a caller wants any related participant or staff role.
 
@@ -299,3 +299,13 @@ scoping. Normal Axios response, error, authentication and cancellation behavior 
 Academy category, course, session, question and enrollment identifiers are UUID strings. Session completion requires the authenticated enrollment owner and an active enrollment; exam and interactive sessions cannot be completed through the ordinary completion endpoint. Incomplete prerequisite sessions return a conflict. Retain the original `idempotency_key` when reconciling a session completion.
 
 Exam submission sends `answers` keyed by question UUID. The server grades the attempt's selected question snapshot; the SDK cannot supply a score or bypass ownership, expiry or attempt status. Submission is not an automatic retry workflow: a response lost after completion requires authoritative readback. Responses retain the full Axios envelope and errors; an empty extracted permission annotation does not mean anonymous access.
+
+## Supported wire behavior
+
+The supported backend source is `1a55795725ac5ac23b763117fbbe64f96d4cf2f6`. Course/category deletes are available; successful mutation envelopes contain `data: {}`. Removing a classroom user returns `data: null`. The legacy `videoSections`, `events`, `textTemplates`, and `interactiveContent` generic resources are unmounted and reject locally.
+
+Image download operations return raw bytes (`ArrayBuffer | Uint8Array`) with Axios headers; certificate SVG returns text. Exam-session patches distinguish omission from `null`: nullable classroom links, staff, timestamps, and counts can be cleared explicitly. The course report returns aggregate classroom/session/attendance counts, while the academy catalog returns learning content and enrollment progress.
+
+Configure Bearer tokens through `TokenProvider` or secure cookies through `withCredentials`; prefer in-memory tokens or HttpOnly cookies. Methods use the shared authenticated transport, accept `signal`, timeout, headers, adapters and interceptors, and preserve full Axios responses. Cancellation and non-success HTTP responses reject with Axios errors. LMS application errors generally serialize `{ error: string }`; educational transfer has its documented structured error envelope.
+
+Permission names in operation documentation describe the backend IDP route metadata. The pinned backend extracts gateway identity headers (with its configured development fallback); that extractor and permission metadata alone do not validate a Bearer token or prove gateway enforcement. Additional handler scope checks apply to scoped reads, learning ownership, evaluation submissions, and sensitive enrollment updates. Native acceptance and deployment verification remain separate from the source contract.

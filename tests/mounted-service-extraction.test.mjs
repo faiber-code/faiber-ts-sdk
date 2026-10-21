@@ -17,7 +17,7 @@ test('source extraction follows Social main aliases/admin mounts and Version raw
 async fn main(){let app=Router::new().route("/health",get(health)).merge(discovery()).nest("/api/v1/admin/social",crate::admin::router());}
 async fn health()->Json<ApiResponse<Health>>{unimplemented!()}
 fn unused()->Router{Router::new().route("/not-mounted",get(health))}`);
-  put('infera-social/src/discovery.rs','pub fn public_routes()->Router{Router::new().route("/api/v1/public/posts",get(feed))} async fn feed(Query(q):Query<Feed>)->Json<ApiResponse<Vec<Item>>>{unimplemented!()}');
+  put('infera-social/src/discovery.rs','pub fn public_routes()->Router{Router::new().route("/api/v1/public/posts",get(feed))} async fn feed(axum::extract::Query(q):axum::extract::Query<Feed>)->Json<ApiResponse<Vec<Item>>>{unimplemented!()}');
   put('infera-social/src/admin.rs','pub fn router()->Router{Router::new().route("/review",get(review))} async fn review()->Json<ApiResponse<Review>>{ctx.require("social:content:read")?;}');
   put('infera_version/src/router.rs',`pub fn routes()->Router{Router::new().route("/health",get(status_route)).route("/api/openapi.json",get(openapi_json))}
 #[utoipa::path(get,path="/")] async fn status_route()->impl IntoResponse{Json(APIResponse{data:HealthResponse{version:"fixture"}})}

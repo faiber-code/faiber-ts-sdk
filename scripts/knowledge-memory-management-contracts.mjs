@@ -7,7 +7,7 @@ export const knowledgeMemoryManagementContracts={
  'knowledge:GET /api/v1/memory-subjects':{
   methodName:'platformListMemorySubjectsGet',typeBase:'PlatformListMemorySubjectsGet',
   query:'import("./types.js").MemorySubjectQuery',response:'import("./types.js").MemorySubjectListResponse',
-  auth:read,purpose:'List bounded current subjects with literal profile/identity search, type/status/enabled filters and stable pagination. Return separate nullable overrides, effective policy, actual counts, server capabilities and captured revision; private Profile attributes are excluded.'
+  auth:read,purpose:'List bounded current subjects with literal profile/identity search, type/status/enabled filters and stable pagination. Return separate nullable overrides, effective policy, actual counts, server capabilities and captured revision; only the bounded Profile identity allowlist is returned.'
  },
  'knowledge:GET /api/v1/memory-subjects/{id}':{
   methodName:'platformMemorySubjectGet',typeBase:'PlatformMemorySubjectGet',

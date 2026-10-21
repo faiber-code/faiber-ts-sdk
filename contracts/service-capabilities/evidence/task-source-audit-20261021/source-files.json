@@ -1,0 +1,1261 @@
+{
+  "revision": "b8ed5921e4f6bd2d7f4ef675f0cb8b3fbbb1e23d",
+  "files": [
+    {
+      "path": "Cargo.lock",
+      "sha256": "b4de8f9b36fd49c0e79c1c41a596ec6552952a7705cea65ffd1835bf3402fa3b"
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "84eda812b6129f0aa3a618ecffb0fb08c7c951615326c562a63bb1d67b9f7fc3"
+    },
+    {
+      "path": "entity/Cargo.toml",
+      "sha256": "bcbe39d52aba788e97d61aa0d77db4d07ab931c9bb2c1721302dfd7be5b288eb"
+    },
+    {
+      "path": "entity/src/lib.rs",
+      "sha256": "6209dcc29b45990f229b30f36e29e7956c72c0b0ffac1f6984469d9e0212e736"
+    },
+    {
+      "path": "entity/src/project.rs",
+      "sha256": "18a3b1e5607e664b4b617c68260e2d71c48cd097fcf7c4eae24257e75b7e43fa"
+    },
+    {
+      "path": "entity/src/work_item.rs",
+      "sha256": "037882ef2c125badd054138e5fe9155c04748d601777ee6bce8107760e38c9b6"
+    },
+    {
+      "path": "migration/Cargo.toml",
+      "sha256": "9bffff003004ebf567d92913dc997286b8b73bcf15612060f83f5b0e45cfe410"
+    },
+    {
+      "path": "migration/src/lib.rs",
+      "sha256": "5e998fb4a94ba10c1b192879ec9f17f31c10d1b5937d79f38fa8047322760d1d"
+    },
+    {
+      "path": "migration/src/m20260812_000001_create_task_domain.rs",
+      "sha256": "c84b62784e494d7250a041776b2498cd6d3741e251773d967414e1d2ff2bde9a"
+    },
+    {
+      "path": "migration/src/m20260822_000002_add_execution_monitoring.rs",
+      "sha256": "175682c01eeaa2f9430aee48ca334406c9f323a739fd0a9c167b93721bc3ac1a"
+    },
+    {
+      "path": "migration/src/m20260919_000003_general_projects.rs",
+      "sha256": "7e36d1991160105fef3e7920167923bd73107501c63b525edc3bb62a110debad"
+    },
+    {
+      "path": "migration/src/m20260919_000004_work_item_float_fields.rs",
+      "sha256": "fe7b5e495ae5f0de37327e6c93eef65813057782f0e197d3eae082d59b00ac07"
+    },
+    {
+      "path": "migration/src/m20260920_000005_reminders.rs",
+      "sha256": "0ef798b7e9ea45156da410ddd2bafb277d2045f131cbf70ebe9fa92857040740"
+    },
+    {
+      "path": "migration/src/m20260920_000006_progress_clock.rs",
+      "sha256": "f17ecfef107d888a3268114e749f4ad5d56edd2426c71e3e63b82c2fee8ff1d4"
+    },
+    {
+      "path": "migration/src/m20260921_000007_reminder_triggers.rs",
+      "sha256": "4d88c3f35dd5804055f3e72781b5d66c626cdee414396deff5183f541813055f"
+    },
+    {
+      "path": "migration/src/m20260922_000008_workspace_assistants.rs",
+      "sha256": "94433f32ec44e50969aeccde815c12323b8a4043c1563e008f943af36a954912"
+    },
+    {
+      "path": "migration/src/m20260926_000009_note_documents.rs",
+      "sha256": "4d7de87b3781c81c7b61c0a7197e293cd3ba09e19eefa3c265a90c5818fed203"
+    },
+    {
+      "path": "migration/src/m20260927_000010_product_plans.rs",
+      "sha256": "19b8555dc72b4aa0ebc755a6544ade4f7e508dd3e38843b0156b93eb853f8dec"
+    },
+    {
+      "path": "migration/src/m20260927_000011_plan_upgrade_quotes.rs",
+      "sha256": "0861399b0f5fa61c677ce019a40afc5ac4879bcd837c0d46513f32d9fae91362"
+    },
+    {
+      "path": "migration/src/m20260927_000012_managed_trial_gifts.rs",
+      "sha256": "46bbac613dd1f8b9fb04c0f1c5e53058c66209642b0f65c6dc71ed9eade8efcc"
+    },
+    {
+      "path": "migration/src/m20260927_000013_gift_capacity.rs",
+      "sha256": "4d7a526f6735593d0eb417d2261acf88cf849abc87c46b87e9e26043d67439c0"
+    },
+    {
+      "path": "migration/src/m20260928_000014_trial_space_access.rs",
+      "sha256": "b30c2c24c1e1278a3d86eeab45f949f80feec46cc467a8f70d9b900de6524443"
+    },
+    {
+      "path": "migration/src/m20260928_000015_ai_usage_buckets.rs",
+      "sha256": "b34e737b02e7ba3734c55ea02dca15cd9b25ee56ee4f88930f8bb870a8cc9c8f"
+    },
+    {
+      "path": "migration/src/m20260928_000016_trial_member_capacity.rs",
+      "sha256": "2242ce3433c6cda680b8ba0aeac3e9d14006c88fd695d6c861908c4990dc2bda"
+    },
+    {
+      "path": "migration/src/m20260930_000017_comment_pagination.rs",
+      "sha256": "44b53cc120f5dc76c22713ba6453be0740a1ef4ea6c2a65fc792a298503396ea"
+    },
+    {
+      "path": "migration/src/m20260930_000018_image_allowance.rs",
+      "sha256": "fd7074a20c3e57f9e20eaec3d596aef46526eb92e1be0d4d26933a0336cf80fc"
+    },
+    {
+      "path": "migration/src/m20261005_000019_product_plan_alignment.rs",
+      "sha256": "e418d91d73fe9ca9620b0f486b8ddbf8ac14314bc6a315f91105df1adfa5d914"
+    },
+    {
+      "path": "migration/src/m20261013_000020_collaborative_storage.rs",
+      "sha256": "0b9698d68717f0b5bc3a554db731898fb02ec5f5df474b64c5cd50847850d51e"
+    },
+    {
+      "path": "migration/src/m20261013_000021_stage_projection.rs",
+      "sha256": "62cba17ce9e93b88e4e984c5ea8d5168d8690cae47971b2bdf8431969bbbf584"
+    },
+    {
+      "path": "migration/src/m20261013_000022_note_projection_jobs.rs",
+      "sha256": "da3c47c880b57ffbff1cd497c9cd7968e892a51149fb9a88b4c23e72c8bf0864"
+    },
+    {
+      "path": "migration/src/m20261013_000023_note_imports.rs",
+      "sha256": "0a85198d82fb2dacf867dd7ebe367a33b57b8875c5566902bd7b61924764fd6c"
+    },
+    {
+      "path": "migration/src/m20261013_000024_realtime_notifications.rs",
+      "sha256": "ae758ecdd759e84dcdf3c5ddf5728b98d4f78f8c46376f73dfdc3eba448f7678"
+    },
+    {
+      "path": "migration/src/m20261013_000025_source_imports.rs",
+      "sha256": "564ff9b8eb9c6441ad2a652a79f50d22663ac046aefc14320a3d7455a0b3c220"
+    },
+    {
+      "path": "migration/src/m20261013_000026_media_imports.rs",
+      "sha256": "dbabcf41d040828e277d4f00190f1b38f5715e30dcec42ae6eeb6b34fe4c52ca"
+    },
+    {
+      "path": "migration/src/m20261013_000027_attachment_indexing.rs",
+      "sha256": "b96bcb3cfe96d40d9dbf70f994c8334dfbdf7f85aebb81aabafe94d43739a36a"
+    },
+    {
+      "path": "migration/src/m20261019_000028_feedback.rs",
+      "sha256": "12423f711082168ba867244de8cad546342173b10e895819cc2a5018963c9802"
+    },
+    {
+      "path": "migration/src/m20261019_000050_summary_activity_outbox.rs",
+      "sha256": "d34aea1cfd4e73327b67d9f778d3e633be872c510704d15ef45b011d4edb05e7"
+    },
+    {
+      "path": "migration/src/m20261020_000052_feedback_notification_leases.rs",
+      "sha256": "f776157e023f61afac3a38eeac0c0867a4faaa7457f46063cf27f3e53f8438ab"
+    },
+    {
+      "path": "migration/src/main.rs",
+      "sha256": "9f0ce6ada5b4c42d0fd729da8d37b1e76b2046e8466be167307d519ad5c8404e"
+    },
+    {
+      "path": "shared/infera-summary-sdk/Cargo.toml",
+      "sha256": "f8f49adcda1bbb77fc5e853e53ca05665c4a9dbda098af238cc425f8079b81e6"
+    },
+    {
+      "path": "shared/infera-summary-sdk/examples/generate_keys.rs",
+      "sha256": "2c055ce4f3f56b75fd58c413924d933098df1a5f5030d46534aa40e406ea8465"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/api.rs",
+      "sha256": "80d5512679333b5dfd0d0b50070f590a1049b8d10c6937366092d271f94ca3de"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/catalog.rs",
+      "sha256": "28f3b4b57b2c2dd7bc1309af471c6514afe1ca8fe70e3727735afc257b18d2e1"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/config.rs",
+      "sha256": "63b94a830ac8c0af99fc86fc71953659bda67c83c5f52158cd74b5d31a1f0645"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/evidence.rs",
+      "sha256": "b67c8d9ecea944f57663ab3d9ec8686f3d92511bea4531f5979050738275ee09"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/grant.rs",
+      "sha256": "4ec08323843172e92a6ee63e1e9f588b03224b1f79046599ff3780de2d7b220c"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/lib.rs",
+      "sha256": "6a0bf4cf485806671a46e96c0d8d8355a1a7f5d2a1c8d149b7378958dbb887c3"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/metric.rs",
+      "sha256": "db361bceb5387c75b1da6f0af699cb78c24504e2574d7fd99c1895ef29365d32"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/native_identity.rs",
+      "sha256": "dbb311db9127ad85dfc3d380baa32717b188cc257fe5de582a4e5bb41b8be32e"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/outbox.rs",
+      "sha256": "2bc0a036e1f6831ce079d9045949d2af99ea064b424e929a776e4a179b9429c8"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/outbox.sql",
+      "sha256": "6624b4c4b2a720870293058d06f4eea46f85f985ddbeb475eff3b4f61d26963a"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/query.rs",
+      "sha256": "1b41835d869b2efd44aaf7d3f78cdf974c38bebf748b20a967beca0b26adf93c"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/result.rs",
+      "sha256": "0184a660d278fcabb919365c89f037e8ee9443718e63afe6895da3a3574fbb65"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/runner.rs",
+      "sha256": "486304ffbbe09c18ae55b199a8e5b77e3bfc5d78c4e04db9355b821593352b6d"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/runner_crypto.rs",
+      "sha256": "3bea1b556fd47af11e5a03ea65ea03ed7bf83e925a365a7763e87807a7b5a0be"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/runner_identity.rs",
+      "sha256": "78ec0470c4935e3a82cf0acdc713a9ddf7cb6a17197f1952612ef64dfdb522d3"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/runner_transport.rs",
+      "sha256": "f3b4517824522224fdef6b851891203b5072f2a5b7912df05ce92fd3af60eaf8"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/server.rs",
+      "sha256": "54c4983b3f9d80b51a9fea88f84a3791d95ea88e0bfff433a0cca3bbe1581beb"
+    },
+    {
+      "path": "shared/infera-summary-sdk/tests/accounting_transport.rs",
+      "sha256": "db8e6621e792a37e03419d830ab169ff8e905067a92d9bb3441a4a9ff33bb401"
+    },
+    {
+      "path": "shared/infera-summary-sdk/tests/mcp_transport.rs",
+      "sha256": "1eb543cda949cf4722d4856c316d3d32ccb9ca45b0dd3284cc15c8113ad78ee4"
+    },
+    {
+      "path": "shared/infera-summary-sdk/tests/runner_contract.rs",
+      "sha256": "b31f8779d30bd14e457e1ae1102da23e6b2882aab00eda47699234eb419c69d9"
+    },
+    {
+      "path": "shared/infera-summary-sdk/tests/runner_transport.rs",
+      "sha256": "b392ec015ee5be707802ee7968bd0108a72f58318e01b05425827709a8c08529"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/Cargo.toml",
+      "sha256": "b10bdf536f450a66592ac81a9e2e0290717c7717d716f2a8c6017ef66e1f74c3"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/Cargo.toml",
+      "sha256": "6ff37247e29d38c16f7ce5a62a7d2abf6bcbdbe65e371c41d8535131892057b1"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/ast/data/mod.rs",
+      "sha256": "dfcfd5707ca5bca7f11c8b7262e6ebb47acac28e4796198f9b41758a8875bdcd"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/ast/data/nested_meta.rs",
+      "sha256": "0164c60fdb09d1bf53cb0de9ae094960748fb6b6a882d1e9fe9727f9a904ec23"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/ast/generics.rs",
+      "sha256": "f58bc7cf6be6aabde290f965018bdea236fc40c3b3d234b1f47a101f3d286179"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/ast/mod.rs",
+      "sha256": "58a58eeb1db7682e5994732cc8eb04088f6ca662805460ef443cf089e5c24e2c"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/attr_extractor.rs",
+      "sha256": "9ec3e79a7659bdff066bf1b9ac92e2c8ef63e901e5ba98ab35d7eacf6f0dd7dc"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/attrs_field.rs",
+      "sha256": "4844710750f2675af0e39efb92ca202a5e62a661169fa33882b5862b1ce7e499"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/default_expr.rs",
+      "sha256": "53cbc63c719a7998ee27d9a016fd513a90f8fad888f83aa34963f06619bbd661"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/error.rs",
+      "sha256": "3dde4e14b94ef45c329f6fd40387e418caf3122c0f59289b8d9fea5607b31470"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/field.rs",
+      "sha256": "e1ba98b93f478a677bc188e5feebd1455cd4b50fb8015ba7e72b1e8ff83124b4"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/from_attributes_impl.rs",
+      "sha256": "b41e4c40d4c96d79783c95da4f5e90aa70816fa3f8c63991e76829a68806a45c"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/from_derive_impl.rs",
+      "sha256": "e6b13ab0e16931914c90928e1a74fd1008241d6fd83b5d13b766ef5845b58a5a"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/from_field.rs",
+      "sha256": "1c4254d390fc6914c57f855bc984f86202f7a5f337b81a48d3ab035705cffd26"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/from_meta_impl.rs",
+      "sha256": "df539e4c4346352ed147b470f2309f1f13c10f7d3db7ec4865f683f45fab267e"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/from_type_param.rs",
+      "sha256": "5aacb01ce63f7a19f80aa667fd05f73f1d1fad475f1be5111d2a2d64648900d6"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/from_variant_impl.rs",
+      "sha256": "d6b809b0c62b8fc5e31d2a8b2b0040eb475d1f8b084e19faf06d95d11086a089"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/mod.rs",
+      "sha256": "38ee48646cf768b02199f52695515d9d43ae8e1d23cc3455b39eb8d50540dce3"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/outer_from_impl.rs",
+      "sha256": "b1e63838daed79c8d1c024ca4c88388f32b51454c5a86241717d68d3c3c92414"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/postfix_transform.rs",
+      "sha256": "41c84a239c15671e5a9cb8ce9fbb1b907f20aebe30d5dea4f04f004e3aa584c1"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/trait_impl.rs",
+      "sha256": "5b1d706d0c7a2ad99508fe143e1204306742bd1c21cbc1a7f73614f11ddbf8e8"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/variant.rs",
+      "sha256": "3fd98acd64560ab691edc3950ad68d24f8efcf26a0ba2b5665f09f2bade1cae8"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/codegen/variant_data.rs",
+      "sha256": "0cd8c404d8cb4228a15139938ff4af90b629cec4ccf78caff3ecbf40a252d2cd"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/derive.rs",
+      "sha256": "d35f35233eea28bc66bf6f738358415d650741560ca56f8deaee9465b3e88b2a"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/error/child.rs",
+      "sha256": "a6cc6e21b3a424150a764b2b9a8ffbc525722ccb4c372e197ded5a39021439fc"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/error/kind.rs",
+      "sha256": "4c801498e613cce839f7ce87aa86c142f63b9b2d31178a97539d0bbb4abbdf27"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/error/mod.rs",
+      "sha256": "bf8cdcb7949d8888b43df34f2f6e18036428f2cb75ad84eb53b7e4390bbfd2e0"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/error/util.rs",
+      "sha256": "afbe0076daa80e3bd572f2fecf7a9bedc7715af115712250131acd9b1010cde7"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/from_attributes.rs",
+      "sha256": "9c98a34eccdb66526711793d6d00bd5216de1d0e9d3755133996242a27efe272"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/from_derive_input.rs",
+      "sha256": "a60aba72ebd4deddd6bb9919995652f90aafdf88f6109c00c1a1c4459e439049"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/from_field.rs",
+      "sha256": "1e22b7750843b6a018fe75ae1510fb9252343be99ab02d2093881421e87d867d"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/from_generic_param.rs",
+      "sha256": "bdabc80f49212501e6e3574c7e6c03b4e453d0fe241ac46d465a5f004381f4c9"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/from_generics.rs",
+      "sha256": "b0a156179b2d1d88467183649afc97405403b01a7fdae39e4df8392f6b9f500c"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/from_meta.rs",
+      "sha256": "e58269593f83ea7369e641dedca3754b992578724eff7e313eeb5a14db779275"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/from_type_param.rs",
+      "sha256": "0c8930a42e1f0720429aa968f97f938e207460232dd2169cbf8efec12e7c6f5a"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/from_variant.rs",
+      "sha256": "dd27ffef65ceea0e68809afde7df82d3751cdedc248773062637aa8c146da6e7"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/lib.rs",
+      "sha256": "34808fd70c0c871c1eba5636530ebc5792788a1141999aa7165edabe66cfe9e8"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/macros_private.rs",
+      "sha256": "4373c36e75d516c340fc9b13c52b471d823fff9997cb7faeeb5f93b11d40d0b4"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/macros_public.rs",
+      "sha256": "7d2ce0c5026227ef7854db11d7a885ad891255438b2e49bbdfda56fa2f92feec"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/options/core.rs",
+      "sha256": "41936931c0b505663d577bc2a0338295e86ed29e1082dd0d4f21fe1da6084b24"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/options/forward_attrs.rs",
+      "sha256": "f0240414bbb855795ba13298be8c658e47c84e36b842fdec581dbb8a24edd19e"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/options/forwarded_field.rs",
+      "sha256": "fae53bb7cf0eccf836e8a6d5d01de7cd6bd56479206b085bd54b0ed434f55eed"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/options/from_attributes.rs",
+      "sha256": "b82356ab9a31dac1d4e2b12b02966ac068fa48df1b3492f889d45769c8b8dde3"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/options/from_derive.rs",
+      "sha256": "82a5443b903bb730a137e452db4bf9d8bbac24f0b749b5cd3a6a189a2a601e26"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/options/from_field.rs",
+      "sha256": "93d025e43c8dba21e0e21d40ad8c0d9814eadb95b1ad3b2738156b1699f7e218"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/options/from_meta.rs",
+      "sha256": "6ab7abd3dda4f28c70e7d203f6b5d4013de2dbbbd5006ac4937790432835c544"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/options/from_type_param.rs",
+      "sha256": "d8f68a9927c57321b3e4d717d15fe917ffa91ee561d7e298625bcaf25441d849"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/options/from_variant.rs",
+      "sha256": "104565175aeb238edf9ee68f7ffe2a665620796c50f7f9f3e1e3ef23751214aa"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/options/input_field.rs",
+      "sha256": "f63ca24e3f504e35b34173e430ac29dde29fe9b6bf9cc9ca69c6084104228b8e"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/options/input_variant.rs",
+      "sha256": "6f98c6edabc52d87d895dba549e2c2562365e54ecfc0803f158058d7d3c2e430"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/options/mod.rs",
+      "sha256": "21a18740e1b3d230f293db946fbbbe352f9da8a2c4bd2c881134e0c666be3fa3"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/options/outer_from.rs",
+      "sha256": "eb0a8d6f94dd50d49d0696362f46d68eddc93c606f990f46e7663bca0aadf200"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/options/shape.rs",
+      "sha256": "3908097eea951b947a32456b18f3c8f45b8261d0603bc67b1ab98081cd474c5d"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/usage/generics_ext.rs",
+      "sha256": "b2d15e2ff75c47f43f3ce305b2108e800dd3d89e3a21fadf82bda455837b8090"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/usage/ident_set.rs",
+      "sha256": "30edb2f0a599284967e3c6b579da31e5f9b15f3dd67bc9a82d6335eb44133df0"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/usage/lifetimes.rs",
+      "sha256": "f3dcb3fab5370c07ddb19fa04079f8da1f035d671930d987ab3980f77ae7f3cc"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/usage/mod.rs",
+      "sha256": "e49adadfa8ffed27299d5bbf3c33e68e2c8c7411f89aef655f77e158be9dd642"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/usage/options.rs",
+      "sha256": "0491c995aad0d55783b24cce8a4e40f0f4435988c54ce2ded34763ac9b199fcf"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/usage/type_params.rs",
+      "sha256": "e009419b102ad56878706d411b44cb89f5a497e8d0abbb6769bcd2d4af53c90b"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/callable.rs",
+      "sha256": "b722e91f0f0ad877eba33c6fe35b94191edc88b2ef0c6cea4f5386d9039389ac"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/flag.rs",
+      "sha256": "b2ac32e1a140d2fd9e02d84c73e5db3807b52419841fb293d3144b8e8a847a44"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/ident_string/mod.rs",
+      "sha256": "c01577caaa9dbabe7796684e4718dea0a2b99cc723ed2b5fcea39aa8861f96ad"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/ident_string/serde.rs",
+      "sha256": "775d047c96f564c39fea7593dc397673357d0eddc53eff11f8df40a5eeb71102"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/ignored.rs",
+      "sha256": "099c015023b9be0870fb1c4c44ad00f87789ea13da25e2ca952132443e497214"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/mod.rs",
+      "sha256": "8da138d37e0ce1e2ffb92b77b1534e3527e49af8beabc305a57ab9eabc1a02a5"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/over_ride.rs",
+      "sha256": "f994cbced4608bd1a329d53793c7425bbca7097351dfd040a2f787661560aac7"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/parse_attribute.rs",
+      "sha256": "202b9c05b818caa3d54c05d9dc34a52c7f46c87996a65865c1623084b4fb8eb7"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/parse_expr.rs",
+      "sha256": "71d7eb900ec5460934ff2f1770e85acb68c7a2c317b1e2f9776b4f4d7258f9fa"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/path_list.rs",
+      "sha256": "f5a5e31ad0e0e929ad5fe485b97fca18e8e26ad28fc4089063674b9073ea3ed3"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/path_to_string.rs",
+      "sha256": "c093354f91ab45e0be3c50d2d4356408f415c910f1569fb9275c5087110736f6"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/preserved_str_expr.rs",
+      "sha256": "725609c478d63d03831f887d3126d7c2c371a707cd2c37af4d7344cc4014c20f"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/shape.rs",
+      "sha256": "dda17aa8a063b5023ae1f055bec2859f984ec32633f6cc55938a442252f07204"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/spanned_value.rs",
+      "sha256": "9ad1cb69d8a13c1f826f4c67b3531f0faee8eb2a68bb381871987e85bea561ee"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/core/src/util/with_original.rs",
+      "sha256": "39b233a67976d375145359685ad219334dcd64410565a2b99132a83273be8375"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/macro/Cargo.toml",
+      "sha256": "98039498c82250f0315884a448c0533e1c164344274c430e486283004ccf68e4"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/macro/src/lib.rs",
+      "sha256": "728be3bb12c9cdaaf0520bce87e489a0820e436c78fa3627e238fc1acc11dd7f"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/src/lib.rs",
+      "sha256": "81bb4648beef113a7fc84737301f14e0116165ec8bb590df205471f82489b619"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/darling/src/macros_public.rs",
+      "sha256": "7d2ce0c5026227ef7854db11d7a885ad891255438b2e49bbdfda56fa2f92feec"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/Cargo.toml",
+      "sha256": "95bbdbb9c3e855fde57f8fc610cf24147c2a5f54a3f417be2779146db0bbbdbb"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/error.rs",
+      "sha256": "03260e78096396534e176cc1044a79accf5f3f2a202bada642fff3f56b0459bc"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/handler/client/progress.rs",
+      "sha256": "d190d05e4b22ad49be7820594b0463272de031f5b97084b5c50c0a157758443e"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/handler/client.rs",
+      "sha256": "77c0af0dab29a6cdc255eaa49bd56902bab7451deb868af9d6da3dadaa71e3cf"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/handler/server/common.rs",
+      "sha256": "7bb21f5ed98f92566f940f1d0a8c6caa809dcd297dd96ed88a7ba94715a1ca11"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/handler/server/prompt.rs",
+      "sha256": "25d279ea391f64ff04a27a139b56b41a8dbc62f4ebc352deceee2af1ed0a491a"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/handler/server/resource.rs",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/handler/server/router/prompt.rs",
+      "sha256": "9862498db7869b038ebb3832ee86ec9da2708156a7a8ffd24f76753d6b2efac2"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/handler/server/router/tool.rs",
+      "sha256": "42f6d54cf6a29ea459b7c7a897411c15998b7022ce8a5a28b702dcabfc9ff269"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/handler/server/router.rs",
+      "sha256": "6950634ea8577a4ebddc47cea9c2c5a186aaec16aa2634d8e5cb2921eef59b7a"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/handler/server/tool.rs",
+      "sha256": "171becff88228798e44ea89e7f20e11d2035c5cbed590d7ec0bc5dea90c51106"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/handler/server/wrapper/json.rs",
+      "sha256": "c3174184434843cb1598bd419f0c42365448589d0495377820a1fc354dff35fc"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/handler/server/wrapper/parameters.rs",
+      "sha256": "69e3b21fbff36ab2a2e1d75c1c84c99a3335d0d186a661d1b5be4e1a7f2fd11c"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/handler/server/wrapper.rs",
+      "sha256": "e594439b9d2c2df8911fb16c93290c55f717db83d74098b9d68817da44f9befe"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/handler/server.rs",
+      "sha256": "bc8cf5ac070f9d38fbb74eabf16c20ca2a4d4529d8741cdb66fa1d29d75318bd"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/handler.rs",
+      "sha256": "9d1b57b412ff63b0d006a8975f035575043647eeea9c6489332ca2b3f5c1bd7b"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/lib.rs",
+      "sha256": "923b4e3b1a266657b68f3ceb3d8ca87e55ea1ea8c33a51e5d3c2f4b905835c0f"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/model/annotated.rs",
+      "sha256": "55b421db202f76f997477bbbc0ba450f8df605a70fd0d4a02083bf65bfc2280b"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/model/capabilities.rs",
+      "sha256": "fb03ef9109969cf88b734e5aa234eb6982f451e718490992f8b4737c85b3a6e1"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/model/content.rs",
+      "sha256": "3c5bafb7d939a442c8aff2d09adf7b2807b241e954b55431bdad4d9567343ea3"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/model/elicitation_schema.rs",
+      "sha256": "575c1b86c820eaf612b7e457276d46462529fd99e90e0363180e12be2b251f24"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/model/extension.rs",
+      "sha256": "64eec582535739e33ed6c7ecf8aeccc9a8c1558d1457acc8437f4e3304c72ac2"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/model/meta.rs",
+      "sha256": "ee96fde101c79e0b14e5327efc9c6dc79a54c65b490d87d61788ca9313e9527f"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/model/prompt.rs",
+      "sha256": "956dd2b727080022c817453f8d2aa74305b11d23a56c060d0e96d3b07ca5c95e"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/model/resource.rs",
+      "sha256": "aba70ec7c743c7469866b0dac09597e5cef635afc0afc1b915b47052b4443592"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/model/serde_impl.rs",
+      "sha256": "5f04d6843294e9392c52b01cc76a408464ed668b435d3c5674fad3014a55c1e8"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/model/tool.rs",
+      "sha256": "b8128c7317a4d78242214277e1bf7175624c768c52b0c8952a2c420789821e70"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/model.rs",
+      "sha256": "3229292703db268d4a0df22aa54ab5a8e4074fcd7196ea3533a3b43f5096a450"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/service/client.rs",
+      "sha256": "7cbb4a72967e3565c29b8b89f039478d699b444343a0fcf50923ebf69c80369c"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/service/server.rs",
+      "sha256": "74c1a319fce3e7e1bc2cdbbbeda987ea9e149242ac3c2f5d3f0f047a51660cbd"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/service/tower.rs",
+      "sha256": "a8256082605ae9b10a7c12f8dcb872a38bb710f0fec6ded49bff6023b1a72807"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/service.rs",
+      "sha256": "b28b6979638c9e5675ff16129c9e1819d8e0937bb799d720cc46890de6b1d8cb"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/async_rw.rs",
+      "sha256": "edf4cb12df1719dfc42875e08195fdf1776feb8f2f7a9ef72b19e22ab01b6e6b"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/auth.rs",
+      "sha256": "7a933610c163afd42004d2b69c3c7c4bc3ce455a275242f15b97faf844a99fa6"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/child_process.rs",
+      "sha256": "9f7e6d7eb480a34fbd8cb817caeed911fb1c84fe7a974e3af3f42b5080778043"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/common/auth/sse_client.rs",
+      "sha256": "08386dbb747fcc22d455340e64af1a185570a44cb29aff0bf68da1555409d3e0"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/common/auth/streamable_http_client.rs",
+      "sha256": "17432426e411dcca3799928590ac1cd97986ac6d4d01bbce6d868ec1c476b63f"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/common/auth.rs",
+      "sha256": "94d762383f93852b6383d9b37a4292adf1a82812624fc73d8e3f2fb47cc9d0aa"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/common/client_side_sse.rs",
+      "sha256": "66aea191a825ce05a24d8d3d2352ff4a57eecd143a0190fdc18408699cd75fe2"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/common/http_header.rs",
+      "sha256": "335a6211ce87f8b1cac8d6f0ddcffad442c1bed1977825268723cca7b2c6ff08"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/sse_client.rs",
+      "sha256": "8f596fabd69179120677b38e05ec3d6541d465c9cbc98da79124ae81475084be"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs",
+      "sha256": "7402d983180ba5a21d46dde2a4bdde3ec02d25e731209d7322efdf23f0763ec1"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest.rs",
+      "sha256": "c3767a6b27daeb80e721bd8aeae4530d013fa2eeaf3a0b324b0a74ccebadb09b"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/common/server_side_http.rs",
+      "sha256": "4a0c1fa38a048bd9f55aad6e528761376ba087e58c87a8c5d0ff16404a46ba66"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/common.rs",
+      "sha256": "eb03a7e086c46b8203c15ae797636b4f2d41d8fa2f28f110f6f215cebcbf4ef5"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/io.rs",
+      "sha256": "86cbe078a7c03964340570d8940ca6a3276cf7c8056dbd4d64a9f654a7fa077f"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/sink_stream.rs",
+      "sha256": "0c2145227060ce8dbc517437c037dee727606fb5e0350840c7b38e1483f4469a"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/sse_client.rs",
+      "sha256": "aabd355b3fcaf729ebc58f596ead558a460fb8f0030dbb45a8eb824062001887"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/sse_server.rs",
+      "sha256": "4af1150bbda5737808a9a699c0e6d4b929159d27579b9e5e0d4d19f3489d79b2"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_client.rs",
+      "sha256": "2a9b26c1856738811cc31b1c631457e6cd330ec1801dadf6a311b8f0f0783fea"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_server/session/local.rs",
+      "sha256": "8cfe46d9e9eafef97b9ed9af594169a448d3f68b5c1a538e027cca60846afd63"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_server/session/never.rs",
+      "sha256": "7392112f864847eb1c12421fd7c8d581b8cc42e458a313c7d29b7a8793a54891"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_server/session.rs",
+      "sha256": "65ceb48264aed62a5c59770b7cc018bbccef3f30350b0d53f4b6f5d260baf23c"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_server/tower.rs",
+      "sha256": "e8335de946c4e2847dfdec9fbdfdc3e662914d2c2d8242614426e4b2f8c6eddc"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_server.rs",
+      "sha256": "05077a3418071a8c7bf3ac2ac87d4f2fc58d3c5864bfe5dcfef314d3048f6262"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/worker.rs",
+      "sha256": "e4c7a8da898b1752b0516400635c09f78e4c1abcc7b84d381ba90dd494c77d8f"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport/ws.rs",
+      "sha256": "57025a04e15634a80dc4e8247601b62014ce835568b049f3ea433164bdd7811b"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp/src/transport.rs",
+      "sha256": "37076e8cbb814c36cc930e7e1ec4815946b62ebf2254e6f14c93d5d5e6221fbd"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp-macros/Cargo.toml",
+      "sha256": "5540d343ac53f097747646dc8d2989ef1850bb96cf2bd400285a196825382454"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp-macros/src/common.rs",
+      "sha256": "83572bdda00ca6e40ea042f9bae3295df8d9e074565c66d01ffe178b6e62a104"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp-macros/src/lib.rs",
+      "sha256": "2b8035c1cec4306811592c0fffe3469989b29cdd1e07c228da37711158f53c39"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp-macros/src/prompt.rs",
+      "sha256": "31244214b3d2b89c522aa096fe42eaa119486210ed2b17031d35d082a5ce0833"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp-macros/src/prompt_handler.rs",
+      "sha256": "c2a686c7672f5263a3e141bad3d201f5b609ea2f9c8fd516af8ec7e624bb7811"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp-macros/src/prompt_router.rs",
+      "sha256": "929713f5c2f59fb23ddeac9feab4a54378f2a88c4ceceeae442d766d719b2063"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp-macros/src/tool.rs",
+      "sha256": "7e2d360cd9d0425ddcf8f29c3ea576c186447ddb5b8f04f4d008f0620d9cfd2d"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp-macros/src/tool_handler.rs",
+      "sha256": "18735fc8ee71553e37536cf8881265bf3f135ec1d620ada084a8cd20f731ec4d"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/rmcp-macros/src/tool_router.rs",
+      "sha256": "96af6ab8a679169cb27ae2a627375673ced75d3034c88e0d269f1295e3c87ffa"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/Cargo.toml",
+      "sha256": "495e1c063f536a64e4256f2550bb70b2a94e0564a1e36862805480448eb13860"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/_private/mod.rs",
+      "sha256": "5c0e09465931e277e3417275bb34d09d3b5b473b447bf8afa3a748d3fbef57da"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/_private/regex_syntax.rs",
+      "sha256": "ecbcab1829c3cd5a850ed508ddefc90002fd325e62e38f084d873635dbfe7562"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/_private/rustdoc.rs",
+      "sha256": "d694a592d238097876e3ea6d5130451c97ffcddd45be5ad008f3e81026f40e53"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/consts.rs",
+      "sha256": "b271c18a8cb1871790cd0e70f7bd6e08d70bc670e1be47f643999784eaebad96"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/encoding.rs",
+      "sha256": "5730264da41cf0dfa7c38778e573fdcd6a846e3f2e60a78d4778ccc4fffd1634"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/generate.rs",
+      "sha256": "f1ac3f26bdd2b16553fac89728dadea7bc80ed8db5fdac48c303a3a7a2cd79a4"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/array.rs",
+      "sha256": "d1dc225f6047270e85cb03809d17acd80ed97edfb33c8e1ae57d2868f5175571"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/arrayvec07.rs",
+      "sha256": "4f2f79f615dac9d7edffadeb834c19024874cbe3597fa5186be592793a13f31b"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/atomic.rs",
+      "sha256": "70d0aa9c0a4d68ce4fc05d00fd034d45820c445a289fd45cbe9d044c054af270"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/bytes1.rs",
+      "sha256": "a6c7df17cc0ab36d21c0e2517348581c6c7bb316558d50902c0332176092853a"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/chrono04.rs",
+      "sha256": "c6e62c246b7dcf3c494df89cb7888b5e329b7b96fe3d8b7d0a240a297aca4044"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/core.rs",
+      "sha256": "9c5b92a6eff85211fb7f266d62faffdf8c6fb0158606c555d6fa67b1e4e17bb3"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/decimal.rs",
+      "sha256": "f449bce77d3f148d3efb0b4adc827f373c01591d6aed8ac3c0a34b9da633e2d7"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/either1.rs",
+      "sha256": "91c0c4b000cac4178cc2bfb934257350fa7d0efe54ee823b24d63807c79b01ab"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/ffi.rs",
+      "sha256": "24e50406b6e4d6b8a11dfdb214a1267f0bb541b4e49aee1937df174fda4a4013"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/indexmap2.rs",
+      "sha256": "e3fb9b79396a2d6c51a48045d5e496fe9d1dc11714e7972e821154e6694cfbc8"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/jiff02.rs",
+      "sha256": "4b996da175773f66206beac152908d1d86a0ad484021389efd5b654522a34266"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/maps.rs",
+      "sha256": "daf59dce39a748da0ad7167e3dcc44b39a19ab62980b4f3fa54a4188bf725a47"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/mod.rs",
+      "sha256": "a07f94883b24ef593dfed9eca0fe6c2c95a59abe7e4742bfb0ece3433007da48"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/nonzero.rs",
+      "sha256": "c72c6c9dcc19ff0db5604eb2548d9b31e7d058e5cd67dd605e09c5c90dfedb41"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/primitives.rs",
+      "sha256": "3f167f5e8f78958b33f58c3dcc492d71863b04f740961bd5c97aa7ec7d5c2c99"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/semver1.rs",
+      "sha256": "5f29c4aec1c34ee898531c1634de11696728c8a32b7870d69b8fab3779255501"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/sequences.rs",
+      "sha256": "00db231358e1b7591dfc9f5076710da3ca5251cc0ed0b534a468da33232054d7"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/serdejson.rs",
+      "sha256": "fa32a6939d2f9b02bc249c044836fc9f7bfc8e2e8c29fcd9d5d268e98389c031"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/std_time.rs",
+      "sha256": "aec8e48aedc50143ae902717880695ca2e765832ef04ad7ce070c2fc230fa65b"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/tuple.rs",
+      "sha256": "1d9ede3144405396760c1c497b066aff2895964378dafcf710137b5ede882016"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/url2.rs",
+      "sha256": "db550cc98f236a1044dedba34fd5f2cd249d47e7ca1fe7f3b9216c494c5212a4"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/uuid1.rs",
+      "sha256": "bed0371c96daf11631ca16f1d160f78779ee544681221f439d49bbd3bd25c70d"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/wrapper.rs",
+      "sha256": "2610ae1876c30f33b467c00014aafe0feb701ffd121ed7e60e5564e011ffd8b0"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/lib.rs",
+      "sha256": "3cbcd1fc89a994ae0143bd0badd0564cb073225da7c05ae43964ff06689218b0"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/macros.rs",
+      "sha256": "a0d7547b22656beee9cc184993bef64eb353bdf4ea08f16b9cf20cb1bbe9ffc5"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/schema.rs",
+      "sha256": "5dd5affccb15a35051cae2c4c5e06d3eb0c6084ae985fc18977cf6661cf591db"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/ser.rs",
+      "sha256": "0531d16c6f27cf96aaa8ed8ef308ae5509a5421d74ace2d51070f9269386b3e7"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars/src/transform.rs",
+      "sha256": "4b275c38b0bbc9bd80c79f0bede4a5ce649310593d7ea3a6f92b63fdf8dbe5b7"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars_derive/Cargo.toml",
+      "sha256": "dbcf166ebdcc0cfae652110f3834f3b5bb464d68df7b737410bfd9b34a8cf555"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars_derive/src/ast/from_serde.rs",
+      "sha256": "6acb877b9992206c4214d04aabae719339b462ac2dbd203d4f92055e9d32ad93"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs",
+      "sha256": "0b22955e56dcf8bede86b0915b90edf30c19ef5afdb1d10a662f1c7ce688be0a"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars_derive/src/attr/custom_meta.rs",
+      "sha256": "7fea45b540fe99dafe45c317a8e1e318bbddf82f9e5c5b4cd4c3ada447b633c6"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars_derive/src/attr/doc.rs",
+      "sha256": "927c3df4bdcbd157b5be07a92da5c31f406e2a7eac8ff94976dd74030198741a"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars_derive/src/attr/mod.rs",
+      "sha256": "54ee8ac754120985b933fb91af0f94aa4ce7228ea82fb7959c1ce3cc9548eef6"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars_derive/src/attr/parse_meta.rs",
+      "sha256": "c43f374a1d43fad8da680ffe2052c0984337ad05fe857e5791f0358aedc4feff"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars_derive/src/attr/schemars_to_serde.rs",
+      "sha256": "06084c24502892cab9321d7f1b7a5e83bd1ec7826b6a8a4f43f9a23b48e6bbc0"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars_derive/src/attr/validation.rs",
+      "sha256": "1d94ea581dd62c3a02bb59a3469941ab580de288cb60b1df2297590973384931"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars_derive/src/bound.rs",
+      "sha256": "fc0b607628e1f32ea0f1bcb586c5601f44bb092bb11fac08f4749969172a3c9f"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars_derive/src/idents.rs",
+      "sha256": "fd0f739ae1c370dfc13ec47eb923737be6795a5347fc60136852227aa423a7a1"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars_derive/src/lib.rs",
+      "sha256": "0dc7e815c8efcf834aaff60ca01045a7688d710e790863dfa0d40e321f018e60"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars_derive/src/name.rs",
+      "sha256": "7d3fef0a90db8d234d57ce7ad61637aba0a38700cfc14b5b7a89c3f26be99bcf"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/schemars_derive/src/schema_exprs.rs",
+      "sha256": "b84f5aff1d939b3479abaeff89044e311e258799aebb5e068caec61db1984a82"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/sse-stream/Cargo.toml",
+      "sha256": "7dd1b589b3eb2024cb90fe144bd7c3476d9eb4c66bcd253adf9c61a4c8265a93"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/sse-stream/src/body.rs",
+      "sha256": "5967a659bc33a151d816ca4b9c1df039ef94935b5de09f2a91222263fd7463b2"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/sse-stream/src/lib.rs",
+      "sha256": "3059b23ed8550af47078015fe2821490932f69fc843ce71aa36136ff2ed5cc3a"
+    },
+    {
+      "path": "shared/infera-summary-sdk/vendor/sse-stream/src/stream.rs",
+      "sha256": "ee2cecdd2542e840d25e57fa9bf88ea1b00414b617c92b569f497af9ceed784f"
+    },
+    {
+      "path": "src/assistant.rs",
+      "sha256": "209e0744e9ba3a96971b6f64b25be44b778e68d180bb411ae3095365829df6cb"
+    },
+    {
+      "path": "src/attachment_index.rs",
+      "sha256": "aa06a85d40dd4d6d2364f0c3b46442c6efbd2a1973b810e4df33be6898df87d3"
+    },
+    {
+      "path": "src/attachments.rs",
+      "sha256": "b79a3c04c23601afa3fd182f3436751e668f7f59f64f5560035e4d050f013f18"
+    },
+    {
+      "path": "src/auth.rs",
+      "sha256": "9cfe58b16d3f68aa0efdbe3602b0715b8be8a8a8b77f49c70dfce65c1338c1a3"
+    },
+    {
+      "path": "src/cli.rs",
+      "sha256": "8236b99ac3eac4a4704df9426e6090f1f3f72c17c89fc27a6d43f05510cabaed"
+    },
+    {
+      "path": "src/collaboration.rs",
+      "sha256": "fc1b247f23607df7dd0be90ed0f73f6524c8d61bc142ef31c53f835882e62343"
+    },
+    {
+      "path": "src/config.rs",
+      "sha256": "cda72fae7b803dafbeb2cab9e213e61951dfbdd8c40a7f804c07f1602d1d8d62"
+    },
+    {
+      "path": "src/feedback/directory.rs",
+      "sha256": "c7c05fb7c1ae90ce463d97efb0915ef25f0db81629b024624cc1c551406405cd"
+    },
+    {
+      "path": "src/feedback/identity_binding.rs",
+      "sha256": "26425ea105cea2669a24b5615ef96f50daad9afb066a74654d824753c6acd40d"
+    },
+    {
+      "path": "src/feedback/mod.rs",
+      "sha256": "56fe1b409d0a65f5e0c6eb0f5efc7aa9713e7aaf8981890bb4edcceb6350b00e"
+    },
+    {
+      "path": "src/feedback/models.rs",
+      "sha256": "1077f92eea4e3684f1f42a27b68294cf75cfccc8b4032fdc3a37673233eae601"
+    },
+    {
+      "path": "src/feedback/notifications.rs",
+      "sha256": "6944c12f6ec7dd559ecc9ad6aa9cc83edbd725ee449f83bd9852dfad9fc693bc"
+    },
+    {
+      "path": "src/feedback/routes.rs",
+      "sha256": "0a18b1a1b01a6a385b8b1c64b8b44d74ade104b87476fd2bde0b9a79c8ecdf3f"
+    },
+    {
+      "path": "src/feedback/storage.rs",
+      "sha256": "821bf87fc929f2d8dc430794ccff029af7908528c7ae7b89a28af61b10807b29"
+    },
+    {
+      "path": "src/lib.rs",
+      "sha256": "6bc00a933be12fcfac3a4dd86ae6946f17e8c0f86d66eb61e1403f1c50aa5f22"
+    },
+    {
+      "path": "src/main.rs",
+      "sha256": "57be28898e5cdd05eeec8605d6300f532b660a7d9be03972125daf004b397982"
+    },
+    {
+      "path": "src/media_imports.rs",
+      "sha256": "98dfe502e871923f89cec2567974a3ced2f2775b86652b3850587d7929ee6741"
+    },
+    {
+      "path": "src/memory_usage.rs",
+      "sha256": "cd77a1d1c6d80c3ee3459c1f4f59f375d55f39bc3c81dd3d971b0569a62e4f71"
+    },
+    {
+      "path": "src/models.rs",
+      "sha256": "2da4bf6b23c3d883ce0ed8197bbb3a016348c505b2c66dbcd62052b11a64d602"
+    },
+    {
+      "path": "src/note_data.rs",
+      "sha256": "b11cf910cfd454fa3217d8208a286103eae469688e8170bec0d8d881a8cd9a62"
+    },
+    {
+      "path": "src/note_imports.rs",
+      "sha256": "fcfd36c72dcfa73c0271df6f862308141411e0b9e9822da611787c97eed415dc"
+    },
+    {
+      "path": "src/note_knowledge.rs",
+      "sha256": "66ba56d1456c1bf94ae00d009ca5086a397887caa398190db73c3ce8b0a3583b"
+    },
+    {
+      "path": "src/note_media.rs",
+      "sha256": "66ea61c9407630073502cb8b892405679cf093e8a689d3bacba47c3e6f1f275d"
+    },
+    {
+      "path": "src/notes.rs",
+      "sha256": "a4db79b53fa25c913e88c178d553e7198f5460fc9e86e4ee2294120bbd83c11c"
+    },
+    {
+      "path": "src/object_storage.rs",
+      "sha256": "4382bdcfefe5bcce2a2901e8a781e3545e67802a137a28324e7ed8bb8df26113"
+    },
+    {
+      "path": "src/plan_reports.rs",
+      "sha256": "940581c056af95c71b1ff0e03df04b8d2473bb1c943de1095a4f9c141b8bb332"
+    },
+    {
+      "path": "src/plans.rs",
+      "sha256": "971d84b43d204cbd4e1fde0a03e5be199b05afd5b84cc21cb4bf66d6565368e7"
+    },
+    {
+      "path": "src/policy.rs",
+      "sha256": "a89681d8404484e270b3d21538136536c04701ceaa7b2183d093574c69384f83"
+    },
+    {
+      "path": "src/realtime.rs",
+      "sha256": "81bd70f6d7c6ff774397c8afa343d3af4e59b83eba63f0d5ceb223d688d393a6"
+    },
+    {
+      "path": "src/reminders.rs",
+      "sha256": "64cd96350548eb84aba695d9c39d8f6aecd67fae67cf653087c05bdad02a5d77"
+    },
+    {
+      "path": "src/repository.rs",
+      "sha256": "b541e9d2434f069f685d1f0ada5405acb778ca9535dbd3ff2b4b5bdd5e57b6ac"
+    },
+    {
+      "path": "src/routes.rs",
+      "sha256": "166eb2a1872e7af7dc64369c2c4f4fd613f4e652c9ca64a559f81746dd2094f3"
+    },
+    {
+      "path": "src/source_imports.rs",
+      "sha256": "a4b7e775c8c25da1752c6e840d8f6b873b7983767d9671ec779b6f1a13494d60"
+    },
+    {
+      "path": "src/space_report.rs",
+      "sha256": "80c2ffab83c9c54de39c95fff74aeb8c8df2dfcd2329c7204f5d6e8dd105a323"
+    },
+    {
+      "path": "src/state.rs",
+      "sha256": "4e4fa83d44b35b42864669cded3e28fd8471a4ebad1ecd26abb6d83ac9fa5b78"
+    },
+    {
+      "path": "src/summary_aggregates.sql",
+      "sha256": "eeeb486efd853e486cc41876dee88e7df490b562e1c849606de21a424c99d974"
+    },
+    {
+      "path": "src/summary_evidence.rs",
+      "sha256": "3b7120134408810f0fe2973c4606e9727389b8c9249d72846e718e4f91f62c1c"
+    },
+    {
+      "path": "src/summary_evidence.sql",
+      "sha256": "f054350456047c0b3243956ebf8a245bf17869b9f061d28250ca6a5c1c67b4c6"
+    },
+    {
+      "path": "src/summary_query.rs",
+      "sha256": "511f139c6812334ebebabf675c12fb04bd2d674141b373b492ccfac0af5223c6"
+    },
+    {
+      "path": "src/trial_gifts.rs",
+      "sha256": "cbb547edd1159b3f2136520f90a8767c1223188e81d9b552219e3d8a46757db9"
+    },
+    {
+      "path": "src/worker.rs",
+      "sha256": "441fe1f2603b58d941349766e9637273c208cd3ad783a2345485ea12103f6048"
+    },
+    {
+      "path": "src/workflows.rs",
+      "sha256": "7de3ddee74fb7a6e6471ec56e413f49de6f60acb8c163bfb3c900c7c71455885"
+    },
+    {
+      "path": "tests/api_live.rs",
+      "sha256": "595d6dd2fc1bb1f8a7516596b904099b8a695f77bb272c28a11084d97c6c929d"
+    },
+    {
+      "path": "tests/collaborative_media.rs",
+      "sha256": "93e85ea87c0f46ff4bfa4983e0bf9e6557ee2bd520f7a843cb5625049a52777b"
+    },
+    {
+      "path": "tests/feedback_identity_http.rs",
+      "sha256": "915280b7b2b7f3ce7abfb7a4cbe33cbd2ce7348957d904ad7b6423f66c94c1f1"
+    },
+    {
+      "path": "tests/feedback_live.rs",
+      "sha256": "274ade3be7c288db3f2276d6faa2f0dfd8aa629cae696d1f07dd16bc0ad1acee"
+    },
+    {
+      "path": "tests/product_plans.rs",
+      "sha256": "243a16f2cb4367e3e90249e98fa59c28a9db571dbd351930054af38e49585fd8"
+    },
+    {
+      "path": "tests/summary-native/Cargo.lock",
+      "sha256": "a0fe9f6643c128ebe18135c17da857b316df8ab2c23060b8d88d5a8db3c1936a"
+    },
+    {
+      "path": "tests/summary-native/Cargo.toml",
+      "sha256": "91982eeddc1dae6efb49430899fdac7a35eb32d1111e6531035a13e9265de162"
+    },
+    {
+      "path": "tests/summary-native/fixture.sql",
+      "sha256": "0fb0a755bc4d696fab00e14eacfc69c86016fa683511f7d0b0d3b495d30a2f53"
+    },
+    {
+      "path": "tests/summary-native/restrict.sql",
+      "sha256": "0b6dc83f4d4ae46b49bb3d89d22bc6c4ab87cb8da1ff09cb8468d86f7a88cd0b"
+    },
+    {
+      "path": "tests/summary-native/src/lib.rs",
+      "sha256": "09c24986611bb6920144ef67b20efcda8f726260cb3446add244a323083976c6"
+    },
+    {
+      "path": "tests/summary_mount_http.rs",
+      "sha256": "43260e5c4ed5877445c49da03d6be4f5704c3291f05391f8432c9e6fd901cb60"
+    },
+    {
+      "path": "tests/support/runner_authority.rs",
+      "sha256": "f0d58b5abfcde02c8477397c596433de4448c53b8cd6d48ebd5cf3ad2aeb1ff5"
+    }
+  ]
+}

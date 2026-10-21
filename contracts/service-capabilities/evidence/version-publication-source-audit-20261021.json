@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "kind": "source_reconciliation",
+  "service": "version",
+  "source_revision": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e",
+  "source_access": "git show at immutable service-source-revisions.json pin; dirty service working tree excluded",
+  "mounted_operations": 7,
+  "result": "Existing SDK paths, identifiers, encoding, successful envelopes, nullable fields, wire enums and publisher request/receipt match pinned source. Existing verified semantic statuses and native 12-test evidence preserved.",
+  "reviewed_source_refs": [
+    "src/router.rs",
+    "src/service/routes.rs",
+    "src/service/methods.rs",
+    "src/service/models.rs",
+    "src/service/transformers.rs",
+    "src/version/routes.rs",
+    "src/version/methods.rs",
+    "src/version/models.rs",
+    "src/version/transformers.rs",
+    "src/version/publish.rs",
+    "src/models.rs",
+    "auth/src/axum_middleware.rs"
+  ],
+  "consumer_corrections": [
+    "Document all seven operations including publisher",
+    "Use a framework-neutral example and actual returned release ID",
+    "Explain publisher metadata bounds, stable identity, lower-code retry behavior, inactive parent and external download metadata",
+    "Correct convenience method documentation to active history and public service authorization",
+    "Document cancellation, error body caveat and facade package"
+  ],
+  "validation_scope": "Source inspection and whitespace validation only; parent runs integrated regeneration, build and release readiness checks after all fixes. No new runtime claim.",
+  "remaining_external_gates": [
+    "Canonical/deployed service reconciliation",
+    "Current project gateway and publisher provisioning acceptance",
+    "Manage workflow acceptance"
+  ]
+}

@@ -143,3 +143,93 @@ pub async fn query(Query(body): Query<Query>) -> Json<Value> { todo!() }
   assert.doesNotMatch(types,/"page_number"/);
  }finally{rmSync(f.work,{recursive:true,force:true});}
 });
+
+
+test('Rust unit fields serialize to JSON null rather than an object',()=>{
+ const f=fixture();
+ try{
+  writeFileSync(join(f.work,'Service/infera-profile/src/routes.rs'),`
+#[derive(Serialize)]
+pub struct UnitReceipt { pub result: (), }
+pub async fn receipt() -> Json<UnitReceipt> { todo!() }
+`);
+  writeFileSync(join(f.work,'manifest.json'),JSON.stringify({profile:[{method:'GET',path:'/unit-receipt',module:'routes',handler:'receipt',handlerModule:'routes',source:'infera-profile/src/routes.rs',response:'UnitReceipt',responseEnvelope:'raw',permissions:[]}]}));
+  const result=generate(f,'profile');assert.equal(result.status,0,result.stderr);
+  const types=readFileSync(join(f.dest,'operations.types.ts'),'utf8');
+  assert.match(types,/"result": null/);
+ }finally{rmSync(f.work,{recursive:true,force:true});}
+});
+
+test('serde enum payloads preserve tags, fields and wire presence instead of becoming string literals',()=>{
+ const f=fixture();
+ try{
+  writeFileSync(join(f.work,'Service/infera-profile/src/routes.rs'),`
+#[derive(Serialize, Deserialize)]
+#[serde(tag = "type", rename_all = "snake_case")]
+pub enum Condition {
+ Always,
+ Equals { operator: String, value: i32, #[serde(default)] enabled: bool, #[serde(skip)] secret: String },
+ Nested { conditions: Vec<Condition> },
+}
+#[derive(Serialize, Deserialize)]
+#[serde(tag = "kind", content = "payload", rename_all = "snake_case")]
+pub enum Adjacent { Empty, Count(u32), Pair(String, bool), }
+#[derive(Serialize, Deserialize)]
+pub enum External { Empty, Text(String), Record { #[serde(rename = "wireName")] name: String }, }
+#[derive(Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum Loose { Text(String), Count(u32), }
+#[derive(Serialize, Deserialize)]
+pub struct EnumReceipt { pub condition: Condition, pub adjacent: Adjacent, pub external: External, pub loose: Loose }
+pub async fn enums(Json(body): Json<EnumReceipt>) -> Json<EnumReceipt> { todo!() }
+`);
+  writeFileSync(join(f.work,'manifest.json'),JSON.stringify({profile:[{method:'POST',path:'/enum-receipt',module:'routes',handler:'enums',handlerModule:'routes',source:'infera-profile/src/routes.rs',body:'EnumReceipt',response:'EnumReceipt',responseEnvelope:'raw',permissions:[]}]}));
+  const result=generate(f,'profile');assert.equal(result.status,0,result.stderr);
+  const types=readFileSync(join(f.dest,'operations.types.ts'),'utf8');
+  assert.match(types,/"type": "always"/);
+  assert.match(types,/"type": "equals"/);
+  assert.match(types,/"operator": string/);
+  assert.match(types,/"enabled"\?: boolean/);
+  assert.match(types,/"enabled": boolean/);
+  assert.doesNotMatch(types,/"secret"/);
+  assert.match(types,/"kind": "count"; "payload": number/);
+  assert.match(types,/"kind": "pair"; "payload": \[string, boolean\]/);
+  assert.match(types,/\{ "Text": string \}/);
+  assert.match(types,/"wireName": string/);
+  assert.match(types,/Loose = string \| number/);
+  assert.doesNotMatch(types,/BackendJson<"Condition">/);
+ }finally{rmSync(f.work,{recursive:true,force:true});}
+});
+
+
+test('JSON aliases retain an explicit JSON type without an unresolved DTO brand',()=>{
+ const f=fixture();
+ try{
+  writeFileSync(join(f.work,'Service/infera-profile/src/routes.rs'),`
+use serde_json::Value as JsonValue;
+use sea_orm::prelude::Json;
+#[derive(Serialize)]
+pub struct Metadata { pub custom: JsonValue, pub metadata: Json, pub qualified: sea_orm::prelude::Json }
+pub async fn metadata() -> Json<Metadata> { todo!() }
+`);
+  writeFileSync(join(f.work,'manifest.json'),JSON.stringify({profile:[{method:'GET',path:'/metadata-fixture',module:'routes',handler:'metadata',handlerModule:'routes',source:'infera-profile/src/routes.rs',response:'Metadata',responseEnvelope:'raw',permissions:[]}]}));
+  const result=generate(f,'profile');assert.equal(result.status,0,result.stderr);
+  const types=readFileSync(join(f.dest,'operations.types.ts'),'utf8');
+  assert.match(types,/"custom": JsonValue/);
+  assert.match(types,/"metadata": JsonValue/);
+  assert.match(types,/"qualified": JsonValue/);
+ }finally{rmSync(f.work,{recursive:true,force:true});}
+});
+
+test('purpose-only release review preserves existing collaboration wire metadata',()=>{
+ const f=fixture();
+ try{
+  writeFileSync(join(f.work,'scripts/collaboration-contract-overrides.mjs'),'export const collaborationContracts = {"profile:GET /precedence": {response: "{ value: string }"}};\n');
+  const override=join(f.work,'scripts/release-contract-overrides.mjs');
+  writeFileSync(override,readFileSync(override,'utf8')+'\nreleaseContracts["profile:GET /precedence"] = {purpose: "Reviewed source behavior"};\n');
+  writeFileSync(join(f.work,'manifest.json'),JSON.stringify({profile:[{method:'GET',path:'/precedence',module:'routes',handler:'settings',handlerModule:'routes',source:'infera-profile/src/routes.rs',response:'Value',responseEnvelope:'raw',permissions:[]}]}));
+  const result=generate(f,'profile');assert.equal(result.status,0,result.stderr);
+  assert.match(readFileSync(join(f.dest,'operations.types.ts'),'utf8'),/Response = \{ value: string \}/);
+  assert.match(readFileSync(join(f.dest,'operations.ts'),'utf8'),/Reviewed source behavior/);
+ }finally{rmSync(f.work,{recursive:true,force:true});}
+});

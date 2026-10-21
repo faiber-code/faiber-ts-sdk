@@ -8,8 +8,7 @@ export type RouterHealthGetResponse = import("./contracts.types.js").Reservation
 export type RouterOpenapiJsonGetResponse = import("@faiber/sdk-core").ServiceOpenApiDocument;
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
-}
+export type IntegrationFlowIntegrationShowGetResponse = import("./contracts.types.js").ReservationFlowIntegrationResponse;
 
 /** Backend query type: PaginationQuery. */
 export interface ProviderIndexGetQuery extends QueryParams {

@@ -2,361 +2,67 @@ import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, Quer
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend response type: HealthResponse. */
-export interface RouterStatusRouteGetResponseData extends JsonObject {
-  "version": string;
-}
-export interface RouterStatusRouteGetResponse extends ApiEnvelope<RouterStatusRouteGetResponseData> {
-}
+export type RouterStatusRouteGetResponse = import("./types.js").FlowHealthResponse;
 
 /** Backend response type: Vec<crate::catalog::methods::CatalogActionView>. */
-export interface CatalogActionsGetResponseItem extends JsonObject {
-  "service": string;
-  "event_name": string;
-  "queue": string;
-  "payload_fields": JsonValue;
-}
-export interface CatalogActionsGetResponse extends ApiEnvelope<CatalogActionsGetResponseItem[]> {
-}
+export type CatalogActionsGetResponse = import("./types.js").ActionCatalogResponse;
 
 /** Backend response type: serde_json::Value. */
-export interface CatalogSyncPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type CatalogSyncPostResponse = import("./types.js").CatalogSyncResponse;
 
 /** Backend response type: Vec<crate::catalog::methods::CatalogTriggerView>. */
-export interface CatalogTriggersGetResponseItem extends JsonObject {
-  "service": string;
-  "method": string;
-  "path": string;
-  "trigger_key": string;
-}
-export interface CatalogTriggersGetResponse extends ApiEnvelope<CatalogTriggersGetResponseItem[]> {
-}
+export type CatalogTriggersGetResponse = import("./types.js").TriggerCatalogResponse;
 
 /** Backend request type: serde_json::Value. */
-export type EventEmitPostInput = JsonValue;
+export type EventEmitPostInput = import("./types.js").EmitFlowEventInput;
 /** Backend response type: serde_json::Value. */
-export interface EventEmitPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type EventEmitPostResponse = import("./types.js").EmitFlowEventResponse;
 
 /** Backend response type: Vec<FlowResponse>. */
-export interface FlowIndexGetResponseItemGraphNodes extends JsonObject {
-  "id": string;
-  "type": string;
-  "position": JsonValue | null;
-  "data": JsonValue;
-}
-export interface FlowIndexGetResponseItemGraphEdges extends JsonObject {
-  "id": string;
-  "source": string;
-  "target": string;
-  "data": JsonValue | null;
-}
-export interface FlowIndexGetResponseItemGraph extends JsonObject {
-  "nodes": FlowIndexGetResponseItemGraphNodes[];
-  "edges": FlowIndexGetResponseItemGraphEdges[];
-}
-export interface FlowIndexGetResponseItem extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "enabled": boolean;
-  "trigger_key": string;
-  "capture_fields": string[];
-  "graph": FlowIndexGetResponseItemGraph;
-  "version": number;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface FlowIndexGetResponse extends ApiEnvelope<FlowIndexGetResponseItem[]> {
-}
+export type FlowIndexGetResponse = import("./types.js").FlowListResponse;
 
 /** Backend request type: CreateFlowRequest. */
-export interface FlowStorePostInputGraphNodes extends JsonObject {
-  "id": string;
-  "type": string;
-  "position"?: JsonValue | null;
-  "data": JsonValue;
-}
-export interface FlowStorePostInputGraphEdges extends JsonObject {
-  "id": string;
-  "source": string;
-  "target": string;
-  "data"?: JsonValue | null;
-}
-export interface FlowStorePostInputGraph extends JsonObject {
-  "nodes": FlowStorePostInputGraphNodes[];
-  "edges": FlowStorePostInputGraphEdges[];
-}
-export interface FlowStorePostInput extends JsonObject {
-  "name": string;
-  "slug"?: string | null;
-  "trigger_key": string;
-  "enabled"?: boolean | null;
-  "graph"?: FlowStorePostInputGraph | null;
-}
+export type FlowStorePostInput = import("./types.js").CreateFlowInput;
 /** Backend response type: FlowResponse. */
-export interface FlowStorePostResponseDataGraphNodes extends JsonObject {
-  "id": string;
-  "type": string;
-  "position": JsonValue | null;
-  "data": JsonValue;
-}
-export interface FlowStorePostResponseDataGraphEdges extends JsonObject {
-  "id": string;
-  "source": string;
-  "target": string;
-  "data": JsonValue | null;
-}
-export interface FlowStorePostResponseDataGraph extends JsonObject {
-  "nodes": FlowStorePostResponseDataGraphNodes[];
-  "edges": FlowStorePostResponseDataGraphEdges[];
-}
-export interface FlowStorePostResponseData extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "enabled": boolean;
-  "trigger_key": string;
-  "capture_fields": string[];
-  "graph": FlowStorePostResponseDataGraph;
-  "version": number;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface FlowStorePostResponse extends ApiEnvelope<FlowStorePostResponseData> {
-}
+export type FlowStorePostResponse = import("./types.js").FlowResponse;
 
 /** Backend response type: serde_json::Value. */
-export interface FlowDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type FlowDestroyDeleteResponse = import("./types.js").FlowDeleteResponse;
 
 /** Backend response type: FlowResponse. */
-export interface FlowShowGetResponseDataGraphNodes extends JsonObject {
-  "id": string;
-  "type": string;
-  "position": JsonValue | null;
-  "data": JsonValue;
-}
-export interface FlowShowGetResponseDataGraphEdges extends JsonObject {
-  "id": string;
-  "source": string;
-  "target": string;
-  "data": JsonValue | null;
-}
-export interface FlowShowGetResponseDataGraph extends JsonObject {
-  "nodes": FlowShowGetResponseDataGraphNodes[];
-  "edges": FlowShowGetResponseDataGraphEdges[];
-}
-export interface FlowShowGetResponseData extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "enabled": boolean;
-  "trigger_key": string;
-  "capture_fields": string[];
-  "graph": FlowShowGetResponseDataGraph;
-  "version": number;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface FlowShowGetResponse extends ApiEnvelope<FlowShowGetResponseData> {
-}
+export type FlowShowGetResponse = import("./types.js").FlowResponse;
 
 /** Backend request type: UpdateFlowRequest. */
-export interface FlowUpdatePutInputGraphNodes extends JsonObject {
-  "id": string;
-  "type": string;
-  "position"?: JsonValue | null;
-  "data": JsonValue;
-}
-export interface FlowUpdatePutInputGraphEdges extends JsonObject {
-  "id": string;
-  "source": string;
-  "target": string;
-  "data"?: JsonValue | null;
-}
-export interface FlowUpdatePutInputGraph extends JsonObject {
-  "nodes": FlowUpdatePutInputGraphNodes[];
-  "edges": FlowUpdatePutInputGraphEdges[];
-}
-export interface FlowUpdatePutInput extends JsonObject {
-  "name"?: string | null;
-  "slug"?: string | null;
-  "trigger_key"?: string | null;
-  "enabled"?: boolean | null;
-  "graph"?: FlowUpdatePutInputGraph | null;
-}
+export type FlowUpdatePutInput = import("./types.js").UpdateFlowInput;
 /** Backend response type: FlowResponse. */
-export interface FlowUpdatePutResponseDataGraphNodes extends JsonObject {
-  "id": string;
-  "type": string;
-  "position": JsonValue | null;
-  "data": JsonValue;
-}
-export interface FlowUpdatePutResponseDataGraphEdges extends JsonObject {
-  "id": string;
-  "source": string;
-  "target": string;
-  "data": JsonValue | null;
-}
-export interface FlowUpdatePutResponseDataGraph extends JsonObject {
-  "nodes": FlowUpdatePutResponseDataGraphNodes[];
-  "edges": FlowUpdatePutResponseDataGraphEdges[];
-}
-export interface FlowUpdatePutResponseData extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "enabled": boolean;
-  "trigger_key": string;
-  "capture_fields": string[];
-  "graph": FlowUpdatePutResponseDataGraph;
-  "version": number;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface FlowUpdatePutResponse extends ApiEnvelope<FlowUpdatePutResponseData> {
-}
+export type FlowUpdatePutResponse = import("./types.js").FlowResponse;
 
 /** Backend response type: serde_json::Value. */
-export interface FlowValidatePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type FlowValidatePostResponse = import("./types.js").FlowValidationResponse;
 
 /** Backend request type: ImportFlowsRequest. */
-export interface FlowImportPostInputFlowsGraphNodes extends JsonObject {
-  "id": string;
-  "type": string;
-  "position"?: JsonValue | null;
-  "data": JsonValue;
-}
-export interface FlowImportPostInputFlowsGraphEdges extends JsonObject {
-  "id": string;
-  "source": string;
-  "target": string;
-  "data"?: JsonValue | null;
-}
-export interface FlowImportPostInputFlowsGraph extends JsonObject {
-  "nodes": FlowImportPostInputFlowsGraphNodes[];
-  "edges": FlowImportPostInputFlowsGraphEdges[];
-}
-export interface FlowImportPostInputFlows extends JsonObject {
-  "name": string;
-  "slug"?: string | null;
-  "trigger_key": string;
-  "enabled"?: boolean;
-  "graph": FlowImportPostInputFlowsGraph;
-}
-export interface FlowImportPostInputEventBridges extends JsonObject {
-  "name": string;
-  "slug"?: string | null;
-  "event_key": string;
-  "enabled"?: boolean;
-  "target_service": string;
-  "target_event": string;
-  "queue"?: string | null;
-  "payload": BackendJson<"serde_json::Map<String, serde_json::Value>">;
-  "condition"?: JsonValue | null;
-}
-export interface FlowImportPostInputEventBridgeGroups extends JsonObject {
-  "name_prefix"?: string | null;
-  "slug_prefix"?: string | null;
-  "event_keys": string[];
-  "enabled"?: boolean;
-  "target_service": string;
-  "target_event": string;
-  "queue"?: string | null;
-  "payload": BackendJson<"serde_json::Map<String, serde_json::Value>">;
-  "condition"?: JsonValue | null;
-}
-export interface FlowImportPostInput extends JsonObject {
-  "version"?: number | null;
-  "source"?: string | null;
-  "dry_run"?: boolean;
-  "flows"?: FlowImportPostInputFlows[];
-  "event_bridges"?: FlowImportPostInputEventBridges[];
-  "event_bridge_groups"?: FlowImportPostInputEventBridgeGroups[];
-}
+export type FlowImportPostInput = import("./types.js").ImportFlowsInput;
 /** Backend response type: ImportFlowsResponse. */
-export interface FlowImportPostResponseData extends JsonObject {
-  "validated": number;
-  "created": number;
-  "updated": number;
-  "unchanged": number;
-  "dry_run": boolean;
-}
-export interface FlowImportPostResponse extends ApiEnvelope<FlowImportPostResponseData> {
-}
+export type FlowImportPostResponse = import("./types.js").ImportFlowsResponse;
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface RouterIntegrationFlowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
-}
+export type RouterIntegrationFlowGetResponse = import("./types.js").FlowIntegrationResponse;
 
 /** Backend query type: RegistryQuery. */
-export interface RegistryActiveTriggersGetQuery extends QueryParams {
-  "service"?: string | null;
-}
+export type RegistryActiveTriggersGetQuery = import("./types.js").ActiveTriggersQuery;
 /** Backend response type: ActiveTriggersResponse. */
-export interface RegistryActiveTriggersGetResponseDataTriggers extends JsonObject {
-  "trigger_key": string;
-  "capture_fields": string[];
-}
-export interface RegistryActiveTriggersGetResponseData extends JsonObject {
-  "version": number;
-  "triggers": RegistryActiveTriggersGetResponseDataTriggers[];
-}
-export interface RegistryActiveTriggersGetResponse extends ApiEnvelope<RegistryActiveTriggersGetResponseData> {
-}
+export type RegistryActiveTriggersGetResponse = import("./types.js").ActiveTriggersResponse;
 
 /** Backend query type: RunsQuery. */
-export interface RunIndexGetQuery extends QueryParams {
-  "limit"?: number | null;
-}
+export type RunIndexGetQuery = import("./types.js").FlowRunsQuery;
 /** Backend response type: Vec<crate::run::methods::FlowRunView>. */
-export interface RunIndexGetResponseItem extends JsonObject {
-  "id": string;
-  "flow_id": string;
-  "trigger_event_id": string;
-  "status": string;
-  "error": string | null;
-  "started_at": string;
-  "finished_at": string | null;
-}
-export interface RunIndexGetResponse extends ApiEnvelope<RunIndexGetResponseItem[]> {
-}
+export type RunIndexGetResponse = import("./types.js").FlowRunListResponse;
 
 /** Backend response type: crate::run::methods::FlowRunDetailView. */
-export interface RunShowGetResponseDataSteps extends JsonObject {
-  "id": string;
-  "node_id": string;
-  "condition_passed": boolean;
-  "emitted_event": string | null;
-  "payload": JsonValue | null;
-  "created_at": string;
-}
-export interface RunShowGetResponseData extends JsonObject {
-  "id": string;
-  "flow_id": string;
-  "trigger_event_id": string;
-  "status": string;
-  "error": string | null;
-  "started_at": string;
-  "finished_at": string | null;
-  "context": JsonValue | null;
-  "steps": RunShowGetResponseDataSteps[];
-}
-export interface RunShowGetResponse extends ApiEnvelope<RunShowGetResponseData> {
-}
+export type RunShowGetResponse = import("./types.js").FlowRunResponse;
 
 /** Backend response type: HealthResponse. */
-export interface RouterStatusRouteGetHealthResponseData extends JsonObject {
-  "version": string;
-}
-export interface RouterStatusRouteGetHealthResponse extends ApiEnvelope<RouterStatusRouteGetHealthResponseData> {
-}
+export type RouterStatusRouteGetHealthResponse = import("./types.js").FlowHealthResponse;
 
 /** Backend response type: HealthResponse. */
-export interface RouterStatusRouteGetUpResponseData extends JsonObject {
-  "version": string;
-}
-export interface RouterStatusRouteGetUpResponse extends ApiEnvelope<RouterStatusRouteGetUpResponseData> {
-}
+export type RouterStatusRouteGetUpResponse = import("./types.js").FlowHealthResponse;

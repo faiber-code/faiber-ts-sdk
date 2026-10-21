@@ -154,8 +154,7 @@ export interface AuthLoginAccountPostInput extends JsonObject {
   "device_id"?: string | null;
 }
 /** Backend response type: api. */
-export interface AuthLoginAccountPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthLoginAccountPostResponse = import("./types.js").AuthTokensResponse;
 
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityPublicShowGetResponseData extends JsonObject {
@@ -221,8 +220,7 @@ export interface CustomOauthPublicProvidersGetResponse extends ApiEnvelope<Custo
 }
 
 /** Backend response type: api. */
-export interface AuthGenerateOneTimeTokenRoutePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthGenerateOneTimeTokenRoutePostResponse = import("./contracts.types.js").OneTimeTokenResponse;
 
 /** Backend query type: BrowserHandoffQuery. */
 export interface AuthBrowserHandoffGetQuery extends QueryParams {
@@ -230,8 +228,7 @@ export interface AuthBrowserHandoffGetQuery extends QueryParams {
   "redirect": string;
 }
 /** Backend response type: api. */
-export interface AuthBrowserHandoffGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthBrowserHandoffGetResponse = void;
 
 /** Backend request type: HandoffExchangeRequest. */
 export interface AuthExchangeHandoffTokenPostInput extends JsonObject {
@@ -322,12 +319,10 @@ export interface AuthLoginPostInput extends JsonObject {
   "device_id"?: string | null;
 }
 /** Backend response type: api. */
-export interface AuthLoginPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthLoginPostResponse = import("./types.js").AuthTokensResponse;
 
 /** Backend response type: api. */
-export interface AuthLogoutGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthLogoutGetResponse = import("./contracts.types.js").IdpEmptyResponse;
 
 /** Backend query type: AuthorizeQuery. */
 export interface AuthAuthorizeGetQuery extends QueryParams {
@@ -404,8 +399,7 @@ export interface AuthOtpLoginPostInput extends JsonObject {
 export type AuthOtpLoginPostResponse = import("./contracts.types.js").HandoffAccessTokenResponse;
 
 /** Backend response type: api. */
-export interface AuthRefreshTokenGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthRefreshTokenGetResponse = import("./types.js").AuthTokensResponse;
 
 /** Backend request type: OneTimeExchangeRequest. */
 export interface AuthExchangeOneTimeTokenPostInput extends JsonObject {
@@ -458,8 +452,7 @@ export interface AuthLoginTokenGetQuery extends QueryParams {
   "redirect": string;
 }
 /** Backend response type: api. */
-export interface AuthLoginTokenGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthLoginTokenGetResponse = void;
 
 /** Backend response type: raw-response. */
 export type AuthValidateGetResponse = import("./types.js").ValidateSessionResponse;
@@ -477,8 +470,7 @@ export interface AuthLoginWebPostInput extends JsonObject {
   "device_id"?: string | null;
 }
 /** Backend response type: api. */
-export interface AuthLoginWebPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthLoginWebPostResponse = import("./contracts.types.js").IdpEmptyResponse;
 
 /** Backend request type: EnrollmentInput. */
 export interface IdentityAuthorityEnrollPostInput extends JsonObject {
@@ -496,72 +488,12 @@ export interface IdentityAuthorityEnrollPostResponse extends ApiEnvelope<Identit
 }
 
 /** Backend response type: Vec<ProviderView>. */
-export interface CustomOauthListGetResponseItem extends JsonObject {
-  "id": string;
-  "provider_key": string;
-  "display_name": string;
-  "protocol": string;
-  "issuer_url": string | null;
-  "authorization_url": string;
-  "token_url": string;
-  "userinfo_url": string;
-  "client_id": string;
-  "has_secret": boolean;
-  "scopes": string[];
-  "claim_mapping": JsonValue;
-  "extra_authorize_params": JsonValue;
-  "role_mapping": JsonValue;
-  "default_role_id": string | null;
-  "icon_url": string | null;
-  "display_order": number;
-  "enabled": boolean;
-}
-export interface CustomOauthListGetResponse extends ApiEnvelope<CustomOauthListGetResponseItem[]> {
-}
+export type CustomOauthListGetResponse = import("./contracts.types.js").CustomProviderListResponse;
 
 /** Backend request type: ProviderInput. */
-export interface CustomOauthCreatePostInput extends JsonObject {
-  "provider_key": string;
-  "display_name": string;
-  "protocol": string;
-  "issuer_url"?: string | null;
-  "authorization_url": string;
-  "token_url": string;
-  "userinfo_url": string;
-  "client_id": string;
-  "client_secret"?: string | null;
-  "scopes"?: string[];
-  "claim_mapping"?: JsonValue;
-  "extra_authorize_params"?: JsonValue;
-  "role_mapping"?: JsonValue;
-  "default_role_id"?: string | null;
-  "icon_url"?: string | null;
-  "display_order"?: number;
-  "enabled"?: boolean;
-}
+export type CustomOauthCreatePostInput = import("./contracts.types.js").CustomProviderInput;
 /** Backend response type: ProviderView. */
-export interface CustomOauthCreatePostResponseData extends JsonObject {
-  "id": string;
-  "provider_key": string;
-  "display_name": string;
-  "protocol": string;
-  "issuer_url": string | null;
-  "authorization_url": string;
-  "token_url": string;
-  "userinfo_url": string;
-  "client_id": string;
-  "has_secret": boolean;
-  "scopes": string[];
-  "claim_mapping": JsonValue;
-  "extra_authorize_params": JsonValue;
-  "role_mapping": JsonValue;
-  "default_role_id": string | null;
-  "icon_url": string | null;
-  "display_order": number;
-  "enabled": boolean;
-}
-export interface CustomOauthCreatePostResponse extends ApiEnvelope<CustomOauthCreatePostResponseData> {
-}
+export type CustomOauthCreatePostResponse = import("./contracts.types.js").CustomProviderResponse;
 
 /** Backend response type: APIEmptyResponse. */
 export interface CustomOauthRemoveDeleteResponseData extends JsonObject {
@@ -571,48 +503,9 @@ export interface CustomOauthRemoveDeleteResponseData extends JsonObject {
 export type CustomOauthRemoveDeleteResponse = CustomOauthRemoveDeleteResponseData;
 
 /** Backend request type: ProviderInput. */
-export interface CustomOauthUpdatePutInput extends JsonObject {
-  "provider_key": string;
-  "display_name": string;
-  "protocol": string;
-  "issuer_url"?: string | null;
-  "authorization_url": string;
-  "token_url": string;
-  "userinfo_url": string;
-  "client_id": string;
-  "client_secret"?: string | null;
-  "scopes"?: string[];
-  "claim_mapping"?: JsonValue;
-  "extra_authorize_params"?: JsonValue;
-  "role_mapping"?: JsonValue;
-  "default_role_id"?: string | null;
-  "icon_url"?: string | null;
-  "display_order"?: number;
-  "enabled"?: boolean;
-}
+export type CustomOauthUpdatePutInput = import("./contracts.types.js").CustomProviderInput;
 /** Backend response type: ProviderView. */
-export interface CustomOauthUpdatePutResponseData extends JsonObject {
-  "id": string;
-  "provider_key": string;
-  "display_name": string;
-  "protocol": string;
-  "issuer_url": string | null;
-  "authorization_url": string;
-  "token_url": string;
-  "userinfo_url": string;
-  "client_id": string;
-  "has_secret": boolean;
-  "scopes": string[];
-  "claim_mapping": JsonValue;
-  "extra_authorize_params": JsonValue;
-  "role_mapping": JsonValue;
-  "default_role_id": string | null;
-  "icon_url": string | null;
-  "display_order": number;
-  "enabled": boolean;
-}
-export interface CustomOauthUpdatePutResponse extends ApiEnvelope<CustomOauthUpdatePutResponseData> {
-}
+export type CustomOauthUpdatePutResponse = import("./contracts.types.js").CustomProviderResponse;
 
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityAdminShowGetResponseData extends JsonObject {
@@ -780,44 +673,12 @@ export interface IdentityAuthorityRecoverCanonicalModePostResponse extends ApiEn
 }
 
 /** Backend response type: LoginPageSettingsResponse. */
-export interface SettingsLoginPageSettingsShowGetResponseData extends JsonObject {
-  "title": string | null;
-  "subtitle": string | null;
-  "trademark": string | null;
-  "icon_asset_key": string | null;
-  "icon_url": string | null;
-  "localizations": Record<string, BackendJson<"LoginPageLocalization">>;
-  "mockup_asset_keys": string[];
-  "mockup_image_urls": string[];
-  "faiber_enabled": boolean;
-}
-export interface SettingsLoginPageSettingsShowGetResponse extends ApiEnvelope<SettingsLoginPageSettingsShowGetResponseData> {
-}
+export type SettingsLoginPageSettingsShowGetResponse = import("./contracts.types.js").LoginPageSettingsResponse;
 
 /** Backend request type: UpdateLoginPageSettings. */
-export interface SettingsLoginPageSettingsUpdatePutInput extends JsonObject {
-  "title"?: string | null;
-  "subtitle"?: string | null;
-  "trademark"?: string | null;
-  "icon_asset_key"?: string | null;
-  "localizations"?: Record<string, BackendJson<"LoginPageLocalization">>;
-  "mockup_asset_keys"?: string[];
-  "faiber_enabled"?: boolean;
-}
+export type SettingsLoginPageSettingsUpdatePutInput = import("./contracts.types.js").LoginPageSettingsInput;
 /** Backend response type: LoginPageSettingsResponse. */
-export interface SettingsLoginPageSettingsUpdatePutResponseData extends JsonObject {
-  "title": string | null;
-  "subtitle": string | null;
-  "trademark": string | null;
-  "icon_asset_key": string | null;
-  "icon_url": string | null;
-  "localizations": Record<string, BackendJson<"LoginPageLocalization">>;
-  "mockup_asset_keys": string[];
-  "mockup_image_urls": string[];
-  "faiber_enabled": boolean;
-}
-export interface SettingsLoginPageSettingsUpdatePutResponse extends ApiEnvelope<SettingsLoginPageSettingsUpdatePutResponseData> {
-}
+export type SettingsLoginPageSettingsUpdatePutResponse = import("./contracts.types.js").LoginPageSettingsResponse;
 
 /** Backend request type: multipart/form-data. */
 export type SettingsLoginPageAssetUploadPostInput = FormData;
@@ -830,23 +691,10 @@ export interface SettingsLoginPageAssetUploadPostResponse extends ApiEnvelope<Se
 }
 
 /** Backend response type: raw-response. */
-export interface SettingsLoginPageAssetGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type SettingsLoginPageAssetGetResponse = import("./contracts.types.js").LoginPageAssetBytes;
 
 /** Backend response type: LoginPageSettingsResponse. */
-export interface SettingsLoginPageSettingsPublicGetResponseData extends JsonObject {
-  "title": string | null;
-  "subtitle": string | null;
-  "trademark": string | null;
-  "icon_asset_key": string | null;
-  "icon_url": string | null;
-  "localizations": Record<string, BackendJson<"LoginPageLocalization">>;
-  "mockup_asset_keys": string[];
-  "mockup_image_urls": string[];
-  "faiber_enabled": boolean;
-}
-export interface SettingsLoginPageSettingsPublicGetResponse extends ApiEnvelope<SettingsLoginPageSettingsPublicGetResponseData> {
-}
+export type SettingsLoginPageSettingsPublicGetResponse = import("./contracts.types.js").LoginPageSettingsResponse;
 
 /** Backend response type: OAuthSettingsResponse. */
 export interface SettingsOauthSettingsShowGetResponseDataGoogle extends JsonObject {
@@ -1568,8 +1416,7 @@ export interface UserSyncUsersGetResponse extends ApiEnvelope<boolean> {
 export type RouterStatusRouteGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
-}
+export type IntegrationFlowIntegrationShowGetResponse = import("./contracts.types.js").IdpFlowIntegrationResponse;
 
 /** Backend query type: AuthorizeQuery. */
 export interface OidcAuthorizeGetQuery extends QueryParams {

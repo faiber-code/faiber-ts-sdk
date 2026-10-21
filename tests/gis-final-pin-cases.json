@@ -1,0 +1,669 @@
+[
+  {
+    "id": "GET /api/v1/datasets",
+    "method": "GET",
+    "path": "/api/v1/datasets",
+    "sdk_method": "datasets",
+    "path_values": [],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "POST /api/v1/datasets",
+    "method": "POST",
+    "path": "/api/v1/datasets",
+    "sdk_method": "createDataset",
+    "path_values": [],
+    "body": {
+      "name": "Survey",
+      "attribution": "Survey team",
+      "license": "CC-BY",
+      "source": "Survey",
+      "scope": "user"
+    },
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/datasets/{id}",
+    "method": "GET",
+    "path": "/api/v1/datasets/{id}",
+    "sdk_method": "dataset",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "PATCH /api/v1/datasets/{id}",
+    "method": "PATCH",
+    "path": "/api/v1/datasets/{id}",
+    "sdk_method": "publishDataset",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": {
+      "status": "published",
+      "visibility": "public",
+      "expected_revision": 1,
+      "reason": "Reviewed publication"
+    },
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/datasets/{id}/features",
+    "method": "GET",
+    "path": "/api/v1/datasets/{id}/features",
+    "sdk_method": "features",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": {
+      "bbox": "48,36,50,38",
+      "limit": 10
+    },
+    "binary": false
+  },
+  {
+    "id": "PUT /api/v1/datasets/{id}/features",
+    "method": "PUT",
+    "path": "/api/v1/datasets/{id}/features",
+    "sdk_method": "writeFeatures",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": {
+      "expected_revision": 1,
+      "reason": "Reviewed edit",
+      "features": [
+        {
+          "id": "node/1",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              49,
+              37
+            ]
+          }
+        }
+      ]
+    },
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "PUT /api/v1/datasets/{id}/features/{feature}",
+    "method": "PUT",
+    "path": "/api/v1/datasets/{id}/features/{feature}",
+    "sdk_method": "deleteFeature",
+    "path_values": [
+      "id/encoded",
+      "feature/encoded"
+    ],
+    "body": {
+      "expected_revision": 1,
+      "reason": "Reviewed deletion"
+    },
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/datasets/{id}/history",
+    "method": "GET",
+    "path": "/api/v1/datasets/{id}/history",
+    "sdk_method": "datasetHistory",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/datasets/{id}/tiles/{z}/{x}/{y}",
+    "method": "GET",
+    "path": "/api/v1/datasets/{id}/tiles/{z}/{x}/{y}",
+    "sdk_method": "tile",
+    "path_values": [
+      "id/encoded",
+      2,
+      1,
+      1
+    ],
+    "body": null,
+    "query": null,
+    "binary": true
+  },
+  {
+    "id": "GET /api/v1/imports",
+    "method": "GET",
+    "path": "/api/v1/imports",
+    "sdk_method": "imports",
+    "path_values": [],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "POST /api/v1/imports",
+    "method": "POST",
+    "path": "/api/v1/imports",
+    "sdk_method": "createImport",
+    "path_values": [],
+    "body": {
+      "name": "Area",
+      "bounds": [
+        49,
+        37,
+        49.01,
+        37.01
+      ],
+      "scope": "user"
+    },
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "POST /api/v1/imports/{id}/retry",
+    "method": "POST",
+    "path": "/api/v1/imports/{id}/retry",
+    "sdk_method": "retryImport",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/internal/outbox",
+    "method": "GET",
+    "path": "/api/v1/internal/outbox",
+    "sdk_method": "outbox",
+    "path_values": [],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "PUT /api/v1/internal/outbox/{id}/ack",
+    "method": "PUT",
+    "path": "/api/v1/internal/outbox/{id}/ack",
+    "sdk_method": "ackEvent",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/maps",
+    "method": "GET",
+    "path": "/api/v1/maps",
+    "sdk_method": "maps",
+    "path_values": [],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "POST /api/v1/maps",
+    "method": "POST",
+    "path": "/api/v1/maps",
+    "sdk_method": "createMap",
+    "path_values": [],
+    "body": {
+      "slug": "survey",
+      "name": "Survey",
+      "dataset_id": "dataset",
+      "center": [
+        49,
+        37
+      ],
+      "bounds": [
+        48,
+        36,
+        50,
+        38
+      ],
+      "zoom": 12
+    },
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/maps/{id}",
+    "method": "GET",
+    "path": "/api/v1/maps/{id}",
+    "sdk_method": "map",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "PATCH /api/v1/maps/{id}",
+    "method": "PATCH",
+    "path": "/api/v1/maps/{id}",
+    "sdk_method": "updateMap",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": {
+      "slug": "survey",
+      "name": "Survey",
+      "dataset_id": "dataset",
+      "center": [
+        49,
+        37
+      ],
+      "bounds": [
+        48,
+        36,
+        50,
+        38
+      ],
+      "zoom": 12,
+      "expected_revision": 1,
+      "reason": "Reviewed update"
+    },
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "PUT /api/v1/maps/{id}/publish",
+    "method": "PUT",
+    "path": "/api/v1/maps/{id}/publish",
+    "sdk_method": "publishMap",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": {
+      "status": "published",
+      "expected_revision": 1,
+      "reason": "Reviewed publication"
+    },
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/maps/{id}/style",
+    "method": "GET",
+    "path": "/api/v1/maps/{id}/style",
+    "sdk_method": "mapStyle",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": {
+      "theme": "light"
+    },
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/me",
+    "method": "GET",
+    "path": "/api/v1/me",
+    "sdk_method": "me",
+    "path_values": [],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/me/contributions",
+    "method": "GET",
+    "path": "/api/v1/me/contributions",
+    "sdk_method": "contributions",
+    "path_values": [],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/me/saves",
+    "method": "GET",
+    "path": "/api/v1/me/saves",
+    "sdk_method": "savedPlaces",
+    "path_values": [],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/moderation",
+    "method": "GET",
+    "path": "/api/v1/moderation",
+    "sdk_method": "moderationQueue",
+    "path_values": [],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "POST /api/v1/moderation/{id}",
+    "method": "POST",
+    "path": "/api/v1/moderation/{id}",
+    "sdk_method": "moderatePlace",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": {
+      "status": "published",
+      "reason": "Reviewed proposal"
+    },
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/moderation/{id}/history",
+    "method": "GET",
+    "path": "/api/v1/moderation/{id}/history",
+    "sdk_method": "placeHistory",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "POST /api/v1/moderation/reports/{id}",
+    "method": "POST",
+    "path": "/api/v1/moderation/reports/{id}",
+    "sdk_method": "resolveReport",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": {
+      "reason": "Reviewed correction"
+    },
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/my-places",
+    "method": "GET",
+    "path": "/api/v1/my-places",
+    "sdk_method": "personalPlaces",
+    "path_values": [],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "POST /api/v1/my-places",
+    "method": "POST",
+    "path": "/api/v1/my-places",
+    "sdk_method": "createPersonalPlace",
+    "path_values": [],
+    "body": {
+      "name": "Home",
+      "note": "Private",
+      "category": "home",
+      "longitude": 49,
+      "latitude": 37,
+      "expected_revision": 1
+    },
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "DELETE /api/v1/my-places/{id}",
+    "method": "DELETE",
+    "path": "/api/v1/my-places/{id}",
+    "sdk_method": "deletePersonalPlace",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/my-places/{id}",
+    "method": "GET",
+    "path": "/api/v1/my-places/{id}",
+    "sdk_method": "personalPlace",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "PUT /api/v1/my-places/{id}",
+    "method": "PUT",
+    "path": "/api/v1/my-places/{id}",
+    "sdk_method": "updatePersonalPlace",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": {
+      "name": "Home",
+      "note": "Private",
+      "category": "home",
+      "longitude": 49,
+      "latitude": 37,
+      "expected_revision": 1
+    },
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/places",
+    "method": "GET",
+    "path": "/api/v1/places",
+    "sdk_method": "places",
+    "path_values": [],
+    "body": null,
+    "query": {
+      "q": "کافه",
+      "category": "cafe",
+      "bbox": "48,36,50,38",
+      "lat": 37,
+      "lon": 49,
+      "radius": 500,
+      "limit": 10
+    },
+    "binary": false
+  },
+  {
+    "id": "POST /api/v1/places",
+    "method": "POST",
+    "path": "/api/v1/places",
+    "sdk_method": "proposePlace",
+    "path_values": [],
+    "body": {
+      "name": "Cafe",
+      "category": "cafe",
+      "longitude": 49,
+      "latitude": 37
+    },
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/places/{id}",
+    "method": "GET",
+    "path": "/api/v1/places/{id}",
+    "sdk_method": "place",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "POST /api/v1/places/{id}/assertion",
+    "method": "POST",
+    "path": "/api/v1/places/{id}/assertion",
+    "sdk_method": "placeAssertion",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/places/{id}/references",
+    "method": "GET",
+    "path": "/api/v1/places/{id}/references",
+    "sdk_method": "placeReferences",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "POST /api/v1/places/{id}/reports",
+    "method": "POST",
+    "path": "/api/v1/places/{id}/reports",
+    "sdk_method": "reportPlace",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": {
+      "reason": "correction"
+    },
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "DELETE /api/v1/places/{id}/save",
+    "method": "DELETE",
+    "path": "/api/v1/places/{id}/save",
+    "sdk_method": "unsavePlace",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "PUT /api/v1/places/{id}/save",
+    "method": "PUT",
+    "path": "/api/v1/places/{id}/save",
+    "sdk_method": "savePlace",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/public/datasets/{id}/geojson",
+    "method": "GET",
+    "path": "/api/v1/public/datasets/{id}/geojson",
+    "sdk_method": "publicFeatures",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": {
+      "bbox": "48,36,50,38",
+      "limit": 10
+    },
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/public/datasets/{id}/tilejson",
+    "method": "GET",
+    "path": "/api/v1/public/datasets/{id}/tilejson",
+    "sdk_method": "tileJson",
+    "path_values": [
+      "id/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/public/datasets/{id}/tiles/{z}/{x}/{y}",
+    "method": "GET",
+    "path": "/api/v1/public/datasets/{id}/tiles/{z}/{x}/{y}",
+    "sdk_method": "publicTile",
+    "path_values": [
+      "id/encoded",
+      2,
+      1,
+      1
+    ],
+    "body": null,
+    "query": null,
+    "binary": true
+  },
+  {
+    "id": "GET /api/v1/public/maps",
+    "method": "GET",
+    "path": "/api/v1/public/maps",
+    "sdk_method": "publicMaps",
+    "path_values": [],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/public/maps/{slug}",
+    "method": "GET",
+    "path": "/api/v1/public/maps/{slug}",
+    "sdk_method": "publicMap",
+    "path_values": [
+      "slug/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/public/maps/{slug}/geojson",
+    "method": "GET",
+    "path": "/api/v1/public/maps/{slug}/geojson",
+    "sdk_method": "publicMapFeatures",
+    "path_values": [
+      "slug/encoded"
+    ],
+    "body": null,
+    "query": null,
+    "binary": false
+  },
+  {
+    "id": "GET /api/v1/public/maps/{slug}/style",
+    "method": "GET",
+    "path": "/api/v1/public/maps/{slug}/style",
+    "sdk_method": "publicMapStyle",
+    "path_values": [
+      "slug/encoded"
+    ],
+    "body": null,
+    "query": {
+      "theme": "light"
+    },
+    "binary": false
+  },
+  {
+    "id": "GET /health",
+    "method": "GET",
+    "path": "/health",
+    "sdk_method": "health",
+    "path_values": [],
+    "body": null,
+    "query": null,
+    "binary": false
+  }
+]

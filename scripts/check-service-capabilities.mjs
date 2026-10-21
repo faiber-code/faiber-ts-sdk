@@ -1,3 +1,4 @@
+import {summarizeCapabilityFindings} from './capability-findings-report.mjs';
 import {loadRuntimeInventory} from './runtime-inventory.mjs';
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
@@ -11,5 +12,5 @@ const services=Object.fromEntries(Object.keys(universe.services).map(service=>[s
 const stage=process.argv.find(arg=>arg.startsWith('--stage='))?.slice('--stage='.length)??'complete';
 const selectedSources=read(join(root,'../../service-source-revisions.json'));
 const result=evaluateCapabilityGate(universe,services,read(join(root,'relationships.json'))?.relationships??[],verifyRunArtifacts(read(join(root,'verification-runs.json'))??{},root),read(join(root,'known-gaps.json'))?.gaps??[],{stage,runtimeInventory:loadRuntimeInventory(universe.runtime_inventory,root),selectedSources});
-console.log(JSON.stringify({stage:result.stage,status:result.status,blocker_count:result.failures.length,blockers:result.failures.slice(0,25),downstream_gaps:result.downstream_gaps,next:'Resolve evidence in each service matrix; source counts do not satisfy semantic/wire verification.'},null,2));
+console.log(JSON.stringify({stage:result.stage,status:result.status,blocker_count:result.failures.length,audit_summary:summarizeCapabilityFindings(result,universe,services),blockers:result.failures.slice(0,25),downstream_gaps:result.downstream_gaps,next:'Resolve evidence in each service matrix; source counts do not satisfy semantic/wire verification.'},null,2));
 if(result.status!=='passed')process.exitCode=1;

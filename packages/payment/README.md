@@ -25,7 +25,12 @@ const api = new PaymentApi(client);
 const gateways = await api.gateways.list();
 const payment = await api.createPayment({
   amount: 4900,
-  gateway_id: gatewayId,
+  service_name: "my-service",
+  service_model: "order",
+  service_id: "order-42",
+  queue_name: "my_service_queue",
+  callback_url: "https://merchant.example/payment-result",
+  idempotency_key: "my-service:order-42",
 });
 ```
 

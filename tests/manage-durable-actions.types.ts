@@ -1,4 +1,4 @@
-import {FaiberSDK,type ManageAgentActionView,isManageDurableActionEvent} from '../packages/sdk/dist/index.js';
+import {FaiberSDK,type ManageAgentActionView,isManageDurableActionEvent} from '@faiber/faiber-ts-sdk';
 const sdk=new FaiberSDK({domains:{}}),id='cf1b746e-98bd-4da4-9be1-ceae4b395d85';
 const captured={operation_id:id,expected_version:1,payload_hash:'a'.repeat(64)};
 sdk.manage.getAgentActionCapabilities().then(r=>{const durable:true=r.data.durable;void durable;});

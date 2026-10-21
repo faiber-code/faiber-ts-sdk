@@ -46834,5 +46834,17 @@
         }
       ]
     }
+  },
+  "sdk_contract_source_review": {
+    "status": "source_only",
+    "native_status": "native_pending",
+    "revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+    "operation_count": 181,
+    "source_review": "evidence/lms-final-pin-source-audit-20261021/source-review.json",
+    "mismatch_ledger": "evidence/lms-final-pin-source-audit-20261021/mismatch-ledger.json",
+    "correction_metadata": "scripts/lms-reviewed-operation-contracts.mjs",
+    "generated_bindings_status": "final_integrated_generation_pending",
+    "known_remaining_source_contract_mismatches": [],
+    "verification": "No native or SDK execution asserted by this source audit. Historical inventory changed counts represent source/evidence differences and are not a count of actual SDK defects."
   }
 }

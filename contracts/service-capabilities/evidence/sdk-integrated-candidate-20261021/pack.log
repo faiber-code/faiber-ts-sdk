@@ -1,0 +1,1023 @@
+
+> faiber-ts-sdk-monorepo@1.0.0 pack:check
+> npm run provenance:check && node scripts/pack-check.mjs
+
+
+> faiber-ts-sdk-monorepo@1.0.0 provenance:check
+> node scripts/package-provenance.mjs --check
+
+23 package provenance manifests verified
+npm notice
+npm notice 📦  @faiber/faiber-asset@1.0.0
+npm notice Tarball Contents
+npm notice 7.9kB README.md
+npm notice 13.8kB dist/.tsbuildinfo
+npm notice 11.1kB dist/contracts.types.d.ts
+npm notice 9.2kB dist/contracts.types.d.ts.map
+npm notice 54B dist/contracts.types.js
+npm notice 122B dist/contracts.types.js.map
+npm notice 16.0kB dist/economy.types.d.ts
+npm notice 13.6kB dist/economy.types.d.ts.map
+npm notice 52B dist/economy.types.js
+npm notice 118B dist/economy.types.js.map
+npm notice 11.3kB dist/index.d.ts
+npm notice 3.3kB dist/index.d.ts.map
+npm notice 8.0kB dist/index.js
+npm notice 5.1kB dist/index.js.map
+npm notice 104.8kB dist/operations.d.ts
+npm notice 10.3kB dist/operations.d.ts.map
+npm notice 100.2kB dist/operations.js
+npm notice 21.9kB dist/operations.js.map
+npm notice 61.8kB dist/operations.types.d.ts
+npm notice 41.9kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 4.5kB dist/types.d.ts
+npm notice 3.0kB dist/types.d.ts.map
+npm notice 69B dist/types.js
+npm notice 124B dist/types.js.map
+npm notice 397B package.json
+npm notice 1.6kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-asset
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-asset-1.0.0.tgz
+npm notice package size: 61.9 kB
+npm notice unpacked size: 450.3 kB
+npm notice shasum: 295caa548df59fd7575335e3899e0aa4218df50a
+npm notice integrity: sha512-R1SC1Fd6MHqLG[...]5BAMxDeQJNgXQ==
+npm notice total files: 28
+npm notice
+faiber-faiber-asset-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-chat@1.0.0
+npm notice Tarball Contents
+npm notice 23.6kB README.md
+npm notice 16.4kB dist/.tsbuildinfo
+npm notice 704B dist/assistant-voice.d.ts
+npm notice 814B dist/assistant-voice.d.ts.map
+npm notice 54B dist/assistant-voice.js
+npm notice 122B dist/assistant-voice.js.map
+npm notice 24.6kB dist/index.d.ts
+npm notice 5.1kB dist/index.d.ts.map
+npm notice 21.5kB dist/index.js
+npm notice 8.4kB dist/index.js.map
+npm notice 1.6kB dist/learning.d.ts
+npm notice 1.1kB dist/learning.d.ts.map
+npm notice 785B dist/learning.js
+npm notice 559B dist/learning.js.map
+npm notice 65.5kB dist/operations.d.ts
+npm notice 6.7kB dist/operations.d.ts.map
+npm notice 62.7kB dist/operations.js
+npm notice 14.3kB dist/operations.js.map
+npm notice 18.3kB dist/operations.types.d.ts
+npm notice 11.1kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 3.6kB dist/personal.d.ts
+npm notice 2.1kB dist/personal.d.ts.map
+npm notice 1.3kB dist/personal.js
+npm notice 884B dist/personal.js.map
+npm notice 10.5kB dist/reviewed-wire.d.ts
+npm notice 8.5kB dist/reviewed-wire.d.ts.map
+npm notice 52B dist/reviewed-wire.js
+npm notice 118B dist/reviewed-wire.js.map
+npm notice 1.7kB dist/speech-live.d.ts
+npm notice 1.1kB dist/speech-live.d.ts.map
+npm notice 4.7kB dist/speech-live.js
+npm notice 4.6kB dist/speech-live.js.map
+npm notice 1.9kB dist/speech-playback.d.ts
+npm notice 706B dist/speech-playback.d.ts.map
+npm notice 8.7kB dist/speech-playback.js
+npm notice 8.9kB dist/speech-playback.js.map
+npm notice 1.9kB dist/speech-recorder.d.ts
+npm notice 650B dist/speech-recorder.d.ts.map
+npm notice 4.8kB dist/speech-recorder.js
+npm notice 4.1kB dist/speech-recorder.js.map
+npm notice 10.1kB dist/types.d.ts
+npm notice 8.6kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 3.3kB dist/workspace.d.ts
+npm notice 2.3kB dist/workspace.d.ts.map
+npm notice 959B dist/workspace.js
+npm notice 605B dist/workspace.js.map
+npm notice 432B package.json
+npm notice 2.2kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-chat
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-chat-1.0.0.tgz
+npm notice package size: 69.8 kB
+npm notice unpacked size: 383.6 kB
+npm notice shasum: c4f0ab48444e75bd944cea10d22c5d3395718af8
+npm notice integrity: sha512-NV3ERF4I1FPy1[...]uX3S0gs4w+Pgg==
+npm notice total files: 52
+npm notice
+faiber-faiber-chat-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/sdk-core@1.0.0
+npm notice Tarball Contents
+npm notice 5.5kB README.md
+npm notice 24.1kB dist/.tsbuildinfo
+npm notice 784B dist/auth.d.ts
+npm notice 710B dist/auth.d.ts.map
+npm notice 957B dist/auth.js
+npm notice 1.1kB dist/auth.js.map
+npm notice 1.2kB dist/client.d.ts
+npm notice 1.4kB dist/client.d.ts.map
+npm notice 5.2kB dist/client.js
+npm notice 5.0kB dist/client.js.map
+npm notice 664B dist/env.d.ts
+npm notice 495B dist/env.d.ts.map
+npm notice 1.2kB dist/env.js
+npm notice 1.1kB dist/env.js.map
+npm notice 344B dist/index.d.ts
+npm notice 346B dist/index.d.ts.map
+npm notice 314B dist/index.js
+npm notice 321B dist/index.js.map
+npm notice 3.6kB dist/openapi.d.ts
+npm notice 4.6kB dist/openapi.d.ts.map
+npm notice 2.5kB dist/openapi.js
+npm notice 3.1kB dist/openapi.js.map
+npm notice 1.5kB dist/realtime.d.ts
+npm notice 884B dist/realtime.d.ts.map
+npm notice 2.7kB dist/realtime.js
+npm notice 2.7kB dist/realtime.js.map
+npm notice 2.3kB dist/resource.d.ts
+npm notice 2.1kB dist/resource.d.ts.map
+npm notice 2.1kB dist/resource.js
+npm notice 2.3kB dist/resource.js.map
+npm notice 1.6kB dist/summary-access.d.ts
+npm notice 1.0kB dist/summary-access.d.ts.map
+npm notice 53B dist/summary-access.js
+npm notice 120B dist/summary-access.js.map
+npm notice 6.3kB dist/types.d.ts
+npm notice 5.6kB dist/types.d.ts.map
+npm notice 340B dist/types.js
+npm notice 342B dist/types.js.map
+npm notice 411B package.json
+npm notice 3.8kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/sdk-core
+npm notice version: 1.0.0
+npm notice filename: faiber-sdk-core-1.0.0.tgz
+npm notice package size: 27.9 kB
+npm notice unpacked size: 100.6 kB
+npm notice shasum: 472a7f53b79e8221b93824eedc7aaa32a3b93bbb
+npm notice integrity: sha512-qM/UfiPFhKLcl[...]LQcqlRFUO6PEw==
+npm notice total files: 40
+npm notice
+faiber-sdk-core-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-crm@1.0.0
+npm notice Tarball Contents
+npm notice 5.7kB README.md
+npm notice 13.6kB dist/.tsbuildinfo
+npm notice 7.2kB dist/contracts.types.d.ts
+npm notice 7.1kB dist/contracts.types.d.ts.map
+npm notice 54B dist/contracts.types.js
+npm notice 122B dist/contracts.types.js.map
+npm notice 21.4kB dist/index.d.ts
+npm notice 7.4kB dist/index.d.ts.map
+npm notice 11.6kB dist/index.js
+npm notice 10.0kB dist/index.js.map
+npm notice 95.9kB dist/operations.d.ts
+npm notice 8.9kB dist/operations.d.ts.map
+npm notice 92.1kB dist/operations.js
+npm notice 20.6kB dist/operations.js.map
+npm notice 62.2kB dist/operations.types.d.ts
+npm notice 49.4kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 10.8kB dist/types.d.ts
+npm notice 9.3kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 395B package.json
+npm notice 1.4kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-crm
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-crm-1.0.0.tgz
+npm notice package size: 50.9 kB
+npm notice unpacked size: 435.6 kB
+npm notice shasum: ee6347c677652de3e5b0b51f4f9bdc60659c3444
+npm notice integrity: sha512-+AZFY/+s4Gn+h[...]o37HJHWOOW1Dg==
+npm notice total files: 24
+npm notice
+faiber-faiber-crm-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-drm@1.0.0
+npm notice Tarball Contents
+npm notice 5.6kB README.md
+npm notice 13.5kB dist/.tsbuildinfo
+npm notice 31.5kB dist/index.d.ts
+npm notice 9.1kB dist/index.d.ts.map
+npm notice 25.6kB dist/index.js
+npm notice 13.5kB dist/index.js.map
+npm notice 115.8kB dist/operations.d.ts
+npm notice 9.5kB dist/operations.d.ts.map
+npm notice 112.9kB dist/operations.js
+npm notice 20.7kB dist/operations.js.map
+npm notice 20.2kB dist/operations.types.d.ts
+npm notice 10.2kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 243B dist/types.d.ts
+npm notice 265B dist/types.d.ts.map
+npm notice 66B dist/types.js
+npm notice 123B dist/types.js.map
+npm notice 25.6kB dist/wire.types.d.ts
+npm notice 18.3kB dist/wire.types.d.ts.map
+npm notice 49B dist/wire.types.js
+npm notice 112B dist/wire.types.js.map
+npm notice 395B package.json
+npm notice 1.4kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-drm
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-drm-1.0.0.tgz
+npm notice package size: 46.4 kB
+npm notice unpacked size: 435.1 kB
+npm notice shasum: cd6efb3d1ba249c94eabadbc1ae7c43e315fe085
+npm notice integrity: sha512-MK5mBCd5ttpfm[...]uuIkS7cFQI51g==
+npm notice total files: 24
+npm notice
+faiber-faiber-drm-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-flow@1.0.0
+npm notice Tarball Contents
+npm notice 5.1kB README.md
+npm notice 13.4kB dist/.tsbuildinfo
+npm notice 3.4kB dist/index.d.ts
+npm notice 1.1kB dist/index.d.ts.map
+npm notice 3.0kB dist/index.js
+npm notice 1.9kB dist/index.js.map
+npm notice 25.4kB dist/operations.d.ts
+npm notice 1.6kB dist/operations.d.ts.map
+npm notice 24.9kB dist/operations.js
+npm notice 3.6kB dist/operations.js.map
+npm notice 3.3kB dist/operations.types.d.ts
+npm notice 1.8kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 7.2kB dist/types.d.ts
+npm notice 6.0kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 396B package.json
+npm notice 1.3kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-flow
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-flow-1.0.0.tgz
+npm notice package size: 19.9 kB
+npm notice unpacked size: 103.6 kB
+npm notice shasum: f9ca5f21a5d1c834ebcc13603b5b513216c67e8a
+npm notice integrity: sha512-lTYsNzUo/1fHe[...]zBLI136F+rncA==
+npm notice total files: 20
+npm notice
+faiber-faiber-flow-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-game-sdk@1.0.0
+npm notice Tarball Contents
+npm notice 1.5kB README.md
+npm notice 15.7kB dist/.tsbuildinfo
+npm notice 541B dist/assets.d.ts
+npm notice 616B dist/assets.d.ts.map
+npm notice 437B dist/assets.js
+npm notice 674B dist/assets.js.map
+npm notice 973B dist/ecs.d.ts
+npm notice 1.3kB dist/ecs.d.ts.map
+npm notice 1.1kB dist/ecs.js
+npm notice 1.8kB dist/ecs.js.map
+npm notice 1.1kB dist/engine.d.ts
+npm notice 1.1kB dist/engine.d.ts.map
+npm notice 2.9kB dist/engine.js
+npm notice 3.7kB dist/engine.js.map
+npm notice 263B dist/index.d.ts
+npm notice 270B dist/index.d.ts.map
+npm notice 261B dist/index.js
+npm notice 268B dist/index.js.map
+npm notice 1.0kB dist/match.d.ts
+npm notice 855B dist/match.d.ts.map
+npm notice 1.6kB dist/match.js
+npm notice 1.7kB dist/match.js.map
+npm notice 1.2kB dist/quality.d.ts
+npm notice 1.1kB dist/quality.d.ts.map
+npm notice 2.6kB dist/quality.js
+npm notice 3.4kB dist/quality.js.map
+npm notice 1.4kB dist/renderer.d.ts
+npm notice 1.2kB dist/renderer.d.ts.map
+npm notice 2.3kB dist/renderer.js
+npm notice 2.8kB dist/renderer.js.map
+npm notice 712B dist/state.d.ts
+npm notice 682B dist/state.d.ts.map
+npm notice 629B dist/state.js
+npm notice 800B dist/state.js.map
+npm notice 454B dist/wasm.d.ts
+npm notice 538B dist/wasm.d.ts.map
+npm notice 814B dist/wasm.js
+npm notice 1.2kB dist/wasm.js.map
+npm notice 408B package.json
+npm notice 1.7kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-game-sdk
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-game-sdk-1.0.0.tgz
+npm notice package size: 18.6 kB
+npm notice unpacked size: 63.5 kB
+npm notice shasum: f8ddc0143e6b5a55d0d664833b93f988370d279a
+npm notice integrity: sha512-oN7nTJUWPHHa4[...]9m5mhnmgRm3qg==
+npm notice total files: 40
+npm notice
+faiber-faiber-game-sdk-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-gis@1.0.0
+npm notice Tarball Contents
+npm notice 3.4kB README.md
+npm notice 13.4kB dist/.tsbuildinfo
+npm notice 417B dist/index.d.ts
+npm notice 328B dist/index.d.ts.map
+npm notice 416B dist/index.js
+npm notice 358B dist/index.js.map
+npm notice 53.4kB dist/operations.d.ts
+npm notice 4.5kB dist/operations.d.ts.map
+npm notice 51.8kB dist/operations.js
+npm notice 10.0kB dist/operations.js.map
+npm notice 8.2kB dist/operations.types.d.ts
+npm notice 5.6kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 9.4kB dist/types.d.ts
+npm notice 9.2kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 395B package.json
+npm notice 1.3kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-gis
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-gis-1.0.0.tgz
+npm notice package size: 23.1 kB
+npm notice unpacked size: 172.4 kB
+npm notice shasum: 7f3b0e8de73eb30908d30698621be23bf8513457
+npm notice integrity: sha512-et6lFJs/iO3j+[...]CUWwBpZ9blcEw==
+npm notice total files: 20
+npm notice
+faiber-faiber-gis-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-idp@1.0.0
+npm notice Tarball Contents
+npm notice 11.9kB README.md
+npm notice 14.3kB dist/.tsbuildinfo
+npm notice 5.7kB dist/authority.d.ts
+npm notice 2.1kB dist/authority.d.ts.map
+npm notice 4.2kB dist/authority.js
+npm notice 1.9kB dist/authority.js.map
+npm notice 6.4kB dist/contracts.types.d.ts
+npm notice 5.1kB dist/contracts.types.d.ts.map
+npm notice 54B dist/contracts.types.js
+npm notice 122B dist/contracts.types.js.map
+npm notice 19.6kB dist/index.d.ts
+npm notice 2.9kB dist/index.d.ts.map
+npm notice 18.6kB dist/index.js
+npm notice 4.6kB dist/index.js.map
+npm notice 1.4kB dist/memberships.d.ts
+npm notice 983B dist/memberships.d.ts.map
+npm notice 543B dist/memberships.js
+npm notice 541B dist/memberships.js.map
+npm notice 104.3kB dist/operations.d.ts
+npm notice 10.0kB dist/operations.d.ts.map
+npm notice 102.0kB dist/operations.js
+npm notice 22.0kB dist/operations.js.map
+npm notice 54.4kB dist/operations.types.d.ts
+npm notice 36.9kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 4.9kB dist/resources.d.ts
+npm notice 1.5kB dist/resources.d.ts.map
+npm notice 3.3kB dist/resources.js
+npm notice 2.0kB dist/resources.js.map
+npm notice 8.4kB dist/types.d.ts
+npm notice 6.5kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 395B package.json
+npm notice 1.7kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-idp
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-idp-1.0.0.tgz
+npm notice package size: 64.6 kB
+npm notice unpacked size: 459.7 kB
+npm notice shasum: d0c1f8f125ad6f619907d4cb1e5143470f96519a
+npm notice integrity: sha512-TZCzOhOz8I6NY[...]Yc/AJkLKh41IQ==
+npm notice total files: 36
+npm notice
+faiber-faiber-idp-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-knowledge@1.0.0
+npm notice Tarball Contents
+npm notice 14.6kB README.md
+npm notice 13.4kB dist/.tsbuildinfo
+npm notice 34.1kB dist/index.d.ts
+npm notice 5.6kB dist/index.d.ts.map
+npm notice 33.3kB dist/index.js
+npm notice 10.4kB dist/index.js.map
+npm notice 78.0kB dist/operations.d.ts
+npm notice 8.3kB dist/operations.d.ts.map
+npm notice 75.2kB dist/operations.js
+npm notice 17.4kB dist/operations.js.map
+npm notice 24.9kB dist/operations.types.d.ts
+npm notice 17.8kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 43.2kB dist/types.d.ts
+npm notice 36.3kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 401B package.json
+npm notice 1.4kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-knowledge
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-knowledge-1.0.0.tgz
+npm notice package size: 57.8 kB
+npm notice unpacked size: 414.6 kB
+npm notice shasum: 531de3ad1264083ce930e3c0e8559b90b685ad27
+npm notice integrity: sha512-OCgBtsPDQISQx[...]oHoi2aW3Fjrtw==
+npm notice total files: 20
+npm notice
+faiber-faiber-knowledge-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-lms@1.0.0
+npm notice Tarball Contents
+npm notice 22.0kB README.md
+npm notice 14.7kB dist/.tsbuildinfo
+npm notice 739B dist/branding.types.d.ts
+npm notice 691B dist/branding.types.d.ts.map
+npm notice 53B dist/branding.types.js
+npm notice 120B dist/branding.types.js.map
+npm notice 563B dist/contracts.types.d.ts
+npm notice 504B dist/contracts.types.d.ts.map
+npm notice 54B dist/contracts.types.js
+npm notice 122B dist/contracts.types.js.map
+npm notice 21.2kB dist/index.d.ts
+npm notice 10.1kB dist/index.d.ts.map
+npm notice 19.8kB dist/index.js
+npm notice 13.9kB dist/index.js.map
+npm notice 7.4kB dist/interactive.d.ts
+npm notice 4.7kB dist/interactive.d.ts.map
+npm notice 3.2kB dist/interactive.js
+npm notice 2.3kB dist/interactive.js.map
+npm notice 1.2kB dist/media.d.ts
+npm notice 421B dist/media.d.ts.map
+npm notice 1.1kB dist/media.js
+npm notice 598B dist/media.js.map
+npm notice 2.8kB dist/notification-settings.d.ts
+npm notice 1.6kB dist/notification-settings.d.ts.map
+npm notice 1.4kB dist/notification-settings.js
+npm notice 878B dist/notification-settings.js.map
+npm notice 179.4kB dist/operations.d.ts
+npm notice 17.7kB dist/operations.d.ts.map
+npm notice 172.5kB dist/operations.js
+npm notice 37.1kB dist/operations.js.map
+npm notice 160.7kB dist/operations.types.d.ts
+npm notice 125.9kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 25.3kB dist/types.d.ts
+npm notice 21.2kB dist/types.d.ts.map
+npm notice 296B dist/types.js
+npm notice 268B dist/types.js.map
+npm notice 6.4kB dist/wire.types.d.ts
+npm notice 5.6kB dist/wire.types.d.ts.map
+npm notice 49B dist/wire.types.js
+npm notice 112B dist/wire.types.js.map
+npm notice 395B package.json
+npm notice 2.0kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-lms
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-lms-1.0.0.tgz
+npm notice package size: 86.4 kB
+npm notice unpacked size: 887.3 kB
+npm notice shasum: 625e0c154b21e0982bc3e1949d1db97a4962cc74
+npm notice integrity: sha512-j5XcVJzxD6gTl[...]+r6CfmlanXiYg==
+npm notice total files: 44
+npm notice
+faiber-faiber-lms-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-manage@1.0.0
+npm notice Tarball Contents
+npm notice 7.9kB README.md
+npm notice 13.8kB dist/.tsbuildinfo
+npm notice 534B dist/durable.d.ts
+npm notice 447B dist/durable.d.ts.map
+npm notice 3.3kB dist/durable.js
+npm notice 3.3kB dist/durable.js.map
+npm notice 2.3kB dist/durable.types.d.ts
+npm notice 1.9kB dist/durable.types.d.ts.map
+npm notice 52B dist/durable.types.js
+npm notice 118B dist/durable.types.js.map
+npm notice 8.3kB dist/index.d.ts
+npm notice 2.9kB dist/index.d.ts.map
+npm notice 9.8kB dist/index.js
+npm notice 6.8kB dist/index.js.map
+npm notice 2.9kB dist/operations.d.ts
+npm notice 759B dist/operations.d.ts.map
+npm notice 3.4kB dist/operations.js
+npm notice 1.6kB dist/operations.js.map
+npm notice 967B dist/stream.d.ts
+npm notice 597B dist/stream.d.ts.map
+npm notice 4.5kB dist/stream.js
+npm notice 4.8kB dist/stream.js.map
+npm notice 8.5kB dist/types.d.ts
+npm notice 7.2kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 398B package.json
+npm notice 1.7kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-manage
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-manage-1.0.0.tgz
+npm notice package size: 26.8 kB
+npm notice unpacked size: 99.0 kB
+npm notice shasum: 2d2179a3d9c22a2003c8f58683f285f535a7b0fc
+npm notice integrity: sha512-rFZxDOPHSCi1s[...]v8mZBRP/fT5tA==
+npm notice total files: 28
+npm notice
+faiber-faiber-manage-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-messenger@1.0.0
+npm notice Tarball Contents
+npm notice 9.4kB README.md
+npm notice 13.8kB dist/.tsbuildinfo
+npm notice 885B dist/contracts.types.d.ts
+npm notice 738B dist/contracts.types.d.ts.map
+npm notice 54B dist/contracts.types.js
+npm notice 122B dist/contracts.types.js.map
+npm notice 4.8kB dist/delivery.d.ts
+npm notice 3.0kB dist/delivery.d.ts.map
+npm notice 1.5kB dist/delivery.js
+npm notice 779B dist/delivery.js.map
+npm notice 8.3kB dist/index.d.ts
+npm notice 2.5kB dist/index.d.ts.map
+npm notice 6.4kB dist/index.js
+npm notice 3.8kB dist/index.js.map
+npm notice 45.4kB dist/operations.d.ts
+npm notice 4.1kB dist/operations.d.ts.map
+npm notice 43.2kB dist/operations.js
+npm notice 9.1kB dist/operations.js.map
+npm notice 11.9kB dist/operations.types.d.ts
+npm notice 6.0kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 7.8kB dist/types.d.ts
+npm notice 6.3kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 401B package.json
+npm notice 1.6kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-messenger
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-messenger-1.0.0.tgz
+npm notice package size: 33.7 kB
+npm notice unpacked size: 192.3 kB
+npm notice shasum: aa0bafa0536b9fd5ba154087d48c0e12d05e1da8
+npm notice integrity: sha512-JRvaa90EqEdqO[...]skKrMcQgvGtsw==
+npm notice total files: 28
+npm notice
+faiber-faiber-messenger-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-modules@1.0.0
+npm notice Tarball Contents
+npm notice 8.2kB README.md
+npm notice 13.6kB dist/.tsbuildinfo
+npm notice 5.2kB dist/contracts.types.d.ts
+npm notice 4.7kB dist/contracts.types.d.ts.map
+npm notice 54B dist/contracts.types.js
+npm notice 122B dist/contracts.types.js.map
+npm notice 21.6kB dist/index.d.ts
+npm notice 4.4kB dist/index.d.ts.map
+npm notice 18.1kB dist/index.js
+npm notice 9.3kB dist/index.js.map
+npm notice 192.6kB dist/operations.d.ts
+npm notice 18.8kB dist/operations.d.ts.map
+npm notice 186.6kB dist/operations.js
+npm notice 39.0kB dist/operations.js.map
+npm notice 104.7kB dist/operations.types.d.ts
+npm notice 76.6kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 10.5kB dist/types.d.ts
+npm notice 7.7kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 399B package.json
+npm notice 1.5kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-modules
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-modules-1.0.0.tgz
+npm notice package size: 60.8 kB
+npm notice unpacked size: 724.0 kB
+npm notice shasum: 2c02740df5c0fff437e93fc512cfe98e96135ba1
+npm notice integrity: sha512-DIHGzX+as2iQG[...]YUa0REzVGZmwg==
+npm notice total files: 24
+npm notice
+faiber-faiber-modules-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-payment@1.0.0
+npm notice Tarball Contents
+npm notice 6.3kB README.md
+npm notice 13.6kB dist/.tsbuildinfo
+npm notice 2.1kB dist/contracts.types.d.ts
+npm notice 1.7kB dist/contracts.types.d.ts.map
+npm notice 54B dist/contracts.types.js
+npm notice 122B dist/contracts.types.js.map
+npm notice 6.7kB dist/index.d.ts
+npm notice 2.0kB dist/index.d.ts.map
+npm notice 5.4kB dist/index.js
+npm notice 3.0kB dist/index.js.map
+npm notice 39.4kB dist/operations.d.ts
+npm notice 3.1kB dist/operations.d.ts.map
+npm notice 38.6kB dist/operations.js
+npm notice 7.0kB dist/operations.js.map
+npm notice 7.2kB dist/operations.types.d.ts
+npm notice 3.4kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 7.7kB dist/types.d.ts
+npm notice 6.5kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 399B package.json
+npm notice 1.5kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-payment
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-payment-1.0.0.tgz
+npm notice package size: 28.2 kB
+npm notice unpacked size: 156.1 kB
+npm notice shasum: 71b18b12c93ea63223a80642248aa6b154755064
+npm notice integrity: sha512-C6aVolr4unO1+[...]S8XMJ6IQD4T9w==
+npm notice total files: 24
+npm notice
+faiber-faiber-payment-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-profile@1.0.0
+npm notice Tarball Contents
+npm notice 14.0kB README.md
+npm notice 14.3kB dist/.tsbuildinfo
+npm notice 10.5kB dist/contracts.types.d.ts
+npm notice 10.0kB dist/contracts.types.d.ts.map
+npm notice 54B dist/contracts.types.js
+npm notice 122B dist/contracts.types.js.map
+npm notice 8.3kB dist/index.d.ts
+npm notice 4.0kB dist/index.d.ts.map
+npm notice 7.2kB dist/index.js
+npm notice 6.4kB dist/index.js.map
+npm notice 228.9kB dist/operations.d.ts
+npm notice 22.6kB dist/operations.d.ts.map
+npm notice 218.8kB dist/operations.js
+npm notice 47.3kB dist/operations.js.map
+npm notice 87.1kB dist/operations.types.d.ts
+npm notice 59.3kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 13.0kB dist/summaries.d.ts
+npm notice 1.9kB dist/summaries.d.ts.map
+npm notice 12.5kB dist/summaries.js
+npm notice 3.9kB dist/summaries.js.map
+npm notice 8.4kB dist/summaries.types.d.ts
+npm notice 8.0kB dist/summaries.types.d.ts.map
+npm notice 54B dist/summaries.types.js
+npm notice 122B dist/summaries.types.js.map
+npm notice 17.5kB dist/types.d.ts
+npm notice 15.5kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 17.5kB dist/wire.types.d.ts
+npm notice 14.7kB dist/wire.types.d.ts.map
+npm notice 49B dist/wire.types.js
+npm notice 112B dist/wire.types.js.map
+npm notice 399B package.json
+npm notice 1.8kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-profile
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-profile-1.0.0.tgz
+npm notice package size: 87.3 kB
+npm notice unpacked size: 854.8 kB
+npm notice shasum: b57f2a9257fa7a069a1105c05bf13d615844d92e
+npm notice integrity: sha512-4jNbyY4QxgeVq[...]6FR3B8sjCzrWQ==
+npm notice total files: 36
+npm notice
+faiber-faiber-profile-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-reservation@1.0.0
+npm notice Tarball Contents
+npm notice 6.4kB README.md
+npm notice 13.6kB dist/.tsbuildinfo
+npm notice 1.1kB dist/contracts.types.d.ts
+npm notice 764B dist/contracts.types.d.ts.map
+npm notice 54B dist/contracts.types.js
+npm notice 122B dist/contracts.types.js.map
+npm notice 6.1kB dist/index.d.ts
+npm notice 1.5kB dist/index.d.ts.map
+npm notice 4.2kB dist/index.js
+npm notice 2.5kB dist/index.js.map
+npm notice 41.2kB dist/operations.d.ts
+npm notice 3.0kB dist/operations.d.ts.map
+npm notice 40.1kB dist/operations.js
+npm notice 6.2kB dist/operations.js.map
+npm notice 15.2kB dist/operations.types.d.ts
+npm notice 11.1kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 3.1kB dist/types.d.ts
+npm notice 1.9kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 403B package.json
+npm notice 1.5kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-reservation
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-reservation-1.0.0.tgz
+npm notice package size: 25.7 kB
+npm notice unpacked size: 160.4 kB
+npm notice shasum: 715e2c30a8511268c02d4dd06daf0dcef39792f5
+npm notice integrity: sha512-k8twHGS1dt4wH[...]iVrctzajmQ03w==
+npm notice total files: 24
+npm notice
+faiber-faiber-reservation-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-ts-sdk@1.0.0
+npm notice Tarball Contents
+npm notice 3.4kB README.md
+npm notice 34.1kB dist/.tsbuildinfo
+npm notice 13.9kB dist/capabilities.d.ts
+npm notice 994B dist/capabilities.d.ts.map
+npm notice 11.2kB dist/capabilities.js
+npm notice 4.4kB dist/capabilities.js.map
+npm notice 32.3kB dist/index.d.ts
+npm notice 4.8kB dist/index.d.ts.map
+npm notice 5.8kB dist/index.js
+npm notice 6.0kB dist/index.js.map
+npm notice 1.2kB package.json
+npm notice 3.1kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-ts-sdk
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-ts-sdk-1.0.0.tgz
+npm notice package size: 28.1 kB
+npm notice unpacked size: 121.2 kB
+npm notice shasum: 5c7d7db0ec2abd8488f6c3f5b13fa1164eb3b606
+npm notice integrity: sha512-xUSOhyzugEBKK[...]oNDa+wsQXpccw==
+npm notice total files: 12
+npm notice
+faiber-faiber-ts-sdk-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-session@1.0.0
+npm notice Tarball Contents
+npm notice 10.9kB README.md
+npm notice 14.1kB dist/.tsbuildinfo
+npm notice 821B dist/branding.types.d.ts
+npm notice 750B dist/branding.types.d.ts.map
+npm notice 53B dist/branding.types.js
+npm notice 120B dist/branding.types.js.map
+npm notice 1.3kB dist/contracts.types.d.ts
+npm notice 901B dist/contracts.types.d.ts.map
+npm notice 54B dist/contracts.types.js
+npm notice 122B dist/contracts.types.js.map
+npm notice 18.5kB dist/index.d.ts
+npm notice 3.4kB dist/index.d.ts.map
+npm notice 16.1kB dist/index.js
+npm notice 5.5kB dist/index.js.map
+npm notice 46.9kB dist/operations.d.ts
+npm notice 4.4kB dist/operations.d.ts.map
+npm notice 46.0kB dist/operations.js
+npm notice 10.0kB dist/operations.js.map
+npm notice 71.2kB dist/operations.types.d.ts
+npm notice 48.4kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 4.3kB dist/reviewed-wire.d.ts
+npm notice 3.4kB dist/reviewed-wire.d.ts.map
+npm notice 52B dist/reviewed-wire.js
+npm notice 118B dist/reviewed-wire.js.map
+npm notice 1.8kB dist/types.d.ts
+npm notice 1.3kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 399B package.json
+npm notice 1.7kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-session
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-session-1.0.0.tgz
+npm notice package size: 43.1 kB
+npm notice unpacked size: 312.7 kB
+npm notice shasum: 84a3e19ec51314485f34f9d8037338b79e9d0da5
+npm notice integrity: sha512-KfNjlKEnnpjHF[...]boVDQOMragzBw==
+npm notice total files: 32
+npm notice
+faiber-faiber-session-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-social@1.0.0
+npm notice Tarball Contents
+npm notice 12.2kB README.md
+npm notice 14.1kB dist/.tsbuildinfo
+npm notice 9.4kB dist/admin.types.d.ts
+npm notice 7.7kB dist/admin.types.d.ts.map
+npm notice 50B dist/admin.types.js
+npm notice 114B dist/admin.types.js.map
+npm notice 4.2kB dist/contracts.types.d.ts
+npm notice 3.4kB dist/contracts.types.d.ts.map
+npm notice 54B dist/contracts.types.js
+npm notice 122B dist/contracts.types.js.map
+npm notice 2.3kB dist/discovery.types.d.ts
+npm notice 2.1kB dist/discovery.types.d.ts.map
+npm notice 54B dist/discovery.types.js
+npm notice 122B dist/discovery.types.js.map
+npm notice 33.5kB dist/index.d.ts
+npm notice 3.9kB dist/index.d.ts.map
+npm notice 31.0kB dist/index.js
+npm notice 6.1kB dist/index.js.map
+npm notice 108.2kB dist/operations.d.ts
+npm notice 10.4kB dist/operations.d.ts.map
+npm notice 102.8kB dist/operations.js
+npm notice 22.6kB dist/operations.js.map
+npm notice 23.0kB dist/operations.types.d.ts
+npm notice 12.5kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 11.4kB dist/types.d.ts
+npm notice 10.0kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 398B package.json
+npm notice 1.7kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-social
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-social-1.0.0.tgz
+npm notice package size: 53.8 kB
+npm notice unpacked size: 433.8 kB
+npm notice shasum: 3b836c702ba665adb8c3cd0d2cca49418a5a707d
+npm notice integrity: sha512-+DetH0THlUuX+[...]OnUfqjRToJSIw==
+npm notice total files: 32
+npm notice
+faiber-faiber-social-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-state-sdk@1.0.0
+npm notice Tarball Contents
+npm notice 4.8kB README.md
+npm notice 14.7kB dist/.tsbuildinfo
+npm notice 7.7kB dist/api.d.ts
+npm notice 2.1kB dist/api.d.ts.map
+npm notice 6.9kB dist/api.js
+npm notice 3.4kB dist/api.js.map
+npm notice 8.6kB dist/contracts.types.d.ts
+npm notice 8.3kB dist/contracts.types.d.ts.map
+npm notice 54B dist/contracts.types.js
+npm notice 122B dist/contracts.types.js.map
+npm notice 291B dist/index.d.ts
+npm notice 278B dist/index.d.ts.map
+npm notice 289B dist/index.js
+npm notice 276B dist/index.js.map
+npm notice 875B dist/match-realtime.d.ts
+npm notice 625B dist/match-realtime.d.ts.map
+npm notice 4.1kB dist/match-realtime.js
+npm notice 4.6kB dist/match-realtime.js.map
+npm notice 3.2kB dist/match.d.ts
+npm notice 3.0kB dist/match.d.ts.map
+npm notice 2.8kB dist/match.js
+npm notice 3.0kB dist/match.js.map
+npm notice 46.4kB dist/operations.d.ts
+npm notice 4.5kB dist/operations.d.ts.map
+npm notice 43.8kB dist/operations.js
+npm notice 9.6kB dist/operations.js.map
+npm notice 13.2kB dist/operations.types.d.ts
+npm notice 8.6kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 1.1kB dist/prediction.d.ts
+npm notice 1.2kB dist/prediction.d.ts.map
+npm notice 1.3kB dist/prediction.js
+npm notice 1.9kB dist/prediction.js.map
+npm notice 2.3kB dist/realtime.d.ts
+npm notice 1.7kB dist/realtime.d.ts.map
+npm notice 4.9kB dist/realtime.js
+npm notice 5.1kB dist/realtime.js.map
+npm notice 5.7kB dist/types.d.ts
+npm notice 5.8kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 401B package.json
+npm notice 2.0kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-state-sdk
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-state-sdk-1.0.0.tgz
+npm notice package size: 41.6 kB
+npm notice unpacked size: 239.8 kB
+npm notice shasum: 61911aa2b609dc8a8e885d4d0932db9641a472a0
+npm notice integrity: sha512-tUSZv2smZxZ4V[...]wDAWnKJeGiE4A==
+npm notice total files: 44
+npm notice
+faiber-faiber-state-sdk-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-task@1.0.0
+npm notice Tarball Contents
+npm notice 11.6kB README.md
+npm notice 14.3kB dist/.tsbuildinfo
+npm notice 13.6kB dist/collaboration.d.ts
+npm notice 8.1kB dist/collaboration.d.ts.map
+npm notice 7.2kB dist/collaboration.js
+npm notice 4.3kB dist/collaboration.js.map
+npm notice 9.6kB dist/feedback.d.ts
+npm notice 6.6kB dist/feedback.d.ts.map
+npm notice 3.4kB dist/feedback.js
+npm notice 2.5kB dist/feedback.js.map
+npm notice 10.4kB dist/index.d.ts
+npm notice 3.7kB dist/index.d.ts.map
+npm notice 9.4kB dist/index.js
+npm notice 6.2kB dist/index.js.map
+npm notice 137.1kB dist/operations.d.ts
+npm notice 12.5kB dist/operations.d.ts.map
+npm notice 129.6kB dist/operations.js
+npm notice 26.8kB dist/operations.js.map
+npm notice 40.7kB dist/operations.types.d.ts
+npm notice 27.2kB dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 8.8kB dist/types.d.ts
+npm notice 9.0kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 7.6kB dist/wire.types.d.ts
+npm notice 7.1kB dist/wire.types.d.ts.map
+npm notice 49B dist/wire.types.js
+npm notice 112B dist/wire.types.js.map
+npm notice 8.9kB dist/workspace.d.ts
+npm notice 6.6kB dist/workspace.d.ts.map
+npm notice 2.7kB dist/workspace.js
+npm notice 2.0kB dist/workspace.js.map
+npm notice 396B package.json
+npm notice 1.8kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-task
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-task-1.0.0.tgz
+npm notice package size: 63.7 kB
+npm notice unpacked size: 540.2 kB
+npm notice shasum: 7e9bebe44a55f0d0f27d151f13498d43e8d1b33d
+npm notice integrity: sha512-79fkRqmE1O9Tf[...]3Ae3ZJs4U0yQg==
+npm notice total files: 36
+npm notice
+faiber-faiber-task-1.0.0.tgz
+npm notice
+npm notice 📦  @faiber/faiber-version@1.0.0
+npm notice Tarball Contents
+npm notice 5.0kB README.md
+npm notice 13.6kB dist/.tsbuildinfo
+npm notice 964B dist/contracts.types.d.ts
+npm notice 448B dist/contracts.types.d.ts.map
+npm notice 54B dist/contracts.types.js
+npm notice 122B dist/contracts.types.js.map
+npm notice 4.0kB dist/index.d.ts
+npm notice 795B dist/index.d.ts.map
+npm notice 3.8kB dist/index.js
+npm notice 1.3kB dist/index.js.map
+npm notice 6.6kB dist/operations.d.ts
+npm notice 743B dist/operations.d.ts.map
+npm notice 6.4kB dist/operations.js
+npm notice 1.5kB dist/operations.js.map
+npm notice 1.3kB dist/operations.types.d.ts
+npm notice 677B dist/operations.types.d.ts.map
+npm notice 55B dist/operations.types.js
+npm notice 124B dist/operations.types.js.map
+npm notice 2.9kB dist/types.d.ts
+npm notice 2.3kB dist/types.d.ts.map
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 399B package.json
+npm notice 1.5kB provenance.json
+npm notice Tarball Details
+npm notice name: @faiber/faiber-version
+npm notice version: 1.0.0
+npm notice filename: faiber-faiber-version-1.0.0.tgz
+npm notice package size: 14.0 kB
+npm notice unpacked size: 54.6 kB
+npm notice shasum: 7e390a29661cd6e27c1bde64a76bd5939a4885c1
+npm notice integrity: sha512-Rt025tg7DZf4J[...]oJqMuIsvF+GMg==
+npm notice total files: 24
+npm notice
+faiber-faiber-version-1.0.0.tgz

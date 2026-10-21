@@ -1,6 +1,6 @@
 # Capability discovery implementation status
 
-This is an incomplete implementation of the dependency-ordered Knowledge brain program. The capability evidence is a review workbench, not published agent knowledge. SDK release remains 0.23.0; no memory cutover or Manage release has occurred.
+This workbench retains SDK contract reviews and the broader Knowledge/Manage program evidence. The SDK 1.0.0 candidate is under verification. Source-only reviews, executed native tests, deployed compatibility, and publication are recorded separately; this directory does not itself establish a release or memory cutover.
 
 ## Reproduce the current work
 
@@ -14,9 +14,9 @@ This is an incomplete implementation of the dependency-ordered Knowledge brain p
 
 `implementation-baseline.json` preserves repository commits/dirty state and Pastil evidence. `remote-baseline.json` records fetched canonical revisions. The per-service matrices include source checksums and handler/model evidence. `known-gaps.json` records observed prerequisites; `relationships.json` is an incomplete manually traced relationship catalog with no verified runtime workflows yet.
 
-`DOMAIN_REVIEW.md` explains inspected Version and Reservation behavior. `FLOW_WORKFLOW_REVIEW.md` covers inspected authoring/import/event/run semantics. `MEMORY_AUTHORITY_REVIEW.md` traces Knowledge subjects, Chat source ownership and Task's current-permission projection boundary. The remaining service semantics, every required filter/input/permission, all relationship journeys and source/runtime drift resolution still need review and real verification. No automatically extracted row is marked verified.
+`DOMAIN_REVIEW.md` explains inspected Version and Reservation behavior. `FLOW_WORKFLOW_REVIEW.md` covers inspected authoring/import/event/run semantics. `MEMORY_AUTHORITY_REVIEW.md` traces Knowledge subjects, Chat source ownership and Task's current-permission projection boundary. Current source reviews are retained in `reviews/` and the dated per-service evidence folders. Source-only completion does not imply that native relationship journeys or deployed authorization have passed. Automatically extracted rows are not treated as verified behavior.
 
-`evidence/reservation-characterization.json` and its hashed log show actual PostgreSQL outcomes. A passing characterization means the probe executed successfully; its true defect flags mean the release is blocked. The concurrent-claim regression also executed against real PostgreSQL, without the missing-DATABASE_URL skip.
+`evidence/reservation-characterization.json` and its hashed log show actual PostgreSQL outcomes. A passing characterization means that historical probe executed successfully; defect flags apply to its recorded source revision. The selected Reservation repair and its later source-equivalence/native receipts are retained separately in `evidence/reservation-finalization-20261021/`. The earlier record must not be presented as proof that the same defect persists in the selected repair.
 
 The generated summary reports mounted operations and resolved handlers only as inventory. It is explicitly insufficient for semantic discovery completion. Manage readable forms/workflows, exact SDK artifact consumption, Knowledge publication and agent memory integration follow after their prerequisite gates; they remain pending.
 

@@ -12,7 +12,7 @@ import {
   FaiberClient,
   ManageApi,
   domainsFromManageProxy,
-  isManageAgentActionEvent,
+  isManageDurableActionEvent,
   parseManageAgentEvents,
 } from "@faiber/faiber-manage";
 
@@ -32,9 +32,10 @@ const stream = await manage.openAgentChatStream(thread.data.id, {
 });
 
 for await (const event of parseManageAgentEvents(stream.data)) {
-  if (isManageAgentActionEvent(event)) {
-    // Render and confirm mutations before calling executeServiceAction.
-    console.log(event.data.arguments);
+  if (isManageDurableActionEvent(event)) {
+    const review = await manage.getAgentAction(event.data.thread_id, event.data.action_id);
+    // Render the persisted payload/schema; collect a decision before review/execute.
+    console.log(review.data.action);
   }
 }
 ```
@@ -49,8 +50,9 @@ Durable chat management is available through `listAgentThreads`,
 
 `domainsFromManageProxy` configures normal Faiber service clients through Manage's
 project-scoped `/api/v1/proxy/{service}` boundary. Prefer those typed service clients for
-known operations. `executeServiceAction` exists for runtime actions proposed by the Manage
-Agent, and callers must review destructive or privileged actions before execution.
+known operations. `executeServiceAction` supports manual runtime service requests whose
+schemas belong to the owning service. Durable agent actions always use the separate
+review/execute protocol below; a browser event cannot authorize proxy execution.
 
 All methods return complete Axios responses. Request options accept headers, timeouts,
 `AbortSignal`, credentials, adapters, and interceptors through the shared client. Cookie
@@ -86,7 +88,9 @@ These preferences never grant service, execution, model, or billing permissions.
 
 Check `getAgentActionCapabilities()` before enabling durable reviews. The supported
 protocol is `durable-manage-action-v1` with `legacy_completion: false` and the
-closed JSON-schema subset. A missing, failed or incompatible capability stays
+closed JSON-schema subset, including a concrete type paired with `null` in a
+two-element `type` array. General unions and schema references remain unavailable.
+A missing, failed or incompatible capability stays
 unavailable; it never enables a legacy proxy/completion fallback.
 
 `manage_action` SSE carries only `action_id`, `thread_id` and the protocol. Use
@@ -115,8 +119,26 @@ finish operation is exported. The legacy browser-event guard rejects
 manual service operations remain separate APIs and are never called as durable
 action fallback.
 
-Source: reviewed Manage `2c28db4d80bf4814a69892189afe2ae41663e554` and Agentic
-`854a6dd654aab4518bca3a9523d370a161bd659a`. Backend native authority/execution
+Source: reviewed Manage `5ac22d1145c68693717ff4dedcaff74a74746197` and Agentic
+`e6c2a00fc4418604a99bf84b365e0db13fc8f5e6`. Backend native authority/execution
 proof, SDK wire validation, packed consumer checks and combined UI/runtime
 acceptance are separate gates. This client does not imply all deployed catalog
 entries contain supported schemas or authorize deployment/publication.
+
+`me()` includes `runtime.status` and `runtime.reauth_required`; an unavailable authority
+may return the recovery view with an empty service list. `health()` only checks Manage
+liveness. `checkSetup()` inspects current enabled services and saves a signed setup report;
+it does not send a payment or message. Each service result reports `connected`, `configured`,
+`providerVerified` and `setupNeeded`, plus `verificationError` when present. Localized
+`prerequisites` can be null when a newer report already won. `logout()` clears the session
+cookie and follows the panel redirect by default; a server consumer must apply Set-Cookie
+to its own cookie jar. SSO is a browser navigation to `/sso`, not a JSON SDK login API.
+
+`getAgentMessagesPage(threadId, { limit: 10, before: timestamp })` supports the existing
+message history query. Its exclusive cursor is RFC3339 and its limit is clamped to1..100;
+it returns no pagination headers. Message `created_at` uses BSON extended JSON (`$date`),
+while thread creation/list timestamps use RFC3339 strings. Chat supports ephemeral `images`
+with `mime_type`, `data_base64` and optional `name`, plus `model_strategy`; backend validation
+and model access remain authoritative. AbortSignal stops the HTTP stream request, and
+`cancelAgentChat` requests cancellation of the chat run. Neither cancels a claimed durable
+service action; reconcile that action through its durable receipt.

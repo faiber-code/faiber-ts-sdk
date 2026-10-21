@@ -1,0 +1,93 @@
+{
+  "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+  "status": "source_only_not_resolution_evidence",
+  "updates": [
+    {
+      "id": "knowledge-project-memory-subject",
+      "assessment": "actual_source_gap",
+      "status": "source_review_requires_runtime_verification",
+      "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+      "meaning": "Memory subject identity remains organization_id, assistant_id, user_id. This pin does not add project-memory identity or current project membership checks. A project UUID must not be substituted for user_id.",
+      "source_refs": [
+        "Service/infera-knowledge/src/platform.rs:1321",
+        "Service/infera-knowledge/src/platform.rs:2676",
+        "Service/infera-knowledge/src/platform/memory_management.rs:35"
+      ]
+    },
+    {
+      "id": "knowledge-worker-crash-recovery",
+      "assessment": "historical_prose_stale_native_pending",
+      "status": "source_review_requires_runtime_verification",
+      "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+      "meaning": "Current source reclaims expired processing memory leases and fences continuation with organization, owner, generation and live expiry. Exhausted claims retire transactionally. The earlier pending/retry-only observation is stale; current crash/recovery acceptance still requires execution.",
+      "source_refs": [
+        "Service/infera-knowledge/src/platform.rs:2989",
+        "Service/infera-knowledge/src/platform.rs:3025",
+        "Service/infera-knowledge/src/platform.rs:3032"
+      ]
+    },
+    {
+      "id": "knowledge-forget-ingestion-fence",
+      "assessment": "historical_prose_partially_stale_native_pending",
+      "status": "source_review_requires_runtime_verification",
+      "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+      "meaning": "Canonical scope clear increments epoch fences transactionally, including accepted work before subject creation. Memory admission captures epochs and persist_memory_turn rejects changed/legacy epochs. This replaces the historical no-queue-invalidation observation for canonical scope clearing. Individual record forget does not by itself certify source-family tombstones, Chat correction delivery, import replay or global retained-copy erasure.",
+      "source_refs": [
+        "Service/infera-knowledge/src/platform/memory_management.rs:181",
+        "Service/infera-knowledge/src/platform.rs:2810",
+        "Service/infera-knowledge/src/platform.rs:3290"
+      ]
+    },
+    {
+      "id": "knowledge-independent-fact-identity",
+      "assessment": "historical_prose_stale_native_pending",
+      "status": "source_review_requires_runtime_verification",
+      "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+      "meaning": "Opaque preferences and assertions now use value-hashed independent keys; exact response-language and identity-name slots are singleton identities. Explicit corrections use reviewed complete target sets and evidence provenance. The selected4f broad-key contradiction finding is stale for this pin; broader semantic identity completeness and current native acceptance remain pending.",
+      "source_refs": [
+        "Service/infera-knowledge/src/platform.rs:3166",
+        "Service/infera-knowledge/src/platform.rs:3230",
+        "Service/infera-knowledge/src/platform/memory_management.rs"
+      ]
+    },
+    {
+      "id": "knowledge-runtime-subject-authority",
+      "assessment": "actual_source_gap",
+      "status": "source_review_requires_runtime_verification",
+      "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+      "meaning": "Assistant query and record-turn still accept body.user_id after knowledge:runtime without comparing it with the current principal or validating explicit delegated scope in these handlers. Tenant predicates and trusted headers do not prove current user/project access; no deployed-ingress vulnerability is asserted.",
+      "source_refs": [
+        "Service/infera-knowledge/src/platform.rs:1366",
+        "Service/infera-knowledge/src/platform.rs:2676",
+        "Service/infera-knowledge/src/context.rs:24"
+      ]
+    },
+    {
+      "id": "knowledge-processing-job-executor",
+      "assessment": "historical_prose_stale_native_pending",
+      "status": "source_review_requires_runtime_verification",
+      "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+      "meaning": "Production startup now owns both memory and processing workers via background::spawn. Processing claims and executes document_reprocess/source_sync with scoped lease tokens, bounded stored-text pages, cancellation and retry/dead-letter handling. The old no-executor observation is stale. Source adapters outside supported stored-text indexing still fail explicitly; current native execution and deployment reconciliation remain required.",
+      "source_refs": [
+        "Service/infera-knowledge/src/main.rs:43",
+        "Service/infera-knowledge/src/background.rs:16",
+        "Service/infera-knowledge/src/processing.rs:90",
+        "Service/infera-knowledge/src/processing.rs:304",
+        "Service/infera-knowledge/src/processing.rs:531"
+      ]
+    },
+    {
+      "id": "knowledge-current-native-authority",
+      "assessment": "current_gateway_native_verification_pending",
+      "status": "source_review_requires_runtime_verification",
+      "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+      "meaning": "Selected source still resolves IDP SDK b8c83eb with dev-fallback, mounts its auth extractor and accepts organization header/context fallback. Gateway stripping, native current authorization, tenant/header/network bindings and explicit delegated service scope still require execution/deployment evidence. Historical source revision references should be updated to this pin, not treated as runtime proof.",
+      "source_refs": [
+        "Service/infera-knowledge/Cargo.toml:20",
+        "Service/infera-knowledge/Cargo.lock:2024",
+        "Service/infera-knowledge/src/main.rs:46",
+        "Service/infera-knowledge/src/context.rs:24"
+      ]
+    }
+  ]
+}

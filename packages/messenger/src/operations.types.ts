@@ -2,73 +2,34 @@ import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, Quer
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend response type: api. */
-export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RouterOpenapiJsonGetResponse = import("@faiber/sdk-core").ServiceOpenApiDocument;
 
 /** Backend response type: Vec<ChannelResponse>. */
-export interface ChannelChannelsIndexGetResponseItem extends JsonObject {
-  "id": number;
-  "name": string;
-}
-export interface ChannelChannelsIndexGetResponse extends ApiEnvelope<ChannelChannelsIndexGetResponseItem[]> {
-}
+export type ChannelChannelsIndexGetResponse = import("./types.js").ChannelListResponse;
 
 /** Backend request type: CreateChannelRequest. */
-export interface ChannelChannelsCreatePostInput extends JsonObject {
-  "name": string;
-}
+export type ChannelChannelsCreatePostInput = import("./types.js").CreateChannelInput;
 /** Backend response type: ChannelResponse. */
-export interface ChannelChannelsCreatePostResponseData extends JsonObject {
-  "id": number;
-  "name": string;
-}
-export interface ChannelChannelsCreatePostResponse extends ApiEnvelope<ChannelChannelsCreatePostResponseData> {
-}
+export type ChannelChannelsCreatePostResponse = import("./types.js").ChannelResponse;
 
 /** Backend response type: serde_json::Value. */
-export interface ChannelChannelsDeleteDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ChannelChannelsDeleteDeleteResponse = import("./types.js").MessengerEmptyResponse;
 
 /** Backend response type: ChannelResponse. */
-export interface ChannelChannelsShowGetResponseData extends JsonObject {
-  "id": number;
-  "name": string;
-}
-export interface ChannelChannelsShowGetResponse extends ApiEnvelope<ChannelChannelsShowGetResponseData> {
-}
+export type ChannelChannelsShowGetResponse = import("./types.js").ChannelResponse;
 
 /** Backend request type: UpdateChannelRequest. */
-export interface ChannelChannelsUpdatePatchInput extends JsonObject {
-  "name": string;
-}
+export type ChannelChannelsUpdatePatchInput = import("./types.js").UpdateChannelInput;
 /** Backend response type: ChannelResponse. */
-export interface ChannelChannelsUpdatePatchResponseData extends JsonObject {
-  "id": number;
-  "name": string;
-}
-export interface ChannelChannelsUpdatePatchResponse extends ApiEnvelope<ChannelChannelsUpdatePatchResponseData> {
-}
+export type ChannelChannelsUpdatePatchResponse = import("./types.js").ChannelResponse;
 
 /** Backend request type: SubscribeRequest. */
-export interface ChannelChannelsSubscribePostInput extends JsonObject {
-  "channel_id": number;
-  "user_id": string;
-  "subscribed": boolean;
-}
+export type ChannelChannelsSubscribePostInput = import("./types.js").SubscribeChannelInput;
 /** Backend response type: serde_json::Value. */
-export interface ChannelChannelsSubscribePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type ChannelChannelsSubscribePostResponse = import("./types.js").SubscribeChannelResponse;
 
 /** Backend response type: DashboardResponse. */
-export interface DashboardDashboardShowGetResponseData extends JsonObject {
-  "templates": number;
-  "notifications": number;
-  "channels": number;
-  "services": number;
-  "providers": number;
-}
-export interface DashboardDashboardShowGetResponse extends ApiEnvelope<DashboardDashboardShowGetResponseData> {
-}
+export type DashboardDashboardShowGetResponse = import("./types.js").DashboardResponse;
 
 /** Backend response type: crate::integration::models::IntegrationDocsResponse. */
 export interface IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields extends JsonObject {
@@ -103,8 +64,7 @@ export interface IntegrationIntegrationDocsShowGetResponse extends ApiEnvelope<I
 }
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
-}
+export type IntegrationFlowIntegrationShowGetResponse = import("./types.js").MessengerFlowIntegrationResponse;
 
 /** Backend response type: crate::integration::models::RabbitMqIntegrationResponse. */
 export interface IntegrationRabbitmqIntegrationShowGetResponseDataEventsPayloadFields extends JsonObject {
@@ -127,161 +87,30 @@ export interface IntegrationRabbitmqIntegrationShowGetResponse extends ApiEnvelo
 }
 
 /** Backend query type: NotificationListQuery. */
-export interface NotificationNotificationsIndexGetQuery extends QueryParams {
-  "page[number]"?: number | null;
-  "page[size]"?: number | null;
-  "recipient"?: string | null;
-}
+export type NotificationNotificationsIndexGetQuery = import("./types.js").MessengerNotificationQuery;
 /** Backend response type: crate::models::PagedResult<NotificationResponse>. */
-export interface NotificationNotificationsIndexGetResponseItem extends JsonObject {
-  "id": number;
-  "service_name": string;
-  "template_id": number;
-  "channel": string;
-  "correlation_id": string | null;
-  "recipient": string;
-  "status": string;
-  "description": string | null;
-  "params": JsonValue | null;
-  "options": JsonValue | null;
-  "delivery_attempts": JsonValue | null;
-  "delivered": boolean;
-  "read": boolean;
-  "read_at": string | null;
-  "scheduled_at": string | null;
-  "sent_at": string | null;
-  "failed_at": string | null;
-  "created_at": string;
-}
-export interface NotificationNotificationsIndexGetResponsePageMeta extends JsonObject {
-  "page": number;
-  "page_size": number;
-  "total_items": number;
-  "total_pages": number;
-}
-export interface NotificationNotificationsIndexGetResponseData extends JsonObject {
-  "data": NotificationNotificationsIndexGetResponseItem[];
-  "meta": NotificationNotificationsIndexGetResponsePageMeta;
-}
-export interface NotificationNotificationsIndexGetResponse extends ApiEnvelope<NotificationNotificationsIndexGetResponseData> {
-}
+export type NotificationNotificationsIndexGetResponse = import("./types.js").NotificationListResponse;
 
 /** Backend request type: SendNotificationRequest. */
-export interface NotificationNotificationsSendPostInput extends JsonObject {
-  "template_id"?: number | null;
-  "template_name"?: string | null;
-  "channel": string;
-  "recipients"?: string[];
-  "recipient"?: string | null;
-  "params"?: Record<string, JsonValue>;
-  "service_name"?: string | null;
-  "options"?: JsonValue;
-  "description"?: string | null;
-  "scheduled_at"?: string | null;
-}
+export type NotificationNotificationsSendPostInput = import("./types.js").SendNotificationInput;
 /** Backend response type: SendNotificationResponse. */
-export interface NotificationNotificationsSendPostResponseData extends JsonObject {
-  "notification_ids": number[];
-}
-export interface NotificationNotificationsSendPostResponse extends ApiEnvelope<NotificationNotificationsSendPostResponseData> {
-}
+export type NotificationNotificationsSendPostResponse = import("./types.js").SendNotificationResponse;
 
 /** Backend response type: NotificationResponse. */
-export interface NotificationNotificationsShowGetResponseData extends JsonObject {
-  "id": number;
-  "service_name": string;
-  "template_id": number;
-  "channel": string;
-  "correlation_id": string | null;
-  "recipient": string;
-  "status": string;
-  "description": string | null;
-  "params": JsonValue | null;
-  "options": JsonValue | null;
-  "delivery_attempts": JsonValue | null;
-  "delivered": boolean;
-  "read": boolean;
-  "read_at": string | null;
-  "scheduled_at": string | null;
-  "sent_at": string | null;
-  "failed_at": string | null;
-  "created_at": string;
-}
-export interface NotificationNotificationsShowGetResponse extends ApiEnvelope<NotificationNotificationsShowGetResponseData> {
-}
+export type NotificationNotificationsShowGetResponse = import("./types.js").NotificationResponse;
 
 /** Backend query type: MarkReadQuery. */
-export interface NotificationNotificationsMarkReadPatchQuery extends QueryParams {
-  "recipient"?: string | null;
-}
+export type NotificationNotificationsMarkReadPatchQuery = import("./types.js").MessengerRecipientQuery;
 /** Backend response type: NotificationResponse. */
-export interface NotificationNotificationsMarkReadPatchResponseData extends JsonObject {
-  "id": number;
-  "service_name": string;
-  "template_id": number;
-  "channel": string;
-  "correlation_id": string | null;
-  "recipient": string;
-  "status": string;
-  "description": string | null;
-  "params": JsonValue | null;
-  "options": JsonValue | null;
-  "delivery_attempts": JsonValue | null;
-  "delivered": boolean;
-  "read": boolean;
-  "read_at": string | null;
-  "scheduled_at": string | null;
-  "sent_at": string | null;
-  "failed_at": string | null;
-  "created_at": string;
-}
-export interface NotificationNotificationsMarkReadPatchResponse extends ApiEnvelope<NotificationNotificationsMarkReadPatchResponseData> {
-}
+export type NotificationNotificationsMarkReadPatchResponse = import("./types.js").NotificationResponse;
 
 /** Backend query type: PaginationQuery. */
-export interface NotificationNotificationsMyInboxGetQuery extends QueryParams {
-  "page[number]"?: number | null;
-  "page[size]"?: number | null;
-}
+export type NotificationNotificationsMyInboxGetQuery = import("./types.js").MessengerPageQuery;
 /** Backend response type: crate::models::PagedResult<InboxItem>. */
-export interface NotificationNotificationsMyInboxGetResponseItem extends JsonObject {
-  "id": number;
-  "title": string | null;
-  "description": string | null;
-  "path": string | null;
-  "destination": JsonValue | null;
-  "work_item_id": string | null;
-  "event": string | null;
-  "read": boolean;
-  "created_at": string;
-}
-export interface NotificationNotificationsMyInboxGetResponsePageMeta extends JsonObject {
-  "page": number;
-  "page_size": number;
-  "total_items": number;
-  "total_pages": number;
-}
-export interface NotificationNotificationsMyInboxGetResponseData extends JsonObject {
-  "data": NotificationNotificationsMyInboxGetResponseItem[];
-  "meta": NotificationNotificationsMyInboxGetResponsePageMeta;
-}
-export interface NotificationNotificationsMyInboxGetResponse extends ApiEnvelope<NotificationNotificationsMyInboxGetResponseData> {
-}
+export type NotificationNotificationsMyInboxGetResponse = import("./types.js").InboxResponse;
 
 /** Backend response type: InboxItem. */
-export interface NotificationNotificationsMyMarkReadPatchResponseData extends JsonObject {
-  "id": number;
-  "title": string | null;
-  "description": string | null;
-  "path": string | null;
-  "destination": JsonValue | null;
-  "work_item_id": string | null;
-  "event": string | null;
-  "read": boolean;
-  "created_at": string;
-}
-export interface NotificationNotificationsMyMarkReadPatchResponse extends ApiEnvelope<NotificationNotificationsMyMarkReadPatchResponseData> {
-}
+export type NotificationNotificationsMyMarkReadPatchResponse = import("./types.js").InboxItemResponse;
 
 /** Backend query type: PollQuery. */
 export type InboxStreamEventsGetQuery = import("./delivery.js").InboxStreamQuery;
@@ -289,46 +118,23 @@ export type InboxStreamEventsGetQuery = import("./delivery.js").InboxStreamQuery
 export type InboxStreamEventsGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").InboxStreamPage>;
 
 /** Backend response type: MarkAllReadResponse. */
-export interface NotificationNotificationsMyMarkAllReadPatchResponseData extends JsonObject {
-  "updated": number;
-}
-export interface NotificationNotificationsMyMarkAllReadPatchResponse extends ApiEnvelope<NotificationNotificationsMyMarkAllReadPatchResponseData> {
-}
+export type NotificationNotificationsMyMarkAllReadPatchResponse = import("./types.js").InboxReadAllResponse;
 
 /** Backend response type: UnreadCount. */
 export type InboxStreamUnreadGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").NotificationUnreadCount>;
 
 /** Backend query type: MarkAllReadQuery. */
-export interface NotificationNotificationsMarkAllReadPatchQuery extends QueryParams {
-  "recipient": string;
-}
+export type NotificationNotificationsMarkAllReadPatchQuery = import("./types.js").MessengerRequiredRecipientQuery;
 /** Backend response type: MarkAllReadResponse. */
-export interface NotificationNotificationsMarkAllReadPatchResponseData extends JsonObject {
-  "updated": number;
-}
-export interface NotificationNotificationsMarkAllReadPatchResponse extends ApiEnvelope<NotificationNotificationsMarkAllReadPatchResponseData> {
-}
+export type NotificationNotificationsMarkAllReadPatchResponse = import("./types.js").InboxReadAllResponse;
 
 /** Backend request type: RealtimeAuthRequest. */
-export interface NotificationNotificationsRealtimeAuthPostInput extends JsonObject {
-  "socket_id": string;
-  "channel_name": string;
-}
+export type NotificationNotificationsRealtimeAuthPostInput = import("./types.js").MessengerRealtimeAuthInput;
 /** Backend response type: RealtimeAuthResponse. */
-export interface NotificationNotificationsRealtimeAuthPostResponseData extends JsonObject {
-  "auth": string;
-}
-export type NotificationNotificationsRealtimeAuthPostResponse = NotificationNotificationsRealtimeAuthPostResponseData;
+export type NotificationNotificationsRealtimeAuthPostResponse = import("./types.js").MessengerRealtimeAuthResponse;
 
 /** Backend response type: RealtimeConfigResponse. */
-export interface NotificationNotificationsRealtimeConfigGetResponseData extends JsonObject {
-  "ws_url": string;
-  "app_key": string;
-  "channel": string;
-  "event": string;
-}
-export interface NotificationNotificationsRealtimeConfigGetResponse extends ApiEnvelope<NotificationNotificationsRealtimeConfigGetResponseData> {
-}
+export type NotificationNotificationsRealtimeConfigGetResponse = import("./types.js").MessengerRealtimeConfigResponse;
 
 /** Backend request type: DeviceRegistration. */
 export type MobilePushRegisterPostInput = import("./delivery.js").PushDeviceInput;
@@ -339,72 +145,23 @@ export type MobilePushRegisterPostResponse = import("@faiber/sdk-core").ApiEnvel
 export type MobilePushRevokeDeleteResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").PushDeviceRevocation>;
 
 /** Backend response type: Vec<ServiceResponse>. */
-export interface ServiceServicesIndexGetResponseItem extends JsonObject {
-  "id": number;
-  "name": string;
-  "provider": string;
-  "channel": string;
-  "options": JsonValue | null;
-  "priority": number;
-}
-export interface ServiceServicesIndexGetResponse extends ApiEnvelope<ServiceServicesIndexGetResponseItem[]> {
-}
+export type ServiceServicesIndexGetResponse = import("./types.js").ProviderListResponse;
 
 /** Backend request type: CreateServiceRequest. */
-export interface ServiceServicesCreatePostInput extends JsonObject {
-  "name": string;
-  "provider": string;
-  "channel": string;
-  "options": JsonValue;
-  "priority"?: number | null;
-}
+export type ServiceServicesCreatePostInput = import("./types.js").CreateDeliveryProviderInput;
 /** Backend response type: ServiceResponse. */
-export interface ServiceServicesCreatePostResponseData extends JsonObject {
-  "id": number;
-  "name": string;
-  "provider": string;
-  "channel": string;
-  "options": JsonValue | null;
-  "priority": number;
-}
-export interface ServiceServicesCreatePostResponse extends ApiEnvelope<ServiceServicesCreatePostResponseData> {
-}
+export type ServiceServicesCreatePostResponse = import("./types.js").ProviderResponse;
 
 /** Backend response type: serde_json::Value. */
-export interface ServiceServicesDeleteDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ServiceServicesDeleteDeleteResponse = import("./types.js").MessengerEmptyResponse;
 
 /** Backend response type: ServiceResponse. */
-export interface ServiceServicesShowGetResponseData extends JsonObject {
-  "id": number;
-  "name": string;
-  "provider": string;
-  "channel": string;
-  "options": JsonValue | null;
-  "priority": number;
-}
-export interface ServiceServicesShowGetResponse extends ApiEnvelope<ServiceServicesShowGetResponseData> {
-}
+export type ServiceServicesShowGetResponse = import("./types.js").ProviderResponse;
 
 /** Backend request type: UpdateServiceRequest. */
-export interface ServiceServicesUpdatePatchInput extends JsonObject {
-  "name"?: string | null;
-  "provider"?: string | null;
-  "channel"?: string | null;
-  "options"?: JsonValue | null;
-  "priority"?: number | null;
-}
+export type ServiceServicesUpdatePatchInput = import("./types.js").UpdateDeliveryProviderInput;
 /** Backend response type: ServiceResponse. */
-export interface ServiceServicesUpdatePatchResponseData extends JsonObject {
-  "id": number;
-  "name": string;
-  "provider": string;
-  "channel": string;
-  "options": JsonValue | null;
-  "priority": number;
-}
-export interface ServiceServicesUpdatePatchResponse extends ApiEnvelope<ServiceServicesUpdatePatchResponseData> {
-}
+export type ServiceServicesUpdatePatchResponse = import("./types.js").ProviderResponse;
 
 /** Backend response type: serde_json::Value. */
 export type ServiceSetupCheckPostResponse = import("./contracts.types.js").MessengerSetupResponse;
@@ -413,110 +170,36 @@ export type ServiceSetupCheckPostResponse = import("./contracts.types.js").Messe
 export type ServiceReadinessPostResponse = import("./contracts.types.js").WebsiteOtpReadiness;
 
 /** Backend response type: Vec<TemplateResponse>. */
-export interface TemplateTemplatesIndexGetResponseItem extends JsonObject {
-  "id": number;
-  "name": string;
-  "fa_name": string;
-  "params": JsonValue | null;
-  "channel_id": number | null;
-}
-export interface TemplateTemplatesIndexGetResponse extends ApiEnvelope<TemplateTemplatesIndexGetResponseItem[]> {
-}
+export type TemplateTemplatesIndexGetResponse = import("./types.js").TemplateListResponse;
 
 /** Backend request type: CreateTemplateRequest. */
-export interface TemplateTemplatesCreatePostInput extends JsonObject {
-  "name": string;
-  "fa_name": string;
-  "params"?: string[] | null;
-  "channel_id"?: number | null;
-}
+export type TemplateTemplatesCreatePostInput = import("./types.js").CreateMessageTemplateInput;
 /** Backend response type: TemplateResponse. */
-export interface TemplateTemplatesCreatePostResponseData extends JsonObject {
-  "id": number;
-  "name": string;
-  "fa_name": string;
-  "params": JsonValue | null;
-  "channel_id": number | null;
-}
-export interface TemplateTemplatesCreatePostResponse extends ApiEnvelope<TemplateTemplatesCreatePostResponseData> {
-}
+export type TemplateTemplatesCreatePostResponse = import("./types.js").TemplateResponse;
 
 /** Backend response type: serde_json::Value. */
-export interface TemplateTemplatesDeleteDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type TemplateTemplatesDeleteDeleteResponse = import("./types.js").MessengerEmptyResponse;
 
 /** Backend response type: TemplateResponse. */
-export interface TemplateTemplatesShowGetResponseData extends JsonObject {
-  "id": number;
-  "name": string;
-  "fa_name": string;
-  "params": JsonValue | null;
-  "channel_id": number | null;
-}
-export interface TemplateTemplatesShowGetResponse extends ApiEnvelope<TemplateTemplatesShowGetResponseData> {
-}
+export type TemplateTemplatesShowGetResponse = import("./types.js").TemplateResponse;
 
 /** Backend request type: UpdateTemplateRequest. */
-export interface TemplateTemplatesUpdatePatchInput extends JsonObject {
-  "name"?: string | null;
-  "fa_name"?: string | null;
-  "params"?: string[] | null;
-  "channel_id"?: number | null;
-}
+export type TemplateTemplatesUpdatePatchInput = import("./types.js").UpdateMessageTemplateInput;
 /** Backend response type: TemplateResponse. */
-export interface TemplateTemplatesUpdatePatchResponseData extends JsonObject {
-  "id": number;
-  "name": string;
-  "fa_name": string;
-  "params": JsonValue | null;
-  "channel_id": number | null;
-}
-export interface TemplateTemplatesUpdatePatchResponse extends ApiEnvelope<TemplateTemplatesUpdatePatchResponseData> {
-}
+export type TemplateTemplatesUpdatePatchResponse = import("./types.js").TemplateResponse;
 
 /** Backend response type: Vec<TemplateContentResponse>. */
-export interface TemplateTemplateContentsIndexGetResponseItem extends JsonObject {
-  "id": number;
-  "template_id": number;
-  "channel": string;
-  "text": string;
-  "options": JsonValue | null;
-}
-export interface TemplateTemplateContentsIndexGetResponse extends ApiEnvelope<TemplateTemplateContentsIndexGetResponseItem[]> {
-}
+export type TemplateTemplateContentsIndexGetResponse = import("./types.js").TemplateContentsResponse;
 
 /** Backend request type: CreateTemplateContentRequest. */
-export interface TemplateTemplateContentsCreatePostInput extends JsonObject {
-  "channel": string;
-  "text": string;
-  "options"?: JsonValue | null;
-}
+export type TemplateTemplateContentsCreatePostInput = import("./types.js").CreateTemplateContentInput;
 /** Backend response type: TemplateContentResponse. */
-export interface TemplateTemplateContentsCreatePostResponseData extends JsonObject {
-  "id": number;
-  "template_id": number;
-  "channel": string;
-  "text": string;
-  "options": JsonValue | null;
-}
-export interface TemplateTemplateContentsCreatePostResponse extends ApiEnvelope<TemplateTemplateContentsCreatePostResponseData> {
-}
+export type TemplateTemplateContentsCreatePostResponse = import("./types.js").TemplateContentResponse;
 
 /** Backend request type: UpdateTemplateContentRequest. */
-export interface TemplateTemplateContentsUpdatePatchInput extends JsonObject {
-  "text"?: string | null;
-  "options"?: JsonValue | null;
-}
+export type TemplateTemplateContentsUpdatePatchInput = import("./types.js").UpdateTemplateContentInput;
 /** Backend response type: TemplateContentResponse. */
-export interface TemplateTemplateContentsUpdatePatchResponseData extends JsonObject {
-  "id": number;
-  "template_id": number;
-  "channel": string;
-  "text": string;
-  "options": JsonValue | null;
-}
-export interface TemplateTemplateContentsUpdatePatchResponse extends ApiEnvelope<TemplateTemplateContentsUpdatePatchResponseData> {
-}
+export type TemplateTemplateContentsUpdatePatchResponse = import("./types.js").TemplateContentResponse;
 
 /** Backend response type: Value. */
 export type WebPushConfigGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").WebPushConfig>;
@@ -536,9 +219,7 @@ export type WebPushUnsubscribeDeleteResponse = import("@faiber/sdk-core").ApiEnv
 export type WebPushTestPushPostResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").WebPushTestDelivery>;
 
 /** Backend response type: api. */
-export interface RouterStatusRouteGetHealthResponse extends ApiEnvelope<JsonValue> {
-}
+export type RouterStatusRouteGetHealthResponse = import("./types.js").MessengerHealthResponse;
 
 /** Backend response type: api. */
-export interface RouterStatusRouteGetUpResponse extends ApiEnvelope<JsonValue> {
-}
+export type RouterStatusRouteGetUpResponse = import("./types.js").MessengerHealthResponse;

@@ -39,7 +39,7 @@
   ],
   "schema_boundary": [
     "Uses the existing server ApiEndpoint catalog controlled by existing API_SERVICES_WRITE administration; selected endpoint method+service+canonical path and entire metadata hash are bound to the proposal. No model form, example payload or SDK string type is schema authority.",
-    "Only closed supported JSON-schema subset is accepted: type/properties/required/additionalProperties=false/items/enum/minLength/maxLength/minimum/maximum with description/title. Nested optional schemas are checked too.",
+    "Only closed supported JSON-schema subset is accepted: type/properties/required/additionalProperties=false/items/enum/minLength/maxLength/minimum/maximum with description/title. Type may be one concrete type or a two-element array containing exactly that concrete type and null, in either order. General unions remain unavailable. Every schema is checked before value validation, including nested optional schemas and null values.",
     "Refs, external schemas, arbitrary/open objects, schema examples/type-name placeholders and unsupported keywords explicitly make the operation unavailable. Existing catalogs predominantly containing examples will not become executable mutations.",
     "Registered GET/DELETE with no body schema accepts only null body. Query keys must be registered, nonduplicate and have supported string/integer/number/boolean types; required query values are enforced.",
     "Strict /api/v1 relative target, registered method/template match, no path percent-encoding/traversal/backslash/fragment/external origin. Body edit cannot alter service/method/path.",
@@ -92,5 +92,12 @@
     "New Mongo collection manage_agent_actions, unique default _id, plus manage_actions_scope compound index. Creation validates/persists before SSE. Existing Mongo account needs its established collection/index privileges. No SQL migration, preset, role seed or destructive rollback.",
     "Rollback requires disabling durable UI/actions without fallback; retain action/audit records and matching server versions. Do not roll back one side into accepting unsigned replies or legacy completion.",
     "Two backend candidates and actual sole-owner SDK/UI integration must be deployed together under controller approval; no SDK pack or shared panel/Docker/package/lock source changed here."
-  ]
+  ],
+  "source_selection": {
+    "manage": "5ac22d1145c68693717ff4dedcaff74a74746197",
+    "agentic": "e6c2a00fc4418604a99bf84b365e0db13fc8f5e6",
+    "evidence": "../service-capabilities/evidence/manage-sdk-source-audit-20261021/audit.json",
+    "status": "source_only_native_execution_pending",
+    "delta": "Selected candidate adds concrete-plus-null schema types and validates schema before values; public routes/DTO/protocol/proofs unchanged from original handoff."
+  }
 }

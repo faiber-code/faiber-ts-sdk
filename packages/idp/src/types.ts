@@ -1,16 +1,18 @@
 import type { ActiveRoleFilter } from "./authority.js";
-import type { ApiEnvelope, JsonObject, OperationResponse, QueryParams, } from "@faiber/sdk-core";
+import type { ApiEnvelope, JsonObject, QueryParams, } from "@faiber/sdk-core";
 /** Login with a public IDP client; credentials are exchanged only for HttpOnly session cookies. */
 export type BrowserLoginInput =
     | { client_id: string; method: "password"; identifier: string; password: string }
     | { client_id: string; method: "otp"; identifier: string; code: string };
 export interface User extends JsonObject {
     id: string;
-    /** Account registration timestamp in UTC; absent on older IDP deployments. */
-    created_at?: string;
-    phone?: string | null;
-    email?: string | null;
-    national_code?: string | null;
+    /** Account registration timestamp in UTC. */
+    created_at: string;
+    display_name: string | null;
+    linked_providers: string[];
+    phone: string | null;
+    email: string | null;
+    national_code: string | null;
     status: number;
     active_sessions: number;
     roles: Role[];
@@ -58,14 +60,14 @@ export interface LinkedFaiberBillingQuery extends QueryParams {
 /** Main-Faiber wallet resolved by the sandbox IDP from the signed-in local profile. */
 export interface LinkedFaiberWallet extends JsonObject {
     profile_id: string;
-    balance: string | number;
+    balance: string;
     currency: string;
 }
 export interface LinkedFaiberDailyCost extends JsonObject {
     date: string;
-    resourceCost: string | number;
-    llmCost: string | number;
-    totalCost: string | number;
+    resourceCost: string;
+    llmCost: string;
+    totalCost: string;
     transactionCount: number;
     currency: string;
 }
@@ -80,16 +82,16 @@ export interface LinkedFaiberBilling extends JsonObject {
     provider_id: string;
     wallet: LinkedFaiberWallet;
     daily_costs: LinkedFaiberDailyCostsPage;
-    project_pricing?: LinkedFaiberProjectPricing | null;
+    project_pricing: LinkedFaiberProjectPricing | null;
 }
 /** Effective pricing for a project billed to the linked main-Faiber account. */
 export interface LinkedFaiberProjectPricing extends JsonObject {
     project: string;
     currency: string;
-    fixed_monthly_price?: string | number | null;
-    hourly_price: string | number;
-    daily_estimate: string | number;
-    monthly_estimate: string | number;
+    fixed_monthly_price: string | null;
+    hourly_price: string;
+    daily_estimate: string;
+    monthly_estimate: string;
 }
 export interface LinkedFaiberBillingResponse extends ApiEnvelope<LinkedFaiberBilling> {
 }
@@ -112,12 +114,12 @@ export interface Session extends JsonObject {
     client: SessionClient;
     browser: string;
     operating_system: string;
-    device_id?: string | null;
-    user_agent?: string | null;
-    ip_address?: string | null;
-    ip_address_v6?: string | null;
+    device_id: string | null;
+    user_agent: string | null;
+    ip_address: string | null;
+    ip_address_v6: string | null;
     created_at: string;
-    last_accessed?: string | null;
+    last_accessed: string | null;
     is_current: boolean;
 }
 export interface SessionListResponse extends ApiEnvelope<Session[]> {
@@ -148,21 +150,15 @@ export interface RegisterUserInput extends JsonObject {
     phone?: string;
     email?: string;
     national_code?: string;
+    /** Public registration rejects this field with 403. Use managed user creation to assign roles. */
     role?: string;
+    /** Public registration rejects this field with 403. */
     roles?: string[];
 }
-export interface CreateUserInput extends JsonObject {
-    phone?: string;
-    email?: string;
-    national_code?: string;
-    password?: string;
-    roles: string[];
-}
-export interface UpdateUserInput {
-    phone?: string | null;
-    email?: string | null;
-    national_code?: string | null;
-}
+/** Native wire input shared with the complete operation; Rust nullable/default fields are preserved. */
+export type CreateUserInput = import("./operations.types.js").UserUserCreatePostInput;
+/** Native wire input shared with the complete operation; Rust nullable/default fields are preserved. */
+export type UpdateUserInput = import("./operations.types.js").UserUserUpdatePatchInput;
 export interface ChangePasswordInput {
     password?: string;
 }
@@ -172,11 +168,11 @@ export interface ChangeRolesInput {
 export interface SetUserStatusInput {
     enabled: boolean;
 }
-export interface CreateRoleInput { name: string; permissions?: string[]; }
-export interface UpdateRoleInput {
-    permissions: string[];
-}
-export interface AuthTokens extends Record<string, string | number> {
+/** Native wire input shared with the complete operation; Rust nullable/default fields are preserved. */
+export type CreateRoleInput = import("./operations.types.js").AclRolesCreatePostInput;
+/** Native wire input shared with the complete operation; Rust nullable/default fields are preserved. */
+export type UpdateRoleInput = import("./operations.types.js").AclRolesUpdatePatchInput;
+export interface AuthTokens {
     access_token: string;
     refresh_token: string;
     expires_in: number;
@@ -195,7 +191,7 @@ export interface UserResponse extends ApiEnvelope<UserData> {
 export interface UserListData extends JsonObject { users: User[]; total: number; page: number; per_page: number; role_filter?: ActiveRoleFilter; }
 export interface UserListResponse extends ApiEnvelope<UserListData> {
 }
-export interface UserSelf extends JsonObject { id: string; phone?: string | null; email?: string | null; national_code?: string | null; status: number; roles: Role[]; permissions: Permission[]; }
+export interface UserSelf extends JsonObject { id: string; phone: string | null; email: string | null; national_code: string | null; status: number; roles: Role[]; permissions: Permission[]; }
 export interface UserSelfResponse extends ApiEnvelope<UserSelf> {
 }
 export interface RoleData extends JsonObject { role: Role; }
@@ -209,9 +205,16 @@ export interface PermissionResponse extends ApiEnvelope<Permission> {
 }
 export interface PermissionListResponse extends ApiEnvelope<PermissionListData> {
 }
-export interface OAuthProviderListResponse extends ApiEnvelope<OAuthProvider[]> {
+export interface OAuthProviderListData extends JsonObject { providers: string[] }
+export interface OAuthProviderListResponse extends ApiEnvelope<OAuthProviderListData> {
 }
 export interface LinkedIdentityListResponse extends ApiEnvelope<LinkedIdentityListData> {
 }
-export interface LogoutUserResponse extends OperationResponse {
+export interface LogoutUserResponse extends UserResponse {
 }
+
+/** Public registration resolves or creates an identity; it does not return a managed UserResource. */
+export interface RegistrationUser extends JsonObject { user_id: string; created: boolean }
+export interface RegistrationData extends JsonObject { user: RegistrationUser }
+export type RegistrationResponse = ApiEnvelope<RegistrationData>;
+export type IdpUserListQuery = import("./operations.types.js").UserUsersIndexGetQuery;

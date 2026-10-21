@@ -1,4 +1,4 @@
-import {FaiberSDK} from '../packages/sdk/dist/index.js';
+import {FaiberSDK} from '@faiber/faiber-ts-sdk';
 const sdk=new FaiberSDK({domains:{}});
 sdk.knowledge.setSourceState('source',{desired_state:'paused',expected_version:1});
 sdk.knowledge.setMemoryOverride('subject',{expected_revision:'a'.repeat(64),short_memory_enabled:null});

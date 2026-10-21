@@ -1,0 +1,2808 @@
+{
+  "revision": "d067ac956571abd73211b06d835caa658b1f09bc",
+  "status": "source_only",
+  "operations": [
+    {
+      "id": "GET /health",
+      "handler": {
+        "ref": "infera-social/src/main.rs:68:health",
+        "path": "infera-social/src/main.rs",
+        "line": 68,
+        "name": "health"
+      },
+      "source_checksum": "4b0ecdc27fcc139f71add6f110a7f9330241914c9a48d8ac7fbddddafcf13096",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/main.rs:68:health",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read process liveness and package version; this is not a dependency readiness probe.",
+      "auth": "public liveness route",
+      "response": "import(\"./types.js\").SocialHealthResponse"
+    },
+    {
+      "id": "GET /api/v1/auth/self",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:117:self_identity",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 117,
+        "name": "self_identity"
+      },
+      "source_checksum": "6ee0958ffcf53e7e8e8856d3b50e527bcdc236f9d3993c3a68eb4bb4a3128edd",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:117:self_identity",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read the middleware-derived current user UUID, roles and permissions.",
+      "auth": "middleware-derived IDP identity",
+      "response": "import(\"./types.js\").SocialSessionIdentityResponse"
+    },
+    {
+      "id": "GET /api/v1/categories",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:207:list_categories",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 207,
+        "name": "list_categories"
+      },
+      "source_checksum": "44563bd4187450300516f220744fb4511dc729b44fb859c8182441669e4311dd",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:207:list_categories",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "List organization-scoped, non-deleted categories ordered by sort_order and slug; hidden/archived categories are included.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialCategoryListResponse"
+    },
+    {
+      "id": "POST /api/v1/categories",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:217:create_category",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 217,
+        "name": "create_category"
+      },
+      "source_checksum": "48a66a23d5b5954694374a1541b14f1216abdaf1f5a02b49681ed62358ac297c",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:217:create_category",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Create a category (201). Slug normalizes to lowercase ASCII letters/digits/hyphens/underscores, 1–100 bytes. Localized labels, description and metadata remain application JSON.",
+      "auth": "social:category:manage; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialCategoryResponse",
+      "input": "import(\"./types.js\").CreateCategoryInput"
+    },
+    {
+      "id": "POST /api/v1/media/uploads",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:127:upload_media",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 127,
+        "name": "upload_media"
+      },
+      "source_checksum": "118b8c45fba53c1e3feca178cb42c064a065461d405690a7612928fd36339ce6",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:127:upload_media",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Upload the first multipart field as JPEG, PNG or WebP (1 byte–12 MiB); full multipart body limit 13 MiB. Returns 201 with UUID, authenticated media URL and content type. Storage must be configured.",
+      "auth": "social:post:create; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialMediaResponse"
+    },
+    {
+      "id": "GET /api/v1/media/{id}",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:185:get_media",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 185,
+        "name": "get_media"
+      },
+      "source_checksum": "b47ac2f80e7fe0627799879d43ee4dc8d32023e9a914f3b514ff40e531763c51",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:185:get_media",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Download organization media after uploader/parent visibility checks. Returns bytes with Content-Type and private,max-age=300; storage/configuration failures return 500.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialBinaryMediaResponse",
+      "binaryDownload": true
+    },
+    {
+      "id": "PATCH /api/v1/categories/{id}",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:227:update_category",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 227,
+        "name": "update_category"
+      },
+      "source_checksum": "104e2130e7ea5ac7b1c784a4b66618bc8397c26ba0903c00e5d6c291f6e2516c",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:227:update_category",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Patch supplied category fields. Null and absent Option fields leave stored values unchanged; slug/status validation matches creation.",
+      "auth": "social:category:manage; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialCategoryResponse",
+      "input": "import(\"./types.js\").UpdateCategoryInput"
+    },
+    {
+      "id": "DELETE /api/v1/categories/{id}",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:239:delete_category",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 239,
+        "name": "delete_category"
+      },
+      "source_checksum": "02447abcbff8d9c06a5b18539f37c87ea251a0caa2e724821cd3e28c6b4dc253",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:239:delete_category",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Soft-delete the category; returns 204 with no body.",
+      "auth": "social:category:manage; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "void"
+    },
+    {
+      "id": "GET /api/v1/categories/{id}/capability-policy",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:380:category_capability_policy",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 380,
+        "name": "category_capability_policy"
+      },
+      "source_checksum": "1eef39d8bbad0138cc6bc2f84f8b2a94de4644c2eb4e480a221f246ce592a6ca",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:380:category_capability_policy",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read the published category policy projection (404 when absent), including configurable JSON sections and published_at.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./contracts.types.js\").SocialCategoryCapabilityPolicyResponse"
+    },
+    {
+      "id": "GET /api/v1/posts",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:249:list_posts",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 249,
+        "name": "list_posts"
+      },
+      "source_checksum": "40c5bbd710cde4c84e5767ff32b1c23733bfb01c11dfe359ce574aad55ee025b",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:249:list_posts",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Page visible organization posts with q title/body search, author/category UUID and validated kind filters. Defaults page=1/limit=30, page>=1 and limit 1–100. Saved location ranks nearby posts then posts without decryptable coordinates. Returns data plus required total/page/limit meta.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialPostListResponse",
+      "query": "import(\"./types.js\").FeedQuery"
+    },
+    {
+      "id": "POST /api/v1/posts",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:329:create_post",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 329,
+        "name": "create_post"
+      },
+      "source_checksum": "da1bb4e4d1928b89d13b05aae723864a7cc2c61e3e9f7f8e8c6d4676edf00786",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:329:create_post",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Create a post (201), or return the completed identical request_key replay (200). Body is trimmed, 1–50000 characters; creation title truncates to 500 characters. Media array entries must reference owned uploaded IDs. Category entitlements/restrictions and published capability policy apply. Reusing a key for changed content or an unconfirmed request returns 409; retry the same request key.",
+      "auth": "social:post:create; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialPostResponse",
+      "input": "import(\"./types.js\").CreatePostInput"
+    },
+    {
+      "id": "GET /api/v1/me/feed-location",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:268:get_feed_location",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 268,
+        "name": "get_feed_location"
+      },
+      "source_checksum": "66b784d9261806aea6827127129c07871775a7fc18c6bf0aeab3bedaf4db7fde",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:268:get_feed_location",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read the authenticated user location preference, returning data:null when unset.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").FeedLocationPreferenceResponse"
+    },
+    {
+      "id": "PUT /api/v1/me/feed-location",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:279:set_feed_location",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 279,
+        "name": "set_feed_location"
+      },
+      "source_checksum": "f7283c7f39137e9870f45fa36a8f623a19e8b48c4f93d243ae1e10392033e738",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:279:set_feed_location",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Save current user location preference. Coordinates must be finite and within latitude ±90/longitude ±180; range_km must be >0 and <=500. Returns the saved non-null preference.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SetFeedLocationResponse",
+      "input": "import(\"./types.js\").SetFeedLocationInput"
+    },
+    {
+      "id": "DELETE /api/v1/me/feed-location",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:290:clear_feed_location",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 290,
+        "name": "clear_feed_location"
+      },
+      "source_checksum": "534f706e457ae7420b88162b9d21ff02601e3e5165317f074c41a93e52aebd9f",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:290:clear_feed_location",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Clear the authenticated user location preference idempotently; returns 204.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "void"
+    },
+    {
+      "id": "GET /api/v1/me/posts",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:299:list_my_posts",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 299,
+        "name": "list_my_posts"
+      },
+      "source_checksum": "39633540339d4a173a227ef4c4f77277d7d031ba1eb542b4db31290541c0d1ae",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:299:list_my_posts",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Page current actor posts using feed filters and required pagination meta. author_id is overwritten by the authenticated user UUID.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialPostListResponse",
+      "query": "import(\"./types.js\").FeedQuery"
+    },
+    {
+      "id": "GET /api/v1/me/analytics",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:623:my_analytics",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 623,
+        "name": "my_analytics"
+      },
+      "source_checksum": "2a70991701551219f122a21cc5ab47de5cdb546f4267df416b464f08039ff96a",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:623:my_analytics",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read current author analytics over inclusive YYYY-MM-DD from/to dates, at most 366 days; defaults to today and preceding 29 days. Returns totals/posts/trend.",
+      "auth": "social:analytics:read_own; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").CreatorAnalyticsResponse",
+      "query": "import(\"./types.js\").AnalyticsQuery"
+    },
+    {
+      "id": "GET /api/v1/me/bookmarks",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:319:my_bookmarks",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 319,
+        "name": "my_bookmarks"
+      },
+      "source_checksum": "c5431dc47dd5914d9fc46046fb94d9d7e0540603f33096db18db540851d246bd",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:319:my_bookmarks",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "List bookmarked post UUIDs for the authenticated organization/user; this is not a post projection.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialBookmarksResponse"
+    },
+    {
+      "id": "GET /api/v1/posts/{id}",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:540:get_post",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 540,
+        "name": "get_post"
+      },
+      "source_checksum": "6340c5f5eeee9fb83b76dc84e361e93e6779b4dcecb8801a5cd866546f567bc5",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:540:get_post",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read a non-deleted organization-scoped post visible to its author, moderators or readers of published non-private posts. Bidirectional user blocks hide it with 404.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialPostResponse"
+    },
+    {
+      "id": "PATCH /api/v1/posts/{id}",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:551:update_post",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 551,
+        "name": "update_post"
+      },
+      "source_checksum": "a92b9d369495798a82a66a5ec11980bd62000b0a431ea399d4d50c8e79fa0fb3",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:551:update_post",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Update author-owned content; Option nulls leave fields unchanged. Body is 1–50000 characters and supplied title is 1–500. Existing/new category entitlement and media ownership are enforced. Rejected or moderated content returns to review; awaiting-funding lifecycle is preserved.",
+      "auth": "social:post:update_own; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialPostResponse",
+      "input": "import(\"./types.js\").UpdatePostInput"
+    },
+    {
+      "id": "DELETE /api/v1/posts/{id}",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:563:delete_post",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 563,
+        "name": "delete_post"
+      },
+      "source_checksum": "17dddb6a3350b0e035cc3a0ba906cc7da9548bb87e8edfcb889396e4cdd7b38f",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:563:delete_post",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Soft-delete an author-owned post, or a moderator-authorized post; returns 204.",
+      "auth": "social:post:delete_own; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "void"
+    },
+    {
+      "id": "GET /api/v1/posts/{id}/capabilities",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:391:post_capabilities",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 391,
+        "name": "post_capabilities"
+      },
+      "source_checksum": "bc357bc24058567edf2be6bc0682f6f0ce95a8f91cf64bc9ac2843585adc6229",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:391:post_capabilities",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read a visible post capability projection with nullable subject/location/bounty, linked actions and lifecycle. Exact coordinates are excluded.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./contracts.types.js\").SocialCapabilitiesResponse"
+    },
+    {
+      "id": "POST /api/v1/posts/{id}/navigation-access",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:403:navigation_access",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 403,
+        "name": "navigation_access"
+      },
+      "source_checksum": "b6712f140503276a1aba2b0ba7a562075863205b679eabc0e04bb2015fcc48bb",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:403:navigation_access",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Request short-lived exact coordinates with optional reason. Requires authenticated user, navigation permission and location access policy; returns no-store coordinates expiring in 60 seconds.",
+      "auth": "social:location:navigate; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./contracts.types.js\").SocialNavigationAccessResponse",
+      "input": "import(\"./contracts.types.js\").SocialNavigationAccessInput"
+    },
+    {
+      "id": "POST /api/v1/posts/{id}/claims",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:429:create_claim",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 429,
+        "name": "create_claim"
+      },
+      "source_checksum": "42c0a704762861f31bdfe4c48f833d958cb63967dc74f6e3f7d1c7b589e8e24c",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:429:create_claim",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Submit one claim per user/post (201). Authors cannot claim own posts; lifecycle must be published and policy must enable claims. Message 1–5000 trimmed characters, evidence defaults null; conflicts return 409.",
+      "auth": "social:claim:create; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./contracts.types.js\").SocialClaimCreatedResponse",
+      "input": "import(\"./contracts.types.js\").SocialCreateClaimInput"
+    },
+    {
+      "id": "POST /api/v1/posts/{id}/cancel",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:518:cancel_capability_post",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 518,
+        "name": "cancel_capability_post"
+      },
+      "source_checksum": "082372a20a49c063a35d217fb85f63c35f81ec1148a742628ad4fd63a69429da",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:518:cancel_capability_post",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Cancel an author-owned post unless already resolved/cancelled/expired (409); hide content and queue bounty refund where relevant. Returns post_id/lifecycle_status.",
+      "auth": "social:post:update_own; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./contracts.types.js\").SocialPostCancelledResponse"
+    },
+    {
+      "id": "POST /api/v1/claims/{id}/withdraw",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:444:withdraw_claim",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 444,
+        "name": "withdraw_claim"
+      },
+      "source_checksum": "f780e3d9fc311f9a19275549e7cb8a76d3973802505b63ebe422b87349bca4fa",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:444:withdraw_claim",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Withdraw only the current claimant submitted claim; other states or ownership return 409. Returns id/status.",
+      "auth": "social:claim:update_own; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./contracts.types.js\").SocialClaimWithdrawnResponse"
+    },
+    {
+      "id": "POST /api/v1/claims/{id}/select",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:455:select_claim",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 455,
+        "name": "select_claim"
+      },
+      "source_checksum": "cd6eb67372fdb2ece57a9c7d30b206a207225e68341caedd62bfe6c2a055c443",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:455:select_claim",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Select a submitted claim as the post author in a transaction and create pending resolution. Another selected claim returns 409; returns claim_id/post_id/status/author_approved.",
+      "auth": "social:claim:select_own; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./contracts.types.js\").SocialClaimSelectedResponse"
+    },
+    {
+      "id": "PUT /api/v1/claims/{id}/contact-consent",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:466:set_contact_consent",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 466,
+        "name": "set_contact_consent"
+      },
+      "source_checksum": "5df17c0a81df7cd0c0a9d9f2fb4eecbb504c5720e34eaafc4da86e2c8cbe20ad",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:466:set_contact_consent",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Set consent for a claim participant; mutual_consent reflects both participant grants. Requires an authenticated participant.",
+      "auth": "social:claim:consent; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./contracts.types.js\").SocialContactConsentResponse",
+      "input": "import(\"./contracts.types.js\").SocialContactConsentInput"
+    },
+    {
+      "id": "GET /api/v1/claims/{id}",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:507:claim_detail",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 507,
+        "name": "claim_detail"
+      },
+      "source_checksum": "3e9878b5b83011f1e84ab6af12124d2c5b646a557da418352a7aa0a1974a430c",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:507:claim_detail",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read a private claim for its claimant, post author or claims manager; returns mutual contact consent and nullable resolution. Nonparticipants return 403.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./contracts.types.js\").SocialClaimDetailResponse"
+    },
+    {
+      "id": "GET /api/v1/me/claims",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:478:my_claims",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 478,
+        "name": "my_claims"
+      },
+      "source_checksum": "85d0d48349e5164ebdf6d906bd2b7c1b4aa4d4517236604dd9773f87b41ad357",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:478:my_claims",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Page current claimant claims with required total/page/limit meta, message/evidence/status and mutual_contact_consent; defaults page=1/limit=30, limit 1–100.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./contracts.types.js\").SocialClaimPageResponse",
+      "query": "import(\"./contracts.types.js\").SocialClaimListQuery"
+    },
+    {
+      "id": "GET /api/v1/me/posts/{id}/claims",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:492:my_post_claims",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 492,
+        "name": "my_post_claims"
+      },
+      "source_checksum": "47c896d8a57bc9dbd1830ef39c7def680b0d41cb9f0ba15355f7e72101d22867",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:492:my_post_claims",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Page claims for a post owned by the current user; other actors return 403. Returns required total/page/limit meta and mutual_contact_consent.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./contracts.types.js\").SocialClaimPageResponse",
+      "query": "import(\"./contracts.types.js\").SocialClaimListQuery"
+    },
+    {
+      "id": "POST /api/v1/integrations/funding-events",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:529:receive_funding_event",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 529,
+        "name": "receive_funding_event"
+      },
+      "source_checksum": "cb9c1648c76fbb1c7bccb0e313ddde1a3f41c31bb42b805850ae6bf098c3fedf",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:529:receive_funding_event",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Apply a durable provider funding event after matching bounty unit/code/decimal amount. Event/reference are 1–255 trimmed characters. Duplicate external_event_id returns duplicate:true without status; new event returns duplicate:false/status. A funded result advances category moderation lifecycle transactionally.",
+      "auth": "social:integrations:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./contracts.types.js\").SocialFundingEventResponse",
+      "input": "import(\"./contracts.types.js\").SocialFundingEventInput"
+    },
+    {
+      "id": "GET /api/v1/posts/{id}/comments",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:645:list_post_comments",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 645,
+        "name": "list_post_comments"
+      },
+      "source_checksum": "5bda66e0d4abcc2aa31f849fa7eef39827cdafecef6cc416b2404c83704abe8b",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:645:list_post_comments",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read published non-deleted comments oldest-first after checking parent visibility; no pagination query is consumed.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialCommentListResponse"
+    },
+    {
+      "id": "POST /api/v1/posts/{id}/comments",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:656:create_post_comment",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 656,
+        "name": "create_post_comment"
+      },
+      "source_checksum": "049b982f1df8248d16f8fde302778fdf0d2c28b348627f9eaf16eb41d7060f38",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:656:create_post_comment",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Create a post comment (201), checking parent post and optional same-post non-deleted parent comment. Body is trimmed, 1–10000 characters; category moderation/restrictions apply.",
+      "auth": "social:comment:create; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialCommentResponse",
+      "input": "import(\"./types.js\").CreateCommentInput"
+    },
+    {
+      "id": "POST /api/v1/posts/{id}/resubmit",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:573:resubmit_post",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 573,
+        "name": "resubmit_post"
+      },
+      "source_checksum": "7f2ad7bfc0f4da6f0064f0b3e324e7a6254f40ce7668739f400b82b11ebc72eb",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:573:resubmit_post",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Resubmit author-owned content to the category moderation state; returns the updated post.",
+      "auth": "social:post:update_own; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialPostResponse"
+    },
+    {
+      "id": "PUT /api/v1/posts/{id}/bookmark",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:584:bookmark_post",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 584,
+        "name": "bookmark_post"
+      },
+      "source_checksum": "f9e1940c8bc2eaf048926779ef3596c47f2d7a060788091e6301f25662762ce4",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:584:bookmark_post",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Idempotently bookmark a visible post for current user; returns 204.",
+      "auth": "social:bookmark:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "void"
+    },
+    {
+      "id": "DELETE /api/v1/posts/{id}/bookmark",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:593:unbookmark_post",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 593,
+        "name": "unbookmark_post"
+      },
+      "source_checksum": "fedf849e3af7f3ce2eabad741094d83a1956be493c865debdee5eb7c9f2288e2",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:593:unbookmark_post",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Remove current user bookmark; returns 204.",
+      "auth": "social:bookmark:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "void"
+    },
+    {
+      "id": "POST /api/v1/posts/{id}/views",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:602:record_post_view",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 602,
+        "name": "record_post_view"
+      },
+      "source_checksum": "b4369ed7f6d37619819545b0c2018724bbd7f13280a240ffeb1389dab8f733e6",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:602:record_post_view",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Record a visible post view when visible_ms>=1000; lower values return 400. counted is false for author views or a duplicate user/post/day view.",
+      "auth": "social:view:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").RecordViewResponse",
+      "input": "import(\"./types.js\").RecordViewInput"
+    },
+    {
+      "id": "POST /api/v1/posts/{id}/share-events",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:613:record_share_event",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 613,
+        "name": "record_share_event"
+      },
+      "source_checksum": "5fbeeb1ca82333888eaa76e0ce30eef5343c068e966f20f50843cdad1db69e42",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:613:record_share_event",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Record a visible post share with channel default system and optional idempotency_key; returns 204. Idempotency keys are scoped to organization/user across posts, truncate to 128 characters, and suppress duplicates; channel is trimmed to 1–32 characters.",
+      "auth": "social:share:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "void",
+      "input": "import(\"./types.js\").ShareEventInput"
+    },
+    {
+      "id": "GET /api/v1/posts/{id}/analytics",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:633:post_analytics",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 633,
+        "name": "post_analytics"
+      },
+      "source_checksum": "21d0c5e94ffe7c0b69c4f463ba654387956f35547fb9a8c5ea53cb4f9ffd4f2e",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:633:post_analytics",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read author-only post analytics over inclusive YYYY-MM-DD from/to dates. Defaults to today and preceding 29 days; from<=to and at most 366 days. Returns totals/posts/trend.",
+      "auth": "social:analytics:read_own; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").CreatorAnalyticsResponse",
+      "query": "import(\"./types.js\").AnalyticsQuery"
+    },
+    {
+      "id": "PATCH /api/v1/comments/{id}",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:668:update_comment",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 668,
+        "name": "update_comment"
+      },
+      "source_checksum": "a1d572626ebdd4785bb80f72c9faa06123c439da341e3e6469d3397c09bb8c9f",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:668:update_comment",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Update author-owned comment body (1–10000 trimmed characters). Category moderation can require review.",
+      "auth": "social:comment:update_own; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialCommentResponse",
+      "input": "import(\"./types.js\").UpdateCommentInput"
+    },
+    {
+      "id": "DELETE /api/v1/comments/{id}",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:680:delete_comment",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 680,
+        "name": "delete_comment"
+      },
+      "source_checksum": "80f80b2d3ed06e3af7327991cba0d5a073c2324dc437dcccf0287b5342e0ddd0",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:680:delete_comment",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Soft-delete author-owned comment, or a moderator-authorized comment, and refresh counts; returns 204.",
+      "auth": "social:comment:delete_own; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "void"
+    },
+    {
+      "id": "GET /api/v1/posts/{id}/reaction",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:690:post_reactions",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 690,
+        "name": "post_reactions"
+      },
+      "source_checksum": "b8c2e2d22941f4656ae311ba4a72a27bdf2943684c6b9bb8321a53c971a28490",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:690:post_reactions",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read post reaction totals, counts by reaction type and nullable viewer_reaction after verifying visibility.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").ReactionSummaryResponse"
+    },
+    {
+      "id": "PUT /api/v1/posts/{id}/reaction",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:712:set_post_reaction",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 712,
+        "name": "set_post_reaction"
+      },
+      "source_checksum": "39704a700f5f87e74c4249ecd5c2bf990bd979fe252b74c9d042ba5c2e4e1990",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:712:set_post_reaction",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Upsert current user post reaction after visibility and restriction checks; type is one of like/love/care/haha/wow/sad/angry.",
+      "auth": "social:reaction:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialReactionResponse",
+      "input": "import(\"./types.js\").SetReactionInput"
+    },
+    {
+      "id": "DELETE /api/v1/posts/{id}/reaction",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:780:remove_post_reaction",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 780,
+        "name": "remove_post_reaction"
+      },
+      "source_checksum": "3a4c212d695caa23dce6018b31927af2bfc8b412f64da17a0402e2c8904f817e",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:780:remove_post_reaction",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Remove current user post reaction and refresh counts; returns 204.",
+      "auth": "social:reaction:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "void"
+    },
+    {
+      "id": "GET /api/v1/comments/{id}/reaction",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:701:comment_reactions",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 701,
+        "name": "comment_reactions"
+      },
+      "source_checksum": "210a9690fa0c462c23775697ac7c83a29e71a1c560c469a28d3530d1a7af763f",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:701:comment_reactions",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read comment reaction totals, counts by reaction type and nullable viewer_reaction after verifying target visibility.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").ReactionSummaryResponse"
+    },
+    {
+      "id": "PUT /api/v1/comments/{id}/reaction",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:725:set_comment_reaction",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 725,
+        "name": "set_comment_reaction"
+      },
+      "source_checksum": "398f8af000d36aa01dd9b817a9779062e0b2b25c4415bd2a60f1e42ddd5adafb",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:725:set_comment_reaction",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Upsert current user comment reaction after visibility and restriction checks; type is one of like/love/care/haha/wow/sad/angry.",
+      "auth": "social:reaction:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialReactionResponse",
+      "input": "import(\"./types.js\").SetReactionInput"
+    },
+    {
+      "id": "DELETE /api/v1/comments/{id}/reaction",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:790:remove_comment_reaction",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 790,
+        "name": "remove_comment_reaction"
+      },
+      "source_checksum": "9e3db9d4964ca6e13869875525090f14179f56c38e27cccab5275c47862e3f02",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:790:remove_comment_reaction",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Remove current user comment reaction and refresh counts; returns 204.",
+      "auth": "social:reaction:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "void"
+    },
+    {
+      "id": "PUT /api/v1/posts/{id}/like",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:738:like_post",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 738,
+        "name": "like_post"
+      },
+      "source_checksum": "77ce9b56c71de2e9deb2ef547ac876c2f4c505d7612ce2cac1b3c41bc10ab12a",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:738:like_post",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Set the current user post reaction to like, returning the reaction record.",
+      "auth": "social:reaction:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialReactionResponse"
+    },
+    {
+      "id": "DELETE /api/v1/posts/{id}/like",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:780:remove_post_reaction",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 780,
+        "name": "remove_post_reaction"
+      },
+      "source_checksum": "1841ac1651a62c4703dcc43785075277eb28dcfde0bbf363b6aa62424333aba4",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:780:remove_post_reaction",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Remove current user post reaction and refresh counts; returns 204.",
+      "auth": "social:reaction:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "void"
+    },
+    {
+      "id": "PUT /api/v1/comments/{id}/like",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:759:like_comment",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 759,
+        "name": "like_comment"
+      },
+      "source_checksum": "7146bc5fe92dd536e0ebdc82380a2585a8ff81df13f066f15430587e1384b7b1",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:759:like_comment",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Set the current user comment reaction to like, returning the reaction record.",
+      "auth": "social:reaction:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialReactionResponse"
+    },
+    {
+      "id": "DELETE /api/v1/comments/{id}/like",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:790:remove_comment_reaction",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 790,
+        "name": "remove_comment_reaction"
+      },
+      "source_checksum": "9fcbb2267186b1271dab80a779ee1c514ad4ce42ee617787244450b0c59372cc",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:790:remove_comment_reaction",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Remove current user comment reaction and refresh counts; returns 204.",
+      "auth": "social:reaction:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "void"
+    },
+    {
+      "id": "POST /api/v1/reports",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:800:create_report",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 800,
+        "name": "create_report"
+      },
+      "source_checksum": "88af7ecb8a2a8e8972155b4892a5f927f0e53c35849d5623acdc3c12891889d6",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:800:create_report",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Report a visible post/comment or another user (201). Self user reports return 400; reason is trimmed, 1–64 characters. Returns the complete report record with nullable resolution fields.",
+      "auth": "social:report:create; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialReportResponse",
+      "input": "import(\"./types.js\").CreateReportInput"
+    },
+    {
+      "id": "GET /api/v1/moderation/queue",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:810:moderation_queue",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 810,
+        "name": "moderation_queue"
+      },
+      "source_checksum": "afa9e7362208334381f3617f1fcc5ab7a1878579b652db5275a5b8ec1a174572",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:810:moderation_queue",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read pending non-deleted posts/comments and open/reviewing reports; awaiting-funding posts are excluded. Requires either social:moderate or social:moderation:review.",
+      "auth": "social:moderate OR social:moderation:review; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").ModerationQueueResponse"
+    },
+    {
+      "id": "GET /api/v1/moderation/audit",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:820:moderation_audit",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 820,
+        "name": "moderation_audit"
+      },
+      "source_checksum": "73c95f7a64a1d4c839711a25a1aa487f5560508a5c987d65e23493cca2775243",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:820:moderation_audit",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Page organization moderation history with optional target_type/action filters; defaults page=1/limit=30 with page>=1 and limit 1–100. Requires either social:moderate or social:moderation:review.",
+      "auth": "social:moderate OR social:moderation:review; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").ModerationAuditResponse",
+      "query": "import(\"./types.js\").ModerationAuditQuery"
+    },
+    {
+      "id": "POST /api/v1/moderation/actions",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:833:moderate",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 833,
+        "name": "moderate"
+      },
+      "source_checksum": "e3ca46685f1ae8e133b177bb521ba617e30573a7ef730cd5027b746be187187e",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:833:moderate",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Moderate a post/comment/report. Reject/hide require a nonblank reason; resolve/dismiss target reports. Awaiting-funding posts return 409. Returns target_type,target_id,status,action; audit stores previous_status separately. Requires either social:moderate or social:moderation:review.",
+      "auth": "social:moderate OR social:moderation:review; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").ModerationActionResponse",
+      "input": "import(\"./types.js\").ModerateTargetInput"
+    },
+    {
+      "id": "POST /api/v1/admin/import/modules",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:844:import_modules",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 844,
+        "name": "import_modules"
+      },
+      "source_checksum": "3aa3089c03a0d8aafaf1217a4983ffeb80e4c2b8fcc95dcc87a3e0ee6791287c",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:844:import_modules",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Import legacy Modules social records within the current organization; dry_run defaults true. Returns counters and the explicit legacy reaction mapping; requires social:admin.",
+      "auth": "social:admin; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").LegacyImportResponse",
+      "input": "import(\"./types.js\").LegacyImportInput"
+    },
+    {
+      "id": "GET /api/v1/admin/social/overview",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:87:overview",
+        "path": "infera-social/src/admin.rs",
+        "line": 87,
+        "name": "overview"
+      },
+      "source_checksum": "da27252e661ee0285392b97eb2475ab4e0e6806f5625bab33486981fcd827f01",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:87:overview",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminOverview>",
+      "auth": "social:panel:view; current trusted organization/actor context required",
+      "purpose": "Read organization-scoped operator totals."
+    },
+    {
+      "id": "GET /api/v1/admin/social/posts",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:106:posts",
+        "path": "infera-social/src/admin.rs",
+        "line": 106,
+        "name": "posts"
+      },
+      "source_checksum": "dd99888a754d20e8cf356cad6bc0f7f2f5969e5b070f41e76d5056a555c3a8c7",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:106:posts",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminPage<import(\"./admin.types.js\").SocialAdminPostSummary>",
+      "auth": "social:content:read; current trusted organization/actor context required",
+      "purpose": "Page non-deleted posts, filtering moderation status, category UUID and trimmed title/body search.",
+      "query": "import(\"./admin.types.js\").SocialAdminPostsQuery"
+    },
+    {
+      "id": "GET /api/v1/admin/social/posts/{id}",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:135:post_detail",
+        "path": "infera-social/src/admin.rs",
+        "line": 135,
+        "name": "post_detail"
+      },
+      "source_checksum": "e5c3ab401f43ac6f903ed0007a74c9bca2a904feb9858dcb68a42894d6508395",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:135:post_detail",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminPostDetail>",
+      "auth": "social:content:read; current trusted organization/actor context required",
+      "purpose": "Read a post, metadata, report rows, activity counts and public capability projection. Missing or deleted post projection returns404."
+    },
+    {
+      "id": "GET /api/v1/admin/social/comments",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:154:comments",
+        "path": "infera-social/src/admin.rs",
+        "line": 154,
+        "name": "comments"
+      },
+      "source_checksum": "6b02c5e49e4f908c3d58c5ac510ba1298bd3293c0ffb4d2dd53bb7462b38a139",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:154:comments",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminPage<import(\"./admin.types.js\").SocialAdminComment>",
+      "auth": "social:content:read; current trusted organization/actor context required",
+      "purpose": "Page comments including deleted records; status filters moderation_status. q/category_id are ignored.",
+      "query": "import(\"./admin.types.js\").SocialAdminStatusQuery"
+    },
+    {
+      "id": "GET /api/v1/admin/social/comments/{id}",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:170:comment_detail",
+        "path": "infera-social/src/admin.rs",
+        "line": 170,
+        "name": "comment_detail"
+      },
+      "source_checksum": "b1933a1a6d440b777f892ef7ee87b93f3fe6992c8301b005a7ca252c7b7d8573",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:170:comment_detail",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminComment>",
+      "auth": "social:content:read; current trusted organization/actor context required",
+      "purpose": "Read an organization-scoped comment UUID, including deleted rows; missing records return404."
+    },
+    {
+      "id": "GET /api/v1/admin/social/media",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:178:media",
+        "path": "infera-social/src/admin.rs",
+        "line": 178,
+        "name": "media"
+      },
+      "source_checksum": "3160dd85faf4e9c8017593a43ca54f378095a7e43062074811ffe08a4da9a30f",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:178:media",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminPage<import(\"./admin.types.js\").SocialAdminMedia>",
+      "auth": "social:content:read; current trusted organization/actor context required",
+      "purpose": "Page uploaded media. status filters exact content_type, not lifecycle status.",
+      "query": "import(\"./admin.types.js\").SocialAdminStatusQuery"
+    },
+    {
+      "id": "GET /api/v1/admin/social/categories",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:408:categories",
+        "path": "infera-social/src/admin.rs",
+        "line": 408,
+        "name": "categories"
+      },
+      "source_checksum": "572ea3814f8c2e6300a0e9a3df6d2c81b208909622dd85a2f6da54a60b8c0781",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:408:categories",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminCategory[]>",
+      "auth": "social:panel:view; current trusted organization/actor context required",
+      "purpose": "List non-deleted categories, including hidden/archived status; no pagination."
+    },
+    {
+      "id": "POST /api/v1/admin/social/categories",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:430:create_category",
+        "path": "infera-social/src/admin.rs",
+        "line": 430,
+        "name": "create_category"
+      },
+      "source_checksum": "720e8cc5bd8e08a9326411a14e0366ff5f49ec0dc3796c67dccd0f49b8319322",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:430:create_category",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminCategory>",
+      "auth": "social:categories:manage; current trusted organization/actor context required",
+      "purpose": "Create a validated category; returns201. Localized name/description and metadata use backend JSON values.",
+      "input": "import(\"./admin.types.js\").SocialAdminCreateCategoryInput"
+    },
+    {
+      "id": "GET /api/v1/admin/social/categories/{id}",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:417:category_detail",
+        "path": "infera-social/src/admin.rs",
+        "line": 417,
+        "name": "category_detail"
+      },
+      "source_checksum": "2492656adae28ec1ecf567cf556329f76714456acafc517fa8b8ecd4daa6c2c9",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:417:category_detail",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminCategory>",
+      "auth": "social:panel:view; current trusted organization/actor context required",
+      "purpose": "Read a non-deleted category UUID from the organization-scoped category list."
+    },
+    {
+      "id": "PATCH /api/v1/admin/social/categories/{id}",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:439:update_category",
+        "path": "infera-social/src/admin.rs",
+        "line": 439,
+        "name": "update_category"
+      },
+      "source_checksum": "ad0d487144954ee7a50631dabb0d01f68f10b59cfc7e78c5ea5d35bd72fb6d79",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:439:update_category",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminCategory>",
+      "auth": "social:categories:manage; current trusted organization/actor context required",
+      "purpose": "Patch a category using supplied fields; absent and null optional fields follow backend Option semantics.",
+      "input": "import(\"./admin.types.js\").SocialAdminUpdateCategoryInput"
+    },
+    {
+      "id": "DELETE /api/v1/admin/social/categories/{id}",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:450:archive_category",
+        "path": "infera-social/src/admin.rs",
+        "line": 450,
+        "name": "archive_category"
+      },
+      "source_checksum": "735050adf605dd5cbe1be9ce54951179d49f2eb0be5e91254701981ff3517cb3",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:450:archive_category",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "void",
+      "auth": "social:categories:manage; current trusted organization/actor context required",
+      "purpose": "Soft-delete a category; returns204 without a response body."
+    },
+    {
+      "id": "GET /api/v1/admin/social/capability-policies",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:460:policies",
+        "path": "infera-social/src/admin.rs",
+        "line": 460,
+        "name": "policies"
+      },
+      "source_checksum": "cb10e0315a4b583200c05dc9416a8b40ea5ee3c4847540e45ad4b8a0b85b54e3",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:460:policies",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminPolicy[]>",
+      "auth": "social:panel:view; current trusted organization/actor context required",
+      "purpose": "List category capability policies ordered by category UUID and descending version, including draft/retired."
+    },
+    {
+      "id": "POST /api/v1/admin/social/capability-policies",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:512:create_policy",
+        "path": "infera-social/src/admin.rs",
+        "line": 512,
+        "name": "create_policy"
+      },
+      "source_checksum": "01cef4253fd4b07c3f7db4304a4756b60b7119056f5867073416a8a0506a7197",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:512:create_policy",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminPolicy>",
+      "auth": "social:capabilities:manage; current trusted organization/actor context required",
+      "purpose": "Create a new draft policy version for a category; authenticated operator required; returns201. Only seven supported config section names are accepted.",
+      "input": "import(\"./admin.types.js\").SocialAdminPolicyInput"
+    },
+    {
+      "id": "GET /api/v1/admin/social/capability-policies/{id}",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:471:policy_detail",
+        "path": "infera-social/src/admin.rs",
+        "line": 471,
+        "name": "policy_detail"
+      },
+      "source_checksum": "ffd22c0d0a202c099bbc3e24212e5b8a3b1b5a8559d2cab31b93b13e051b9584",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:471:policy_detail",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminPolicy>",
+      "auth": "social:panel:view; current trusted organization/actor context required",
+      "purpose": "Read an organization-scoped capability policy UUID; missing records return404."
+    },
+    {
+      "id": "PATCH /api/v1/admin/social/capability-policies/{id}",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:524:update_policy",
+        "path": "infera-social/src/admin.rs",
+        "line": 524,
+        "name": "update_policy"
+      },
+      "source_checksum": "c4ad529b1f9c676a99ae27417b3dfe9fe4449ea228567567318efcdbe78bb1ac",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:524:update_policy",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminPolicy>",
+      "auth": "social:capabilities:manage; current trusted organization/actor context required",
+      "purpose": "Replace draft config for the matching category; non-draft, missing or mismatched category returns409.",
+      "input": "import(\"./admin.types.js\").SocialAdminPolicyInput"
+    },
+    {
+      "id": "POST /api/v1/admin/social/capability-policies/{id}/publish",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:540:publish_policy",
+        "path": "infera-social/src/admin.rs",
+        "line": 540,
+        "name": "publish_policy"
+      },
+      "source_checksum": "81980e728da55949a53998671d2595da6f69d3e870759cb57b46491fe320a4a4",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:540:publish_policy",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminPolicy>",
+      "auth": "social:capabilities:manage; current trusted organization/actor context required",
+      "purpose": "Publish a draft and retire the previously published category policy in one transaction. Authenticated operator required; non-draft returns409."
+    },
+    {
+      "id": "GET /api/v1/admin/social/moderation/queue",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:556:moderation_queue",
+        "path": "infera-social/src/admin.rs",
+        "line": 556,
+        "name": "moderation_queue"
+      },
+      "source_checksum": "b90f4fa58c144cbdd62e68fb57a4df76dd5b041d645fccac750e5e6163ef10e8",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:556:moderation_queue",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminModerationQueue>",
+      "auth": "social:moderation:review; current trusted organization/actor context required",
+      "purpose": "Read pending non-deleted posts/comments and open/reviewing reports. Awaiting-funding posts are excluded; queue is unpaginated."
+    },
+    {
+      "id": "GET /api/v1/admin/social/reports",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:194:reports",
+        "path": "infera-social/src/admin.rs",
+        "line": 194,
+        "name": "reports"
+      },
+      "source_checksum": "d139ab1c34c2fbba0b3da03e83112c16f18ede344fbab6bf9424a965fd224158",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:194:reports",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminPage<import(\"./admin.types.js\").SocialAdminReport>",
+      "auth": "social:reports:manage; current trusted organization/actor context required",
+      "purpose": "Page organization-scoped reports with exact status filtering.",
+      "query": "import(\"./admin.types.js\").SocialAdminStatusQuery"
+    },
+    {
+      "id": "GET /api/v1/admin/social/reports/{id}",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:210:report_detail",
+        "path": "infera-social/src/admin.rs",
+        "line": 210,
+        "name": "report_detail"
+      },
+      "source_checksum": "a5f600f61d9c4d7ecd842c230b95b3fc03f54e67201f772b06045e986b9ec4c6",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:210:report_detail",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminReport>",
+      "auth": "social:reports:manage; current trusted organization/actor context required",
+      "purpose": "Read a report UUID in the organization; missing records return404."
+    },
+    {
+      "id": "GET /api/v1/admin/social/claims",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:218:claims",
+        "path": "infera-social/src/admin.rs",
+        "line": 218,
+        "name": "claims"
+      },
+      "source_checksum": "ad7a96339384a7e14c8af811a7b1c7868a8485b8626bb3c0eee95ed16fc1d2df",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:218:claims",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminPage<import(\"./admin.types.js\").SocialAdminClaim>",
+      "auth": "social:claims:manage; current trusted organization/actor context required",
+      "purpose": "Page organization-scoped claims with exact status filtering.",
+      "query": "import(\"./admin.types.js\").SocialAdminStatusQuery"
+    },
+    {
+      "id": "GET /api/v1/admin/social/claims/{id}",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:234:claim_detail",
+        "path": "infera-social/src/admin.rs",
+        "line": 234,
+        "name": "claim_detail"
+      },
+      "source_checksum": "affa2bf7b213c37da377a2fbfc3a089f80d87f148a9f9837c816868ceb1aa44b",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:234:claim_detail",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminClaim>",
+      "auth": "social:claims:manage; current trusted organization/actor context required",
+      "purpose": "Read a claim UUID in the organization; missing records return404."
+    },
+    {
+      "id": "POST /api/v1/admin/social/claims/{id}/approve",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:565:approve_claim",
+        "path": "infera-social/src/admin.rs",
+        "line": 565,
+        "name": "approve_claim"
+      },
+      "source_checksum": "99306134224845685474475d6d28e6eed54c72eb2c4a05875bfe51e042073449",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:565:approve_claim",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminClaimDecision>",
+      "auth": "social:claims:manage; current trusted organization/actor context required",
+      "purpose": "Resolve an author-selected and author-approved claim in a transaction, update post lifecycle and audit. Authenticated operator required; unmet selection prerequisites return409.",
+      "input": "import(\"./admin.types.js\").SocialAdminReasonInput"
+    },
+    {
+      "id": "POST /api/v1/admin/social/claims/{id}/reject",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:576:reject_claim",
+        "path": "infera-social/src/admin.rs",
+        "line": 576,
+        "name": "reject_claim"
+      },
+      "source_checksum": "0637eb485c7ea78ef7e4b7fcdd0e6477fa85b4b4c4f547efb23dd4bdc5855473",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:576:reject_claim",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminClaimDecision>",
+      "auth": "social:claims:manage; current trusted organization/actor context required",
+      "purpose": "Reject a submitted/selected claim and audit the decision. Nonempty reason and authenticated operator required. Terminal claims return409; the claim row is locked while applying the decision.",
+      "input": "import(\"./admin.types.js\").SocialAdminReasonInput"
+    },
+    {
+      "id": "GET /api/v1/admin/social/bounties",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:242:bounties",
+        "path": "infera-social/src/admin.rs",
+        "line": 242,
+        "name": "bounties"
+      },
+      "source_checksum": "ed6cfde1ac3fc7beec02d1067e8b8d1dbcad47740e1913a9ce55b285564f4fe7",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:242:bounties",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminPage<import(\"./admin.types.js\").SocialAdminBounty>",
+      "auth": "social:funding:review; current trusted organization/actor context required",
+      "purpose": "Page organization-scoped bounties with exact status filter and newest-update ordering. Admin amount uses a JSON number.",
+      "query": "import(\"./admin.types.js\").SocialAdminStatusQuery"
+    },
+    {
+      "id": "GET /api/v1/admin/social/bounties/{id}",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:258:bounty_detail",
+        "path": "infera-social/src/admin.rs",
+        "line": 258,
+        "name": "bounty_detail"
+      },
+      "source_checksum": "039e78cea8b0554aa8c040bcb5ccfcb066aba95c6ab923ccb47418943d385d20",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:258:bounty_detail",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminBounty>",
+      "auth": "social:funding:review; current trusted organization/actor context required",
+      "purpose": "Read a bounty UUID in the organization; missing records return404."
+    },
+    {
+      "id": "POST /api/v1/admin/social/locations/{post_id}/reveal",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:587:reveal_location",
+        "path": "infera-social/src/admin.rs",
+        "line": 587,
+        "name": "reveal_location"
+      },
+      "source_checksum": "28838e35b3558656a5266d102dfc2979c561b477c0b38887a8880674e60b9089",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:587:reveal_location",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminLocation>",
+      "auth": "social:location:reveal; current trusted organization/actor context required",
+      "purpose": "Reveal decrypted coordinates with a mandatory nonempty operator reason and audit event. Response is no-store/no-cache; expire the result after60seconds.",
+      "input": "import(\"./admin.types.js\").SocialAdminReasonInput"
+    },
+    {
+      "id": "GET /api/v1/admin/social/actors",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:613:actors",
+        "path": "infera-social/src/admin.rs",
+        "line": 613,
+        "name": "actors"
+      },
+      "source_checksum": "5c82f0eab86fd5fd946586dc29140edb2ff2ce56ce85508a4e6055fb9e027993",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:613:actors",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminPage<import(\"./admin.types.js\").SocialAdminActor>",
+      "auth": "social:content:read; current trusted organization/actor context required",
+      "purpose": "Page actors by latest post time; q optionally filters an actor UUID. Invalid q is currently ignored; meta.total is current-page length.",
+      "query": "import(\"./admin.types.js\").SocialAdminActorsQuery"
+    },
+    {
+      "id": "GET /api/v1/admin/social/actors/{id}",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:629:actor_detail",
+        "path": "infera-social/src/admin.rs",
+        "line": 629,
+        "name": "actor_detail"
+      },
+      "source_checksum": "86dc0704ab96f3aa3e573b6464e479c6181c0a53ebd00d259584244d4c4ceca7",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:629:actor_detail",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminActorDetail>",
+      "auth": "social:content:read; current trusted organization/actor context required",
+      "purpose": "Read actor activity counts and restriction rows in the organization; a UUID with no activity returns zero counts."
+    },
+    {
+      "id": "GET /api/v1/admin/social/restrictions",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:266:restrictions",
+        "path": "infera-social/src/admin.rs",
+        "line": 266,
+        "name": "restrictions"
+      },
+      "source_checksum": "eef5b3e51afb16a8b23034359f558930787184dd959e76b0fb5b236ad9a78b51",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:266:restrictions",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminPage<import(\"./admin.types.js\").SocialAdminRestriction>",
+      "auth": "social:actors:restrict; current trusted organization/actor context required",
+      "purpose": "Page organization-scoped restrictions with exact status filter.",
+      "query": "import(\"./admin.types.js\").SocialAdminStatusQuery"
+    },
+    {
+      "id": "POST /api/v1/admin/social/restrictions",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:638:create_restriction",
+        "path": "infera-social/src/admin.rs",
+        "line": 638,
+        "name": "create_restriction"
+      },
+      "source_checksum": "aebbf436b6210e9ecd59c2348e89b4a505402da199da00909ed9bfd8f6501b2d",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:638:create_restriction",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminRestrictionCreated>",
+      "auth": "social:actors:restrict; current trusted organization/actor context required",
+      "purpose": "Create an active restriction; authenticated operator, valid scope, nonempty reason and end later than start required; returns201.",
+      "input": "import(\"./admin.types.js\").SocialAdminCreateRestrictionInput"
+    },
+    {
+      "id": "POST /api/v1/admin/social/restrictions/{id}/revoke",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:668:revoke_restriction",
+        "path": "infera-social/src/admin.rs",
+        "line": 668,
+        "name": "revoke_restriction"
+      },
+      "source_checksum": "84be6c7d4afe2b36d59399285320da0c55a5ccb4ca8ae813f0eb720638982d2d",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:668:revoke_restriction",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminRestrictionRevoked>",
+      "auth": "social:actors:restrict; current trusted organization/actor context required",
+      "purpose": "Revoke an active restriction with an authenticated operator and nonempty reason; non-active/missing returns409.",
+      "input": "import(\"./admin.types.js\").SocialAdminReasonInput"
+    },
+    {
+      "id": "GET /api/v1/admin/social/analytics",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:686:analytics",
+        "path": "infera-social/src/admin.rs",
+        "line": 686,
+        "name": "analytics"
+      },
+      "source_checksum": "848d7bfc9d14cceaafa12cbd3f9ce9c949f4109bf231c646b3c30d2d89c5b762",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:686:analytics",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminAnalytics>",
+      "auth": "social:analytics:read; current trusted organization/actor context required",
+      "purpose": "Read organization-scoped counts by status and navigation grant events; includes deleted posts in status totals."
+    },
+    {
+      "id": "GET /api/v1/admin/social/audit",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:282:audit",
+        "path": "infera-social/src/admin.rs",
+        "line": 282,
+        "name": "audit"
+      },
+      "source_checksum": "2fc1af475052ae8d5820f95ace52ffeb45b533a026a0018d86f644f000964ea5",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:282:audit",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminPage<import(\"./admin.types.js\").SocialAdminAudit>",
+      "auth": "social:audit:read; current trusted organization/actor context required",
+      "purpose": "Page organization-scoped audit rows. status filters exact audit action, not a lifecycle state.",
+      "query": "import(\"./admin.types.js\").SocialAdminStatusQuery"
+    },
+    {
+      "id": "GET /api/v1/admin/social/integrations",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:298:integrations",
+        "path": "infera-social/src/admin.rs",
+        "line": 298,
+        "name": "integrations"
+      },
+      "source_checksum": "c12825f54e5bf31b1f70bc82bb4a1c9353b3e9a2adf9c52d6b4b19388fa58afe",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:298:integrations",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminPage<import(\"./admin.types.js\").SocialAdminIntegration>",
+      "auth": "social:integrations:manage; current trusted organization/actor context required",
+      "purpose": "Page organization-scoped durable integration events with exact status filter and newest-update ordering.",
+      "query": "import(\"./admin.types.js\").SocialAdminStatusQuery"
+    },
+    {
+      "id": "GET /api/v1/admin/social/integrations/{id}",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:314:integration_detail",
+        "path": "infera-social/src/admin.rs",
+        "line": 314,
+        "name": "integration_detail"
+      },
+      "source_checksum": "a255d897ac83befb7901cb0f07c75cc3c6097b1f77c17b100674d17f86b3a9d7",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:314:integration_detail",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminIntegration>",
+      "auth": "social:integrations:manage; current trusted organization/actor context required",
+      "purpose": "Read an organization-scoped durable event UUID, including its payload; missing returns404."
+    },
+    {
+      "id": "POST /api/v1/admin/social/integrations/{id}/replay",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:694:replay_integration",
+        "path": "infera-social/src/admin.rs",
+        "line": 694,
+        "name": "replay_integration"
+      },
+      "source_checksum": "a8fd0d3210190ed61d0304b77a7e87ca5644b35271a4e45b793e1dad30fc845d",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:694:replay_integration",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminIntegrationPending>",
+      "auth": "social:integrations:manage; current trusted organization/actor context required",
+      "purpose": "Reset failed/dead_letter events to pending and audit a replay request. Authenticated operator and nonempty reason required; other statuses return409. Receipt is queued, not delivered; the outbox reset and audit insert commit in one transaction.",
+      "input": "import(\"./admin.types.js\").SocialAdminReasonInput"
+    },
+    {
+      "id": "GET /api/v1/admin/social/settings",
+      "handler": {
+        "ref": "infera-social/src/admin.rs:716:settings",
+        "path": "infera-social/src/admin.rs",
+        "line": 716,
+        "name": "settings"
+      },
+      "source_checksum": "b036786bae721e08a09096c75af59f6d7cc2240e49acbe8801ff3745eb97b19d",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/admin.rs:716:settings",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs",
+        "infera-social/src/admin.rs",
+        "infera-social/src/capabilities.rs",
+        "infera-social/src/repository.rs"
+      ],
+      "response": "import(\"./admin.types.js\").SocialAdminResponse<import(\"./admin.types.js\").SocialAdminSettings>",
+      "auth": "social:settings:manage; current trusted organization/actor context required",
+      "purpose": "Read configuration-presence flags and capability contract version. This does not disclose secrets or prove they are valid."
+    },
+    {
+      "id": "GET /api/v1/comments/post/{id}",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:645:list_post_comments",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 645,
+        "name": "list_post_comments"
+      },
+      "source_checksum": "fe8cca1dbec91fdabb4f9b81ab008c26a80711c1fb6191760a497afd3feacc3e",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:645:list_post_comments",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read published non-deleted comments oldest-first after checking parent visibility; no pagination query is consumed.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialCommentListResponse"
+    },
+    {
+      "id": "POST /api/v1/comments/post/{id}",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:656:create_post_comment",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 656,
+        "name": "create_post_comment"
+      },
+      "source_checksum": "c7a4a10688330c8f9ab7feeed4bf6f4e57763149e3a34a82e023735fcab59866",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:656:create_post_comment",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Create a post comment (201), checking parent post and optional same-post non-deleted parent comment. Body is trimmed, 1–10000 characters; category moderation/restrictions apply.",
+      "auth": "social:comment:create; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialCommentResponse",
+      "input": "import(\"./types.js\").CreateCommentInput"
+    },
+    {
+      "id": "GET /api/v1/reactions/post/{id}",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:690:post_reactions",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 690,
+        "name": "post_reactions"
+      },
+      "source_checksum": "d158a38e8d042d50c795729039c200e1e6de63aed1bfd7ecb184f84e7e1e0d18",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:690:post_reactions",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Read post reaction totals, counts by reaction type and nullable viewer_reaction after verifying visibility.",
+      "auth": "social:read; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").ReactionSummaryResponse"
+    },
+    {
+      "id": "POST /api/v1/reactions/post/{id}",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:712:set_post_reaction",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 712,
+        "name": "set_post_reaction"
+      },
+      "source_checksum": "39adf9774b39f265847f8197fde3610d2e90942e00ab4ce4f071fe841eb2c974",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:712:set_post_reaction",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Upsert current user post reaction after visibility and restriction checks; type is one of like/love/care/haha/wow/sad/angry.",
+      "auth": "social:reaction:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "import(\"./types.js\").SocialReactionResponse",
+      "input": "import(\"./types.js\").SetReactionInput"
+    },
+    {
+      "id": "DELETE /api/v1/reactions/post/{id}",
+      "handler": {
+        "ref": "infera-social/src/api/routes.rs:780:remove_post_reaction",
+        "path": "infera-social/src/api/routes.rs",
+        "line": 780,
+        "name": "remove_post_reaction"
+      },
+      "source_checksum": "1c6951d15a46cbdb212a3daa9e8335995ee21f397d46cb3cab6997fb5382d4cd",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/api/routes.rs:780:remove_post_reaction",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/context.rs:56",
+        "infera-social/src/models.rs"
+      ],
+      "purpose": "Remove current user post reaction and refresh counts; returns 204.",
+      "auth": "social:reaction:write; authenticated IDP context via shared FaiberClient; trusted organization context",
+      "response": "void"
+    },
+    {
+      "id": "POST /api/v1/internal/place-events",
+      "handler": {
+        "ref": "infera-social/src/discovery.rs:338:place_event",
+        "path": "infera-social/src/discovery.rs",
+        "line": 338,
+        "name": "place_event"
+      },
+      "source_checksum": "b3596d984cc2decd63566319122ed906f88d405649945da400b3451a7efe8bbb",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/discovery.rs:338:place_event",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/discovery.rs:26",
+        "infera-social/src/models.rs",
+        "infera-social/migration/src/m20260923_000006_city_activity_events.rs",
+        "infera-social/migration/src/m20260923_000009_place_events.rs"
+      ],
+      "response": "void",
+      "auth": "trusted BFF actor plus exact social:integrations:write permission",
+      "purpose": "Record a unique organization/event UUID and queue place.updated notifications for followers who did not disable place notifications, in one transaction. Repeated ID has no new effect; returns204.",
+      "input": "import(\"./discovery.types.js\").SocialPlaceEventInput",
+      "pathTypes": {}
+    },
+    {
+      "id": "GET /api/v1/public/posts",
+      "handler": {
+        "ref": "infera-social/src/discovery.rs:79:feed",
+        "path": "infera-social/src/discovery.rs",
+        "line": 79,
+        "name": "feed"
+      },
+      "source_checksum": "d715d669dc9e4d6f409074ad4a8ea3f60c8218d9acba343107b36824ee1acc29",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/discovery.rs:79:feed",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/discovery.rs:26",
+        "infera-social/src/models.rs",
+        "infera-social/migration/src/m20260923_000006_city_activity_events.rs",
+        "infera-social/migration/src/m20260923_000009_place_events.rs"
+      ],
+      "response": "import(\"./discovery.types.js\").SocialDiscoveryResponse<import(\"./discovery.types.js\").SocialDiscoveryPost[]>",
+      "auth": "public; following=true requires a trusted BFF actor",
+      "purpose": "Public projection; runtime-configured organization/category, only public published non-deleted posts and non-expired24hour stories. Valid trusted actor enables following/liked/bookmarked and bidirectional blocking. Page1..10000/limit1..100; subject pair, comma-separated place references, author UUID and normalized text filters.",
+      "query": "import(\"./discovery.types.js\").SocialDiscoveryFeedQuery",
+      "pathTypes": {}
+    },
+    {
+      "id": "GET /api/v1/public/posts/{id}",
+      "handler": {
+        "ref": "infera-social/src/discovery.rs:160:post_detail",
+        "path": "infera-social/src/discovery.rs",
+        "line": 160,
+        "name": "post_detail"
+      },
+      "source_checksum": "3e216c48cb29e71de9cdcb63d63d111e5dda8a8b1843a0fba7355a4a71372173",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/discovery.rs:160:post_detail",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/discovery.rs:26",
+        "infera-social/src/models.rs",
+        "infera-social/migration/src/m20260923_000006_city_activity_events.rs",
+        "infera-social/migration/src/m20260923_000009_place_events.rs"
+      ],
+      "response": "import(\"./discovery.types.js\").SocialDiscoveryResponse<import(\"./discovery.types.js\").SocialDiscoveryPost>",
+      "auth": "public projection",
+      "purpose": "Read the same public, unexpired and non-blocked post projection; hidden, private, wrong-category or blocked records return404.",
+      "pathTypes": {
+        "id": "string"
+      }
+    },
+    {
+      "id": "GET /api/v1/public/posts/{id}/comments",
+      "handler": {
+        "ref": "infera-social/src/discovery.rs:167:comments",
+        "path": "infera-social/src/discovery.rs",
+        "line": 167,
+        "name": "comments"
+      },
+      "source_checksum": "3907ca2bc33f517ea5c21cea27e2776aa33adfa369fc826c1904b4d9b9570d60",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/discovery.rs:167:comments",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/discovery.rs:26",
+        "infera-social/src/models.rs",
+        "infera-social/migration/src/m20260923_000006_city_activity_events.rs",
+        "infera-social/migration/src/m20260923_000009_place_events.rs"
+      ],
+      "response": "import(\"./discovery.types.js\").SocialDiscoveryResponse<import(\"./discovery.types.js\").SocialDiscoveryComment[]>",
+      "auth": "public projection",
+      "purpose": "Read at most100 published non-deleted comments, oldest first, after verifying parent post visibility and bidirectional actor blocks.",
+      "pathTypes": {
+        "id": "string"
+      }
+    },
+    {
+      "id": "GET /api/v1/public/media/{id}",
+      "handler": {
+        "ref": "infera-social/src/discovery.rs:180:media",
+        "path": "infera-social/src/discovery.rs",
+        "line": 180,
+        "name": "media"
+      },
+      "source_checksum": "4148ce998002675a8b226abfa1abd0cd6ff083af0d92144f499a40d96e40f0ac",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/discovery.rs:180:media",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/discovery.rs:26",
+        "infera-social/src/models.rs",
+        "infera-social/migration/src/m20260923_000006_city_activity_events.rs",
+        "infera-social/migration/src/m20260923_000009_place_events.rs"
+      ],
+      "response": "ArrayBuffer | Uint8Array",
+      "auth": "public projection",
+      "purpose": "Download published media bytes after parent visibility and blocking checks. Response has private,no-cache. Unpublished media404, unavailable object storage500.",
+      "binaryDownload": true,
+      "pathTypes": {
+        "id": "string"
+      }
+    },
+    {
+      "id": "GET /api/v1/follow/{kind}/{id}",
+      "handler": {
+        "ref": "infera-social/src/discovery.rs:269:relationship",
+        "path": "infera-social/src/discovery.rs",
+        "line": 269,
+        "name": "relationship"
+      },
+      "source_checksum": "2959899b8510320ee800dc02a660faf9a0b8ae326753aee3c390c265c9093f55",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/discovery.rs:269:relationship",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/discovery.rs:26",
+        "infera-social/src/models.rs",
+        "infera-social/migration/src/m20260923_000006_city_activity_events.rs",
+        "infera-social/migration/src/m20260923_000009_place_events.rs"
+      ],
+      "response": "import(\"./discovery.types.js\").SocialGraphResponse<import(\"./discovery.types.js\").SocialRelationship>",
+      "auth": "trusted server BFF_SERVICE_KEY bearer plus actor UUID",
+      "purpose": "Read whether the current BFF actor follows or blocks a user/place target. kind is place or user.",
+      "pathTypes": {
+        "kind": "import(\"./discovery.types.js\").SocialFollowTargetKind",
+        "id": "string"
+      }
+    },
+    {
+      "id": "PUT /api/v1/follow/{kind}/{id}",
+      "handler": {
+        "ref": "infera-social/src/discovery.rs:217:follow",
+        "path": "infera-social/src/discovery.rs",
+        "line": 217,
+        "name": "follow"
+      },
+      "source_checksum": "fa47726ba085e57697ddc25baa73ca2b42ec22366829a87b92a6b9b778a50408",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/discovery.rs:217:follow",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/discovery.rs:26",
+        "infera-social/src/models.rs",
+        "infera-social/migration/src/m20260923_000006_city_activity_events.rs",
+        "infera-social/migration/src/m20260923_000009_place_events.rs"
+      ],
+      "response": "void",
+      "auth": "trusted server BFF_SERVICE_KEY bearer plus actor UUID",
+      "purpose": "Idempotently follow a user/place. Self-follow400 and blocked user403. Returns204; the migration 6 database trigger may enqueue an opted-in user-follow notification for a new edge.",
+      "pathTypes": {
+        "kind": "import(\"./discovery.types.js\").SocialFollowTargetKind",
+        "id": "string"
+      }
+    },
+    {
+      "id": "DELETE /api/v1/follow/{kind}/{id}",
+      "handler": {
+        "ref": "infera-social/src/discovery.rs:235:unfollow",
+        "path": "infera-social/src/discovery.rs",
+        "line": 235,
+        "name": "unfollow"
+      },
+      "source_checksum": "9ac7052c110092b947cf14ac7d08782799c144f9265eb016d688b9023dbc9d10",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/discovery.rs:235:unfollow",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/discovery.rs:26",
+        "infera-social/src/models.rs",
+        "infera-social/migration/src/m20260923_000006_city_activity_events.rs",
+        "infera-social/migration/src/m20260923_000009_place_events.rs"
+      ],
+      "response": "void",
+      "auth": "trusted server BFF_SERVICE_KEY bearer plus actor UUID",
+      "purpose": "Remove the current actor follow edge; returns204 even when no edge existed.",
+      "pathTypes": {
+        "kind": "import(\"./discovery.types.js\").SocialFollowTargetKind",
+        "id": "string"
+      }
+    },
+    {
+      "id": "GET /api/v1/me/notification-preferences",
+      "handler": {
+        "ref": "infera-social/src/discovery.rs:281:preferences",
+        "path": "infera-social/src/discovery.rs",
+        "line": 281,
+        "name": "preferences"
+      },
+      "source_checksum": "88c4644a7c486f25703fe2c8f80b780bfca78fae619bc3c1c89fff22300b26ee",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/discovery.rs:281:preferences",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/discovery.rs:26",
+        "infera-social/src/models.rs",
+        "infera-social/migration/src/m20260923_000006_city_activity_events.rs",
+        "infera-social/migration/src/m20260923_000009_place_events.rs"
+      ],
+      "response": "import(\"./discovery.types.js\").SocialGraphResponse<import(\"./discovery.types.js\").SocialNotificationPreferences>",
+      "auth": "trusted server BFF_SERVICE_KEY bearer plus actor UUID",
+      "purpose": "Read follow/comment/place/quest notification preferences, defaulting to enabled.",
+      "pathTypes": {}
+    },
+    {
+      "id": "PUT /api/v1/me/notification-preferences",
+      "handler": {
+        "ref": "infera-social/src/discovery.rs:289:set_preferences",
+        "path": "infera-social/src/discovery.rs",
+        "line": 289,
+        "name": "set_preferences"
+      },
+      "source_checksum": "49315b001cf70885616574ac238e2ec4cd5375c78af7be182eb2742000c4dbc0",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/discovery.rs:289:set_preferences",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/discovery.rs:26",
+        "infera-social/src/models.rs",
+        "infera-social/migration/src/m20260923_000006_city_activity_events.rs",
+        "infera-social/migration/src/m20260923_000009_place_events.rs"
+      ],
+      "response": "import(\"./discovery.types.js\").SocialGraphResponse<import(\"./discovery.types.js\").SocialNotificationPreferences>",
+      "auth": "trusted server BFF_SERVICE_KEY bearer plus actor UUID",
+      "purpose": "Update supplied boolean preferences; absent fields stay unchanged. Current handler writes supplied preferences separately.",
+      "input": "import(\"./discovery.types.js\").SocialNotificationPreferencesInput",
+      "pathTypes": {}
+    },
+    {
+      "id": "GET /api/v1/internal/notification-outbox",
+      "handler": {
+        "ref": "infera-social/src/discovery.rs:315:outbox",
+        "path": "infera-social/src/discovery.rs",
+        "line": 315,
+        "name": "outbox"
+      },
+      "source_checksum": "1eff841552902ffae9223e2fa0cfcba55686a9c0a000cb2e3edd9b112ab76afb",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/discovery.rs:315:outbox",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/discovery.rs:26",
+        "infera-social/src/models.rs",
+        "infera-social/migration/src/m20260923_000006_city_activity_events.rs",
+        "infera-social/migration/src/m20260923_000009_place_events.rs"
+      ],
+      "response": "import(\"./discovery.types.js\").SocialGraphResponse<import(\"./discovery.types.js\").SocialNotificationOutboxEvent[]>",
+      "auth": "trusted BFF actor plus exact social:integrations:write permission",
+      "purpose": "Read oldest50 undelivered notification events for the configured organization. No lease or claim is acquired; consumers must deduplicate.",
+      "pathTypes": {}
+    },
+    {
+      "id": "PUT /api/v1/internal/notification-outbox/{id}/ack",
+      "handler": {
+        "ref": "infera-social/src/discovery.rs:322:ack",
+        "path": "infera-social/src/discovery.rs",
+        "line": 322,
+        "name": "ack"
+      },
+      "source_checksum": "dc8fa1c4d2fe9fa89e58e839fa7388678bd21168e8cb62be7bf44a498d84a849",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/discovery.rs:322:ack",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/discovery.rs:26",
+        "infera-social/src/models.rs",
+        "infera-social/migration/src/m20260923_000006_city_activity_events.rs",
+        "infera-social/migration/src/m20260923_000009_place_events.rs"
+      ],
+      "response": "void",
+      "auth": "trusted BFF actor plus exact social:integrations:write permission",
+      "purpose": "Mark an organization-scoped notification as delivered; returns204 even for missing/already-acknowledged rows. Ack is not a downstream business-effect receipt.",
+      "pathTypes": {
+        "id": "string"
+      }
+    },
+    {
+      "id": "PUT /api/v1/block/{id}",
+      "handler": {
+        "ref": "infera-social/src/discovery.rs:243:block",
+        "path": "infera-social/src/discovery.rs",
+        "line": 243,
+        "name": "block"
+      },
+      "source_checksum": "5d1ad0c072f2ba798b156b90c9198a42aa4ee23b7cd6199640166be5dc2fce9d",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/discovery.rs:243:block",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/discovery.rs:26",
+        "infera-social/src/models.rs",
+        "infera-social/migration/src/m20260923_000006_city_activity_events.rs",
+        "infera-social/migration/src/m20260923_000009_place_events.rs"
+      ],
+      "response": "void",
+      "auth": "trusted server BFF_SERVICE_KEY bearer plus actor UUID",
+      "purpose": "Block a user and remove user-follow edges in both directions; self-block400, success204. Current handler uses separate statements.",
+      "pathTypes": {
+        "id": "string"
+      }
+    },
+    {
+      "id": "DELETE /api/v1/block/{id}",
+      "handler": {
+        "ref": "infera-social/src/discovery.rs:256:unblock",
+        "path": "infera-social/src/discovery.rs",
+        "line": 256,
+        "name": "unblock"
+      },
+      "source_checksum": "45428bea5081065c9c90f494973503214411859ee4eb274448d4e5f4ade3ab49",
+      "review_status": "source_only",
+      "native_verification": "pending",
+      "compiled_sdk_verification": "pending",
+      "source_refs": [
+        "infera-social/src/discovery.rs:256:unblock",
+        "infera-social/src/main.rs:37",
+        "infera-social/src/router.rs:5",
+        "infera-social/src/discovery.rs:26",
+        "infera-social/src/models.rs",
+        "infera-social/migration/src/m20260923_000006_city_activity_events.rs",
+        "infera-social/migration/src/m20260923_000009_place_events.rs"
+      ],
+      "response": "void",
+      "auth": "trusted server BFF_SERVICE_KEY bearer plus actor UUID",
+      "purpose": "Remove the current actor block edge; idempotent204.",
+      "pathTypes": {
+        "id": "string"
+      }
+    }
+  ]
+}

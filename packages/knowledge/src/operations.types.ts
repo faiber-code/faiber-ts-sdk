@@ -104,8 +104,7 @@ export interface RoutesUpdateEdgePutInput extends JsonObject {
 export type RoutesUpdateEdgePutResponse = import("./types.js").KnowledgeEdgeResponse;
 
 /** Backend response type: Value. */
-export interface PlatformListEvaluationCasesGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformListEvaluationCasesGetResponse = import("./types.js").KnowledgeEvaluationCaseListResponse;
 
 /** Backend request type: SaveEvaluationCase. */
 export interface PlatformSaveEvaluationCasePostInput extends JsonObject {
@@ -121,8 +120,7 @@ export interface PlatformSaveEvaluationCasePostInput extends JsonObject {
   "thresholds"?: JsonValue;
 }
 /** Backend response type: Value. */
-export interface PlatformSaveEvaluationCasePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformSaveEvaluationCasePostResponse = import("./types.js").KnowledgeEvaluationCaseResponse;
 
 /** Backend response type: no-content. */
 export type RoutesDeleteGroupDeleteResponse = void;
@@ -300,8 +298,7 @@ export interface RoutesUpdateRulePutInput extends JsonObject {
 export type RoutesUpdateRulePutResponse = import("./types.js").MatchRuleResponse;
 
 /** Backend response type: Value. */
-export interface PlatformReplayMemoryOutboxPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformReplayMemoryOutboxPostResponse = import("./types.js").MemoryOutboxReplayResponse;
 
 /** Backend query type: MemoryFilter. */
 export type PlatformListMemorySubjectsGetQuery = import("./types.js").MemorySubjectQuery;
@@ -345,20 +342,16 @@ export type PlatformForgetMemoryDeleteResponse = void;
 export type PlatformMemoryRecordGetResponse = import("./types.js").MemoryRecordResponse;
 
 /** Backend response type: Value. */
-export interface PlatformInvalidatePolicyCachePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformInvalidatePolicyCachePostResponse = import("./types.js").CacheInvalidationResponse;
 
 /** Backend response type: Value. */
-export interface PlatformCatalogGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformCatalogGetResponse = import("./types.js").KnowledgeCatalogResponse;
 
 /** Backend response type: Value. */
-export interface PlatformConvertersGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformConvertersGetResponse = import("./types.js").ConverterListResponse;
 
 /** Backend response type: Value. */
-export interface PlatformStatusGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformStatusGetResponse = import("./types.js").PlatformStatusResponse;
 
 /** Backend response type: Value. */
 export type PlatformProcessingJobsGetResponse = import("./types.js").ProcessingJobListResponse;
@@ -370,8 +363,7 @@ export type PlatformCancelProcessingJobPostResponse = import("./types.js").Proce
 export type PlatformRetryProcessingJobPostResponse = import("./types.js").ProcessingJobResponse;
 
 /** Backend response type: Value. */
-export interface PlatformListRecommendersGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformListRecommendersGetResponse = import("./types.js").RecommenderGroupListResponse;
 
 /** Backend request type: CreateRecommenderGroup. */
 export interface PlatformCreateRecommenderGroupPostInput extends JsonObject {
@@ -383,8 +375,7 @@ export interface PlatformCreateRecommenderGroupPostInput extends JsonObject {
   "max_results"?: number;
 }
 /** Backend response type: Value. */
-export interface PlatformCreateRecommenderGroupPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformCreateRecommenderGroupPostResponse = import("./types.js").RecommenderGroupResponse;
 
 /** Backend request type: CreateRecommenderItem. */
 export interface PlatformCreateRecommenderItemPostInput extends JsonObject {
@@ -401,8 +392,7 @@ export interface PlatformCreateRecommenderItemPostInput extends JsonObject {
   "base_score"?: number;
 }
 /** Backend response type: Value. */
-export interface PlatformCreateRecommenderItemPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformCreateRecommenderItemPostResponse = import("./types.js").RecommenderItemResponse;
 
 /** Backend response type: Value. */
 export type PlatformAssistantConfigurationOperationGetResponse = import("./types.js").AssistantConfigurationOperationResponse;
@@ -421,8 +411,7 @@ export type PlatformConfigureAssistantPutInput = import("./types.js").AssistantC
 export type PlatformConfigureAssistantPutResponse = import("./types.js").AssistantConfigurationResponse;
 
 /** Backend response type: Value. */
-export interface RoutesGetGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetGetResponse = import("./types.js").AssistantContractsResponse;
 
 /** Backend request type: AssistantQuery. */
 export interface PlatformEvaluateAssistantPostInput extends JsonObject {
@@ -445,18 +434,7 @@ export interface PlatformEvaluateAssistantPostInput extends JsonObject {
   "limit"?: number;
 }
 /** Backend response type: AssistantRuntimeResult. */
-export interface PlatformEvaluateAssistantPostResponseData extends JsonObject {
-  "policy": JsonValue;
-  "knowledge": JsonValue[];
-  "memory": JsonValue;
-  "recommendations": JsonValue[];
-  "citations": JsonValue[];
-  "findings": JsonValue[];
-  "trace": JsonValue;
-  "budget": JsonValue;
-}
-export interface PlatformEvaluateAssistantPostResponse extends ApiEnvelope<PlatformEvaluateAssistantPostResponseData> {
-}
+export type PlatformEvaluateAssistantPostResponse = import("./types.js").AssistantRuntimeResponse;
 
 /** Backend request type: RecordTurn. */
 export interface PlatformRecordTurnPostInput extends JsonObject {
@@ -472,8 +450,7 @@ export interface PlatformRecordTurnPostInput extends JsonObject {
   "assistant_message_id"?: string | null;
 }
 /** Backend response type: Value. */
-export interface PlatformRecordTurnPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformRecordTurnPostResponse = import("./types.js").MemoryTurnResponse;
 
 /** Backend request type: AssistantQuery. */
 export interface PlatformPreviewAssistantPostInput extends JsonObject {
@@ -496,18 +473,7 @@ export interface PlatformPreviewAssistantPostInput extends JsonObject {
   "limit"?: number;
 }
 /** Backend response type: AssistantRuntimeResult. */
-export interface PlatformPreviewAssistantPostResponseData extends JsonObject {
-  "policy": JsonValue;
-  "knowledge": JsonValue[];
-  "memory": JsonValue;
-  "recommendations": JsonValue[];
-  "citations": JsonValue[];
-  "findings": JsonValue[];
-  "trace": JsonValue;
-  "budget": JsonValue;
-}
-export interface PlatformPreviewAssistantPostResponse extends ApiEnvelope<PlatformPreviewAssistantPostResponseData> {
-}
+export type PlatformPreviewAssistantPostResponse = import("./types.js").AssistantRuntimeResponse;
 
 /** Backend request type: AssistantQuery. */
 export interface PlatformQueryAssistantPostInput extends JsonObject {
@@ -530,18 +496,7 @@ export interface PlatformQueryAssistantPostInput extends JsonObject {
   "limit"?: number;
 }
 /** Backend response type: AssistantRuntimeResult. */
-export interface PlatformQueryAssistantPostResponseData extends JsonObject {
-  "policy": JsonValue;
-  "knowledge": JsonValue[];
-  "memory": JsonValue;
-  "recommendations": JsonValue[];
-  "citations": JsonValue[];
-  "findings": JsonValue[];
-  "trace": JsonValue;
-  "budget": JsonValue;
-}
-export interface PlatformQueryAssistantPostResponse extends ApiEnvelope<PlatformQueryAssistantPostResponseData> {
-}
+export type PlatformQueryAssistantPostResponse = import("./types.js").AssistantRuntimeResponse;
 
 /** Backend request type: RuntimeQuery. */
 export interface RoutesRuntimeQueryPostInput extends JsonObject {
@@ -576,12 +531,10 @@ export interface RoutesRuntimeQueryPostResponse extends ApiEnvelope<RoutesRuntim
 }
 
 /** Backend response type: Value. */
-export interface PlatformDocumentEvidenceGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformDocumentEvidenceGetResponse = import("./types.js").DocumentEvidenceResponse;
 
 /** Backend response type: Value. */
-export interface PlatformSessionEvidenceGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformSessionEvidenceGetResponse = import("./types.js").SessionEvidenceResponse;
 
 /** Backend request type: McpRequest. */
 export interface PlatformMcpPostInput extends JsonObject {
@@ -591,7 +544,7 @@ export interface PlatformMcpPostInput extends JsonObject {
   "params"?: JsonValue;
 }
 /** Backend response type: Value. */
-export type PlatformMcpPostResponse = JsonValue;
+export type PlatformMcpPostResponse = import("./types.js").KnowledgeMcpResponse;
 
 /** Backend request type: RetrievalUsageReport. */
 export interface PlatformRecordRetrievalUsagePostInput extends JsonObject {
@@ -604,12 +557,10 @@ export interface PlatformRecordRetrievalUsagePostInput extends JsonObject {
   "outcome"?: string | null;
 }
 /** Backend response type: Value. */
-export interface PlatformRecordRetrievalUsagePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformRecordRetrievalUsagePostResponse = import("./types.js").RetrievalUsageResponse;
 
 /** Backend response type: Value. */
-export interface RoutesToolSchemaGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesToolSchemaGetResponse = import("./types.js").KnowledgeToolSchemaResponse;
 
 /** Backend response type: Value. */
 export type PlatformListSourcesGetResponse = import("./types.js").KnowledgeSourceListResponse;
@@ -628,8 +579,7 @@ export type PlatformPauseSourcePostResponse = import("./types.js").KnowledgeSour
 export type PlatformSyncSourcePostResponse = import("./types.js").KnowledgeQueuedJobResponse;
 
 /** Backend response type: serde_json::Value. */
-export interface MainReadinessGetHealthResponse extends ApiEnvelope<JsonValue> {
-}
+export type MainReadinessGetHealthResponse = import("./types.js").KnowledgeReadinessResponse;
 
 /** Backend response type: Health. */
 export interface MainLivenessGetResponseData extends JsonObject {
@@ -641,8 +591,7 @@ export interface MainLivenessGetResponse extends ApiEnvelope<MainLivenessGetResp
 }
 
 /** Backend response type: serde_json::Value. */
-export interface MainReadinessGetHealthReadyResponse extends ApiEnvelope<JsonValue> {
-}
+export type MainReadinessGetHealthReadyResponse = import("./types.js").KnowledgeReadinessResponse;
 
 /** Backend request type: binary byte stream. */
 export type MainConvertPostInput = Blob | ArrayBuffer | ArrayBufferView;
@@ -667,8 +616,7 @@ export interface TaskProjectionsCandidatesPostInput extends JsonObject {
   "query": string;
 }
 /** Backend response type: Value. */
-export interface TaskProjectionsCandidatesPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type TaskProjectionsCandidatesPostResponse = import("./types.js").TaskProjectionCandidateListResponse;
 
 /** Backend request type: Passages. */
 export interface TaskProjectionsPassagesPostInputSources extends JsonObject {
@@ -682,146 +630,7 @@ export interface TaskProjectionsPassagesPostInput extends JsonObject {
   "sources": TaskProjectionsPassagesPostInputSources[];
 }
 /** Backend response type: RetrievalResult. */
-export type TaskProjectionsPassagesPostResponseDataAcceptedResultsCategory = "authored_item" | "document_chunk" | "graph_neighbor" | "media_transcript_chunk" | "session_evidence" | "profile_fact" | "user_memory" | "finding" | "recommendation";
-export interface TaskProjectionsPassagesPostResponseDataAcceptedResultsScore extends JsonObject {
-  "lexical": number;
-  "vector": number;
-  "exact_title": number;
-  "entity": number;
-  "graph": number;
-  "base_priority": number;
-  "importance": number;
-  "freshness": number;
-  "selected_media": number;
-  "reciprocal_rank": number;
-  "final_score": number;
-}
-export interface TaskProjectionsPassagesPostResponseDataAcceptedResults extends JsonObject {
-  "id": string;
-  "category": TaskProjectionsPassagesPostResponseDataAcceptedResultsCategory;
-  "title": JsonValue;
-  "summary": JsonValue;
-  "content": JsonValue;
-  "provenance": JsonValue;
-  "citation": JsonValue;
-  "score": TaskProjectionsPassagesPostResponseDataAcceptedResultsScore;
-  "token_count": number;
-  "selected_media": boolean;
-  "payload": JsonValue;
-}
-export type TaskProjectionsPassagesPostResponseDataExcludedResultsCategory = "authored_item" | "document_chunk" | "graph_neighbor" | "media_transcript_chunk" | "session_evidence" | "profile_fact" | "user_memory" | "finding" | "recommendation";
-export type TaskProjectionsPassagesPostResponseDataExcludedResultsReason = "tenant_scope" | "assistant_scope" | "user_scope" | "base_not_published" | "release_not_published" | "item_not_published" | "deleted" | "not_yet_valid" | "expired" | "group_scope" | "maximum_level" | "condition_mismatch" | "edge_condition_mismatch" | "recommender_group_condition_mismatch" | "recommender_item_condition_mismatch" | "visibility_denied" | "session_scope" | "selected_media_scope" | "duplicate" | "recommender_group_limit" | "selected_media_limit" | "result_limit" | "context_budget" | "policy_disabled" | "already_delivered";
-export interface TaskProjectionsPassagesPostResponseDataExcludedResults extends JsonObject {
-  "candidate_id": string;
-  "category": TaskProjectionsPassagesPostResponseDataExcludedResultsCategory;
-  "reason": TaskProjectionsPassagesPostResponseDataExcludedResultsReason;
-}
-export type TaskProjectionsPassagesPostResponseDataMemoriesCategory = "authored_item" | "document_chunk" | "graph_neighbor" | "media_transcript_chunk" | "session_evidence" | "profile_fact" | "user_memory" | "finding" | "recommendation";
-export interface TaskProjectionsPassagesPostResponseDataMemoriesScore extends JsonObject {
-  "lexical": number;
-  "vector": number;
-  "exact_title": number;
-  "entity": number;
-  "graph": number;
-  "base_priority": number;
-  "importance": number;
-  "freshness": number;
-  "selected_media": number;
-  "reciprocal_rank": number;
-  "final_score": number;
-}
-export interface TaskProjectionsPassagesPostResponseDataMemories extends JsonObject {
-  "id": string;
-  "category": TaskProjectionsPassagesPostResponseDataMemoriesCategory;
-  "title": JsonValue;
-  "summary": JsonValue;
-  "content": JsonValue;
-  "provenance": JsonValue;
-  "citation": JsonValue;
-  "score": TaskProjectionsPassagesPostResponseDataMemoriesScore;
-  "token_count": number;
-  "selected_media": boolean;
-  "payload": JsonValue;
-}
-export type TaskProjectionsPassagesPostResponseDataRecommendationsCategory = "authored_item" | "document_chunk" | "graph_neighbor" | "media_transcript_chunk" | "session_evidence" | "profile_fact" | "user_memory" | "finding" | "recommendation";
-export interface TaskProjectionsPassagesPostResponseDataRecommendationsScore extends JsonObject {
-  "lexical": number;
-  "vector": number;
-  "exact_title": number;
-  "entity": number;
-  "graph": number;
-  "base_priority": number;
-  "importance": number;
-  "freshness": number;
-  "selected_media": number;
-  "reciprocal_rank": number;
-  "final_score": number;
-}
-export interface TaskProjectionsPassagesPostResponseDataRecommendations extends JsonObject {
-  "id": string;
-  "category": TaskProjectionsPassagesPostResponseDataRecommendationsCategory;
-  "title": JsonValue;
-  "summary": JsonValue;
-  "content": JsonValue;
-  "provenance": JsonValue;
-  "citation": JsonValue;
-  "score": TaskProjectionsPassagesPostResponseDataRecommendationsScore;
-  "token_count": number;
-  "selected_media": boolean;
-  "payload": JsonValue;
-}
-export type TaskProjectionsPassagesPostResponseDataFindingsCategory = "authored_item" | "document_chunk" | "graph_neighbor" | "media_transcript_chunk" | "session_evidence" | "profile_fact" | "user_memory" | "finding" | "recommendation";
-export interface TaskProjectionsPassagesPostResponseDataFindingsScore extends JsonObject {
-  "lexical": number;
-  "vector": number;
-  "exact_title": number;
-  "entity": number;
-  "graph": number;
-  "base_priority": number;
-  "importance": number;
-  "freshness": number;
-  "selected_media": number;
-  "reciprocal_rank": number;
-  "final_score": number;
-}
-export interface TaskProjectionsPassagesPostResponseDataFindings extends JsonObject {
-  "id": string;
-  "category": TaskProjectionsPassagesPostResponseDataFindingsCategory;
-  "title": JsonValue;
-  "summary": JsonValue;
-  "content": JsonValue;
-  "provenance": JsonValue;
-  "citation": JsonValue;
-  "score": TaskProjectionsPassagesPostResponseDataFindingsScore;
-  "token_count": number;
-  "selected_media": boolean;
-  "payload": JsonValue;
-}
-export interface TaskProjectionsPassagesPostResponseDataBudget extends JsonObject {
-  "requested_tokens": number;
-  "used_tokens": number;
-  "remaining_tokens": number;
-  "dropped_count": number;
-  "truncated": boolean;
-  "estimator": string;
-  "sections": Record<string, number>;
-}
-export interface TaskProjectionsPassagesPostResponseData extends JsonObject {
-  "candidate_sets": Record<string, number>;
-  "accepted_results": TaskProjectionsPassagesPostResponseDataAcceptedResults[];
-  "excluded_results": TaskProjectionsPassagesPostResponseDataExcludedResults[];
-  "memories": TaskProjectionsPassagesPostResponseDataMemories[];
-  "recommendations": TaskProjectionsPassagesPostResponseDataRecommendations[];
-  "findings": TaskProjectionsPassagesPostResponseDataFindings[];
-  "citations": JsonValue[];
-  "provenance": JsonValue[];
-  "score_explanations": Record<string, BackendJson<"ScoreExplanation">>;
-  "budget": TaskProjectionsPassagesPostResponseDataBudget;
-  "dependency_state": Record<string, BackendJson<"DependencyState">>;
-  "trace": JsonValue;
-}
-export interface TaskProjectionsPassagesPostResponse extends ApiEnvelope<TaskProjectionsPassagesPostResponseData> {
-}
+export type TaskProjectionsPassagesPostResponse = import("./types.js").KnowledgeRetrievalResponse;
 
 /** Backend request type: Projection. */
 export interface TaskProjectionsSyncPostInput extends JsonObject {
@@ -833,5 +642,4 @@ export interface TaskProjectionsSyncPostInput extends JsonObject {
   "deleted"?: boolean;
 }
 /** Backend response type: Value. */
-export interface TaskProjectionsSyncPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type TaskProjectionsSyncPostResponse = import("./types.js").TaskProjectionResponse;

@@ -79,7 +79,8 @@
       "meaning": "Martin URL is private configured upstream; its health is observed but version, MVT correctness, resource grants and PostGIS feature support remain separate checks."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/me": {
     "status": "verified",
@@ -161,7 +162,8 @@
       "meaning": "IDP user and deployment organization context, not a generic user directory or project membership lookup."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/my-places": {
     "status": "verified",
@@ -243,7 +245,8 @@
       "meaning": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/my-places/{id}": {
     "status": "verified",
@@ -325,7 +328,8 @@
       "meaning": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "POST /api/v1/my-places": {
     "status": "verified",
@@ -407,7 +411,8 @@
       "meaning": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "PUT /api/v1/my-places/{id}": {
     "status": "verified",
@@ -489,7 +494,8 @@
       "meaning": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "DELETE /api/v1/my-places/{id}": {
     "status": "verified",
@@ -571,7 +577,8 @@
       "meaning": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/datasets": {
     "status": "verified",
@@ -663,7 +670,8 @@
       "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "POST /api/v1/datasets": {
     "status": "verified",
@@ -755,7 +763,8 @@
       "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/datasets/{id}": {
     "status": "verified",
@@ -847,7 +856,8 @@
       "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "PATCH /api/v1/datasets/{id}": {
     "status": "verified",
@@ -939,7 +949,8 @@
       "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/datasets/{id}/features": {
     "status": "verified",
@@ -1031,7 +1042,15 @@
       "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "geometry_discriminated_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/public/datasets/{id}/geojson": {
     "status": "verified",
@@ -1123,7 +1142,15 @@
       "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "geometry_discriminated_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "PUT /api/v1/datasets/{id}/features": {
     "status": "verified",
@@ -1215,7 +1242,16 @@
       "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "geometry_discriminated_models",
+        "named_nested_result_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "PUT /api/v1/datasets/{id}/features/{feature}": {
     "status": "verified",
@@ -1307,7 +1343,15 @@
       "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "named_nested_result_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/datasets/{id}/history": {
     "status": "verified",
@@ -1399,7 +1443,8 @@
       "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/public/datasets/{id}/tilejson": {
     "status": "verified",
@@ -1491,7 +1536,15 @@
       "meaning": "Private Martin renderer must not be exposed. Stable dataset UUID plus current revision/tenant forwarded internally; source attribution is preserved."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "named_nested_result_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/public/datasets/{id}/tiles/{z}/{x}/{y}": {
     "status": "verified",
@@ -1583,7 +1636,8 @@
       "meaning": "Martin receives dataset,tenant,current revision and authorized=false over private link; renderer role/SQL ACL and external public access require separate verification."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/datasets/{id}/tiles/{z}/{x}/{y}": {
     "status": "verified",
@@ -1675,7 +1729,8 @@
       "meaning": "Private Martin and restricted security-definer tile function must honor dataset/tenant/revision boundaries. This does not certify renderer ACL or current live identity."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/maps": {
     "status": "verified",
@@ -1777,7 +1832,8 @@
       "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "POST /api/v1/maps": {
     "status": "verified",
@@ -1879,7 +1935,8 @@
       "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/maps/{id}": {
     "status": "verified",
@@ -1981,7 +2038,8 @@
       "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "PATCH /api/v1/maps/{id}": {
     "status": "verified",
@@ -2083,7 +2141,8 @@
       "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/maps/{id}/style": {
     "status": "verified",
@@ -2185,7 +2244,15 @@
       "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route. Private source uses /datasets/{id}/tiles; public uses /public/datasets/{id}/tiles; no raw caller URL."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "map_style_concrete_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "PUT /api/v1/maps/{id}/publish": {
     "status": "verified",
@@ -2287,7 +2354,8 @@
       "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/public/maps": {
     "status": "verified",
@@ -2389,7 +2457,8 @@
       "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/public/maps/{slug}": {
     "status": "verified",
@@ -2491,7 +2560,8 @@
       "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/public/maps/{slug}/style": {
     "status": "verified",
@@ -2593,7 +2663,15 @@
       "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route. Private source uses /datasets/{id}/tiles; public uses /public/datasets/{id}/tiles; no raw caller URL."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "map_style_concrete_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/public/maps/{slug}/geojson": {
     "status": "verified",
@@ -2695,7 +2773,15 @@
       "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "geometry_discriminated_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/imports": {
     "status": "verified",
@@ -2812,7 +2898,8 @@
       "meaning": "Job links owner and organization UUIDs to a local dataset UUID. Operator-owned organization/issuer confidential-client binding obtains current IDP GIS grants; no user credentials persisted. Input revision and random lease fence worker writes. Native source and owned fixtures verified; live issuer/client provisioning remains pending."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "POST /api/v1/imports": {
     "status": "verified",
@@ -2930,7 +3017,8 @@
       "meaning": "Job links owner and organization UUIDs to a local dataset UUID. Operator-owned organization/issuer confidential-client binding obtains current IDP GIS grants; no user credentials persisted. Input revision and random lease fence worker writes. Native source and owned fixtures verified; live issuer/client provisioning remains pending."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "POST /api/v1/imports/{id}/retry": {
     "status": "verified",
@@ -3047,7 +3135,15 @@
       "meaning": "Job links owner and organization UUIDs to a local dataset UUID. Operator-owned organization/issuer confidential-client binding obtains current IDP GIS grants; no user credentials persisted. Input revision and random lease fence worker writes. Native source and owned fixtures verified; live issuer/client provisioning remains pending."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "named_nested_result_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/places": {
     "status": "verified",
@@ -3149,7 +3245,8 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "POST /api/v1/places": {
     "status": "verified",
@@ -3251,7 +3348,8 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/places/{id}": {
     "status": "verified",
@@ -3353,7 +3451,8 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "PUT /api/v1/places/{id}/save": {
     "status": "verified",
@@ -3455,7 +3554,15 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "named_nested_result_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "DELETE /api/v1/places/{id}/save": {
     "status": "verified",
@@ -3557,7 +3664,15 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "named_nested_result_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "POST /api/v1/places/{id}/reports": {
     "status": "verified",
@@ -3659,7 +3774,8 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "POST /api/v1/places/{id}/assertion": {
     "status": "verified",
@@ -3763,7 +3879,15 @@
     "cross_service_meaning_review": "evidence/gis-social-assertion-meaning-source-review-v1.json",
     "cross_service_meaning": "owner_user_id binds Social post author and place reference, not GIS place ownership; actual cross-service runtime verification remains open.",
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "named_nested_result_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/me/saves": {
     "status": "verified",
@@ -3865,7 +3989,8 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/me/contributions": {
     "status": "verified",
@@ -3967,7 +4092,8 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/internal/outbox": {
     "status": "verified",
@@ -4069,7 +4195,8 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "PUT /api/v1/internal/outbox/{id}/ack": {
     "status": "verified",
@@ -4171,7 +4298,15 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "named_nested_result_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/places/{id}/references": {
     "status": "verified",
@@ -4273,7 +4408,8 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/moderation/{id}/history": {
     "status": "verified",
@@ -4375,7 +4511,8 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "POST /api/v1/moderation/reports/{id}": {
     "status": "verified",
@@ -4477,7 +4614,15 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "named_nested_result_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "GET /api/v1/moderation": {
     "status": "verified",
@@ -4579,7 +4724,8 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   },
   "POST /api/v1/moderation/{id}": {
     "status": "verified",
@@ -4681,6 +4827,14 @@
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
     },
     "local_implementation_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification."
+    "verification_scope": "Selected immutable backend source semantics and real SDK HTTP/native PostGIS/Martin evidence. Identity and provider use explicit owned fixtures; no live issuer, gateway, project isolation or deployment certification.",
+    "final_sdk_consumer_reverification": {
+      "status": "pending",
+      "reason": [
+        "named_nested_result_models"
+      ],
+      "scope": "Type-only model reconciliation; existing exact-source/native evidence remains valid for its recorded consumer snapshot. Combined type/adapter checks must use the final SDK."
+    },
+    "final_source_audit_artifact": "evidence/gis-final-source-audit-20261021/audit.json"
   }
 }

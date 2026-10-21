@@ -4,1578 +4,1578 @@ import { AxiosHeaders, type RawAxiosHeaders } from "axios";
 
 export class LmsOperations extends ServiceApi {
   /**
-   * Read process health and the reported service version. Does not verify database, broker or downstream readiness.
+   * Read the LMS process version in a success envelope. This endpoint does not probe database readiness.
    * Calls `GET /` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no handler permission check; deployment gateway policy is separate.
    */
   routerRootStatusGet(options?: RequestOptions) {
     return this.client.request<T.RouterRootStatusGetResponse>({ ...options, method: "GET", url: `/` });
   }
   /**
-   * Read the raw generated OpenAPI document. Annotations may omit mounted routes; this document is not an endpoint-completeness guarantee.
+   * Read the raw OpenAPI document. The mounted router remains authoritative because this document omits several supported operations.
    * Calls `GET /api/openapi.json` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no handler permission check; deployment gateway policy is separate.
    */
   routerOpenapiJsonGet(options?: RequestOptions) {
     return this.client.request<T.RouterOpenapiJsonGetResponse>({ ...options, method: "GET", url: `/api/openapi.json` });
   }
   /**
-   * Performs the submit exam operation for the academy capability.
+   * Submit exam definition records through the mounted LMS academy::routes handler.
    * Calls `POST /api/v1/academy/attempts/{id}/submit` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   academySubmitExamPost(id: Identifier, data: T.AcademySubmitExamPostInput, options?: RequestOptions<T.AcademySubmitExamPostInput>) {
     return this.client.request<T.AcademySubmitExamPostResponse, T.AcademySubmitExamPostInput>({ ...options, method: "POST", url: `/api/v1/academy/attempts/${encodeURIComponent(id)}/submit`, data: data });
   }
   /**
-   * Performs the categories operation for the academy capability.
+   * Categories  records through the mounted LMS academy::routes handler.
    * Calls `GET /api/v1/academy/categories` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   academyCategoriesGet(options?: RequestOptions) {
     return this.client.request<T.AcademyCategoriesGetResponse>({ ...options, method: "GET", url: `/api/v1/academy/categories` });
   }
   /**
-   * Performs the courses operation for the academy capability.
+   * Courses  records through the mounted LMS academy::routes handler.
    * Calls `GET /api/v1/academy/courses` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   academyCoursesGet(params?: T.AcademyCoursesGetQuery, options?: RequestOptions) {
     return this.client.request<T.AcademyCoursesGetResponse>({ ...options, method: "GET", url: `/api/v1/academy/courses`, params });
   }
   /**
-   * Performs the course operation for the academy capability.
+   * Course  records through the mounted LMS academy::routes handler.
    * Calls `GET /api/v1/academy/courses/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   academyCourseGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.AcademyCourseGetResponse>({ ...options, method: "GET", url: `/api/v1/academy/courses/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the enroll operation for the academy capability.
+   * Enroll  records through the mounted LMS academy::routes handler.
    * Calls `POST /api/v1/academy/courses/{id}/enroll` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   academyEnrollPost(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.AcademyEnrollPostResponse>({ ...options, method: "POST", url: `/api/v1/academy/courses/${encodeURIComponent(id)}/enroll` });
   }
   /**
-   * Performs the my enrollments operation for the academy capability.
+   * My enrollments records through the mounted LMS academy::routes handler.
    * Calls `GET /api/v1/academy/enrollments` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   academyMyEnrollmentsGet(options?: RequestOptions) {
     return this.client.request<T.AcademyMyEnrollmentsGetResponse>({ ...options, method: "GET", url: `/api/v1/academy/enrollments` });
   }
   /**
-   * Performs the start exam operation for the academy capability.
+   * Start exam definition records through the mounted LMS academy::routes handler.
    * Calls `POST /api/v1/academy/enrollments/{id}/exams/{exam_id}/attempts` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param examId Backend path identifier `exam_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   academyStartExamPost(id: Identifier, examId: Identifier, options?: RequestOptions) {
     return this.client.request<T.AcademyStartExamPostResponse>({ ...options, method: "POST", url: `/api/v1/academy/enrollments/${encodeURIComponent(id)}/exams/${encodeURIComponent(examId)}/attempts` });
   }
   /**
-   * Performs the complete session operation for the academy capability.
+   * Complete session records through the mounted LMS academy::routes handler.
    * Calls `POST /api/v1/academy/enrollments/{id}/sessions/{session_id}/complete` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param sessionId Backend path identifier `session_id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   academyCompleteSessionPost(id: Identifier, sessionId: Identifier, data: T.AcademyCompleteSessionPostInput, options?: RequestOptions<T.AcademyCompleteSessionPostInput>) {
     return this.client.request<T.AcademyCompleteSessionPostResponse, T.AcademyCompleteSessionPostInput>({ ...options, method: "POST", url: `/api/v1/academy/enrollments/${encodeURIComponent(id)}/sessions/${encodeURIComponent(sessionId)}/complete`, data: data });
   }
   /**
-   * Performs the get self operation for the session capability.
+   * Get self records through the mounted LMS session::routes handler.
    * Calls `GET /api/v1/auth/self` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   sessionGetSelfGet(options?: RequestOptions) {
     return this.client.request<T.SessionGetSelfGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/self` });
   }
   /**
-   * Performs the index certificate operation for the certificate capability.
+   * List certificate records through the mounted LMS certificate::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/certificates` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:certificate:read; trusted gateway identity plus any handler-local checks apply.
    */
   certificateIndexCertificateGet(params?: T.CertificateIndexCertificateGetQuery, options?: RequestOptions) {
     return this.client.request<T.CertificateIndexCertificateGetResponse>({ ...options, method: "GET", url: `/api/v1/certificates`, params });
   }
   /**
-   * Performs the store certificate operation for the certificate capability.
+   * Create certificate records through the mounted LMS certificate::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/certificates` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:certificate:create; trusted gateway identity plus any handler-local checks apply.
    */
   certificateStoreCertificatePost(data: T.CertificateStoreCertificatePostInput, options?: RequestOptions<T.CertificateStoreCertificatePostInput>) {
     return this.client.request<T.CertificateStoreCertificatePostResponse, T.CertificateStoreCertificatePostInput>({ ...options, method: "POST", url: `/api/v1/certificates`, data: data });
   }
   /**
-   * Performs the show certificate operation for the certificate capability.
+   * Read certificate records through the mounted LMS certificate::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/certificates/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:certificate:read; trusted gateway identity plus any handler-local checks apply.
    */
   certificateShowCertificateGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.CertificateShowCertificateGetResponse>({ ...options, method: "GET", url: `/api/v1/certificates/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update certificate operation for the certificate capability.
+   * Patch certificate records through the mounted LMS certificate::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/certificates/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:certificate:update; trusted gateway identity plus any handler-local checks apply.
    */
   certificateUpdateCertificatePatch(id: Identifier, data: T.CertificateUpdateCertificatePatchInput, options?: RequestOptions<T.CertificateUpdateCertificatePatchInput>) {
     return this.client.request<T.CertificateUpdateCertificatePatchResponse, T.CertificateUpdateCertificatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/certificates/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the index template operation for the certificate capability.
+   * List certificate template records through the mounted LMS certificate::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/certificates/templates` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:certificate:read; trusted gateway identity plus any handler-local checks apply.
    */
   certificateIndexTemplateGet(params?: T.CertificateIndexTemplateGetQuery, options?: RequestOptions) {
     return this.client.request<T.CertificateIndexTemplateGetResponse>({ ...options, method: "GET", url: `/api/v1/certificates/templates`, params });
   }
   /**
-   * Performs the store template operation for the certificate capability.
+   * Create certificate template records through the mounted LMS certificate::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/certificates/templates` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:certificate:create; trusted gateway identity plus any handler-local checks apply.
    */
   certificateStoreTemplatePost(data: T.CertificateStoreTemplatePostInput, options?: RequestOptions<T.CertificateStoreTemplatePostInput>) {
     return this.client.request<T.CertificateStoreTemplatePostResponse, T.CertificateStoreTemplatePostInput>({ ...options, method: "POST", url: `/api/v1/certificates/templates`, data: data });
   }
   /**
-   * Performs the show template operation for the certificate capability.
+   * Read certificate template records through the mounted LMS certificate::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/certificates/templates/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:certificate:read; trusted gateway identity plus any handler-local checks apply.
    */
   certificateShowTemplateGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.CertificateShowTemplateGetResponse>({ ...options, method: "GET", url: `/api/v1/certificates/templates/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update template operation for the certificate capability.
+   * Patch certificate template records through the mounted LMS certificate::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/certificates/templates/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:certificate:update; trusted gateway identity plus any handler-local checks apply.
    */
   certificateUpdateTemplatePatch(id: Identifier, data: T.CertificateUpdateTemplatePatchInput, options?: RequestOptions<T.CertificateUpdateTemplatePatchInput>) {
     return this.client.request<T.CertificateUpdateTemplatePatchResponse, T.CertificateUpdateTemplatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/certificates/templates/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Contacts  records through the mounted LMS notifications::contacts handler.
    * Calls `GET /api/v1/chat/contacts` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:chat:contacts:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:chat:contacts:read; trusted gateway identity plus any handler-local checks apply.
    */
   contactsContactsGet(params?: T.ContactsContactsGetQuery, options?: RequestOptions) {
     return this.client.request<T.ContactsContactsGetResponse>({ ...options, method: "GET", url: `/api/v1/chat/contacts`, params });
   }
   /**
-   * Performs the index classroom operation for the classroom capability.
+   * List classroom records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/classrooms` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:read; trusted gateway identity plus any handler-local checks apply.
    */
   classroomIndexClassroomGet(params?: T.ClassroomIndexClassroomGetQuery, options?: RequestOptions) {
     return this.client.request<T.ClassroomIndexClassroomGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms`, params });
   }
   /**
-   * Performs the store classroom operation for the classroom capability.
+   * Create classroom records through the mounted LMS classroom::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/classrooms` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:create; trusted gateway identity plus any handler-local checks apply.
    */
   classroomStoreClassroomPost(data: T.ClassroomStoreClassroomPostInput, options?: RequestOptions<T.ClassroomStoreClassroomPostInput>) {
     return this.client.request<T.ClassroomStoreClassroomPostResponse, T.ClassroomStoreClassroomPostInput>({ ...options, method: "POST", url: `/api/v1/classrooms`, data: data });
   }
   /**
-   * Performs the destroy classroom operation for the classroom capability.
+   * Delete classroom records through the mounted LMS classroom::routes handler. Successful deletion returns an empty data object.
    * Calls `DELETE /api/v1/classrooms/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:delete.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:delete; trusted gateway identity plus any handler-local checks apply.
    */
   classroomDestroyClassroomDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ClassroomDestroyClassroomDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/classrooms/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the show classroom operation for the classroom capability.
+   * Read classroom records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/classrooms/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:read; trusted gateway identity plus any handler-local checks apply.
    */
   classroomShowClassroomGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ClassroomShowClassroomGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update classroom operation for the classroom capability.
+   * Patch classroom records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/classrooms/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:update; trusted gateway identity plus any handler-local checks apply.
    */
   classroomUpdateClassroomPatch(id: Identifier, data: T.ClassroomUpdateClassroomPatchInput, options?: RequestOptions<T.ClassroomUpdateClassroomPatchInput>) {
     return this.client.request<T.ClassroomUpdateClassroomPatchResponse, T.ClassroomUpdateClassroomPatchInput>({ ...options, method: "PATCH", url: `/api/v1/classrooms/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the show completion operation for the classroom capability.
+   * Read completion records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/classrooms/{id}/completion` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:read; trusted gateway identity plus any handler-local checks apply.
    */
   classroomShowCompletionGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ClassroomShowCompletionGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/${encodeURIComponent(id)}/completion` });
   }
   /**
-   * Performs the finalize classroom operation for the classroom capability.
+   * Finalize classroom records through the mounted LMS classroom::routes handler.
    * Calls `POST /api/v1/classrooms/{id}/finalize` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:finalize.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:finalize; trusted gateway identity plus any handler-local checks apply.
    */
   classroomFinalizeClassroomPost(id: Identifier, data: T.ClassroomFinalizeClassroomPostInput, options?: RequestOptions<T.ClassroomFinalizeClassroomPostInput>) {
     return this.client.request<T.ClassroomFinalizeClassroomPostResponse, T.ClassroomFinalizeClassroomPostInput>({ ...options, method: "POST", url: `/api/v1/classrooms/${encodeURIComponent(id)}/finalize`, data: data });
   }
   /**
-   * Performs the index classroom users operation for the classroom capability.
+   * List classroom enrollment records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/classrooms/{id}/users` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:read; trusted gateway identity plus any handler-local checks apply.
    */
   classroomIndexClassroomUsersGet(id: Identifier, params?: T.ClassroomIndexClassroomUsersGetQuery, options?: RequestOptions) {
     return this.client.request<T.ClassroomIndexClassroomUsersGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/${encodeURIComponent(id)}/users`, params });
   }
   /**
-   * Performs the enroll classroom user operation for the classroom capability.
+   * Enroll classroom user records through the mounted LMS classroom::routes handler.
    * Calls `POST /api/v1/classrooms/{id}/users` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:create; trusted gateway identity plus any handler-local checks apply.
    */
   classroomEnrollClassroomUserPost(id: Identifier, data: T.ClassroomEnrollClassroomUserPostInput, options?: RequestOptions<T.ClassroomEnrollClassroomUserPostInput>) {
     return this.client.request<T.ClassroomEnrollClassroomUserPostResponse, T.ClassroomEnrollClassroomUserPostInput>({ ...options, method: "POST", url: `/api/v1/classrooms/${encodeURIComponent(id)}/users`, data: data });
   }
   /**
-   * Performs the remove classroom user operation for the classroom capability.
+   * Remove a classroom enrollment. The successful JSON envelope contains data:null; no deleted flag is returned.
    * Calls `DELETE /api/v1/classrooms/{id}/users/{user_id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param userId Backend path identifier `user_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:update; trusted gateway identity plus any handler-local checks apply.
    */
   classroomRemoveClassroomUserDelete(id: Identifier, userId: Identifier, options?: RequestOptions) {
     return this.client.request<T.ClassroomRemoveClassroomUserDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/classrooms/${encodeURIComponent(id)}/users/${encodeURIComponent(userId)}` });
   }
   /**
-   * Performs the update classroom user operation for the classroom capability.
+   * Patch classroom user records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/classrooms/{id}/users/{user_id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param userId Backend path identifier `user_id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:update, lms:classroom:score:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:update, lms:classroom:score:update; trusted gateway identity plus any handler-local checks apply.
    */
   classroomUpdateClassroomUserPatch(id: Identifier, userId: Identifier, data: T.ClassroomUpdateClassroomUserPatchInput, options?: RequestOptions<T.ClassroomUpdateClassroomUserPatchInput>) {
     return this.client.request<T.ClassroomUpdateClassroomUserPatchResponse, T.ClassroomUpdateClassroomUserPatchInput>({ ...options, method: "PATCH", url: `/api/v1/classrooms/${encodeURIComponent(id)}/users/${encodeURIComponent(userId)}`, data: data });
   }
   /**
-   * Performs the batch classrooms operation for the integration capability.
+   * Batch classrooms records through the mounted LMS integration::routes handler.
    * Calls `POST /api/v1/classrooms/batch` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   integrationBatchClassroomsPost(data: T.IntegrationBatchClassroomsPostInput, options?: RequestOptions<T.IntegrationBatchClassroomsPostInput>) {
     return this.client.request<T.IntegrationBatchClassroomsPostResponse, T.IntegrationBatchClassroomsPostInput>({ ...options, method: "POST", url: `/api/v1/classrooms/batch`, data: data });
   }
   /**
-   * Performs the index session types operation for the classroom capability.
+   * List session types records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/classrooms/session-types` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:read; trusted gateway identity plus any handler-local checks apply.
    */
   classroomIndexSessionTypesGet(options?: RequestOptions) {
     return this.client.request<T.ClassroomIndexSessionTypesGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/session-types` });
   }
   /**
-   * Performs the index session operation for the classroom capability.
+   * List session records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/classrooms/sessions` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:read; trusted gateway identity plus any handler-local checks apply.
    */
   classroomIndexSessionGet(params?: T.ClassroomIndexSessionGetQuery, options?: RequestOptions) {
     return this.client.request<T.ClassroomIndexSessionGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/sessions`, params });
   }
   /**
-   * Performs the store session operation for the classroom capability.
+   * Create session records through the mounted LMS classroom::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/classrooms/sessions` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:create; trusted gateway identity plus any handler-local checks apply.
    */
   classroomStoreSessionPost(data: T.ClassroomStoreSessionPostInput, options?: RequestOptions<T.ClassroomStoreSessionPostInput>) {
     return this.client.request<T.ClassroomStoreSessionPostResponse, T.ClassroomStoreSessionPostInput>({ ...options, method: "POST", url: `/api/v1/classrooms/sessions`, data: data });
   }
   /**
-   * Performs the show session operation for the classroom capability.
+   * Read session records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/classrooms/sessions/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:read; trusted gateway identity plus any handler-local checks apply.
    */
   classroomShowSessionGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ClassroomShowSessionGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/sessions/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update session operation for the classroom capability.
+   * Patch session records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/classrooms/sessions/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:update; trusted gateway identity plus any handler-local checks apply.
    */
   classroomUpdateSessionPatch(id: Identifier, data: T.ClassroomUpdateSessionPatchInput, options?: RequestOptions<T.ClassroomUpdateSessionPatchInput>) {
     return this.client.request<T.ClassroomUpdateSessionPatchResponse, T.ClassroomUpdateSessionPatchInput>({ ...options, method: "PATCH", url: `/api/v1/classrooms/sessions/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the index attendance operation for the classroom capability.
+   * List attendance records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/classrooms/sessions/{id}/attendance` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:read; trusted gateway identity plus any handler-local checks apply.
    */
   classroomIndexAttendanceGet(id: Identifier, params?: T.ClassroomIndexAttendanceGetQuery, options?: RequestOptions) {
     return this.client.request<T.ClassroomIndexAttendanceGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/sessions/${encodeURIComponent(id)}/attendance`, params });
   }
   /**
-   * Performs the record attendance operation for the classroom capability.
+   * Record attendance records through the mounted LMS classroom::routes handler.
    * Calls `PUT /api/v1/classrooms/sessions/{id}/attendance` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:attendance:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:attendance:update; trusted gateway identity plus any handler-local checks apply.
    */
   classroomRecordAttendancePut(id: Identifier, data: T.ClassroomRecordAttendancePutInput, options?: RequestOptions<T.ClassroomRecordAttendancePutInput>) {
     return this.client.request<T.ClassroomRecordAttendancePutResponse, T.ClassroomRecordAttendancePutInput>({ ...options, method: "PUT", url: `/api/v1/classrooms/sessions/${encodeURIComponent(id)}/attendance`, data: data });
   }
   /**
-   * Performs the index today sessions operation for the classroom capability.
+   * List today sessions records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/classrooms/sessions/today` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:read; trusted gateway identity plus any handler-local checks apply.
    */
   classroomIndexTodaySessionsGet(params?: T.ClassroomIndexTodaySessionsGetQuery, options?: RequestOptions) {
     return this.client.request<T.ClassroomIndexTodaySessionsGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/sessions/today`, params });
   }
   /**
-   * Performs the current classroom users operation for the integration capability.
+   * Current classroom enrollment records through the mounted LMS integration::routes handler.
    * Calls `GET /api/v1/classrooms/users/current` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   integrationCurrentClassroomUsersGet(options?: RequestOptions) {
     return this.client.request<T.IntegrationCurrentClassroomUsersGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/users/current` });
   }
   /**
-   * Performs the dropout eligibility operation for the integration capability.
+   * Dropout eligibility records through the mounted LMS integration::routes handler.
    * Calls `POST /api/v1/classrooms/users/dropout-eligibility` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   integrationDropoutEligibilityPost(data: T.IntegrationDropoutEligibilityPostInput, options?: RequestOptions<T.IntegrationDropoutEligibilityPostInput>) {
     return this.client.request<T.IntegrationDropoutEligibilityPostResponse, T.IntegrationDropoutEligibilityPostInput>({ ...options, method: "POST", url: `/api/v1/classrooms/users/dropout-eligibility`, data: data });
   }
   /**
-   * Performs the index absences operation for the classroom capability.
+   * List absence records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/classrooms/users/sessions/absences` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:read; trusted gateway identity plus any handler-local checks apply.
    */
   classroomIndexAbsencesGet(params?: T.ClassroomIndexAbsencesGetQuery, options?: RequestOptions) {
     return this.client.request<T.ClassroomIndexAbsencesGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/users/sessions/absences`, params });
   }
   /**
-   * Performs the show operation for the branding capability.
+   * Read persisted learner branding. The handler checks a nonnil actor and lms:config:read.
    * Calls `GET /api/v1/config/branding` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:read; trusted gateway identity plus any handler-local checks apply.
    */
   brandingShowGet(options?: RequestOptions) {
     return this.client.request<T.BrandingShowGetResponse>({ ...options, method: "GET", url: `/api/v1/config/branding` });
   }
   /**
-   * Performs the update operation for the branding capability.
+   * Replace learner branding, normalize localized titles, and derive icon_url from a previously uploaded icon_asset_key. Requires a nonnil actor and lms:config:update; omitted fields reset to defaults.
    * Calls `PUT /api/v1/config/branding` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:update; trusted gateway identity plus any handler-local checks apply.
    */
   brandingUpdatePut(data: T.BrandingUpdatePutInput, options?: RequestOptions<T.BrandingUpdatePutInput>) {
     return this.client.request<T.BrandingUpdatePutResponse, T.BrandingUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/config/branding`, data: data });
   }
   /**
-   * Performs the upload operation for the branding capability.
+   * Upload one file multipart field containing PNG, JPEG, or WebP bytes up to 8 MiB. Returns asset_key and public URL; saving branding is a separate request.
    * Calls `POST /api/v1/config/branding/assets` through the shared IDP-aware Faiber client.
    * @param data Typed multipart form.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:update; trusted gateway identity plus any handler-local checks apply.
    */
   brandingUploadPost(data: T.BrandingUploadPostInput, options?: RequestOptions<T.BrandingUploadPostInput>) {
     return this.client.request<T.BrandingUploadPostResponse, T.BrandingUploadPostInput>({ ...options, method: "POST", url: `/api/v1/config/branding/assets`, data: data });
   }
   /**
-   * Performs the index classroom type operation for the config capability.
+   * List classroom type records through the mounted LMS config::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/config/classroom-types` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:read; trusted gateway identity plus any handler-local checks apply.
    */
   configIndexClassroomTypeGet(params?: T.ConfigIndexClassroomTypeGetQuery, options?: RequestOptions) {
     return this.client.request<T.ConfigIndexClassroomTypeGetResponse>({ ...options, method: "GET", url: `/api/v1/config/classroom-types`, params });
   }
   /**
-   * Performs the store classroom type operation for the config capability.
+   * Create classroom type records through the mounted LMS config::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/config/classroom-types` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:create; trusted gateway identity plus any handler-local checks apply.
    */
   configStoreClassroomTypePost(data: T.ConfigStoreClassroomTypePostInput, options?: RequestOptions<T.ConfigStoreClassroomTypePostInput>) {
     return this.client.request<T.ConfigStoreClassroomTypePostResponse, T.ConfigStoreClassroomTypePostInput>({ ...options, method: "POST", url: `/api/v1/config/classroom-types`, data: data });
   }
   /**
-   * Performs the show classroom type operation for the config capability.
+   * Read classroom type records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/config/classroom-types/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:read; trusted gateway identity plus any handler-local checks apply.
    */
   configShowClassroomTypeGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ConfigShowClassroomTypeGetResponse>({ ...options, method: "GET", url: `/api/v1/config/classroom-types/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update classroom type operation for the config capability.
+   * Patch classroom type records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/config/classroom-types/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:update; trusted gateway identity plus any handler-local checks apply.
    */
   configUpdateClassroomTypePatch(id: Identifier, data: T.ConfigUpdateClassroomTypePatchInput, options?: RequestOptions<T.ConfigUpdateClassroomTypePatchInput>) {
     return this.client.request<T.ConfigUpdateClassroomTypePatchResponse, T.ConfigUpdateClassroomTypePatchInput>({ ...options, method: "PATCH", url: `/api/v1/config/classroom-types/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the index education day operation for the config capability.
+   * List education day records through the mounted LMS config::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/config/education-days` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:read; trusted gateway identity plus any handler-local checks apply.
    */
   configIndexEducationDayGet(params?: T.ConfigIndexEducationDayGetQuery, options?: RequestOptions) {
     return this.client.request<T.ConfigIndexEducationDayGetResponse>({ ...options, method: "GET", url: `/api/v1/config/education-days`, params });
   }
   /**
-   * Performs the store education day operation for the config capability.
+   * Create education day records through the mounted LMS config::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/config/education-days` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:create; trusted gateway identity plus any handler-local checks apply.
    */
   configStoreEducationDayPost(data: T.ConfigStoreEducationDayPostInput, options?: RequestOptions<T.ConfigStoreEducationDayPostInput>) {
     return this.client.request<T.ConfigStoreEducationDayPostResponse, T.ConfigStoreEducationDayPostInput>({ ...options, method: "POST", url: `/api/v1/config/education-days`, data: data });
   }
   /**
-   * Performs the show education day operation for the config capability.
+   * Read education day records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/config/education-days/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:read; trusted gateway identity plus any handler-local checks apply.
    */
   configShowEducationDayGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ConfigShowEducationDayGetResponse>({ ...options, method: "GET", url: `/api/v1/config/education-days/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update education day operation for the config capability.
+   * Patch education day records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/config/education-days/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:update; trusted gateway identity plus any handler-local checks apply.
    */
   configUpdateEducationDayPatch(id: Identifier, data: T.ConfigUpdateEducationDayPatchInput, options?: RequestOptions<T.ConfigUpdateEducationDayPatchInput>) {
     return this.client.request<T.ConfigUpdateEducationDayPatchResponse, T.ConfigUpdateEducationDayPatchInput>({ ...options, method: "PATCH", url: `/api/v1/config/education-days/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the index grade operation for the config capability.
+   * List school grade records through the mounted LMS config::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/config/grades` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:read; trusted gateway identity plus any handler-local checks apply.
    */
   configIndexGradeGet(params?: T.ConfigIndexGradeGetQuery, options?: RequestOptions) {
     return this.client.request<T.ConfigIndexGradeGetResponse>({ ...options, method: "GET", url: `/api/v1/config/grades`, params });
   }
   /**
-   * Performs the store grade operation for the config capability.
+   * Create school grade records through the mounted LMS config::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/config/grades` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:create; trusted gateway identity plus any handler-local checks apply.
    */
   configStoreGradePost(data: T.ConfigStoreGradePostInput, options?: RequestOptions<T.ConfigStoreGradePostInput>) {
     return this.client.request<T.ConfigStoreGradePostResponse, T.ConfigStoreGradePostInput>({ ...options, method: "POST", url: `/api/v1/config/grades`, data: data });
   }
   /**
-   * Performs the show grade operation for the config capability.
+   * Read school grade records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/config/grades/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:read; trusted gateway identity plus any handler-local checks apply.
    */
   configShowGradeGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ConfigShowGradeGetResponse>({ ...options, method: "GET", url: `/api/v1/config/grades/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update grade operation for the config capability.
+   * Patch school grade records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/config/grades/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:update; trusted gateway identity plus any handler-local checks apply.
    */
   configUpdateGradePatch(id: Identifier, data: T.ConfigUpdateGradePatchInput, options?: RequestOptions<T.ConfigUpdateGradePatchInput>) {
     return this.client.request<T.ConfigUpdateGradePatchResponse, T.ConfigUpdateGradePatchInput>({ ...options, method: "PATCH", url: `/api/v1/config/grades/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the index holiday operation for the config capability.
+   * List holiday records through the mounted LMS config::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/config/holidays` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:read; trusted gateway identity plus any handler-local checks apply.
    */
   configIndexHolidayGet(params?: T.ConfigIndexHolidayGetQuery, options?: RequestOptions) {
     return this.client.request<T.ConfigIndexHolidayGetResponse>({ ...options, method: "GET", url: `/api/v1/config/holidays`, params });
   }
   /**
-   * Performs the store holiday operation for the config capability.
+   * Create holiday records through the mounted LMS config::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/config/holidays` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:create; trusted gateway identity plus any handler-local checks apply.
    */
   configStoreHolidayPost(data: T.ConfigStoreHolidayPostInput, options?: RequestOptions<T.ConfigStoreHolidayPostInput>) {
     return this.client.request<T.ConfigStoreHolidayPostResponse, T.ConfigStoreHolidayPostInput>({ ...options, method: "POST", url: `/api/v1/config/holidays`, data: data });
   }
   /**
-   * Performs the show holiday operation for the config capability.
+   * Read holiday records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/config/holidays/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:read; trusted gateway identity plus any handler-local checks apply.
    */
   configShowHolidayGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ConfigShowHolidayGetResponse>({ ...options, method: "GET", url: `/api/v1/config/holidays/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update holiday operation for the config capability.
+   * Patch holiday records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/config/holidays/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:update; trusted gateway identity plus any handler-local checks apply.
    */
   configUpdateHolidayPatch(id: Identifier, data: T.ConfigUpdateHolidayPatchInput, options?: RequestOptions<T.ConfigUpdateHolidayPatchInput>) {
     return this.client.request<T.ConfigUpdateHolidayPatchResponse, T.ConfigUpdateHolidayPatchInput>({ ...options, method: "PATCH", url: `/api/v1/config/holidays/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the index weekend operation for the config capability.
+   * List weekend weekday records through the mounted LMS config::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/config/weekends` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:read; trusted gateway identity plus any handler-local checks apply.
    */
   configIndexWeekendGet(params?: T.ConfigIndexWeekendGetQuery, options?: RequestOptions) {
     return this.client.request<T.ConfigIndexWeekendGetResponse>({ ...options, method: "GET", url: `/api/v1/config/weekends`, params });
   }
   /**
-   * Performs the store weekend operation for the config capability.
+   * Create weekend weekday records through the mounted LMS config::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/config/weekends` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:create; trusted gateway identity plus any handler-local checks apply.
    */
   configStoreWeekendPost(data: T.ConfigStoreWeekendPostInput, options?: RequestOptions<T.ConfigStoreWeekendPostInput>) {
     return this.client.request<T.ConfigStoreWeekendPostResponse, T.ConfigStoreWeekendPostInput>({ ...options, method: "POST", url: `/api/v1/config/weekends`, data: data });
   }
   /**
-   * Performs the show weekend operation for the config capability.
+   * Read weekend weekday records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/config/weekends/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:read; trusted gateway identity plus any handler-local checks apply.
    */
   configShowWeekendGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ConfigShowWeekendGetResponse>({ ...options, method: "GET", url: `/api/v1/config/weekends/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update weekend operation for the config capability.
+   * Patch weekend weekday records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/config/weekends/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:update; trusted gateway identity plus any handler-local checks apply.
    */
   configUpdateWeekendPatch(id: Identifier, data: T.ConfigUpdateWeekendPatchInput, options?: RequestOptions<T.ConfigUpdateWeekendPatchInput>) {
     return this.client.request<T.ConfigUpdateWeekendPatchResponse, T.ConfigUpdateWeekendPatchInput>({ ...options, method: "PATCH", url: `/api/v1/config/weekends/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the index course operation for the course capability.
+   * List course records through the mounted LMS course::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/courses` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:read; trusted gateway identity plus any handler-local checks apply.
    */
   courseIndexCourseGet(params?: T.CourseIndexCourseGetQuery, options?: RequestOptions) {
     return this.client.request<T.CourseIndexCourseGetResponse>({ ...options, method: "GET", url: `/api/v1/courses`, params });
   }
   /**
-   * Performs the store course operation for the course capability.
+   * Create course records through the mounted LMS course::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/courses` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:create; trusted gateway identity plus any handler-local checks apply.
    */
   courseStoreCoursePost(data: T.CourseStoreCoursePostInput, options?: RequestOptions<T.CourseStoreCoursePostInput>) {
     return this.client.request<T.CourseStoreCoursePostResponse, T.CourseStoreCoursePostInput>({ ...options, method: "POST", url: `/api/v1/courses`, data: data });
   }
   /**
-   * Performs the index session operation for the course capability.
+   * List session records through the mounted LMS course::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/courses/{course_id}/sessions` through the shared IDP-aware Faiber client.
    * @param courseId Backend path identifier `course_id`.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:read; trusted gateway identity plus any handler-local checks apply.
    */
   courseIndexSessionGet(courseId: Identifier, params?: T.CourseIndexSessionGetQuery, options?: RequestOptions) {
     return this.client.request<T.CourseIndexSessionGetResponse>({ ...options, method: "GET", url: `/api/v1/courses/${encodeURIComponent(courseId)}/sessions`, params });
   }
   /**
-   * Performs the store session operation for the course capability.
+   * Create session records through the mounted LMS course::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/courses/{course_id}/sessions` through the shared IDP-aware Faiber client.
    * @param courseId Backend path identifier `course_id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:create; trusted gateway identity plus any handler-local checks apply.
    */
   courseStoreSessionPost(courseId: Identifier, data: T.CourseStoreSessionPostInput, options?: RequestOptions<T.CourseStoreSessionPostInput>) {
     return this.client.request<T.CourseStoreSessionPostResponse, T.CourseStoreSessionPostInput>({ ...options, method: "POST", url: `/api/v1/courses/${encodeURIComponent(courseId)}/sessions`, data: data });
   }
   /**
-   * Performs the destroy session operation for the course capability.
+   * Delete session records through the mounted LMS course::routes handler. Successful deletion returns an empty data object.
    * Calls `DELETE /api/v1/courses/{course_id}/sessions/{id}` through the shared IDP-aware Faiber client.
    * @param courseId Backend path identifier `course_id`.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:delete.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:delete; trusted gateway identity plus any handler-local checks apply.
    */
   courseDestroySessionDelete(courseId: Identifier, id: Identifier, options?: RequestOptions) {
     return this.client.request<T.CourseDestroySessionDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/courses/${encodeURIComponent(courseId)}/sessions/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the show session operation for the course capability.
+   * Read session records through the mounted LMS course::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/courses/{course_id}/sessions/{id}` through the shared IDP-aware Faiber client.
    * @param courseId Backend path identifier `course_id`.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:read; trusted gateway identity plus any handler-local checks apply.
    */
   courseShowSessionGet(courseId: Identifier, id: Identifier, options?: RequestOptions) {
     return this.client.request<T.CourseShowSessionGetResponse>({ ...options, method: "GET", url: `/api/v1/courses/${encodeURIComponent(courseId)}/sessions/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update session operation for the course capability.
+   * Patch session records through the mounted LMS course::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/courses/{course_id}/sessions/{id}` through the shared IDP-aware Faiber client.
    * @param courseId Backend path identifier `course_id`.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:update; trusted gateway identity plus any handler-local checks apply.
    */
   courseUpdateSessionPatch(courseId: Identifier, id: Identifier, data: T.CourseUpdateSessionPatchInput, options?: RequestOptions<T.CourseUpdateSessionPatchInput>) {
     return this.client.request<T.CourseUpdateSessionPatchResponse, T.CourseUpdateSessionPatchInput>({ ...options, method: "PATCH", url: `/api/v1/courses/${encodeURIComponent(courseId)}/sessions/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the destroy course operation for the course capability.
+   * Delete course records through the mounted LMS course::routes handler. Successful deletion returns an empty data object.
    * Calls `DELETE /api/v1/courses/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:delete.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:delete; trusted gateway identity plus any handler-local checks apply.
    */
   courseDestroyCourseDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.CourseDestroyCourseDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/courses/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the show course operation for the course capability.
+   * Read course records through the mounted LMS course::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/courses/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:read; trusted gateway identity plus any handler-local checks apply.
    */
   courseShowCourseGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.CourseShowCourseGetResponse>({ ...options, method: "GET", url: `/api/v1/courses/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update course operation for the course capability.
+   * Patch course records through the mounted LMS course::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/courses/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:update; trusted gateway identity plus any handler-local checks apply.
    */
   courseUpdateCoursePatch(id: Identifier, data: T.CourseUpdateCoursePatchInput, options?: RequestOptions<T.CourseUpdateCoursePatchInput>) {
     return this.client.request<T.CourseUpdateCoursePatchResponse, T.CourseUpdateCoursePatchInput>({ ...options, method: "PATCH", url: `/api/v1/courses/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the batch courses operation for the integration capability.
+   * Batch courses records through the mounted LMS integration::routes handler.
    * Calls `POST /api/v1/courses/batch` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   integrationBatchCoursesPost(data: T.IntegrationBatchCoursesPostInput, options?: RequestOptions<T.IntegrationBatchCoursesPostInput>) {
     return this.client.request<T.IntegrationBatchCoursesPostResponse, T.IntegrationBatchCoursesPostInput>({ ...options, method: "POST", url: `/api/v1/courses/batch`, data: data });
   }
   /**
-   * Performs the index category operation for the course capability.
+   * List course category records through the mounted LMS course::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/courses/categories` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:read; trusted gateway identity plus any handler-local checks apply.
    */
   courseIndexCategoryGet(params?: T.CourseIndexCategoryGetQuery, options?: RequestOptions) {
     return this.client.request<T.CourseIndexCategoryGetResponse>({ ...options, method: "GET", url: `/api/v1/courses/categories`, params });
   }
   /**
-   * Performs the store category operation for the course capability.
+   * Create course category records through the mounted LMS course::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/courses/categories` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:create; trusted gateway identity plus any handler-local checks apply.
    */
   courseStoreCategoryPost(data: T.CourseStoreCategoryPostInput, options?: RequestOptions<T.CourseStoreCategoryPostInput>) {
     return this.client.request<T.CourseStoreCategoryPostResponse, T.CourseStoreCategoryPostInput>({ ...options, method: "POST", url: `/api/v1/courses/categories`, data: data });
   }
   /**
-   * Performs the destroy category operation for the course capability.
+   * Delete course category records through the mounted LMS course::routes handler. Successful deletion returns an empty data object.
    * Calls `DELETE /api/v1/courses/categories/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:delete.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:delete; trusted gateway identity plus any handler-local checks apply.
    */
   courseDestroyCategoryDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.CourseDestroyCategoryDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/courses/categories/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the show category operation for the course capability.
+   * Read course category records through the mounted LMS course::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/courses/categories/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:read; trusted gateway identity plus any handler-local checks apply.
    */
   courseShowCategoryGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.CourseShowCategoryGetResponse>({ ...options, method: "GET", url: `/api/v1/courses/categories/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update category operation for the course capability.
+   * Patch course category records through the mounted LMS course::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/courses/categories/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:update; trusted gateway identity plus any handler-local checks apply.
    */
   courseUpdateCategoryPatch(id: Identifier, data: T.CourseUpdateCategoryPatchInput, options?: RequestOptions<T.CourseUpdateCategoryPatchInput>) {
     return this.client.request<T.CourseUpdateCategoryPatchResponse, T.CourseUpdateCategoryPatchInput>({ ...options, method: "PATCH", url: `/api/v1/courses/categories/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the reorder categories operation for the course capability.
+   * Reorder categories records through the mounted LMS course::routes handler.
    * Calls `PATCH /api/v1/courses/categories/reorder` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:update; trusted gateway identity plus any handler-local checks apply.
    */
   courseReorderCategoriesPatch(data: T.CourseReorderCategoriesPatchInput, options?: RequestOptions<T.CourseReorderCategoriesPatchInput>) {
     return this.client.request<T.CourseReorderCategoriesPatchResponse, T.CourseReorderCategoriesPatchInput>({ ...options, method: "PATCH", url: `/api/v1/courses/categories/reorder`, data: data });
   }
   /**
-   * Performs the reorder courses operation for the course capability.
+   * Reorder courses records through the mounted LMS course::routes handler.
    * Calls `PATCH /api/v1/courses/reorder` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:update; trusted gateway identity plus any handler-local checks apply.
    */
   courseReorderCoursesPatch(data: T.CourseReorderCoursesPatchInput, options?: RequestOptions<T.CourseReorderCoursesPatchInput>) {
     return this.client.request<T.CourseReorderCoursesPatchResponse, T.CourseReorderCoursesPatchInput>({ ...options, method: "PATCH", url: `/api/v1/courses/reorder`, data: data });
   }
   /**
-   * Performs the batch course successors operation for the integration capability.
+   * Batch course successors records through the mounted LMS integration::routes handler.
    * Calls `POST /api/v1/courses/successors/batch` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   integrationBatchCourseSuccessorsPost(data: T.IntegrationBatchCourseSuccessorsPostInput, options?: RequestOptions<T.IntegrationBatchCourseSuccessorsPostInput>) {
     return this.client.request<T.IntegrationBatchCourseSuccessorsPostResponse, T.IntegrationBatchCourseSuccessorsPostInput>({ ...options, method: "POST", url: `/api/v1/courses/successors/batch`, data: data });
   }
   /**
-   * Performs the index operation for the dashboard capability.
+   * List  records through the mounted LMS dashboard::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/dashboard` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:dashboard:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:dashboard:read; trusted gateway identity plus any handler-local checks apply.
    */
   dashboardIndexGet(params?: T.DashboardIndexGetQuery, options?: RequestOptions) {
     return this.client.request<T.DashboardIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/dashboard`, params });
   }
   /**
-   * Performs the integration operation for the docs capability.
+   * Integration  records through the mounted LMS docs::routes handler.
    * Calls `GET /api/v1/docs/integration` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:docs:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:docs:read; trusted gateway identity plus any handler-local checks apply.
    */
   docsIntegrationGet(options?: RequestOptions) {
     return this.client.request<T.DocsIntegrationGetResponse>({ ...options, method: "GET", url: `/api/v1/docs/integration` });
   }
   /**
-   * Performs the index compositions operation for the drm routes capability.
+   * Search published DRM compositions by page, size and search, retaining selected_id when applicable. Returns composition IDs, names and category paths.
    * Calls `GET /api/v1/drm/compositions` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:update, lms:course:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:update, lms:course:create; trusted gateway identity plus any handler-local checks apply.
    */
   drmRoutesIndexCompositionsGet(params?: T.DrmRoutesIndexCompositionsGetQuery, options?: RequestOptions) {
     return this.client.request<T.DrmRoutesIndexCompositionsGetResponse>({ ...options, method: "GET", url: `/api/v1/drm/compositions`, params });
   }
   /**
-   * Performs the get context operation for the evaluation capability.
+   * Get context records through the mounted LMS evaluation::routes handler.
    * Calls `GET /api/v1/evaluations/sessions/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   evaluationGetContextGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.EvaluationGetContextGetResponse>({ ...options, method: "GET", url: `/api/v1/evaluations/sessions/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the submit operation for the evaluation capability.
+   * Submit  records through the mounted LMS evaluation::routes handler.
    * Calls `POST /api/v1/evaluations/sessions/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   evaluationSubmitPost(id: Identifier, data: T.EvaluationSubmitPostInput, options?: RequestOptions<T.EvaluationSubmitPostInput>) {
     return this.client.request<T.EvaluationSubmitPostResponse, T.EvaluationSubmitPostInput>({ ...options, method: "POST", url: `/api/v1/evaluations/sessions/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the get settings operation for the evaluation capability.
+   * Get settings records through the mounted LMS evaluation::routes handler.
    * Calls `GET /api/v1/evaluations/settings` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:read; trusted gateway identity plus any handler-local checks apply.
    */
   evaluationGetSettingsGet(options?: RequestOptions) {
     return this.client.request<T.EvaluationGetSettingsGetResponse>({ ...options, method: "GET", url: `/api/v1/evaluations/settings` });
   }
   /**
-   * Performs the update settings operation for the evaluation capability.
+   * Patch settings records through the mounted LMS evaluation::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PUT /api/v1/evaluations/settings` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:config:update; trusted gateway identity plus any handler-local checks apply.
    */
   evaluationUpdateSettingsPut(data: T.EvaluationUpdateSettingsPutInput, options?: RequestOptions<T.EvaluationUpdateSettingsPutInput>) {
     return this.client.request<T.EvaluationUpdateSettingsPutResponse, T.EvaluationUpdateSettingsPutInput>({ ...options, method: "PUT", url: `/api/v1/evaluations/settings`, data: data });
   }
   /**
-   * Performs the index exam operation for the exam capability.
+   * List exam definition records through the mounted LMS exam::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/exams` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:read; trusted gateway identity plus any handler-local checks apply.
    */
   examIndexExamGet(params?: T.ExamIndexExamGetQuery, options?: RequestOptions) {
     return this.client.request<T.ExamIndexExamGetResponse>({ ...options, method: "GET", url: `/api/v1/exams`, params });
   }
   /**
-   * Performs the store exam operation for the exam capability.
+   * Create exam definition records through the mounted LMS exam::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/exams` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:create; trusted gateway identity plus any handler-local checks apply.
    */
   examStoreExamPost(data: T.ExamStoreExamPostInput, options?: RequestOptions<T.ExamStoreExamPostInput>) {
     return this.client.request<T.ExamStoreExamPostResponse, T.ExamStoreExamPostInput>({ ...options, method: "POST", url: `/api/v1/exams`, data: data });
   }
   /**
-   * Performs the destroy exam operation for the exam capability.
+   * Delete exam definition records through the mounted LMS exam::routes handler. Successful deletion returns an empty data object.
    * Calls `DELETE /api/v1/exams/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:delete.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:delete; trusted gateway identity plus any handler-local checks apply.
    */
   examDestroyExamDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ExamDestroyExamDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/exams/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the show exam operation for the exam capability.
+   * Read exam definition records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/exams/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:read; trusted gateway identity plus any handler-local checks apply.
    */
   examShowExamGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ExamShowExamGetResponse>({ ...options, method: "GET", url: `/api/v1/exams/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update exam operation for the exam capability.
+   * Patch exam definition records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/exams/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:update; trusted gateway identity plus any handler-local checks apply.
    */
   examUpdateExamPatch(id: Identifier, data: T.ExamUpdateExamPatchInput, options?: RequestOptions<T.ExamUpdateExamPatchInput>) {
     return this.client.request<T.ExamUpdateExamPatchResponse, T.ExamUpdateExamPatchInput>({ ...options, method: "PATCH", url: `/api/v1/exams/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the index attempt operation for the exam capability.
+   * List exam attempt records through the mounted LMS exam::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/exams/attempts` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:read; trusted gateway identity plus any handler-local checks apply.
    */
   examIndexAttemptGet(params?: T.ExamIndexAttemptGetQuery, options?: RequestOptions) {
     return this.client.request<T.ExamIndexAttemptGetResponse>({ ...options, method: "GET", url: `/api/v1/exams/attempts`, params });
   }
   /**
-   * Performs the show attempt operation for the exam capability.
+   * Read exam attempt records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/exams/attempts/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:read; trusted gateway identity plus any handler-local checks apply.
    */
   examShowAttemptGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ExamShowAttemptGetResponse>({ ...options, method: "GET", url: `/api/v1/exams/attempts/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update attempt operation for the exam capability.
+   * Patch exam attempt records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/exams/attempts/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:update; trusted gateway identity plus any handler-local checks apply.
    */
   examUpdateAttemptPatch(id: Identifier, data: T.ExamUpdateAttemptPatchInput, options?: RequestOptions<T.ExamUpdateAttemptPatchInput>) {
     return this.client.request<T.ExamUpdateAttemptPatchResponse, T.ExamUpdateAttemptPatchInput>({ ...options, method: "PATCH", url: `/api/v1/exams/attempts/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the save attempt answer operation for the exam capability.
+   * Save attempt answer records through the mounted LMS exam::routes handler.
    * Calls `PUT /api/v1/exams/attempts/{id}/answers/{position}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param position Backend path identifier `position`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:read; trusted gateway identity plus any handler-local checks apply.
    */
   examSaveAttemptAnswerPut(id: Identifier, position: Identifier, data: T.ExamSaveAttemptAnswerPutInput, options?: RequestOptions<T.ExamSaveAttemptAnswerPutInput>) {
     return this.client.request<T.ExamSaveAttemptAnswerPutResponse, T.ExamSaveAttemptAnswerPutInput>({ ...options, method: "PUT", url: `/api/v1/exams/attempts/${encodeURIComponent(id)}/answers/${encodeURIComponent(position)}`, data: data });
   }
   /**
-   * Performs the show attempt delivery operation for the exam capability.
+   * Read attempt delivery records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/exams/attempts/{id}/delivery` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:read; trusted gateway identity plus any handler-local checks apply.
    */
   examShowAttemptDeliveryGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ExamShowAttemptDeliveryGetResponse>({ ...options, method: "GET", url: `/api/v1/exams/attempts/${encodeURIComponent(id)}/delivery` });
   }
   /**
-   * Performs the start attempt operation for the exam capability.
+   * Start exam attempt records through the mounted LMS exam::routes handler.
    * Calls `POST /api/v1/exams/attempts/{id}/start` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:read; trusted gateway identity plus any handler-local checks apply.
    */
   examStartAttemptPost(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ExamStartAttemptPostResponse>({ ...options, method: "POST", url: `/api/v1/exams/attempts/${encodeURIComponent(id)}/start` });
   }
   /**
-   * Performs the submit attempt operation for the exam capability.
+   * Submit exam attempt records through the mounted LMS exam::routes handler.
    * Calls `POST /api/v1/exams/attempts/{id}/submit` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:read; trusted gateway identity plus any handler-local checks apply.
    */
   examSubmitAttemptPost(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ExamSubmitAttemptPostResponse>({ ...options, method: "POST", url: `/api/v1/exams/attempts/${encodeURIComponent(id)}/submit` });
   }
   /**
-   * Performs the index question operation for the exam capability.
+   * List exercise/question records through the mounted LMS exam::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/exams/questions` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:read; trusted gateway identity plus any handler-local checks apply.
    */
   examIndexQuestionGet(params?: T.ExamIndexQuestionGetQuery, options?: RequestOptions) {
     return this.client.request<T.ExamIndexQuestionGetResponse>({ ...options, method: "GET", url: `/api/v1/exams/questions`, params });
   }
   /**
-   * Performs the store question operation for the exam capability.
+   * Create exercise/question records through the mounted LMS exam::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/exams/questions` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:create; trusted gateway identity plus any handler-local checks apply.
    */
   examStoreQuestionPost(data: T.ExamStoreQuestionPostInput, options?: RequestOptions<T.ExamStoreQuestionPostInput>) {
     return this.client.request<T.ExamStoreQuestionPostResponse, T.ExamStoreQuestionPostInput>({ ...options, method: "POST", url: `/api/v1/exams/questions`, data: data });
   }
   /**
-   * Performs the destroy question operation for the exam capability.
+   * Delete exercise/question records through the mounted LMS exam::routes handler. Successful deletion returns an empty data object.
    * Calls `DELETE /api/v1/exams/questions/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:delete.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:delete; trusted gateway identity plus any handler-local checks apply.
    */
   examDestroyQuestionDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ExamDestroyQuestionDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/exams/questions/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the show question operation for the exam capability.
+   * Read exercise/question records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/exams/questions/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:read; trusted gateway identity plus any handler-local checks apply.
    */
   examShowQuestionGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ExamShowQuestionGetResponse>({ ...options, method: "GET", url: `/api/v1/exams/questions/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update question operation for the exam capability.
+   * Patch exercise/question records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/exams/questions/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:update; trusted gateway identity plus any handler-local checks apply.
    */
   examUpdateQuestionPatch(id: Identifier, data: T.ExamUpdateQuestionPatchInput, options?: RequestOptions<T.ExamUpdateQuestionPatchInput>) {
     return this.client.request<T.ExamUpdateQuestionPatchResponse, T.ExamUpdateQuestionPatchInput>({ ...options, method: "PATCH", url: `/api/v1/exams/questions/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the index session operation for the exam capability.
+   * List session records through the mounted LMS exam::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/exams/sessions` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:read; trusted gateway identity plus any handler-local checks apply.
    */
   examIndexSessionGet(params?: T.ExamIndexSessionGetQuery, options?: RequestOptions) {
     return this.client.request<T.ExamIndexSessionGetResponse>({ ...options, method: "GET", url: `/api/v1/exams/sessions`, params });
   }
   /**
-   * Performs the store session operation for the exam capability.
+   * Create session records through the mounted LMS exam::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/exams/sessions` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:create; trusted gateway identity plus any handler-local checks apply.
    */
   examStoreSessionPost(data: T.ExamStoreSessionPostInput, options?: RequestOptions<T.ExamStoreSessionPostInput>) {
     return this.client.request<T.ExamStoreSessionPostResponse, T.ExamStoreSessionPostInput>({ ...options, method: "POST", url: `/api/v1/exams/sessions`, data: data });
   }
   /**
-   * Performs the destroy session operation for the exam capability.
+   * Delete session records through the mounted LMS exam::routes handler. Successful deletion returns an empty data object.
    * Calls `DELETE /api/v1/exams/sessions/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:delete.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:delete; trusted gateway identity plus any handler-local checks apply.
    */
   examDestroySessionDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ExamDestroySessionDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/exams/sessions/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the show session operation for the exam capability.
+   * Read session records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/exams/sessions/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:read; trusted gateway identity plus any handler-local checks apply.
    */
   examShowSessionGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ExamShowSessionGetResponse>({ ...options, method: "GET", url: `/api/v1/exams/sessions/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update session operation for the exam capability.
+   * Patch an exam session. Omit a field to preserve it; explicit null clears PatchField members such as classroom_id, dates, staff, and counts. selection_mode and status use normal optional scalar semantics.
    * Calls `PATCH /api/v1/exams/sessions/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:exam:update; trusted gateway identity plus any handler-local checks apply.
    */
   examUpdateSessionPatch(id: Identifier, data: T.ExamUpdateSessionPatchInput, options?: RequestOptions<T.ExamUpdateSessionPatchInput>) {
     return this.client.request<T.ExamUpdateSessionPatchResponse, T.ExamUpdateSessionPatchInput>({ ...options, method: "PATCH", url: `/api/v1/exams/sessions/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the index bank operation for the homework capability.
+   * List homework bank records through the mounted LMS homework::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/homework-banks` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework_bank:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework_bank:read; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkIndexBankGet(params?: T.HomeworkIndexBankGetQuery, options?: RequestOptions) {
     return this.client.request<T.HomeworkIndexBankGetResponse>({ ...options, method: "GET", url: `/api/v1/homework-banks`, params });
   }
   /**
-   * Performs the store bank operation for the homework capability.
+   * Create homework bank records through the mounted LMS homework::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/homework-banks` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework_bank:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework_bank:create; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkStoreBankPost(data: T.HomeworkStoreBankPostInput, options?: RequestOptions<T.HomeworkStoreBankPostInput>) {
     return this.client.request<T.HomeworkStoreBankPostResponse, T.HomeworkStoreBankPostInput>({ ...options, method: "POST", url: `/api/v1/homework-banks`, data: data });
   }
   /**
-   * Performs the index bank homework operation for the homework capability.
+   * List bank exercise records through the mounted LMS homework::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/homework-banks/{homework_bank_id}/homeworks` through the shared IDP-aware Faiber client.
    * @param homeworkBankId Backend path identifier `homework_bank_id`.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:read; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkIndexBankHomeworkGet(homeworkBankId: Identifier, params?: T.HomeworkIndexBankHomeworkGetQuery, options?: RequestOptions) {
     return this.client.request<T.HomeworkIndexBankHomeworkGetResponse>({ ...options, method: "GET", url: `/api/v1/homework-banks/${encodeURIComponent(homeworkBankId)}/homeworks`, params });
   }
   /**
-   * Performs the store bank homework operation for the homework capability.
+   * Create bank exercise records through the mounted LMS homework::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/homework-banks/{homework_bank_id}/homeworks` through the shared IDP-aware Faiber client.
    * @param homeworkBankId Backend path identifier `homework_bank_id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:create; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkStoreBankHomeworkPost(homeworkBankId: Identifier, data: T.HomeworkStoreBankHomeworkPostInput, options?: RequestOptions<T.HomeworkStoreBankHomeworkPostInput>) {
     return this.client.request<T.HomeworkStoreBankHomeworkPostResponse, T.HomeworkStoreBankHomeworkPostInput>({ ...options, method: "POST", url: `/api/v1/homework-banks/${encodeURIComponent(homeworkBankId)}/homeworks`, data: data });
   }
   /**
-   * Performs the destroy bank homework operation for the homework capability.
+   * Delete bank exercise records through the mounted LMS homework::routes handler. Successful deletion returns an empty data object.
    * Calls `DELETE /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}` through the shared IDP-aware Faiber client.
    * @param homeworkBankId Backend path identifier `homework_bank_id`.
    * @param homeworkId Backend path identifier `homework_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:delete.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:delete; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkDestroyBankHomeworkDelete(homeworkBankId: Identifier, homeworkId: Identifier, options?: RequestOptions) {
     return this.client.request<T.HomeworkDestroyBankHomeworkDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/homework-banks/${encodeURIComponent(homeworkBankId)}/homeworks/${encodeURIComponent(homeworkId)}` });
   }
   /**
-   * Performs the show bank homework operation for the homework capability.
+   * Read bank exercise records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}` through the shared IDP-aware Faiber client.
    * @param homeworkBankId Backend path identifier `homework_bank_id`.
    * @param homeworkId Backend path identifier `homework_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:read; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkShowBankHomeworkGet(homeworkBankId: Identifier, homeworkId: Identifier, options?: RequestOptions) {
     return this.client.request<T.HomeworkShowBankHomeworkGetResponse>({ ...options, method: "GET", url: `/api/v1/homework-banks/${encodeURIComponent(homeworkBankId)}/homeworks/${encodeURIComponent(homeworkId)}` });
   }
   /**
-   * Performs the update bank homework operation for the homework capability.
+   * Patch bank exercise records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}` through the shared IDP-aware Faiber client.
    * @param homeworkBankId Backend path identifier `homework_bank_id`.
    * @param homeworkId Backend path identifier `homework_id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:update; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkUpdateBankHomeworkPatch(homeworkBankId: Identifier, homeworkId: Identifier, data: T.HomeworkUpdateBankHomeworkPatchInput, options?: RequestOptions<T.HomeworkUpdateBankHomeworkPatchInput>) {
     return this.client.request<T.HomeworkUpdateBankHomeworkPatchResponse, T.HomeworkUpdateBankHomeworkPatchInput>({ ...options, method: "PATCH", url: `/api/v1/homework-banks/${encodeURIComponent(homeworkBankId)}/homeworks/${encodeURIComponent(homeworkId)}`, data: data });
   }
   /**
-   * Performs the destroy bank operation for the homework capability.
+   * Delete homework bank records through the mounted LMS homework::routes handler. Successful deletion returns an empty data object.
    * Calls `DELETE /api/v1/homework-banks/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework_bank:delete.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework_bank:delete; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkDestroyBankDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.HomeworkDestroyBankDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/homework-banks/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the show bank operation for the homework capability.
+   * Read homework bank records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/homework-banks/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework_bank:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework_bank:read; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkShowBankGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.HomeworkShowBankGetResponse>({ ...options, method: "GET", url: `/api/v1/homework-banks/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update bank operation for the homework capability.
+   * Patch homework bank records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/homework-banks/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework_bank:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework_bank:update; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkUpdateBankPatch(id: Identifier, data: T.HomeworkUpdateBankPatchInput, options?: RequestOptions<T.HomeworkUpdateBankPatchInput>) {
     return this.client.request<T.HomeworkUpdateBankPatchResponse, T.HomeworkUpdateBankPatchInput>({ ...options, method: "PATCH", url: `/api/v1/homework-banks/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the index homework operation for the homework capability.
+   * List homework definition records through the mounted LMS homework::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/homeworks` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:read; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkIndexHomeworkGet(params?: T.HomeworkIndexHomeworkGetQuery, options?: RequestOptions) {
     return this.client.request<T.HomeworkIndexHomeworkGetResponse>({ ...options, method: "GET", url: `/api/v1/homeworks`, params });
   }
   /**
-   * Performs the store homework operation for the homework capability.
+   * Create homework definition records through the mounted LMS homework::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/homeworks` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:create; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkStoreHomeworkPost(data: T.HomeworkStoreHomeworkPostInput, options?: RequestOptions<T.HomeworkStoreHomeworkPostInput>) {
     return this.client.request<T.HomeworkStoreHomeworkPostResponse, T.HomeworkStoreHomeworkPostInput>({ ...options, method: "POST", url: `/api/v1/homeworks`, data: data });
   }
   /**
-   * Performs the destroy homework operation for the homework capability.
+   * Delete homework definition records through the mounted LMS homework::routes handler. Successful deletion returns an empty data object.
    * Calls `DELETE /api/v1/homeworks/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:delete.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:delete; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkDestroyHomeworkDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.HomeworkDestroyHomeworkDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/homeworks/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the show homework operation for the homework capability.
+   * Read homework definition records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/homeworks/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:read; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkShowHomeworkGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.HomeworkShowHomeworkGetResponse>({ ...options, method: "GET", url: `/api/v1/homeworks/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update homework operation for the homework capability.
+   * Patch homework definition records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/homeworks/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:update; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkUpdateHomeworkPatch(id: Identifier, data: T.HomeworkUpdateHomeworkPatchInput, options?: RequestOptions<T.HomeworkUpdateHomeworkPatchInput>) {
     return this.client.request<T.HomeworkUpdateHomeworkPatchResponse, T.HomeworkUpdateHomeworkPatchInput>({ ...options, method: "PATCH", url: `/api/v1/homeworks/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the index assignment operation for the homework capability.
+   * List assignment records through the mounted LMS homework::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/homeworks/assignments` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:read; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkIndexAssignmentGet(params?: T.HomeworkIndexAssignmentGetQuery, options?: RequestOptions) {
     return this.client.request<T.HomeworkIndexAssignmentGetResponse>({ ...options, method: "GET", url: `/api/v1/homeworks/assignments`, params });
   }
   /**
-   * Performs the store assignment operation for the homework capability.
+   * Assign a real active exercise to an existing learner. homework_id identifies the exercise/question, not its bank. user_id is required by repository validation; a supplied classroom must contain that learner. Invalid targets return 422; Profile validation outages return 502.
    * Calls `POST /api/v1/homeworks/assignments` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:create; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkStoreAssignmentPost(data: T.HomeworkStoreAssignmentPostInput, options?: RequestOptions<T.HomeworkStoreAssignmentPostInput>) {
     return this.client.request<T.HomeworkStoreAssignmentPostResponse, T.HomeworkStoreAssignmentPostInput>({ ...options, method: "POST", url: `/api/v1/homeworks/assignments`, data: data });
   }
   /**
-   * Performs the destroy assignment operation for the homework capability.
+   * Delete assignment records through the mounted LMS homework::routes handler. Successful deletion returns an empty data object.
    * Calls `DELETE /api/v1/homeworks/assignments/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:delete.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:delete; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkDestroyAssignmentDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.HomeworkDestroyAssignmentDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/homeworks/assignments/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the show assignment operation for the homework capability.
+   * Read assignment records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/homeworks/assignments/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:read; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkShowAssignmentGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.HomeworkShowAssignmentGetResponse>({ ...options, method: "GET", url: `/api/v1/homeworks/assignments/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update assignment operation for the homework capability.
+   * Patch assignment records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/homeworks/assignments/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:update; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkUpdateAssignmentPatch(id: Identifier, data: T.HomeworkUpdateAssignmentPatchInput, options?: RequestOptions<T.HomeworkUpdateAssignmentPatchInput>) {
     return this.client.request<T.HomeworkUpdateAssignmentPatchResponse, T.HomeworkUpdateAssignmentPatchInput>({ ...options, method: "PATCH", url: `/api/v1/homeworks/assignments/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the index current term assignment operation for the homework capability.
+   * List current term assignment records through the mounted LMS homework::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/homeworks/assignments/current-term` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:read; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkIndexCurrentTermAssignmentGet(params?: T.HomeworkIndexCurrentTermAssignmentGetQuery, options?: RequestOptions) {
     return this.client.request<T.HomeworkIndexCurrentTermAssignmentGetResponse>({ ...options, method: "GET", url: `/api/v1/homeworks/assignments/current-term`, params });
   }
   /**
-   * Performs the index question operation for the homework capability.
+   * List exercise/question records through the mounted LMS homework::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/homeworks/questions` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:read; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkIndexQuestionGet(params?: T.HomeworkIndexQuestionGetQuery, options?: RequestOptions) {
     return this.client.request<T.HomeworkIndexQuestionGetResponse>({ ...options, method: "GET", url: `/api/v1/homeworks/questions`, params });
   }
   /**
-   * Performs the store question operation for the homework capability.
+   * Create exercise/question records through the mounted LMS homework::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError.
    * Calls `POST /api/v1/homeworks/questions` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:create.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:create; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkStoreQuestionPost(data: T.HomeworkStoreQuestionPostInput, options?: RequestOptions<T.HomeworkStoreQuestionPostInput>) {
     return this.client.request<T.HomeworkStoreQuestionPostResponse, T.HomeworkStoreQuestionPostInput>({ ...options, method: "POST", url: `/api/v1/homeworks/questions`, data: data });
   }
   /**
-   * Performs the show question operation for the homework capability.
+   * Read exercise/question records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/homeworks/questions/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:read; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkShowQuestionGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.HomeworkShowQuestionGetResponse>({ ...options, method: "GET", url: `/api/v1/homeworks/questions/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update question operation for the homework capability.
+   * Patch exercise/question records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PATCH /api/v1/homeworks/questions/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:homework:update; trusted gateway identity plus any handler-local checks apply.
    */
   homeworkUpdateQuestionPatch(id: Identifier, data: T.HomeworkUpdateQuestionPatchInput, options?: RequestOptions<T.HomeworkUpdateQuestionPatchInput>) {
     return this.client.request<T.HomeworkUpdateQuestionPatchResponse, T.HomeworkUpdateQuestionPatchInput>({ ...options, method: "PATCH", url: `/api/v1/homeworks/questions/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the transfer user data operation for the transfer capability.
+   * Transfer learner-owned educational records transactionally between distinct nonnil Profile user UUIDs. Requires Idempotency-Key (1–128 printable ASCII characters without spaces); identical actor/key/payload retries replay success. Conflicts or active attempts return 409; Profile outages return 502. Declared IDP permission is user_data:transfer; the pinned handler itself checks actor presence.
    * Calls `POST /api/v1/idp/option/transfer-user-data` through the shared IDP-aware Faiber client.
    * @param idempotencyKey Stable printable ASCII key (1–128 characters, without spaces); reuse for identical retries.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: user_data:transfer.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: user_data:transfer; trusted gateway identity plus any handler-local checks apply.
    */
   transferUserDataPost(data: T.TransferTransferUserDataPostInput, idempotencyKey: string, options?: RequestOptions<T.TransferTransferUserDataPostInput>) {
     if (!/^[\x21-\x7e]{1,128}$/.test(idempotencyKey)) throw new TypeError("Idempotency-Key must be 1–128 printable ASCII characters without spaces");
@@ -1584,448 +1584,448 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.TransferTransferUserDataPostResponse, T.TransferTransferUserDataPostInput>({ ...options, method: "POST", url: `/api/v1/idp/option/transfer-user-data`, headers, data: data });
   }
   /**
-   * Performs the flow integration show operation for the integration capability.
+   * Flow integration show records through the mounted LMS integration::routes handler.
    * Calls `GET /api/v1/integration/flow` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   integrationFlowIntegrationShowGet(options?: RequestOptions) {
     return this.client.request<T.IntegrationFlowIntegrationShowGetResponse>({ ...options, method: "GET", url: `/api/v1/integration/flow` });
   }
   /**
-   * Performs the resolve legacy ids operation for the integration capability.
+   * Resolve legacy ids records through the mounted LMS integration::routes handler.
    * Calls `POST /api/v1/integration/legacy-ids/resolve` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   integrationResolveLegacyIdsPost(data: T.IntegrationResolveLegacyIdsPostInput, options?: RequestOptions<T.IntegrationResolveLegacyIdsPostInput>) {
     return this.client.request<T.IntegrationResolveLegacyIdsPostResponse, T.IntegrationResolveLegacyIdsPostInput>({ ...options, method: "POST", url: `/api/v1/integration/legacy-ids/resolve`, data: data });
   }
   /**
-   * Performs the relationship operation for the notifications capability.
+   * Relationship  records through the mounted LMS notifications::contacts handler.
    * Calls `POST /api/v1/integrations/chat/relationship` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   notificationsRelationshipPost(data: T.NotificationsRelationshipPostInput, options?: RequestOptions<T.NotificationsRelationshipPostInput>) {
     return this.client.request<T.NotificationsRelationshipPostResponse, T.NotificationsRelationshipPostInput>({ ...options, method: "POST", url: `/api/v1/integrations/chat/relationship`, data: data });
   }
   /**
-   * Performs the catalog operation for the interactive capability.
+   * Catalog  records through the mounted LMS interactive::routes handler.
    * Calls `GET /api/v1/interactive/catalog` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public catalog.
    */
   interactiveCatalogGet(options?: RequestOptions) {
     return this.client.request<T.InteractiveCatalogGetResponse>({ ...options, method: "GET", url: `/api/v1/interactive/catalog` });
   }
   /**
-   * Performs the my certificates operation for the interactive capability.
+   * My certificates records through the mounted LMS interactive::routes handler.
    * Calls `GET /api/v1/interactive/certificates` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated learner; own awards only.
    */
   interactiveMyCertificatesGet(options?: RequestOptions) {
     return this.client.request<T.InteractiveMyCertificatesGetResponse>({ ...options, method: "GET", url: `/api/v1/interactive/certificates` });
   }
   /**
-   * Claim an idempotent server-verified course award; returns 409 when completion prerequisites are missing.
+   * Claim certificate records through the mounted LMS interactive::routes handler.
    * Calls `POST /api/v1/interactive/courses/{id}/certificate` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated active enrollment owner.
    */
   interactiveClaimCertificatePost(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.InteractiveClaimCertificatePostResponse>({ ...options, method: "POST", url: `/api/v1/interactive/courses/${encodeURIComponent(id)}/certificate` });
   }
   /**
-   * Performs the definitions operation for the interactive capability.
+   * Definitions  records through the mounted LMS interactive::routes handler.
    * Calls `GET /api/v1/interactive/definitions` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:read.
    */
   interactiveDefinitionsGet(options?: RequestOptions) {
     return this.client.request<T.InteractiveDefinitionsGetResponse>({ ...options, method: "GET", url: `/api/v1/interactive/definitions` });
   }
   /**
-   * Performs the definition operation for the interactive capability.
+   * Definition  records through the mounted LMS interactive::routes handler.
    * Calls `GET /api/v1/interactive/definitions/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:read.
    */
   interactiveDefinitionGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.InteractiveDefinitionGetResponse>({ ...options, method: "GET", url: `/api/v1/interactive/definitions/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the publish operation for the interactive capability.
+   * Publish  records through the mounted LMS interactive::routes handler.
    * Calls `POST /api/v1/interactive/definitions/{id}/publish` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:update.
    */
   interactivePublishPost(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.InteractivePublishPostResponse>({ ...options, method: "POST", url: `/api/v1/interactive/definitions/${encodeURIComponent(id)}/publish` });
   }
   /**
-   * Performs the lesson operation for the interactive capability.
+   * Lesson  records through the mounted LMS interactive::routes handler.
    * Calls `GET /api/v1/interactive/lessons/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated enrollment/run owner.
    */
   interactiveLessonGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.InteractiveLessonGetResponse>({ ...options, method: "GET", url: `/api/v1/interactive/lessons/${encodeURIComponent(id)}` });
   }
   /**
-   * Create a validated draft lesson version. Existing run versions remain immutable.
+   * Save definition records through the mounted LMS interactive::routes handler.
    * Calls `POST /api/v1/interactive/lessons/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:update.
    */
   interactiveSaveDefinitionPost(id: Identifier, data: T.InteractiveSaveDefinitionPostInput, options?: RequestOptions<T.InteractiveSaveDefinitionPostInput>) {
     return this.client.request<T.InteractiveSaveDefinitionPostResponse, T.InteractiveSaveDefinitionPostInput>({ ...options, method: "POST", url: `/api/v1/interactive/lessons/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the start operation for the interactive capability.
+   * Start  records through the mounted LMS interactive::routes handler.
    * Calls `POST /api/v1/interactive/lessons/{id}/start` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated enrollment/run owner.
    */
   interactiveStartPost(id: Identifier, data: T.InteractiveStartPostInput, options?: RequestOptions<T.InteractiveStartPostInput>) {
     return this.client.request<T.InteractiveStartPostResponse, T.InteractiveStartPostInput>({ ...options, method: "POST", url: `/api/v1/interactive/lessons/${encodeURIComponent(id)}/start`, data: data });
   }
   /**
-   * Performs the runs operation for the interactive capability.
+   * Runs  records through the mounted LMS interactive::routes handler.
    * Calls `GET /api/v1/interactive/runs` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated enrollment/run owner.
    */
   interactiveRunsGet(options?: RequestOptions) {
     return this.client.request<T.InteractiveRunsGetResponse>({ ...options, method: "GET", url: `/api/v1/interactive/runs` });
   }
   /**
-   * Performs the run operation for the interactive capability.
+   * Run  records through the mounted LMS interactive::routes handler.
    * Calls `GET /api/v1/interactive/runs/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated enrollment/run owner.
    */
   interactiveRunGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.InteractiveRunGetResponse>({ ...options, method: "GET", url: `/api/v1/interactive/runs/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the submit operation for the interactive capability.
+   * Submit  records through the mounted LMS interactive::routes handler.
    * Calls `POST /api/v1/interactive/runs/{id}/attempts` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated enrollment/run owner.
    */
   interactiveSubmitPost(id: Identifier, data: T.InteractiveSubmitPostInput, options?: RequestOptions<T.InteractiveSubmitPostInput>) {
     return this.client.request<T.InteractiveSubmitPostResponse, T.InteractiveSubmitPostInput>({ ...options, method: "POST", url: `/api/v1/interactive/runs/${encodeURIComponent(id)}/attempts`, data: data });
   }
   /**
-   * Performs the draft operation for the interactive capability.
+   * Draft  records through the mounted LMS interactive::routes handler.
    * Calls `PUT /api/v1/interactive/runs/{id}/draft` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated enrollment/run owner.
    */
   interactiveDraftPut(id: Identifier, data: T.InteractiveDraftPutInput, options?: RequestOptions<T.InteractiveDraftPutInput>) {
     return this.client.request<T.InteractiveDraftPutResponse, T.InteractiveDraftPutInput>({ ...options, method: "PUT", url: `/api/v1/interactive/runs/${encodeURIComponent(id)}/draft`, data: data });
   }
   /**
-   * Performs the hint operation for the interactive capability.
+   * Hint  records through the mounted LMS interactive::routes handler.
    * Calls `POST /api/v1/interactive/runs/{id}/hints` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated enrollment/run owner.
    */
   interactiveHintPost(id: Identifier, data: T.InteractiveHintPostInput, options?: RequestOptions<T.InteractiveHintPostInput>) {
     return this.client.request<T.InteractiveHintPostResponse, T.InteractiveHintPostInput>({ ...options, method: "POST", url: `/api/v1/interactive/runs/${encodeURIComponent(id)}/hints`, data: data });
   }
   /**
-   * Performs the teacher context operation for the interactive capability.
+   * Teacher context records through the mounted LMS interactive::routes handler.
    * Calls `GET /api/v1/interactive/runs/{id}/teacher-context` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated enrollment/run owner.
    */
   interactiveTeacherContextGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.InteractiveTeacherContextGetResponse>({ ...options, method: "GET", url: `/api/v1/interactive/runs/${encodeURIComponent(id)}/teacher-context` });
   }
   /**
-   * Performs the upload image operation for the media capability.
+   * Upload the first multipart image field containing PNG, JPEG, WebP or GIF bytes up to 10 MiB. Verifies MIME and magic bytes; returns the stored URL/key. Unsupported media returns 415, oversized data 413, storage failures 502.
    * Calls `POST /api/v1/media/images` through the shared IDP-aware Faiber client.
    * @param data Typed multipart form.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:update; trusted gateway identity plus any handler-local checks apply.
    */
   mediaUploadImagePost(data: T.MediaUploadImagePostInput, options?: RequestOptions<T.MediaUploadImagePostInput>) {
     return this.client.request<T.MediaUploadImagePostResponse, T.MediaUploadImagePostInput>({ ...options, method: "POST", url: `/api/v1/media/images`, data: data });
   }
   /**
-   * Performs the download image operation for the media capability.
+   * Download raw image bytes with Content-Type and cache headers in the complete Axios response. This response has no JSON envelope; invalid or missing assets reject with AxiosError.
    * Calls `GET /api/v1/media/images/{filename}` through the shared IDP-aware Faiber client.
    * @param filename Backend path identifier `filename`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:course:read; trusted gateway identity plus any handler-local checks apply.
    */
   mediaDownloadImageGet(filename: Identifier, options?: RequestOptions) {
-    return this.client.request<T.MediaDownloadImageGetResponse>({ ...options, method: "GET", url: `/api/v1/media/images/${encodeURIComponent(filename)}` });
+    return this.client.request<T.MediaDownloadImageGetResponse>({ ...options, method: "GET", url: `/api/v1/media/images/${encodeURIComponent(filename)}`, responseType: "arraybuffer" });
   }
   /**
-   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * List  records through the mounted LMS notifications handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/notification-rules` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:notification:settings:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:notification:settings:read; trusted gateway identity plus any handler-local checks apply.
    */
   modIndexGet(params?: T.ModIndexGetQuery, options?: RequestOptions) {
     return this.client.request<T.ModIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/notification-rules`, params });
   }
   /**
-   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Patch  records through the mounted LMS notifications handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `PUT /api/v1/notification-rules/{key}` through the shared IDP-aware Faiber client.
    * @param key Backend path identifier `key`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:notification:settings:update.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:notification:settings:update; trusted gateway identity plus any handler-local checks apply.
    */
   modUpdatePut(key: Identifier, data: T.ModUpdatePutInput, options?: RequestOptions<T.ModUpdatePutInput>) {
     return this.client.request<T.ModUpdatePutResponse, T.ModUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/notification-rules/${encodeURIComponent(key)}`, data: data });
   }
   /**
-   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Preview  records through the mounted LMS notifications handler.
    * Calls `POST /api/v1/notification-rules/{key}/preview` through the shared IDP-aware Faiber client.
    * @param key Backend path identifier `key`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:notification:settings:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:notification:settings:read; trusted gateway identity plus any handler-local checks apply.
    */
   modPreviewPost(key: Identifier, options?: RequestOptions) {
     return this.client.request<T.ModPreviewPostResponse>({ ...options, method: "POST", url: `/api/v1/notification-rules/${encodeURIComponent(key)}/preview` });
   }
   /**
-   * Performs the index operation for the profile routes capability.
+   * Search Profile summaries through the LMS proxy using page, per_page and filter[search]. Returns LMS pagination metadata.
    * Calls `GET /api/v1/profiles` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:read; trusted gateway identity plus any handler-local checks apply.
    */
   profileRoutesIndexGet(params?: T.ProfileRoutesIndexGetQuery, options?: RequestOptions) {
     return this.client.request<T.ProfileRoutesIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profiles`, params });
   }
   /**
-   * Performs the show operation for the profile routes capability.
+   * Read a Profile summary by user UUID. An absent profile returns data:null; an upstream failure returns 502.
    * Calls `GET /api/v1/profiles/{user_id}` through the shared IDP-aware Faiber client.
    * @param userId Backend path identifier `user_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:classroom:read; trusted gateway identity plus any handler-local checks apply.
    */
   profileRoutesShowGet(userId: Identifier, options?: RequestOptions) {
     return this.client.request<T.ProfileRoutesShowGetResponse>({ ...options, method: "GET", url: `/api/v1/profiles/${encodeURIComponent(userId)}` });
   }
   /**
-   * Performs the public show operation for the branding capability.
+   * Read public learner branding and runtime feedback_task_origin. The discovery key is present with null when unconfigured and is not persisted as branding.
    * Calls `GET /api/v1/public/branding` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public runtime branding/discovery; no actor or administration permission.
    */
   brandingPublicShowGet(options?: RequestOptions) {
     return this.client.request<T.BrandingPublicShowGetResponse>({ ...options, method: "GET", url: `/api/v1/public/branding` });
   }
   /**
-   * Performs the asset operation for the branding capability.
+   * Download raw image bytes with Content-Type and cache headers in the complete Axios response. This response has no JSON envelope; invalid or missing assets reject with AxiosError.
    * Calls `GET /api/v1/public/branding/assets/{key}` through the shared IDP-aware Faiber client.
    * @param key Backend path identifier `key`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   brandingAssetGet(key: Identifier, options?: RequestOptions) {
-    return this.client.request<T.BrandingAssetGetResponse>({ ...options, method: "GET", url: `/api/v1/public/branding/assets/${encodeURIComponent(key)}` });
+    return this.client.request<T.BrandingAssetGetResponse>({ ...options, method: "GET", url: `/api/v1/public/branding/assets/${encodeURIComponent(key)}`, responseType: "arraybuffer" });
   }
   /**
-   * Performs the verify certificate operation for the certificate capability.
+   * Verify a public, legacy, or verification code. Returns certificate identity, validity and result fields; unknown codes return 404.
    * Calls `GET /api/v1/public/certificates/{code}` through the shared IDP-aware Faiber client.
    * @param code Backend path identifier `code`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:verify.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata lms:certificate:verify; handler accepts public verification codes without an actor guard.
    */
   certificateVerifyCertificateGet(code: Identifier, options?: RequestOptions) {
     return this.client.request<T.CertificateVerifyCertificateGetResponse>({ ...options, method: "GET", url: `/api/v1/public/certificates/${encodeURIComponent(code)}` });
   }
   /**
-   * Performs the render certificate image operation for the certificate capability.
+   * Render or read the cached SVG for a public, legacy, or verification code. Returns a raw SVG string with cache headers; unknown codes return 404.
    * Calls `GET /api/v1/public/certificates/{code}/image.svg` through the shared IDP-aware Faiber client.
    * @param code Backend path identifier `code`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:verify.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata lms:certificate:verify; handler accepts public verification codes without an actor guard.
    */
   certificateRenderCertificateImageGet(code: Identifier, options?: RequestOptions) {
-    return this.client.request<T.CertificateRenderCertificateImageGetResponse>({ ...options, method: "GET", url: `/api/v1/public/certificates/${encodeURIComponent(code)}/image.svg` });
+    return this.client.request<T.CertificateRenderCertificateImageGetResponse>({ ...options, method: "GET", url: `/api/v1/public/certificates/${encodeURIComponent(code)}/image.svg`, responseType: "text" });
   }
   /**
-   * Performs the assigned chat contacts operation for the report capability.
+   * List authorized supervised students and their Profile-linked parents, with search and standard pagination. contact_role and Profile fields are flattened in each row; upstream validation failures return 502.
    * Calls `GET /api/v1/reports/assigned-chat-contacts` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:report:read_own.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:report:read_own; trusted gateway identity plus any handler-local checks apply.
    */
   reportAssignedChatContactsGet(params?: T.ReportAssignedChatContactsGetQuery, options?: RequestOptions) {
     return this.client.request<T.ReportAssignedChatContactsGetResponse>({ ...options, method: "GET", url: `/api/v1/reports/assigned-chat-contacts`, params });
   }
   /**
-   * Performs the assigned students operation for the report capability.
+   * List students enrolled in classrooms supervised by the actor, with search and standard pagination. Removed/disabled memberships are excluded; rows are Profile summaries.
    * Calls `GET /api/v1/reports/assigned-students` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:report:read_own.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:report:read_own; trusted gateway identity plus any handler-local checks apply.
    */
   reportAssignedStudentsGet(params?: T.ReportAssignedStudentsGetQuery, options?: RequestOptions) {
     return this.client.request<T.ReportAssignedStudentsGetResponse>({ ...options, method: "GET", url: `/api/v1/reports/assigned-students`, params });
   }
   /**
-   * Performs the classrooms operation for the report capability.
+   * Read one aggregate metrics row per classroom with teacher/consultant profiles and date/status filters. Requires broad report access.
    * Calls `GET /api/v1/reports/classrooms` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:report:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:report:read; trusted gateway identity plus any handler-local checks apply.
    */
   reportClassroomsGet(params?: T.ReportClassroomsGetQuery, options?: RequestOptions) {
     return this.client.request<T.ReportClassroomsGetResponse>({ ...options, method: "GET", url: `/api/v1/reports/classrooms`, params });
   }
   /**
-   * Performs the consultants operation for the report capability.
+   * Read aggregate classroom/student/session/attendance metrics grouped by assigned consultant. Date/status filters select classroom rows; requires broad report access.
    * Calls `GET /api/v1/reports/consultants` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:report:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:report:read; trusted gateway identity plus any handler-local checks apply.
    */
   reportConsultantsGet(params?: T.ReportConsultantsGetQuery, options?: RequestOptions) {
     return this.client.request<T.ReportConsultantsGetResponse>({ ...options, method: "GET", url: `/api/v1/reports/consultants`, params });
   }
   /**
-   * Performs the courses operation for the report capability.
+   * Read aggregate classroom/student/session/attendance metrics grouped by course. Returns course_id/course_name and counts, distinct from academy catalog DTOs; requires broad report access.
    * Calls `GET /api/v1/reports/courses` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:report:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:report:read; trusted gateway identity plus any handler-local checks apply.
    */
   reportCoursesGet(params?: T.ReportCoursesGetQuery, options?: RequestOptions) {
     return this.client.request<T.ReportCoursesGetResponse>({ ...options, method: "GET", url: `/api/v1/reports/courses`, params });
   }
   /**
-   * Performs the my students operation for the report capability.
+   * Read Profile-verified child summaries for the authenticated parent. Upstream Profile failure returns 502.
    * Calls `GET /api/v1/reports/my-students` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:report:read_own.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:report:read_own; trusted gateway identity plus any handler-local checks apply.
    */
   reportMyStudentsGet(options?: RequestOptions) {
     return this.client.request<T.ReportMyStudentsGetResponse>({ ...options, method: "GET", url: `/api/v1/reports/my-students` });
   }
   /**
-   * Performs the student summary operation for the report capability.
+   * Read the authenticated learner or selected student_user_id summary and nested courses/sessions/deliveries/exams. Own access permits self or a Profile-verified child; unrelated students return 403 and Profile outages return 502.
    * Calls `GET /api/v1/reports/student-summary` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:report:read_own.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:report:read_own; trusted gateway identity plus any handler-local checks apply.
    */
   reportStudentSummaryGet(params?: T.ReportStudentSummaryGetQuery, options?: RequestOptions) {
     return this.client.request<T.ReportStudentSummaryGetResponse>({ ...options, method: "GET", url: `/api/v1/reports/student-summary`, params });
   }
   /**
-   * Performs the students operation for the report capability.
+   * Read aggregate student classroom/attendance metrics. courses is omitted on this list; date/status filters apply through classroom scope. Requires broad report access.
    * Calls `GET /api/v1/reports/students` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:report:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:report:read; trusted gateway identity plus any handler-local checks apply.
    */
   reportStudentsGet(params?: T.ReportStudentsGetQuery, options?: RequestOptions) {
     return this.client.request<T.ReportStudentsGetResponse>({ ...options, method: "GET", url: `/api/v1/reports/students`, params });
   }
   /**
-   * Performs the teachers operation for the report capability.
+   * Read aggregate classroom/student/session/attendance metrics grouped by assigned teacher. from/to accept RFC3339 or UTC dates and filter classroom starts; requires broad report access.
    * Calls `GET /api/v1/reports/teachers` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:report:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: IDP route metadata: lms:report:read; trusted gateway identity plus any handler-local checks apply.
    */
   reportTeachersGet(params?: T.ReportTeachersGetQuery, options?: RequestOptions) {
     return this.client.request<T.ReportTeachersGetResponse>({ ...options, method: "GET", url: `/api/v1/reports/teachers`, params });
   }
   /**
-   * Performs the check licence operation for the service capability.
+   * Check licence records through the mounted LMS service::routes handler.
    * Calls `GET /api/v1/service/licence/check` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  serviceCheckLicenceGet(params?: T.ServiceCheckLicenceGetQuery, options?: RequestOptions) {
+  serviceCheckLicenceGet(params: T.ServiceCheckLicenceGetQuery, options?: RequestOptions) {
     return this.client.request<T.ServiceCheckLicenceGetResponse>({ ...options, method: "GET", url: `/api/v1/service/licence/check`, params });
   }
   /**
-   * Read process health and the reported service version. Does not verify database, broker or downstream readiness.
+   * Read the LMS process version in a success envelope. This endpoint does not probe database readiness.
    * Calls `GET /health` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no handler permission check; deployment gateway policy is separate.
    */
   routerStatusRouteGet(options?: RequestOptions) {
     return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/health` });
   }
   /**
-   * Read process health and the reported service version. Does not verify database, broker or downstream readiness.
+   * Read the LMS process version in a success envelope. This endpoint does not probe database readiness.
    * Calls `GET /up` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no handler permission check; deployment gateway policy is separate.
    */
   routerUpGet(options?: RequestOptions) {

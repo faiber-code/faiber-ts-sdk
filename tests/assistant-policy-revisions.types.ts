@@ -1,4 +1,4 @@
-import {FaiberSDK} from '../packages/sdk/dist/index.js';
+import {FaiberSDK} from '@faiber/faiber-ts-sdk';
 const sdk=new FaiberSDK({domains:{}});
 const configuration_id='cf1b746e-98bd-4da4-9be1-ceae4b395d85';
 sdk.knowledge.configureAssistant('assistant',{configuration_id,expected_policy_revision:1});

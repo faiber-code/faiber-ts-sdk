@@ -1,10 +1,11 @@
-import { ServiceApi, type QueryParams, type RequestOptions } from '@faiber/sdk-core';
-export interface PersonalChatResponse<T> {status:string;data:T}
-export interface ConversationSummary {id:string;title:string|Record<string,string>|null;kind:string;last_sequence:number;last_read_sequence:number;unread_count:number}
+import { ServiceApi, type QueryParams, type RequestOptions, type JsonValue } from '@faiber/sdk-core';
+export interface PersonalChatResponse<T> {status:'success';data:T;meta:null}
+export interface ConversationSummary {id:string;title:JsonValue;kind:string;last_sequence:number;last_read_sequence:number;unread_count:number}
 export interface ConversationSummaryPage {items:ConversationSummary[];next_cursor:string|null}
 export interface ConversationSummaryQuery extends QueryParams {cursor?:string;limit?:number}
 export interface ChatUnreadCount {unread_count:number}
-export interface PersonalChatEvent {sequence:number;conversation_id:string;payload:{type:string;message_id?:string;message_sequence?:number;read_sequence?:number;user_id?:string}}
+/** Durable event payload is stored JSON and varies with the event producer; fetch a fresh summary after invalidation. */
+export interface PersonalChatEvent {sequence:number;conversation_id:string;payload:JsonValue}
 export interface PersonalChatEventPage {events:PersonalChatEvent[];cursor:number;has_more:boolean}
 export interface PersonalChatEventQuery extends QueryParams {cursor?:number;wait_seconds?:number}
 export interface PersonalChatRealtimeConfig {ws_url:string;app_key:string;channel:string;event:string}

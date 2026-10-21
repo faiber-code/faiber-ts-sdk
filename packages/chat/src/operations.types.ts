@@ -2,16 +2,12 @@ import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, Quer
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend response type: Value. */
-export interface RoutesAssistantContextCatalogGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesAssistantContextCatalogGetResponse = import("./reviewed-wire.js").AssistantContextCatalogResponse;
 
 /** Backend query type: AssistantModelsQuery. */
-export interface RoutesAssistantModelsGetQuery extends QueryParams {
-  "billing_payer"?: string | null;
-}
+export type RoutesAssistantModelsGetQuery = import("./reviewed-wire.js").AssistantModelsQuery;
 /** Backend response type: Value. */
-export interface RoutesAssistantModelsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesAssistantModelsGetResponse = import("./reviewed-wire.js").AssistantModelsResponse;
 
 /** Backend response type: Value. */
 export type RoutesGetPolicyOperationGetResponse = import("./types.js").AssistantConfigurationIntentResponse;
@@ -22,50 +18,12 @@ export type RoutesReconcilePolicyOperationPostInput = import("./types.js").Assis
 export type RoutesReconcilePolicyOperationPostResponse = import("./types.js").AssistantPolicyReconciliationResponse;
 
 /** Backend response type: Value. */
-export interface RoutesListManagedAssistantsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListManagedAssistantsGetResponse = import("./reviewed-wire.js").ManagedAssistantsResponse;
 
 /** Backend request type: CreateAssistant. */
-export interface RoutesCreateAssistantPostInputCustomerActions extends JsonObject {
-  "id": string;
-  "label": Record<string, string>;
-  "kind": string;
-  "content_type"?: string | null;
-  "content_id"?: string | null;
-  "url": string;
-  "style": string;
-  "open_in_new_tab": boolean;
-  "enabled": boolean;
-}
-export interface RoutesCreateAssistantPostInput extends JsonObject {
-  "configuration_id": string;
-  "status"?: string | null;
-  "name": string;
-  "system_prompt": string;
-  "model_ref": string;
-  "billing_payer"?: string;
-  "knowledge_group_slugs"?: string[];
-  "knowledge_level"?: number | null;
-  "knowledge_base_ids"?: string[];
-  "recommender_group_ids"?: string[];
-  "short_memory_enabled"?: boolean;
-  "long_memory_enabled"?: boolean;
-  "short_memory_turns"?: number;
-  "long_memory_limit"?: number;
-  "context_mode"?: string;
-  "context_budget_tokens"?: number;
-  "max_knowledge_results"?: number;
-  "max_chunks_per_document"?: number;
-  "knowledge_enabled"?: boolean;
-  "recommenders_enabled"?: boolean;
-  "selected_media_enabled"?: boolean;
-  "session_access"?: boolean;
-  "drm_access"?: boolean;
-  "customer_actions"?: RoutesCreateAssistantPostInputCustomerActions[];
-}
+export type RoutesCreateAssistantPostInput = import("./reviewed-wire.js").ChatCreateAssistantInput;
 /** Backend response type: Value. */
-export interface RoutesCreateAssistantPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateAssistantPostResponse = import("./reviewed-wire.js").ManagedAssistantResponse;
 
 /** Backend response type: no-content. */
 export type RoutesDeleteAssistantDeleteResponse = void;
@@ -74,61 +32,17 @@ export type RoutesDeleteAssistantDeleteResponse = void;
 export type RoutesGetManagedAssistantGetResponse = import("./types.js").ManagedAssistantDetailResponse;
 
 /** Backend request type: UpdateAssistant. */
-export interface RoutesUpdateAssistantPutInputCustomerActions extends JsonObject {
-  "id": string;
-  "label": Record<string, string>;
-  "kind": string;
-  "content_type"?: string | null;
-  "content_id"?: string | null;
-  "url": string;
-  "style": string;
-  "open_in_new_tab": boolean;
-  "enabled": boolean;
-}
-export interface RoutesUpdateAssistantPutInput extends JsonObject {
-  "configuration_id": string;
-  "name"?: string | null;
-  "system_prompt"?: string | null;
-  "model_ref"?: string | null;
-  "billing_payer"?: string | null;
-  "knowledge_group_slugs"?: string[] | null;
-  "knowledge_level"?: number | null;
-  "knowledge_base_ids"?: string[] | null;
-  "recommender_group_ids"?: string[] | null;
-  "short_memory_enabled"?: boolean | null;
-  "long_memory_enabled"?: boolean | null;
-  "short_memory_turns"?: number | null;
-  "long_memory_limit"?: number | null;
-  "context_mode"?: string | null;
-  "context_budget_tokens"?: number | null;
-  "max_knowledge_results"?: number | null;
-  "max_chunks_per_document"?: number | null;
-  "knowledge_enabled"?: boolean | null;
-  "recommenders_enabled"?: boolean | null;
-  "selected_media_enabled"?: boolean | null;
-  "session_access"?: boolean | null;
-  "drm_access"?: boolean | null;
-  "customer_actions"?: RoutesUpdateAssistantPutInputCustomerActions[] | null;
-  "status"?: string | null;
-  "expected_version": number;
-  "expected_knowledge_policy_revision": number;
-}
+export type RoutesUpdateAssistantPutInput = import("./reviewed-wire.js").ChatUpdateAssistantInput;
 /** Backend response type: Value. */
-export interface RoutesUpdateAssistantPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdateAssistantPutResponse = import("./reviewed-wire.js").ManagedAssistantResponse;
 
 /** Backend query type: CustomerActionContentQuery. */
-export interface RoutesCustomerActionContentGetQuery extends QueryParams {
-  "content_type": string;
-  "q"?: string | null;
-}
+export type RoutesCustomerActionContentGetQuery = import("./reviewed-wire.js").CustomerActionContentQuery;
 /** Backend response type: Value. */
-export interface RoutesCustomerActionContentGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCustomerActionContentGetResponse = import("./reviewed-wire.js").CustomerActionContentResponse;
 
 /** Backend response type: Value. */
-export interface RoutesModelsGetApiV1AdminImageModelsResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesModelsGetApiV1AdminImageModelsResponse = import("./reviewed-wire.js").AssistantModelsResponse;
 
 /** Backend response type: Settings. */
 export interface RoutesSettingsGetApiV1AdminImageSettingsResponseData extends JsonObject {
@@ -155,39 +69,29 @@ export interface RoutesSavePutResponse extends ApiEnvelope<RoutesSavePutResponse
 }
 
 /** Backend response type: Value. */
-export interface RoutesModelsGetApiV1AdminSpeechModelsResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesModelsGetApiV1AdminSpeechModelsResponse = import("./reviewed-wire.js").SpeechModelsResponse;
 
 /** Backend response type: SpeechSettings. */
 export type RoutesSettingsGetApiV1AdminSpeechSettingsResponse = import("./types.js").SpeechSettingsResponse;
 
 /** Backend request type: crate::speech::SpeechSettingsInput. */
-export type RoutesPublicSpeechSettingsPutInput = import("./types.js").SpeechSettings;
+export type RoutesPublicSpeechSettingsPutInput = import("./reviewed-wire.js").SpeechSettingsInput;
 /** Backend response type: crate::speech::SpeechSettings. */
 export type RoutesPublicSpeechSettingsPutResponse = import("./types.js").SpeechSettingsResponse;
 
 /** Backend response type: Value. */
-export interface RoutesManagedRolesGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesManagedRolesGetResponse = import("./workspace.js").ManagedWorkspaceRolesResponse;
 
 /** Backend request type: BindRole. */
-export interface RoutesBindPutInput extends JsonObject {
-  "assistant_id": string;
-  "knowledge_slug": string;
-  "enabled": boolean;
-  "expected_version": number;
-}
+export type RoutesBindPutInput = import("./workspace.js").WorkspaceAssistantBindingInput;
 /** Backend response type: Value. */
-export interface RoutesBindPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesBindPutResponse = import("./workspace.js").WorkspaceAssistantBindingResponse;
 
 /** Backend response type: Value. */
-export interface RoutesListAssistantsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListAssistantsGetResponse = import("./reviewed-wire.js").AssistantCatalogResponse;
 
 /** Backend response type: Value. */
-export interface RoutesGetAssistantGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetAssistantGetResponse = import("./reviewed-wire.js").AssistantCatalogItemResponse;
 
 export type AttachmentUploadBody = Blob | ArrayBuffer | Uint8Array;
 /** Backend request type: binary byte stream. */
@@ -208,7 +112,7 @@ export interface RoutesCompleteAttachmentPostResponseData extends JsonObject {
   "byte_size": number;
   "checksum_sha256": string | null;
   "status": string;
-  "metadata": BackendJson<"Json">;
+  "metadata": JsonValue;
   "legacy_source": string | null;
   "legacy_id": number | null;
   "created_at": string;
@@ -222,30 +126,18 @@ export interface RoutesCompleteAttachmentPostResponse extends ApiEnvelope<Routes
 export type RoutesDownloadAttachmentGetResponse = ArrayBuffer | Uint8Array;
 
 /** Backend response type: Value. */
-export interface RoutesListGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListGetResponse = import("./reviewed-wire.js").ChatConversationsResponse;
 
 /** Backend request type: CreateConversation. */
-export interface RoutesCreatePostInput extends JsonObject {
-  "kind"?: string;
-  "slug"?: string | null;
-  "title"?: JsonValue;
-  "description"?: JsonValue;
-  "member_ids"?: string[];
-  "agent_slug"?: string;
-  "assistant_id"?: string | null;
-  "settings"?: JsonValue;
-}
+export type RoutesCreatePostInput = import("./types.js").CreateConversationInput;
 /** Backend response type: Value. */
-export interface RoutesCreatePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreatePostResponse = import("./reviewed-wire.js").ChatConversationResponse;
 
 /** Backend response type: no-content. */
 export type RoutesArchiveDeleteResponse = void;
 
 /** Backend response type: Value. */
-export interface RoutesGetOneGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetOneGetResponse = import("./reviewed-wire.js").ChatConversationResponse;
 
 /** Backend request type: UpdateConversation. */
 export interface RoutesUpdatePutInput extends JsonObject {
@@ -256,8 +148,7 @@ export interface RoutesUpdatePutInput extends JsonObject {
   "expected_version"?: number | null;
 }
 /** Backend response type: Value. */
-export interface RoutesUpdatePutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdatePutResponse = import("./reviewed-wire.js").ChatConversationResponse;
 
 /** Backend request type: AiMessage. */
 export interface RoutesAiSendPostInput extends JsonObject {
@@ -274,12 +165,10 @@ export interface RoutesAiSendPostInput extends JsonObject {
   "session_room_id"?: string | null;
 }
 /** Backend response type: Value. */
-export interface RoutesAiSendPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesAiSendPostResponse = import("./reviewed-wire.js").ChatAiResponse;
 
 /** Backend response type: Value. */
-export interface RoutesAiRuntimeInputsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesAiRuntimeInputsGetResponse = import("./reviewed-wire.js").ChatRuntimeInputsResponse;
 
 /** Backend request type: CompleteAiRuntimeInput. */
 export interface RoutesAiCompleteRuntimeInputPostInput extends JsonObject {
@@ -287,8 +176,7 @@ export interface RoutesAiCompleteRuntimeInputPostInput extends JsonObject {
   "cancelled"?: boolean;
 }
 /** Backend response type: Value. */
-export interface RoutesAiCompleteRuntimeInputPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesAiCompleteRuntimeInputPostResponse = import("./reviewed-wire.js").ChatRuntimeInputCompletionResponse;
 
 /** Backend request type: CreateAttachment. */
 export interface RoutesCreateAttachmentPostInput extends JsonObject {
@@ -314,7 +202,7 @@ export interface RoutesCreateAttachmentPostResponseDataAttachment extends JsonOb
   "byte_size": number;
   "checksum_sha256": string | null;
   "status": string;
-  "metadata": BackendJson<"Json">;
+  "metadata": JsonValue;
   "legacy_source": string | null;
   "legacy_id": number | null;
   "created_at": string;
@@ -333,8 +221,7 @@ export interface RoutesCreateAttachmentPostResponse extends ApiEnvelope<RoutesCr
 export type RoutesEventsGetResponse = import("./types.js").ChatEventStream;
 
 /** Backend response type: Value. */
-export interface RoutesMembersGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesMembersGetResponse = import("./reviewed-wire.js").ChatMembersResponse;
 
 /** Backend request type: MemberInput. */
 export interface RoutesAddMemberPostInput extends JsonObject {
@@ -342,8 +229,7 @@ export interface RoutesAddMemberPostInput extends JsonObject {
   "role"?: string;
 }
 /** Backend response type: Value. */
-export interface RoutesAddMemberPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesAddMemberPostResponse = import("./reviewed-wire.js").ChatMemberResponse;
 
 /** Backend response type: no-content. */
 export type RoutesRemoveMemberDeleteResponse = void;
@@ -356,8 +242,7 @@ export interface RoutesMessagesGetQuery extends QueryParams {
   "q"?: string | null;
 }
 /** Backend response type: Value. */
-export interface RoutesMessagesGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesMessagesGetResponse = import("./reviewed-wire.js").ChatMessagesResponse;
 
 /** Backend request type: SendMessage. */
 export interface RoutesSendPostInput extends JsonObject {
@@ -370,8 +255,7 @@ export interface RoutesSendPostInput extends JsonObject {
   "attachment_ids"?: string[];
 }
 /** Backend response type: Value. */
-export interface RoutesSendPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesSendPostResponse = import("./reviewed-wire.js").ChatMessageResponse;
 
 /** Backend request type: ReadInput. */
 export interface RoutesReadPostInput extends JsonObject {
@@ -387,11 +271,10 @@ export interface RoutesRealtimeAuthPostInput extends JsonObject {
   "channel_name": string;
 }
 /** Backend response type: Value. */
-export type RoutesRealtimeAuthPostResponse = JsonValue;
+export type RoutesRealtimeAuthPostResponse = import("./reviewed-wire.js").ChatRealtimeAuthorization;
 
 /** Backend response type: Value. */
-export interface RoutesRealtimeConfigGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesRealtimeConfigGetResponse = import("./types.js").ChatRealtimeConfigResponse;
 
 /** Backend request type: Generation. */
 export interface FitnessGeneratePostInput extends JsonObject {
@@ -406,21 +289,15 @@ export interface FitnessGeneratePostInput extends JsonObject {
   "reference_time": JsonValue;
 }
 /** Backend response type: Value. */
-export interface FitnessGeneratePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type FitnessGeneratePostResponse = import("./reviewed-wire.js").FitnessGenerationResponse;
 
 /** Backend request type: ExtractIntake. */
-export interface RoutesExtractIntakePostInput extends JsonObject {
-  "text": string;
-  "locale": string;
-}
+export type RoutesExtractIntakePostInput = import("./reviewed-wire.js").FitnessIntakeInput;
 /** Backend response type: Value. */
-export interface RoutesExtractIntakePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesExtractIntakePostResponse = import("./reviewed-wire.js").FitnessIntakeResponse;
 
 /** Backend response type: Value. */
-export interface RoutesModelsGetApiV1FitnessModelsResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesModelsGetApiV1FitnessModelsResponse = import("./reviewed-wire.js").FitnessModelsResponse;
 
 /** Backend request type: Models. */
 export interface FitnessSaveSettingsPutInput extends JsonObject {
@@ -429,28 +306,18 @@ export interface FitnessSaveSettingsPutInput extends JsonObject {
   "tts_model_ref": string;
 }
 /** Backend response type: Value. */
-export interface FitnessSaveSettingsPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type FitnessSaveSettingsPutResponse = import("./reviewed-wire.js").FitnessSettingsResponse;
 
 /** Backend response type: Value. */
-export interface RoutesStatusGetApiV1ImageStatusResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesStatusGetApiV1ImageStatusResponse = import("./reviewed-wire.js").ImageStatusResponse;
 
 /** Backend response type: Value. */
 export type HumanChatNotificationContextGetResponse = import("./personal.js").PersonalChatResponse<import("./personal.js").ChatNotificationContext>;
 
 /** Backend request type: MediaInput. */
-export interface MemoryImportExtractPostInput extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "organization_id": string;
-  "content_type": string;
-  "data_base64": string;
-  "language": string;
-}
+export type MemoryImportExtractPostInput = import("./reviewed-wire.js").ImportedMediaInput;
 /** Backend response type: Value. */
-export interface MemoryImportExtractPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type MemoryImportExtractPostResponse = import("./reviewed-wire.js").ImportedMediaResponse;
 
 /** Backend request type: SourceInput. */
 export interface MemoryImportSourcePostInput extends JsonObject {
@@ -459,17 +326,10 @@ export interface MemoryImportSourcePostInput extends JsonObject {
   "url": string;
 }
 /** Backend response type: Value. */
-export interface MemoryImportSourcePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type MemoryImportSourcePostResponse = import("./reviewed-wire.js").ImportedSourceResponse;
 
 /** Backend response type: Vec<LearningMessage>. */
-export interface RoutesHistoryGetResponseItem extends JsonObject {
-  "id": string;
-  "role": string;
-  "text": string;
-}
-export interface RoutesHistoryGetResponse extends ApiEnvelope<RoutesHistoryGetResponseItem[]> {
-}
+export type RoutesHistoryGetResponse = import("./learning.js").LearningHistoryResponse;
 
 /** Backend request type: Question. */
 export interface RoutesAskPostInput extends JsonObject {
@@ -477,8 +337,7 @@ export interface RoutesAskPostInput extends JsonObject {
   "idempotency_key": string;
 }
 /** Backend response type: Value. */
-export interface RoutesAskPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesAskPostResponse = import("./learning.js").LearningQuestionResponse;
 
 /** Backend query type: PageQuery. */
 export type HumanChatSummariesGetQuery = import("./personal.js").ConversationSummaryQuery;
@@ -509,54 +368,34 @@ export interface RoutesEditPutInput extends JsonObject {
   "content": JsonValue;
 }
 /** Backend response type: Value. */
-export interface RoutesEditPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesEditPutResponse = import("./reviewed-wire.js").ChatMessageResponse;
 
 /** Backend request type: ReactionInput. */
 export interface RoutesReactPostInput extends JsonObject {
   "emoji": string;
 }
 /** Backend response type: Value. */
-export interface RoutesReactPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesReactPostResponse = import("./reviewed-wire.js").ChatReactionResponse;
 
 /** Backend request type: LiveSpeechInput. */
-export interface RoutesLivePostInput extends JsonObject {
-  "action": string;
-  "session_id"?: string | null;
-  "sequence"?: number | null;
-  "audio_base64"?: string | null;
-  "content_type"?: string | null;
-  "language"?: string | null;
-}
+export type RoutesLivePostInput = import("./speech-live.js").LiveSpeechInput;
 /** Backend response type: Value. */
-export interface RoutesLivePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesLivePostResponse = import("./speech-live.js").LiveSpeechResponse;
 
 /** Backend response type: Value. */
-export interface RoutesStatusGetApiV1SpeechStatusResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesStatusGetApiV1SpeechStatusResponse = import("./reviewed-wire.js").ChatSpeechStatusResponse;
 
 /** Backend request type: binary byte stream. */
 export type RoutesTranscribePostInput = Blob | ArrayBuffer | ArrayBufferView;
 /** Backend query type: Language. */
-export interface RoutesTranscribePostQuery extends QueryParams {
-  "language": string;
-}
+export type RoutesTranscribePostQuery = import("./reviewed-wire.js").SpeechTranscriptionQuery;
 /** Backend response type: Value. */
-export interface RoutesTranscribePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesTranscribePostResponse = import("./reviewed-wire.js").ChatSpeechTranscriptResponse;
 
 /** Backend request type: TtsInput. */
-export type RoutesSynthesizePostInputFormat = "Mp3" | "Wav";
-export interface RoutesSynthesizePostInput extends JsonObject {
-  "format"?: RoutesSynthesizePostInputFormat | null;
-  "text": string;
-  "language"?: string | null;
-}
+export type RoutesSynthesizePostInput = import("./types.js").SpeechSynthesisInput;
 /** Backend response type: raw-response. */
-export interface RoutesSynthesizePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesSynthesizePostResponse = import("./reviewed-wire.js").SpeechAudioBytes;
 
 /** Backend request type: VoiceInput. */
 export type RoutesHandlePostInput = import("./assistant-voice.js").AssistantVoiceInput;
@@ -582,8 +421,7 @@ export type NativeAccessRestoreDeleteInput = import("@faiber/sdk-core").NativeSu
 export type NativeAccessRestoreDeleteResponse = import("@faiber/sdk-core").NativeSummaryAccessResponse;
 
 /** Backend response type: Value. */
-export interface RoutesRolesGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesRolesGetResponse = import("./workspace.js").WorkspaceAssistantBindingsResponse;
 
 /** Backend response type: serde_json::Value. */
 export type MainHealthGetResponse = import("./personal.js").PersonalChatResponse<import("./personal.js").ChatProcessHealth>;

@@ -6,7 +6,7 @@ export class VersionOperations extends ServiceApi {
    * Read the raw generated OpenAPI document, without an API envelope. The current document describes health only and is not the complete mounted API inventory.
    * Calls `GET /api/openapi.json` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public at the service router; deployed gateway rules may add restrictions.
    */
   routerOpenapiJsonGet(options?: RequestOptions) {
@@ -17,7 +17,7 @@ export class VersionOperations extends ServiceApi {
    * Calls `POST /api/v1/apk/releases` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only APK_PUBLISH_TOKEN bearer credential.
    */
   routerPublishApkPost(data: T.RouterPublishApkPostInput, options?: RequestOptions<T.RouterPublishApkPostInput>) {
@@ -27,7 +27,7 @@ export class VersionOperations extends ServiceApi {
    * List active registered services without pagination or filters. last_version is null in this list; read a service by slug to resolve its newest active release.
    * Calls `GET /api/v1/services` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no IDP permission enforced by the mounted service handler; deployed gateway policy is separate.
    */
   serviceServicesIndexGet(options?: RequestOptions) {
@@ -38,7 +38,7 @@ export class VersionOperations extends ServiceApi {
    * Calls `GET /api/v1/services/{service_slug}` through the shared IDP-aware Faiber client.
    * @param serviceSlug Backend path identifier `service_slug`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no IDP permission enforced by the mounted service handler; deployed gateway policy is separate.
    */
   serviceServiceShowGet(serviceSlug: string, options?: RequestOptions) {
@@ -49,7 +49,7 @@ export class VersionOperations extends ServiceApi {
    * Calls `GET /api/v1/services/{service_slug}/all` through the shared IDP-aware Faiber client.
    * @param serviceSlug Backend path identifier `service_slug`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no IDP permission enforced by the mounted service handler; deployed gateway policy is separate.
    */
   serviceServiceShowAllGet(serviceSlug: string, options?: RequestOptions) {
@@ -60,7 +60,7 @@ export class VersionOperations extends ServiceApi {
    * Calls `GET /api/v1/versions/{version_id}` through the shared IDP-aware Faiber client.
    * @param versionId Backend path identifier `version_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no IDP permission enforced by the mounted service handler; deployed gateway policy is separate.
    */
   versionVersionShowGet(versionId: string, options?: RequestOptions) {
@@ -70,7 +70,7 @@ export class VersionOperations extends ServiceApi {
    * Read the Version service process health envelope. This does not verify database, broker or gateway readiness.
    * Calls `GET /health` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public at the service router; deployed gateway rules may add restrictions.
    */
   routerStatusRouteGet(options?: RequestOptions) {

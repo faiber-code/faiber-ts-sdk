@@ -5,8 +5,7 @@ import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, Quer
 export type RouterStatusRouteGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
 
 /** Backend response type: api. */
-export interface RouterBeautifiedOpenapiGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RouterBeautifiedOpenapiGetResponse = import("@faiber/sdk-core").ServiceOpenApiDocument;
 
 /** Backend response type: utoipa::openapi::OpenApi. */
 export type RouterOpenapiJsonGetResponse = import("@faiber/sdk-core").ServiceOpenApiDocument;
@@ -1048,7 +1047,7 @@ export interface InventoryUpdateWarehousePutResponse extends ApiEnvelope<Invento
 }
 
 /** Backend response type: Value. */
-export type ManagementApiAgentModelsGetResponse = JsonValue;
+export type ManagementApiAgentModelsGetResponse = import("./contracts.types.js").ModulesAgentModelCatalog;
 
 /** Backend response type: Vec<ProposalRecord>. */
 export interface ManagementApiListProposalsGetResponseItem extends JsonObject {
@@ -1152,8 +1151,7 @@ export interface ManagementApiRunAgentPostInput extends JsonObject {
   "risk"?: string;
 }
 /** Backend response type: raw-response. */
-export interface ManagementApiRunAgentPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type ManagementApiRunAgentPostResponse = import("./contracts.types.js").ModulesAgentRunResponse;
 
 /** Backend query type: ContentListQuery. */
 export interface ManagementApiListContentGetQuery extends QueryParams {
@@ -1195,12 +1193,10 @@ export interface ManagementApiCreateContentPostInput extends JsonObject {
   "publish_at"?: string | null;
 }
 /** Backend response type: raw-response. */
-export interface ManagementApiCreateContentPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type ManagementApiCreateContentPostResponse = import("./types.js").ContentDocument;
 
 /** Backend response type: raw-response. */
-export interface ManagementApiGetContentGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ManagementApiGetContentGetResponse = import("./types.js").ContentDocument;
 
 /** Backend request type: ContentWrite. */
 export interface ManagementApiUpdateContentPutInput extends JsonObject {
@@ -1212,12 +1208,10 @@ export interface ManagementApiUpdateContentPutInput extends JsonObject {
   "publish_at"?: string | null;
 }
 /** Backend response type: raw-response. */
-export interface ManagementApiUpdateContentPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type ManagementApiUpdateContentPutResponse = import("./types.js").ContentDocument;
 
 /** Backend response type: raw-response. */
-export interface ManagementApiPublishContentPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type ManagementApiPublishContentPostResponse = import("./types.js").ContentDocument;
 
 /** Backend response type: Vec<ContentRevisionRecord>. */
 export interface ManagementApiListContentRevisionsGetResponseItem extends JsonObject {
@@ -1235,8 +1229,7 @@ export interface ManagementApiListContentRevisionsGetResponseItem extends JsonOb
 export type ManagementApiListContentRevisionsGetResponse = ManagementApiListContentRevisionsGetResponseItem[];
 
 /** Backend response type: raw-response. */
-export interface ManagementApiRestoreContentRevisionPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type ManagementApiRestoreContentRevisionPostResponse = import("./types.js").ContentDocument;
 
 /** Backend request type: CategoryImport. */
 export interface ContentTransferUpsertCategoryPutInput extends JsonObject {
@@ -1311,8 +1304,7 @@ export interface ContentTransferUpsertContentPutResponseData extends JsonObject 
 export type ContentTransferUpsertContentPutResponse = ContentTransferUpsertContentPutResponseData;
 
 /** Backend response type: raw-response. */
-export interface ManagementApiGetSettingsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ManagementApiGetSettingsGetResponse = import("./contracts.types.js").ModulesSettingsWire;
 
 /** Backend request type: SettingsUpdate. */
 export interface ManagementApiUpdateSettingsPutInput extends JsonObject {
@@ -1326,8 +1318,7 @@ export interface ManagementApiUpdateSettingsPutInput extends JsonObject {
   "delivery"?: JsonValue;
 }
 /** Backend response type: raw-response. */
-export interface ManagementApiUpdateSettingsPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type ManagementApiUpdateSettingsPutResponse = import("./contracts.types.js").ModulesSettingsWire;
 
 /** Backend request type: multipart/form-data. */
 export type MediaUploadAssetPostInput = FormData;
@@ -1341,8 +1332,7 @@ export interface MediaUploadAssetPostResponseData extends JsonObject {
 export type MediaUploadAssetPostResponse = MediaUploadAssetPostResponseData;
 
 /** Backend response type: raw-response. */
-export interface MediaGetFileGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type MediaGetFileGetResponse = ArrayBuffer | Uint8Array;
 
 /** Backend request type: multipart/form-data. */
 export type MediaUploadImagePostInput = FormData;
@@ -1449,17 +1439,7 @@ export interface PodcastUpdatePatchResponse extends ApiEnvelope<PodcastUpdatePat
 }
 
 /** Backend request type: models::EpisodeInput. */
-export interface PodcastCreateEpisodePostInput extends JsonObject {
-  "title": string;
-  "description"?: string | null;
-  "sort_order"?: number | null;
-  "audio_source": string;
-  "external_audio_url"?: string | null;
-  "drm_media_id"?: string | null;
-  "duration_seconds"?: number | null;
-  "status"?: number | null;
-  "published_at"?: string | null;
-}
+export type PodcastCreateEpisodePostInput = import("./contracts.types.js").ModulesEpisodeInput;
 /** Backend response type: entity::podcast_episode::Model. */
 export interface PodcastCreateEpisodePostResponseData extends JsonObject {
   "id": string;
@@ -1487,17 +1467,7 @@ export interface PodcastRemoveEpisodeDeleteResponseData extends JsonObject {
 export type PodcastRemoveEpisodeDeleteResponse = PodcastRemoveEpisodeDeleteResponseData;
 
 /** Backend request type: models::EpisodeUpdate. */
-export interface PodcastUpdateEpisodePatchInput extends JsonObject {
-  "title"?: string | null;
-  "description"?: string | null;
-  "sort_order"?: number | null;
-  "audio_source"?: string | null;
-  "external_audio_url"?: string | null;
-  "drm_media_id"?: string | null;
-  "duration_seconds"?: number | null;
-  "status"?: number | null;
-  "published_at"?: string | null;
-}
+export type PodcastUpdateEpisodePatchInput = import("./contracts.types.js").ModulesEpisodeUpdateInput;
 /** Backend response type: entity::podcast_episode::Model. */
 export interface PodcastUpdateEpisodePatchResponseData extends JsonObject {
   "id": string;
@@ -1701,8 +1671,7 @@ export interface ContentTransferListPublicContentGetResponseData extends JsonObj
 export type ContentTransferListPublicContentGetResponse = ContentTransferListPublicContentGetResponseData;
 
 /** Backend response type: raw-response. */
-export interface ManagementApiPublicContentGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ManagementApiPublicContentGetResponse = import("./types.js").ContentDocument;
 
 /** Backend request type: WebsiteSubmission. */
 export interface RequestSubmitPostApiV1PublicRequestsKeyInput extends JsonObject {
@@ -1721,15 +1690,10 @@ export interface RequestSubmitPostApiV1PublicRequestsKeyResponseData extends Jso
 export type RequestSubmitPostApiV1PublicRequestsKeyResponse = RequestSubmitPostApiV1PublicRequestsKeyResponseData;
 
 /** Backend response type: Value. */
-export type ManagementApiPublicRoutesGetResponse = JsonValue;
+export type ManagementApiPublicRoutesGetResponse = import("./contracts.types.js").ModulesPublicRoutesResponse;
 
 /** Backend query type: AutocompleteQuery. */
-export interface SearchAutocompleteGetQuery extends QueryParams {
-  "q": string;
-  "scope"?: QueryValue | null;
-  "locale"?: string | null;
-  "limit"?: number | null;
-}
+export type SearchAutocompleteGetQuery = import("./types.js").AutocompleteQuery;
 /** Backend response type: AutocompleteResponse. */
 export type SearchAutocompleteGetResponseDataScope = "posts" | "products" | "mixed";
 export interface SearchAutocompleteGetResponseDataItems extends JsonObject {
@@ -2515,67 +2479,13 @@ export interface OrderListOrdersGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::OrderListResponse. */
-export interface OrderListOrdersGetResponseDataOrdersItems extends JsonObject {
-  "id": string;
-  "order_id": string;
-  "variant_id": string;
-  "quantity": number;
-  "unit_price": string;
-  "total_price": string;
-  "created_at": string;
-}
-export interface OrderListOrdersGetResponseDataOrders extends JsonObject {
-  "checkout"?: JsonValue | null;
-  "id": string;
-  "user_id": string;
-  "status": number;
-  "total": string;
-  "items": OrderListOrdersGetResponseDataOrdersItems[];
-  "created_at": string;
-  "updated_at": string;
-}
-export interface OrderListOrdersGetResponseData extends JsonObject {
-  "orders": OrderListOrdersGetResponseDataOrders[];
-  "page_number": number;
-  "page_size": number;
-  "total_items": number;
-}
-export interface OrderListOrdersGetResponse extends ApiEnvelope<OrderListOrdersGetResponseData> {
-}
+export type OrderListOrdersGetResponse = import("./contracts.types.js").ModulesOrderListResponse;
 
 /** Backend request type: models::OrderCreateRequest. */
-export interface OrderCreateOrderPostInputItems extends JsonObject {
-  "variant_id": string;
-  "quantity": number;
-  "unit_price"?: string | number;
-}
-export interface OrderCreateOrderPostInput extends JsonObject {
-  "id"?: string | null;
-  "status"?: number | null;
-  "items": OrderCreateOrderPostInputItems[];
-}
+export type OrderCreateOrderPostInput = import("./contracts.types.js").ModulesOrderCreateInput;
 /** Backend response type: models::OrderResponseDTO. */
-export interface OrderCreateOrderPostResponseDataItems extends JsonObject {
-  "id": string;
-  "order_id": string;
-  "variant_id": string;
-  "quantity": number;
-  "unit_price": string;
-  "total_price": string;
-  "created_at": string;
-}
-export interface OrderCreateOrderPostResponseData extends JsonObject {
-  "checkout"?: JsonValue | null;
-  "id": string;
-  "user_id": string;
-  "status": number;
-  "total": string;
-  "items": OrderCreateOrderPostResponseDataItems[];
-  "created_at": string;
-  "updated_at": string;
-}
-export interface OrderCreateOrderPostResponse extends ApiEnvelope<OrderCreateOrderPostResponseData> {
-}
+export type OrderCreateOrderPostResponseData = import("./contracts.types.js").ModulesOrderRecord;
+export type OrderCreateOrderPostResponse = import("./contracts.types.js").ModulesOrderResponse;
 
 /** Backend response type: EmptyAPIResponse. */
 export interface OrderDeleteOrderDeleteResponseData extends JsonObject {
@@ -2585,81 +2495,24 @@ export interface OrderDeleteOrderDeleteResponseData extends JsonObject {
 export type OrderDeleteOrderDeleteResponse = OrderDeleteOrderDeleteResponseData;
 
 /** Backend response type: models::OrderResponseDTO. */
-export interface OrderShowOrderGetResponseDataItems extends JsonObject {
-  "id": string;
-  "order_id": string;
-  "variant_id": string;
-  "quantity": number;
-  "unit_price": string;
-  "total_price": string;
-  "created_at": string;
-}
-export interface OrderShowOrderGetResponseData extends JsonObject {
-  "checkout"?: JsonValue | null;
-  "id": string;
-  "user_id": string;
-  "status": number;
-  "total": string;
-  "items": OrderShowOrderGetResponseDataItems[];
-  "created_at": string;
-  "updated_at": string;
-}
-export interface OrderShowOrderGetResponse extends ApiEnvelope<OrderShowOrderGetResponseData> {
-}
+export type OrderShowOrderGetResponseData = import("./contracts.types.js").ModulesOrderRecord;
+export type OrderShowOrderGetResponse = import("./contracts.types.js").ModulesOrderResponse;
 
 /** Backend request type: models::OrderUpdateRequest. */
 export interface OrderUpdateOrderPatchInput extends JsonObject {
   "status"?: number | null;
 }
 /** Backend response type: models::OrderResponseDTO. */
-export interface OrderUpdateOrderPatchResponseDataItems extends JsonObject {
-  "id": string;
-  "order_id": string;
-  "variant_id": string;
-  "quantity": number;
-  "unit_price": string;
-  "total_price": string;
-  "created_at": string;
-}
-export interface OrderUpdateOrderPatchResponseData extends JsonObject {
-  "checkout"?: JsonValue | null;
-  "id": string;
-  "user_id": string;
-  "status": number;
-  "total": string;
-  "items": OrderUpdateOrderPatchResponseDataItems[];
-  "created_at": string;
-  "updated_at": string;
-}
-export interface OrderUpdateOrderPatchResponse extends ApiEnvelope<OrderUpdateOrderPatchResponseData> {
-}
+export type OrderUpdateOrderPatchResponseData = import("./contracts.types.js").ModulesOrderRecord;
+export type OrderUpdateOrderPatchResponse = import("./contracts.types.js").ModulesOrderResponse;
 
 /** Backend request type: models::OrderUpdateRequest. */
 export interface OrderUpdateOrderPutInput extends JsonObject {
   "status"?: number | null;
 }
 /** Backend response type: models::OrderResponseDTO. */
-export interface OrderUpdateOrderPutResponseDataItems extends JsonObject {
-  "id": string;
-  "order_id": string;
-  "variant_id": string;
-  "quantity": number;
-  "unit_price": string;
-  "total_price": string;
-  "created_at": string;
-}
-export interface OrderUpdateOrderPutResponseData extends JsonObject {
-  "checkout"?: JsonValue | null;
-  "id": string;
-  "user_id": string;
-  "status": number;
-  "total": string;
-  "items": OrderUpdateOrderPutResponseDataItems[];
-  "created_at": string;
-  "updated_at": string;
-}
-export interface OrderUpdateOrderPutResponse extends ApiEnvelope<OrderUpdateOrderPutResponseData> {
-}
+export type OrderUpdateOrderPutResponseData = import("./contracts.types.js").ModulesOrderRecord;
+export type OrderUpdateOrderPutResponse = import("./contracts.types.js").ModulesOrderResponse;
 
 /** Backend response type: Vec<models::OrderItemResponseDTO>. */
 export interface OrderListOrderItemsGetResponseItem extends JsonObject {
@@ -2675,33 +2528,10 @@ export interface OrderListOrderItemsGetResponse extends ApiEnvelope<OrderListOrd
 }
 
 /** Backend request type: models::OrderItemCreateRequest. */
-export interface OrderAddOrderItemPostInput extends JsonObject {
-  "variant_id": string;
-  "quantity": number;
-  "unit_price"?: string | number;
-}
+export type OrderAddOrderItemPostInput = import("./contracts.types.js").ModulesOrderItemInput;
 /** Backend response type: models::OrderResponseDTO. */
-export interface OrderAddOrderItemPostResponseDataItems extends JsonObject {
-  "id": string;
-  "order_id": string;
-  "variant_id": string;
-  "quantity": number;
-  "unit_price": string;
-  "total_price": string;
-  "created_at": string;
-}
-export interface OrderAddOrderItemPostResponseData extends JsonObject {
-  "checkout"?: JsonValue | null;
-  "id": string;
-  "user_id": string;
-  "status": number;
-  "total": string;
-  "items": OrderAddOrderItemPostResponseDataItems[];
-  "created_at": string;
-  "updated_at": string;
-}
-export interface OrderAddOrderItemPostResponse extends ApiEnvelope<OrderAddOrderItemPostResponseData> {
-}
+export type OrderAddOrderItemPostResponseData = import("./contracts.types.js").ModulesOrderRecord;
+export type OrderAddOrderItemPostResponse = import("./contracts.types.js").ModulesOrderResponse;
 
 /** Backend query type: models::ProductListQuery. */
 export interface ProductListProductsGetQuery extends QueryParams {
@@ -3156,5 +2986,4 @@ export interface TagUpdateTagPutResponse extends ApiEnvelope<TagUpdateTagPutResp
 export type RouterHealthGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
-}
+export type IntegrationFlowIntegrationShowGetResponse = import("./contracts.types.js").ModulesFlowIntegrationResponse;

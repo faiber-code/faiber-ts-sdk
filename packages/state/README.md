@@ -1,39 +1,53 @@
 # @faiber/faiber-state-sdk
 
-TypeScript client for Infera State worlds, rooms, authoritative state, WASM endpoints, realtime replication, and client prediction.
+Typed State worlds, rooms, WASM export bindings, server-authoritative games and ticket-authenticated WebSockets.
 
 ```bash
-npm install @faiber/faiber-ts-sdk
+npm install @faiber/faiber-state-sdk
 ```
 
 ```ts
-const ticket = (await faiber.state.join(roomId, userId)).data.data;
+import { FaiberClient } from "@faiber/sdk-core";
+import { StateApi, StateRealtimeClient } from "@faiber/faiber-state-sdk";
+
+const state = new StateApi(new FaiberClient("state", {
+  domains: { state: "https://state.example.com" },
+  authMode: "cookie",
+}));
+const options = { headers: { "x-organization-id": organizationId }, signal };
+const world = await state.createWorld({ name: "Arena", slug: "arena" }, options);
+const room = await state.createRoom(world.data.data.id, { name: "Room 1", capacity: 8 }, options);
+const ticket = (await state.join(room.data.data.id, userId, options)).data.data;
 const realtime = new StateRealtimeClient(ticket);
 realtime.on("patch", patch => applyServerPatch(patch));
+realtime.on("pong", ({ tick }) => observeServerTick(tick));
 await realtime.connect();
-realtime.sendInput({ move_x: 5, move_z: -1 }, "unreliable");
+realtime.sendInput({ move_x: 5, move_z: -1 });
+// On leaving the room:
+realtime.close();
 ```
 
-Browsers use the reliable WebSocket channel by default. Native mobile/desktop hosts can inject a `DatagramTransport` for UDP or QUIC traffic. `PredictionBuffer` replays unacknowledged input after each authoritative patch.
+Use secure HttpOnly cookies with `withCredentials`, or configure `FaiberClient` with a `TokenProvider` that supplies an in-memory Bearer token. Every HTTP call preserves the full Axios response, options, errors and cancellation signal. Catch Axios errors for validation (400/422), missing records (404), permission failures (401/403), conflicts (409), and transport failures. Aborting `signal` cancels HTTP requests. The complete facade is available as [`@faiber/faiber-ts-sdk`](https://www.npmjs.com/package/@faiber/faiber-ts-sdk).
 
-All HTTP methods use the shared `FaiberClient`, so Bearer tokens and secure-cookie credentials,
-Axios errors, cancellation signals, and custom request options are preserved. The realtime socket
-authenticates with the short-lived ticket returned by the authorized `join` call.
+v1 world/room/WASM operations require an authenticated user, a non-nil `x-organization-id` UUID, and `state:read`, `state:write`, or `state:execute` as documented per operation. State management, wildcard and admin aliases are also accepted. Joining/invoking for another user requires management authority. Managed game worlds expose `managed: true` and reject update/deletion with 409. All v1 and v2 success responses use `{ data }`.
 
-### Versioned games and match realtime
+Browsers carry room input over WebSocket. Native hosts can inject `DatagramTransport` for the JSON UDP input gateway; each datagram includes the scoped room ticket. `acked` UDP delivery returns an acknowledgement. The room ticket expires after five minutes and is checked at upgrade; rejoining obtains a new player and ticket. `close()` stops retries. The backend may deliver a patch both as an input response and broadcast; consumers should track entity revisions/sequences. `PredictionBuffer` can replay pending inputs after authoritative updates.
 
-The generated operations also cover v2 game catalogs, sessions, commands, invite lobbies, progress, matchmaking and connection tickets. v1 and v2 return `{data}` envelopes. Game request/response fields use camelCase; commands include a stable command UUID and the expected state version. Stale versions return 409. The registered ruleset determines board and challenge JSON payloads.
+The generated `state.operations` covers all mounted HTTP APIs and both WebSocket upgrades. v2 game catalog reads are public; protected game operations require `state:execute` and applicable owner/member checks. The SQL game runtime uses the tenant configured on the service. Game-operations summary, economy, session pages and event pages have named response models. Their query keys use snake_case (`page_size`, `settlement_status`, `user_id`); returned page metadata uses camelCase. Session pages default to 25 entries, event pages to 50, and both clamp sizes to 10–100.
 
 ```ts
-const created = await faiber.state.operations.gamesRoutesCreateSessionPost(gameId, { difficulty: "11-14", paid: false });
-const connected = await faiber.state.operations.kheradgahRoutesConnectionPost(matchId);
-const socket = await faiber.state.operations.connectMatchRealtime(connected.data.data, { signal });
+const created = await state.operations.gamesRoutesCreateSessionPost(gameId, {
+  difficulty: "11-14", paid: false,
+}, { signal });
+const page = await state.operations.routesGameOperationSessionsGet({
+  page: 1, page_size: 25, paid: false,
+}, options);
+const connection = await state.createMatchConnection(matchId, { signal });
+const socket = await state.operations.connectMatchRealtime(connection.data.data, { signal });
 ```
 
-Protected HTTP operations inherit the configured token/cookie transport and require `state:execute`. `connectMatchRealtime` performs the WebSocket upgrade, validates the configured State origin and sends the 30-second one-use ticket in the initial hello frame. Acquire a new ticket after reconnecting. `routesRealtimeGet` opens v1 room replication using a scoped `JoinTicket`. WebSocket operations return a connected socket/client; HTTP operations preserve complete Axios responses.
+Game commands include a stable command UUID and the expected state version. Stale HTTP game versions return 409; match WebSocket command rejection uses a `command_result` frame and a fresh snapshot. Board, challenge, metrics, event payloads and game answer/action JSON deliberately vary by registered game/ruleset and are documented as `GamePayload`; component/input JSON varies by authored world schema.
 
-### Process advertisement
+`connectMatchRealtime` validates the configured service origin and sends a 30-second one-use connection ticket in the initial hello frame within five seconds. Acquire a fresh ticket after reconnecting. `MatchRealtimeClient` automatically reconnects only when supplied `refreshTicket`; a consumed ticket cannot be reused. The server validates allowed browser Origins. `routesRealtimeGet(ticket, { signal })` opens v1 room replication against the configured service origin. Socket operations return a connected WebSocket/client.
 
-`operations.mainProcessHealthGet()` reads `/health` as a typed static advertisement:
-`data.service`, `data.status`, `data.transports`, `data.rulesets` and `data.wasm`.
-It is not a database, match engine, WebSocket or gateway readiness guarantee.
+`health()` and `operations.mainProcessHealthGet()` read the static `/health` advertisement (`service`, `status`, `transports`, `rulesets`, `wasm`). This advertises WebSocket and `kheradgah.v1`; it does not verify database, gameplay, persistence, gateway or WebSocket readiness.

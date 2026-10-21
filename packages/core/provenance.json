@@ -87,13 +87,13 @@
     "packages/core/src/index.ts": "6756b343720142c0f4f0c62b8194eefdea2d1774da6f7902bee9e39d4e81c9d4",
     "packages/core/src/openapi.ts": "f17ce0aa3c617bbc42d9ec936b01fe5e298d3283925274c0b33de67392ad82fd",
     "packages/core/src/realtime.ts": "f54a28dd5bb4db5bac1ab9eb8f8a1a031f2a85fc426bf480e70d601bd274fdd0",
-    "packages/core/src/resource.ts": "52c5241998330500ec0288582cb8c43fa41dba2726972b8fe6de14b70851699a",
+    "packages/core/src/resource.ts": "c4ab482ee37f98ac31b84f71da5c0b7216657ef1c551834b1cf0ea50d2ea4bbc",
     "packages/core/src/summary-access.ts": "c48003de880896c1b76772610ddb589e5fbd745e14732f83c4d5a42d34a0503c",
     "packages/core/src/types.ts": "fee1c4b8f5ed4de92276be41d10a13ada5361c24ed80656029a4cf5e3e940afa"
   },
   "capability_review_sha256": null,
   "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
-  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
   "public_contract": {
     "kind": "shared-client-or-facade"
   },

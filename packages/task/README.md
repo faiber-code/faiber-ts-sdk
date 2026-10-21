@@ -114,3 +114,42 @@ Internal operations require a trusted server credential and current tenant scope
 Use exported `ReportContext` and `SubmitFeedbackRequest` types, initialize/upload/complete private screenshot evidence, then call `task.feedback.submit(input, crypto.randomUUID())`. Keep the same key and body for retries. Screenshots can be unavailable without blocking submission. `list`, `detail`, `decide`, and authorized `attachmentContent` preserve server ownership and local review scope. A decision uses `expected_version`; stale versions return 409. Only the configured final assignment stage creates a task. `current_stage` contains its bilingual label and action kind. Existing reports retain the submitted route snapshot after policy edits. Management methods require local `workspace.manage`; policy writes use the current version (zero initializes).
 
 All calls retain Axios status/headers, authenticated cookies or bearer tokens, AbortSignal cancellation and transport errors. Never submit hidden answers, credentials, signed media URLs or private evidence in broker events.
+
+Task source contracts include feedback intake, review decisions and private evidence,
+workspace queries and governed proposal batches, note documents/imports, board workflows,
+owner-pooled usage and plans. `operations` exposes every mounted HTTP operation, including
+internal service operations; internal plan/gift operations require a separate backend
+service credential and should only be called from a trusted server.
+
+Read the current ETag/version before updating projects, work items, reminders, preferences
+or proposals. Pass `If-Match` in request headers for generated methods; convenience methods
+accept a version argument. Missing preconditions return 428, stale revisions return 409.
+Work-item creation and feedback submission/decisions require stable `Idempotency-Key`
+headers across retries. Deleting a work item returns 204 with no JSON body. Project and
+work-item collection endpoints include pagination metadata, but this backend pin always
+returns null cursors for those legacy collections; assistant queries provide real UUID cursors.
+
+`workspaceAssistant.query` accepts structured `record_type` and `field_filters` only with
+`item_type: 'note'`. Proposals use a discriminated `kind` with its full operation payload.
+Validate or persist a preview, review it, then apply that revision. Application rechecks
+resource access and the preview inside one transaction; a conflict applies nothing.
+
+For feedback, call `feedback.capabilities()` before capturing context. Preserve its
+`reporter_id` using `X-Feedback-Reporter-Id` on submission and screenshot operations.
+A 409 `feedback_identity_changed` requires discarding the capture and obtaining a fresh
+binding. This header is a precondition, never an authentication credential. Review and
+assignment require both the configured IDP permission and the local branch/stage role grant.
+Screenshot uploads are raw PNG/JPEG/WebP bytes; general Task attachments use `FormData`.
+Private downloads use byte responses and preserve the Axios response headers.
+
+`openEvents()` returns a raw SSE stream of `event: invalidate` / `data: changed` frames,
+with keepalives every 15 seconds. Reconnect and fetch authoritative snapshots after an
+invalidation; no replay cursor is provided. Note realtime uses separately authorized
+Sockudo channels: config is enveloped, while the authorization endpoint returns raw
+`{ auth }`. The SDK exposes the HTTP boundary; connect a compatible realtime client
+using the returned configuration. Disabled collaboration features can return 404 and
+unconfigured realtime can return 503.
+
+Project `settings`, work-item `custom_fields`, session/commit `metadata` and agent-proposal
+`payload` deliberately retain JSON extension data because the service stores
+`serde_json::Value`; fixed outer envelopes and all declared nested models remain typed.

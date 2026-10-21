@@ -1,4 +1,4 @@
-// Source-reviewed GIS0bc8423 DTOs and exact envelopes. Native and deployed certification remains pending.
+// Source-reviewed GIS 0bc8423 DTOs and exact envelopes. Scoped native evidence is preserved; deployment/issuer acceptance remains pending.
 export const gisContracts = {
   "gis:GET /health": {
     "methodName": "health",
@@ -48,7 +48,7 @@ export const gisContracts = {
   "gis:PUT /api/v1/datasets/{id}/features": {
     "methodName": "writeFeatures",
     "typeBase": "WriteFeatures",
-    "response": "import(\"./types.js\").Success<{revision:number;feature_ids:string[]}>",
+    "response": "import(\"./types.js\").Success<import(\"./types.js\").FeatureWriteResult>",
     "purpose": "Upsert a geometry batch with atomic dataset revision control.",
     "auth": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference.",
     "input": "import(\"./types.js\").FeatureBatchInput"
@@ -56,7 +56,7 @@ export const gisContracts = {
   "gis:PUT /api/v1/datasets/{id}/features/{feature}": {
     "methodName": "deleteFeature",
     "typeBase": "DeleteFeature",
-    "response": "import(\"./types.js\").Success<{revision:number}>",
+    "response": "import(\"./types.js\").Success<import(\"./types.js\").RevisionResult>",
     "purpose": "Soft-delete one feature through the mounted PUT operation.",
     "auth": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference.",
     "input": "import(\"./types.js\").RevisionInput"
@@ -192,7 +192,7 @@ export const gisContracts = {
   "gis:POST /api/v1/imports/{id}/retry": {
     "methodName": "retryImport",
     "typeBase": "RetryImport",
-    "response": "import(\"./types.js\").Data<{id:string;state:\"queued\"}>",
+    "response": "import(\"./types.js\").Data<import(\"./types.js\").ImportRetryAccepted>",
     "purpose": "Retry an owned failed import job.",
     "auth": "Current issuer-bound IDP owner grant snapshot; original issuer cannot be rebound; dataset scope policy and exact cookie origin. Unavailable authority503, inactive owner401."
   },
@@ -266,14 +266,14 @@ export const gisContracts = {
   "gis:PUT /api/v1/places/{id}/save": {
     "methodName": "savePlace",
     "typeBase": "SavePlace",
-    "response": "{saved:true;changed:boolean}",
+    "response": "import(\"./types.js\").SavedPlaceResult",
     "purpose": "Save a visible place for the current user.",
     "auth": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission."
   },
   "gis:DELETE /api/v1/places/{id}/save": {
     "methodName": "unsavePlace",
     "typeBase": "UnsavePlace",
-    "response": "{saved:false}",
+    "response": "import(\"./types.js\").UnsavedPlaceResult",
     "purpose": "Remove a saved place for the current user.",
     "auth": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission."
   },
@@ -316,7 +316,7 @@ export const gisContracts = {
   "gis:PUT /api/v1/internal/outbox/{id}/ack": {
     "methodName": "ackEvent",
     "typeBase": "AckEvent",
-    "response": "{ok:true}",
+    "response": "import(\"./types.js\").Acknowledged",
     "purpose": "Acknowledge a place integration event.",
     "auth": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Exact comma element places:integrations:read required; no wildcard match or whitespace trimming in worker predicate."
   },
@@ -337,7 +337,7 @@ export const gisContracts = {
   "gis:POST /api/v1/moderation/reports/{id}": {
     "methodName": "resolveReport",
     "typeBase": "ResolveReport",
-    "response": "{ok:true}",
+    "response": "import(\"./types.js\").Acknowledged",
     "purpose": "Resolve a place report with a moderation reason.",
     "auth": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Also comma-separated permission must match places:moderate, places:place:moderate, places:*, gis:place:manage, gis:* or *.",
     "input": "import(\"./types.js\").ReportResolutionInput"
@@ -352,7 +352,7 @@ export const gisContracts = {
   "gis:POST /api/v1/moderation/{id}": {
     "methodName": "moderatePlace",
     "typeBase": "ModeratePlace",
-    "response": "{ok:true}",
+    "response": "import(\"./types.js\").Acknowledged",
     "purpose": "Moderate and optionally correct or merge a place.",
     "auth": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Also comma-separated permission must match places:moderate, places:place:moderate, places:*, gis:place:manage, gis:* or *.",
     "input": "import(\"./types.js\").ModerationInput"

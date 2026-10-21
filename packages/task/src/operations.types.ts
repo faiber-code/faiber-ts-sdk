@@ -2,7 +2,7 @@ import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, Quer
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend response type: serde_json::Value. */
-export type RoutesOpenapiGetResponse = JsonValue;
+export type RoutesOpenapiGetResponse = import("@faiber/sdk-core").ServiceOpenApiDocument;
 
 /** Backend query type: AccessQuery. */
 export interface RoutesEffectiveAccessGetQuery extends QueryParams {
@@ -30,38 +30,15 @@ export interface RoutesCreateAgentProposalPostInput extends JsonObject {
   "payload": JsonValue;
 }
 /** Backend response type: raw-response. */
-export interface RoutesCreateAgentProposalPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateAgentProposalPostResponse = import("./types.js").TaskResponse<import("./types.js").AgentProposal>;
 
 /** Backend response type: serde_json::Value. */
-export interface RoutesApproveAgentProposalPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesApproveAgentProposalPostResponse = import("./types.js").TaskResponse<import("./types.js").ApprovedAgentProposal>;
 
 /** Backend request type: WorkspaceQuery. */
-export interface RoutesQueryPostInputFieldFilters extends JsonObject {
-  "key": string;
-  "op": string;
-  "value"?: JsonValue | null;
-  "unit"?: string | null;
-}
-export interface RoutesQueryPostInput extends JsonObject {
-  "project_id"?: string | null;
-  "owner_id"?: string | null;
-  "item_type"?: string | null;
-  "q"?: string | null;
-  "from"?: string | null;
-  "until"?: string | null;
-  "completed_by_me"?: boolean;
-  "active_only"?: boolean;
-  "cursor"?: string | null;
-  "limit"?: number | null;
-  "include_archived"?: boolean;
-  "record_type"?: string | null;
-  "field_filters"?: RoutesQueryPostInputFieldFilters[];
-}
+export type RoutesQueryPostInput = import("./workspace.js").WorkspaceQuery;
 /** Backend response type: Value. */
-export interface RoutesQueryPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesQueryPostResponse = import("./types.js").TaskResponse<import("./workspace.js").WorkspaceQueryResult>;
 
 /** Backend response type: serde_json::Value. */
 export type RoutesRemoveDeleteApiV1AttachmentsIdResponse = import("./types.js").TaskResponse<import("./collaboration.js").DeletedAttachment>;
@@ -81,8 +58,7 @@ export type RoutesDownloadGetResponse = ArrayBuffer | Uint8Array;
 export type RoutesConfigGetApiV1CollaborationConfigResponse = import("./types.js").TaskResponse<import("./collaboration.js").CollaborationConfig>;
 
 /** Backend response type: stream. */
-export interface RoutesEventsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesEventsGetResponse = import("./types.js").TaskEventStreamBody;
 
 /** Backend response type: Value. */
 export type FeedbackAssigneesGetResponse = import("./types.js").TaskResponse<import("./feedback.js").FeedbackAssignees>;
@@ -137,8 +113,7 @@ export interface RoutesUseGuestLinkPostInput extends JsonObject {
   "token": string;
 }
 /** Backend response type: serde_json::Value. */
-export interface RoutesUseGuestLinkPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUseGuestLinkPostResponse = import("./types.js").TaskResponse<import("./wire.types.js").GuestLinkAccess>;
 
 /** Backend query type: GiftQuery. */
 export interface RoutesListGetQuery extends QueryParams {
@@ -147,8 +122,7 @@ export interface RoutesListGetQuery extends QueryParams {
   "search"?: string | null;
 }
 /** Backend response type: Value. */
-export interface RoutesListGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListGetResponse = import("./types.js").TaskResponse<import("./wire.types.js").ManagedTrialGiftPage>;
 
 /** Backend request type: CreateGift. */
 export interface RoutesCreatePostApiV1InternalPlansGiftsInputLimits extends JsonObject {
@@ -169,12 +143,10 @@ export interface RoutesCreatePostApiV1InternalPlansGiftsInput extends JsonObject
   "rotate_token"?: boolean;
 }
 /** Backend response type: Value. */
-export interface RoutesCreatePostApiV1InternalPlansGiftsResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreatePostApiV1InternalPlansGiftsResponse = import("./types.js").TaskResponse<import("./wire.types.js").ManagedTrialGift>;
 
 /** Backend response type: Value. */
-export interface RoutesShowGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesShowGetResponse = import("./types.js").TaskResponse<import("./wire.types.js").ManagedTrialGift>;
 
 /** Backend request type: GiftSettings. */
 export interface RoutesUpdatePutInputLimits extends JsonObject {
@@ -193,8 +165,7 @@ export interface RoutesUpdatePutInput extends JsonObject {
   "rotate_token"?: boolean;
 }
 /** Backend response type: Value. */
-export interface RoutesUpdatePutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdatePutResponse = import("./types.js").TaskResponse<import("./wire.types.js").ManagedTrialGift>;
 
 /** Backend request type: ReserveInput. */
 export type RoutesReserveInternalPostInputBucket = "storage_bytes" | "imports" | "research" | "audio_seconds";
@@ -206,8 +177,7 @@ export interface RoutesReserveInternalPostInput extends JsonObject {
   "units": number;
 }
 /** Backend response type: serde_json::Value. */
-export interface RoutesReserveInternalPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesReserveInternalPostResponse = import("./types.js").TaskResponse<import("./wire.types.js").MemoryReservation>;
 
 /** Backend request type: SettleInput. */
 export type RoutesSettleInternalPostInputBucket = "storage_bytes" | "imports" | "research" | "audio_seconds";
@@ -218,8 +188,7 @@ export interface RoutesSettleInternalPostInput extends JsonObject {
   "completed_units": number;
 }
 /** Backend response type: serde_json::Value. */
-export interface RoutesSettleInternalPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesSettleInternalPostResponse = import("./types.js").TaskResponse<import("./wire.types.js").MemorySettlement>;
 
 /** Backend request type: Reserve. */
 export type RoutesReservePostInputBucket = "tasks" | "images" | "responses";
@@ -230,8 +199,7 @@ export interface RoutesReservePostInput extends JsonObject {
   "bucket"?: RoutesReservePostInputBucket;
 }
 /** Backend response type: Value. */
-export interface RoutesReservePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesReservePostResponse = import("./types.js").TaskResponse<import("./wire.types.js").UsageReservation>;
 
 /** Backend request type: Finish. */
 export type RoutesFinishPostInputBucket = "tasks" | "images" | "responses";
@@ -240,8 +208,7 @@ export interface RoutesFinishPostInput extends JsonObject {
   "bucket"?: RoutesFinishPostInputBucket | null;
 }
 /** Backend response type: Value. */
-export interface RoutesFinishPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesFinishPostResponse = import("./types.js").TaskResponse<import("./wire.types.js").FinishedUsageReservation>;
 
 /** Backend response type: Usage. */
 export type RoutesOwnGetResponse = import("./types.js").TaskResponse<import("./collaboration.js").MemoryUsage>;
@@ -251,8 +218,7 @@ export interface RoutesFoldersGetQuery extends QueryParams {
   "project_id": string;
 }
 /** Backend response type: Value. */
-export interface RoutesFoldersGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesFoldersGetResponse = import("./types.js").TaskResponse<import("./workspace.js").NoteFolder[]>;
 
 /** Backend response type: Value. */
 export type RoutesGetGetApiV1NoteImportsIdResponse = import("./types.js").TaskResponse<import("./collaboration.js").NoteImportJob>;
@@ -273,19 +239,12 @@ export type RoutesCoverPutInput = import("./collaboration.js").SetNoteCover;
 export type RoutesCoverPutResponse = import("./types.js").TaskResponse<import("./collaboration.js").NoteMedia>;
 
 /** Backend response type: Value. */
-export interface RoutesDocumentGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesDocumentGetResponse = import("./types.js").TaskResponse<import("./wire.types.js").NoteDocument>;
 
 /** Backend request type: Update. */
-export interface RoutesUpdatePostInput extends JsonObject {
-  "id": string;
-  "generation": number;
-  "body": string;
-  "plain_text": string;
-}
+export type RoutesUpdatePostInput = import("./wire.types.js").SaveNoteDocument;
 /** Backend response type: Value. */
-export interface RoutesUpdatePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdatePostResponse = import("./types.js").TaskResponse<import("./wire.types.js").NoteDocument>;
 
 /** Backend request type: Create. */
 export type RoutesCreatePostApiV1NotesIdImportsInput = import("./collaboration.js").StartNoteImport;
@@ -296,8 +255,7 @@ export type RoutesCreatePostApiV1NotesIdImportsResponse = import("./types.js").T
 export type RoutesStatusGetApiV1NotesIdIndexingResponse = import("./types.js").TaskResponse<import("./collaboration.js").NoteIndexing>;
 
 /** Backend response type: Value. */
-export interface RoutesRetryPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesRetryPostResponse = import("./types.js").TaskResponse<import("./collaboration.js").NoteIndexing>;
 
 /** Backend response type: NoteMedia. */
 export type RoutesGetGetApiV1NotesIdMediaResponse = import("./types.js").TaskResponse<import("./collaboration.js").NoteMedia>;
@@ -318,20 +276,20 @@ export interface RoutesAuthorizePostInput extends JsonObject {
   "channel_name": string;
 }
 /** Backend response type: Value. */
-export type RoutesAuthorizePostResponse = JsonValue;
+export type RoutesAuthorizePostResponse = import("./wire.types.js").NoteRealtimeAuthorization;
 
 /** Backend response type: Value. */
-export interface RoutesConfigGetApiV1NotesIdRealtimeConfigResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesConfigGetApiV1NotesIdRealtimeConfigResponse = import("./types.js").TaskResponse<import("./wire.types.js").NoteRealtimeConfig>;
 
 /** Backend request type: CreateSource. */
 export type RoutesCreatePostApiV1NotesIdSourceImportsInput = import("./collaboration.js").StartSourceImport;
 /** Backend response type: Value. */
 export type RoutesCreatePostApiV1NotesIdSourceImportsResponse = import("./types.js").TaskResponse<import("./collaboration.js").NoteImportJob>;
 
+/** Backend query type: CatalogQuery. */
+export type RoutesCatalogGetApiV1NotesDataCatalogQuery = import("./wire.types.js").NoteDataCatalogQuery;
 /** Backend response type: Value. */
-export interface RoutesCatalogGetApiV1NotesDataCatalogResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCatalogGetApiV1NotesDataCatalogResponse = import("./types.js").TaskResponse<import("./wire.types.js").NoteDataCatalog>;
 
 /** Backend request type: Query. */
 export type RoutesSearchPostInput = import("./collaboration.js").NoteKnowledgeQuery;
@@ -339,8 +297,7 @@ export type RoutesSearchPostInput = import("./collaboration.js").NoteKnowledgeQu
 export type RoutesSearchPostResponse = import("./types.js").TaskResponse<import("./collaboration.js").NoteKnowledgeResult>;
 
 /** Backend response type: Value. */
-export interface RoutesGetPreferencesGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetPreferencesGetResponse = import("./types.js").TaskResponse<import("./wire.types.js").NotificationPreferences>;
 
 /** Backend request type: NotificationPreferencesInput. */
 export interface RoutesPutPreferencesPutInput extends JsonObject {
@@ -348,8 +305,7 @@ export interface RoutesPutPreferencesPutInput extends JsonObject {
   "email_enabled"?: boolean;
 }
 /** Backend response type: Value. */
-export interface RoutesPutPreferencesPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesPutPreferencesPutResponse = import("./types.js").TaskResponse<import("./wire.types.js").NotificationPreferences>;
 
 /** Backend request type: PerformancePolicyInput. */
 export interface RoutesUpsertPerformancePolicyPutInput extends JsonObject {
@@ -361,34 +317,22 @@ export interface RoutesUpsertPerformancePolicyPutInput extends JsonObject {
   "estimate_capacity_hours"?: number | null;
 }
 /** Backend response type: serde_json::Value. */
-export interface RoutesUpsertPerformancePolicyPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpsertPerformancePolicyPutResponse = import("./types.js").TaskResponse<import("./wire.types.js").PerformancePolicy>;
 
 /** Backend response type: Value. */
-export interface RoutesPreferencesGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesPreferencesGetResponse = import("./types.js").TaskResponse<import("./workspace.js").PlanningPreferencesResult>;
 
 /** Backend request type: PlanningPreferences. */
-export interface RoutesSavePreferencesPutInput extends JsonObject {
-  "timezone": string;
-  "calendar": string;
-  "week_start": number;
-  "working_days": number[];
-  "work_start": string;
-  "work_end": string;
-  "default_duration_minutes": number;
-}
+export type RoutesSavePreferencesPutInput = import("./workspace.js").PlanningPreferences;
 /** Backend response type: Value. */
-export interface RoutesSavePreferencesPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesSavePreferencesPutResponse = import("./types.js").TaskResponse<import("./workspace.js").PlanningPreferencesResult>;
 
 /** Backend query type: ScopeQuery. */
 export interface RoutesGetGetApiV1PlansQuery extends QueryParams {
   "project_id"?: string | null;
 }
 /** Backend response type: Value. */
-export interface RoutesGetGetApiV1PlansResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetGetApiV1PlansResponse = import("./types.js").TaskResponse<import("./wire.types.js").PlanAccount>;
 
 /** Backend query type: IncomeQuery. */
 export interface RoutesIncomeGetQuery extends QueryParams {
@@ -398,8 +342,7 @@ export interface RoutesIncomeGetQuery extends QueryParams {
   "page"?: number | null;
 }
 /** Backend response type: Value. */
-export interface RoutesIncomeGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesIncomeGetResponse = import("./types.js").TaskResponse<import("./types.js").IncomeReportData>;
 
 /** Backend request type: MemoryLimits. */
 export type RoutesConfigurePutInput = import("./collaboration.js").PlanMemoryLimits;
@@ -411,8 +354,7 @@ export interface RoutesUsersGetQuery extends QueryParams {
   "user_ids": string;
 }
 /** Backend response type: Value. */
-export interface RoutesUsersGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUsersGetResponse = import("./types.js").TaskResponse<import("./types.js").AdminUserPlansData>;
 
 /** Backend request type: Checkout. */
 export interface RoutesCheckoutPostInput extends JsonObject {
@@ -420,27 +362,23 @@ export interface RoutesCheckoutPostInput extends JsonObject {
   "request_id": string;
 }
 /** Backend response type: Value. */
-export interface RoutesCheckoutPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCheckoutPostResponse = import("./types.js").TaskResponse<import("./wire.types.js").PlanCheckoutResult>;
 
 /** Backend request type: Redeem. */
 export interface RoutesRedeemPostInput extends JsonObject {
   "token": string;
 }
 /** Backend response type: Value. */
-export interface RoutesRedeemPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesRedeemPostResponse = import("./types.js").TaskResponse<import("./wire.types.js").PlanRedeemed>;
 
 /** Backend response type: Value. */
-export interface RoutesGiftPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGiftPostResponse = import("./types.js").TaskResponse<import("./wire.types.js").PlanGiftToken>;
 
 /** Backend response type: MemoryLimits. */
 export type RoutesCatalogGetApiV1PlansMemoryLimitsResponse = import("./types.js").TaskResponse<import("./collaboration.js").PlanMemoryLimits>;
 
 /** Backend response type: Value. */
-export interface RoutesReconcilePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesReconcilePostResponse = import("./types.js").TaskResponse<import("./wire.types.js").PlanReconcile>;
 
 /** Backend query type: PointHistoryQuery. */
 export interface RoutesPointHistoryGetQuery extends QueryParams {
@@ -449,8 +387,7 @@ export interface RoutesPointHistoryGetQuery extends QueryParams {
   "limit"?: number | null;
 }
 /** Backend response type: Vec<serde_json::Value>. */
-export interface RoutesPointHistoryGetResponse extends ApiEnvelope<JsonValue[]> {
-}
+export type RoutesPointHistoryGetResponse = import("./types.js").TaskResponse<import("./wire.types.js").PointHistoryEntry[]>;
 
 /** Backend query type: ProjectListQuery. */
 export interface RoutesListProjectsGetQuery extends QueryParams {
@@ -461,53 +398,20 @@ export interface RoutesListProjectsGetQuery extends QueryParams {
   "q"?: string | null;
 }
 /** Backend response type: Vec<ProjectView>. */
-export interface RoutesListProjectsGetResponseItem extends JsonObject {
-  "plan_access"?: JsonValue | null;
-  "id": string;
-  "created_by": string;
-  "workspace_id": string;
-  "team_id": string | null;
-  "key": string;
-  "name": string;
-  "description": string;
-  "mode": string;
-  "status": string;
-  "settings": JsonValue;
-  "version": number;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface RoutesListProjectsGetResponse extends ApiEnvelope<RoutesListProjectsGetResponseItem[]> {
-}
+export type RoutesListProjectsGetResponse = import("./types.js").TaskPageResponse<import("./types.js").Project>;
 
 /** Backend request type: CreateProject. */
-export type RoutesCreateProjectPostInputMode = "software" | "marketing" | "general";
-export interface RoutesCreateProjectPostInput extends JsonObject {
-  "team_id"?: string | null;
-  "key": string;
-  "name": string;
-  "description"?: string;
-  "mode": RoutesCreateProjectPostInputMode;
-  "settings"?: JsonValue;
-}
+export type RoutesCreateProjectPostInput = import("./types.js").CreateProjectInput;
 /** Backend response type: raw-response. */
-export interface RoutesCreateProjectPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateProjectPostResponse = import("./types.js").TaskResponse<import("./types.js").Project>;
 
 /** Backend response type: raw-response. */
-export interface RoutesGetProjectGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetProjectGetResponse = import("./types.js").TaskResponse<import("./types.js").Project>;
 
 /** Backend request type: UpdateProject. */
-export interface RoutesUpdateProjectPatchInput extends JsonObject {
-  "name"?: string | null;
-  "description"?: string | null;
-  "status"?: string | null;
-  "settings"?: JsonValue | null;
-}
+export type RoutesUpdateProjectPatchInput = import("./types.js").UpdateProjectInput;
 /** Backend response type: raw-response. */
-export interface RoutesUpdateProjectPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdateProjectPatchResponse = import("./types.js").TaskResponse<import("./types.js").Project>;
 
 /** Backend response type: Workflow. */
 export type RoutesGetGetApiV1ProjectsIdBoardWorkflowResponse = import("./types.js").TaskResponse<import("./collaboration.js").BoardWorkflow>;
@@ -518,8 +422,7 @@ export type RoutesPutPutApiV1ProjectsIdBoardWorkflowInput = import("./collaborat
 export type RoutesPutPutApiV1ProjectsIdBoardWorkflowResponse = import("./types.js").TaskResponse<import("./collaboration.js").BoardWorkflow>;
 
 /** Backend response type: Value. */
-export interface RoutesProjectChecklistsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesProjectChecklistsGetResponse = import("./types.js").TaskResponse<import("./types.js").ChecklistSnapshot[]>;
 
 /** Backend request type: GrantAccess. */
 export interface RoutesGrantProjectAccessPostInput extends JsonObject {
@@ -528,16 +431,13 @@ export interface RoutesGrantProjectAccessPostInput extends JsonObject {
   "expires_at"?: string | null;
 }
 /** Backend response type: serde_json::Value. */
-export interface RoutesGrantProjectAccessPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGrantProjectAccessPostResponse = import("./types.js").TaskResponse<import("./types.js").GrantProjectAccessResult>;
 
 /** Backend response type: Value. */
-export interface RoutesMembersGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesMembersGetResponse = import("./types.js").TaskResponse<import("./types.js").ProjectMember[]>;
 
 /** Backend response type: Value. */
-export interface RoutesRemoveMemberDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesRemoveMemberDeleteResponse = import("./types.js").TaskResponse<import("./types.js").RemovalResult>;
 
 /** Backend response type: Usage. */
 export type RoutesGetGetApiV1ProjectsIdMemoryUsageResponse = import("./types.js").TaskResponse<import("./collaboration.js").MemoryUsage>;
@@ -621,56 +521,31 @@ export interface RoutesTeamMonitoringGetQuery extends QueryParams {
   "team_id"?: string | null;
 }
 /** Backend response type: serde_json::Value. */
-export interface RoutesTeamMonitoringGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesTeamMonitoringGetResponse = import("./types.js").TaskResponse<import("./wire.types.js").TeamMonitoring>;
 
 /** Backend request type: ProposalInput. */
-export type RoutesProposePostInputOperations = "create" | "update" | "transition" | "archive_note" | "import_note" | "delete" | "checklist" | "reminder" | "plan" | "move_note" | "folder" | "delete_folder";
-export interface RoutesProposePostInput extends JsonObject {
-  "request_id"?: string | null;
-  "conversation_id": string;
-  "project_id"?: string | null;
-  "operations": RoutesProposePostInputOperations[];
-}
+export type RoutesProposePostInput = import("./workspace.js").ReviewProposalInput;
 /** Backend response type: Value. */
-export interface RoutesProposePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesProposePostResponse = import("./types.js").TaskResponse<import("./workspace.js").ReviewProposal>;
 
 /** Backend response type: Value. */
-export interface RoutesGetGetApiV1ReviewProposalsIdResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetGetApiV1ReviewProposalsIdResponse = import("./types.js").TaskResponse<import("./workspace.js").ReviewProposal>;
 
 /** Backend request type: ProposalInput. */
-export type RoutesRevisePutInputOperations = "create" | "update" | "transition" | "archive_note" | "import_note" | "delete" | "checklist" | "reminder" | "plan" | "move_note" | "folder" | "delete_folder";
-export interface RoutesRevisePutInput extends JsonObject {
-  "request_id"?: string | null;
-  "conversation_id": string;
-  "project_id"?: string | null;
-  "operations": RoutesRevisePutInputOperations[];
-}
+export type RoutesRevisePutInput = import("./workspace.js").ReviewProposalInput;
 /** Backend response type: Value. */
-export interface RoutesRevisePutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesRevisePutResponse = import("./types.js").TaskResponse<import("./workspace.js").ReviewProposal>;
 
 /** Backend response type: Value. */
-export interface RoutesApplyPostApiV1ReviewProposalsIdApplyResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesApplyPostApiV1ReviewProposalsIdApplyResponse = import("./types.js").TaskResponse<import("./workspace.js").ReviewProposal>;
 
 /** Backend response type: Value. */
-export interface RoutesRefreshPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesRefreshPostResponse = import("./types.js").TaskResponse<import("./workspace.js").ReviewProposal>;
 
 /** Backend request type: ProposalInput. */
-export type RoutesValidateProposalPostInputOperations = "create" | "update" | "transition" | "archive_note" | "import_note" | "delete" | "checklist" | "reminder" | "plan" | "move_note" | "folder" | "delete_folder";
-export interface RoutesValidateProposalPostInput extends JsonObject {
-  "request_id"?: string | null;
-  "conversation_id": string;
-  "project_id"?: string | null;
-  "operations": RoutesValidateProposalPostInputOperations[];
-}
+export type RoutesValidateProposalPostInput = import("./workspace.js").ReviewProposalInput;
 /** Backend response type: Value. */
-export interface RoutesValidateProposalPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesValidateProposalPostResponse = import("./types.js").TaskResponse<import("./workspace.js").ReviewPreviewResult>;
 
 /** Backend query type: SprintListQuery. */
 export interface RoutesListSprintsGetQuery extends QueryParams {
@@ -705,16 +580,13 @@ export interface RoutesCreateSprintPostInput extends JsonObject {
   "capacity"?: number | null;
 }
 /** Backend response type: raw-response. */
-export interface RoutesCreateSprintPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateSprintPostResponse = import("./types.js").TaskResponse<import("./types.js").Sprint>;
 
 /** Backend response type: raw-response. */
-export interface RoutesCompleteSprintPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCompleteSprintPostResponse = import("./types.js").TaskResponse<import("./types.js").Sprint>;
 
 /** Backend response type: raw-response. */
-export interface RoutesStartSprintPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesStartSprintPostResponse = import("./types.js").TaskResponse<import("./types.js").Sprint>;
 
 /** Backend response type: Vec<TeamView>. */
 export interface RoutesListTeamsGetResponseItem extends JsonObject {
@@ -737,12 +609,10 @@ export interface RoutesCreateTeamPostInput extends JsonObject {
   "member_ids"?: string[];
 }
 /** Backend response type: raw-response. */
-export interface RoutesCreateTeamPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateTeamPostResponse = import("./types.js").TaskResponse<import("./wire.types.js").Team>;
 
 /** Backend response type: raw-response. */
-export interface RoutesGetTeamGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetTeamGetResponse = import("./types.js").TaskResponse<import("./wire.types.js").Team>;
 
 /** Backend request type: UpdateTeam. */
 export interface RoutesUpdateTeamPatchInput extends JsonObject {
@@ -752,8 +622,7 @@ export interface RoutesUpdateTeamPatchInput extends JsonObject {
   "member_ids"?: string[] | null;
 }
 /** Backend response type: raw-response. */
-export interface RoutesUpdateTeamPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdateTeamPatchResponse = import("./types.js").TaskResponse<import("./wire.types.js").Team>;
 
 /** Backend query type: WorkItemListQuery. */
 export interface RoutesListWorkItemsGetQuery extends QueryParams {
@@ -768,117 +637,30 @@ export interface RoutesListWorkItemsGetQuery extends QueryParams {
   "sort"?: string | null;
 }
 /** Backend response type: Vec<WorkItemView>. */
-export interface RoutesListWorkItemsGetResponseItem extends JsonObject {
-  "id": string;
-  "workspace_id": string;
-  "project_id": string;
-  "team_id": string | null;
-  "parent_id": string | null;
-  "sequence": number;
-  "key": string;
-  "item_type": string;
-  "title": string;
-  "description": string;
-  "status": string;
-  "stage_id": string | null;
-  "status_category": string;
-  "priority": string;
-  "rank": string;
-  "owner_id": string;
-  "reporter_id": string;
-  "estimate": number | null;
-  "story_points": number | null;
-  "progress_started_at": string | null;
-  "start_at": string | null;
-  "folder_id": string | null;
-  "planned_start_at": string | null;
-  "planned_end_at": string | null;
-  "due_at": string | null;
-  "completed_at": string | null;
-  "sprint_id": string | null;
-  "release_id": string | null;
-  "campaign_id": string | null;
-  "custom_fields": JsonValue;
-  "version": number;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface RoutesListWorkItemsGetResponse extends ApiEnvelope<RoutesListWorkItemsGetResponseItem[]> {
-}
+export type RoutesListWorkItemsGetResponse = import("./types.js").TaskPageResponse<import("./types.js").WorkItem>;
 
 /** Backend request type: CreateWorkItem. */
-export interface RoutesCreateWorkItemPostInputChecklist extends JsonObject {
-  "id": string;
-  "title": string;
-  "done": boolean;
-}
-export type RoutesCreateWorkItemPostInputReminderTriggers = "relative" | "same_day";
-export interface RoutesCreateWorkItemPostInputReminder extends JsonObject {
-  "anchor_at": string;
-  "timezone": string;
-  "recurrence"?: string;
-  "triggers"?: RoutesCreateWorkItemPostInputReminderTriggers[];
-}
-export interface RoutesCreateWorkItemPostInput extends JsonObject {
-  "checklist"?: RoutesCreateWorkItemPostInputChecklist[];
-  "reminder"?: RoutesCreateWorkItemPostInputReminder | null;
-  "project_id": string;
-  "team_id"?: string | null;
-  "parent_id"?: string | null;
-  "item_type"?: string;
-  "title": string;
-  "description"?: string;
-  "priority"?: string;
-  "owner_id": string;
-  "estimate"?: number | null;
-  "story_points"?: number | null;
-  "start_at"?: string | null;
-  "due_at"?: string | null;
-  "sprint_id"?: string | null;
-  "release_id"?: string | null;
-  "campaign_id"?: string | null;
-  "custom_fields"?: JsonValue;
-  "external_source"?: string | null;
-  "external_id"?: string | null;
-}
+export type RoutesCreateWorkItemPostInput = import("./types.js").CreateWorkItemInput;
 /** Backend response type: raw-response. */
-export interface RoutesCreateWorkItemPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateWorkItemPostResponse = import("./types.js").TaskResponse<import("./types.js").WorkItem>;
 
 /** Backend response type: no-content. */
-export type RoutesRemoveWorkItemDeleteResponse = void;
+export type RoutesRemoveWorkItemDeleteResponse = import("./wire.types.js").DeletedWorkItemResponse;
 
 /** Backend response type: raw-response. */
-export interface RoutesGetWorkItemGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetWorkItemGetResponse = import("./types.js").TaskResponse<import("./types.js").WorkItem>;
 
 /** Backend request type: UpdateWorkItem. */
-export interface RoutesUpdateWorkItemPatchInput extends JsonObject {
-  "title"?: string | null;
-  "description"?: string | null;
-  "priority"?: string | null;
-  "owner_id"?: string | null;
-  "team_id"?: string | null;
-  "estimate"?: number | null;
-  "story_points"?: number | null;
-  "start_at"?: string | null;
-  "due_at"?: string | null;
-  "sprint_id"?: string | null;
-  "release_id"?: string | null;
-  "campaign_id"?: string | null;
-  "custom_fields"?: JsonValue | null;
-}
+export type RoutesUpdateWorkItemPatchInput = import("./types.js").UpdateWorkItemInput;
 /** Backend response type: raw-response. */
-export interface RoutesUpdateWorkItemPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdateWorkItemPatchResponse = import("./types.js").TaskResponse<import("./types.js").WorkItem>;
 
 /** Backend query type: ActivityQuery. */
 export interface RoutesWorkItemActivityGetQuery extends QueryParams {
   "offset"?: number;
 }
 /** Backend response type: Vec<serde_json::Value>. */
-export interface RoutesWorkItemActivityGetResponse extends ApiEnvelope<JsonValue[]> {
-}
+export type RoutesWorkItemActivityGetResponse = import("./types.js").TaskResponse<import("./wire.types.js").WorkItemActivity[]>;
 
 /** Backend request type: CreateUpload. */
 export type RoutesCreatePostApiV1WorkItemsIdAttachmentsInput = import("./collaboration.js").CreateAttachment;
@@ -886,8 +668,7 @@ export type RoutesCreatePostApiV1WorkItemsIdAttachmentsInput = import("./collabo
 export type RoutesCreatePostApiV1WorkItemsIdAttachmentsResponse = import("./types.js").TaskResponse<import("./collaboration.js").TaskAttachment>;
 
 /** Backend response type: Value. */
-export interface RoutesWorkItemChecklistGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesWorkItemChecklistGetResponse = import("./types.js").TaskResponse<import("./types.js").ChecklistSnapshot>;
 
 /** Backend request type: ChecklistInput. */
 export interface RoutesReplaceChecklistPutInputItems extends JsonObject {
@@ -899,8 +680,7 @@ export interface RoutesReplaceChecklistPutInput extends JsonObject {
   "items": RoutesReplaceChecklistPutInputItems[];
 }
 /** Backend response type: Value. */
-export interface RoutesReplaceChecklistPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesReplaceChecklistPutResponse = import("./types.js").TaskResponse<import("./types.js").ChecklistResult>;
 
 /** Backend response type: Vec<CommentView>. */
 export interface RoutesListCommentsGetResponseItemAttachments extends JsonObject {
@@ -934,8 +714,7 @@ export interface RoutesCreateCommentPostInput extends JsonObject {
   "request_id"?: string | null;
 }
 /** Backend response type: raw-response. */
-export interface RoutesCreateCommentPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateCommentPostResponse = import("./types.js").TaskResponse<import("./types.js").Comment>;
 
 /** Backend query type: CommentPageQuery. */
 export interface RoutesCommentPageGetQuery extends QueryParams {
@@ -996,8 +775,7 @@ export interface RoutesAttachCommitPostInput extends JsonObject {
   "metadata"?: JsonValue;
 }
 /** Backend response type: raw-response. */
-export interface RoutesAttachCommitPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesAttachCommitPostResponse = import("./types.js").TaskResponse<import("./wire.types.js").CommitLink>;
 
 /** Backend request type: PointEntryInput. */
 export interface RoutesAddPointsPostInput extends JsonObject {
@@ -1007,28 +785,18 @@ export interface RoutesAddPointsPostInput extends JsonObject {
   "reason"?: string;
 }
 /** Backend response type: raw-response. */
-export interface RoutesAddPointsPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesAddPointsPostResponse = import("./types.js").TaskResponse<import("./wire.types.js").PointEntry>;
 
 /** Backend response type: Value. */
-export interface RoutesRemoveDeleteApiV1WorkItemsIdReminderResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesRemoveDeleteApiV1WorkItemsIdReminderResponse = import("./types.js").TaskResponse<import("./types.js").RemovalResult>;
 
 /** Backend response type: Value. */
-export interface RoutesGetGetApiV1WorkItemsIdReminderResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetGetApiV1WorkItemsIdReminderResponse = import("./types.js").TaskResponse<import("./types.js").Reminder | null>;
 
 /** Backend request type: Input. */
-export type RoutesPutPutApiV1WorkItemsIdReminderInputTriggers = "relative" | "same_day";
-export interface RoutesPutPutApiV1WorkItemsIdReminderInput extends JsonObject {
-  "anchor_at": string;
-  "timezone": string;
-  "recurrence"?: string;
-  "triggers"?: RoutesPutPutApiV1WorkItemsIdReminderInputTriggers[];
-}
+export type RoutesPutPutApiV1WorkItemsIdReminderInput = import("./types.js").ReminderInput;
 /** Backend response type: Value. */
-export interface RoutesPutPutApiV1WorkItemsIdReminderResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesPutPutApiV1WorkItemsIdReminderResponse = import("./types.js").TaskResponse<import("./types.js").Reminder>;
 
 /** Backend request type: TransitionWorkItem. */
 export interface RoutesTransitionWorkItemPostInput extends JsonObject {
@@ -1036,8 +804,7 @@ export interface RoutesTransitionWorkItemPostInput extends JsonObject {
   "rank"?: string | null;
 }
 /** Backend response type: raw-response. */
-export interface RoutesTransitionWorkItemPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesTransitionWorkItemPostResponse = import("./types.js").TaskResponse<import("./types.js").WorkItem>;
 
 /** Backend response type: Vec<WorkLogView>. */
 export interface RoutesListWorkLogsGetResponseItem extends JsonObject {
@@ -1059,8 +826,7 @@ export interface RoutesCreateWorkLogPostInput extends JsonObject {
   "log_type"?: string;
 }
 /** Backend response type: raw-response. */
-export interface RoutesCreateWorkLogPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateWorkLogPostResponse = import("./types.js").TaskResponse<import("./wire.types.js").WorkLog>;
 
 /** Backend response type: Vec<WorkSessionView>. */
 export interface RoutesListWorkSessionsGetResponseItem extends JsonObject {
@@ -1090,8 +856,7 @@ export interface RoutesStartWorkSessionPostInput extends JsonObject {
   "metadata"?: JsonValue;
 }
 /** Backend response type: raw-response. */
-export interface RoutesStartWorkSessionPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesStartWorkSessionPostResponse = import("./types.js").TaskResponse<import("./wire.types.js").StartedWorkSession>;
 
 /** Backend request type: HeartbeatWorkSession. */
 export interface RoutesHeartbeatWorkSessionPostInput extends JsonObject {
@@ -1181,8 +946,7 @@ export interface RoutesWorkspaceGetResponse extends ApiEnvelope<RoutesWorkspaceG
 }
 
 /** Backend response type: raw-response. */
-export interface RoutesReadyGetHealthDependenciesResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesReadyGetHealthDependenciesResponse = import("./types.js").TaskResponse<import("./wire.types.js").Readiness>;
 
 /** Backend response type: Health. */
 export interface RoutesLiveGetResponseData extends JsonObject {
@@ -1194,9 +958,7 @@ export interface RoutesLiveGetResponse extends ApiEnvelope<RoutesLiveGetResponse
 }
 
 /** Backend response type: raw-response. */
-export interface RoutesReadyGetHealthReadyResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesReadyGetHealthReadyResponse = import("./types.js").TaskResponse<import("./wire.types.js").Readiness>;
 
 /** Backend response type: raw-response. */
-export interface RoutesMetricsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesMetricsGetResponse = string;

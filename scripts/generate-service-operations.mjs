@@ -271,8 +271,9 @@ function tsType(raw, query = false, input = false) {
   if (/^(bool)$/.test(type)) return "boolean";
   if (/^(u|i)(8|16|32|64|128|size)$/.test(type) || /^(f32|f64)$/.test(type)) return "number";
   if (/^(Decimal|BigDecimal)$/.test(type)) return input ? "string | number" : "string";
-  if (/^(Value|serde_json::Value)$/.test(type)) return "JsonValue";
-  if (type === "()") return "JsonObject";
+  // Common serde_json and SeaORM aliases are JSON, not unresolved DTOs.
+  if (/^(Value|Json|JsonValue|serde_json::Value|sea_orm::prelude::Json)$/.test(type)) return "JsonValue";
+  if (type === "()") return "null";
   return query ? "QueryValue" : `BackendJson<${JSON.stringify(type)}>`;
 }
 
@@ -303,18 +304,65 @@ function enumFrom(file, name) {
   const open = file.source.indexOf("{", match.index);
   const close = matchingBrace(file.source, open);
   if (close === -1) return null;
-  const attributes = file.source.slice(Math.max(0, file.source.lastIndexOf("#[", match.index)), match.index);
+  const attributes = file.source.slice(Math.max(0, file.source.lastIndexOf("#[derive", match.index)), match.index);
   const renameAll = attributes.match(/serde\([^\]]*rename_all\s*=\s*"([^"]+)"/)?.[1];
   const rename = value => renameAll === "snake_case"
     ? value.replace(/([a-z0-9])([A-Z])/g, "$1_$2").toLowerCase()
-    : renameAll === "kebab-case" ? value.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase() : value;
+    : renameAll === "kebab-case" ? value.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase()
+    : renameAll === "camelCase" ? value[0].toLowerCase() + value.slice(1)
+    : renameAll === "lowercase" ? value.toLowerCase()
+    : renameAll === "UPPERCASE" ? value.toUpperCase()
+    : renameAll === "SCREAMING_SNAKE_CASE" ? value.replace(/([a-z0-9])([A-Z])/g, "$1_$2").toUpperCase() : value;
   const variants = splitFields(file.source.slice(open + 1, close)).flatMap(part => {
-    const explicit = part.match(/#\[serde\(rename\s*=\s*"([^"]+)"\)\]/)?.[1];
-    const clean = part.replace(/#\[[\s\S]*?\]/g, "").replace(/\/\/.*$/gm, "").trim();
-    const variant = clean.match(/^(\w+)\s*(?:\{|\(|$)/)?.[1];
-    return variant ? [explicit ?? rename(variant)] : [];
+    const leading = part.replace(/\/\/.*$/gm, "").trim();
+    const attributes = leading.match(/^(?:#\[[\s\S]*?\]\s*)*/)?.[0] ?? "";
+    if (/#\[serde\([^\]]*\bskip\s*(?:,|\))/.test(attributes)) return [];
+    const explicit = attributes.match(/#\[serde\([^\]]*\brename\s*=\s*"([^"]+)"/)?.[1];
+    const clean = leading.slice(attributes.length).trim();
+    const variant = clean.match(/^(\w+)\s*([\s\S]*)$/);
+    if (!variant) return [];
+    const payload = variant[2].trim();
+    return [{name: explicit ?? rename(variant[1]), rustName: variant[1], payload,
+      skipInput: /#\[serde\([^\]]*\bskip_deserializing\b/.test(attributes),
+      skipOutput: /#\[serde\([^\]]*\bskip_serializing\b/.test(attributes)}];
   });
-  return variants.length ? variants : null;
+  return variants.length ? {variants, tag:attributes.match(/\btag\s*=\s*"([^"]+)"/)?.[1],
+    content:attributes.match(/\bcontent\s*=\s*"([^"]+)"/)?.[1], untagged:/\buntagged\b/.test(attributes)} : null;
+}
+
+function renderEnum(files, module, resolved, raw, seen, declarations, base, declared, input) {
+  const {variants, tag, content, untagged} = resolved.variants;
+  const values = variants.filter(v => !(input ? v.skipInput : v.skipOutput)).map(variant => {
+    const literal = JSON.stringify(variant.name);
+    const payload = variant.payload;
+    if (!payload) return untagged ? "null" : tag ? `{ ${JSON.stringify(tag)}: ${literal} }` : literal;
+    const syntheticName = `${base}${variant.rustName}Payload`;
+    let body;
+    let tuple;
+    if (payload.startsWith("{")) body = payload.slice(1, payload.lastIndexOf("}"));
+    else if (payload.startsWith("(")) {
+      tuple = splitFields(payload.slice(1, payload.lastIndexOf(")"))).map(x=>x.trim()).filter(Boolean);
+      body = tuple.map((type,i)=>`pub value_${i}: ${type}`).join(",");
+    } else throw new Error(`Unsupported enum payload ${raw}::${variant.rustName}`);
+    const synthetic = {path: resolved.file.path, source:`pub struct ${syntheticName} { ${body} }`};
+    const fields = renderedFields([synthetic,...files], module, syntheticName, seen, false, declarations, syntheticName, declared, input);
+    let value;
+    if (tuple) value = fields.length === 1 ? fields[0].type : `[${fields.map(f=>f.type).join(", ")}]`;
+    else {
+      if (!declared.has(syntheticName)) {
+        declared.add(syntheticName);
+        declarations.push(`export interface ${syntheticName} extends JsonObject {`);
+        writeFields(declarations, fields);
+        declarations.push("}");
+      }
+      value = syntheticName;
+    }
+    if (untagged) return value;
+    if (!tag) return `{ ${literal}: ${value} }`;
+    if (content) return `{ ${JSON.stringify(tag)}: ${literal}; ${JSON.stringify(content)}: ${value} }`;
+    return `({ ${JSON.stringify(tag)}: ${literal} } & ${value})`;
+  });
+  return values.join(" | ") || "never";
 }
 
 function resolveEnum(files, module, raw) {
@@ -366,11 +414,16 @@ function renderedFields(files, module, raw, seen = new Set(), query = false, dec
         }
         renderedType = `${nestedName}${vector ? "[]" : ""}`;
       } else if (nestedEnum) {
-        if (!declared.has(nestedName)) {
-          declared.add(nestedName);
-          declarations.push(`export type ${nestedName} = ${nestedEnum.variants.map(value => JSON.stringify(value)).join(" | ")};`);
+        declared.enumNames ??= new Map();
+        const enumKey = `${nestedEnum.file.path}:${typeName(candidate)}:${input}`;
+        const existing = declared.enumNames.get(enumKey);
+        const enumName = existing ?? nestedName;
+        if (!existing) {
+          declared.enumNames.set(enumKey, enumName);
+          declared.add(enumName);
+          declarations.push(`export type ${enumName} = ${renderEnum(files, module, nestedEnum, candidate, nextSeen, declarations, enumName, declared, input)};`);
         }
-        renderedType = `${nestedName}${vector ? "[]" : ""}`;
+        renderedType = `${enumName}${vector ? "[]" : ""}`;
       }
     }
     // Verified Modules85e hosted lists serialize search even when absent (JSON null).
@@ -478,7 +531,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     const base = reviewedRelease?.typeBase ?? pascal(operationName(endpoint));
     const methodName = reviewedRelease?.methodName ?? (["task", "chat", "knowledge"].includes(service) ? stableOperationNames[`${endpoint.method} ${endpoint.path}`] : undefined) ?? camel(operationName(endpoint));
     const ids = placeholders(endpoint.path);
-    const reviewed = reviewedRelease ?? collaborationContracts[`${service}:${endpoint.method} ${endpoint.path}`];
+    const reviewed = {...collaborationContracts[`${service}:${endpoint.method} ${endpoint.path}`], ...reviewedRelease};
     if (endpoint.method === "ANY" && !reviewed?.dynamicMethod) throw new Error(`Unreviewed dynamic HTTP method: ${service} ${endpoint.path}`);
     const hasInput = Boolean(endpoint.body || endpoint.multipart || endpoint.binary);
     if (endpoint.source.includes('/shared/') && (!reviewed?.response || (hasInput && !reviewed?.input))) {
@@ -486,7 +539,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     }
     const dynamicProfileList = service === "profile" && endpoint.module === "profile" &&
       /^(index|manager_index|accountant_index|support_index|consultant_index|teacher_index|student_index|parent_index|other_index)$/.test(endpoint.handler);
-    const hasQuery = dynamicProfileList || Boolean(endpoint.query);
+    const hasQuery = dynamicProfileList || Boolean(endpoint.query || reviewed?.query);
     const inputOverride = inputOverrides[service]?.[endpoint.handler];
     const responseOverride = responseOverrides[service]?.[endpoint.handler];
     const optionalChatUpload = service === "chat" && endpoint.handler === "complete_attachment";
@@ -583,7 +636,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     if (hasInput) operationLines.push(`   * @param data Typed ${endpoint.multipart ? "multipart form" : endpoint.binary ? "binary byte stream" : endpoint.formUrlEncoded ? "URL-encoded form" : "JSON request body"}.`);
     if (hasQuery) operationLines.push("   * @param params Typed query parameters; omitted members retain backend defaults.");
     operationLines.push("   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.");
-    operationLines.push("   * @returns The complete Axios response, including the typed service envelope, status, and headers.");
+    operationLines.push("   * @returns The complete Axios response, including the typed handler payload, status, and headers.");
     operationLines.push(`   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: ${permissions}.`);
     operationLines.push("   */");
     operationLines.push(`  ${methodName}(${args.join(", ")}) {`);
@@ -601,7 +654,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       ? `{ ...data, ${Object.entries(reviewed.pathFields).map(([field, arg]) => `${JSON.stringify(field)}: String(${arg})`).join(", ")} }` : "data";
     if (optionalChatUpload) {
       operationLines.push(`    return this.client.request<T.${base}Response, T.AttachmentUploadBody>({ ...options, method: "POST", url: ${escapedPath(endpoint.path)}, ...(data === undefined ? {} : { data, headers: { ...options?.headers, "Content-Type": "application/octet-stream" } }) });`);
-    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ${reviewed?.timeout ? `timeout: ${reviewed.timeout}, ` : ""}...options, method: ${endpoint.method === "ANY" ? "method" : `"${endpoint.method}"`}, url: ${escapedPath(endpoint.path,reviewed)}${reviewed?.idempotencyKey ? ", headers" : ""}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${reviewed?.textResponse ? ', responseType: "text"' : binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? ', headers: { "Content-Type": "application/octet-stream", ...options?.headers }' : ""} });`);
+    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ${reviewed?.timeout ? `timeout: ${reviewed.timeout}, ` : ""}...options, method: ${endpoint.method === "ANY" ? "method" : `"${endpoint.method}"`}, url: ${escapedPath(endpoint.path,reviewed)}${reviewed?.idempotencyKey ? ", headers" : ""}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${reviewed?.textResponse ? ', responseType: "text"' : binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${reviewed?.fetchStream ? ', adapter: options?.adapter ?? "fetch"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? `, headers: { "Content-Type": ${reviewed?.binaryContentType === "blob" ? '(typeof Blob !== "undefined" && data instanceof Blob && data.type ? data.type : "application/octet-stream")' : '"application/octet-stream"'}, ...options?.headers }` : reviewed?.jsonBody ? ', headers: { "Content-Type": "application/json", ...options?.headers }' : ""} });`);
     operationLines.push("  }");
   }
   operationLines.push("}", "");

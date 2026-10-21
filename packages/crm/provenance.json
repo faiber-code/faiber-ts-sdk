@@ -9,14 +9,15 @@
     }
   },
   "package_source_sha256": {
-    "packages/crm/src/index.ts": "e4ba15823bbe965190b2f4bfb761acbd8151e201cfb602952007389df51a37cc",
-    "packages/crm/src/operations.ts": "fe5168b5dbe35a9d301ce05227c7035e8e66c6d9b336fef800daf96aa29ec836",
-    "packages/crm/src/operations.types.ts": "4766ebd56beb75222263827f8e71aa6deb2e90d97ba96bd405d03b1abe35cf48",
-    "packages/crm/src/types.ts": "31edac010487077632f888d3aba02dc3f1769dd14bdba1030fef98253c08b6e9"
+    "packages/crm/src/contracts.types.ts": "a258fa87a503da5572b1078e544424d7b9aca6c773b25d771af0930a379be048",
+    "packages/crm/src/index.ts": "9954b6e10e3ffc8f4ac9db43cbc981590fcdf2e6100aeebd9c102d376e455562",
+    "packages/crm/src/operations.ts": "349903cc503064725a2be2a95201067e3830de1d9dacf7c319e377eb2bc82462",
+    "packages/crm/src/operations.types.ts": "7c0d659a28215f2fabdae45bc2cbaeca5dd3537ba37597f1ab3d0657d07f041c",
+    "packages/crm/src/types.ts": "0aa837b22f7711b0947beb9143fec81cb1ae74fe9f7445c5694c1accf9a35607"
   },
-  "capability_review_sha256": "2a10d72f595b7bfc31afc6c900b5a50e34cab7b94b38d681404f1bf82c70b9f8",
+  "capability_review_sha256": "960e955229cfc2979d5035b9b7ff6fd25dfcec40e47ba6fe3a1157fa9583bc08",
   "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
-  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 92,

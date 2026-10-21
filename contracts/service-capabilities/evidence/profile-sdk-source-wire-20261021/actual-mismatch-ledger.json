@@ -1,0 +1,1658 @@
+{
+  "service": "profile",
+  "revision": "5e45db008e503504033af3763b4487f00f5be2b4",
+  "actual_defects": [
+    {
+      "operation": "GET /api/v1/profile/supports/pes/schema",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:403:support_pes_schema",
+      "before": "export interface ProfileSupportPesSchemaGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").PesSchema>",
+      "fix": "profileSupportPesSchemaGet: ApiEnvelope<import(\"./wire.types.js\").PesSchema>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/students/pes/schema",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:412:student_pes_schema",
+      "before": "export interface ProfileStudentPesSchemaGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").PesSchema>",
+      "fix": "profileStudentPesSchemaGet: ApiEnvelope<import(\"./wire.types.js\").PesSchema>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/get-chat-list/{uuid}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:421:chat_list",
+      "before": "export interface ProfileChatListGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<never[]>",
+      "fix": "profileChatListGet: ApiEnvelope<never[]>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}/avatar",
+      "classification": "actual_transport_and_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:962:avatar_show",
+      "before": "export interface ProfileAvatarShowGetApiV1ProfileUuidAvatarResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ArrayBuffer | Uint8Array",
+      "fix": "profileAvatarShowGetApiV1ProfileUuidAvatar: ArrayBuffer | Uint8Array; responseType=arraybuffer; required query",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "POST /api/v1/profile/{uuid}/avatar",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:825:avatar_store",
+      "before": "export interface ProfileAvatarStorePostResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "import(\"./types.js\").ProfileMediaResponse",
+      "fix": "profileAvatarStorePost: import(\"./types.js\").ProfileMediaResponse",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile/{uuid}/avatar",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:1052:avatar_delete",
+      "before": "export interface ProfileAvatarDeleteDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileAvatarDeleteDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "POST /api/v1/profile/{uuid}/images",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:841:image_store",
+      "before": "export interface ProfileImageStorePostResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "import(\"./types.js\").ProfileMediaResponse",
+      "fix": "profileImageStorePost: import(\"./types.js\").ProfileMediaResponse",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}/media",
+      "classification": "actual_transport_and_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:999:media_show",
+      "before": "export interface ProfileMediaShowGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ArrayBuffer | Uint8Array",
+      "fix": "profileMediaShowGet: ArrayBuffer | Uint8Array; responseType=arraybuffer; required query",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/get/parent/{uuid}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:535:get_parent",
+      "before": "export interface ProfileGetParentGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").StoredParentLink | null>",
+      "fix": "profileGetParentGet: ApiEnvelope<import(\"./wire.types.js\").StoredParentLink | null>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/add/parent/{uuid}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:553:add_parent",
+      "before": "export interface ProfileAddParentPutResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileAddParentPut: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/add/parent/{uuid}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:553:add_parent",
+      "before": "export interface ProfileAddParentPatchResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileAddParentPatch: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile/{student_uuid}/delete/parent/{parent_uuid}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:572:delete_parent",
+      "before": "export interface ProfileDeleteParentDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileDeleteParentDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/get/address/{uuid}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:592:get_address",
+      "before": "export interface ProfileGetAddressGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").StoredProfileAddress[]>",
+      "fix": "profileGetAddressGet: ApiEnvelope<import(\"./wire.types.js\").StoredProfileAddress[]>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/add/address/{uuid}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:610:add_address",
+      "before": "export interface ProfileAddAddressPutResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileAddAddressPut: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/add/address/{uuid}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:610:add_address",
+      "before": "export interface ProfileAddAddressPatchResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileAddAddressPatch: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile/{uuid}/delete/address/{title}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:629:delete_address",
+      "before": "export interface ProfileDeleteAddressDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileDeleteAddressDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/me/addresses",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:643:get_my_addresses",
+      "before": "export interface ProfileGetMyAddressesGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").StoredProfileAddress[]>",
+      "fix": "profileGetMyAddressesGet: ApiEnvelope<import(\"./wire.types.js\").StoredProfileAddress[]>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/me/addresses",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:661:save_my_address",
+      "before": "export interface ProfileSaveMyAddressPutResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileSaveMyAddressPut: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/me/addresses",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:661:save_my_address",
+      "before": "export interface ProfileSaveMyAddressPatchResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileSaveMyAddressPatch: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile/me/addresses/{title}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:680:delete_my_address",
+      "before": "export interface ProfileDeleteMyAddressDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileDeleteMyAddressDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/add/app/{uuid}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:717:add_app",
+      "before": "export interface ProfileAddAppPutResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileAddAppPut: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/add/app/{uuid}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:717:add_app",
+      "before": "export interface ProfileAddAppPatchResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileAddAppPatch: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile/{uuid}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:776:destroy",
+      "before": "export interface ProfileDestroyDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileDestroyDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/undo/{uuid}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:794:restore",
+      "before": "export interface ProfileRestoreGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileRestoreGet: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile/force/{uuid}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:812:force_destroy",
+      "before": "export interface ProfileForceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileForceDestroyDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/update/{uuid}/meta",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:736:add_meta",
+      "before": "export interface ProfileAddMetaPutResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileAddMetaPut: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/update/{uuid}/meta",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:736:add_meta",
+      "before": "export interface ProfileAddMetaPatchResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profileAddMetaPatch: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/{uuid}/properties",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:755:update_properties",
+      "before": "export interface ProfileUpdatePropertiesPutResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").ProfilePropertyMutation>",
+      "fix": "profileUpdatePropertiesPut: ApiEnvelope<import(\"./wire.types.js\").ProfilePropertyMutation>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}/properties",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:755:update_properties",
+      "before": "export interface ProfileUpdatePropertiesPatchResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").ProfilePropertyMutation>",
+      "fix": "profileUpdatePropertiesPatch: ApiEnvelope<import(\"./wire.types.js\").ProfilePropertyMutation>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/profile-media/{uuid}/avatar",
+      "classification": "actual_transport_and_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:962:avatar_show",
+      "before": "export interface ProfileAvatarShowGetApiV1ProfileMediaUuidAvatarResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ArrayBuffer | Uint8Array",
+      "fix": "profileAvatarShowGetApiV1ProfileMediaUuidAvatar: ArrayBuffer | Uint8Array; responseType=arraybuffer; required query",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/profile-media/{uuid}/images",
+      "classification": "actual_transport_and_type_defect",
+      "pinned_source_ref": "src/profile/routes.rs:979:image_show",
+      "before": "export interface ProfileImageShowGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ArrayBuffer | Uint8Array",
+      "fix": "profileImageShowGet: ArrayBuffer | Uint8Array; responseType=arraybuffer; required query",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/country/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/country/routes.rs:114:destroy",
+      "before": "export interface CountryDestroyDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "countryDestroyDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/country/undo/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/country/routes.rs:128:restore",
+      "before": "export interface CountryRestoreGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "countryRestoreGet: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/country/force/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/country/routes.rs:142:force_destroy",
+      "before": "export interface CountryForceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "countryForceDestroyDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/custom-type/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/custom_type/routes.rs:72:destroy",
+      "before": "export interface CustomTypeDestroyDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "customTypeDestroyDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/relation-type/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/relation/routes.rs:12:delete_type",
+      "before": "export interface RelationDeleteTypeDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "relationDeleteTypeDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile-relation/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/relation/routes.rs:17:delete_relation",
+      "before": "export interface RelationDeleteRelationDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "relationDeleteRelationDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/referral-source/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/referral/routes.rs:12:delete",
+      "before": "export interface ReferralDeleteDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "referralDeleteDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/state-system/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/lifecycle/routes.rs:16:delete_system",
+      "before": "export interface LifecycleDeleteSystemDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "lifecycleDeleteSystemDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/state-definition/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/lifecycle/routes.rs:22:delete_state",
+      "before": "export interface LifecycleDeleteStateDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "lifecycleDeleteStateDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "POST /api/v1/state-action/dry-run",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/lifecycle/routes.rs:27:dry_run_action",
+      "before": "export interface LifecycleDryRunActionPostResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").ActionDryRun>",
+      "fix": "lifecycleDryRunActionPost: ApiEnvelope<import(\"./wire.types.js\").ActionDryRun>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/state-action/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/lifecycle/routes.rs:29:delete_action",
+      "before": "export interface LifecycleDeleteActionDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "lifecycleDeleteActionDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/validate-rule",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/lifecycle/routes.rs:32:validate_rule",
+      "before": "export interface LifecycleValidateRulePostResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").RuleValidation>",
+      "fix": "lifecycleValidateRulePost: ApiEnvelope<import(\"./wire.types.js\").RuleValidation>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/province/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/province/routes.rs:108:destroy",
+      "before": "export interface ProvinceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "provinceDestroyDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/province/undo/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/province/routes.rs:126:restore",
+      "before": "export interface ProvinceRestoreGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "provinceRestoreGet: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/province/force/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/province/routes.rs:144:force_destroy",
+      "before": "export interface ProvinceForceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "provinceForceDestroyDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/city/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/city/routes.rs:100:destroy",
+      "before": "export interface CityDestroyDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "cityDestroyDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/city/undo/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/city/routes.rs:118:restore",
+      "before": "export interface CityRestoreGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "cityRestoreGet: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/city/force/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/city/routes.rs:136:force_destroy",
+      "before": "export interface CityForceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "cityForceDestroyDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile-property-definition/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile_property/routes.rs:122:destroy",
+      "before": "export interface ProfilePropertyDestroyDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profilePropertyDestroyDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/profile-property-definition/undo/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile_property/routes.rs:136:restore",
+      "before": "export interface ProfilePropertyRestoreGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profilePropertyRestoreGet: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile-property-definition/force/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/profile_property/routes.rs:150:force_destroy",
+      "before": "export interface ProfilePropertyForceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "profilePropertyForceDestroyDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/trusted-service/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/trusted_service/routes.rs:128:destroy",
+      "before": "export interface TrustedServiceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "trustedServiceDestroyDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "DELETE /api/v1/trusted-service/{id}/event/{event_id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/trusted_service/routes.rs:225:event_destroy",
+      "before": "export interface TrustedServiceEventDestroyDeleteResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "fix": "trustedServiceEventDestroyDelete: ApiEnvelope<import(\"./wire.types.js\").EmptyMutationData>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/survey",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/survey/routes.rs:36:index",
+      "before": "export interface SurveyIndexGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").ProfileSurvey[]>",
+      "fix": "surveyIndexGet: ApiEnvelope<import(\"./wire.types.js\").ProfileSurvey[]>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "POST /api/v1/survey",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/survey/routes.rs:47:store",
+      "before": "export interface SurveyStorePostResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").ProfileSurvey>",
+      "fix": "surveyStorePost: ApiEnvelope<import(\"./wire.types.js\").ProfileSurvey>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "POST /api/v1/log-action",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/log_action/routes.rs:42:store",
+      "before": "export interface LogActionStorePostResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").ProfileLogAction>",
+      "fix": "logActionStorePost: ApiEnvelope<import(\"./wire.types.js\").ProfileLogAction>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "POST /api/v1/log-action/{slug}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/log_action/routes.rs:68:store_slug",
+      "before": "export interface LogActionStoreSlugPostResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").ProfileLogAction>",
+      "fix": "logActionStoreSlugPost: ApiEnvelope<import(\"./wire.types.js\").ProfileLogAction>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "POST /api/v1/log-action/direct/{slug}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/log_action/routes.rs:78:store_direct",
+      "before": "export interface LogActionStoreDirectPostResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").ProfileLogAction>",
+      "fix": "logActionStoreDirectPost: ApiEnvelope<import(\"./wire.types.js\").ProfileLogAction>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/logger",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/logger/routes.rs:21:index",
+      "before": "export interface LoggerIndexGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").ProfileLog[]>",
+      "fix": "loggerIndexGet: ApiEnvelope<import(\"./wire.types.js\").ProfileLog[]>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/logger/{log}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/logger/routes.rs:31:show",
+      "before": "export interface LoggerShowGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").ProfileLog | null>",
+      "fix": "loggerShowGet: ApiEnvelope<import(\"./wire.types.js\").ProfileLog | null>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "POST /api/v1/parent/get",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/option/routes.rs:57:parent_get",
+      "before": "export interface OptionParentGetPostResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").StoredParentLink[]>",
+      "fix": "optionParentGetPost: ApiEnvelope<import(\"./wire.types.js\").StoredParentLink[]>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "POST /api/v1/parent/children/get",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/option/routes.rs:44:parent_children_get",
+      "before": "export interface OptionParentChildrenGetPostResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").StoredParentLink[]>",
+      "fix": "optionParentChildrenGetPost: ApiEnvelope<import(\"./wire.types.js\").StoredParentLink[]>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "POST /api/v1/address/get",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/option/routes.rs:74:address_get",
+      "before": "export interface OptionAddressGetPostResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").StoredProfileAddress[]>",
+      "fix": "optionAddressGetPost: ApiEnvelope<import(\"./wire.types.js\").StoredProfileAddress[]>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/dependency",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/option/routes.rs:102:dependency",
+      "before": "export interface OptionDependencyGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").ProfileDependencies>",
+      "fix": "optionDependencyGet: ApiEnvelope<import(\"./wire.types.js\").ProfileDependencies>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/identity",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/option/routes.rs:115:identity",
+      "before": "export interface OptionIdentityGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<ProfileShowGetResponseDataProfile>",
+      "fix": "optionIdentityGet: ApiEnvelope<ProfileShowGetResponseDataProfile>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /api/v1/integration/flow",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/integration/routes.rs:31:flow_integration_show",
+      "before": "export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<\"infera_flow_sdk::FlowIntegrationResponse\">> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").ProfileFlowIntegration>",
+      "fix": "integrationFlowIntegrationShowGet: ApiEnvelope<import(\"./wire.types.js\").ProfileFlowIntegration>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /campaign",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/campaign/routes.rs:48:index",
+      "before": "export interface CampaignIndexGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").ProfileCampaign[]>",
+      "fix": "campaignIndexGet: ApiEnvelope<import(\"./wire.types.js\").ProfileCampaign[]>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /campaign/{id}",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/campaign/routes.rs:61:show",
+      "before": "export interface CampaignShowGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").ProfileCampaign>",
+      "fix": "campaignShowGet: ApiEnvelope<import(\"./wire.types.js\").ProfileCampaign>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "POST /campaign/{id}/contributions",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/campaign/routes.rs:91:contribute",
+      "before": "export interface CampaignContributePostResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").CampaignContributionReceipt>",
+      "fix": "campaignContributePost: ApiEnvelope<import(\"./wire.types.js\").CampaignContributionReceipt>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    },
+    {
+      "operation": "GET /campaign-profile/me/contributions",
+      "classification": "actual_response_type_defect",
+      "pinned_source_ref": "src/campaign/routes.rs:134:my_contributions",
+      "before": "export interface CampaignMyContributionsGetResponse extends ApiEnvelope<JsonValue> {",
+      "actual_wire_shape": "ApiEnvelope<import(\"./wire.types.js\").CampaignContribution[]>",
+      "fix": "campaignMyContributionsGet: ApiEnvelope<import(\"./wire.types.js\").CampaignContribution[]>",
+      "runtime_verification": "not_performed; source binding is not live HTTP verification",
+      "validation_status": "Source-confirmed contract mismatch; runtime acceptance remains pending"
+    }
+  ],
+  "evidence_gaps_are_not_defects": [
+    "235 missing native per-operation HTTP/auth/lifecycle results",
+    "Missing pre-existing reviews do not establish an SDK mismatch"
+  ],
+  "remaining_concrete_model_gaps": [],
+  "additional_source_confirmed_corrections": [
+    {
+      "operation": "GET /api/v1/fitness/products",
+      "source_ref": "src/fitness/routes.rs:820:products",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/fitness/trial/redeem",
+      "source_ref": "src/fitness/gifts.rs:235:redeem",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/fitness/notifications",
+      "source_ref": "src/fitness/routes.rs:791:notifications",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/fitness/notifications/{id}/read",
+      "source_ref": "src/fitness/routes.rs:803:read_notification",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/fitness/admin/provision",
+      "source_ref": "src/fitness/routes.rs:581:provision",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/fitness/admin/catalog",
+      "source_ref": "src/fitness/routes.rs:646:import_catalog",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/fitness/team",
+      "source_ref": "src/fitness/routes.rs:693:team",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/fitness/team",
+      "source_ref": "src/fitness/routes.rs:708:save_coach",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/fitness/tariffs",
+      "source_ref": "src/fitness/routes.rs:735:save_tariff",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/fitness/self",
+      "source_ref": "src/fitness/routes.rs:48:me",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/fitness/intake",
+      "source_ref": "src/fitness/routes.rs:66:intake",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/fitness/intake",
+      "source_ref": "src/fitness/routes.rs:87:save_intake",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/fitness/orders",
+      "source_ref": "src/fitness/routes.rs:107:orders",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/fitness/orders",
+      "source_ref": "src/fitness/routes.rs:124:purchase",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/fitness/orders/{id}",
+      "source_ref": "src/fitness/routes.rs:201:show",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/fitness/orders/{id}/action",
+      "source_ref": "src/fitness/routes.rs:230:action",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/fitness/orders/{id}/plan",
+      "source_ref": "src/fitness/routes.rs:315:assign",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/fitness/revisions/{id}",
+      "source_ref": "src/fitness/routes.rs:338:revision",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/fitness/revisions/{id}/review",
+      "source_ref": "src/fitness/routes.rs:363:review",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/fitness/coaches",
+      "source_ref": "src/fitness/routes.rs:410:coaches",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/fitness/catalog",
+      "source_ref": "src/fitness/routes.rs:426:list_catalog",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/fitness/settings",
+      "source_ref": "src/fitness/routes.rs:438:settings",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/fitness/settings",
+      "source_ref": "src/fitness/routes.rs:469:save_settings",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/fitness/voice-settings",
+      "source_ref": "src/fitness/routes.rs:447:voice_settings",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/fitness/context",
+      "source_ref": "src/fitness/routes.rs:516:context",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/fitness/proposals",
+      "source_ref": "src/fitness/routes.rs:543:propose",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/internal/fitness-chat/reserve",
+      "source_ref": "src/fitness/credits.rs:33:reserve",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/internal/fitness-chat/settle",
+      "source_ref": "src/fitness/credits.rs:84:settle",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/internal/plans/gifts",
+      "source_ref": "src/fitness/gifts.rs:132:list",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/internal/plans/gifts",
+      "source_ref": "src/fitness/gifts.rs:165:create",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/internal/plans/gifts/{id}",
+      "source_ref": "src/fitness/gifts.rs:151:show",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/internal/plans/gifts/{id}",
+      "source_ref": "src/fitness/gifts.rs:197:update",
+      "changes": [
+        "Shared fitness models corrected: direct meal nutrition keys, explicit zero-cost trial tariff, empty support intake and payment-retry event detail binding"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/settings",
+      "source_ref": "src/ai_summary/routes.rs:58:settings",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/ai-summaries/settings",
+      "source_ref": "src/ai_summary/routes.rs:72:save_settings",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/roles",
+      "source_ref": "src/ai_summary/routes.rs:87:roles",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/models",
+      "source_ref": "src/ai_summary/routes.rs:110:models",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/sources",
+      "source_ref": "src/ai_summary/routes.rs:123:sources",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/sources/{source}/check",
+      "source_ref": "src/ai_summary/routes.rs:138:check_source",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/configurations",
+      "source_ref": "src/ai_summary/routes.rs:154:configurations",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/configurations",
+      "source_ref": "src/ai_summary/routes.rs:183:create",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/configurations/{id}",
+      "source_ref": "src/ai_summary/routes.rs:168:configuration",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/ai-summaries/configurations/{id}",
+      "source_ref": "src/ai_summary/routes.rs:198:update",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/configurations/{id}/validate",
+      "source_ref": "src/ai_summary/routes.rs:214:validate",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/configurations/{id}/publish",
+      "source_ref": "src/ai_summary/routes.rs:230:publish",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/configurations/{id}/preview",
+      "source_ref": "src/ai_summary/routes.rs:261:preview",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PATCH /api/v1/ai-summaries/configurations/{id}/status",
+      "source_ref": "src/ai_summary/routes.rs:245:status",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/latest",
+      "source_ref": "src/ai_summary/routes.rs:283:latest",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/summaries",
+      "source_ref": "src/ai_summary/routes.rs:297:summaries",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/runs/{id}",
+      "source_ref": "src/ai_summary/routes.rs:311:run",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/jobs",
+      "source_ref": "src/ai_summary/routes.rs:325:jobs",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/refresh",
+      "source_ref": "src/ai_summary/routes.rs:339:refresh",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/jobs/{id}/retry",
+      "source_ref": "src/ai_summary/routes.rs:367:retry",
+      "changes": [
+        "Summary stored configuration/run/sanitized-job models include concrete persisted fields; latest job_status accepts null; update requires expected_version"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/profile/get",
+      "source_ref": "src/profile/routes.rs:299:bulk_get",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/profile/country/get",
+      "source_ref": "src/profile/routes.rs:322:country_get",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/profile/province/get",
+      "source_ref": "src/profile/routes.rs:343:province_get",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/profile/city/get",
+      "source_ref": "src/profile/routes.rs:364:city_get",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/profile",
+      "source_ref": "src/profile/routes.rs:198:index",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/profile/manager",
+      "source_ref": "src/profile/routes.rs:117:manager_index",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/profile/accountant",
+      "source_ref": "src/profile/routes.rs:117:accountant_index",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/profile/support",
+      "source_ref": "src/profile/routes.rs:117:support_index",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/profile/consultant",
+      "source_ref": "src/profile/routes.rs:117:consultant_index",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/profile/teacher",
+      "source_ref": "src/profile/routes.rs:117:teacher_index",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/profile/student",
+      "source_ref": "src/profile/routes.rs:117:student_index",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/profile/parent",
+      "source_ref": "src/profile/routes.rs:117:parent_index",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/profile/other",
+      "source_ref": "src/profile/routes.rs:117:other_index",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}",
+      "source_ref": "src/profile/routes.rs:224:show",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}",
+      "source_ref": "src/profile/routes.rs:244:update",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}/full",
+      "source_ref": "src/profile/routes.rs:265:show_full",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}/admin",
+      "source_ref": "src/profile/routes.rs:285:show_admin",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/profile/{uuid}/freemium-session-limit",
+      "source_ref": "src/profile/routes.rs:487:update_freemium",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}/freemium-session-limit",
+      "source_ref": "src/profile/routes.rs:487:update_freemium",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/profile/{uuid}/status",
+      "source_ref": "src/profile/routes.rs:439:update_status",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}/status",
+      "source_ref": "src/profile/routes.rs:439:update_status",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/profile/{uuid}/employee-type",
+      "source_ref": "src/profile/routes.rs:462:update_employee_type",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}/employee-type",
+      "source_ref": "src/profile/routes.rs:462:update_employee_type",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/profile/update/personal-information/{uuid}",
+      "source_ref": "src/profile/routes.rs:512:update_personal",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/update/personal-information/{uuid}",
+      "source_ref": "src/profile/routes.rs:512:update_personal",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/profile/update/education-information/{uuid}",
+      "source_ref": "src/education.rs:214:update",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/profile/search",
+      "source_ref": "src/profile_search/routes.rs:25:search",
+      "changes": [
+        "Search core snapshot has concrete serializer fields; dynamic property/service maps remain open"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/profile/people/search",
+      "source_ref": "src/profile_search/people.rs:70:search",
+      "changes": [
+        "Search core snapshot has concrete serializer fields; dynamic property/service maps remain open"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/relation-type",
+      "source_ref": "src/relation/routes.rs:10:create_type",
+      "changes": [
+        "Object metadata/labels and relation constraints have named models instead of arbitrary scalar JSON"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/relation-type/{id}",
+      "source_ref": "src/relation/routes.rs:11:update_type",
+      "changes": [
+        "Object metadata/labels and relation constraints have named models instead of arbitrary scalar JSON"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/profile-relation",
+      "source_ref": "src/relation/routes.rs:15:create_relation",
+      "changes": [
+        "Object metadata/labels and relation constraints have named models instead of arbitrary scalar JSON"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/profile-relation/{id}",
+      "source_ref": "src/relation/routes.rs:16:update_relation",
+      "changes": [
+        "Object metadata/labels and relation constraints have named models instead of arbitrary scalar JSON"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/referral-source",
+      "source_ref": "src/referral/routes.rs:10:create",
+      "changes": [
+        "Object metadata/labels and relation constraints have named models instead of arbitrary scalar JSON"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/referral-source/{id}",
+      "source_ref": "src/referral/routes.rs:11:update",
+      "changes": [
+        "Object metadata/labels and relation constraints have named models instead of arbitrary scalar JSON"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/state-system",
+      "source_ref": "src/lifecycle/routes.rs:12:systems",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/state-system",
+      "source_ref": "src/lifecycle/routes.rs:14:create_system",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/state-system/{id}",
+      "source_ref": "src/lifecycle/routes.rs:13:show_system",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/state-system/{id}",
+      "source_ref": "src/lifecycle/routes.rs:15:update_system",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "DELETE /api/v1/state-system/{id}",
+      "source_ref": "src/lifecycle/routes.rs:16:delete_system",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/state-definition",
+      "source_ref": "src/lifecycle/routes.rs:18:states",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/state-definition",
+      "source_ref": "src/lifecycle/routes.rs:20:create_state",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/state-definition/{id}",
+      "source_ref": "src/lifecycle/routes.rs:19:show_state",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/state-definition/{id}",
+      "source_ref": "src/lifecycle/routes.rs:21:update_state",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "DELETE /api/v1/state-definition/{id}",
+      "source_ref": "src/lifecycle/routes.rs:22:delete_state",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/state-action",
+      "source_ref": "src/lifecycle/routes.rs:24:actions_list",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/state-action",
+      "source_ref": "src/lifecycle/routes.rs:26:create_action",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/state-action/dry-run",
+      "source_ref": "src/lifecycle/routes.rs:27:dry_run_action",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/state-action/{id}",
+      "source_ref": "src/lifecycle/routes.rs:25:show_action",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/state-action/{id}",
+      "source_ref": "src/lifecycle/routes.rs:28:update_action",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "DELETE /api/v1/state-action/{id}",
+      "source_ref": "src/lifecycle/routes.rs:29:delete_action",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/preview",
+      "source_ref": "src/lifecycle/routes.rs:31:preview",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/validate-rule",
+      "source_ref": "src/lifecycle/routes.rs:32:validate_rule",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/evaluate",
+      "source_ref": "src/lifecycle/routes.rs:33:evaluate",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/state-evaluation/transitions",
+      "source_ref": "src/lifecycle/routes.rs:35:transitions",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/state-evaluation/outbox",
+      "source_ref": "src/lifecycle/routes.rs:37:outbox",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/state-evaluation/action-attempts",
+      "source_ref": "src/lifecycle/routes.rs:39:action_attempts",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/outbox/{id}/retry",
+      "source_ref": "src/lifecycle/routes.rs:40:retry",
+      "changes": [
+        "Replaced generic rule/action/config/retry/row JSON with named lifecycle wire models"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/auth/self",
+      "source_ref": "src/session/routes.rs:111:get_self",
+      "changes": [
+        "Named session/chat outputs preserve concrete Profile shape; chat explicitly removes identity and services"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PATCH /api/v1/auth/self",
+      "source_ref": "src/session/routes.rs:140:update_self_name",
+      "changes": [
+        "Named session/chat outputs preserve concrete Profile shape; chat explicitly removes identity and services"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "PUT /api/v1/auth/self/onboarding",
+      "source_ref": "src/session/routes.rs:70:complete_onboarding",
+      "changes": [
+        "Named session/chat outputs preserve concrete Profile shape; chat explicitly removes identity and services"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/auth/chat-context",
+      "source_ref": "src/session/routes.rs:95:get_chat_context",
+      "changes": [
+        "Named session/chat outputs preserve concrete Profile shape; chat explicitly removes identity and services"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /api/v1/identity",
+      "source_ref": "src/option/routes.rs:115:identity",
+      "changes": [
+        "Bilingual Profile name JSON is concrete fa/en nullable fields; alias now uses named Profile output"
+      ],
+      "status": "source_only"
+    },
+    {
+      "operation": "GET /campaign-profile/me/contributions",
+      "source_ref": "src/campaign/routes.rs:134:my_contributions",
+      "changes": [
+        "Purpose snapshot is concrete campaign ID and localized allocation/title fields"
+      ],
+      "status": "source_only"
+    }
+  ],
+  "documentation_corrections": [
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}",
+      "source_ref": "src/profile/models.rs:85:ProfilePatch; src/profile/methods.rs:341:update_profile",
+      "before": "README claimed every nullable field clears on null and path accepts only IDP UUID",
+      "actual": "Only job uses explicit nullable deserializer; other nullable scalar nulls deserialize as omission; lookup prefers IDP UUID then local Profile UUID",
+      "fix": "README and operation/convenience JSDoc corrected"
+    },
+    {
+      "operation": "all gateway-mounted CRUD operations listed individually in direct-semantics-all-235.json",
+      "source_ref": "faiber-sdk e307c93 crates/infera-idp-macro/src/lib.rs and crates/infera-idp-sdk/src/middleware.rs",
+      "actual": "Annotation exports permission metadata; gateway middleware extracts claims; no local ACL enforcement is inserted by macro",
+      "fix": "Per-operation auth JSDoc and README distinguish declared gateway ACL from explicit handler guards"
+    }
+  ]
+}

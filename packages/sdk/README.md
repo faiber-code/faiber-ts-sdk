@@ -8,12 +8,14 @@ The complete typed facade for all public Faiber services.
 npm install @faiber/faiber-ts-sdk
 ```
 
+Server-side login with a registered confidential client:
+
 ```ts
 import { FaiberSDK, MemoryTokenProvider, domainsFromEnv } from "@faiber/faiber-ts-sdk";
 
 const tokens = new MemoryTokenProvider();
 const sdk = new FaiberSDK({
-  domains: domainsFromEnv(import.meta.env),
+  domains: domainsFromEnv(process.env),
   authMode: "bearer",
   tokenProvider: tokens,
   axios: { timeout: 15_000, withCredentials: true },
@@ -43,7 +45,7 @@ The facade exposes `idp`, `profile`, `modules`, `social`, `asset`, `payment`, `m
 `FaiberSDK.capabilities`, `sdk.capabilities`, and `sdk.describe(service?)` expose machine-readable descriptions, authentication rules, transports, environment variables, operation counts, and AI-agent usage guidance. Every service package is also exported as a namespace such as `IdpService`, `DrmService`, or `StateService`, so application code can import runtime APIs and types exclusively from this facade.
 
 
-All methods return full Axios responses and accept request options for headers, cancellation, timeout, and transport overrides. Use `authMode: "cookie"` for secure HttpOnly-cookie authorization, or `authMode: "bearer"` with an in-memory/server token provider. Service origins are supplied through `domains`, `defaultDomain`, or `domainsFromEnv`; the SDK never hardcodes deployment domains.
+All methods return full Axios responses and accept request options for headers, cancellation, timeout, and transport overrides. Use `authMode: "cookie"` for secure HttpOnly-cookie authorization, or `authMode: "bearer"` with an in-memory/server token provider. Keep confidential client secrets on the server; browser applications use the registered browser login flow or a server-managed session. Service origins are supplied through `domains`, `defaultDomain`, or `domainsFromEnv`; the SDK never hardcodes deployment domains.
 
 See each service package README for its capability and permission table, request/query contracts, response envelopes, uploads, form encoding, errors, and examples.
 

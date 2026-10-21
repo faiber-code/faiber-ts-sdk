@@ -1,0 +1,1 @@
+{"extends":"./tsconfig.json","include":["task-source-wire.types.ts"]}

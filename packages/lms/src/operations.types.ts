@@ -285,8 +285,7 @@ export interface ClassroomStoreClassroomPostResponse extends ApiEnvelope<Classro
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ClassroomDestroyClassroomDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ClassroomDestroyClassroomDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::ClassroomResponse. */
 export interface ClassroomShowClassroomGetResponseDataTeacherProfile extends JsonObject {
@@ -578,8 +577,7 @@ export interface ClassroomEnrollClassroomUserPostResponse extends ApiEnvelope<Cl
 }
 
 /** Backend response type: (). */
-export interface ClassroomRemoveClassroomUserDeleteResponse extends ApiEnvelope<JsonObject> {
-}
+export type ClassroomRemoveClassroomUserDeleteResponse = ApiEnvelope<null>;
 
 /** Backend request type: models::UpdateClassroomUserRequest. */
 export interface ClassroomUpdateClassroomUserPatchInput extends JsonObject {
@@ -614,8 +612,8 @@ export interface IntegrationBatchClassroomsPostInput extends JsonObject {
   "ids"?: string[];
 }
 /** Backend response type: Value. */
-export interface IntegrationBatchClassroomsPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type IntegrationBatchClassroomsPostResponseData = import("./wire.types.js").LmsBatchClassrooms;
+export type IntegrationBatchClassroomsPostResponse = ApiEnvelope<import("./wire.types.js").LmsBatchClassrooms>;
 
 /** Backend response type: Vec<models::ClassroomSessionTypeResponse>. */
 export interface ClassroomIndexSessionTypesGetResponseItem extends JsonObject {
@@ -1092,16 +1090,16 @@ export interface ClassroomIndexTodaySessionsGetResponse extends ApiEnvelope<Clas
 }
 
 /** Backend response type: Value. */
-export interface IntegrationCurrentClassroomUsersGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type IntegrationCurrentClassroomUsersGetResponseData = import("./wire.types.js").LmsCurrentClassroomUsers;
+export type IntegrationCurrentClassroomUsersGetResponse = ApiEnvelope<import("./wire.types.js").LmsCurrentClassroomUsers>;
 
 /** Backend request type: UserIdBatch. */
 export interface IntegrationDropoutEligibilityPostInput extends JsonObject {
   "user_ids"?: string[];
 }
 /** Backend response type: Value. */
-export interface IntegrationDropoutEligibilityPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type IntegrationDropoutEligibilityPostResponseData = import("./wire.types.js").LmsDropoutEligibility;
+export type IntegrationDropoutEligibilityPostResponse = ApiEnvelope<import("./wire.types.js").LmsDropoutEligibility>;
 
 /** Backend query type: PaginationQuery. */
 export interface ClassroomIndexAbsencesGetQuery extends QueryParams {
@@ -1159,8 +1157,8 @@ export type BrandingUpdatePutResponse = import("@faiber/sdk-core").ApiEnvelope<i
 /** Backend request type: multipart/form-data. */
 export type BrandingUploadPostInput = FormData;
 /** Backend response type: serde_json::Value. */
-export interface BrandingUploadPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type BrandingUploadPostResponseData = import("./wire.types.js").LmsBrandingUpload;
+export type BrandingUploadPostResponse = ApiEnvelope<import("./wire.types.js").LmsBrandingUpload>;
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexClassroomTypeGetQuery extends QueryParams {
@@ -1659,8 +1657,7 @@ export interface CourseStoreSessionPostResponse extends ApiEnvelope<CourseStoreS
 }
 
 /** Backend response type: serde_json::Value. */
-export interface CourseDestroySessionDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type CourseDestroySessionDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::SessionResponse. */
 export interface CourseShowSessionGetResponseData extends JsonObject {
@@ -1725,8 +1722,7 @@ export interface CourseUpdateSessionPatchResponse extends ApiEnvelope<CourseUpda
 }
 
 /** Backend response type: serde_json::Value. */
-export interface CourseDestroyCourseDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type CourseDestroyCourseDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::CourseResponse. */
 export interface CourseShowCourseGetResponseData extends JsonObject {
@@ -1793,8 +1789,8 @@ export interface IntegrationBatchCoursesPostInput extends JsonObject {
   "ids"?: string[];
 }
 /** Backend response type: Value. */
-export interface IntegrationBatchCoursesPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type IntegrationBatchCoursesPostResponseData = import("./wire.types.js").LmsBatchCourses;
+export type IntegrationBatchCoursesPostResponse = ApiEnvelope<import("./wire.types.js").LmsBatchCourses>;
 
 /** Backend query type: PaginationQuery. */
 export interface CourseIndexCategoryGetQuery extends QueryParams {
@@ -1848,8 +1844,7 @@ export interface CourseStoreCategoryPostResponse extends ApiEnvelope<CourseStore
 }
 
 /** Backend response type: serde_json::Value. */
-export interface CourseDestroyCategoryDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type CourseDestroyCategoryDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::CategoryResponse. */
 export interface CourseShowCategoryGetResponseData extends JsonObject {
@@ -1893,8 +1888,7 @@ export interface CourseReorderCategoriesPatchInput extends JsonObject {
   "over_id": string;
 }
 /** Backend response type: serde_json::Value. */
-export interface CourseReorderCategoriesPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type CourseReorderCategoriesPatchResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend request type: models::ReorderRequest. */
 export interface CourseReorderCoursesPatchInput extends JsonObject {
@@ -1902,16 +1896,15 @@ export interface CourseReorderCoursesPatchInput extends JsonObject {
   "over_id": string;
 }
 /** Backend response type: serde_json::Value. */
-export interface CourseReorderCoursesPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type CourseReorderCoursesPatchResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend request type: IdBatch. */
 export interface IntegrationBatchCourseSuccessorsPostInput extends JsonObject {
   "ids"?: string[];
 }
 /** Backend response type: Value. */
-export interface IntegrationBatchCourseSuccessorsPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type IntegrationBatchCourseSuccessorsPostResponseData = import("./wire.types.js").LmsCourseSuccessors;
+export type IntegrationBatchCourseSuccessorsPostResponse = ApiEnvelope<import("./wire.types.js").LmsCourseSuccessors>;
 
 /** Backend query type: models::DashboardQuery. */
 export interface DashboardIndexGetQuery extends QueryParams {
@@ -2054,12 +2047,7 @@ export interface EvaluationGetContextGetResponse extends ApiEnvelope<EvaluationG
 }
 
 /** Backend request type: models::SubmitEvaluation. */
-export interface EvaluationSubmitPostInput extends JsonObject {
-  "kind": string;
-  "target_user_id"?: string | null;
-  "scores": JsonValue;
-  "description"?: string | null;
-}
+export type EvaluationSubmitPostInput = import("./wire.types.js").LmsSubmitEvaluationInput;
 /** Backend response type: models::SubmitEvaluationResponse. */
 export interface EvaluationSubmitPostResponseData extends JsonObject {
   "id": string;
@@ -2221,8 +2209,7 @@ export interface ExamStoreExamPostResponse extends ApiEnvelope<ExamStoreExamPost
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ExamDestroyExamDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ExamDestroyExamDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::ExamResponse. */
 export interface ExamShowExamGetResponseData extends JsonObject {
@@ -2629,12 +2616,12 @@ export interface ExamIndexQuestionGetResponseItem extends JsonObject {
   "exam_id": string | null;
   "question_text": string;
   "question_type": string;
-  "options": BackendJson<"sea_orm::prelude::Json"> | null;
+  "options": JsonValue | null;
   "correct_answer": string | null;
   "sort_order": number;
   "difficulty": string;
   "points": number;
-  "media": BackendJson<"sea_orm::prelude::Json">;
+  "media": JsonValue;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -2657,12 +2644,12 @@ export interface ExamStoreQuestionPostInput extends JsonObject {
   "exam_id"?: string | null;
   "question_text": string;
   "question_type": string;
-  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
+  "options"?: JsonValue | null;
   "correct_answer"?: string | null;
   "sort_order": number;
   "difficulty"?: string | null;
   "points"?: number | null;
-  "media"?: BackendJson<"sea_orm::prelude::Json"> | null;
+  "media"?: JsonValue | null;
   "status"?: string | null;
 }
 /** Backend response type: models::QuestionResponse. */
@@ -2671,12 +2658,12 @@ export interface ExamStoreQuestionPostResponseData extends JsonObject {
   "exam_id": string | null;
   "question_text": string;
   "question_type": string;
-  "options": BackendJson<"sea_orm::prelude::Json"> | null;
+  "options": JsonValue | null;
   "correct_answer": string | null;
   "sort_order": number;
   "difficulty": string;
   "points": number;
-  "media": BackendJson<"sea_orm::prelude::Json">;
+  "media": JsonValue;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -2685,8 +2672,7 @@ export interface ExamStoreQuestionPostResponse extends ApiEnvelope<ExamStoreQues
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ExamDestroyQuestionDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ExamDestroyQuestionDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::QuestionResponse. */
 export interface ExamShowQuestionGetResponseData extends JsonObject {
@@ -2694,12 +2680,12 @@ export interface ExamShowQuestionGetResponseData extends JsonObject {
   "exam_id": string | null;
   "question_text": string;
   "question_type": string;
-  "options": BackendJson<"sea_orm::prelude::Json"> | null;
+  "options": JsonValue | null;
   "correct_answer": string | null;
   "sort_order": number;
   "difficulty": string;
   "points": number;
-  "media": BackendJson<"sea_orm::prelude::Json">;
+  "media": JsonValue;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -2712,12 +2698,12 @@ export interface ExamUpdateQuestionPatchInput extends JsonObject {
   "exam_id"?: string | null;
   "question_text"?: string | null;
   "question_type"?: string | null;
-  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
+  "options"?: JsonValue | null;
   "correct_answer"?: string | null;
   "sort_order"?: number | null;
   "difficulty"?: string | null;
   "points"?: number | null;
-  "media"?: BackendJson<"sea_orm::prelude::Json"> | null;
+  "media"?: JsonValue | null;
   "status"?: string | null;
 }
 /** Backend response type: models::QuestionResponse. */
@@ -2726,12 +2712,12 @@ export interface ExamUpdateQuestionPatchResponseData extends JsonObject {
   "exam_id": string | null;
   "question_text": string;
   "question_type": string;
-  "options": BackendJson<"sea_orm::prelude::Json"> | null;
+  "options": JsonValue | null;
   "correct_answer": string | null;
   "sort_order": number;
   "difficulty": string;
   "points": number;
-  "media": BackendJson<"sea_orm::prelude::Json">;
+  "media": JsonValue;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -2913,8 +2899,7 @@ export interface ExamStoreSessionPostResponse extends ApiEnvelope<ExamStoreSessi
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ExamDestroySessionDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ExamDestroySessionDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::SessionResponse. */
 export interface ExamShowSessionGetResponseDataTeacherProfile extends JsonObject {
@@ -2980,26 +2965,7 @@ export interface ExamShowSessionGetResponse extends ApiEnvelope<ExamShowSessionG
 }
 
 /** Backend request type: models::UpdateSessionRequest. */
-export interface ExamUpdateSessionPatchInput extends JsonObject {
-  "exam_id"?: string | null;
-  "classroom_id"?: BackendJson<"PatchField<Uuid>">;
-  "classroom_session_id"?: BackendJson<"PatchField<Uuid>">;
-  "name"?: BackendJson<"PatchField<String>">;
-  "description"?: BackendJson<"PatchField<String>">;
-  "info"?: BackendJson<"PatchField<String>">;
-  "duration_minutes"?: BackendJson<"PatchField<i32>">;
-  "questions_count"?: BackendJson<"PatchField<i32>">;
-  "easy_count"?: BackendJson<"PatchField<i32>">;
-  "medium_count"?: BackendJson<"PatchField<i32>">;
-  "hard_count"?: BackendJson<"PatchField<i32>">;
-  "selection_mode"?: string | null;
-  "teacher_user_id"?: BackendJson<"PatchField<String>">;
-  "consultant_user_id"?: BackendJson<"PatchField<String>">;
-  "support_user_id"?: BackendJson<"PatchField<String>">;
-  "starts_at"?: BackendJson<"PatchField<String>">;
-  "ends_at"?: BackendJson<"PatchField<String>">;
-  "status"?: string | null;
-}
+export type ExamUpdateSessionPatchInput = import("./types.js").UpdateExamSessionInput;
 /** Backend response type: models::SessionResponse. */
 export interface ExamUpdateSessionPatchResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
@@ -3217,8 +3183,7 @@ export interface HomeworkStoreBankHomeworkPostResponse extends ApiEnvelope<Homew
 }
 
 /** Backend response type: serde_json::Value. */
-export interface HomeworkDestroyBankHomeworkDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type HomeworkDestroyBankHomeworkDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::QuestionResponse. */
 export interface HomeworkShowBankHomeworkGetResponseData extends JsonObject {
@@ -3283,8 +3248,7 @@ export interface HomeworkUpdateBankHomeworkPatchResponse extends ApiEnvelope<Hom
 }
 
 /** Backend response type: serde_json::Value. */
-export interface HomeworkDestroyBankDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type HomeworkDestroyBankDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::HomeworkBankResponse. */
 export interface HomeworkShowBankGetResponseData extends JsonObject {
@@ -3421,8 +3385,7 @@ export interface HomeworkStoreHomeworkPostResponse extends ApiEnvelope<HomeworkS
 }
 
 /** Backend response type: serde_json::Value. */
-export interface HomeworkDestroyHomeworkDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type HomeworkDestroyHomeworkDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::HomeworkResponse. */
 export interface HomeworkShowHomeworkGetResponseData extends JsonObject {
@@ -3576,18 +3539,7 @@ export interface HomeworkIndexAssignmentGetResponse extends ApiEnvelope<Homework
 }
 
 /** Backend request type: models::CreateAssignmentRequest. */
-export interface HomeworkStoreAssignmentPostInput extends JsonObject {
-  "homework_id": string;
-  "classroom_id"?: string | null;
-  "user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "consultant_user_id"?: string | null;
-  "support_user_id"?: string | null;
-  "due_at"?: string | null;
-  "status": string;
-  "answer_text"?: string | null;
-  "score"?: number | null;
-}
+export type HomeworkStoreAssignmentPostInput = import("./wire.types.js").LmsCreateAssignmentInput;
 /** Backend response type: models::AssignmentResponse. */
 export interface HomeworkStoreAssignmentPostResponseDataProfile extends JsonObject {
   "user_id": string;
@@ -3658,8 +3610,7 @@ export interface HomeworkStoreAssignmentPostResponse extends ApiEnvelope<Homewor
 }
 
 /** Backend response type: serde_json::Value. */
-export interface HomeworkDestroyAssignmentDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type HomeworkDestroyAssignmentDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::AssignmentResponse. */
 export interface HomeworkShowAssignmentGetResponseDataProfile extends JsonObject {
@@ -4062,8 +4013,8 @@ export type TransferTransferUserDataPostInput = import("./types.js").TransferUse
 export type TransferTransferUserDataPostResponse = import("./types.js").TransferUserDataResponse;
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
-}
+export type IntegrationFlowIntegrationShowGetResponseData = import("./wire.types.js").LmsFlowIntegration;
+export type IntegrationFlowIntegrationShowGetResponse = ApiEnvelope<import("./wire.types.js").LmsFlowIntegration>;
 
 /** Backend request type: LegacyIdBatch. */
 export interface IntegrationResolveLegacyIdsPostInput extends JsonObject {
@@ -4071,8 +4022,8 @@ export interface IntegrationResolveLegacyIdsPostInput extends JsonObject {
   "classrooms"?: number[];
 }
 /** Backend response type: Value. */
-export interface IntegrationResolveLegacyIdsPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type IntegrationResolveLegacyIdsPostResponseData = import("./wire.types.js").LmsLegacyResolution;
+export type IntegrationResolveLegacyIdsPostResponse = ApiEnvelope<import("./wire.types.js").LmsLegacyResolution>;
 
 /** Backend request type: RelationshipRequest. */
 export interface NotificationsRelationshipPostInput extends JsonObject {
@@ -4152,8 +4103,7 @@ export interface MediaUploadImagePostResponse extends ApiEnvelope<MediaUploadIma
 }
 
 /** Backend response type: raw-response. */
-export interface MediaDownloadImageGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type MediaDownloadImageGetResponse = ArrayBuffer | Uint8Array;
 
 /** Backend query type: RulesQuery. */
 export type ModIndexGetQuery = import("./notification-settings.js").NotificationRuleQuery;
@@ -4198,16 +4148,15 @@ export interface ProfileRoutesIndexGetResponse extends ApiEnvelope<ProfileRoutes
 }
 
 /** Backend response type: Option<ProfileSummary>. */
-export interface ProfileRoutesShowGetResponse extends ApiEnvelope<BackendJson<"ProfileSummary"> | null> {
-}
+export type ProfileRoutesShowGetResponseData = import("./wire.types.js").LmsProfileSummary | null;
+export type ProfileRoutesShowGetResponse = ApiEnvelope<import("./wire.types.js").LmsProfileSummary | null>;
 
 /** Backend response type: PublicBranding. */
 export type BrandingPublicShowGetResponseData = import("./branding.types.js").LmsPublicBranding;
 export type BrandingPublicShowGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").LmsPublicBranding>;
 
 /** Backend response type: raw-response. */
-export interface BrandingAssetGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type BrandingAssetGetResponse = ArrayBuffer | Uint8Array;
 
 /** Backend response type: models::PublicCertificateResponse. */
 export type CertificateVerifyCertificateGetResponse = import("./types.js").PublicCertificateResponse;
@@ -4356,7 +4305,8 @@ export interface ReportCoursesGetQuery extends QueryParams {
   "status"?: string | null;
 }
 /** Backend response type: Vec<models::CourseReport>. */
-export type ReportCoursesGetResponse = import("./types.js").AcademyCoursesResponse;
+export type ReportCoursesGetResponseData = import("./wire.types.js").LmsCourseReport[];
+export type ReportCoursesGetResponse = ApiEnvelope<import("./wire.types.js").LmsCourseReport[]>;
 
 /** Backend response type: Vec<crate::profile::ProfileSummary>. */
 export interface ReportMyStudentsGetResponseItem extends JsonObject {
@@ -4379,27 +4329,8 @@ export interface ReportStudentSummaryGetQuery extends QueryParams {
   "student_user_id"?: string | null;
 }
 /** Backend response type: models::StudentReport. */
-export interface ReportStudentSummaryGetResponseDataProfile extends JsonObject {
-  "user_id": string;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "email": string | null;
-  "national_code": string | null;
-  "phone": string | null;
-  "gender": string | null;
-}
-export interface ReportStudentSummaryGetResponseData extends JsonObject {
-  "courses"?: JsonValue[] | null;
-  "user_id": string;
-  "profile": ReportStudentSummaryGetResponseDataProfile | null;
-  "classroom_count": number;
-  "session_count": number;
-  "attendance_count": number;
-  "absence_count": number;
-  "attendance_rate": number;
-}
-export interface ReportStudentSummaryGetResponse extends ApiEnvelope<ReportStudentSummaryGetResponseData> {
-}
+export type ReportStudentSummaryGetResponseData = import("./wire.types.js").LmsStudentReport;
+export type ReportStudentSummaryGetResponse = ApiEnvelope<import("./wire.types.js").LmsStudentReport>;
 
 /** Backend query type: models::ReportQuery. */
 export interface ReportStudentsGetQuery extends QueryParams {
@@ -4408,27 +4339,8 @@ export interface ReportStudentsGetQuery extends QueryParams {
   "status"?: string | null;
 }
 /** Backend response type: Vec<models::StudentReport>. */
-export interface ReportStudentsGetResponseItemProfile extends JsonObject {
-  "user_id": string;
-  "first_name": JsonValue | null;
-  "last_name": JsonValue | null;
-  "email": string | null;
-  "national_code": string | null;
-  "phone": string | null;
-  "gender": string | null;
-}
-export interface ReportStudentsGetResponseItem extends JsonObject {
-  "courses"?: JsonValue[] | null;
-  "user_id": string;
-  "profile": ReportStudentsGetResponseItemProfile | null;
-  "classroom_count": number;
-  "session_count": number;
-  "attendance_count": number;
-  "absence_count": number;
-  "attendance_rate": number;
-}
-export interface ReportStudentsGetResponse extends ApiEnvelope<ReportStudentsGetResponseItem[]> {
-}
+export type ReportStudentsGetResponseData = import("./wire.types.js").LmsStudentReport[];
+export type ReportStudentsGetResponse = ApiEnvelope<import("./wire.types.js").LmsStudentReport[]>;
 
 /** Backend query type: models::ReportQuery. */
 export interface ReportTeachersGetQuery extends QueryParams {

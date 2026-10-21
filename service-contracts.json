@@ -22024,6 +22024,7 @@
       "permissions": [],
       "source": "infera-task/src/routes.rs",
       "handlerModule": "note_data",
+      "query": "CatalogQuery",
       "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,

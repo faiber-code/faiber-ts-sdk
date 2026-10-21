@@ -4,8 +4,14 @@ import { InteractiveLearningApi } from "./interactive.js";
 import { RestResource, ServiceApi, type AxiosResponse, type Identifier, type QueryParams, type PageQuery, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 import type * as O from "./operations.types.js";
-type R<E extends T.LmsEntity, C, U, Q extends QueryParams = PageQuery> = RestResource<E, C, U, T.LmsListResponse<E>, T.LmsResponse<E>, Q>;
+type R<E extends T.LmsEntity, C, U, Q extends QueryParams = PageQuery> = RestResource<E, C, U, T.LmsListResponse<E>, T.LmsResponse<E>, Q, import("./wire.types.js").LmsEmptyMutationResponse>;
 import { LmsOperations } from "./operations.js";
+
+export interface LmsReportResponses {
+    teachers: O.ReportTeachersGetResponse;
+    students: O.ReportStudentsGetResponse;
+    classrooms: O.ReportClassroomsGetResponse;
+}
 
 /** Exact server-side totals and the complete responses used to calculate them. */
 export interface LmsStudentStatistics {
@@ -129,30 +135,33 @@ export class LmsApi extends ServiceApi {
     readonly media = new LmsMediaApi(this.client);
     readonly interactive = new InteractiveLearningApi(this.client);
     readonly operations = new LmsOperations(this.client);
-    readonly courses: R<T.Course, T.CreateCourseInput, T.UpdateCourseInput> = new RestResource(this.client, "/api/v1/courses", { supported: ["list", "show", "create", "update"] });
-    readonly courseCategories: R<T.CourseCategory, T.CreateCourseCategoryInput, T.UpdateCourseCategoryInput> = new RestResource(this.client, "/api/v1/courses/categories", { supported: ["list", "show", "create", "update"] });
-    readonly videoSections: R<T.VideoSection, T.CreateVideoSectionInput, T.UpdateVideoSectionInput> = new RestResource(this.client, "/api/v1/courses/video-sections", { supported: ["list", "show", "create", "update"] });
-    readonly classrooms: RestResource<T.Classroom, T.CreateClassroomInput, T.UpdateClassroomInput, O.ClassroomIndexClassroomGetResponse, T.LmsResponse<T.Classroom>, O.ClassroomIndexClassroomGetQuery> = new RestResource(this.client, "/api/v1/classrooms", { supported: ["list", "show", "create", "update", "delete"] });
-    readonly classroomSessions: RestResource<T.ClassroomSession, T.CreateClassroomSessionInput, T.UpdateClassroomSessionInput, T.ClassroomSessionPageResponse, T.LmsResponse<T.ClassroomSession>> = new RestResource(this.client, "/api/v1/classrooms/sessions", { supported: ["list", "show", "create", "update"] });
+    readonly courses: R<T.Course, T.CreateCourseInput, T.UpdateCourseInput, O.CourseIndexCourseGetQuery> = new RestResource(this.client, "/api/v1/courses", { supported: ["list", "show", "create", "update", "delete"] });
+    readonly courseCategories: R<T.CourseCategory, T.CreateCourseCategoryInput, T.UpdateCourseCategoryInput> = new RestResource(this.client, "/api/v1/courses/categories", { supported: ["list", "show", "create", "update", "delete"] });
+    /** @deprecated This resource is not mounted by the supported LMS revision; all methods reject before HTTP. */
+    readonly videoSections: R<T.VideoSection, T.CreateVideoSectionInput, T.UpdateVideoSectionInput> = new RestResource(this.client, "/api/v1/courses/video-sections", { supported: [] });
+    readonly classrooms: RestResource<T.Classroom, T.CreateClassroomInput, T.UpdateClassroomInput, O.ClassroomIndexClassroomGetResponse, T.LmsResponse<T.Classroom>, O.ClassroomIndexClassroomGetQuery, import("./wire.types.js").LmsEmptyMutationResponse> = new RestResource(this.client, "/api/v1/classrooms", { supported: ["list", "show", "create", "update", "delete"] });
+    readonly classroomSessions: RestResource<T.ClassroomSession, T.CreateClassroomSessionInput, T.UpdateClassroomSessionInput, T.ClassroomSessionPageResponse, T.LmsResponse<T.ClassroomSession>, O.ClassroomIndexSessionGetQuery> = new RestResource(this.client, "/api/v1/classrooms/sessions", { supported: ["list", "show", "create", "update"] });
     readonly exams: R<T.Exam, T.CreateExamInput, T.UpdateExamInput, T.ExamListQuery> = new RestResource(this.client, "/api/v1/exams", { supported: ["list", "show", "create", "update", "delete"] });
     /** Exam definitions, explicitly named as the exam-bank layer. */
     readonly examBanks: R<T.ExamBank, T.CreateExamInput, T.UpdateExamInput, T.ExamListQuery> = new RestResource(this.client, "/api/v1/exams", { supported: ["list", "show", "create", "update", "delete"] });
-    readonly examQuestions: R<T.ExamQuestion, T.CreateExamQuestionInput, T.UpdateExamQuestionInput> = new RestResource(this.client, "/api/v1/exams/questions", { supported: ["list", "show", "create", "update", "delete"] });
+    readonly examQuestions: R<T.ExamQuestion, T.CreateExamQuestionInput, T.UpdateExamQuestionInput, O.ExamIndexQuestionGetQuery> = new RestResource(this.client, "/api/v1/exams/questions", { supported: ["list", "show", "create", "update", "delete"] });
     /** Items/questions contained by exam banks. Filter lists with `exam_id`. */
-    readonly examBankItems: R<T.ExamBankItem, T.CreateExamQuestionInput, T.UpdateExamQuestionInput> = new RestResource(this.client, "/api/v1/exams/questions", { supported: ["list", "show", "create", "update", "delete"] });
+    readonly examBankItems: R<T.ExamBankItem, T.CreateExamQuestionInput, T.UpdateExamQuestionInput, O.ExamIndexQuestionGetQuery> = new RestResource(this.client, "/api/v1/exams/questions", { supported: ["list", "show", "create", "update", "delete"] });
     readonly examSessions: R<T.ExamSession, T.CreateExamSessionInput, T.UpdateExamSessionInput, T.ExamSessionListQuery> = new RestResource(this.client, "/api/v1/exams/sessions", { supported: ["list", "show", "create", "update", "delete"] });
     readonly homeworks: R<T.Homework, T.CreateHomeworkInput, T.UpdateHomeworkInput, T.HomeworkListQuery> = new RestResource(this.client, "/api/v1/homeworks", { supported: ["list", "show", "create", "update", "delete"] });
     readonly homeworkBanks: R<T.HomeworkBank, T.CreateHomeworkBankInput, T.UpdateHomeworkBankInput, T.HomeworkBankListQuery> = new RestResource(this.client, "/api/v1/homework-banks", { supported: ["list", "show", "create", "update", "delete"] });
-    readonly homeworkQuestions: R<T.HomeworkQuestion, T.CreateHomeworkQuestionInput, T.UpdateHomeworkQuestionInput> = new RestResource(this.client, "/api/v1/homeworks/questions", { supported: ["list", "show", "create", "update"] });
+    readonly homeworkQuestions: R<T.HomeworkQuestion, T.CreateHomeworkQuestionInput, T.UpdateHomeworkQuestionInput, O.HomeworkIndexQuestionGetQuery> = new RestResource(this.client, "/api/v1/homeworks/questions", { supported: ["list", "show", "create", "update"] });
     /** Delivered homework-bank items, with typed status and relationship filters. */
     readonly homeworkAssignments = new HomeworkAssignmentsApi(this.client);
     readonly certificates: R<T.Certificate, T.CreateCertificateInput, T.UpdateCertificateInput> = new RestResource(this.client, "/api/v1/certificates", { supported: ["list", "show", "create", "update"] });
     readonly certificateTemplates: R<T.CertificateTemplate, T.CreateCertificateTemplateInput, T.UpdateCertificateTemplateInput> = new RestResource(this.client, "/api/v1/certificates/templates", { supported: ["list", "show", "create", "update"] });
-    readonly events: R<T.Event, T.CreateEventInput, T.UpdateEventInput> = new RestResource(this.client, "/api/v1/events", { supported: ["list", "show", "create", "update"] });
+    /** @deprecated This resource is not mounted by the supported LMS revision; all methods reject before HTTP. */
+    readonly events: R<T.Event, T.CreateEventInput, T.UpdateEventInput> = new RestResource(this.client, "/api/v1/events", { supported: [] });
     readonly interactiveContent: R<T.InteractiveContent, T.CreateInteractiveContentInput, T.UpdateInteractiveContentInput> = new RestResource(this.client, "/api/v1/interactive/content", { supported: [] });
     readonly grades: R<T.Grade, T.CreateGradeInput, T.UpdateGradeInput> = new RestResource(this.client, "/api/v1/config/grades", { supported: ["list", "show", "create", "update"] });
     readonly classroomTypes: R<T.ClassroomType, T.CreateClassroomTypeInput, T.UpdateClassroomTypeInput> = new RestResource(this.client, "/api/v1/config/classroom-types", { supported: ["list", "show", "create", "update"] });
-    readonly textTemplates: R<T.TextTemplate, T.CreateTextTemplateInput, T.UpdateTextTemplateInput> = new RestResource(this.client, "/api/v1/config/text-templates", { supported: ["list", "show", "create", "update"] });
+    /** @deprecated This resource is not mounted by the supported LMS revision; all methods reject before HTTP. */
+    readonly textTemplates: R<T.TextTemplate, T.CreateTextTemplateInput, T.UpdateTextTemplateInput> = new RestResource(this.client, "/api/v1/config/text-templates", { supported: [] });
     /** Lists authorized classrooms with relationship, role-assignment, status, course, and time filters.
      * Each row includes student_count (distinct current members) alongside nullable capacity.
      * Requires lms:classroom:read or scoped lms:classroom:read_own; authorization and validation
@@ -179,7 +188,7 @@ export class LmsApi extends ServiceApi {
     /** Deletes an assignment record without deleting its reusable bank item. */
     deleteAssignment(id: Identifier, options?: RequestOptions) { return this.operations.homeworkDestroyAssignmentDelete(id, options); }
     /** Returns the filterable todo/project questions belonging to one homework definition/bank. */
-    homeworkBankItems(homeworkBankId: Identifier): R<T.HomeworkBankItem, O.HomeworkStoreBankHomeworkPostInput, O.HomeworkUpdateBankHomeworkPatchInput> {
+    homeworkBankItems(homeworkBankId: Identifier): R<T.HomeworkBankItem, O.HomeworkStoreBankHomeworkPostInput, O.HomeworkUpdateBankHomeworkPatchInput, O.HomeworkIndexBankHomeworkGetQuery> {
         return new RestResource(this.client, `/api/v1/homework-banks/${encodeURIComponent(homeworkBankId)}/homeworks`, { supported: ["list", "show", "create", "update", "delete"] });
     }
     /** Lists exam-bank items/questions for one bank. */
@@ -256,7 +265,7 @@ export class LmsApi extends ServiceApi {
             recording: classroomSessionRecordingUrl(reference, sessionBaseUrl),
         };
     }
-    courseSessions(id: Identifier, params?: QueryParams, options?: RequestOptions) { return this.client.get<T.CourseSessionsResponse>(`/api/v1/courses/${encodeURIComponent(id)}/sessions`, params, options); }
+    courseSessions(id: Identifier, params?: O.CourseIndexSessionGetQuery, options?: RequestOptions) { return this.client.get<T.CourseSessionsResponse>(`/api/v1/courses/${encodeURIComponent(id)}/sessions`, params, options); }
     /** Returns one course session, including its configured external or DRM video source. */
     courseSession(courseId: Identifier, sessionId: Identifier, options?: RequestOptions) { return this.client.get<T.LmsResponse<T.CourseSession>>(`/api/v1/courses/${encodeURIComponent(courseId)}/sessions/${encodeURIComponent(sessionId)}`, undefined, options); }
     /** Creates a course session with an optional external or DRM video source. */
@@ -264,7 +273,10 @@ export class LmsApi extends ServiceApi {
     /** Updates a course session and supports clearing or replacing its video source. */
     updateCourseSession(courseId: Identifier, sessionId: Identifier, data: T.UpdateCourseSessionInput, options?: RequestOptions<T.UpdateCourseSessionInput>) { return this.client.patch<T.LmsResponse<T.CourseSession>, T.UpdateCourseSessionInput>(`/api/v1/courses/${encodeURIComponent(courseId)}/sessions/${encodeURIComponent(sessionId)}`, data, options); }
     addClassroomUser(id: Identifier, data: T.ClassroomUserInput, options?: RequestOptions<T.ClassroomUserInput>) { return this.client.post<T.ClassroomUserResponse, T.ClassroomUserInput>(`/api/v1/classrooms/${encodeURIComponent(id)}/users`, data, options); }
-    report(kind: "teachers" | "students" | "classrooms", params?: QueryParams, options?: RequestOptions) { return this.client.get<T.LmsReportResponse>(`/api/v1/reports/${kind}`, params, options); }
+    /** Read the selected aggregate report. Requires lms:report:read; invalid dates and access errors reject with AxiosError. */
+    report<K extends "teachers" | "students" | "classrooms">(kind: K, params?: O.ReportTeachersGetQuery, options?: RequestOptions) {
+        return this.client.get<LmsReportResponses[K]>(`/api/v1/reports/${kind}`, params, options);
+    }
     /** Lists active learner academy categories for the authenticated IDP session. */
     academyCategories(options?: RequestOptions) { return this.client.get<T.AcademyCategoriesResponse>("/api/v1/academy/categories", undefined, options); }
     /** Returns classroom records for Office/Profile integration using canonical UUID identifiers. */
@@ -306,3 +318,5 @@ export * from "./notification-settings.js";
 export * from "./branding.types.js";
 // Preserve public DTO names when the reviewed operation generator emits aliases.
 export type { LmsBranding as BrandingShowGetResponseData, LmsBranding as BrandingUpdatePutResponseData, LmsPublicBranding as BrandingPublicShowGetResponseData } from "./branding.types.js";
+
+export * from "./wire.types.js";

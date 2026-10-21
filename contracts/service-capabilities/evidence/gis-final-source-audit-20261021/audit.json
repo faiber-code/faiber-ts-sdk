@@ -1,0 +1,1392 @@
+{
+  "service": "gis",
+  "immutable_revision": "0bc8423a51887450b928e7b372153014cd47e582",
+  "operation_count": 48,
+  "review_status": "verified",
+  "method": "Read immutable git-show router composition, each handler/extractor/validation, auth middleware, geometry transactions/access predicates, import authority and lease worker, catalog SQL repositories, schema/migrations, and style configs. Compared with named SDK models, methods, query/body encoding, full Axios response and binary tile handling. Existing per-operation semantic reviews are retained.",
+  "source_sha256": {
+    "config/dark.json": "98387967974e85f25b90e2d3f2b1d6426c5357b54e9e27219feaf6f9f1dee255",
+    "config/daylight.json": "8ee876551dc6517853fa9a40948874accbbebf3846a8053d57a316d5d2b2799b",
+    "config/martin.example.yaml": "df0d411086d670511114905ec21cd468f25e0d3417d7b3666f8954e0cb04e3cf",
+    "migration/Cargo.toml": "fa670beda0b36884572a9e4207514984c7c6a636034c4d59f596e093f9553aa4",
+    "migration/import-leases.sql": "ce8a4218dfbc6f5e81f2c09133f8cf90b2f6e48a291490be9f45efbd99e6b095",
+    "migration/private-tiles.sql": "ae52aeec38eab87a2cd13241091b9f0b1a861ba888606766cf34086b869f823d",
+    "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+    "migration/src/lib.rs": "5ecb0f50e559368e0d8eb5112c16425aeb24787cf4d686c4452670167c13226c",
+    "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+    "src/error.rs": "7373b0ba009065901d93f49fdb564b1accd0667a9fddc0fb3631732e2178c8a4",
+    "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+    "src/geometry/mod.rs": "041e0896d3d27a00add17adf59ebdd54350264f673bb4c6b8e9b335e49dac7e9",
+    "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+    "src/geometry/routes.rs": "437a78db312f8db2cd9d99cfc004e3040a3c8ee3fda6e996f395c36235a72763",
+    "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+    "src/imports/authority.rs": "848f6ef5fcd9da74ffacc28177ab20e6452e3b0b8f50044afd8e2d23b1f13fb7",
+    "src/imports/mod.rs": "da0e64a9aa540f88823e25730596d04edf21c1554bb89132b32a06799ca6e89f",
+    "src/imports/native_tests.rs": "10644e1ac1d59d4551d547e4e5507d5f21f9e8c1bc9672b0c025fddc2d244f00",
+    "src/lib.rs": "a9b1f765c77338b5da938d29fe839381de36e86bf9cd8fee36f21e27a8122a38",
+    "src/main.rs": "b5ece0e466363f47e878830b8e743b0fbd29222be9ff6cef78d133d145877f7e",
+    "src/maps/mod.rs": "18cb4e1a253f7cb8df60400fcf0dd6adc86a1fad5c9d64d69a7e57df230682ff",
+    "src/maps/routes.rs": "e8f05580aa710c913c79bc6f047c09261a31b6b935b44af92376a1d94ccd9747",
+    "src/personal_places.rs": "16981da5467aaa678664aee9958e0bb84ff6821bad28c36dd865501935ddd373",
+    "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+    "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245",
+    "src/state.rs": "c4dcd8f69fa9b6f1635943b8f565a132d985d9c265973b632e3bf36b7366983a",
+    "src/tiles/mod.rs": "18cb4e1a253f7cb8df60400fcf0dd6adc86a1fad5c9d64d69a7e57df230682ff",
+    "src/tiles/routes.rs": "36ad7840b76f2ffa65c5913fe5131f7bf5966accf4095006c2873f5800cb7299"
+  },
+  "changes": {
+    "geometry_discriminated_models": [
+      "PUT /api/v1/datasets/{id}/features",
+      "GET /api/v1/datasets/{id}/features",
+      "GET /api/v1/public/datasets/{id}/geojson",
+      "GET /api/v1/public/maps/{slug}/geojson"
+    ],
+    "map_style_concrete_models": [
+      "GET /api/v1/maps/{id}/style",
+      "GET /api/v1/public/maps/{slug}/style"
+    ],
+    "named_nested_result_models": [
+      "PUT /api/v1/datasets/{id}/features",
+      "PUT /api/v1/datasets/{id}/features/{feature}",
+      "POST /api/v1/imports/{id}/retry",
+      "PUT /api/v1/places/{id}/save",
+      "DELETE /api/v1/places/{id}/save",
+      "PUT /api/v1/internal/outbox/{id}/ack",
+      "POST /api/v1/moderation/reports/{id}",
+      "POST /api/v1/moderation/{id}",
+      "POST /api/v1/places/{id}/assertion",
+      "GET /api/v1/public/datasets/{id}/tilejson"
+    ]
+  },
+  "prepared_checks": [
+    "tests/gis-final-pin-wire.test.mjs",
+    "tests/gis-wire.types.ts"
+  ],
+  "execution": "No tests/builds/native jobs were executed in this final source reconciliation; parent runs combined gates.",
+  "preserved_evidence": [
+    "evidence/gis-selected-source-review-20261021.json",
+    "evidence/gis-finalization-v2-20261021/receipt.json",
+    "evidence/gis-import-native-finalization-20261021/receipt.json"
+  ],
+  "limitations": [
+    "Native evidence covers owned fixtures and recorded consumer snapshot, not new type-only SDK inputs.",
+    "Live external IDP issuer/client acceptance, Social assertion consumption, deployed gateway isolation and Manage workflow acceptance remain open."
+  ],
+  "operations": [
+    {
+      "id": "GET /api/v1/datasets",
+      "handler": "index",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/routes.rs": "437a78db312f8db2cd9d99cfc004e3040a3c8ee3fda6e996f395c36235a72763",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "datasets",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Success<import(\"./types.js\").Dataset[]>",
+      "authorization": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference.",
+      "wire_semantics": "No supported query pagination/search. Data is raw dataset rows under {status:\"success\",data:[...]}; includes organization_id,scope,owner_id,visibility,status,revision,source/license/attribution.",
+      "filters": "Current actor organization/user/access predicates; global published public included.",
+      "lifecycle": "No mutation; ordered name, hard limit200, no total/next cursor. A truncated list is not a complete export.",
+      "relationships": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "POST /api/v1/datasets",
+      "handler": "create",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/routes.rs": "437a78db312f8db2cd9d99cfc004e3040a3c8ee3fda6e996f395c36235a72763",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "createDataset",
+      "request_type": "import(\"./types.js\").DatasetInput",
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Success<import(\"./types.js\").Dataset>",
+      "authorization": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference.",
+      "wire_semantics": "Required name,attribution,license,source,scope. Name.trim nonempty/name bytes<=200; attribution nonempty<=2000; license nonempty; source<=2000; scope user|organization|global. No URL-fetch/scheme validation of source. Returns200 success/data dataset.",
+      "filters": "No caller owner/organization/status/revision override.",
+      "lifecycle": "Generates UUID, assigns actor organization and user owner only for user scope; draft/private revision1. Organization creation needs gis:dataset:manage; global needs gis:global:manage. No audit/outbox is emitted by create_dataset itself.",
+      "relationships": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/datasets/{id}",
+      "handler": "show",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/routes.rs": "437a78db312f8db2cd9d99cfc004e3040a3c8ee3fda6e996f395c36235a72763",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "dataset",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Success<import(\"./types.js\").Dataset>",
+      "authorization": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference.",
+      "wire_semantics": "Path dataset UUID; success/data full dataset row. Missing/inaccessible404.",
+      "filters": "Exact UUID plus native current scope predicate.",
+      "lifecycle": "Read-only; private metadata is not automatically publicly exposed.",
+      "relationships": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "PATCH /api/v1/datasets/{id}",
+      "handler": "publish",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/routes.rs": "437a78db312f8db2cd9d99cfc004e3040a3c8ee3fda6e996f395c36235a72763",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "publishDataset",
+      "request_type": "import(\"./types.js\").DatasetPublicationInput",
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Success<import(\"./types.js\").Dataset>",
+      "authorization": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference.",
+      "wire_semantics": "Required status draft|published|archived,visibility public|private,expected_revision integer,reason trimmed>=3 and bytes<=1000.200 success/data dataset; invalid400/stale409.",
+      "filters": "Exact UUID/revision. Even PATCH requires the whole declared publication body.",
+      "lifecycle": "Write access required. Atomic revision increment, native history and transactional GIS outbox. Publication affects subsequent public exports/tiles; no scope/owner/name/source edits in this endpoint.",
+      "relationships": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/datasets/{id}/features",
+      "handler": "features",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/routes.rs": "437a78db312f8db2cd9d99cfc004e3040a3c8ee3fda6e996f395c36235a72763",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "features",
+      "request_type": null,
+      "query_type": "import(\"./types.js\").FeatureQuery",
+      "response_type": "import(\"./types.js\").FeatureCollection",
+      "authorization": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference.",
+      "wire_semantics": "Path dataset UUID. Raw FeatureCollection with features: type Feature,id:string,geometry,properties,revision. Not a success/data envelope.",
+      "filters": "bbox comma-separated west,south,east,north; finite ordered bounds, longitude[-180,180],latitude[-85.05112878,85.05112878]. limit defaults5000/clamps1\u20135000; ORDER BY id, no cursor/offset.",
+      "lifecycle": "Read-only; soft-deleted features omitted. Bounded response is not a full dataset export.",
+      "relationships": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "geometry_discriminated_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "PUT /api/v1/datasets/{id}/features",
+      "handler": "write",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/routes.rs": "437a78db312f8db2cd9d99cfc004e3040a3c8ee3fda6e996f395c36235a72763",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "writeFeatures",
+      "request_type": "import(\"./types.js\").FeatureBatchInput",
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Success<import(\"./types.js\").FeatureWriteResult>",
+      "authorization": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference.",
+      "wire_semantics": "Body expected_revision,reason,features1\u20132000. reason.trim>=3/bytes<=1000; unique nonempty feature IDs<=160bytes. Properties must be object, serialized<=32000bytes each. Six GeoJSON geometry families, finite2\u20133 dimensions, per-geometry<=10000 coordinate positions, WGS84/Mercator bounds and PostGIS nonempty/valid geometry required.",
+      "filters": "No caller organization/owner override; dataset revision mismatch409. This is upsert, not replacement/deletion of omitted features.",
+      "lifecycle": "Atomic dataset revision increment; batch upsert increments feature revisions and clears deleted_at on existing IDs; transactional history and outbox. Failure rolls back. Global request body limit16MiB still applies to combined batch. Ownership and revision are read under the same dataset row lock as the write; import batches can share an outer transaction.",
+      "relationships": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "geometry_discriminated_models",
+        "named_nested_result_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "PUT /api/v1/datasets/{id}/features/{feature}",
+      "handler": "delete_feature",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/routes.rs": "437a78db312f8db2cd9d99cfc004e3040a3c8ee3fda6e996f395c36235a72763",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "deleteFeature",
+      "request_type": "import(\"./types.js\").RevisionInput",
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Success<import(\"./types.js\").RevisionResult>",
+      "authorization": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference.",
+      "wire_semantics": "Dataset UUID and opaque feature string ID. Body expected_revision,reason.trim>=3. Unlike bulk writes this handler has no explicit1000byte reason cap; global16MiB body limit applies.200 success/data {revision}; missing404/stale409.",
+      "filters": "Exact dataset revision and undeleted feature; IDs are not interchangeable UUIDs.",
+      "lifecycle": "Atomically increments dataset/feature revision and sets deleted_at, records previous geometry in private history and transactional outbox. Re-upsert can restore. Do not implement this as DELETE or an unversioned toggle.",
+      "relationships": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "named_nested_result_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "GET /api/v1/datasets/{id}/history",
+      "handler": "history",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/routes.rs": "437a78db312f8db2cd9d99cfc004e3040a3c8ee3fda6e996f395c36235a72763",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "datasetHistory",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Success<import(\"./types.js\").History[]>",
+      "authorization": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference. History specifically requires write-level dataset access, not ordinary public/read access.",
+      "wire_semantics": "200 success/data history rows with actor_id,operation,reason,before_state,after_state,created_at.",
+      "filters": "ORDER BY created_at DESC LIMIT100, no cursor/total guarantee.",
+      "lifecycle": "Read-only; source text/history is untrusted evidence. No history purge/rollback endpoint is advertised.",
+      "relationships": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/datasets/{id}/tiles/{z}/{x}/{y}",
+      "handler": "private_tile",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245",
+        "src/tiles/routes.rs": "36ad7840b76f2ffa65c5913fe5131f7bf5966accf4095006c2873f5800cb7299"
+      },
+      "sdk_method": "tile",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "ArrayBuffer",
+      "authorization": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference.",
+      "wire_semantics": "Same bounded binary tile/status/headers contract as public tile, not JSON.",
+      "filters": "Same finite integer tile index bounds; no operative revision query override.",
+      "lifecycle": "No mutation; read-level dataset access checked per request, upstream authorized=true. This flag must remain internal and cannot bypass GIS authorization.",
+      "relationships": "Private Martin and restricted security-definer tile function must honor dataset/tenant/revision boundaries. This does not certify renderer ACL or current live identity.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/imports",
+      "handler": "index",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/import-leases.sql": "ce8a4218dfbc6f5e81f2c09133f8cf90b2f6e48a291490be9f45efbd99e6b095",
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/imports/authority.rs": "848f6ef5fcd9da74ffacc28177ab20e6452e3b0b8f50044afd8e2d23b1f13fb7",
+        "src/imports/mod.rs": "da0e64a9aa540f88823e25730596d04edf21c1554bb89132b32a06799ca6e89f",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "imports",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").ImportJob[]>",
+      "authorization": "Authenticated actor within its organization: only owned jobs, or all organization jobs with gis:dataset:manage. At most100 newest jobs; no pagination. Listing does not fetch current issuer grants and never exposes lease_id.",
+      "wire_semantics": "{data:ImportJob[]} includes protocol_version,input_revision,lease_expires_at,authority_revision,authority_issuer plus job IDs/bounds/state/error/counts/timestamps. Secret lease_id is excluded. Listing does not contact the issuer.",
+      "filters": "Same organization and owner or gis:dataset:manage; newest-first LIMIT100; no paging/query.",
+      "lifecycle": "Read only; states queued|running|complete|failed|cancelled in schema, no public cancellation endpoint.",
+      "relationships": "Job links owner and organization UUIDs to a local dataset UUID. Operator-owned organization/issuer confidential-client binding obtains current IDP GIS grants; no user credentials persisted. Input revision and random lease fence worker writes. Native source and owned fixtures verified; live issuer/client provisioning remains pending.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "POST /api/v1/imports",
+      "handler": "create",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/import-leases.sql": "ce8a4218dfbc6f5e81f2c09133f8cf90b2f6e48a291490be9f45efbd99e6b095",
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/imports/authority.rs": "848f6ef5fcd9da74ffacc28177ab20e6452e3b0b8f50044afd8e2d23b1f13fb7",
+        "src/imports/mod.rs": "da0e64a9aa540f88823e25730596d04edf21c1554bb89132b32a06799ca6e89f",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "createImport",
+      "request_type": "import(\"./types.js\").ImportInput",
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").ImportAccepted>",
+      "authorization": "Current issuer-bound IDP owner grant snapshot; original issuer cannot be rebound; dataset scope policy and exact cookie origin. Unavailable authority503, inactive owner401.",
+      "wire_semantics": "Body name:string,scope:user|organization|global,bounds:[west,south,east,north], finite ordered longitude\u00b1180 latitude\u00b185, area<=.04deg\u00b2. Dataset create checks native scope permissions/name. {data:{id,dataset_id,state:queued}}.",
+      "filters": "Body name, scope and finite ordered bounds; area at most0.04 square degrees. Two active jobs per organization/owner serialized with advisory transaction lock; excess429.",
+      "lifecycle": "One transaction creates private draft dataset and protocol2 queued job. Worker claims a random five-minute lease, max three claims and240second attempt. Current grants and dataset revision checked before writes and current grants before commit. All batches/history/outbox/draft map/completion commit atomically; failure rolls back. Never automatically publishes. Expired workers cannot acknowledge replacement leases.",
+      "relationships": "Job links owner and organization UUIDs to a local dataset UUID. Operator-owned organization/issuer confidential-client binding obtains current IDP GIS grants; no user credentials persisted. Input revision and random lease fence worker writes. Native source and owned fixtures verified; live issuer/client provisioning remains pending.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021",
+        "gis-current-import-native-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "POST /api/v1/imports/{id}/retry",
+      "handler": "retry",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/import-leases.sql": "ce8a4218dfbc6f5e81f2c09133f8cf90b2f6e48a291490be9f45efbd99e6b095",
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/imports/authority.rs": "848f6ef5fcd9da74ffacc28177ab20e6452e3b0b8f50044afd8e2d23b1f13fb7",
+        "src/imports/mod.rs": "da0e64a9aa540f88823e25730596d04edf21c1554bb89132b32a06799ca6e89f",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "retryImport",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").ImportRetryAccepted>",
+      "authorization": "Current issuer-bound IDP owner grant snapshot; original issuer cannot be rebound; dataset scope policy and exact cookie origin. Unavailable authority503, inactive owner401.",
+      "wire_semantics": "Path job UUID, no JSON body; {data:{id,state:queued}}.",
+      "filters": "Path UUID, no request body. Same two-active-job quota applies before selecting failed job; excess429.",
+      "lifecycle": "Lock failed protocol2 job and dataset, check issuer and access, then atomically set queued, clear error/lease/expiry, reset attempts and refresh authority revision. Preserve dataset and input revision. Legacy jobs require explicit reconciliation and cannot use normal retry.",
+      "relationships": "Job links owner and organization UUIDs to a local dataset UUID. Operator-owned organization/issuer confidential-client binding obtains current IDP GIS grants; no user credentials persisted. Input revision and random lease fence worker writes. Native source and owned fixtures verified; live issuer/client provisioning remains pending.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "named_nested_result_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "GET /api/v1/internal/outbox",
+      "handler": "outbox",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "outbox",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").PlaceEvent[]>",
+      "authorization": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Exact comma element places:integrations:read required; no wildcard match or whitespace trimming in worker predicate.",
+      "wire_semantics": "{data:outbox rows[]} id,tenant,event,payload,created_at,delivered_at(nullable).",
+      "filters": "Fixedtenant delivered_at NULL oldest-first LIMIT50, no cursor or claim parameters.",
+      "lifecycle": "Read only; no lease/claim/retry/backoff or exclusive consumer state. At-least-once polling requires downstream dedup; events include dataset/feature/map audit and place moderation.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "PUT /api/v1/internal/outbox/{id}/ack",
+      "handler": "ack_event",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "ackEvent",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Acknowledged",
+      "authorization": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Exact comma element places:integrations:read required; no wildcard match or whitespace trimming in worker predicate.",
+      "wire_semantics": "Path event UUID; no body; {ok:true}.",
+      "filters": "Same tenant/event only.",
+      "lifecycle": "Sets delivered_at now even if already acknowledged, no rows-affected check; unknown event also success. No consumer-scoped delivery state or token fence.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "named_nested_result_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "GET /api/v1/maps",
+      "handler": "index",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/maps/routes.rs": "e8f05580aa710c913c79bc6f047c09261a31b6b935b44af92376a1d94ccd9747",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "maps",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").MapRecord[]>",
+      "authorization": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference.",
+      "wire_semantics": "No body. Map row: id/organization_id/dataset_id UUID, slug,name,center[longitude,latitude],zoom,bounds[west,south,east,north], status draft|published|archived, style_family,revision. {data:row[]}, no generic status/message envelope.",
+      "filters": "List has no operative query filters/pagination/cap; ordered name. Detail path UUID.",
+      "lifecycle": "Read only; unauthorized/missing dataset404.",
+      "relationships": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "POST /api/v1/maps",
+      "handler": "create",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/maps/routes.rs": "e8f05580aa710c913c79bc6f047c09261a31b6b935b44af92376a1d94ccd9747",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "createMap",
+      "request_type": "import(\"./types.js\").MapInput",
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").MapRecord>",
+      "authorization": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference.",
+      "wire_semantics": "slug lowercase ASCII letters/digits/hyphen1..80bytes, nonblank name<=200bytes, dataset_id UUID, finite center/bounds, longitude\u00b1180 latitude\u00b185, ordered enclosing bounds, zoom0..20. Response Map row: id/organization_id/dataset_id UUID, slug,name,center[longitude,latitude],zoom,bounds[west,south,east,north], status draft|published|archived, style_family,revision. {data:row}, no generic status/message envelope.",
+      "filters": "No caller owner/status/revision accepted by Input.",
+      "lifecycle": "Dataset write access, map insert and map.create audit/outbox transaction; schema unique(organization_id,slug), default draft/revision1. Duplicate DB error must be verified.",
+      "relationships": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/maps/{id}",
+      "handler": "detail",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/maps/routes.rs": "e8f05580aa710c913c79bc6f047c09261a31b6b935b44af92376a1d94ccd9747",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "map",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").MapRecord>",
+      "authorization": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference.",
+      "wire_semantics": "No body. Map row: id/organization_id/dataset_id UUID, slug,name,center[longitude,latitude],zoom,bounds[west,south,east,north], status draft|published|archived, style_family,revision. {data:row}, no generic status/message envelope.",
+      "filters": "Path map UUID; no query filters.",
+      "lifecycle": "Read only; unauthorized/missing dataset404.",
+      "relationships": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "PATCH /api/v1/maps/{id}",
+      "handler": "update",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/maps/routes.rs": "e8f05580aa710c913c79bc6f047c09261a31b6b935b44af92376a1d94ccd9747",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "updateMap",
+      "request_type": "import(\"./types.js\").MapEditInput",
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").MapRecord>",
+      "authorization": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference.",
+      "wire_semantics": "slug lowercase ASCII letters/digits/hyphen1..80bytes, nonblank name<=200bytes, dataset_id UUID, finite center/bounds, longitude\u00b1180 latitude\u00b185, ordered enclosing bounds, zoom0..20. Plus expected_revision:i64 and reason trimmed>=3/untrimmed<=1000bytes. Response Map row: id/organization_id/dataset_id UUID, slug,name,center[longitude,latitude],zoom,bounds[west,south,east,north], status draft|published|archived, style_family,revision. {data:row}, no generic status/message envelope.",
+      "filters": "Path UUID; dataset_id must equal existing dataset, no transfer.",
+      "lifecycle": "Atomic revision-conditional update increment+audit/outbox; stale revision409. Does not change publication status.",
+      "relationships": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "PUT /api/v1/maps/{id}/publish",
+      "handler": "publish",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/maps/routes.rs": "e8f05580aa710c913c79bc6f047c09261a31b6b935b44af92376a1d94ccd9747",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "publishMap",
+      "request_type": "import(\"./types.js\").MapPublicationInput",
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").MapRecord>",
+      "authorization": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference.",
+      "wire_semantics": "Body {status:draft|published|archived,expected_revision:i64,reason:string(trimmed>=3,bytes<=1000)}. Map row: id/organization_id/dataset_id UUID, slug,name,center[longitude,latitude],zoom,bounds[west,south,east,north], status draft|published|archived, style_family,revision. {data:row}, no generic status/message envelope.",
+      "filters": "No dataset mutation.",
+      "lifecycle": "Atomic conditional revision increment+map.publication history/outbox, stale409. Can publish while dataset private but that remains unreadable publicly.",
+      "relationships": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/maps/{id}/style",
+      "handler": "private_style",
+      "source_review": "verified",
+      "source_refs": {
+        "config/dark.json": "98387967974e85f25b90e2d3f2b1d6426c5357b54e9e27219feaf6f9f1dee255",
+        "config/daylight.json": "8ee876551dc6517853fa9a40948874accbbebf3846a8053d57a316d5d2b2799b",
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/maps/routes.rs": "e8f05580aa710c913c79bc6f047c09261a31b6b935b44af92376a1d94ccd9747",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "mapStyle",
+      "request_type": null,
+      "query_type": "import(\"./types.js\").StyleQuery",
+      "response_type": "import(\"./types.js\").MapStyle",
+      "authorization": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference.",
+      "wire_semantics": "Raw MapLibre style JSON, no data envelope. Theme exactly light selects daylight, all other/missing selects dark. Rewrites tile source to configured public_url and current dataset revision; includes attribution/center/zoom.",
+      "filters": "Private UUID or public slug; optional theme:string only.",
+      "lifecycle": "Read authorization rechecked; returned tile URLs separately reauthorize current dataset on each tile, query revision does not override current source revision.",
+      "relationships": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route. Private source uses /datasets/{id}/tiles; public uses /public/datasets/{id}/tiles; no raw caller URL.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "map_style_concrete_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "GET /api/v1/me",
+      "handler": "me",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "me",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").Me>",
+      "authorization": "Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation.",
+      "wire_semantics": "No body/query. {data:{user_id:UUID,organization_id:UUID,permissions:string[]}}; no status/message envelope.",
+      "filters": "No pagination or user selector.",
+      "lifecycle": "No mutation or identity provisioning. Response projects current trusted request or IDP-validated cookie, not a cached subject profile.",
+      "relationships": "IDP user and deployment organization context, not a generic user directory or project membership lookup.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/me/contributions",
+      "handler": "contributions",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "contributions",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").Place[]>",
+      "authorization": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission.",
+      "wire_semantics": "{data:place projections[]}. Place projection includes UUID id,slug,translated name/description/address JSON,category,tags,district nullable,latitude/longitude,media,sources,opening_info nullable,contact,verification,status,canonical_id nullable,created_at; omits creator/tenant/updated_at.",
+      "filters": "Same tenant+creator=currentactor, all statuses newest first, no limit/paging.",
+      "lifecycle": "Read only; includes pending/rejected own submissions.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/me/saves",
+      "handler": "saved",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "savedPlaces",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").Place[]>",
+      "authorization": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission.",
+      "wire_semantics": "{data:place projections[]}. Place projection includes UUID id,slug,translated name/description/address JSON,category,tags,district nullable,latitude/longitude,media,sources,opening_info nullable,contact,verification,status,canonical_id nullable,created_at; omits creator/tenant/updated_at.",
+      "filters": "Same tenant/user saves and place state published|closed|moved, ordered name JSON text; no limit/paging.",
+      "lifecycle": "Read only; hidden places omitted, saved relationship may remain.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/moderation",
+      "handler": "queue",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "moderationQueue",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").ModerationQueue>",
+      "authorization": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Also comma-separated permission must match places:moderate, places:place:moderate, places:*, gis:place:manage, gis:* or *.",
+      "wire_semantics": "{data:{proposals:place projections[],reports:raw report rows[]}}.",
+      "filters": "Fixed tenant, status pending only; no pagination/order cap.",
+      "lifecycle": "Read only. Reports include actor/details; disclosure limited to current native moderation permission.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "POST /api/v1/moderation/{id}",
+      "handler": "moderate",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "moderatePlace",
+      "request_type": "import(\"./types.js\").ModerationInput",
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Acknowledged",
+      "authorization": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Also comma-separated permission must match places:moderate, places:place:moderate, places:*, gis:place:manage, gis:* or *.",
+      "wire_semantics": "Body status:published|rejected|closed|moved|merged,reason trimmed>=3/untrimmed<=2000bytes,canonical_id?:UUID only merged and required then,changes?:object<=20000serializedbytes. Allowed changes name/description/address/opening_info/contact object|null; category knownenum string, paired latitude/longitude finite. {ok:true}.",
+      "filters": "Path UUID; locks same-tenant row; merge target must be distinct same-tenant published. No expected_revision or transition matrix.",
+      "lifecycle": "One transaction: optional field changes, canonical merge remaps aliases/transfers saves, status update, previous-state history and place.updated outbox. Verification field unchanged. Published target can later be re-moderated; concurrency/deadlock cases require tests.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "named_nested_result_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "GET /api/v1/moderation/{id}/history",
+      "handler": "history",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "placeHistory",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").PlaceHistory[]>",
+      "authorization": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Also comma-separated permission must match places:moderate, places:place:moderate, places:*, gis:place:manage, gis:* or *.",
+      "wire_semantics": "Path UUID; {data:history rows[]} id,tenant,place_id,actor,action,reason,previous JSON nullable,created_at.",
+      "filters": "Same tenant/place, newest first, no pagination/cap.",
+      "lifecycle": "Read only; unknown target [] not404; history previous snapshots contain internal fields.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "POST /api/v1/moderation/reports/{id}",
+      "handler": "resolve_report",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "resolveReport",
+      "request_type": "import(\"./types.js\").ReportResolutionInput",
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Acknowledged",
+      "authorization": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Also comma-separated permission must match places:moderate, places:place:moderate, places:*, gis:place:manage, gis:* or *.",
+      "wire_semantics": "Body reuses Report {reason:string(trimmed>=3),details?:string ignored}; {ok:true}. No enumerated reason or length cap in this handler.",
+      "filters": "Same tenant/reportUUID.",
+      "lifecycle": "Sets resolved,resolution,resolved_by, resolved_at; no rows-affected/existence or pending check, so unknown/already-resolved also success. No history/outbox. Must not invent stricter completion semantics.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "named_nested_result_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "GET /api/v1/my-places",
+      "handler": "index",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/personal_places.rs": "16981da5467aaa678664aee9958e0bb84ff6821bad28c36dd865501935ddd373",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "personalPlaces",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").PersonalPlace[]>",
+      "authorization": "Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation.",
+      "wire_semantics": "{data:PersonalPlace[]} with id,name,note,category,longitude,latitude,revision. No timestamps in projection and no status/message.",
+      "filters": "Always organization_id=actor.tenant AND owner_id=actor.id, updated_at DESC, hard LIMIT500. No cursor/offset/query filter or total count. Unknown query parameters do not add supported pagination.",
+      "lifecycle": "No mutation; private source text is untrusted data, not an instruction.",
+      "relationships": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "POST /api/v1/my-places",
+      "handler": "create",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/personal_places.rs": "16981da5467aaa678664aee9958e0bb84ff6821bad28c36dd865501935ddd373",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "createPersonalPlace",
+      "request_type": "import(\"./types.js\").PersonalPlaceInput",
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").IdResult>",
+      "authorization": "Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation.",
+      "wire_semantics": "Required name,note,category,longitude,latitude; optional expected_revision is ignored on create. Nonempty trimmed name and byte lengths name<300,note<6000,category<80; finite longitude[-180,180],latitude[-85,85]. Response200 {data:{id:UUID}}; invalid400.",
+      "filters": "No caller-selectable owner/organization or pagination.",
+      "lifecycle": "Generates UUID; inserts organization and owner from current actor and ST_SetSRID(ST_MakePoint(lon,lat),4326). No public promotion, history/outbox emission or idempotency key in this handler.",
+      "relationships": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "DELETE /api/v1/my-places/{id}",
+      "handler": "delete",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/personal_places.rs": "16981da5467aaa678664aee9958e0bb84ff6821bad28c36dd865501935ddd373",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "deletePersonalPlace",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").IdResult>",
+      "authorization": "Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation.",
+      "wire_semantics": "Path UUID; no JSON body or revision parameter. Response200 {data:{id}} after exactly one deletion; missing/repeated/wrong-owner404.",
+      "filters": "Exact id AND tenant AND owner; no per-permission admin bypass.",
+      "lifecycle": "Hard delete without expected revision, soft archive, history/outbox or automatic restore. A Knowledge-derived copy would need an explicit provenance/forgetting workflow; deletion here does not certify downstream forgetting.",
+      "relationships": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/my-places/{id}",
+      "handler": "show",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/personal_places.rs": "16981da5467aaa678664aee9958e0bb84ff6821bad28c36dd865501935ddd373",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "personalPlace",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").PersonalPlace>",
+      "authorization": "Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation.",
+      "wire_semantics": "Path UUID. {data:PersonalPlace}; missing, wrong owner or organization returns404.",
+      "filters": "Exact id AND organization_id AND owner_id match; no query or pagination.",
+      "lifecycle": "No mutation or owner/admin override.",
+      "relationships": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "PUT /api/v1/my-places/{id}",
+      "handler": "update",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/personal_places.rs": "16981da5467aaa678664aee9958e0bb84ff6821bad28c36dd865501935ddd373",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "updatePersonalPlace",
+      "request_type": "import(\"./types.js\").PersonalPlaceInput",
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").IdResult>",
+      "authorization": "Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation.",
+      "wire_semantics": "Path UUID and same required fields/bounds as create plus expected_revision. Missing/null expected_revision becomes0; SQL matches stored revision exactly. Response200 {data:{id}}, zero affected rows409, including stale/missing/wrong-owner cases.",
+      "filters": "Exact id, tenant, owner and expected revision; no query filters.",
+      "lifecycle": "Atomically increments revision and updates updated_at after owner+organization+revision predicate. Does not expose an owner transfer, partial PATCH, history or global/public mutation.",
+      "relationships": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/places",
+      "handler": "list",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "places",
+      "request_type": null,
+      "query_type": "import(\"./types.js\").PlaceSearch",
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").Place[]>",
+      "authorization": "Anonymous handler, fixed deployment tenant. Unlike /public/*, a supplied cookie still invokes global IDP validation: transport outage can return503. No caller-selected tenant.",
+      "wire_semantics": "{data:place projections[]}. Place projection includes UUID id,slug,translated name/description/address JSON,category,tags,district nullable,latitude/longitude,media,sources,opening_info nullable,contact,verification,status,canonical_id nullable,created_at; omits creator/tenant/updated_at.",
+      "filters": "q normalized Persian/Arabic letters,digits,whitespace and literal wildcard escaping; category exact except all ignored; bbox comma west,south,east,north ordered\u00b1180/\u00b190. Paired lat/lon enables distance, finite radius default5000 clamped50..50000m; unpaired lat/lon ignored. limit:u64 default100 clamped1..100; no offset.",
+      "lifecycle": "Only published|closed|moved; proximity orders geography distance, otherwise created_at,id.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "POST /api/v1/places",
+      "handler": "propose",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "proposePlace",
+      "request_type": "import(\"./types.js\").ProposalInput",
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").Pending>",
+      "authorization": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission.",
+      "wire_semantics": "Body name:string(trimmed chars>=2,untrimmed chars<=160),description?:string<=12000bytes,category:cafe|food|historic|nature|market|culture|faith|shop|venue|hotel|street|neighborhood|facility,latitude/longitude finite\u00b190/\u00b1180,address?:string. {data:{id,status:pending}}.",
+      "filters": "No user/tenant/status selectors. Address has no explicit application length cap.",
+      "lifecycle": "Creates proposal-UUID slug, creator=currentactor, pending/unverified, name/description/address stored under fa only. No proposal audit/outbox insert in handler.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/places/{id}",
+      "handler": "detail",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "place",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").Place>",
+      "authorization": "Anonymous handler, fixed deployment tenant. Unlike /public/*, a supplied cookie still invokes global IDP validation: transport outage can return503. No caller-selected tenant.",
+      "wire_semantics": "{data:place}. Place projection includes UUID id,slug,translated name/description/address JSON,category,tags,district nullable,latitude/longitude,media,sources,opening_info nullable,contact,verification,status,canonical_id nullable,created_at; omits creator/tenant/updated_at.",
+      "filters": "Path string matches slug OR UUID text, no deterministic ordering for potential namespace collision.",
+      "lifecycle": "Visible published|closed|moved|merged; one canonical_id hop must resolve visible published|closed|moved target else404. Not permanent HTTP redirect.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "POST /api/v1/places/{id}/assertion",
+      "handler": "assertion",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "placeAssertion",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").PlaceAssertion",
+      "authorization": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission.",
+      "wire_semantics": "No body. {subject_type:place,subject_ref:UUID,assertion:{issuer:infera-places,token:string}}.",
+      "filters": "Target same-tenant published only. No ownership/creation requirement.",
+      "lifecycle": "Missing PLACES_ASSERTION_KEY503. HS256 default JWT iss=infera-places,aud=infera-social,sub/placeUUID,jti,exp=now+120s,organization_id,owner_user_id=currentactor,resource_type=place,resource_ref,public_snapshot(id/name/slug). No one-time consume at issuer.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion. Social verifier/audience/key/expiry/current revocation behavior remains cross-service gate; do not treat caller as place owner from assertion label.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "named_nested_result_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "GET /api/v1/places/{id}/references",
+      "handler": "references",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "placeReferences",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<string[]>",
+      "authorization": "Anonymous handler, fixed deployment tenant. Unlike /public/*, a supplied cookie still invokes global IDP validation: transport outage can return503. No caller-selected tenant.",
+      "wire_semantics": "Path UUID; {data:UUID[]} not full place rows.",
+      "filters": "Same tenant rows id=target OR canonical_id=target, state published|closed|moved|merged. No paging.",
+      "lifecycle": "Read only; returns [] for absent/hidden target, no target existence check.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "POST /api/v1/places/{id}/reports",
+      "handler": "report",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "reportPlace",
+      "request_type": "import(\"./types.js\").ReportInput",
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").Pending>",
+      "authorization": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission.",
+      "wire_semantics": "Body reason:closed|wrong_location|wrong_phone|duplicate|category|correction|abuse,details?:string<=6000bytes. {data:{id,status:pending}}.",
+      "filters": "Path UUID; insert SELECT any same-tenant place including nonpublic, no public-state check.",
+      "lifecycle": "No target404; inserts pending report, no dedup/rate limit/audit/outbox here.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "DELETE /api/v1/places/{id}/save",
+      "handler": "unsave",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "unsavePlace",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").UnsavedPlaceResult",
+      "authorization": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission.",
+      "wire_semantics": "Path UUID; no body. {saved:false}.",
+      "filters": "Same tenant/currentuser/place only.",
+      "lifecycle": "Idempotent delete; no target existence requirement, no changed count.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "named_nested_result_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "PUT /api/v1/places/{id}/save",
+      "handler": "save",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "savePlace",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").SavedPlaceResult",
+      "authorization": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission.",
+      "wire_semantics": "Path UUID; no body. {saved:true,changed:boolean}, no data envelope.",
+      "filters": "Same tenant, target published|closed|moved only.",
+      "lifecycle": "Idempotent insert ON CONFLICT DO NOTHING; absent target404; no current identity claim from input.",
+      "relationships": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "named_nested_result_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "GET /api/v1/public/datasets/{id}/geojson",
+      "handler": "public_features",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/routes.rs": "437a78db312f8db2cd9d99cfc004e3040a3c8ee3fda6e996f395c36235a72763",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "publicFeatures",
+      "request_type": null,
+      "query_type": "import(\"./types.js\").FeatureQuery",
+      "response_type": "import(\"./types.js\").FeatureCollection",
+      "authorization": "Anonymous path explicitly bypasses IDP cookie validation; public_dataset requires published AND public and either global scope or deployment tenant organization. Missing/private404.",
+      "wire_semantics": "Same raw FeatureCollection and bbox/limit contract as private features; no identity or administrative fields added.",
+      "filters": "Same bounds and limit1\u20135000; no pagination completeness/total count guarantee.",
+      "lifecycle": "Read-only; publication/privacy is checked at each request, not just style generation.",
+      "relationships": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "geometry_discriminated_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "GET /api/v1/public/datasets/{id}/tilejson",
+      "handler": "tilejson",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245",
+        "src/tiles/routes.rs": "36ad7840b76f2ffa65c5913fe5131f7bf5966accf4095006c2873f5800cb7299"
+      },
+      "sdk_method": "tileJson",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").TileJson",
+      "authorization": "Anonymous public path; same public_dataset checks as public GeoJSON.",
+      "wire_semantics": "Raw TileJSON3.0.0 object with name,attribution,minzoom0,maxzoom20,tiles URL including revision,vector_layers city. No API envelope.",
+      "filters": "Dataset UUID; no supported query filters. revision URL is a cache hint, current revision is read server-side.",
+      "lifecycle": "No mutation; metadata does not grant enduring tile access after dataset privacy changes.",
+      "relationships": "Private Martin renderer must not be exposed. Stable dataset UUID plus current revision/tenant forwarded internally; source attribution is preserved.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "named_nested_result_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "GET /api/v1/public/datasets/{id}/tiles/{z}/{x}/{y}",
+      "handler": "tile",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245",
+        "src/tiles/routes.rs": "36ad7840b76f2ffa65c5913fe5131f7bf5966accf4095006c2873f5800cb7299"
+      },
+      "sdk_method": "publicTile",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "ArrayBuffer",
+      "authorization": "Anonymous public path, current published/public/global-or-deployment organization checked on every tile.",
+      "wire_semantics": "Dataset UUID plus u32 z/x/y; z<=20 and x,y<2^z. Raw Mapbox vector-tile bytes, x-gis-revision, private/no-cache and optional content-encoding headers.",
+      "filters": "No caller-provided upstream URL, tenant, authorized flag or operative revision override. Geometry/renderer readiness still requires real PostGIS/Martin tests.",
+      "lifecycle": "No mutation; private configured Martin HTTP upstream, identity encoding requested. Upstream failure503, byte stream>5MiB502; global no-store only added when no existing cache policy.",
+      "relationships": "Martin receives dataset,tenant,current revision and authorized=false over private link; renderer role/SQL ACL and external public access require separate verification.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/public/maps",
+      "handler": "public_index",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/maps/routes.rs": "e8f05580aa710c913c79bc6f047c09261a31b6b935b44af92376a1d94ccd9747",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "publicMaps",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").MapRecord[]>",
+      "authorization": "Anonymous handler. /api/v1/public/* bypasses cookie validation; map and dataset publication are checked at read time.",
+      "wire_semantics": "{data:map rows[]}.",
+      "filters": "Ordered map name, hard LIMIT100; no cursor, offset, filter parameters.",
+      "lifecycle": "Read only; requires both publication boundaries at query time.",
+      "relationships": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/public/maps/{slug}",
+      "handler": "show",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/maps/routes.rs": "e8f05580aa710c913c79bc6f047c09261a31b6b935b44af92376a1d94ccd9747",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "publicMap",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").MapRecord>",
+      "authorization": "Anonymous handler. /api/v1/public/* bypasses cookie validation; map and dataset publication are checked at read time.",
+      "wire_semantics": "Map row: id/organization_id/dataset_id UUID, slug,name,center[longitude,latitude],zoom,bounds[west,south,east,north], status draft|published|archived, style_family,revision. {data:row}, no generic status/message envelope.",
+      "filters": "slug string; matching deployment organization preferred over global dataset fallback, LIMIT1.",
+      "lifecycle": "Read only; no published match404; slug overlap across organizations can resolve preferred local map.",
+      "relationships": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    },
+    {
+      "id": "GET /api/v1/public/maps/{slug}/geojson",
+      "handler": "geojson",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/maps/routes.rs": "e8f05580aa710c913c79bc6f047c09261a31b6b935b44af92376a1d94ccd9747",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "publicMapFeatures",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").FeatureCollection",
+      "authorization": "Anonymous handler. /api/v1/public/* bypasses cookie validation; map and dataset publication are checked at read time.",
+      "wire_semantics": "Raw GeoJSON FeatureCollection, no data envelope.",
+      "filters": "Path slug; fixed internal limit5000 and no bbox; caller query not extracted.",
+      "lifecycle": "Current public map resolution then shared GeoJSON reader rechecks dataset public access; at most5000, not full dataset export.",
+      "relationships": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "geometry_discriminated_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "GET /api/v1/public/maps/{slug}/style",
+      "handler": "style",
+      "source_review": "verified",
+      "source_refs": {
+        "config/dark.json": "98387967974e85f25b90e2d3f2b1d6426c5357b54e9e27219feaf6f9f1dee255",
+        "config/daylight.json": "8ee876551dc6517853fa9a40948874accbbebf3846a8053d57a316d5d2b2799b",
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/geometry/methods.rs": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc",
+        "src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+        "src/geometry/transformers.rs": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a",
+        "src/maps/routes.rs": "e8f05580aa710c913c79bc6f047c09261a31b6b935b44af92376a1d94ccd9747",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "publicMapStyle",
+      "request_type": null,
+      "query_type": "import(\"./types.js\").StyleQuery",
+      "response_type": "import(\"./types.js\").MapStyle",
+      "authorization": "Anonymous handler. /api/v1/public/* bypasses cookie validation; map and dataset publication are checked at read time.",
+      "wire_semantics": "Raw MapLibre style JSON, no data envelope. Theme exactly light selects daylight, all other/missing selects dark. Rewrites tile source to configured public_url and current dataset revision; includes attribution/center/zoom.",
+      "filters": "Private UUID or public slug; optional theme:string only.",
+      "lifecycle": "Read authorization rechecked; returned tile URLs separately reauthorize current dataset on each tile, query revision does not override current source revision.",
+      "relationships": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route. Private source uses /datasets/{id}/tiles; public uses /public/datasets/{id}/tiles; no raw caller URL.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [
+        "map_style_concrete_models"
+      ],
+      "consumer_reverification": "passed combined strict public types and all 48 GIS adapter cases; see sdk-integrated-candidate-20261021/report.json"
+    },
+    {
+      "id": "GET /health",
+      "handler": "health",
+      "source_review": "verified",
+      "source_refs": {
+        "migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+        "src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+        "src/router.rs": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+      },
+      "sdk_method": "health",
+      "request_type": null,
+      "query_type": null,
+      "response_type": "import(\"./types.js\").Data<import(\"./types.js\").Health>",
+      "authorization": "No actor permission. Global middleware explicitly bypasses identity for /health, including unavailable cookie validation.",
+      "wire_semantics": "No input. HTTP200 iff DB ping and Martin /health success, else503; {data:{service:\"infera-gis\",database:boolean,martin:boolean}}, no status/message keys.",
+      "filters": "No filters or pagination.",
+      "lifecycle": "No mutation. Startup has already run migrations; readiness is two dependency probes, not full end-to-end geometry/tenant authorization.",
+      "relationships": "Martin URL is private configured upstream; its health is observed but version, MVT correctness, resource grants and PostGIS feature support remain separate checks.",
+      "prior_test_evidence": [
+        "gis-current-sdk-native-martin-20261021"
+      ],
+      "sdk_changes": [],
+      "consumer_reverification": "existing proof preserved; no SDK wire change"
+    }
+  ]
+}

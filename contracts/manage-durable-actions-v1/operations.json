@@ -1,9 +1,9 @@
 {
   "protocol": "durable-manage-action-v1",
-  "manage_source": "2c28db4d80bf4814a69892189afe2ae41663e554",
-  "agentic_source": "854a6dd654aab4518bca3a9523d370a161bd659a",
+  "manage_source": "5ac22d1145c68693717ff4dedcaff74a74746197",
+  "agentic_source": "e6c2a00fc4418604a99bf84b365e0db13fc8f5e6",
   "source_handoff_sha256": "c28a93f00f8f764f97e140c96a43ec8b4fb02d5a9a5113ebb4b499f46a05e618",
-  "wire_contract_sha256": "e5eefc890d90658d9f646913f678a3673eaf026635174ffa4f62ee122c2dfe22",
+  "wire_contract_sha256": "3f74dccc7956db1a0b5d84481f9fc742af141e058dd05151945353387a349678",
   "public_contract_sha256": "c733ab9e9ad0b15af76c5f8d816a03e55a1fbcbd4c15e501860ec8d8e8d3735f",
   "operations": [
     {
@@ -56,5 +56,7 @@
     }
   ],
   "scope": "Reviewed five canonical browser operations only. Internal Agentic proof/signing/claim/dispatch/finish are not browser API or exported SDK helpers.",
-  "protocol_source_sha256": "4aef4b73ca5a37ddc891d511c83f425e4ebf44ca87cc30ede2b29a697c5adc0a"
+  "protocol_source_sha256": "4aef4b73ca5a37ddc891d511c83f425e4ebf44ca87cc30ede2b29a697c5adc0a",
+  "source_handoff_scope": "source_handoff_sha256 identifies the original frozen handoff; current selected-source compatibility and nullable-schema delta are recorded in source_review_evidence.",
+  "source_review_evidence": "../service-capabilities/evidence/manage-sdk-source-audit-20261021/audit.json"
 }

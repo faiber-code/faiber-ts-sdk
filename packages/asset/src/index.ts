@@ -1,5 +1,5 @@
 import type * as E from "./economy.types.js";
-import { RestResource, ServiceApi, type Identifier, type QueryParams, type RequestOptions, } from "@faiber/sdk-core";
+import { RestResource, ServiceApi, type Identifier, type RequestOptions, } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 import type * as O from "./operations.types.js";
 import { AssetOperations } from "./operations.js";
@@ -7,7 +7,7 @@ export class AssetApi extends ServiceApi {
     /** Reads versioned scoped-reward policy. Requires admin:coin_settings:read. */
     economyPolicy(options?: RequestOptions) { return this.client.get<E.EconomyPolicyResponse>("/api/v1/economy/policy", undefined, options); }
     /** Updates a higher policy version; launch/supply/currency remain immutable. Requires admin:coin_settings:update. */
-    updateEconomyPolicy(data:E.EconomyPolicy, options?:RequestOptions<E.EconomyPolicy>) { return this.client.put<E.EconomyPolicyResponse,E.EconomyPolicy>("/api/v1/economy/policy",data,options); }
+    updateEconomyPolicy(data:E.EconomyPolicy, options?:RequestOptions<E.EconomyPolicy>) { return this.client.put<E.EconomyPolicyUpdateResponse,E.EconomyPolicy>("/api/v1/economy/policy",data,options); }
     /** Executes an audited operator reward or scope closure; rejects broker-only commands. Requires admin:action:complete. */
     economyCommand(data:E.EconomyOperatorCommand,options?:RequestOptions<E.EconomyOperatorCommand>) { return this.client.post<E.EconomyCommandResponse,E.EconomyOperatorCommand>("/api/v1/economy/commands",data,options); }
     /** Lists scoped budgets, bank counters, recovery balances or other named projections. Requires admin:bank_transaction:read. */
@@ -23,7 +23,7 @@ export class AssetApi extends ServiceApi {
     /** Reads live Coin value and bank shortfall in explicit currency units. Requires admin:wallet:read_own. */
     economyValuation(options?:RequestOptions) { return this.client.get<E.EconomyValuationResponse>("/api/v1/economy/valuation",undefined,options); }
     /** Reads only the authenticated profile's immutable changes, using sequence pagination. Requires admin:wallet:read_own. */
-    myEconomyHistory(params?:E.EconomyJournalQuery,options?:RequestOptions) { return this.client.get<E.EconomyHistoryResponse>("/api/v1/economy/me/history",params,options); }
+    myEconomyHistory(params?:E.EconomyHistoryQuery,options?:RequestOptions) { return this.client.get<E.EconomyHistoryResponse>("/api/v1/economy/me/history",params,options); }
     /** Simulates an award and rolls back every change. Evidence still requires verification for completion. Requires admin:wallet:read_own. */
     previewEconomyReward(data:E.EconomyPreviewInput,options?:RequestOptions<E.EconomyPreviewInput>) { return this.client.post<E.EconomyCommandResponse,E.EconomyPreviewInput>("/api/v1/economy/me/rewards/preview",data,options); }
     /** Reads a single role's period or global XP rankings. Replays do not change live rankings. Requires admin:wallet:read_own. */
@@ -31,12 +31,14 @@ export class AssetApi extends ServiceApi {
     /** Reads permission-aware operator controls. Requires admin:wallet:read_own or admin:coin_settings:read. */
     economyCapabilities(options?:RequestOptions) { return this.client.get<E.EconomyCapabilitiesResponse>("/api/v1/economy/capabilities",undefined,options); }
     readonly operations = new AssetOperations(this.client);
-    readonly assets = new RestResource<T.Asset, T.CreateAssetInput, T.UpdateAssetInput, T.AssetListResponse, T.AssetResponse>(this.client, "/api/v1/assets", { supported: ["list", "show", "create", "update", "delete"] });
-    readonly ranks = new RestResource<T.Rank, T.CreateRankInput, T.UpdateRankInput, T.RankListResponse, T.RankResponse>(this.client, "/api/v1/ranks", { supported: ["list", "show", "create", "update", "delete"] });
-    readonly actions = new RestResource<T.AssetAction, T.CreateAssetActionInput, T.UpdateAssetActionInput, T.AssetActionListResponse, T.AssetActionResponse>(this.client, "/api/v1/actions", { supported: ["list", "show", "create", "update", "delete"] });
-    dashboard(options?: RequestOptions) {
-        return this.client.get<T.AssetDashboardResponse>("/api/v1/dashboard", undefined, options);
+    readonly assets = new RestResource<T.Asset, T.CreateAssetInput, T.UpdateAssetInput, T.AssetListResponse, T.AssetResponse, O.CatalogAssetsIndexGetQuery, O.CatalogAssetsDeleteDeleteResponse>(this.client, "/api/v1/assets", { supported: ["list", "show", "create", "update", "delete"] });
+    readonly ranks = new RestResource<T.Rank, T.CreateRankInput, T.UpdateRankInput, T.RankListResponse, T.RankResponse, O.RankRanksIndexGetQuery, O.RankRanksDeleteDeleteResponse>(this.client, "/api/v1/ranks", { supported: ["list", "show", "create", "update", "delete"] });
+    readonly actions = new RestResource<T.AssetAction, T.CreateAssetActionInput, T.UpdateAssetActionInput, T.AssetActionListResponse, T.AssetActionResponse, O.ActionActionsIndexGetQuery, O.ActionActionsDeleteDeleteResponse>(this.client, "/api/v1/actions", { supported: ["list", "show", "create", "update", "delete"] });
+    /** Reads global monthly legacy economy totals; month defaults to server local current month. Declared gateway permission: admin:dashboard:read. */
+    dashboard(params?: O.DashboardDashboardShowGetQuery, options?: RequestOptions) {
+        return this.client.get<T.AssetDashboardResponse>("/api/v1/dashboard", params, options);
     }
+    /** Reads or initializes the current profile billing wallet. Configure the authenticated gateway; Decimal balance is a string. */
     wallet(options?: RequestOptions) {
         return this.client.get<T.WalletResponse>("/api/v1/wallet", undefined, options);
     }
@@ -76,18 +78,23 @@ export class AssetApi extends ServiceApi {
     setSandboxFixedPrice(profileId: Identifier, project: Identifier, data: O.SandboxBillingAdminProjectPricingOverridePutInput, options?: RequestOptions<O.SandboxBillingAdminProjectPricingOverridePutInput>) {
         return this.operations.sandboxBillingAdminProjectPricingOverridePut(profileId, project, data, options);
     }
-    subscriptions(params?: QueryParams, options?: RequestOptions) {
+    /** Lists current-profile subscriptions with an optional project filter; response data contains subscriptions without pagination. */
+    subscriptions(params?: O.WalletBillingSubscriptionsIndexGetQuery, options?: RequestOptions) {
         return this.client.get<T.SubscriptionListResponse>("/api/v1/subscriptions", params, options);
     }
-    plans(params?: QueryParams, options?: RequestOptions) {
-        return this.client.get<T.BillingPlanListResponse>("/api/v1/plans", params, options);
+    /** Lists active plan products ordered by price; the backend may initialize missing allowance metadata. */
+    plans(options?: RequestOptions) {
+        return this.client.get<T.BillingPlanListResponse>("/api/v1/plans", undefined, options);
     }
+    /** Reads bank_value_sum as an exact decimal string. Declared gateway permission: admin:bank_transaction:read. */
     bankSummary(options?: RequestOptions) {
         return this.client.get<T.BankSummaryResponse>("/api/v1/bank-summary", undefined, options);
     }
-    bankTransactions(params?: QueryParams, options?: RequestOptions) {
+    /** Pages bank transactions by profile/type/search with bracket pagination. Declared gateway permission: admin:bank_transaction:read. */
+    bankTransactions(params?: O.BankBankTransactionsIndexGetQuery, options?: RequestOptions) {
         return this.client.get<T.BankTransactionListResponse>("/api/v1/bank-transactions", params, options);
     }
+    /** Sets a user plan tier; paid tiers expire after 30 days. Declared gateway permission: admin:charge:update. */
     setAiPlan(profileId: Identifier, data: T.SetAiPlanInput, options?: RequestOptions<T.SetAiPlanInput>) {
         return this.client.put<T.AiUsagePlanResponse, T.SetAiPlanInput>(`/api/v1/llm-pricing/plans/${encodeURIComponent(profileId)}`, data, options);
     }

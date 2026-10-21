@@ -1,5 +1,5 @@
-import {FaiberSDK} from '../packages/sdk/dist/index.js';
-import type {HostedCatalogQuery, CategoryListResponse, TagListResponse, SeoContentListResponse} from '../packages/modules/src/index.js';
+import {FaiberSDK} from '@faiber/faiber-ts-sdk';
+import type {HostedCatalogQuery, CategoryListResponse, TagListResponse, SeoContentListResponse} from '@faiber/faiber-modules';
 const sdk=new FaiberSDK({domains:{}});
 const query:HostedCatalogQuery={search:'%_ فارسی',page_number:2,page_size:20};
 async function check(){

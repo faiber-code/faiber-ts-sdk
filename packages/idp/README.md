@@ -28,7 +28,7 @@ const login = await api.login({
   password: "secret",
   client_id: "2",
   client_secret: "client-secret",
-  device_id: getOrCreateStableDeviceId(),
+  device_id: "my-stable-device-id",
 });
 await tokens.setTokens({
   accessToken: login.data.data.access_token,
@@ -38,7 +38,7 @@ await tokens.setTokens({
 
 ## Complete capability
 
-This package exposes 107 registered operations from the identity and access service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 109 mounted operations from the identity and access service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -52,17 +52,17 @@ This package exposes 107 registered operations from the identity and access serv
 | `oidc` | 11 | `GET`, `POST` |
 | `router` | 2 | `GET` |
 | `settings` | 7 | `GET`, `POST`, `PUT` |
-| `user` | 24 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `user` | 26 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
 Legacy token login, web login, account login, and OTP login are encoded as `application/x-www-form-urlencoded`. `api.operations.authBrowserLoginPost` accepts a registered public client, a password or OTP credential, and a matching HTTPS Origin; it returns an HttpOnly session cookie without a client secret or bearer token in the response. Persist and reuse a stable, non-secret `device_id` for legacy token login so the IDP can distinguish physical devices. Use `api.sessions()` to list active sessions and `api.revokeSession(sessionId)` to revoke one. Role assignment uses role UUIDs.
 
 ## Authentication and authorization
 
-Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Permission requirements copied from service route guards are included in each operation's JSDoc. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.
+Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Native handler permission and credential requirements are documented in each operation's JSDoc. Protected user and ACL calls revalidate active native principal, client and session state. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.
 
 ## Inputs, queries, responses, and transport
 
-All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Nested pagination uses keys such as `page[number]` and `page[size]` where required by the service. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
+All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Managed user pagination uses native `page` and `per_page` keys (defaults 1 and 20; at most 100 per page). Linked billing uses `page` and `page_size`. User-directory search requires at least three trimmed characters and returns at most ten masked matches. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
 
 Generic REST resources are capability-guarded. Calling a legacy method that the service does not register throws `UnsupportedOperationError` before sending a request instead of producing a backend `405`.
 
@@ -78,7 +78,7 @@ try {
 
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
 
-Managed user responses include `created_at`, the UTC registration timestamp (optional for compatibility with older deployments). Registration statistics remain available through the typed user registration-stats operation.
+Managed user responses include `created_at`, the UTC registration timestamp, nullable `display_name`, and `linked_providers`. Registration statistics remain available through the typed user registration-stats operation.
 
 ### Handoff and current-user passwords
 
@@ -140,3 +140,15 @@ await api.changeRoles(userId, { roles: reviewedRoleIds }, observed.revision);
 ```
 
 Replacement helpers, including generated PATCH/PUT operations, require the captured revision and send it as quoted `If-Match`. A stale revision returns 409; missing backend preconditions return 428. Refresh the review after a conflict. Never fetch a new revision merely to submit a saved stale role union. This SDK does not do that automatically. The IDP audit migration and backend activation require their separate release gates.
+
+## Native response and update behavior
+
+`login`, `accountLogin`, `otpLogin`, and `refresh` return token envelopes. `webLogin`, `logout`, and `revokeSession` return only `{status, message}`. `providers()` returns `{data:{providers:string[]}}`; `register()` returns `{data:{user:{user_id, created}}}`. User deletion and forced user logout return `data.user`, while role deletion returns `data.id` and `data.name`.
+
+Managed `users.update`/`users.replace` and `updateUser` clear omitted, null, or empty identifier fields in this backend. Include every phone, email and national code value you intend to retain. Self identifier updates only fill missing identifiers; they reject replacement of an existing value with 409.
+
+The legacy administrative `changePassword` operation removes all local identity rows before inserting the new password identity. The current-user `operations.userSavePut` operation preserves other login identities. Its accepted `current_password` field is not checked by this backend; a current active session authorizes replacement.
+
+OIDC and native authorization, OAuth callback, token-login and browser handoff operations return HTTP redirects. Browser clients generally navigate to these authorization URLs; an Axios call may follow a redirect and receive the destination page. OIDC token/user-info/discovery/JWKS/introspection responses are raw JSON. Logout/back-channel logout return empty 204 and revocation returns empty 200. Login-page asset download returns bytes with Axios `responseType: "arraybuffer"`; uploads require the first multipart field to be named `file`, PNG/JPEG/WebP with a matching signature, and 1 byte–8 MiB.
+
+Public registration rejects role assignment; use managed creation or the reviewed membership workflow. Full membership replacement requires `idp:acl:update` and the captured revision; reading a snapshot requires `idp:acl:read`, and additive membership updates require both. The `users/sync` handler has no session/ACL guard and triggers downstream publication; deployment gateway policy determines its exposure.

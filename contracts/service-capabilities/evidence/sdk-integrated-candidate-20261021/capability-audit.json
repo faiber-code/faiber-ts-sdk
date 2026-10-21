@@ -1,0 +1,123 @@
+{
+  "stage": "sdk",
+  "status": "blocked",
+  "blocker_count": 2232,
+  "audit_summary": {
+    "outstandingRequirementCount": 2232,
+    "uniqueFindingCount": 2232,
+    "duplicateFindingCount": 0,
+    "confirmedDefectCount": null,
+    "confirmedDefectCountReason": "The gate evaluates evidence and review completeness. Missing evidence is not proof of an SDK/backend mismatch. Confirmed defects require a separate source or runtime comparison.",
+    "categoryCounts": {
+      "semantic_review": 2088,
+      "protocol_review": 8,
+      "source_provenance": 9,
+      "consumer_verification": 0,
+      "relationship_evidence": 40,
+      "verification_evidence": 48,
+      "declared_capability_gap": 39,
+      "other": 0
+    },
+    "scopes": {
+      "business": {
+        "services": [
+          "asset",
+          "chat",
+          "crm",
+          "drm",
+          "flow",
+          "idp",
+          "knowledge",
+          "lms",
+          "messenger",
+          "modules",
+          "payment",
+          "profile",
+          "reservation",
+          "session",
+          "social",
+          "state",
+          "task",
+          "version",
+          "gis"
+        ],
+        "operations": 1671,
+        "missingOrStaleSemanticReviews": 1586
+      },
+      "administration_surface": {
+        "services": [
+          "manage"
+        ],
+        "operations": 9,
+        "missingOrStaleSemanticReviews": 9
+      },
+      "platform_runtime": {
+        "services": [
+          "agentic"
+        ],
+        "operations": 405,
+        "missingOrStaleSemanticReviews": 405
+      },
+      "infrastructure": {
+        "services": [
+          "control"
+        ],
+        "operations": 88,
+        "missingOrStaleSemanticReviews": 88
+      }
+    },
+    "consumerBoundariesNotEvaluated": 2088,
+    "limitations": [
+      "The count is not a defect count, a remaining-work estimate, or a complete count of potential downstream failures.",
+      "A missing/stale semantic review short-circuits the operation consumer checks; resolving it may expose further requirements.",
+      "Platform and administration operations are shown separately. This report does not automatically exempt them or change the release gate.",
+      "A conservative whole-source-tree checksum can invalidate reviews after unrelated changes; source equivalence must be inspected before restoring evidence.",
+      "Declared capability-gap descriptions may be historical. Their current source and evidence must be checked independently."
+    ]
+  },
+  "blockers": [
+    "asset GET /: semantic review missing or stale",
+    "asset GET /health: semantic review missing or stale",
+    "asset GET /api/openapi.json: semantic review missing or stale",
+    "asset GET /api/v1/economy/policy: semantic review missing or stale",
+    "asset PUT /api/v1/economy/policy: semantic review missing or stale",
+    "asset GET /api/v1/economy/capabilities: semantic review missing or stale",
+    "asset POST /api/v1/economy/commands: semantic review missing or stale",
+    "asset GET /api/v1/economy/objects/{kind}: semantic review missing or stale",
+    "asset GET /api/v1/economy/journal: semantic review missing or stale",
+    "asset GET /api/v1/economy/me: semantic review missing or stale",
+    "asset GET /api/v1/economy/valuation: semantic review missing or stale",
+    "asset GET /api/v1/economy/me/history: semantic review missing or stale",
+    "asset POST /api/v1/economy/me/rewards/preview: semantic review missing or stale",
+    "asset GET /api/v1/economy/leaderboards: semantic review missing or stale",
+    "asset POST /api/v1/economy/me/purchases: semantic review missing or stale",
+    "asset POST /api/v1/economy/me/sessions/{session_id}/credit: semantic review missing or stale",
+    "asset GET /api/v1/assets: semantic review missing or stale",
+    "asset POST /api/v1/assets: semantic review missing or stale",
+    "asset GET /api/v1/assets/{id}: semantic review missing or stale",
+    "asset PATCH /api/v1/assets/{id}: semantic review missing or stale",
+    "asset DELETE /api/v1/assets/{id}: semantic review missing or stale",
+    "asset GET /api/v1/ranks: semantic review missing or stale",
+    "asset POST /api/v1/ranks: semantic review missing or stale",
+    "asset GET /api/v1/ranks/{id}: semantic review missing or stale",
+    "asset PATCH /api/v1/ranks/{id}: semantic review missing or stale"
+  ],
+  "downstream_gaps": [
+    "sdk-manage-source-version",
+    "manage-human-forms",
+    "manage-routed-agent-review",
+    "reservation-readable-date-relations",
+    "knowledge-project-memory-subject",
+    "knowledge-worker-crash-recovery",
+    "knowledge-forget-ingestion-fence",
+    "chat-memory-source-corrections",
+    "chat-memory-http-receipt",
+    "chat-memory-event-publication",
+    "manage-production-signing-secret",
+    "manage-current-identity-service-snapshot",
+    "manage-readable-paginated-workflows",
+    "knowledge-independent-fact-identity",
+    "knowledge-runtime-subject-authority"
+  ],
+  "next": "Resolve evidence in each service matrix; source counts do not satisfy semantic/wire verification."
+}

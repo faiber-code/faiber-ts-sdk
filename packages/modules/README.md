@@ -23,8 +23,8 @@ const client = new FaiberClient("modules", {
 const api = new ModulesApi(client);
 
 const products = await api.products.list({
-  "page[number]": 1,
-  "page[size]": 24,
+  page_number: 1,
+  page_size: 24,
 });
 const posts = await api.posts.list();
 ```
@@ -70,7 +70,7 @@ Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `w
 
 ## Inputs, queries, responses, and transport
 
-All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Nested pagination uses keys such as `page[number]` and `page[size]` where required by the service. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
+All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Modules pagination uses `page_number` and `page_size`, normally defaulting to 1 and 10, with size clamped to 1–100. Collection envelopes retain names such as `products`, `orders`, `posts` and `stock_movements`. Serialized optional fields are nullable. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
 
 Generic REST resources are capability-guarded. Calling a legacy method that the service does not register throws `UnsupportedOperationError` before sending a request instead of producing a backend `405`.
 
@@ -123,3 +123,11 @@ NUL return HTTP 400. Blank/omitted search keeps the existing catalog and count. 
 at 1; page size is clamped to 1–100 (default 10), ordered by UUID ascending. Deleted rows
 are excluded; search adds no status, tenant, or permission semantics. Full Axios status,
 headers, errors, cancellation, and the existing configured authorization are retained.
+
+### Editorial management, media and agent proposals
+
+Published content lookup returns a raw `ContentDocument`. Management content/settings updates, publish and restore require `If-Match` with the current ETag; convenience methods accept the ETag explicitly. Missing preconditions return 428 and stale revisions 412. Content reads/writes require `content:read`/`content:write`, publishing requires `content:publish`, and settings use `settings:read`/`settings:write`.
+
+`runAgent` returns SSE text and accepts a stable idempotency key; the generated operation accepts the key in `options.headers`. Agent models/runs require `agent:run`, proposal reads `agent:audit`, and approvals/rejections `agent:apply` (risky approvals also require `agent:approve-risky`). Preserve error events as well as HTTP failures. Media downloads return bytes; uploads use multipart `kind` and `file`, with image/video limits enforced by the service.
+
+SKU, cart items, editor documents, SEO sections, audit metadata, request form data and agent context/diffs remain arbitrary JSON because the backend stores `serde_json::Value`. Their surrounding records and collection envelopes are concrete exported types. Orders require authenticated owners or an admin role; the service computes prices from active variants and enforces stock/payment transitions.

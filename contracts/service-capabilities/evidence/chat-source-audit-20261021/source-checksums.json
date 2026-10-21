@@ -1,0 +1,178 @@
+{
+  "revision": "03dd17ad3a1f6a36f5b6ad42e8e11729b44ebc55",
+  "retrieval": "git archive selected revision into /tmp/chat-audit-pin; backend working checkout untouched",
+  "files": [
+    {
+      "path": "entity/src/ai_turn.rs",
+      "sha256": "e7add982bfb26703532bd95d60bbd6b442a1d11712a3628cf3c36b4996259109"
+    },
+    {
+      "path": "entity/src/assistant.rs",
+      "sha256": "4ef25a09d5bcfe4015dd30b75a435f39b199e925c9759aa12b6c9f1ccb81b492"
+    },
+    {
+      "path": "entity/src/attachment.rs",
+      "sha256": "88f36d9e9178a7b6c9ff0b459b0dba8ed76c325146233b77dec3e8eb6c812d18"
+    },
+    {
+      "path": "entity/src/audit_log.rs",
+      "sha256": "115f11f1da8983f761e2eb80519ca829acf744811c15399141d6c0766a6c819a"
+    },
+    {
+      "path": "entity/src/conversation.rs",
+      "sha256": "f64bed8247fcd92e97d2f4b0535b3e9c95500b26e0d4e78a631101ce2cb9ef76"
+    },
+    {
+      "path": "entity/src/conversation_member.rs",
+      "sha256": "2cb2228f97386b754e0fedd3002f58c255a16dbfd561c4835096654d9c6504fd"
+    },
+    {
+      "path": "entity/src/lib.rs",
+      "sha256": "9caf001f0dce80a9429d420aa0e50095f66a36dda6bfe77f070f75afd64281ba"
+    },
+    {
+      "path": "entity/src/message.rs",
+      "sha256": "28018d8997d989f81e2c39701745850c85a3c804fdcd187b1b7687825e50dc07"
+    },
+    {
+      "path": "entity/src/message_reaction.rs",
+      "sha256": "44e78124e3c385d123496eebae4dd138f686828e8d38ba1c8d2b3a7745ee7097"
+    },
+    {
+      "path": "entity/src/outbox_event.rs",
+      "sha256": "afdc3ba29c43a0675e1e9b3273799e5a1e4d4781202fd0975a183c0e7bd2dd75"
+    },
+    {
+      "path": "entity/src/read_receipt.rs",
+      "sha256": "c3137236c2f939cec2f0119de3bda46b093769be14abb50805b1abe8addc49ea"
+    },
+    {
+      "path": "migration/src/m20260922_000012_workspace_roles.rs",
+      "sha256": "ee45ea24b355f0c0ad6e569a85ab3550e392acc6d14e722e27b7bd94cd0a420e"
+    },
+    {
+      "path": "migration/src/m20261020_000052_assistant_configuration_intents.rs",
+      "sha256": "5a5881b24127ecdb88c38cfe368c2a411aa49aa261a8377723cc7a1e11f569b6"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/api.rs",
+      "sha256": "80d5512679333b5dfd0d0b50070f590a1049b8d10c6937366092d271f94ca3de"
+    },
+    {
+      "path": "shared/infera-summary-sdk/src/native_access.rs",
+      "sha256": "fd69e25ec83990d8e5ead2f6198b5ff94006c07169185d47d300e48bff19bc25"
+    },
+    {
+      "path": "src/agentic.rs",
+      "sha256": "d54d881c14f400b5d2b93f647f7b8fb433441ee94f948c6ed3c80639ec6c116e"
+    },
+    {
+      "path": "src/application.rs",
+      "sha256": "dfba72a4f05336c4f65e777c5410d4d3c63464947d6bb563455e989c3c895554"
+    },
+    {
+      "path": "src/assistant_configuration.rs",
+      "sha256": "0bdead7b52313aa88bc12e309a16c091a6a899240a3aeba8aa227c053834331f"
+    },
+    {
+      "path": "src/context.rs",
+      "sha256": "7b343a6edbcea3fbe70f480a0581267a3627f93baaa5300da1216c4b96f0f29e"
+    },
+    {
+      "path": "src/cors.rs",
+      "sha256": "06c1e36914ee171f09f61e6c6cc89ed95a75f6bf41d61bfc68a3f80ebb95d95f"
+    },
+    {
+      "path": "src/customer_actions.rs",
+      "sha256": "5327bd2daf45e3d9aeef90728633ffc325df6864eac74f6cb97153fb1d189049"
+    },
+    {
+      "path": "src/fitness.rs",
+      "sha256": "07e5e0ddf68464a0f76841aaa0d97452c2b81df059feab8a2c69fd5e317f882a"
+    },
+    {
+      "path": "src/guest.rs",
+      "sha256": "03f2789dce1a9b4ad299b80762b8c26869a7f8f237052f646eeaef03ad3979be"
+    },
+    {
+      "path": "src/human_chat.rs",
+      "sha256": "1040668f0a17a1b91485964719058a3d945a475bef00209ff30767db6bd2a021"
+    },
+    {
+      "path": "src/image_capture.rs",
+      "sha256": "716bcb395fe493f2a3138071cd710813fd6f98113fc19879296c0499b3cfa4a0"
+    },
+    {
+      "path": "src/learning.rs",
+      "sha256": "4bf01b3da1caf0702c21014bca6d9d35614a29d7327e37720a5c87d4ae3be1cb"
+    },
+    {
+      "path": "src/media_import.rs",
+      "sha256": "c10d46abc36edc98fc77d50feb371a651f9c5f50729a2254b44dc62ed9f284d9"
+    },
+    {
+      "path": "src/memory_import.rs",
+      "sha256": "02160b7c732eb1dcc919f1746dad6f9b9c2dbc677b643c5858dad5710c2dd947"
+    },
+    {
+      "path": "src/memory_voice.rs",
+      "sha256": "ee0c90279e50b67421185b2aaaf54c749a26a0fd024ea81f97ebd304d43cca17"
+    },
+    {
+      "path": "src/models.rs",
+      "sha256": "92ab4e077a2cb59854e6f3f34c937d371c68d3038297b3fc549e9d3420f8ae08"
+    },
+    {
+      "path": "src/native_access.rs",
+      "sha256": "b417404997833ff66567153236ba3807191a8eb832db55910edca6f5216234ad"
+    },
+    {
+      "path": "src/realtime.rs",
+      "sha256": "0f3e0e7d3eb6b371bbc8ab7e7183677993e6ee9fb78391dc0494934b7887ae0f"
+    },
+    {
+      "path": "src/routes.rs",
+      "sha256": "83aec7f14e70fb8d3e16c968d8af0bbcbd574ed707c012e3c9bed8d1f1d668e1"
+    },
+    {
+      "path": "src/sdk_personal_router_tests.rs",
+      "sha256": "cf4a6ef83b496a563d97ca7a0b995dbeb98eb24acaad0db083080abf6cc3ea1e"
+    },
+    {
+      "path": "src/service.rs",
+      "sha256": "72ce2c015d0986805e593450e8546584da56a0d84a8c214145423998ddcaa86e"
+    },
+    {
+      "path": "src/speech.rs",
+      "sha256": "9fe6e1f202b1942a8097d0db852a4c9bb6868dc1cb62ff32c8d4e917d28fad51"
+    },
+    {
+      "path": "src/workspace_assistant.rs",
+      "sha256": "a1fe2774c98f19b15783c45aabf80a4248df4204b6c3623db217c67ad63c0043"
+    },
+    {
+      "path": "tests/assistant_policy_cas.rs",
+      "sha256": "b4b21749314d7b229074df0cf7c62f36aa17580a06903e1f2e87cb66bdb6bfd2"
+    },
+    {
+      "path": "tests/human_chat_delivery.rs",
+      "sha256": "3e2ef29652ebd5aa1eb833f3eaa7c7a7c7c55a5b87c09d64f3364ae040346980"
+    },
+    {
+      "path": "tests/image_capture.rs",
+      "sha256": "46eebdc4c5ae6f7c9da892a8ca644ef1a601b229bb48343fa94db99fa3732b96"
+    },
+    {
+      "path": "tests/media_import.rs",
+      "sha256": "6211a4afd0425105ec4ef6ff7880c8be72ad00e99609648ec5a0570189213205"
+    },
+    {
+      "path": "tests/speech.rs",
+      "sha256": "4ce983f3552b36aa0db11d1257aa081c0349577a83301f1987a73ee4c1c246d8"
+    },
+    {
+      "path": "tests/workspace_assistant.rs",
+      "sha256": "9bf635ef36acf075cec117407934bea2e5de30097bd818475efca4abda355f24"
+    }
+  ]
+}

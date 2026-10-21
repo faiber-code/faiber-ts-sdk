@@ -71,7 +71,7 @@ export class ProfileSummariesApi extends ServiceApi {
      * @returns Full Axios response with the typed Profile envelope.
      * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
      */
-    updateConfiguration(id:string,data:T.SummaryConfigurationWrite,options?:RequestOptions<T.SummaryConfigurationWrite>) { return this.client.request<ApiEnvelope<T.SummaryConfigurationRecord>,T.SummaryConfigurationWrite>({ ...options, method:"PUT", url:`/api/v1/ai-summaries/configurations/${encodeURIComponent(id)}`,data }); }
+    updateConfiguration(id:string,data:T.SummaryConfigurationUpdate,options?:RequestOptions<T.SummaryConfigurationUpdate>) { return this.client.request<ApiEnvelope<T.SummaryConfigurationRecord>,T.SummaryConfigurationUpdate>({ ...options, method:"PUT", url:`/api/v1/ai-summaries/configurations/${encodeURIComponent(id)}`,data }); }
     /** validate: calls POST /api/v1/ai-summaries/configurations/{id}/validate.
      * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
      * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.

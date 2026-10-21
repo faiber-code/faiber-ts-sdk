@@ -1,7 +1,8 @@
 import { ServiceApi, type RequestOptions, type QueryParams, type AxiosResponse } from '@faiber/sdk-core';
 import type { TaskResponse, Project } from './types.js';
 
-export interface FeedbackApplicationContext { version:string;locale:string;timezone:string;platform:string;device?:string|null;browser?:string|null;viewport?:{width:number;height:number}|null }
+export interface FeedbackViewport {width:number;height:number}
+export interface FeedbackApplicationContext { version:string;locale:string;timezone:string;platform:string;device?:string|null;browser?:string|null;viewport?:FeedbackViewport|null }
 export interface FeedbackNavigationContext {route:string;page_title:string;feature:string}
 export interface FeedbackCaptureContext {captured_at:string;status:'complete'|'partial'|'unavailable'|'removed';reason?:string|null}
 export interface FeedbackExamContext {exam_id?:string|null;session_id?:string|null;attempt_id?:string|null;question_id?:string|null;state:string;remaining_seconds?:number|null}
@@ -21,7 +22,7 @@ export interface InitializeFeedbackAttachment {content_type:FeedbackAttachment['
 export interface FeedbackDetail {request:FeedbackRequest;decisions:FeedbackDecision[];attachments:FeedbackAttachment[];can_decide:boolean}
 export interface FeedbackListQuery extends QueryParams {cursor?:string;limit?:number;status?:FeedbackStatus;mine?:boolean;reporting_role?:string;source_client?:string}
 export interface FeedbackPage {items:FeedbackRequest[];next_cursor:string|null}
-/** Native /api/v1/feedback/capabilities reporter binding (Task 576f181).
+/** Native /api/v1/feedback/capabilities reporter binding (Task b8ed5921).
  * Freeze reporter_id before capture. Send X-Feedback-Reporter-Id on attachment
  * and submission calls; 409 feedback_identity_changed requires discarding the
  * captured context/screenshot and obtaining a fresh binding. No credential is implied.

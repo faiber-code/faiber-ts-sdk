@@ -1,0 +1,3341 @@
+{
+  "service": "modules",
+  "revision": "85e42a5f1440b78564f23b4bbf7723a0797d3470",
+  "native_execution": false,
+  "reviewed_operation_count": 179,
+  "operations": [
+    {
+      "operation": "GET /",
+      "handler": "status_route",
+      "source_refs": [
+        "Service/infera-modules/src/router.rs:463",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/models.rs"
+      ],
+      "source_sha256": "11858f3d10eac620e5544af14b1d452e6929620b6951a5d826f7fe93b65146a3",
+      "correction": {
+        "purpose": "Read process liveness and static package version in status/message/data; does not probe dependency readiness.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api-doc/openapi.json",
+      "handler": "beautified_openapi",
+      "source_refs": [
+        "Service/infera-modules/src/router.rs:441",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/models.rs"
+      ],
+      "source_sha256": "11858f3d10eac620e5544af14b1d452e6929620b6951a5d826f7fe93b65146a3",
+      "correction": {
+        "response": "import(\"@faiber/sdk-core\").ServiceOpenApiDocument",
+        "purpose": "Read the raw OpenAPI document. Its annotations omit mounted operations and are not a completeness guarantee.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/openapi.json",
+      "handler": "openapi_json",
+      "source_refs": [
+        "Service/infera-modules/src/router.rs:436",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/models.rs"
+      ],
+      "source_sha256": "11858f3d10eac620e5544af14b1d452e6929620b6951a5d826f7fe93b65146a3",
+      "correction": {
+        "response": "import(\"@faiber/sdk-core\").ServiceOpenApiDocument",
+        "purpose": "Read the raw OpenAPI document. Its annotations omit mounted operations and are not a completeness guarantee.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/access/{host}/{target_id}",
+      "handler": "list_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/access/routes.rs:46",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/access/models.rs",
+        "Service/infera-modules/src/access/methods.rs",
+        "Service/infera-modules/src/access/transformers.rs"
+      ],
+      "source_sha256": "475e83b0763450dde1dc0dac83262b2c52b3704949a37b6c4a4328530f12c8d7",
+      "correction": {
+        "purpose": "List on target using the mounted access handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/access/{host}/{target_id}",
+      "handler": "grant_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/access/routes.rs:81",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/access/models.rs",
+        "Service/infera-modules/src/access/methods.rs",
+        "Service/infera-modules/src/access/transformers.rs"
+      ],
+      "source_sha256": "475e83b0763450dde1dc0dac83262b2c52b3704949a37b6c4a4328530f12c8d7",
+      "correction": {
+        "purpose": "Grant on target using the mounted access handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/access/{host}/{target_id}/{access_id}",
+      "handler": "revoke_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/access/routes.rs:153",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/access/models.rs",
+        "Service/infera-modules/src/access/methods.rs",
+        "Service/infera-modules/src/access/transformers.rs"
+      ],
+      "source_sha256": "475e83b0763450dde1dc0dac83262b2c52b3704949a37b6c4a4328530f12c8d7",
+      "correction": {
+        "purpose": "Revoke on target using the mounted access handler. Returns HTTP 200 with status/message and no data member. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400. Junction deletion scopes by junction ID and resolved host table; the target path ID is not a second repository predicate.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/access/{host}/{target_id}/{access_id}",
+      "handler": "update_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/access/routes.rs:118",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/access/models.rs",
+        "Service/infera-modules/src/access/methods.rs",
+        "Service/infera-modules/src/access/transformers.rs"
+      ],
+      "source_sha256": "475e83b0763450dde1dc0dac83262b2c52b3704949a37b6c4a4328530f12c8d7",
+      "correction": {
+        "purpose": "Update on target using the mounted access handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/audit-logs/{host}/{target_id}",
+      "handler": "list_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/audit_log/routes.rs:37",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/audit_log/models.rs",
+        "Service/infera-modules/src/audit_log/methods.rs",
+        "Service/infera-modules/src/audit_log/transformers.rs"
+      ],
+      "source_sha256": "b17c29891befe891a313ad05854e60183811ecb5b476bc8b91b31dcade23ebf4",
+      "correction": {
+        "purpose": "List on target using the mounted audit log handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/auth/self",
+      "handler": "get_self",
+      "source_refs": [
+        "Service/infera-modules/src/session/routes.rs:33",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "4eaddde100fa61dbbbaf6831e0ed728fc2abb99cf7770eb885643ec09bf91514",
+      "correction": {
+        "purpose": "Get self using the mounted session handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/authors",
+      "handler": "list_authors",
+      "source_refs": [
+        "Service/infera-modules/src/author/routes.rs:43",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/author/models.rs",
+        "Service/infera-modules/src/author/methods.rs",
+        "Service/infera-modules/src/author/transformers.rs"
+      ],
+      "source_sha256": "536fbbb9a22d5b881fda28ebdc5120183dd95872aba0a9c0b4f2eb6f2351b5ca",
+      "correction": {
+        "purpose": "List authors using the mounted author handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/authors",
+      "handler": "create_author",
+      "source_refs": [
+        "Service/infera-modules/src/author/routes.rs:74",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/author/models.rs",
+        "Service/infera-modules/src/author/methods.rs",
+        "Service/infera-modules/src/author/transformers.rs"
+      ],
+      "source_sha256": "536fbbb9a22d5b881fda28ebdc5120183dd95872aba0a9c0b4f2eb6f2351b5ca",
+      "correction": {
+        "purpose": "Create author using the mounted author handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/authors/{id}",
+      "handler": "delete_author",
+      "source_refs": [
+        "Service/infera-modules/src/author/routes.rs:163",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/author/models.rs",
+        "Service/infera-modules/src/author/methods.rs",
+        "Service/infera-modules/src/author/transformers.rs"
+      ],
+      "source_sha256": "536fbbb9a22d5b881fda28ebdc5120183dd95872aba0a9c0b4f2eb6f2351b5ca",
+      "correction": {
+        "purpose": "Delete author using the mounted author handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/authors/{id}",
+      "handler": "show_author",
+      "source_refs": [
+        "Service/infera-modules/src/author/routes.rs:100",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/author/models.rs",
+        "Service/infera-modules/src/author/methods.rs",
+        "Service/infera-modules/src/author/transformers.rs"
+      ],
+      "source_sha256": "536fbbb9a22d5b881fda28ebdc5120183dd95872aba0a9c0b4f2eb6f2351b5ca",
+      "correction": {
+        "purpose": "Show author using the mounted author handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/authors/{id}",
+      "handler": "update_author",
+      "source_refs": [
+        "Service/infera-modules/src/author/routes.rs:132",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/author/models.rs",
+        "Service/infera-modules/src/author/methods.rs",
+        "Service/infera-modules/src/author/transformers.rs"
+      ],
+      "source_sha256": "536fbbb9a22d5b881fda28ebdc5120183dd95872aba0a9c0b4f2eb6f2351b5ca",
+      "correction": {
+        "purpose": "Update author using the mounted author handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/authors/{id}",
+      "handler": "update_author",
+      "source_refs": [
+        "Service/infera-modules/src/author/routes.rs:132",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/author/models.rs",
+        "Service/infera-modules/src/author/methods.rs",
+        "Service/infera-modules/src/author/transformers.rs"
+      ],
+      "source_sha256": "536fbbb9a22d5b881fda28ebdc5120183dd95872aba0a9c0b4f2eb6f2351b5ca",
+      "correction": {
+        "purpose": "Update author using the mounted author handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/blog/posts",
+      "handler": "list_posts",
+      "source_refs": [
+        "Service/infera-modules/src/blog/routes.rs:43",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/blog/models.rs",
+        "Service/infera-modules/src/blog/methods.rs",
+        "Service/infera-modules/src/blog/transformers.rs"
+      ],
+      "source_sha256": "63e35fef5169cdad9bda119d01d0311c0bf4f112f56d6bcbd78b312d2663f091",
+      "correction": {
+        "purpose": "List posts using the mounted blog handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/blog/posts",
+      "handler": "create_post",
+      "source_refs": [
+        "Service/infera-modules/src/blog/routes.rs:74",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/blog/models.rs",
+        "Service/infera-modules/src/blog/methods.rs",
+        "Service/infera-modules/src/blog/transformers.rs"
+      ],
+      "source_sha256": "63e35fef5169cdad9bda119d01d0311c0bf4f112f56d6bcbd78b312d2663f091",
+      "correction": {
+        "purpose": "Create post using the mounted blog handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/blog/posts/{id}",
+      "handler": "delete_post",
+      "source_refs": [
+        "Service/infera-modules/src/blog/routes.rs:171",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/blog/models.rs",
+        "Service/infera-modules/src/blog/methods.rs",
+        "Service/infera-modules/src/blog/transformers.rs"
+      ],
+      "source_sha256": "63e35fef5169cdad9bda119d01d0311c0bf4f112f56d6bcbd78b312d2663f091",
+      "correction": {
+        "purpose": "Delete post using the mounted blog handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/blog/posts/{id}",
+      "handler": "show_post",
+      "source_refs": [
+        "Service/infera-modules/src/blog/routes.rs:105",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/blog/models.rs",
+        "Service/infera-modules/src/blog/methods.rs",
+        "Service/infera-modules/src/blog/transformers.rs"
+      ],
+      "source_sha256": "63e35fef5169cdad9bda119d01d0311c0bf4f112f56d6bcbd78b312d2663f091",
+      "correction": {
+        "purpose": "Show post using the mounted blog handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/blog/posts/{id}",
+      "handler": "update_post",
+      "source_refs": [
+        "Service/infera-modules/src/blog/routes.rs:138",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/blog/models.rs",
+        "Service/infera-modules/src/blog/methods.rs",
+        "Service/infera-modules/src/blog/transformers.rs"
+      ],
+      "source_sha256": "63e35fef5169cdad9bda119d01d0311c0bf4f112f56d6bcbd78b312d2663f091",
+      "correction": {
+        "purpose": "Update post using the mounted blog handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/blog/posts/{id}",
+      "handler": "update_post",
+      "source_refs": [
+        "Service/infera-modules/src/blog/routes.rs:138",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/blog/models.rs",
+        "Service/infera-modules/src/blog/methods.rs",
+        "Service/infera-modules/src/blog/transformers.rs"
+      ],
+      "source_sha256": "63e35fef5169cdad9bda119d01d0311c0bf4f112f56d6bcbd78b312d2663f091",
+      "correction": {
+        "purpose": "Update post using the mounted blog handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/categories",
+      "handler": "list_categories",
+      "source_refs": [
+        "Service/infera-modules/src/category/routes.rs:50",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/category/models.rs",
+        "Service/infera-modules/src/category/methods.rs",
+        "Service/infera-modules/src/category/transformers.rs"
+      ],
+      "source_sha256": "7f54e93c7ab24949bddedd82f374b623efe39fc63680d0b51942791a76f2bcac",
+      "correction": {
+        "purpose": "List categories using the mounted category handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key. Search trims a literal case-insensitive substring, allows at most 128 Unicode characters and no NUL, and returns normalized search or null.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/categories",
+      "handler": "create_category",
+      "source_refs": [
+        "Service/infera-modules/src/category/routes.rs:88",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/category/models.rs",
+        "Service/infera-modules/src/category/methods.rs",
+        "Service/infera-modules/src/category/transformers.rs"
+      ],
+      "source_sha256": "7f54e93c7ab24949bddedd82f374b623efe39fc63680d0b51942791a76f2bcac",
+      "correction": {
+        "purpose": "Create category using the mounted category handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/categories/{host}/{target_id}",
+      "handler": "detach_from_target",
+      "source_refs": [
+        "Service/infera-modules/src/category/routes.rs:287",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/category/models.rs",
+        "Service/infera-modules/src/category/methods.rs",
+        "Service/infera-modules/src/category/transformers.rs"
+      ],
+      "source_sha256": "7f54e93c7ab24949bddedd82f374b623efe39fc63680d0b51942791a76f2bcac",
+      "correction": {
+        "purpose": "Detach from target using the mounted category handler. Returns HTTP 200 with status/message and no data member. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400. Junction deletion scopes by junction ID and resolved host table; the target path ID is not a second repository predicate.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/categories/{host}/{target_id}",
+      "handler": "list_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/category/routes.rs:218",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/category/models.rs",
+        "Service/infera-modules/src/category/methods.rs",
+        "Service/infera-modules/src/category/transformers.rs"
+      ],
+      "source_sha256": "7f54e93c7ab24949bddedd82f374b623efe39fc63680d0b51942791a76f2bcac",
+      "correction": {
+        "purpose": "List on target using the mounted category handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/categories/{host}/{target_id}",
+      "handler": "attach_to_target",
+      "source_refs": [
+        "Service/infera-modules/src/category/routes.rs:252",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/category/models.rs",
+        "Service/infera-modules/src/category/methods.rs",
+        "Service/infera-modules/src/category/transformers.rs"
+      ],
+      "source_sha256": "7f54e93c7ab24949bddedd82f374b623efe39fc63680d0b51942791a76f2bcac",
+      "correction": {
+        "purpose": "Attach to target using the mounted category handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/categories/{id}",
+      "handler": "delete_category",
+      "source_refs": [
+        "Service/infera-modules/src/category/routes.rs:185",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/category/models.rs",
+        "Service/infera-modules/src/category/methods.rs",
+        "Service/infera-modules/src/category/transformers.rs"
+      ],
+      "source_sha256": "7f54e93c7ab24949bddedd82f374b623efe39fc63680d0b51942791a76f2bcac",
+      "correction": {
+        "purpose": "Delete category using the mounted category handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/categories/{id}",
+      "handler": "show_category",
+      "source_refs": [
+        "Service/infera-modules/src/category/routes.rs:119",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/category/models.rs",
+        "Service/infera-modules/src/category/methods.rs",
+        "Service/infera-modules/src/category/transformers.rs"
+      ],
+      "source_sha256": "7f54e93c7ab24949bddedd82f374b623efe39fc63680d0b51942791a76f2bcac",
+      "correction": {
+        "purpose": "Show category using the mounted category handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/categories/{id}",
+      "handler": "update_category",
+      "source_refs": [
+        "Service/infera-modules/src/category/routes.rs:152",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/category/models.rs",
+        "Service/infera-modules/src/category/methods.rs",
+        "Service/infera-modules/src/category/transformers.rs"
+      ],
+      "source_sha256": "7f54e93c7ab24949bddedd82f374b623efe39fc63680d0b51942791a76f2bcac",
+      "correction": {
+        "purpose": "Update category using the mounted category handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/categories/{id}",
+      "handler": "update_category",
+      "source_refs": [
+        "Service/infera-modules/src/category/routes.rs:152",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/category/models.rs",
+        "Service/infera-modules/src/category/methods.rs",
+        "Service/infera-modules/src/category/transformers.rs"
+      ],
+      "source_sha256": "7f54e93c7ab24949bddedd82f374b623efe39fc63680d0b51942791a76f2bcac",
+      "correction": {
+        "purpose": "Update category using the mounted category handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/comments",
+      "handler": "list_comments",
+      "source_refs": [
+        "Service/infera-modules/src/comment/routes.rs:47",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/comment/models.rs",
+        "Service/infera-modules/src/comment/methods.rs",
+        "Service/infera-modules/src/comment/transformers.rs"
+      ],
+      "source_sha256": "30c5b5a00d5947b3a721ad607e75d9df61a063e4b12f1059be83888bdc55b2a4",
+      "correction": {
+        "purpose": "List comments using the mounted comment handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/comments",
+      "handler": "create_comment",
+      "source_refs": [
+        "Service/infera-modules/src/comment/routes.rs:78",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/comment/models.rs",
+        "Service/infera-modules/src/comment/methods.rs",
+        "Service/infera-modules/src/comment/transformers.rs"
+      ],
+      "source_sha256": "30c5b5a00d5947b3a721ad607e75d9df61a063e4b12f1059be83888bdc55b2a4",
+      "correction": {
+        "purpose": "Create comment using the mounted comment handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/comments/{host}/{target_id}",
+      "handler": "list_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/comment/routes.rs:199",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/comment/models.rs",
+        "Service/infera-modules/src/comment/methods.rs",
+        "Service/infera-modules/src/comment/transformers.rs"
+      ],
+      "source_sha256": "30c5b5a00d5947b3a721ad607e75d9df61a063e4b12f1059be83888bdc55b2a4",
+      "correction": {
+        "purpose": "List on target using the mounted comment handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/comments/{host}/{target_id}",
+      "handler": "create_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/comment/routes.rs:234",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/comment/models.rs",
+        "Service/infera-modules/src/comment/methods.rs",
+        "Service/infera-modules/src/comment/transformers.rs"
+      ],
+      "source_sha256": "30c5b5a00d5947b3a721ad607e75d9df61a063e4b12f1059be83888bdc55b2a4",
+      "correction": {
+        "purpose": "Create on target using the mounted comment handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/comments/{id}",
+      "handler": "delete_comment",
+      "source_refs": [
+        "Service/infera-modules/src/comment/routes.rs:167",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/comment/models.rs",
+        "Service/infera-modules/src/comment/methods.rs",
+        "Service/infera-modules/src/comment/transformers.rs"
+      ],
+      "source_sha256": "30c5b5a00d5947b3a721ad607e75d9df61a063e4b12f1059be83888bdc55b2a4",
+      "correction": {
+        "purpose": "Delete comment using the mounted comment handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/comments/{id}",
+      "handler": "show_comment",
+      "source_refs": [
+        "Service/infera-modules/src/comment/routes.rs:104",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/comment/models.rs",
+        "Service/infera-modules/src/comment/methods.rs",
+        "Service/infera-modules/src/comment/transformers.rs"
+      ],
+      "source_sha256": "30c5b5a00d5947b3a721ad607e75d9df61a063e4b12f1059be83888bdc55b2a4",
+      "correction": {
+        "purpose": "Show comment using the mounted comment handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/comments/{id}",
+      "handler": "update_comment",
+      "source_refs": [
+        "Service/infera-modules/src/comment/routes.rs:136",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/comment/models.rs",
+        "Service/infera-modules/src/comment/methods.rs",
+        "Service/infera-modules/src/comment/transformers.rs"
+      ],
+      "source_sha256": "30c5b5a00d5947b3a721ad607e75d9df61a063e4b12f1059be83888bdc55b2a4",
+      "correction": {
+        "purpose": "Update comment using the mounted comment handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/comments/{id}",
+      "handler": "update_comment",
+      "source_refs": [
+        "Service/infera-modules/src/comment/routes.rs:136",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/comment/models.rs",
+        "Service/infera-modules/src/comment/methods.rs",
+        "Service/infera-modules/src/comment/transformers.rs"
+      ],
+      "source_sha256": "30c5b5a00d5947b3a721ad607e75d9df61a063e4b12f1059be83888bdc55b2a4",
+      "correction": {
+        "purpose": "Update comment using the mounted comment handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/contents",
+      "handler": "list_contents",
+      "source_refs": [
+        "Service/infera-modules/src/content/routes.rs:49",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/content/models.rs",
+        "Service/infera-modules/src/content/methods.rs",
+        "Service/infera-modules/src/content/transformers.rs"
+      ],
+      "source_sha256": "785f28e47a9169a2b9b5b93445820b9fe0ae0d6c4ae4a253fbcca50730be3f19",
+      "correction": {
+        "purpose": "List contents using the mounted content handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/contents",
+      "handler": "create_content",
+      "source_refs": [
+        "Service/infera-modules/src/content/routes.rs:80",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/content/models.rs",
+        "Service/infera-modules/src/content/methods.rs",
+        "Service/infera-modules/src/content/transformers.rs"
+      ],
+      "source_sha256": "785f28e47a9169a2b9b5b93445820b9fe0ae0d6c4ae4a253fbcca50730be3f19",
+      "correction": {
+        "purpose": "Create content using the mounted content handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/contents/{host}/{target_id}",
+      "handler": "detach_from_target",
+      "source_refs": [
+        "Service/infera-modules/src/content/routes.rs:287",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/content/models.rs",
+        "Service/infera-modules/src/content/methods.rs",
+        "Service/infera-modules/src/content/transformers.rs"
+      ],
+      "source_sha256": "785f28e47a9169a2b9b5b93445820b9fe0ae0d6c4ae4a253fbcca50730be3f19",
+      "correction": {
+        "purpose": "Detach from target using the mounted content handler. Returns HTTP 200 with status/message and no data member. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400. Junction deletion scopes by junction ID and resolved host table; the target path ID is not a second repository predicate.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/contents/{host}/{target_id}",
+      "handler": "list_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/content/routes.rs:218",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/content/models.rs",
+        "Service/infera-modules/src/content/methods.rs",
+        "Service/infera-modules/src/content/transformers.rs"
+      ],
+      "source_sha256": "785f28e47a9169a2b9b5b93445820b9fe0ae0d6c4ae4a253fbcca50730be3f19",
+      "correction": {
+        "purpose": "List on target using the mounted content handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/contents/{host}/{target_id}",
+      "handler": "attach_to_target",
+      "source_refs": [
+        "Service/infera-modules/src/content/routes.rs:252",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/content/models.rs",
+        "Service/infera-modules/src/content/methods.rs",
+        "Service/infera-modules/src/content/transformers.rs"
+      ],
+      "source_sha256": "785f28e47a9169a2b9b5b93445820b9fe0ae0d6c4ae4a253fbcca50730be3f19",
+      "correction": {
+        "purpose": "Attach to target using the mounted content handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/contents/{id}",
+      "handler": "delete_content",
+      "source_refs": [
+        "Service/infera-modules/src/content/routes.rs:186",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/content/models.rs",
+        "Service/infera-modules/src/content/methods.rs",
+        "Service/infera-modules/src/content/transformers.rs"
+      ],
+      "source_sha256": "785f28e47a9169a2b9b5b93445820b9fe0ae0d6c4ae4a253fbcca50730be3f19",
+      "correction": {
+        "purpose": "Delete content using the mounted content handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/contents/{id}",
+      "handler": "show_content",
+      "source_refs": [
+        "Service/infera-modules/src/content/routes.rs:106",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/content/models.rs",
+        "Service/infera-modules/src/content/methods.rs",
+        "Service/infera-modules/src/content/transformers.rs"
+      ],
+      "source_sha256": "785f28e47a9169a2b9b5b93445820b9fe0ae0d6c4ae4a253fbcca50730be3f19",
+      "correction": {
+        "purpose": "Show content using the mounted content handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/contents/{id}",
+      "handler": "update_content",
+      "source_refs": [
+        "Service/infera-modules/src/content/routes.rs:144",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/content/models.rs",
+        "Service/infera-modules/src/content/methods.rs",
+        "Service/infera-modules/src/content/transformers.rs"
+      ],
+      "source_sha256": "785f28e47a9169a2b9b5b93445820b9fe0ae0d6c4ae4a253fbcca50730be3f19",
+      "correction": {
+        "purpose": "Update content using the mounted content handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted. autosave=true writes only auto_saved_content; otherwise content is written. When both host and target_id are supplied, non-autosave updates require Editor/Maintainer junction access; omitting either skips that local access check.",
+        "auth": "IDP/gateway deployment policy; non-autosave update with both host and target_id additionally requires Editor/Maintainer access on that target"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/contents/{id}",
+      "handler": "update_content",
+      "source_refs": [
+        "Service/infera-modules/src/content/routes.rs:144",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/content/models.rs",
+        "Service/infera-modules/src/content/methods.rs",
+        "Service/infera-modules/src/content/transformers.rs"
+      ],
+      "source_sha256": "785f28e47a9169a2b9b5b93445820b9fe0ae0d6c4ae4a253fbcca50730be3f19",
+      "correction": {
+        "purpose": "Update content using the mounted content handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted. autosave=true writes only auto_saved_content; otherwise content is written. When both host and target_id are supplied, non-autosave updates require Editor/Maintainer junction access; omitting either skips that local access check.",
+        "auth": "IDP/gateway deployment policy; non-autosave update with both host and target_id additionally requires Editor/Maintainer access on that target"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/inventory/inventories",
+      "handler": "list_inventories",
+      "source_refs": [
+        "Service/infera-modules/src/inventory/routes.rs:224",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/inventory/models.rs",
+        "Service/infera-modules/src/inventory/methods.rs",
+        "Service/infera-modules/src/inventory/transformers.rs"
+      ],
+      "source_sha256": "1cfa055470be0e629cc7d8b79aab5224a52a4b86d40c17fe7ad585d6f0c76d6f",
+      "correction": {
+        "purpose": "List inventories using the mounted inventory handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/inventory/inventories",
+      "handler": "create_inventory",
+      "source_refs": [
+        "Service/infera-modules/src/inventory/routes.rs:269",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/inventory/models.rs",
+        "Service/infera-modules/src/inventory/methods.rs",
+        "Service/infera-modules/src/inventory/transformers.rs"
+      ],
+      "source_sha256": "1cfa055470be0e629cc7d8b79aab5224a52a4b86d40c17fe7ad585d6f0c76d6f",
+      "correction": {
+        "purpose": "Create inventory using the mounted inventory handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/inventory/inventories/{id}",
+      "handler": "delete_inventory",
+      "source_refs": [
+        "Service/infera-modules/src/inventory/routes.rs:366",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/inventory/models.rs",
+        "Service/infera-modules/src/inventory/methods.rs",
+        "Service/infera-modules/src/inventory/transformers.rs"
+      ],
+      "source_sha256": "1cfa055470be0e629cc7d8b79aab5224a52a4b86d40c17fe7ad585d6f0c76d6f",
+      "correction": {
+        "purpose": "Delete inventory using the mounted inventory handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/inventory/inventories/{id}",
+      "handler": "show_inventory",
+      "source_refs": [
+        "Service/infera-modules/src/inventory/routes.rs:300",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/inventory/models.rs",
+        "Service/infera-modules/src/inventory/methods.rs",
+        "Service/infera-modules/src/inventory/transformers.rs"
+      ],
+      "source_sha256": "1cfa055470be0e629cc7d8b79aab5224a52a4b86d40c17fe7ad585d6f0c76d6f",
+      "correction": {
+        "purpose": "Show inventory using the mounted inventory handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/inventory/inventories/{id}",
+      "handler": "update_inventory",
+      "source_refs": [
+        "Service/infera-modules/src/inventory/routes.rs:333",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/inventory/models.rs",
+        "Service/infera-modules/src/inventory/methods.rs",
+        "Service/infera-modules/src/inventory/transformers.rs"
+      ],
+      "source_sha256": "1cfa055470be0e629cc7d8b79aab5224a52a4b86d40c17fe7ad585d6f0c76d6f",
+      "correction": {
+        "purpose": "Update inventory using the mounted inventory handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/inventory/inventories/{id}",
+      "handler": "update_inventory",
+      "source_refs": [
+        "Service/infera-modules/src/inventory/routes.rs:333",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/inventory/models.rs",
+        "Service/infera-modules/src/inventory/methods.rs",
+        "Service/infera-modules/src/inventory/transformers.rs"
+      ],
+      "source_sha256": "1cfa055470be0e629cc7d8b79aab5224a52a4b86d40c17fe7ad585d6f0c76d6f",
+      "correction": {
+        "purpose": "Update inventory using the mounted inventory handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/inventory/stock-movements",
+      "handler": "list_stock_movements",
+      "source_refs": [
+        "Service/infera-modules/src/stock_movement/routes.rs:42",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/stock_movement/models.rs",
+        "Service/infera-modules/src/stock_movement/methods.rs",
+        "Service/infera-modules/src/stock_movement/transformers.rs"
+      ],
+      "source_sha256": "3625139d00ebe7414ee09a9412683b60598f820cfc9b1ce8a903affc5c5c02d7",
+      "correction": {
+        "purpose": "List stock movements using the mounted stock movement handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/inventory/stock-movements",
+      "handler": "create_stock_movement",
+      "source_refs": [
+        "Service/infera-modules/src/stock_movement/routes.rs:86",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/stock_movement/models.rs",
+        "Service/infera-modules/src/stock_movement/methods.rs",
+        "Service/infera-modules/src/stock_movement/transformers.rs"
+      ],
+      "source_sha256": "3625139d00ebe7414ee09a9412683b60598f820cfc9b1ce8a903affc5c5c02d7",
+      "correction": {
+        "purpose": "Apply an IN, OUT or ADJUST movement (case-insensitive input) transactionally to existing variant/warehouse inventory. OUT rejects insufficient unreserved stock; unknown movement type returns 400. Returns the concrete movement record in the success envelope.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/inventory/warehouses",
+      "handler": "list_warehouses",
+      "source_refs": [
+        "Service/infera-modules/src/inventory/routes.rs:56",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/inventory/models.rs",
+        "Service/infera-modules/src/inventory/methods.rs",
+        "Service/infera-modules/src/inventory/transformers.rs"
+      ],
+      "source_sha256": "1cfa055470be0e629cc7d8b79aab5224a52a4b86d40c17fe7ad585d6f0c76d6f",
+      "correction": {
+        "purpose": "List warehouses using the mounted inventory handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/inventory/warehouses",
+      "handler": "create_warehouse",
+      "source_refs": [
+        "Service/infera-modules/src/inventory/routes.rs:92",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/inventory/models.rs",
+        "Service/infera-modules/src/inventory/methods.rs",
+        "Service/infera-modules/src/inventory/transformers.rs"
+      ],
+      "source_sha256": "1cfa055470be0e629cc7d8b79aab5224a52a4b86d40c17fe7ad585d6f0c76d6f",
+      "correction": {
+        "purpose": "Create warehouse using the mounted inventory handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/inventory/warehouses/{id}",
+      "handler": "delete_warehouse",
+      "source_refs": [
+        "Service/infera-modules/src/inventory/routes.rs:189",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/inventory/models.rs",
+        "Service/infera-modules/src/inventory/methods.rs",
+        "Service/infera-modules/src/inventory/transformers.rs"
+      ],
+      "source_sha256": "1cfa055470be0e629cc7d8b79aab5224a52a4b86d40c17fe7ad585d6f0c76d6f",
+      "correction": {
+        "purpose": "Delete warehouse using the mounted inventory handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/inventory/warehouses/{id}",
+      "handler": "show_warehouse",
+      "source_refs": [
+        "Service/infera-modules/src/inventory/routes.rs:123",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/inventory/models.rs",
+        "Service/infera-modules/src/inventory/methods.rs",
+        "Service/infera-modules/src/inventory/transformers.rs"
+      ],
+      "source_sha256": "1cfa055470be0e629cc7d8b79aab5224a52a4b86d40c17fe7ad585d6f0c76d6f",
+      "correction": {
+        "purpose": "Show warehouse using the mounted inventory handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/inventory/warehouses/{id}",
+      "handler": "update_warehouse",
+      "source_refs": [
+        "Service/infera-modules/src/inventory/routes.rs:156",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/inventory/models.rs",
+        "Service/infera-modules/src/inventory/methods.rs",
+        "Service/infera-modules/src/inventory/transformers.rs"
+      ],
+      "source_sha256": "1cfa055470be0e629cc7d8b79aab5224a52a4b86d40c17fe7ad585d6f0c76d6f",
+      "correction": {
+        "purpose": "Update warehouse using the mounted inventory handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/inventory/warehouses/{id}",
+      "handler": "update_warehouse",
+      "source_refs": [
+        "Service/infera-modules/src/inventory/routes.rs:156",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/inventory/models.rs",
+        "Service/infera-modules/src/inventory/methods.rs",
+        "Service/infera-modules/src/inventory/transformers.rs"
+      ],
+      "source_sha256": "1cfa055470be0e629cc7d8b79aab5224a52a4b86d40c17fe7ad585d6f0c76d6f",
+      "correction": {
+        "purpose": "Update warehouse using the mounted inventory handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/manage/agents/models",
+      "handler": "agent_models",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:792",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "response": "import(\"./contracts.types.js\").ModulesAgentModelCatalog",
+        "purpose": "Read the trusted Agentic model catalog, preserving provider and billing-authority fields; upstream configuration/unavailability returns 503/502.",
+        "auth": "agent:run with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/manage/agents/proposals",
+      "handler": "list_proposals",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:979",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "purpose": "List proposals using the mounted management api handler.",
+        "auth": "agent:audit with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/manage/agents/proposals/{id}",
+      "handler": "get_proposal",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:993",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "purpose": "Get proposal using the mounted management api handler.",
+        "auth": "agent:audit with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/manage/agents/proposals/{id}/approve",
+      "handler": "approve_proposal",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:1013",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "purpose": "Approve proposal using the mounted management api handler.",
+        "auth": "agent:apply with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted; risky proposals additionally require agent:approve-risky"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/manage/agents/proposals/{id}/reject",
+      "handler": "reject_proposal",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:1040",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "purpose": "Reject proposal using the mounted management api handler.",
+        "auth": "agent:apply with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/manage/agents/runs",
+      "handler": "run_agent",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:852",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "response": "import(\"./contracts.types.js\").ModulesAgentRunResponse",
+        "textResponse": true,
+        "purpose": "Start or replay an agent proposal with a required nonblank Idempotency-Key (at most 128 bytes) supplied in options.headers. Returns text/event-stream, including error events and 15-second keep-alives; this is SSE text, not a JSON envelope.",
+        "auth": "agent:run with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/manage/content",
+      "handler": "list_content",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:394",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "purpose": "List content using the mounted management api handler. Content/settings payloads are raw records, not status/message/data envelopes.",
+        "auth": "content:read with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/manage/content",
+      "handler": "create_content",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:414",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "response": "import(\"./types.js\").ContentDocument",
+        "purpose": "Create content using the mounted management api handler. Content/settings payloads are raw records, not status/message/data envelopes. Slug is 1\u2013255 alphanumeric/dash/underscore characters, locale 1\u201316 bytes and title 1\u2013500 characters; HTML is sanitized server-side.",
+        "auth": "content:write with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/manage/content/{id}",
+      "handler": "get_content",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:475",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "response": "import(\"./types.js\").ContentDocument",
+        "purpose": "Get content using the mounted management api handler. Content/settings payloads are raw records, not status/message/data envelopes.",
+        "auth": "content:read with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/manage/content/{id}",
+      "handler": "update_content",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:485",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "response": "import(\"./types.js\").ContentDocument",
+        "purpose": "Update content using the mounted management api handler. Content/settings payloads are raw records, not status/message/data envelopes. Supply If-Match with the current UUID ETag in options.headers; absent header returns 428 and stale ETag returns 412. Slug is 1\u2013255 alphanumeric/dash/underscore characters, locale 1\u201316 bytes and title 1\u2013500 characters; HTML is sanitized server-side.",
+        "auth": "content:write with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/manage/content/{id}/publish",
+      "handler": "publish_content",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:606",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "response": "import(\"./types.js\").ContentDocument",
+        "purpose": "Publish content using the mounted management api handler. Content/settings payloads are raw records, not status/message/data envelopes. Supply If-Match with the current UUID ETag in options.headers; absent header returns 428 and stale ETag returns 412.",
+        "auth": "content:publish with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/manage/content/{id}/revisions",
+      "handler": "list_content_revisions",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:550",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "purpose": "List content revisions using the mounted management api handler. Content/settings payloads are raw records, not status/message/data envelopes.",
+        "auth": "content:read with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/manage/content/{id}/revisions/{revision}/restore",
+      "handler": "restore_content_revision",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:566",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "response": "import(\"./types.js\").ContentDocument",
+        "purpose": "Restore content revision using the mounted management api handler. Content/settings payloads are raw records, not status/message/data envelopes. Supply If-Match with the current UUID ETag in options.headers; absent header returns 428 and stale ETag returns 412.",
+        "auth": "content:write with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/manage/import/categories/{id}",
+      "handler": "upsert_category",
+      "source_refs": [
+        "Service/infera-modules/src/content_transfer/mod.rs:170",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "6932d85ed9ae056fb3ddce0e6b357cffa00beb3064bbc02b2b46ff11620c96e3",
+      "correction": {
+        "purpose": "Upsert category using the mounted content transfer handler.",
+        "auth": "content:write with authenticated actor; published content additionally requires content:publish"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/manage/import/content/{id}",
+      "handler": "upsert_content",
+      "source_refs": [
+        "Service/infera-modules/src/content_transfer/mod.rs:382",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "6932d85ed9ae056fb3ddce0e6b357cffa00beb3064bbc02b2b46ff11620c96e3",
+      "correction": {
+        "purpose": "Upsert content using the mounted content transfer handler.",
+        "auth": "content:write with authenticated actor; published content additionally requires content:publish"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/manage/settings",
+      "handler": "get_settings",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:691",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "response": "import(\"./contracts.types.js\").ModulesSettingsWire",
+        "purpose": "Get settings using the mounted management api handler. Content/settings payloads are raw records, not status/message/data envelopes.",
+        "auth": "settings:read with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/manage/settings",
+      "handler": "update_settings",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:700",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "response": "import(\"./contracts.types.js\").ModulesSettingsWire",
+        "purpose": "Update settings using the mounted management api handler. Content/settings payloads are raw records, not status/message/data envelopes. Supply If-Match with the current UUID ETag in options.headers; absent header returns 428 and stale ETag returns 412.",
+        "auth": "settings:write with an authenticated actor; modules:* and * or modules_admin/platform_operator roles are accepted"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/media/assets",
+      "handler": "upload_asset",
+      "source_refs": [
+        "Service/infera-modules/src/media/mod.rs:394",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "99434e73da85910c137023281967c53dbe582469ae4390ef0c2c0a8b49ef39da",
+      "correction": {
+        "purpose": "Upload multipart fields kind and file. Images accept JPEG/PNG/WebP/GIF/AVIF up to 10 MiB; assets also accept MP4/WebM/QuickTime up to 250 MiB. Empty/oversized files return 413, unsupported formats 415; purpose must be a supported Modules media kind.",
+        "auth": "Authenticated UUID identity in x-user-id, normally resolved from configured Bearer/cookie credentials"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/media/files/{*key}",
+      "handler": "get_file",
+      "source_refs": [
+        "Service/infera-modules/src/media/mod.rs:401",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "99434e73da85910c137023281967c53dbe582469ae4390ef0c2c0a8b49ef39da",
+      "correction": {
+        "binaryDownload": true,
+        "purpose": "Download object bytes by a raw modules/ storage key. Keys containing .. are rejected; missing objects return 404. Successful responses preserve content type and immutable cache headers.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/media/images",
+      "handler": "upload_image",
+      "source_refs": [
+        "Service/infera-modules/src/media/mod.rs:387",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "99434e73da85910c137023281967c53dbe582469ae4390ef0c2c0a8b49ef39da",
+      "correction": {
+        "purpose": "Upload multipart fields kind and file. Images accept JPEG/PNG/WebP/GIF/AVIF up to 10 MiB; assets also accept MP4/WebM/QuickTime up to 250 MiB. Empty/oversized files return 413, unsupported formats 415; purpose must be a supported Modules media kind.",
+        "auth": "Authenticated UUID identity in x-user-id, normally resolved from configured Bearer/cookie credentials"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/podcasts",
+      "handler": "list",
+      "source_refs": [
+        "Service/infera-modules/src/podcast/routes.rs:34",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/podcast/models.rs",
+        "Service/infera-modules/src/podcast/methods.rs"
+      ],
+      "source_sha256": "1ddf77f0aeed2468f52af1155eec99afc47369bdc8b7d69a1213164c9eb91f70",
+      "correction": {
+        "purpose": "List using the mounted podcast handler. Podcast/episode rows are physically deleted; episode mutations scope the episode to its podcast. Audio source is external or drm and requires its matching URL or DRM media UUID.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/podcasts",
+      "handler": "create",
+      "source_refs": [
+        "Service/infera-modules/src/podcast/routes.rs:45",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/podcast/models.rs",
+        "Service/infera-modules/src/podcast/methods.rs"
+      ],
+      "source_sha256": "1ddf77f0aeed2468f52af1155eec99afc47369bdc8b7d69a1213164c9eb91f70",
+      "correction": {
+        "purpose": "Create using the mounted podcast handler. Podcast/episode rows are physically deleted; episode mutations scope the episode to its podcast. Audio source is external or drm and requires its matching URL or DRM media UUID.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/podcasts/{id}",
+      "handler": "remove",
+      "source_refs": [
+        "Service/infera-modules/src/podcast/routes.rs:65",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/podcast/models.rs",
+        "Service/infera-modules/src/podcast/methods.rs"
+      ],
+      "source_sha256": "1ddf77f0aeed2468f52af1155eec99afc47369bdc8b7d69a1213164c9eb91f70",
+      "correction": {
+        "purpose": "Remove using the mounted podcast handler. Returns HTTP 200 with status/message and no data member. Podcast/episode rows are physically deleted; episode mutations scope the episode to its podcast. Audio source is external or drm and requires its matching URL or DRM media UUID.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/podcasts/{id}",
+      "handler": "show",
+      "source_refs": [
+        "Service/infera-modules/src/podcast/routes.rs:39",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/podcast/models.rs",
+        "Service/infera-modules/src/podcast/methods.rs"
+      ],
+      "source_sha256": "1ddf77f0aeed2468f52af1155eec99afc47369bdc8b7d69a1213164c9eb91f70",
+      "correction": {
+        "purpose": "Show using the mounted podcast handler. Podcast/episode rows are physically deleted; episode mutations scope the episode to its podcast. Audio source is external or drm and requires its matching URL or DRM media UUID.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/podcasts/{id}",
+      "handler": "update",
+      "source_refs": [
+        "Service/infera-modules/src/podcast/routes.rs:55",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/podcast/models.rs",
+        "Service/infera-modules/src/podcast/methods.rs"
+      ],
+      "source_sha256": "1ddf77f0aeed2468f52af1155eec99afc47369bdc8b7d69a1213164c9eb91f70",
+      "correction": {
+        "purpose": "Update using the mounted podcast handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted. Podcast/episode rows are physically deleted; episode mutations scope the episode to its podcast. Audio source is external or drm and requires its matching URL or DRM media UUID.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/podcasts/{id}/episodes",
+      "handler": "create_episode",
+      "source_refs": [
+        "Service/infera-modules/src/podcast/routes.rs:75",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/podcast/models.rs",
+        "Service/infera-modules/src/podcast/methods.rs"
+      ],
+      "source_sha256": "1ddf77f0aeed2468f52af1155eec99afc47369bdc8b7d69a1213164c9eb91f70",
+      "correction": {
+        "input": "import(\"./contracts.types.js\").ModulesEpisodeInput",
+        "purpose": "Create episode using the mounted podcast handler. Podcast/episode rows are physically deleted; episode mutations scope the episode to its podcast. Audio source is external or drm and requires its matching URL or DRM media UUID.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/podcasts/{podcast_id}/episodes/{id}",
+      "handler": "remove_episode",
+      "source_refs": [
+        "Service/infera-modules/src/podcast/routes.rs:95",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/podcast/models.rs",
+        "Service/infera-modules/src/podcast/methods.rs"
+      ],
+      "source_sha256": "1ddf77f0aeed2468f52af1155eec99afc47369bdc8b7d69a1213164c9eb91f70",
+      "correction": {
+        "purpose": "Remove episode using the mounted podcast handler. Returns HTTP 200 with status/message and no data member. Podcast/episode rows are physically deleted; episode mutations scope the episode to its podcast. Audio source is external or drm and requires its matching URL or DRM media UUID.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/podcasts/{podcast_id}/episodes/{id}",
+      "handler": "update_episode",
+      "source_refs": [
+        "Service/infera-modules/src/podcast/routes.rs:85",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/podcast/models.rs",
+        "Service/infera-modules/src/podcast/methods.rs"
+      ],
+      "source_sha256": "1ddf77f0aeed2468f52af1155eec99afc47369bdc8b7d69a1213164c9eb91f70",
+      "correction": {
+        "input": "import(\"./contracts.types.js\").ModulesEpisodeUpdateInput",
+        "purpose": "Update episode using the mounted podcast handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted. Podcast/episode rows are physically deleted; episode mutations scope the episode to its podcast. Audio source is external or drm and requires its matching URL or DRM media UUID.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/pricing",
+      "handler": "list_pricing",
+      "source_refs": [
+        "Service/infera-modules/src/service_pricing/routes.rs:40",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/service_pricing/models.rs",
+        "Service/infera-modules/src/service_pricing/methods.rs",
+        "Service/infera-modules/src/service_pricing/transformers.rs"
+      ],
+      "source_sha256": "ec97d1ba8f82cff9f9a28b6d1084660701ff273187ad0697de6e54061ee2e162",
+      "correction": {
+        "purpose": "List pricing using the mounted service pricing handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/pricing",
+      "handler": "create_pricing",
+      "source_refs": [
+        "Service/infera-modules/src/service_pricing/routes.rs:70",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/service_pricing/models.rs",
+        "Service/infera-modules/src/service_pricing/methods.rs",
+        "Service/infera-modules/src/service_pricing/transformers.rs"
+      ],
+      "source_sha256": "ec97d1ba8f82cff9f9a28b6d1084660701ff273187ad0697de6e54061ee2e162",
+      "correction": {
+        "purpose": "Create pricing using the mounted service pricing handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/pricing/{id}",
+      "handler": "delete_pricing",
+      "source_refs": [
+        "Service/infera-modules/src/service_pricing/routes.rs:158",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/service_pricing/models.rs",
+        "Service/infera-modules/src/service_pricing/methods.rs",
+        "Service/infera-modules/src/service_pricing/transformers.rs"
+      ],
+      "source_sha256": "ec97d1ba8f82cff9f9a28b6d1084660701ff273187ad0697de6e54061ee2e162",
+      "correction": {
+        "purpose": "Delete pricing using the mounted service pricing handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/pricing/{id}",
+      "handler": "show_pricing",
+      "source_refs": [
+        "Service/infera-modules/src/service_pricing/routes.rs:95",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/service_pricing/models.rs",
+        "Service/infera-modules/src/service_pricing/methods.rs",
+        "Service/infera-modules/src/service_pricing/transformers.rs"
+      ],
+      "source_sha256": "ec97d1ba8f82cff9f9a28b6d1084660701ff273187ad0697de6e54061ee2e162",
+      "correction": {
+        "purpose": "Show pricing using the mounted service pricing handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/pricing/{id}",
+      "handler": "update_pricing",
+      "source_refs": [
+        "Service/infera-modules/src/service_pricing/routes.rs:127",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/service_pricing/models.rs",
+        "Service/infera-modules/src/service_pricing/methods.rs",
+        "Service/infera-modules/src/service_pricing/transformers.rs"
+      ],
+      "source_sha256": "ec97d1ba8f82cff9f9a28b6d1084660701ff273187ad0697de6e54061ee2e162",
+      "correction": {
+        "purpose": "Update pricing using the mounted service pricing handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/pricing/{id}",
+      "handler": "update_pricing",
+      "source_refs": [
+        "Service/infera-modules/src/service_pricing/routes.rs:127",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/service_pricing/models.rs",
+        "Service/infera-modules/src/service_pricing/methods.rs",
+        "Service/infera-modules/src/service_pricing/transformers.rs"
+      ],
+      "source_sha256": "ec97d1ba8f82cff9f9a28b6d1084660701ff273187ad0697de6e54061ee2e162",
+      "correction": {
+        "purpose": "Update pricing using the mounted service pricing handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/public/categories/{scope}/{locale}",
+      "handler": "list_public_categories",
+      "source_refs": [
+        "Service/infera-modules/src/content_transfer/mod.rs:154",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "6932d85ed9ae056fb3ddce0e6b357cffa00beb3064bbc02b2b46ff11620c96e3",
+      "correction": {
+        "purpose": "List active nondeleted categories by scope and locale; returns raw records with nullable parent and legacy references.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/public/content/{kind}/{locale}",
+      "handler": "list_public_content",
+      "source_refs": [
+        "Service/infera-modules/src/content_transfer/mod.rs:276",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "6932d85ed9ae056fb3ddce0e6b357cffa00beb3064bbc02b2b46ff11620c96e3",
+      "correction": {
+        "purpose": "List published documents by kind/locale with optional active category slug. Published timestamps must be null or due; page defaults to 1, size to 12 (1\u2013100), ordered newest first with UUID tie-break.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/public/content/{kind}/{locale}/{slug}",
+      "handler": "public_content",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:379",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "response": "import(\"./types.js\").ContentDocument",
+        "purpose": "Public content using the mounted management api handler. Content/settings payloads are raw records, not status/message/data envelopes.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/public/requests/{key}",
+      "handler": "submit",
+      "source_refs": [
+        "Service/infera-modules/src/request/public.rs:73",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/request/models.rs",
+        "Service/infera-modules/src/request/methods.rs",
+        "Service/infera-modules/src/request/transformers.rs"
+      ],
+      "source_sha256": "231dabcde0796663082729feb727375b9814945697bb145f4955d515755bc656",
+      "correction": {
+        "purpose": "Submit a configured website_contact, website_newsletter or website_waitlist form with a non-nil replay UUID, valid email and blank website honeypot. Request body is limited to 20 KiB; invalid input returns 422, missing forms 404, rate limits 429 and changed replay payloads 409.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/public/routes",
+      "handler": "public_routes",
+      "source_refs": [
+        "Service/infera-modules/src/management_api/mod.rs:263",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "bad58253015ef06220128813e676515380a284a8ce83b6623bc81ddb2647ef49",
+      "correction": {
+        "response": "import(\"./contracts.types.js\").ModulesPublicRoutesResponse",
+        "purpose": "Public routes using the mounted management api handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/public/search/autocomplete",
+      "handler": "autocomplete",
+      "source_refs": [
+        "Service/infera-modules/src/search/routes.rs:37",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/search/models.rs",
+        "Service/infera-modules/src/search/methods.rs"
+      ],
+      "source_sha256": "e552d56ea18c01a98e52250ec7187663a6b5f691bcfe7abb42ba39a0daec3441",
+      "correction": {
+        "query": "import(\"./types.js\").AutocompleteQuery",
+        "requiredQuery": true,
+        "purpose": "Search published posts and nonzero-status products after Persian/Arabic normalization. Fewer than two normalized characters return an empty list; over 120 characters or a locale over 16 bytes return 400. Scope is posts/products/mixed; limit defaults to 8 and clamps to 1\u201320. Returns raw ranked suggestions with nullable metadata.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/public/shop/products",
+      "handler": "list",
+      "source_refs": [
+        "Service/infera-modules/src/router.rs:1",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/models.rs"
+      ],
+      "source_sha256": "11858f3d10eac620e5544af14b1d452e6929620b6951a5d826f7fe93b65146a3",
+      "correction": {
+        "purpose": "Page published active variants and products without supplier/cost/owner fields; page clamps to 1\u201310000, 100 items per page plus hasMore. Stock is computed from available inventory.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/reactions/{host}/{target_id}",
+      "handler": "delete_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/reaction/routes.rs:115",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/reaction/models.rs",
+        "Service/infera-modules/src/reaction/methods.rs",
+        "Service/infera-modules/src/reaction/transformers.rs"
+      ],
+      "source_sha256": "89d21eb190dca3d2e4055ec56a8b79562b6171db21305fa13e53a2531addacff",
+      "correction": {
+        "purpose": "Delete on target using the mounted reaction handler. Returns HTTP 200 with status/message and no data member. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400. Junction deletion scopes by junction ID and resolved host table; the target path ID is not a second repository predicate.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/reactions/{host}/{target_id}",
+      "handler": "list_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/reaction/routes.rs:43",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/reaction/models.rs",
+        "Service/infera-modules/src/reaction/methods.rs",
+        "Service/infera-modules/src/reaction/transformers.rs"
+      ],
+      "source_sha256": "89d21eb190dca3d2e4055ec56a8b79562b6171db21305fa13e53a2531addacff",
+      "correction": {
+        "purpose": "List on target using the mounted reaction handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/reactions/{host}/{target_id}",
+      "handler": "create_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/reaction/routes.rs:78",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/reaction/models.rs",
+        "Service/infera-modules/src/reaction/methods.rs",
+        "Service/infera-modules/src/reaction/transformers.rs"
+      ],
+      "source_sha256": "89d21eb190dca3d2e4055ec56a8b79562b6171db21305fa13e53a2531addacff",
+      "correction": {
+        "purpose": "Create on target using the mounted reaction handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/requests",
+      "handler": "list_requests",
+      "source_refs": [
+        "Service/infera-modules/src/request/routes.rs:54",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/request/models.rs",
+        "Service/infera-modules/src/request/methods.rs",
+        "Service/infera-modules/src/request/transformers.rs"
+      ],
+      "source_sha256": "42eb170bf142f4f5d5ac341ad92ff4098a1c2fe2da1706e2597512e02bc8d6f2",
+      "correction": {
+        "purpose": "List requests using the mounted request handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/requests",
+      "handler": "create_request",
+      "source_refs": [
+        "Service/infera-modules/src/request/routes.rs:85",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/request/models.rs",
+        "Service/infera-modules/src/request/methods.rs",
+        "Service/infera-modules/src/request/transformers.rs"
+      ],
+      "source_sha256": "42eb170bf142f4f5d5ac341ad92ff4098a1c2fe2da1706e2597512e02bc8d6f2",
+      "correction": {
+        "purpose": "Create request using the mounted request handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/requests/{host}/{target_id}",
+      "handler": "detach_from_target",
+      "source_refs": [
+        "Service/infera-modules/src/request/routes.rs:275",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/request/models.rs",
+        "Service/infera-modules/src/request/methods.rs",
+        "Service/infera-modules/src/request/transformers.rs"
+      ],
+      "source_sha256": "42eb170bf142f4f5d5ac341ad92ff4098a1c2fe2da1706e2597512e02bc8d6f2",
+      "correction": {
+        "purpose": "Detach from target using the mounted request handler. Returns HTTP 200 with status/message and no data member. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400. Junction deletion scopes by junction ID and resolved host table; the target path ID is not a second repository predicate.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/requests/{host}/{target_id}",
+      "handler": "list_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/request/routes.rs:206",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/request/models.rs",
+        "Service/infera-modules/src/request/methods.rs",
+        "Service/infera-modules/src/request/transformers.rs"
+      ],
+      "source_sha256": "42eb170bf142f4f5d5ac341ad92ff4098a1c2fe2da1706e2597512e02bc8d6f2",
+      "correction": {
+        "purpose": "List on target using the mounted request handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/requests/{host}/{target_id}",
+      "handler": "attach_to_target",
+      "source_refs": [
+        "Service/infera-modules/src/request/routes.rs:240",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/request/models.rs",
+        "Service/infera-modules/src/request/methods.rs",
+        "Service/infera-modules/src/request/transformers.rs"
+      ],
+      "source_sha256": "42eb170bf142f4f5d5ac341ad92ff4098a1c2fe2da1706e2597512e02bc8d6f2",
+      "correction": {
+        "purpose": "Attach to target using the mounted request handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/requests/{id}",
+      "handler": "delete_request",
+      "source_refs": [
+        "Service/infera-modules/src/request/routes.rs:174",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/request/models.rs",
+        "Service/infera-modules/src/request/methods.rs",
+        "Service/infera-modules/src/request/transformers.rs"
+      ],
+      "source_sha256": "42eb170bf142f4f5d5ac341ad92ff4098a1c2fe2da1706e2597512e02bc8d6f2",
+      "correction": {
+        "purpose": "Delete request using the mounted request handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/requests/{id}",
+      "handler": "show_request",
+      "source_refs": [
+        "Service/infera-modules/src/request/routes.rs:111",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/request/models.rs",
+        "Service/infera-modules/src/request/methods.rs",
+        "Service/infera-modules/src/request/transformers.rs"
+      ],
+      "source_sha256": "42eb170bf142f4f5d5ac341ad92ff4098a1c2fe2da1706e2597512e02bc8d6f2",
+      "correction": {
+        "purpose": "Show request using the mounted request handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/requests/{id}",
+      "handler": "update_request",
+      "source_refs": [
+        "Service/infera-modules/src/request/routes.rs:143",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/request/models.rs",
+        "Service/infera-modules/src/request/methods.rs",
+        "Service/infera-modules/src/request/transformers.rs"
+      ],
+      "source_sha256": "42eb170bf142f4f5d5ac341ad92ff4098a1c2fe2da1706e2597512e02bc8d6f2",
+      "correction": {
+        "purpose": "Update request using the mounted request handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/requests/{id}",
+      "handler": "update_request",
+      "source_refs": [
+        "Service/infera-modules/src/request/routes.rs:143",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/request/models.rs",
+        "Service/infera-modules/src/request/methods.rs",
+        "Service/infera-modules/src/request/transformers.rs"
+      ],
+      "source_sha256": "42eb170bf142f4f5d5ac341ad92ff4098a1c2fe2da1706e2597512e02bc8d6f2",
+      "correction": {
+        "purpose": "Update request using the mounted request handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/requests/{request_id}/logs",
+      "handler": "list_logs_for_request",
+      "source_refs": [
+        "Service/infera-modules/src/request/routes.rs:340",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/request/models.rs",
+        "Service/infera-modules/src/request/methods.rs",
+        "Service/infera-modules/src/request/transformers.rs"
+      ],
+      "source_sha256": "42eb170bf142f4f5d5ac341ad92ff4098a1c2fe2da1706e2597512e02bc8d6f2",
+      "correction": {
+        "purpose": "List logs for request using the mounted request handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/requests/{request_id}/logs",
+      "handler": "submit",
+      "source_refs": [
+        "Service/infera-modules/src/request/routes.rs:371",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/request/models.rs",
+        "Service/infera-modules/src/request/methods.rs",
+        "Service/infera-modules/src/request/transformers.rs"
+      ],
+      "source_sha256": "42eb170bf142f4f5d5ac341ad92ff4098a1c2fe2da1706e2597512e02bc8d6f2",
+      "correction": {
+        "purpose": "Submit using the mounted request handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/requests/category/{category_id}/logs",
+      "handler": "list_logs_for_category",
+      "source_refs": [
+        "Service/infera-modules/src/request/routes.rs:308",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/request/models.rs",
+        "Service/infera-modules/src/request/methods.rs",
+        "Service/infera-modules/src/request/transformers.rs"
+      ],
+      "source_sha256": "42eb170bf142f4f5d5ac341ad92ff4098a1c2fe2da1706e2597512e02bc8d6f2",
+      "correction": {
+        "purpose": "List logs for category using the mounted request handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/requests/website-defaults",
+      "handler": "initialize",
+      "source_refs": [
+        "Service/infera-modules/src/router.rs:1",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/models.rs"
+      ],
+      "source_sha256": "11858f3d10eac620e5544af14b1d452e6929620b6951a5d826f7fe93b65146a3",
+      "correction": {
+        "purpose": "Initialize the three website form definitions idempotently; requires authenticated admin role or modules:request:create and returns raw {ready:true}.",
+        "auth": "Authenticated non-nil identity with admin role or modules:request:create permission"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/samples",
+      "handler": "list_samples",
+      "source_refs": [
+        "Service/infera-modules/src/user_sample/routes.rs:73",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/user_sample/models.rs",
+        "Service/infera-modules/src/user_sample/methods.rs",
+        "Service/infera-modules/src/user_sample/transformers.rs"
+      ],
+      "source_sha256": "40e39ba1f1ea16eb6091e41f0020a0894f780dc75eadef1f770da858276b1502",
+      "correction": {
+        "purpose": "List samples using the mounted user sample handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/samples",
+      "handler": "create_sample",
+      "source_refs": [
+        "Service/infera-modules/src/user_sample/routes.rs:103",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/user_sample/models.rs",
+        "Service/infera-modules/src/user_sample/methods.rs",
+        "Service/infera-modules/src/user_sample/transformers.rs"
+      ],
+      "source_sha256": "40e39ba1f1ea16eb6091e41f0020a0894f780dc75eadef1f770da858276b1502",
+      "correction": {
+        "purpose": "Create sample using the mounted user sample handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/samples/{id}",
+      "handler": "delete_sample",
+      "source_refs": [
+        "Service/infera-modules/src/user_sample/routes.rs:191",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/user_sample/models.rs",
+        "Service/infera-modules/src/user_sample/methods.rs",
+        "Service/infera-modules/src/user_sample/transformers.rs"
+      ],
+      "source_sha256": "40e39ba1f1ea16eb6091e41f0020a0894f780dc75eadef1f770da858276b1502",
+      "correction": {
+        "purpose": "Delete sample using the mounted user sample handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/samples/{id}",
+      "handler": "show_sample",
+      "source_refs": [
+        "Service/infera-modules/src/user_sample/routes.rs:128",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/user_sample/models.rs",
+        "Service/infera-modules/src/user_sample/methods.rs",
+        "Service/infera-modules/src/user_sample/transformers.rs"
+      ],
+      "source_sha256": "40e39ba1f1ea16eb6091e41f0020a0894f780dc75eadef1f770da858276b1502",
+      "correction": {
+        "purpose": "Show sample using the mounted user sample handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/samples/{id}",
+      "handler": "update_sample",
+      "source_refs": [
+        "Service/infera-modules/src/user_sample/routes.rs:160",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/user_sample/models.rs",
+        "Service/infera-modules/src/user_sample/methods.rs",
+        "Service/infera-modules/src/user_sample/transformers.rs"
+      ],
+      "source_sha256": "40e39ba1f1ea16eb6091e41f0020a0894f780dc75eadef1f770da858276b1502",
+      "correction": {
+        "purpose": "Update sample using the mounted user sample handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/samples/{id}",
+      "handler": "update_sample",
+      "source_refs": [
+        "Service/infera-modules/src/user_sample/routes.rs:160",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/user_sample/models.rs",
+        "Service/infera-modules/src/user_sample/methods.rs",
+        "Service/infera-modules/src/user_sample/transformers.rs"
+      ],
+      "source_sha256": "40e39ba1f1ea16eb6091e41f0020a0894f780dc75eadef1f770da858276b1502",
+      "correction": {
+        "purpose": "Update sample using the mounted user sample handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/samples/{sample_id}/variables",
+      "handler": "list_sample_variables",
+      "source_refs": [
+        "Service/infera-modules/src/user_sample/routes.rs:254",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/user_sample/models.rs",
+        "Service/infera-modules/src/user_sample/methods.rs",
+        "Service/infera-modules/src/user_sample/transformers.rs"
+      ],
+      "source_sha256": "40e39ba1f1ea16eb6091e41f0020a0894f780dc75eadef1f770da858276b1502",
+      "correction": {
+        "purpose": "List sample variables using the mounted user sample handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/samples/{sample_id}/variables",
+      "handler": "create_sample_variable",
+      "source_refs": [
+        "Service/infera-modules/src/user_sample/routes.rs:292",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/user_sample/models.rs",
+        "Service/infera-modules/src/user_sample/methods.rs",
+        "Service/infera-modules/src/user_sample/transformers.rs"
+      ],
+      "source_sha256": "40e39ba1f1ea16eb6091e41f0020a0894f780dc75eadef1f770da858276b1502",
+      "correction": {
+        "purpose": "Create sample variable using the mounted user sample handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/samples/by-slug/{slug}/variables-map",
+      "handler": "variables_map_by_slug",
+      "source_refs": [
+        "Service/infera-modules/src/user_sample/routes.rs:219",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/user_sample/models.rs",
+        "Service/infera-modules/src/user_sample/methods.rs",
+        "Service/infera-modules/src/user_sample/transformers.rs"
+      ],
+      "source_sha256": "40e39ba1f1ea16eb6091e41f0020a0894f780dc75eadef1f770da858276b1502",
+      "correction": {
+        "purpose": "Variables map by slug using the mounted user sample handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/samples/variables",
+      "handler": "list_all_variables",
+      "source_refs": [
+        "Service/infera-modules/src/user_sample/routes.rs:326",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/user_sample/models.rs",
+        "Service/infera-modules/src/user_sample/methods.rs",
+        "Service/infera-modules/src/user_sample/transformers.rs"
+      ],
+      "source_sha256": "40e39ba1f1ea16eb6091e41f0020a0894f780dc75eadef1f770da858276b1502",
+      "correction": {
+        "purpose": "List all variables using the mounted user sample handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/samples/variables/{id}",
+      "handler": "delete_variable",
+      "source_refs": [
+        "Service/infera-modules/src/user_sample/routes.rs:426",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/user_sample/models.rs",
+        "Service/infera-modules/src/user_sample/methods.rs",
+        "Service/infera-modules/src/user_sample/transformers.rs"
+      ],
+      "source_sha256": "40e39ba1f1ea16eb6091e41f0020a0894f780dc75eadef1f770da858276b1502",
+      "correction": {
+        "purpose": "Delete variable using the mounted user sample handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/samples/variables/{id}",
+      "handler": "show_variable",
+      "source_refs": [
+        "Service/infera-modules/src/user_sample/routes.rs:361",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/user_sample/models.rs",
+        "Service/infera-modules/src/user_sample/methods.rs",
+        "Service/infera-modules/src/user_sample/transformers.rs"
+      ],
+      "source_sha256": "40e39ba1f1ea16eb6091e41f0020a0894f780dc75eadef1f770da858276b1502",
+      "correction": {
+        "purpose": "Show variable using the mounted user sample handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/samples/variables/{id}",
+      "handler": "update_variable",
+      "source_refs": [
+        "Service/infera-modules/src/user_sample/routes.rs:394",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/user_sample/models.rs",
+        "Service/infera-modules/src/user_sample/methods.rs",
+        "Service/infera-modules/src/user_sample/transformers.rs"
+      ],
+      "source_sha256": "40e39ba1f1ea16eb6091e41f0020a0894f780dc75eadef1f770da858276b1502",
+      "correction": {
+        "purpose": "Update variable using the mounted user sample handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/samples/variables/{id}",
+      "handler": "update_variable",
+      "source_refs": [
+        "Service/infera-modules/src/user_sample/routes.rs:394",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/user_sample/models.rs",
+        "Service/infera-modules/src/user_sample/methods.rs",
+        "Service/infera-modules/src/user_sample/transformers.rs"
+      ],
+      "source_sha256": "40e39ba1f1ea16eb6091e41f0020a0894f780dc75eadef1f770da858276b1502",
+      "correction": {
+        "purpose": "Update variable using the mounted user sample handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/seo-contents",
+      "handler": "list_seo_contents",
+      "source_refs": [
+        "Service/infera-modules/src/seo_content/routes.rs:50",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/seo_content/models.rs",
+        "Service/infera-modules/src/seo_content/methods.rs",
+        "Service/infera-modules/src/seo_content/transformers.rs"
+      ],
+      "source_sha256": "035d2076337c0bd46a0e4357b85192f02f244ecdb8511da81051ee37c145d9d4",
+      "correction": {
+        "purpose": "List seo contents using the mounted seo content handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key. Search trims a literal case-insensitive substring, allows at most 128 Unicode characters and no NUL, and returns normalized search or null.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/seo-contents",
+      "handler": "create_seo_content",
+      "source_refs": [
+        "Service/infera-modules/src/seo_content/routes.rs:88",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/seo_content/models.rs",
+        "Service/infera-modules/src/seo_content/methods.rs",
+        "Service/infera-modules/src/seo_content/transformers.rs"
+      ],
+      "source_sha256": "035d2076337c0bd46a0e4357b85192f02f244ecdb8511da81051ee37c145d9d4",
+      "correction": {
+        "purpose": "Create seo content using the mounted seo content handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/seo-contents/{host}/{target_id}",
+      "handler": "detach_from_target",
+      "source_refs": [
+        "Service/infera-modules/src/seo_content/routes.rs:283",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/seo_content/models.rs",
+        "Service/infera-modules/src/seo_content/methods.rs",
+        "Service/infera-modules/src/seo_content/transformers.rs"
+      ],
+      "source_sha256": "035d2076337c0bd46a0e4357b85192f02f244ecdb8511da81051ee37c145d9d4",
+      "correction": {
+        "purpose": "Detach from target using the mounted seo content handler. Returns HTTP 200 with status/message and no data member. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400. Junction deletion scopes by junction ID and resolved host table; the target path ID is not a second repository predicate.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/seo-contents/{host}/{target_id}",
+      "handler": "list_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/seo_content/routes.rs:214",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/seo_content/models.rs",
+        "Service/infera-modules/src/seo_content/methods.rs",
+        "Service/infera-modules/src/seo_content/transformers.rs"
+      ],
+      "source_sha256": "035d2076337c0bd46a0e4357b85192f02f244ecdb8511da81051ee37c145d9d4",
+      "correction": {
+        "purpose": "List on target using the mounted seo content handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/seo-contents/{host}/{target_id}",
+      "handler": "attach_to_target",
+      "source_refs": [
+        "Service/infera-modules/src/seo_content/routes.rs:248",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/seo_content/models.rs",
+        "Service/infera-modules/src/seo_content/methods.rs",
+        "Service/infera-modules/src/seo_content/transformers.rs"
+      ],
+      "source_sha256": "035d2076337c0bd46a0e4357b85192f02f244ecdb8511da81051ee37c145d9d4",
+      "correction": {
+        "purpose": "Attach to target using the mounted seo content handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/seo-contents/{id}",
+      "handler": "delete_seo_content",
+      "source_refs": [
+        "Service/infera-modules/src/seo_content/routes.rs:182",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/seo_content/models.rs",
+        "Service/infera-modules/src/seo_content/methods.rs",
+        "Service/infera-modules/src/seo_content/transformers.rs"
+      ],
+      "source_sha256": "035d2076337c0bd46a0e4357b85192f02f244ecdb8511da81051ee37c145d9d4",
+      "correction": {
+        "purpose": "Delete seo content using the mounted seo content handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/seo-contents/{id}",
+      "handler": "show_seo_content",
+      "source_refs": [
+        "Service/infera-modules/src/seo_content/routes.rs:119",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/seo_content/models.rs",
+        "Service/infera-modules/src/seo_content/methods.rs",
+        "Service/infera-modules/src/seo_content/transformers.rs"
+      ],
+      "source_sha256": "035d2076337c0bd46a0e4357b85192f02f244ecdb8511da81051ee37c145d9d4",
+      "correction": {
+        "purpose": "Show seo content using the mounted seo content handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/seo-contents/{id}",
+      "handler": "update_seo_content",
+      "source_refs": [
+        "Service/infera-modules/src/seo_content/routes.rs:151",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/seo_content/models.rs",
+        "Service/infera-modules/src/seo_content/methods.rs",
+        "Service/infera-modules/src/seo_content/transformers.rs"
+      ],
+      "source_sha256": "035d2076337c0bd46a0e4357b85192f02f244ecdb8511da81051ee37c145d9d4",
+      "correction": {
+        "purpose": "Update seo content using the mounted seo content handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/seo-contents/{id}",
+      "handler": "update_seo_content",
+      "source_refs": [
+        "Service/infera-modules/src/seo_content/routes.rs:151",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/seo_content/models.rs",
+        "Service/infera-modules/src/seo_content/methods.rs",
+        "Service/infera-modules/src/seo_content/transformers.rs"
+      ],
+      "source_sha256": "035d2076337c0bd46a0e4357b85192f02f244ecdb8511da81051ee37c145d9d4",
+      "correction": {
+        "purpose": "Update seo content using the mounted seo content handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/shop/cart",
+      "handler": "show",
+      "source_refs": [
+        "Service/infera-modules/src/cart/routes.rs:18",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/cart/models.rs",
+        "Service/infera-modules/src/cart/methods.rs"
+      ],
+      "source_sha256": "96a380832ab20a81bf929e56470cf3d6463e1359ae278626aafc9d7521c4ad5a",
+      "correction": {
+        "purpose": "Show using the mounted cart handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/shop/cart",
+      "handler": "replace",
+      "source_refs": [
+        "Service/infera-modules/src/cart/routes.rs:30",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/cart/models.rs",
+        "Service/infera-modules/src/cart/methods.rs"
+      ],
+      "source_sha256": "96a380832ab20a81bf929e56470cf3d6463e1359ae278626aafc9d7521c4ad5a",
+      "correction": {
+        "purpose": "Replace using the mounted cart handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/shop/checkout/{id}",
+      "handler": "read",
+      "source_refs": [
+        "Service/infera-modules/src/order/checkout.rs:323",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/order/models.rs",
+        "Service/infera-modules/src/order/methods.rs",
+        "Service/infera-modules/src/order/transformers.rs"
+      ],
+      "source_sha256": "fd63e96f363bb7fe55e5021674df89db7ae2c843b38d6019be6cfc7d249d64ae",
+      "correction": {
+        "purpose": "Read using the mounted order handler. Orders are owner scoped (admin role can access all), prices come from active variants, and quantities must be 1\u201310000 across 1\u2013100 unique variants. Checkout transitions enforce stock and payment state.",
+        "auth": "Authenticated non-nil order owner or admin role; foreign/missing orders return 404"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/shop/checkout/{id}/cancel",
+      "handler": "cancel",
+      "source_refs": [
+        "Service/infera-modules/src/order/checkout.rs:470",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/order/models.rs",
+        "Service/infera-modules/src/order/methods.rs",
+        "Service/infera-modules/src/order/transformers.rs"
+      ],
+      "source_sha256": "fd63e96f363bb7fe55e5021674df89db7ae2c843b38d6019be6cfc7d249d64ae",
+      "correction": {
+        "purpose": "Cancel using the mounted order handler. Orders are owner scoped (admin role can access all), prices come from active variants, and quantities must be 1\u201310000 across 1\u2013100 unique variants. Checkout transitions enforce stock and payment state.",
+        "auth": "Authenticated non-nil order owner or admin role; foreign/missing orders return 404"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/shop/checkout/{id}/pay",
+      "handler": "pay",
+      "source_refs": [
+        "Service/infera-modules/src/order/checkout.rs:340",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/order/models.rs",
+        "Service/infera-modules/src/order/methods.rs",
+        "Service/infera-modules/src/order/transformers.rs"
+      ],
+      "source_sha256": "fd63e96f363bb7fe55e5021674df89db7ae2c843b38d6019be6cfc7d249d64ae",
+      "correction": {
+        "purpose": "Pay using the mounted order handler. Orders are owner scoped (admin role can access all), prices come from active variants, and quantities must be 1\u201310000 across 1\u2013100 unique variants. Checkout transitions enforce stock and payment state.",
+        "auth": "Authenticated non-nil order owner or admin role; foreign/missing orders return 404"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/shop/checkout/quote",
+      "handler": "quote",
+      "source_refs": [
+        "Service/infera-modules/src/order/checkout.rs:164",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/order/models.rs",
+        "Service/infera-modules/src/order/methods.rs",
+        "Service/infera-modules/src/order/transformers.rs"
+      ],
+      "source_sha256": "fd63e96f363bb7fe55e5021674df89db7ae2c843b38d6019be6cfc7d249d64ae",
+      "correction": {
+        "purpose": "Quote using the mounted order handler. Orders are owner scoped (admin role can access all), prices come from active variants, and quantities must be 1\u201310000 across 1\u2013100 unique variants. Checkout transitions enforce stock and payment state.",
+        "auth": "Authenticated non-nil order owner or admin role; foreign/missing orders return 404"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/shop/orders",
+      "handler": "list_orders",
+      "source_refs": [
+        "Service/infera-modules/src/order/routes.rs:48",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/order/models.rs",
+        "Service/infera-modules/src/order/methods.rs",
+        "Service/infera-modules/src/order/transformers.rs"
+      ],
+      "source_sha256": "df0d3af9a8e5286fbbfd255ec6a07ee872ccb8c89eeb404ade2a5eb87a9f7cfd",
+      "correction": {
+        "response": "import(\"./contracts.types.js\").ModulesOrderListResponse",
+        "purpose": "List orders using the mounted order handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key. Orders are owner scoped (admin role can access all), prices come from active variants, and quantities must be 1\u201310000 across 1\u2013100 unique variants. Checkout transitions enforce stock and payment state.",
+        "auth": "Authenticated non-nil order owner or admin role; foreign/missing orders return 404"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/shop/orders",
+      "handler": "create_order",
+      "source_refs": [
+        "Service/infera-modules/src/order/routes.rs:80",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/order/models.rs",
+        "Service/infera-modules/src/order/methods.rs",
+        "Service/infera-modules/src/order/transformers.rs"
+      ],
+      "source_sha256": "df0d3af9a8e5286fbbfd255ec6a07ee872ccb8c89eeb404ade2a5eb87a9f7cfd",
+      "correction": {
+        "response": "import(\"./contracts.types.js\").ModulesOrderResponse",
+        "dataAlias": "import(\"./contracts.types.js\").ModulesOrderRecord",
+        "input": "import(\"./contracts.types.js\").ModulesOrderCreateInput",
+        "purpose": "Create order using the mounted order handler. Orders are owner scoped (admin role can access all), prices come from active variants, and quantities must be 1\u201310000 across 1\u2013100 unique variants. Checkout transitions enforce stock and payment state.",
+        "auth": "Authenticated non-nil order owner or admin role; foreign/missing orders return 404"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/shop/orders/{id}",
+      "handler": "delete_order",
+      "source_refs": [
+        "Service/infera-modules/src/order/routes.rs:178",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/order/models.rs",
+        "Service/infera-modules/src/order/methods.rs",
+        "Service/infera-modules/src/order/transformers.rs"
+      ],
+      "source_sha256": "df0d3af9a8e5286fbbfd255ec6a07ee872ccb8c89eeb404ade2a5eb87a9f7cfd",
+      "correction": {
+        "purpose": "Delete order using the mounted order handler. Returns HTTP 200 with status/message and no data member. Orders are owner scoped (admin role can access all), prices come from active variants, and quantities must be 1\u201310000 across 1\u2013100 unique variants. Checkout transitions enforce stock and payment state.",
+        "auth": "Authenticated non-nil order owner or admin role; foreign/missing orders return 404"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/shop/orders/{id}",
+      "handler": "show_order",
+      "source_refs": [
+        "Service/infera-modules/src/order/routes.rs:111",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/order/models.rs",
+        "Service/infera-modules/src/order/methods.rs",
+        "Service/infera-modules/src/order/transformers.rs"
+      ],
+      "source_sha256": "df0d3af9a8e5286fbbfd255ec6a07ee872ccb8c89eeb404ade2a5eb87a9f7cfd",
+      "correction": {
+        "response": "import(\"./contracts.types.js\").ModulesOrderResponse",
+        "dataAlias": "import(\"./contracts.types.js\").ModulesOrderRecord",
+        "purpose": "Show order using the mounted order handler. Orders are owner scoped (admin role can access all), prices come from active variants, and quantities must be 1\u201310000 across 1\u2013100 unique variants. Checkout transitions enforce stock and payment state.",
+        "auth": "Authenticated non-nil order owner or admin role; foreign/missing orders return 404"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/shop/orders/{id}",
+      "handler": "update_order",
+      "source_refs": [
+        "Service/infera-modules/src/order/routes.rs:145",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/order/models.rs",
+        "Service/infera-modules/src/order/methods.rs",
+        "Service/infera-modules/src/order/transformers.rs"
+      ],
+      "source_sha256": "df0d3af9a8e5286fbbfd255ec6a07ee872ccb8c89eeb404ade2a5eb87a9f7cfd",
+      "correction": {
+        "response": "import(\"./contracts.types.js\").ModulesOrderResponse",
+        "dataAlias": "import(\"./contracts.types.js\").ModulesOrderRecord",
+        "purpose": "Update order using the mounted order handler. Orders are owner scoped (admin role can access all), prices come from active variants, and quantities must be 1\u201310000 across 1\u2013100 unique variants. Checkout transitions enforce stock and payment state.",
+        "auth": "Authenticated non-nil order owner or admin role; foreign/missing orders return 404"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/shop/orders/{id}",
+      "handler": "update_order",
+      "source_refs": [
+        "Service/infera-modules/src/order/routes.rs:145",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/order/models.rs",
+        "Service/infera-modules/src/order/methods.rs",
+        "Service/infera-modules/src/order/transformers.rs"
+      ],
+      "source_sha256": "df0d3af9a8e5286fbbfd255ec6a07ee872ccb8c89eeb404ade2a5eb87a9f7cfd",
+      "correction": {
+        "response": "import(\"./contracts.types.js\").ModulesOrderResponse",
+        "dataAlias": "import(\"./contracts.types.js\").ModulesOrderRecord",
+        "purpose": "Update order using the mounted order handler. Orders are owner scoped (admin role can access all), prices come from active variants, and quantities must be 1\u201310000 across 1\u2013100 unique variants. Checkout transitions enforce stock and payment state.",
+        "auth": "Authenticated non-nil order owner or admin role; foreign/missing orders return 404"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/shop/orders/{order_id}/items",
+      "handler": "list_order_items",
+      "source_refs": [
+        "Service/infera-modules/src/order/routes.rs:208",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/order/models.rs",
+        "Service/infera-modules/src/order/methods.rs",
+        "Service/infera-modules/src/order/transformers.rs"
+      ],
+      "source_sha256": "df0d3af9a8e5286fbbfd255ec6a07ee872ccb8c89eeb404ade2a5eb87a9f7cfd",
+      "correction": {
+        "purpose": "List order items using the mounted order handler. Orders are owner scoped (admin role can access all), prices come from active variants, and quantities must be 1\u201310000 across 1\u2013100 unique variants. Checkout transitions enforce stock and payment state.",
+        "auth": "Authenticated non-nil order owner or admin role; foreign/missing orders return 404"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/shop/orders/{order_id}/items",
+      "handler": "add_order_item",
+      "source_refs": [
+        "Service/infera-modules/src/order/routes.rs:241",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/order/models.rs",
+        "Service/infera-modules/src/order/methods.rs",
+        "Service/infera-modules/src/order/transformers.rs"
+      ],
+      "source_sha256": "df0d3af9a8e5286fbbfd255ec6a07ee872ccb8c89eeb404ade2a5eb87a9f7cfd",
+      "correction": {
+        "response": "import(\"./contracts.types.js\").ModulesOrderResponse",
+        "dataAlias": "import(\"./contracts.types.js\").ModulesOrderRecord",
+        "input": "import(\"./contracts.types.js\").ModulesOrderItemInput",
+        "purpose": "Add order item using the mounted order handler. Orders are owner scoped (admin role can access all), prices come from active variants, and quantities must be 1\u201310000 across 1\u2013100 unique variants. Checkout transitions enforce stock and payment state.",
+        "auth": "Authenticated non-nil order owner or admin role; foreign/missing orders return 404"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/shop/products",
+      "handler": "list_products",
+      "source_refs": [
+        "Service/infera-modules/src/product/routes.rs:60",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/product/models.rs",
+        "Service/infera-modules/src/product/methods.rs",
+        "Service/infera-modules/src/product/transformers.rs"
+      ],
+      "source_sha256": "d5217f580dfcdbaef5f6064efc2d1fbaa14b1eda67669185e3cb4daff6ed5668",
+      "correction": {
+        "purpose": "List products using the mounted product handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key. Filters support category UUID/slug, scope, search and country/province/city IDs; these product filters are separate from hosted literal search.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/shop/products",
+      "handler": "create_product",
+      "source_refs": [
+        "Service/infera-modules/src/product/routes.rs:96",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/product/models.rs",
+        "Service/infera-modules/src/product/methods.rs",
+        "Service/infera-modules/src/product/transformers.rs"
+      ],
+      "source_sha256": "d5217f580dfcdbaef5f6064efc2d1fbaa14b1eda67669185e3cb4daff6ed5668",
+      "correction": {
+        "purpose": "Create product using the mounted product handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/shop/products/{id}",
+      "handler": "delete_product",
+      "source_refs": [
+        "Service/infera-modules/src/product/routes.rs:193",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/product/models.rs",
+        "Service/infera-modules/src/product/methods.rs",
+        "Service/infera-modules/src/product/transformers.rs"
+      ],
+      "source_sha256": "d5217f580dfcdbaef5f6064efc2d1fbaa14b1eda67669185e3cb4daff6ed5668",
+      "correction": {
+        "purpose": "Delete product using the mounted product handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/shop/products/{id}",
+      "handler": "show_product",
+      "source_refs": [
+        "Service/infera-modules/src/product/routes.rs:127",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/product/models.rs",
+        "Service/infera-modules/src/product/methods.rs",
+        "Service/infera-modules/src/product/transformers.rs"
+      ],
+      "source_sha256": "d5217f580dfcdbaef5f6064efc2d1fbaa14b1eda67669185e3cb4daff6ed5668",
+      "correction": {
+        "purpose": "Show product using the mounted product handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/shop/products/{id}",
+      "handler": "update_product",
+      "source_refs": [
+        "Service/infera-modules/src/product/routes.rs:160",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/product/models.rs",
+        "Service/infera-modules/src/product/methods.rs",
+        "Service/infera-modules/src/product/transformers.rs"
+      ],
+      "source_sha256": "d5217f580dfcdbaef5f6064efc2d1fbaa14b1eda67669185e3cb4daff6ed5668",
+      "correction": {
+        "purpose": "Update product using the mounted product handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/shop/products/{id}",
+      "handler": "update_product",
+      "source_refs": [
+        "Service/infera-modules/src/product/routes.rs:160",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/product/models.rs",
+        "Service/infera-modules/src/product/methods.rs",
+        "Service/infera-modules/src/product/transformers.rs"
+      ],
+      "source_sha256": "d5217f580dfcdbaef5f6064efc2d1fbaa14b1eda67669185e3cb4daff6ed5668",
+      "correction": {
+        "purpose": "Update product using the mounted product handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/shop/products/{product_id}/variants",
+      "handler": "list_product_variants",
+      "source_refs": [
+        "Service/infera-modules/src/product/routes.rs:227",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/product/models.rs",
+        "Service/infera-modules/src/product/methods.rs",
+        "Service/infera-modules/src/product/transformers.rs"
+      ],
+      "source_sha256": "d5217f580dfcdbaef5f6064efc2d1fbaa14b1eda67669185e3cb4daff6ed5668",
+      "correction": {
+        "purpose": "List product variants using the mounted product handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/shop/products/{product_id}/variants",
+      "handler": "create_variant",
+      "source_refs": [
+        "Service/infera-modules/src/product/routes.rs:307",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/product/models.rs",
+        "Service/infera-modules/src/product/methods.rs",
+        "Service/infera-modules/src/product/transformers.rs"
+      ],
+      "source_sha256": "d5217f580dfcdbaef5f6064efc2d1fbaa14b1eda67669185e3cb4daff6ed5668",
+      "correction": {
+        "purpose": "Create variant using the mounted product handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/shop/variants",
+      "handler": "list_variants",
+      "source_refs": [
+        "Service/infera-modules/src/product/routes.rs:262",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/product/models.rs",
+        "Service/infera-modules/src/product/methods.rs",
+        "Service/infera-modules/src/product/transformers.rs"
+      ],
+      "source_sha256": "d5217f580dfcdbaef5f6064efc2d1fbaa14b1eda67669185e3cb4daff6ed5668",
+      "correction": {
+        "purpose": "List variants using the mounted product handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/shop/variants/{id}",
+      "handler": "delete_variant",
+      "source_refs": [
+        "Service/infera-modules/src/product/routes.rs:404",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/product/models.rs",
+        "Service/infera-modules/src/product/methods.rs",
+        "Service/infera-modules/src/product/transformers.rs"
+      ],
+      "source_sha256": "d5217f580dfcdbaef5f6064efc2d1fbaa14b1eda67669185e3cb4daff6ed5668",
+      "correction": {
+        "purpose": "Delete variant using the mounted product handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/shop/variants/{id}",
+      "handler": "show_variant",
+      "source_refs": [
+        "Service/infera-modules/src/product/routes.rs:339",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/product/models.rs",
+        "Service/infera-modules/src/product/methods.rs",
+        "Service/infera-modules/src/product/transformers.rs"
+      ],
+      "source_sha256": "d5217f580dfcdbaef5f6064efc2d1fbaa14b1eda67669185e3cb4daff6ed5668",
+      "correction": {
+        "purpose": "Show variant using the mounted product handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/shop/variants/{id}",
+      "handler": "update_variant",
+      "source_refs": [
+        "Service/infera-modules/src/product/routes.rs:372",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/product/models.rs",
+        "Service/infera-modules/src/product/methods.rs",
+        "Service/infera-modules/src/product/transformers.rs"
+      ],
+      "source_sha256": "d5217f580dfcdbaef5f6064efc2d1fbaa14b1eda67669185e3cb4daff6ed5668",
+      "correction": {
+        "purpose": "Update variant using the mounted product handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/shop/variants/{id}",
+      "handler": "update_variant",
+      "source_refs": [
+        "Service/infera-modules/src/product/routes.rs:372",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/product/models.rs",
+        "Service/infera-modules/src/product/methods.rs",
+        "Service/infera-modules/src/product/transformers.rs"
+      ],
+      "source_sha256": "d5217f580dfcdbaef5f6064efc2d1fbaa14b1eda67669185e3cb4daff6ed5668",
+      "correction": {
+        "purpose": "Update variant using the mounted product handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/tags",
+      "handler": "list_tags",
+      "source_refs": [
+        "Service/infera-modules/src/tag/routes.rs:50",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/tag/models.rs",
+        "Service/infera-modules/src/tag/methods.rs",
+        "Service/infera-modules/src/tag/transformers.rs"
+      ],
+      "source_sha256": "26b4fbc2861bf86b9525e5dad67793e781d8ad3b2f8a745d9e3809cd8b6ea3c0",
+      "correction": {
+        "purpose": "List tags using the mounted tag handler. Pagination starts at 1, defaults to size 10 and clamps size to 1\u2013100; list data retains its named collection key. Search trims a literal case-insensitive substring, allows at most 128 Unicode characters and no NUL, and returns normalized search or null.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/tags",
+      "handler": "create_tag",
+      "source_refs": [
+        "Service/infera-modules/src/tag/routes.rs:88",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/tag/models.rs",
+        "Service/infera-modules/src/tag/methods.rs",
+        "Service/infera-modules/src/tag/transformers.rs"
+      ],
+      "source_sha256": "26b4fbc2861bf86b9525e5dad67793e781d8ad3b2f8a745d9e3809cd8b6ea3c0",
+      "correction": {
+        "purpose": "Create tag using the mounted tag handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/tags/{host}/{target_id}",
+      "handler": "detach_from_target",
+      "source_refs": [
+        "Service/infera-modules/src/tag/routes.rs:273",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/tag/models.rs",
+        "Service/infera-modules/src/tag/methods.rs",
+        "Service/infera-modules/src/tag/transformers.rs"
+      ],
+      "source_sha256": "26b4fbc2861bf86b9525e5dad67793e781d8ad3b2f8a745d9e3809cd8b6ea3c0",
+      "correction": {
+        "purpose": "Detach from target using the mounted tag handler. Returns HTTP 200 with status/message and no data member. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400. Junction deletion scopes by junction ID and resolved host table; the target path ID is not a second repository predicate.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/tags/{host}/{target_id}",
+      "handler": "list_on_target",
+      "source_refs": [
+        "Service/infera-modules/src/tag/routes.rs:204",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/tag/models.rs",
+        "Service/infera-modules/src/tag/methods.rs",
+        "Service/infera-modules/src/tag/transformers.rs"
+      ],
+      "source_sha256": "26b4fbc2861bf86b9525e5dad67793e781d8ad3b2f8a745d9e3809cd8b6ea3c0",
+      "correction": {
+        "purpose": "List on target using the mounted tag handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/tags/{host}/{target_id}",
+      "handler": "attach_to_target",
+      "source_refs": [
+        "Service/infera-modules/src/tag/routes.rs:238",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/tag/models.rs",
+        "Service/infera-modules/src/tag/methods.rs",
+        "Service/infera-modules/src/tag/transformers.rs"
+      ],
+      "source_sha256": "26b4fbc2861bf86b9525e5dad67793e781d8ad3b2f8a745d9e3809cd8b6ea3c0",
+      "correction": {
+        "purpose": "Attach to target using the mounted tag handler. Host must resolve to a supported Modules junction; unsupported host/agent combinations return 400.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/tags/{id}",
+      "handler": "delete_tag",
+      "source_refs": [
+        "Service/infera-modules/src/tag/routes.rs:172",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/tag/models.rs",
+        "Service/infera-modules/src/tag/methods.rs",
+        "Service/infera-modules/src/tag/transformers.rs"
+      ],
+      "source_sha256": "26b4fbc2861bf86b9525e5dad67793e781d8ad3b2f8a745d9e3809cd8b6ea3c0",
+      "correction": {
+        "purpose": "Delete tag using the mounted tag handler. Returns HTTP 200 with status/message and no data member.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/tags/{id}",
+      "handler": "show_tag",
+      "source_refs": [
+        "Service/infera-modules/src/tag/routes.rs:114",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/tag/models.rs",
+        "Service/infera-modules/src/tag/methods.rs",
+        "Service/infera-modules/src/tag/transformers.rs"
+      ],
+      "source_sha256": "26b4fbc2861bf86b9525e5dad67793e781d8ad3b2f8a745d9e3809cd8b6ea3c0",
+      "correction": {
+        "purpose": "Show tag using the mounted tag handler.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/tags/{id}",
+      "handler": "update_tag",
+      "source_refs": [
+        "Service/infera-modules/src/tag/routes.rs:146",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/tag/models.rs",
+        "Service/infera-modules/src/tag/methods.rs",
+        "Service/infera-modules/src/tag/transformers.rs"
+      ],
+      "source_sha256": "26b4fbc2861bf86b9525e5dad67793e781d8ad3b2f8a745d9e3809cd8b6ea3c0",
+      "correction": {
+        "purpose": "Update tag using the mounted tag handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/tags/{id}",
+      "handler": "update_tag",
+      "source_refs": [
+        "Service/infera-modules/src/tag/routes.rs:146",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/tag/models.rs",
+        "Service/infera-modules/src/tag/methods.rs",
+        "Service/infera-modules/src/tag/transformers.rs"
+      ],
+      "source_sha256": "26b4fbc2861bf86b9525e5dad67793e781d8ad3b2f8a745d9e3809cd8b6ea3c0",
+      "correction": {
+        "purpose": "Update tag using the mounted tag handler. Optional null fields generally preserve existing values; PUT and PATCH share the same partial-update handler where both are mounted.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /health",
+      "handler": "status_route",
+      "source_refs": [
+        "Service/infera-modules/src/router.rs:463",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs",
+        "Service/infera-modules/src/models.rs"
+      ],
+      "source_sha256": "11858f3d10eac620e5544af14b1d452e6929620b6951a5d826f7fe93b65146a3",
+      "correction": {
+        "purpose": "Read process liveness and static package version in status/message/data; does not probe dependency readiness.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /integration/flow",
+      "handler": "flow_integration_show",
+      "source_refs": [
+        "Service/infera-modules/src/integration/routes.rs:9",
+        "Service/infera-modules/src/router.rs",
+        "Service/infera-modules/src/auth.rs"
+      ],
+      "source_sha256": "60bd65974d5edf9f6b376baf16dd21009b4d954a577e723a7bf64cb0e892ffe3",
+      "correction": {
+        "response": "import(\"./contracts.types.js\").ModulesFlowIntegrationResponse",
+        "purpose": "Read Flow queue integration metadata in the Modules success envelope; this service currently advertises an empty event list.",
+        "auth": "No local handler capability check; IDP/gateway deployment policy is separate. Configured Bearer/cookie identity is always forwarded by the shared client"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    }
+  ]
+}

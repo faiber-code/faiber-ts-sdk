@@ -1,0 +1,13 @@
+Flow immutable source audit — d560d457b331ffe8e318006e5baf5d3734ffbe98
+
+All18 mounted HTTP operations manually reconciled from router.rs and nested route functions, handlers/extractors, models, validators, SeaORM entities/queries, registry notification, catalog upstreams, engine and broker consumer. Source snapshots preserve Git blob bytes. Candidate external source is separately labeled in source-manifest.json; it is not a resolved Flow dependency pin.
+
+No committed Cargo.lock exists in this revision. The saved unresolved lock supplied in existing evidence contains no source fields for IDP/Flow packages. Therefore exact dependency compilation and middleware behavior remain acceptance gates. The inspected candidate macro registers permission metadata without modifying handler bodies; candidate auth middleware trusts x-user-* and dev-fallback. Flow event emit alone has a direct local flow:execute/* check. Do not claim other declared permissions are locally enforced or Bearer tokens verified by Flow.
+
+No native services, builds, tests, Cargo, Docker, commits or publication ran for this audit. tests/flow-source-wire.test.mjs and tests/flow-source-wire.types.ts are prepared for parent final integrated checks. The operation review deliberately stays pending until those and native/deployed/dependency gates have evidence.
+
+Follow-up read-only dependency provenance investigation
+
+The committed .cargo/config.toml patches the three SDK Git dependencies to sibling local crate paths. Existing Oct19 dependency-blocked evidence recorded faiber-sdk291c81a67bc302d667fb807da2af3240598bee52 and individual crate hashes. All three hashes reproduce exactly from that immutable revision and the current relevant clean crate trees. Full source snapshots are in observed-local-dependency-source; dependency-identity-investigation.json records every file hash and the comparison. This confirms the observed local dependency graph identity, upgrading those bytes from an arbitrary candidate to previously recorded inputs. It does not turn the failed attempt into a native pass or establish production dependency resolution.
+
+No Cargo.lock has been committed on any available Flow Git ref. The ignored working lock exactly matches the prior unresolved artifact and encodes local path packages without source revisions. The Dockerfile omits .cargo, accepts an optional Cargo.lock and builds without --locked. No Flow target or shared-target Flow fingerprint was available. Therefore an exact historical Docker/production dependency revision cannot be recovered from these inputs. A retained resolved build lock/attestation would be required; no revision was guessed and no backend source was changed.

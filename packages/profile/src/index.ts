@@ -50,7 +50,7 @@ export class ProfileApi extends ServiceApi {
      */
     avatar(id: Identifier, key: string, options?: RequestOptions) { return this.client.get<Blob>(`/api/v1/profile-media/${encodeURIComponent(id)}/avatar`, { key }, { responseType: "blob", ...options }); }
     media(id: Identifier, key: string, options?: RequestOptions) { return this.client.get<Blob>(`/api/v1/profile/${encodeURIComponent(id)}/media`, { key }, { responseType: "blob", ...options }); }
-    /** Updates a profile by its IDP user UUID, not by the profile row's `id`. */
+    /** Updates by IDP user UUID first, then by local Profile UUID as a fallback. Omission preserves values; only job has explicit null-clearing in this general patch model. */
     updateProfile(userId: Identifier, data: T.ProfilePatchInput, options?: RequestOptions<T.ProfilePatchInput>) { return this.client.patch<T.ProfileResponse, T.ProfilePatchInput>(`/api/v1/profile/${encodeURIComponent(userId)}`, data, options); }
     /** Explicit alias for updateProfile that makes the required identifier unambiguous. */
     updateProfileByUserId(userId: Identifier, data: T.ProfilePatchInput, options?: RequestOptions<T.ProfilePatchInput>) { return this.updateProfile(userId, data, options); }
@@ -82,3 +82,5 @@ export * from "./contracts.types.js";
 
 export * from "./summaries.js";
 export * from "./summaries.types.js";
+
+export * from "./wire.types.js";

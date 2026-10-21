@@ -36,12 +36,14 @@ Typed, framework-neutral clients for the public Faiber service platform. Install
 npm install @faiber/faiber-ts-sdk
 ```
 
+Server-side login with a registered confidential client:
+
 ```ts
 import { FaiberSDK, MemoryTokenProvider, domainsFromEnv } from "@faiber/faiber-ts-sdk";
 
 const tokenProvider = new MemoryTokenProvider();
 const sdk = new FaiberSDK({
-  domains: domainsFromEnv(import.meta.env),
+  domains: domainsFromEnv(process.env),
   authMode: "bearer",
   tokenProvider,
   axios: { withCredentials: true, timeout: 15_000 },
@@ -60,7 +62,7 @@ await tokenProvider.setTokens({
 });
 ```
 
-Login forms are sent as `application/x-www-form-urlencoded`. Cookie deployments set `authMode: "cookie"`, which enables credentialed requests and suppresses Bearer injection; Bearer deployments set `authMode: "bearer"` and provide a token provider. The backward-compatible `auto` mode sends a token when available and otherwise follows Axios cookie configuration. The SDK never reads global storage or embeds credentials.
+Keep confidential client secrets on the server. Browser applications can use the registered browser login flow or a server-managed session. Login forms are sent as `application/x-www-form-urlencoded`. Cookie deployments set `authMode: "cookie"`, which enables credentialed requests and suppresses Bearer injection; Bearer deployments set `authMode: "bearer"` and provide a token provider. The backward-compatible `auto` mode sends a token when available and otherwise follows Axios cookie configuration. The SDK never reads global storage or embeds credentials. Configure browser origins through the authenticated service gateway where a service trusts forwarded identity headers; supplying a token to a direct internal listener does not establish gateway authentication.
 
 For browser applications, prefer secure `HttpOnly`, `SameSite` cookies or an in-memory token provider. `StorageTokenProvider` is available only for applications that explicitly accept that Web Storage is readable by JavaScript and can expose tokens during an XSS incident. Server applications can implement `TokenProvider` against their request/session context.
 
@@ -68,11 +70,11 @@ Automatic refresh is opt-in through `refreshAuth`. Concurrent `401` responses sh
 
 ## Complete route coverage and AI guidance
 
-Capability discovery defaults to a fresh fetched `main` inventory. To inspect the exact backend commits selected for an SDK candidate, run `FAIBER_CAPABILITY_SOURCE_MODE=sdk npm run capabilities:discover` after capturing the remote baseline. The matrix records the canonical, selected SDK and actual inventory revisions separately. A source decision must bind the actual inventory revision and compiler input checksum; changing either invalidates that decision. Discovery does not verify semantic meaning, current permissions, SDK HTTP behavior or readable Manage workflows automatically.
+Each package includes a `provenance.json` identifying the backend revisions used for its contracts. Match your deployment to those revisions and consult the service README for supported workflows and authentication requirements.
 
 Every service exposes curated convenience APIs plus `sdk.<service>.operations`, generated from mounted Rust routes. Generated methods preserve the HTTP verb, path identifiers, query shape, body shape, response envelope, form/multipart transport, and declared permission. REST convenience resources are capability guarded, so an unsupported operation fails locally instead of producing a backend `405`.
 
-The facade is the single supported application entrypoint. It exports every public service API and type namespace, plus `FaiberSDK.capabilities` and `sdk.describe(service?)`. This machine-readable catalog tells developers and coding agents what each service does and which transport and authentication mode it needs. Manage is exposed as a project-scoped gateway and governed Agentic transport; it never grants arbitrary-host access. Concrete Rust types that cannot be expanded structurally retain a branded `BackendJson<"Rust::Type">` name rather than degrading to `any` or an unexplained placeholder.
+The facade is the single supported application entrypoint. It exports every public service API and type namespace, plus `FaiberSDK.capabilities` and `sdk.describe(service?)`. This machine-readable catalog tells developers and coding agents what each service does and which transport and authentication mode it needs. Manage is exposed as a project-scoped gateway and governed Agentic transport; it never grants arbitrary-host access. Named wire types describe concrete backend models. Fields intentionally carrying application-defined metadata, schema documents, or provider payloads use documented JSON types.
 
 ```ts
 await sdk.profile.updateProfileByUserId(userId, {
@@ -86,7 +88,7 @@ await sdk.profile.updateProfileByUserId(userId, {
 });
 ```
 
-The profile call above sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields remain unchanged and nullable fields can be cleared with `null`.
+The profile call above sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields remain unchanged. `job: null` clears the job title; most other optional core fields treat null like omission. Property updates follow the configured property schema.
 
 ## Pagination, filtering, and search
 
@@ -94,7 +96,7 @@ List methods preserve each backend's typed query contract, including page number
 
 ## Domains and environment configuration
 
-`domainsFromEnv` reads a plain object such as `import.meta.env` or `process.env`. Supported keys are `FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_SOCIAL_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, `FAIBER_FLOW_URL`, `FAIBER_KNOWLEDGE_URL`, `FAIBER_CHAT_URL`, `FAIBER_STATE_URL`, and `FAIBER_DRM_URL`. Applications may instead pass `domains` directly or a shared `defaultDomain` gateway. Absolute request URLs are rejected unless explicitly enabled.
+`domainsFromEnv` reads a plain object such as `import.meta.env` or `process.env`. Supported keys are `FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_SOCIAL_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, `FAIBER_FLOW_URL`, `FAIBER_KNOWLEDGE_URL`, `FAIBER_CHAT_URL`, `FAIBER_STATE_URL`, `FAIBER_DRM_URL`, `FAIBER_TASK_URL`, `FAIBER_GIS_URL`, and `FAIBER_MANAGE_URL`. Applications may instead pass `domains` directly or a shared `defaultDomain` gateway. Absolute request URLs are rejected unless explicitly enabled.
 
 ## Inputs, outputs, errors, and cancellation
 

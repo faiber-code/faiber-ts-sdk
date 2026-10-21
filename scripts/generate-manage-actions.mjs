@@ -30,12 +30,19 @@ export type ManageAgentActionReviewInput = ManageAgentActionReviewBase & (
 `+types.slice(end);
 const banner='// Generated from the reviewed canonical Manage durable-action packet. Do not edit.\n';
 const files=new Map([['packages/manage/src/durable.types.ts',banner+'import type {JsonValue} from "@faiber/sdk-core";\n'+types]]);
+const docs={
+ getAgentActionCapabilities: 'Checks mounted durable protocol and closed-schema mode; incompatible replies reject. Requires a signed Manage session and current project.settings.manage;401/403 deny authority and502 means unavailable.',
+ listAgentActions: 'Lists the newest50 summaries for the current project, actor and thread, without payload/history. Requires signed Manage session, project.settings.manage and agents.run;404 hides other scopes,502 means unavailable.',
+ getAgentAction: 'Loads the current durable action and replay metadata before review. Requires signed Manage session, project.settings.manage and agents.run;404 hides other scopes,502 means unavailable.',
+ reviewAgentAction: 'Edits only the stored body or records approve/reject with a reason. Requires signed Manage session, project.settings.manage and agents.run. Send captured version/hash and operation UUID;409 needs fresh GET,400/422 rejects malformed input. Exact retry preserves the entire request.',
+ executeAgentAction: 'Executes the saved approved payload under current project.settings.manage and agents.run authority. Requires signed Manage session;409 needs fresh GET and502 means unavailable. Cancellation does not undo a claim; preserve exact UUID/body and reconcile unknown outcome without retrying the target.',
+};
 const lines=[banner.trimEnd(),'import {ServiceApi,type RequestOptions} from "@faiber/sdk-core";','import type * as T from "./durable.types.js";','import {actionIdentifier,validateReview,validateExecution,validateCapabilities} from "./durable.js";','export class ManageActionOperations extends ServiceApi {'];
 for(const op of contract.operations){
  const args=op.parameters.map(name=>name+': string');
  if(op.input)args.push('input: T.'+op.input);
  args.push('options?: RequestOptions'+(op.input?'<T.'+op.input+'>':''));
- lines.push('  /** Calls `'+op.method+' '+op.path+'`. Preserve captured revisions and exact operation UUID on retry. */','  '+op.name+'('+args.join(', ')+') {');
+ lines.push('  /** '+docs[op.name]+' Calls `'+op.method+' '+op.path+'`; returns the complete Axios response. */','  '+op.name+'('+args.join(', ')+') {');
  for(const name of op.parameters)lines.push('    actionIdentifier('+name+');');
  if(op.input)lines.push('    '+(op.name==='reviewAgentAction'?'validateReview':'validateExecution')+'(input);');
  const path='`'+op.path.replaceAll('{threadId}','${encodeURIComponent(threadId)}').replaceAll('{actionId}','${encodeURIComponent(actionId)}')+'`';

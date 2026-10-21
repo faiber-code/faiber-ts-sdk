@@ -27,7 +27,20 @@ const slots = await api.availableSlots({
   service_id: 8,
   date: "2026-07-22",
 });
-await api.setSchedules(42, { schedules });
+await api.setSchedules(42, {
+  schedules: [{ day_of_week: "monday", start_time: "09:00", end_time: "12:00" }],
+});
+const generated = await api.generateSlots({
+  provider_id: 42, service_id: 8,
+  from_date: "2026-11-02", to_date: "2026-11-02",
+});
+console.log(generated.data.data); // number of newly generated rows
+const booking = await api.reservations.create({
+  time_slot_id: 73,
+  user_id: "00000000-0000-4000-8000-000000000042", // actual IDP customer UUID
+  notes: "Consultation",
+});
+await api.reservations.delete(booking.data.data.id); // cancel; data:null
 ```
 
 ## Complete capability
@@ -44,11 +57,15 @@ This package exposes 30 source-mounted operations from the reservations service.
 | `time-slot` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `work-schedule` | 2 | `GET`, `PUT` |
 
-Dates are ISO-8601 at the API boundary. Local calendar conversion belongs in application presentation code.
+Provider, service, slot and reservation IDs are local numbers; customer and linked provider `user_id` values are IDP UUID strings. Booking creation takes `time_slot_id`, `user_id` and optional `notes`; it derives provider/service from the existing slot. Provider capacity defaults to 1 and active flags use `is_active`.
+
+Catalog/provider/booking lists return `{status,message,data:{data:[...],meta:{page,page_size,total_items,total_pages}}}`. Availability, schedules and assigned services return unpaged arrays in `data`. Booking list/show/update currently return `starts_at:null`; read its slot for the interval. Creation includes the slot start time. Null/omitted patch text fields preserve their existing values.
+
+Schedules use weekday names, `start_time`/`end_time` in `HH:MM`, and optional `is_active`. Setting schedules replaces the entire set; an empty array clears it. Appointment timestamps are RFC3339 and date filters are UTC `YYYY-MM-DD`. Local calendar conversion belongs in application presentation code.
 
 ## Authentication and authorization
 
-Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Permission requirements copied from service route guards are included in each operation's JSDoc. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.
+Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. The mounted service middleware requires a trusted non-nil current user, organization context and matching resource/action or accepted reservation manage grant for management operations. Health, OpenAPI, availability and Flow metadata GETs are public. Each operation documents its accepted grants. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.
 
 ## Inputs, queries, responses, and transport
 

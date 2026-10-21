@@ -1,0 +1,918 @@
+{
+  "service": "crm",
+  "revision": "77e2e4a7660e007aefef81e27337476c6d748cac",
+  "reviewed_operation_count": 92,
+  "native_execution": false,
+  "operations": [
+    {
+      "operation": "GET /",
+      "handler": "infera-crm/src/router.rs:157",
+      "purpose": "Read process liveness and package version in the legacy status/message/data envelope; no dependency probe.",
+      "auth": "No local handler permission check; deployment/gateway authority must be independently verified",
+      "contract_correction": {
+        "response": "import(\"./types.js\").CrmHealthResponse"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /health",
+      "handler": "infera-crm/src/router.rs:157",
+      "purpose": "Read process liveness and package version in the legacy status/message/data envelope; no dependency probe.",
+      "auth": "No local handler permission check; deployment/gateway authority must be independently verified",
+      "contract_correction": {
+        "response": "import(\"./types.js\").CrmHealthResponse"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /up",
+      "handler": "infera-crm/src/router.rs:157",
+      "purpose": "Read process liveness and package version in the legacy status/message/data envelope; no dependency probe.",
+      "auth": "No local handler permission check; deployment/gateway authority must be independently verified",
+      "contract_correction": {
+        "response": "import(\"./types.js\").CrmHealthResponse"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /livez",
+      "handler": "infera-crm/src/router.rs:157",
+      "purpose": "Read process liveness and package version in the legacy status/message/data envelope; no dependency probe.",
+      "auth": "No local handler permission check; deployment/gateway authority must be independently verified",
+      "contract_correction": {
+        "response": "import(\"./types.js\").CrmHealthResponse"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /readyz",
+      "handler": "infera-crm/src/router.rs:167",
+      "purpose": "Probe database and broker readiness; return legacy status/message/data with dependency booleans and HTTP 503 if either dependency is unavailable.",
+      "auth": "No local handler permission check; deployment/gateway authority must be independently verified",
+      "contract_correction": {
+        "response": "import(\"./types.js\").CrmReadinessResponse"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/context",
+      "handler": "infera-crm/src/api/routes.rs:205",
+      "purpose": "Read the configured CRM workspace, including locale, timezone, currency, AI settings and optimistic version; absent workspace returns 404.",
+      "auth": "crm:admin or any one of crm:workspace:read",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/workflow",
+      "handler": "infera-crm/src/api/operations.rs:973",
+      "purpose": "List nondeleted workspace workflows, including inactive entries. Only sort is consumed from ListQuery; comma-separated entity columns support a - prefix and priority is the final ordering.",
+      "auth": "crm:admin or any one of workflow:read, workflow:read_all, workflow:read_own",
+      "contract_correction": {
+        "query": "import(\"./contracts.types.js\").CrmEntitySortQuery"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/workflow",
+      "handler": "infera-crm/src/api/operations.rs:945",
+      "purpose": "Create a workflow with name/slug, required acquire_flags and priority. Defaults entity_type:lead, is_active:true and zero quota; normalize/deduplicate flags and require unique action keys/forms. Returns 201.",
+      "auth": "crm:admin or any one of workflow:create",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmWorkflowCreateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/workflow/{id}",
+      "handler": "infera-crm/src/api/operations.rs:992",
+      "purpose": "Read one nondeleted workspace workflow by UUID; absent or foreign-workspace IDs return 404.",
+      "auth": "crm:admin or any one of workflow:read, workflow:read_all, workflow:read_own",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/workflow/{id}",
+      "handler": "infera-crm/src/api/operations.rs:1015",
+      "purpose": "Patch a nondeleted workflow. Explicit null clears team_id/actions/hint; null on ordinary optional fields preserves them. Actions null serializes as an empty array in responses. Version is accepted but repository does not enforce optimistic locking.",
+      "auth": "crm:admin or any one of workflow:update",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmWorkflowUpdateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/workflow/{id}",
+      "handler": "infera-crm/src/api/operations.rs:1015",
+      "purpose": "Patch a nondeleted workflow. Explicit null clears team_id/actions/hint; null on ordinary optional fields preserves them. Actions null serializes as an empty array in responses. Version is accepted but repository does not enforce optimistic locking.",
+      "auth": "crm:admin or any one of workflow:update",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmWorkflowUpdateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/workflow/{id}",
+      "handler": "infera-crm/src/api/operations.rs:1061",
+      "purpose": "Soft-delete a workspace workflow and return {id,deleted:true}; missing or previously deleted workflow returns 404.",
+      "auth": "crm:admin or any one of workflow:delete",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/workflow-node",
+      "handler": "infera-crm/src/api/operations.rs:1258",
+      "purpose": "List nondeleted nodes whose parent workflows are nondeleted; includes inactive nodes. The repository has no workspace predicate on this compatibility listing. Only sort is consumed.",
+      "auth": "crm:admin or any one of workflow_node:read, workflow_node:read_all, workflow_node:read_own",
+      "contract_correction": {
+        "query": "import(\"./contracts.types.js\").CrmEntitySortQuery"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/workflow-node/{id}",
+      "handler": "infera-crm/src/api/operations.rs:1281",
+      "purpose": "Read a nondeleted node by UUID, then require its nondeleted parent in the configured workspace; missing parent or node returns 404.",
+      "auth": "crm:admin or any one of workflow_node:read, workflow_node:read_all, workflow_node:read_own",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/workflow-node/{id}",
+      "handler": "infera-crm/src/api/operations.rs:1121",
+      "purpose": "Create a node under the path workflow UUID (the singular route names that parameter id). Validate name/slug, probability 0..1, open/won/lost stage type and nonnegative SLA; defaults drag permissions true. Returns 201.",
+      "auth": "crm:admin or any one of workflow_node:create",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmWorkflowNodeCreateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/workflow-node/{id}",
+      "handler": "infera-crm/src/api/operations.rs:1311",
+      "purpose": "Resolve a node UUID to its checked workspace parent, then patch it. Explicit null clears sla_minutes/actions; no version parameter is enforced.",
+      "auth": "crm:admin or any one of workflow_node:update",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmWorkflowNodeUpdateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/workflow-node/{id}",
+      "handler": "infera-crm/src/api/operations.rs:1311",
+      "purpose": "Resolve a node UUID to its checked workspace parent, then patch it. Explicit null clears sla_minutes/actions; no version parameter is enforced.",
+      "auth": "crm:admin or any one of workflow_node:update",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmWorkflowNodeUpdateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/workflow-node/{id}",
+      "handler": "infera-crm/src/api/operations.rs:1365",
+      "purpose": "Soft-delete a node after checking its workspace parent; this singular compatibility route returns data:true, not a deletion object.",
+      "auth": "crm:admin or any one of workflow_node:delete",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/workflows",
+      "handler": "infera-crm/src/api/operations.rs:973",
+      "purpose": "List nondeleted workspace workflows, including inactive entries. Only sort is consumed from ListQuery; comma-separated entity columns support a - prefix and priority is the final ordering.",
+      "auth": "crm:admin or any one of workflow:read, workflow:read_all, workflow:read_own",
+      "contract_correction": {
+        "query": "import(\"./contracts.types.js\").CrmEntitySortQuery"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/workflows",
+      "handler": "infera-crm/src/api/operations.rs:945",
+      "purpose": "Create a workflow with name/slug, required acquire_flags and priority. Defaults entity_type:lead, is_active:true and zero quota; normalize/deduplicate flags and require unique action keys/forms. Returns 201.",
+      "auth": "crm:admin or any one of workflow:create",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmWorkflowCreateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/workflows/{id}",
+      "handler": "infera-crm/src/api/operations.rs:992",
+      "purpose": "Read one nondeleted workspace workflow by UUID; absent or foreign-workspace IDs return 404.",
+      "auth": "crm:admin or any one of workflow:read, workflow:read_all, workflow:read_own",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/workflows/{id}",
+      "handler": "infera-crm/src/api/operations.rs:1015",
+      "purpose": "Patch a nondeleted workflow. Explicit null clears team_id/actions/hint; null on ordinary optional fields preserves them. Actions null serializes as an empty array in responses. Version is accepted but repository does not enforce optimistic locking.",
+      "auth": "crm:admin or any one of workflow:update",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmWorkflowUpdateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/workflows/{id}",
+      "handler": "infera-crm/src/api/operations.rs:1061",
+      "purpose": "Soft-delete a workspace workflow and return {id,deleted:true}; missing or previously deleted workflow returns 404.",
+      "auth": "crm:admin or any one of workflow:delete",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/workflows/{workflow_id}/nodes",
+      "handler": "infera-crm/src/api/operations.rs:1096",
+      "purpose": "List nondeleted nodes after checking that the parent workflow belongs to this workspace; includes inactive nodes. Only sort is consumed; sort columns precede priority ordering.",
+      "auth": "crm:admin or any one of workflow_node:read, workflow_node:read_all, workflow_node:read_own",
+      "contract_correction": {
+        "query": "import(\"./contracts.types.js\").CrmEntitySortQuery"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/workflows/{workflow_id}/nodes",
+      "handler": "infera-crm/src/api/operations.rs:1121",
+      "purpose": "Create a node under the path workflow UUID (the singular route names that parameter id). Validate name/slug, probability 0..1, open/won/lost stage type and nonnegative SLA; defaults drag permissions true. Returns 201.",
+      "auth": "crm:admin or any one of workflow_node:create",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmWorkflowNodeCreateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/workflows/{workflow_id}/nodes/{node_id}",
+      "handler": "infera-crm/src/api/operations.rs:1151",
+      "purpose": "Read a nondeleted node scoped to a nondeleted workspace parent workflow; missing parent or node returns 404.",
+      "auth": "crm:admin or any one of workflow_node:read, workflow_node:read_all, workflow_node:read_own",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/workflows/{workflow_id}/nodes/{node_id}",
+      "handler": "infera-crm/src/api/operations.rs:1181",
+      "purpose": "Patch a node within its checked workspace parent; explicit null clears sla_minutes/actions and ordinary optional nulls preserve fields. Validate probability, stage type, name/slug and SLA. No version parameter is enforced.",
+      "auth": "crm:admin or any one of workflow_node:update",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmWorkflowNodeUpdateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/workflows/{workflow_id}/nodes/{node_id}",
+      "handler": "infera-crm/src/api/operations.rs:1232",
+      "purpose": "Soft-delete a node scoped to its checked workspace parent; return {id,deleted:true}; missing parent or node returns 404.",
+      "auth": "crm:admin or any one of workflow_node:delete",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/integration/office/leads/find",
+      "handler": "infera-crm/src/integration/office.rs:58",
+      "purpose": "Find a nullable legacy leads-table row by profile_id, foreign_key and comma-separated flags. Empty flags may match a single candidate. Response is legacy status/message/data without meta. This handler has no local authorization or workspace predicate.",
+      "auth": "No local handler permission check; deployment/gateway authority must be independently verified",
+      "contract_correction": {
+        "response": "import(\"./types.js\").CrmOfficeLeadResponse",
+        "query": "import(\"./contracts.types.js\").CrmOfficeLeadQuery",
+        "requiredQuery": true
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/pipelines",
+      "handler": "infera-crm/src/api/routes.rs:249",
+      "purpose": "List nondeleted workspace workflows with their nondeleted stages; includes inactive entries, ordered by entity type, priority, default flag and name.",
+      "auth": "crm:admin or any one of crm:pipeline:read",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/pipelines/{id}",
+      "handler": "infera-crm/src/api/dashboard.rs:60",
+      "purpose": "Patch pipeline fields using required version; negative quota returns 422 and missing/stale version match returns 409. Null fields preserve existing values.",
+      "auth": "crm:admin or any one of crm:pipeline:update",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/workflows/member-based",
+      "handler": "infera-crm/src/api/dashboard.rs:41",
+      "purpose": "List nondeleted workflows assigned to the caller directly or through legacy/current team membership, ordered by priority; includes inactive entries.",
+      "auth": "crm:admin or any one of crm:pipeline:read, workflow:read, workflow:read_own",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/stats/daily",
+      "handler": "infera-crm/src/api/dashboard.rs:118",
+      "purpose": "Calculate caller-assigned workflow daily quotas from backlog and priority, completed-today counts and extra work in UTC. Default total allocation limit is 50; no assigned/actionable workflows returns empty totals and all_tasks_done:true.",
+      "auth": "crm:admin or any one of crm:stats:read, crm:stats:read_own",
+      "contract_correction": {
+        "response": "import(\"./types.js\").CrmDailyStatsResponse"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/stats/lead",
+      "handler": "infera-crm/src/api/dashboard.rs:332",
+      "purpose": "Aggregate total/active/inactive leads for caller-assigned nondeleted lead workflows; active status uses custom_data.is_active_status, default true.",
+      "auth": "crm:admin or any one of crm:stats:read, crm:stats:read_all, crm:stats:read_own",
+      "contract_correction": {
+        "response": "import(\"./types.js\").CrmLeadStatsResponse"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/teams",
+      "handler": "infera-crm/src/api/routes.rs:259",
+      "purpose": "List nondeleted workspace teams with active member counts, ordered by name and UUID; includes inactive teams.",
+      "auth": "crm:admin or any one of crm:team:read",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/teams",
+      "handler": "infera-crm/src/api/writes.rs:112",
+      "purpose": "Create a trimmed nonempty team name with optional description/manager; return the team and zero member count with HTTP 201. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:team:create",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/teams/{id}",
+      "handler": "infera-crm/src/api/operations.rs:88",
+      "purpose": "Read a nondeleted workspace team with all membership rows, including inactive members; absent team returns 404.",
+      "auth": "crm:admin or any one of crm:team:read",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/teams/{id}",
+      "handler": "infera-crm/src/api/operations.rs:177",
+      "purpose": "Soft-delete a team with required optimistic version; deactivate members, detach team references and remove workflow assignments transactionally. Missing team returns 404 and version conflict 409. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:team:delete",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/teams/{id}/members",
+      "handler": "infera-crm/src/api/operations.rs:110",
+      "purpose": "Upsert/reactivate a team user membership with optional title and capacity default 1 in 0..100; missing nondeleted team returns 404. Returns 201. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:team:manage_members",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/teams/{team_id}/members/{member_id}",
+      "handler": "infera-crm/src/api/operations.rs:245",
+      "purpose": "Deactivate an active membership identified by member UUID under the team; return the updated membership, or 404 if inactive/missing. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:team:manage_members",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/sos",
+      "handler": "infera-crm/src/api/operations.rs:290",
+      "purpose": "List SOS entries whose leads are nondeleted in this workspace, newest first; returns SOS records rather than enriched lead objects.",
+      "auth": "crm:admin or any one of crm:sos:read",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/leads/{id}/sos",
+      "handler": "infera-crm/src/api/operations.rs:305",
+      "purpose": "Upsert SOS for a nondeleted workspace lead; existing SOS retains its record identity and creator. Missing lead returns 404. Returns 201. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:sos:create",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/leads/{id}/sos",
+      "handler": "infera-crm/src/api/operations.rs:359",
+      "purpose": "Remove an SOS entry and return {id,deleted:true}, where id is the SOS entry UUID, not the lead UUID; absent entry returns 404. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:sos:delete",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/workflows/{id}/assignments",
+      "handler": "infera-crm/src/api/operations.rs:403",
+      "purpose": "List team/user assignments in this workspace for the path workflow UUID, ordered by creation and UUID; does not check parent existence.",
+      "auth": "crm:admin or any one of crm:workflow_assignment:read",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/workflows/{id}/assignments",
+      "handler": "infera-crm/src/api/operations.rs:419",
+      "purpose": "Assign exactly one team_id or user_id to a workflow; supplied team must exist and duplicate assignments return 409. Returns 201; parent validity also depends on database constraints. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:workflow_assignment:manage",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/workflows/{workflow_id}/assignments/{assignment_id}",
+      "handler": "infera-crm/src/api/operations.rs:505",
+      "purpose": "Hard-delete a workflow assignment scoped by workspace, workflow UUID and assignment UUID; return {id,deleted:true}, or 404. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:workflow_assignment:manage",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/tasks",
+      "handler": "infera-crm/src/api/operations.rs:549",
+      "purpose": "List nondeleted task rows by ascending UUID; filters cursor/status/profile_id and due_at via active_from/active_to. Caller-only unless crm:admin or crm:task:read_all. Limit defaults 50, clamped 1..100.",
+      "auth": "crm:admin or any one of crm:task:read, crm:task:read_all, crm:task:read_own",
+      "contract_correction": {
+        "query": "import(\"./contracts.types.js\").CrmTaskListQuery"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/tasks",
+      "handler": "infera-crm/src/api/operations.rs:580",
+      "purpose": "Create a task with nonempty trimmed title, priority low/normal/high/urgent (default normal), task_type default follow_up and assignee default caller; return 201. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:task:create",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmTaskCreateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/tasks/{id}",
+      "handler": "infera-crm/src/api/operations.rs:691",
+      "purpose": "Soft-delete a nondeleted workspace task and return {id,deleted:true}; no version body is accepted, and absent task returns 404. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:task:delete",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/tasks/{id}/status",
+      "handler": "infera-crm/src/api/operations.rs:630",
+      "purpose": "Set open/in_progress/completed/cancelled with required version; completed sets completed_at and other statuses clear it. Missing task 404; stale version 409. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:task:update",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmTaskStatusInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/activities/with-reminder",
+      "handler": "infera-crm/src/api/operations.rs:836",
+      "purpose": "Create an activity and reminder task atomically under one key. Validate activity type, nonempty reminder title and priority; reminder assignee defaults caller and type defaults reminder. Returns 201 with both records. Authorization accepts either listed create permission. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:activity:create, crm:task:create",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmActivityReminderCreateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/activities",
+      "handler": "infera-crm/src/api/operations.rs:757",
+      "purpose": "List workspace activities ordered by occurred_at DESC,id DESC, with id < cursor; enrich nullable owner profiles. Only cursor/limit are consumed. Limit defaults 50, clamped 1..100.",
+      "auth": "crm:admin or any one of crm:activity:read",
+      "contract_correction": {
+        "query": "import(\"./contracts.types.js\").CrmCursorQuery"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/activities",
+      "handler": "infera-crm/src/api/operations.rs:783",
+      "purpose": "Create note/call/email/meeting/demo/message activity, default occurred_at to now and owner to caller; return nullable owner profile and HTTP 201. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:activity:create",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmActivityCreateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/worklog",
+      "handler": "infera-crm/src/api/operations.rs:920",
+      "purpose": "List nondeleted legacy worklogs; restrict assignee_id to caller unless worklog:read_all or crm:admin. Comma-separated entity sort columns support - prefix; no workspace predicate exists in repository.",
+      "auth": "crm:admin or any one of worklog:read, worklog:read_all, worklog:read_own",
+      "contract_correction": {
+        "query": "import(\"./contracts.types.js\").CrmEntitySortQuery"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/sources",
+      "handler": "infera-crm/src/api/operations.rs:1413",
+      "purpose": "List all workspace marketing sources, including inactive entries, ordered by active flag then name and UUID.",
+      "auth": "crm:admin or any one of crm:marketing:read",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/sources",
+      "handler": "infera-crm/src/api/operations.rs:1424",
+      "purpose": "Create a marketing source with trimmed nonempty name/slug and channel default other; return HTTP 201. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:marketing:manage",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/campaigns",
+      "handler": "infera-crm/src/api/operations.rs:1461",
+      "purpose": "List nondeleted workspace marketing campaigns, including inactive statuses, newest first.",
+      "auth": "crm:admin or any one of crm:marketing:read",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/campaigns",
+      "handler": "infera-crm/src/api/operations.rs:1472",
+      "purpose": "Create a campaign with trimmed nonempty name/slug, status draft/active/paused/completed/archived (default draft), currency default IRR and extensible metadata; return 201. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:marketing:manage",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmCampaignCreateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/workspace/settings",
+      "handler": "infera-crm/src/api/operations.rs:1524",
+      "purpose": "Patch workspace settings with required version. AI mode must be off/advisory/approval_required/bounded_auto; ordinary optional nulls preserve values. Missing workspace returns 404; stale version 409. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:settings:update",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmWorkspaceUpdateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/automation/jobs",
+      "handler": "infera-crm/src/api/routes.rs:680",
+      "purpose": "List workspace durable jobs with cursor/status, ascending UUID; limit defaults 50, clamped 1..100. Result is nullable job-type-specific stored JSON.",
+      "auth": "crm:admin or any one of crm:automation:read",
+      "contract_correction": {
+        "query": "import(\"./contracts.types.js\").CrmJobListQuery"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/automation/webhooks",
+      "handler": "infera-crm/src/api/routes.rs:705",
+      "purpose": "List workspace webhook subscriptions, including inactive entries, with total and failed/dead-letter delivery counts.",
+      "auth": "crm:admin or any one of crm:automation:read",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/companies",
+      "handler": "infera-crm/src/api/routes.rs:274",
+      "purpose": "Search nondeleted workspace companies by name/domain with q and ascending UUID cursor. Only cursor/limit/q are consumed; limit defaults 50, clamped 1..100.",
+      "auth": "crm:admin or any one of crm:company:read, crm:company:read_all",
+      "contract_correction": {
+        "query": "import(\"./contracts.types.js\").CrmSearchQuery"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/companies",
+      "handler": "infera-crm/src/api/writes.rs:156",
+      "purpose": "Create a company with trimmed nonempty name and nonnegative employee count/revenue. Validate selected active team and owner membership; return 201. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:company:create",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/companies/{id}",
+      "handler": "infera-crm/src/api/routes.rs:304",
+      "purpose": "Read a nondeleted workspace company by UUID; missing or foreign workspace company returns 404.",
+      "auth": "crm:admin or any one of crm:company:read, crm:company:read_all",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/companies/{id}",
+      "handler": "infera-crm/src/api/writes.rs:277",
+      "purpose": "Patch company fields using required version; validate nonempty name and nonnegative count/revenue. Optional nulls preserve fields; missing company 404 and stale version 409. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:company:update",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/contacts",
+      "handler": "infera-crm/src/api/routes.rs:324",
+      "purpose": "Search nondeleted workspace contacts by first/last name/email with q and ascending UUID cursor. Only cursor/limit/q are consumed; limit defaults 50, clamped 1..100.",
+      "auth": "crm:admin or any one of crm:contact:read, crm:contact:read_all",
+      "contract_correction": {
+        "query": "import(\"./contracts.types.js\").CrmSearchQuery"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/contacts",
+      "handler": "infera-crm/src/api/writes.rs:218",
+      "purpose": "Create a contact with trimmed nonempty first_name and optional profile/consent/custom data; validate selected active team and owner membership. Returns 201. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:contact:create",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/contacts/{id}",
+      "handler": "infera-crm/src/api/routes.rs:354",
+      "purpose": "Read a nondeleted workspace contact by UUID; missing or foreign workspace contact returns 404.",
+      "auth": "crm:admin or any one of crm:contact:read, crm:contact:read_all",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/contacts/{id}",
+      "handler": "infera-crm/src/api/writes.rs:345",
+      "purpose": "Patch contact with required version; validate nonempty first_name and active/inactive/do_not_contact lifecycle status. Optional nulls preserve fields; missing contact 404, stale version 409. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:contact:update",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmContactUpdateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/leads/light",
+      "handler": "infera-crm/src/api/routes.rs:436",
+      "purpose": "Alias of the full lead list with exactly the same filters, ownership restrictions and bare Lead response model; no extra profile enrichment.",
+      "auth": "crm:admin or any one of crm:lead:read, crm:lead:read_all, crm:lead:read_own (delegates to the full lead-list handler)",
+      "contract_correction": {
+        "query": "import(\"./contracts.types.js\").CrmLeadListQuery"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/leads",
+      "handler": "infera-crm/src/api/routes.rs:377",
+      "purpose": "List bare nondeleted workspace lead records with UUID cursor and q/pipeline/stage/status/team/owner/statuses/profile/active date filters. statuses is comma-separated. Caller-only unless crm:admin or crm:lead:read_all. Limit defaults 50, clamped 1..100; UUID cursor remains id > cursor even with task_priority/created_at/created_at_desc sorting.",
+      "auth": "crm:admin or any one of crm:lead:read, crm:lead:read_all, crm:lead:read_own",
+      "contract_correction": {
+        "query": "import(\"./contracts.types.js\").CrmLeadListQuery"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/leads",
+      "handler": "infera-crm/src/api/writes.rs:639",
+      "purpose": "Create a lead with trimmed title, score 0..100 and nonnegative value; choose an active lead stage when omitted, default owner to caller and currency IRR. Validate active team/member assignment; return a bare Lead with HTTP 201. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:lead:create",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/leads/{id}",
+      "handler": "infera-crm/src/api/routes.rs:445",
+      "purpose": "Read a nondeleted workspace lead visible to the caller and enrich a nullable remote profile using column or legacy custom_data.profile_id; missing/invisible leads return 404.",
+      "auth": "crm:admin or any one of crm:lead:read, crm:lead:read_all, crm:lead:read_own",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/leads/{id}",
+      "handler": "infera-crm/src/api/writes.rs:415",
+      "purpose": "Patch a bare lead with required version; validate nonempty title, score 0..100, nonnegative value and new/working/qualified/disqualified/converted status. Optional nulls preserve fields; missing 404, stale version 409. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:lead:update",
+      "contract_correction": {
+        "input": "import(\"./contracts.types.js\").CrmLeadUpdateInput"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/leads/{id}/history",
+      "handler": "infera-crm/src/api/operations.rs:1388",
+      "purpose": "Merge activities and audit events for a workspace lead, newest first, with nullable actor profiles and extensible event data. Either crm:lead:read or crm:activity:read suffices; this handler does not apply lead ownership filtering.",
+      "auth": "crm:admin or any one of crm:lead:read, crm:activity:read",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/leads/{id}/reminders",
+      "handler": "infera-crm/src/api/operations.rs:738",
+      "purpose": "Soft-delete all nondeleted tasks for the workspace lead UUID; return {lead_id,deleted} with a numeric affected count, including zero. No parent check, version or idempotency key is required.",
+      "auth": "crm:admin or any one of crm:task:delete",
+      "contract_correction": {
+        "response": "import(\"./types.js\").CrmLeadReminderDeletionResponse"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/leads/{id}/stage",
+      "handler": "infera-crm/src/api/writes.rs:786",
+      "purpose": "Move a lead within its pipeline with required version; active stage required. Lost stage disqualifies and records loss_reason; won/activation/recurring slug qualifies. Write stage-change activity; missing 404, invalid stage 422, stale version 409. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:lead:move",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/leads/{id}/assignment",
+      "handler": "infera-crm/src/api/writes.rs:932",
+      "purpose": "Replace lead team and owner using required version; omitted or null IDs clear assignments. Validate active team and owner membership when selected, and write assignment activity. Missing 404, validation 422, stale version 409. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:lead:assign",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/deals",
+      "handler": "infera-crm/src/api/routes.rs:474",
+      "purpose": "List bare nondeleted workspace deals with cursor/q/pipeline/stage/status/team/owner filters, ascending UUID. Caller-only unless crm:admin or crm:deal:read_all. Limit defaults 50, clamped 1..100.",
+      "auth": "crm:admin or any one of crm:deal:read, crm:deal:read_all, crm:deal:read_own",
+      "contract_correction": {
+        "query": "import(\"./contracts.types.js\").CrmDealListQuery"
+      },
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/deals",
+      "handler": "infera-crm/src/api/writes.rs:711",
+      "purpose": "Create a deal with nonempty trimmed name, nonnegative amounts and probability 0..1. Choose active deal stage when omitted, default probability from stage, owner caller and currency IRR. Validate team membership; return 201. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:deal:create",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/deals/{id}",
+      "handler": "infera-crm/src/api/routes.rs:521",
+      "purpose": "Read a nondeleted workspace deal visible to caller; only crm:admin or crm:deal:read_all removes owner filtering. Missing/invisible deals return 404.",
+      "auth": "crm:admin or any one of crm:deal:read, crm:deal:read_all, crm:deal:read_own",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/deals/{id}",
+      "handler": "infera-crm/src/api/writes.rs:485",
+      "purpose": "Patch a deal with required version; validate name, nonnegative amounts and probability 0..1. Optional nulls preserve fields; missing 404, stale version 409. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:deal:update",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/deals/{id}/stage",
+      "handler": "infera-crm/src/api/writes.rs:855",
+      "purpose": "Move a deal within its pipeline with required version; active stage required. Lost requires nonempty loss_reason; update status/probability/closed_at and write stage-change activity. Missing 404, validation 422, stale version 409. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:deal:move",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/deals/{id}/assignment",
+      "handler": "infera-crm/src/api/writes.rs:997",
+      "purpose": "Replace deal team and owner using required version; omitted or null IDs clear assignments. Validate active team and owner membership when selected, and write assignment activity. Missing 404, validation 422, stale version 409. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:deal:assign",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/boards/{entity_type}/{pipeline_id}",
+      "handler": "infera-crm/src/api/routes.rs:542",
+      "purpose": "Read a lead or deal board with concrete pipeline/stage/record columns and summed value. Invalid entity_type 400, missing workspace pipeline 404. At most 1000 recently updated records; board permission does not apply per-record owner filtering.",
+      "auth": "crm:admin or any one of crm:board:read",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/reports/overview",
+      "handler": "infera-crm/src/api/routes.rs:633",
+      "purpose": "Calculate provisional metrics and data-quality warnings for period_start/period_end query. Default start is the first UTC day of end month and default end now; financial totals depend on ingested actuals.",
+      "auth": "crm:admin or any one of crm:report:read",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/reports/refresh",
+      "handler": "infera-crm/src/api/writes.rs:1062",
+      "purpose": "Calculate and persist certified metric snapshots/report run; period bounds are query parameters and no JSON body is read. Returns 201 with ready status, overview and agentic_started:false. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:report:refresh",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "POST /api/v1/reports/{id}/agentic",
+      "handler": "infera-crm/src/api/writes.rs:1114",
+      "purpose": "Queue report insight for a ready/ready_without_ai report, charge to configured project owner only when execution starts. Disabled AI or missing owner returns 422; missing ready run 404. Return queued job/project-owner UUIDs with HTTP 202. Requires a nonempty Idempotency-Key header up to 128 characters; duplicate submissions return 409 instead of replaying a response.",
+      "auth": "crm:admin or any one of crm:agent:run",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/reports/{id}",
+      "handler": "infera-crm/src/api/routes.rs:665",
+      "purpose": "Read a workspace report run by UUID, including nullable deterministic summary, AI result/error and completion timestamp; missing or foreign run returns 404.",
+      "auth": "crm:admin or any one of crm:report:read",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "GET /api/v1/reports/catalog",
+      "handler": "infera-crm/src/api/routes.rs:645",
+      "purpose": "Read workspace report definitions and global metric definitions as concrete reports/metrics arrays, ordered by report name/UUID and metric key.",
+      "auth": "crm:admin or any one of crm:report:read",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "ANY /api",
+      "handler": "infera-crm/src/router.rs:145",
+      "purpose": "Reach the legacy API not-found boundary with the chosen method. The handler returns structured 404; HEAD has no body and production CORS answers OPTIONS with empty 200. Axios rejects 404 by default; intentional diagnostics should check empty bodies. Registered paths are rejected locally by wildcard diagnostics. Does not mutate CRM records.",
+      "auth": "No local handler permission check; deployment/gateway authority must be independently verified",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    },
+    {
+      "operation": "ANY /api/{*path}",
+      "handler": "infera-crm/src/router.rs:145",
+      "purpose": "Reach the legacy API not-found boundary with the chosen method. The handler returns structured 404; HEAD has no body and production CORS answers OPTIONS with empty 200. Axios rejects 404 by default; intentional diagnostics should check empty bodies. Registered paths are rejected locally by wildcard diagnostics. Does not mutate CRM records.",
+      "auth": "No local handler permission check; deployment/gateway authority must be independently verified",
+      "contract_correction": {},
+      "source_review": "complete",
+      "native_acceptance": "pending"
+    }
+  ]
+}

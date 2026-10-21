@@ -17,8 +17,8 @@ export interface InboxStreamQuery extends QueryParams {cursor?:number;wait_secon
 export interface NotificationUnreadCount {unread_count:number}
 export interface PushDeviceInput {application_id:string;installation_id:string;platform:'android'|'ios';token:string;locale:string}
 export interface PushDevice {id:string}
-export interface PushDeviceRevocation {revoked:boolean}
-/** Self-scoped inbox delivery requires the current self-read permission in the native message namespace (legacy notification:self:read forwarded alias). Device operations retain their own native policy. */
+export interface PushDeviceRevocation {revoked:true}
+/** Self-scoped inbox delivery requires the current self-read permission in the native message namespace (legacy notification:self:read forwarded alias). Mobile device handlers declare notification:self:read and require an actor; explicit self_inbox_user filtering applies to inbox polling/counts. */
 export class MessengerDeliveryApi extends ServiceApi {
  /** Initialize cursor, then load the inbox snapshot, then resume from that cursor. A 410 requires resynchronization. Default timeout is 35 seconds for the server's 25-second wait; AbortSignal cancels normally. */
  events(query?:InboxStreamQuery,options?:RequestOptions){return this.client.get<ApiEnvelope<InboxStreamPage>>('/api/v1/notifications/me/events',query,{timeout:35000,...options});}
@@ -30,8 +30,11 @@ export class MessengerDeliveryApi extends ServiceApi {
  revokeDevice(id:string,options?:RequestOptions){return this.client.delete<ApiEnvelope<PushDeviceRevocation>>(`/api/v1/push/devices/${encodeURIComponent(id)}`,options);}
 }
 
-export interface WebPushConfig {enabled:boolean;public_key:string|null}
-export interface WebPushRegistration {application_id?:string;locale?:string;subscription:{endpoint:string;keys:{p256dh:string;auth:string}}}
-export interface WebPushRemoval {removed:boolean}
+export type WebPushConfig = {enabled:true;public_key:string} | {enabled:false;public_key:null}
+export interface WebPushKeys {p256dh:string;auth:string}
+export interface WebPushSubscription {endpoint:string;keys:WebPushKeys}
+/** Approved HTTPS push endpoint and URL-safe unpadded base64 keys; locale is normalized to en or fa. */
+export interface WebPushRegistration {application_id?:string;locale?:string;subscription:WebPushSubscription}
+export interface WebPushRemoval {removed:true}
 export interface WebPushTestDelivery {id:string;status:'pending'}
 export interface WebPushDelivery {id:string;status:'pending'|'sent'|'failed'|'cancelled';provider_status:number|null}

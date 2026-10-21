@@ -14,24 +14,15 @@ export type TransferErrorCode = "invalid_user_id" | "same_user" | "invalid_idemp
 export interface TransferUserDataErrorResponse { status: "error"; error: { code: TransferErrorCode; message: string; details: { user_id?: string } } }
 
 export interface EvaluationQuestion extends JsonObject { stable_id:string; version:number; kind:"teacher_rating"|"student_feedback"; metric_id:string; label_en:string; label_fa:string; description_en:string; description_fa:string; allow_not_applicable:boolean; enabled:boolean; archived:boolean; sort_order:number }
-export interface EvaluationQuestionInput extends JsonObject { stable_id?:string|null; kind:"teacher_rating"|"student_feedback"; metric_id:string; label_en:string; label_fa:string; description_en:string; description_fa:string; allow_not_applicable:boolean; enabled:boolean; archived?:boolean; sort_order:number }
+export interface EvaluationQuestionInput extends JsonObject { stable_id?:string|null; kind:"teacher_rating"|"student_feedback"; metric_id:string; label_en:string; label_fa:string; description_en?:string; description_fa?:string; allow_not_applicable:boolean; enabled:boolean; archived?:boolean; sort_order:number }
 export interface LmsEntity extends JsonObject {
     id: string;
     name?: string | null;
     title?: string | null;
     status?: string | null;
 }
-export interface Course extends LmsEntity {
-    /** Decimal strings preserve currency precision. */
-    price: string | null;
-    in_person_price: string | null;
-    online_price: string | null;
-    title: string;
-    category_id?: string;
-}
-export interface CourseCategory extends LmsEntity {
-    name: string;
-}
+export type Course = import("./operations.types.js").CourseShowCourseGetResponseData;
+export type CourseCategory = import("./operations.types.js").CourseShowCategoryGetResponseData;
 /** Course session, including its external or DRM-backed video source. */
 export interface CourseSession extends LmsEntity {
     id: string;
@@ -56,22 +47,7 @@ export interface VideoSection extends LmsEntity {
     course_id?: string;
     video_url?: string;
 }
-export interface Classroom extends LmsEntity {
-    /** Distinct enrolled user IDs (active, inactive, disabled, enrolled); excludes withdrawn/removed history. */
-    student_count: number;
-    /** Configured capacity; null means no limit is configured. Zero is preserved. */
-    capacity: number | null;
-    course_id?: string;
-    course_name?: string | null;
-    teacher_user_id?: string | null;
-    teacher_profile?: ClassroomSessionTeacherProfile | null;
-    consultant_user_id?: string | null;
-    consultant_profile?: ClassroomSessionTeacherProfile | null;
-    support_user_id?: string | null;
-    support_profile?: ClassroomSessionTeacherProfile | null;
-    starts_at?: string;
-    weekly_schedule?: ClassroomWeeklyScheduleRule[];
-}
+export type Classroom = import("./operations.types.js").ClassroomShowClassroomGetResponseData;
 
 /** Canonical LMS schedule: Sunday is 0, Saturday is 6; times are local to the rule offset. The rule's mode selects the generated primary session type. */
 export interface ClassroomWeeklyScheduleRule extends JsonObject {
@@ -82,7 +58,7 @@ export interface ClassroomWeeklyScheduleRule extends JsonObject {
     id?: string;
     day?: string;
     start_time?: string;
-    mode?: "online" | "interactive" | "in_person" | "makeup";
+    mode?: "online" | "interactive" | "composition" | "in_person" | "makeup" | (string & {});
     delivery_type?: string;
     delivery_type_name?: string;
     session_type?: string;
@@ -94,7 +70,7 @@ export interface ClassroomLegacyWeeklyScheduleRule extends JsonObject {
     day: string;
     start_time: string;
     id?: string;
-    mode?: "online" | "interactive" | "in_person" | "makeup";
+    mode?: "online" | "interactive" | "composition" | "in_person" | "makeup" | (string & {});
     delivery_type?: string;
     delivery_type_name?: string;
     session_type?: string;
@@ -119,16 +95,7 @@ export interface ClassroomSessionType extends JsonObject {
 }
 
 /** Minimal server-resolved teacher identity shown with a classroom session. */
-export interface ClassroomSessionTeacherProfile extends JsonObject {
-    id?: string;
-    user_id?: string;
-    first_name?: JsonValue;
-    last_name?: JsonValue;
-    email?: string;
-    phone?: string;
-    national_code?: string;
-    avatar?: string;
-}
+export type ClassroomSessionTeacherProfile = import("./wire.types.js").LmsProfileSummary;
 
 /** Course-session metadata embedded in a classroom-session read. */
 export interface ClassroomCourseSession extends JsonObject {
@@ -144,62 +111,10 @@ export interface ClassroomCourseSession extends JsonObject {
 }
 
 /** Classroom session returned by list, today, create, show, and update operations. */
-export interface ClassroomSession extends LmsEntity {
-    /** Selected students, or null for the whole classroom. */
-    student_user_ids: string[] | null;
-    id: string;
-    classroom_id: string;
-    classroom_name: string | null;
-    course_session_id: string | null;
-    course_session: ClassroomCourseSession | null;
-    course_session_type_id: string | null;
-    session_type: ClassroomSessionType | null;
-    name: string | null;
-    session_number: number | null;
-    duration_minutes: number | null;
-    description: string | null;
-    teacher_user_id: string | null;
-    teacher_profile: ClassroomSessionTeacherProfile | null;
-    locked: boolean;
-    auto_unlock: boolean;
-    auto_present: boolean;
-    invited: boolean;
-    session_room_id: string | null;
-    starts_at: string | null;
-    ends_at: string | null;
-    status: string;
-    created_at: string;
-    updated_at: string;
-}
-export interface Exam extends LmsEntity {
-    course_id?: string | null;
-    grade_id?: string | null;
-    name: string;
-    description?: string | null;
-    info?: string | null;
-    cover_url?: string | null;
-    duration_minutes?: number | null;
-    passing_mark?: number | null;
-    questions_count?: number | null;
-    easy_count?: number | null;
-    medium_count?: number | null;
-    hard_count?: number | null;
-    selection_mode?: string;
-    status: string;
-}
-export interface ExamQuestion extends LmsEntity {
-    exam_id: string;
-    question_text?: string;
-    question_type?: string;
-    difficulty?: string;
-    points?: number;
-    sort_order?: number;
-}
-export interface ExamSession extends LmsEntity {
-    exam_id?: string;
-    user_id?: string;
-    score?: number;
-}
+export type ClassroomSession = import("./operations.types.js").ClassroomShowSessionGetResponseData;
+export type Exam = import("./operations.types.js").ExamShowExamGetResponseData;
+export type ExamQuestion = import("./operations.types.js").ExamShowQuestionGetResponseData;
+export type ExamSession = import("./operations.types.js").ExamShowSessionGetResponseData;
 export type HomeworkItemKind = "todo" | "project";
 export type HomeworkDifficulty = "easy" | "medium" | "hard";
 export const HOMEWORK_ASSIGNMENT_STATUSES = [
@@ -214,6 +129,7 @@ export const HOMEWORK_ASSIGNMENT_STATUSES = [
     "completed",
     "rejected",
     "inactive",
+    "reviewed",
 ] as const;
 export type HomeworkAssignmentStatus = typeof HOMEWORK_ASSIGNMENT_STATUSES[number];
 /** Filters reusable homework banks by explicitly assigned delivery staff. */
@@ -262,6 +178,7 @@ export interface HomeworkAssignmentListQuery extends QueryParams {
     statuses?: readonly HomeworkAssignmentStatus[];
     /** The assigned homework-bank item/question ID, not its parent bank ID. */
     homework_id?: string;
+    course_id?: string;
     classroom_id?: string;
     /** Match any related participant or staff member. */
     user_id?: string;
@@ -294,45 +211,13 @@ export interface ExamSessionListQuery extends QueryParams {
     from?: string;
     to?: string;
 }
-export interface Homework extends LmsEntity {
-    /** Deprecated compatibility field; homework definitions are themselves banks. */
-    homework_bank_id: string | null;
-    course_id?: string | null;
-    course_name?: string | null;
-    grade_id?: string | null;
-    teacher_grade_id?: string | null;
-    name: string;
-    title?: string | null;
-    description?: string | null;
-    status: "active" | "inactive";
-    sort_order: number;
-    difficulty?: HomeworkDifficulty | null;
-    points: number;
-    created_at: string;
-    updated_at: string;
-}
-export type HomeworkBank = Homework;
-export type CreateHomeworkBankInput = CreateHomeworkInput;
-export type UpdateHomeworkBankInput = UpdateHomeworkInput;
+export type Homework = import("./operations.types.js").HomeworkShowHomeworkGetResponseData;
+export type HomeworkBank = import("./operations.types.js").HomeworkShowBankGetResponseData;
+export type CreateHomeworkBankInput = import("./operations.types.js").HomeworkStoreBankPostInput;
+export type UpdateHomeworkBankInput = import("./operations.types.js").HomeworkUpdateBankPatchInput;
 export type ExamBank = Exam;
 export type ExamBankItem = ExamQuestion;
-export interface HomeworkQuestion extends LmsEntity {
-    homework_id: string;
-    /** Explicit name, or the server-generated 80-character question-text fallback. */
-    name: string;
-    question_text: string;
-    description?: string | null;
-    answer?: string | null;
-    question_type: "notification" | "answer" | "link" | (string & {});
-    kind: HomeworkItemKind;
-    points: number;
-    is_final: boolean;
-    media: JsonValue;
-    status: "active" | "inactive";
-    sort_order: number;
-    created_at: string;
-    updated_at: string;
-}
+export type HomeworkQuestion = import("./operations.types.js").HomeworkShowQuestionGetResponseData;
 export type HomeworkBankItem = HomeworkQuestion;
 export type CertificateStatus = "draft" | "issued" | "revoked" | (string & {});
 export type CertificateTemplateStatus = "active" | "inactive" | (string & {});
@@ -375,7 +260,8 @@ export interface CertificateTemplate extends LmsEntity {
     background_url: string;
     canvas_width: number;
     canvas_height: number;
-    layout: CertificateLayout;
+    /** Arbitrary persisted JSON; the backend also emits an empty object for an unset layout. */
+    layout: JsonValue;
     status: CertificateTemplateStatus;
     created_at: string;
     updated_at: string;
@@ -388,7 +274,7 @@ export interface CertificateRenderSnapshot extends JsonObject {
         background_url?: string;
         canvas_width?: number;
         canvas_height?: number;
-        layout?: CertificateLayout;
+        layout?: JsonValue;
     };
     certificate?: { title?: string };
     student?: { user_id?: string; name?: string };
@@ -422,7 +308,8 @@ export interface Certificate extends LmsEntity {
     media_url: string | null;
     revoked_at: string | null;
     revoke_reason: string | null;
-    render_snapshot: CertificateRenderSnapshot;
+    /** Arbitrary persisted snapshot JSON, including legacy snapshots and the empty-object default. */
+    render_snapshot: JsonValue;
     created_at: string;
     updated_at: string;
 }
@@ -449,12 +336,8 @@ export interface InteractiveContent extends LmsEntity {
     content_type?: string;
     content?: JsonObject;
 }
-export interface Grade extends LmsEntity {
-    name: string;
-}
-export interface ClassroomType extends LmsEntity {
-    name: string;
-}
+export type Grade = import("./operations.types.js").ConfigShowGradeGetResponseData;
+export type ClassroomType = import("./operations.types.js").ConfigShowClassroomTypeGetResponseData;
 export interface TextTemplate extends LmsEntity {
     name: string;
     content?: string;
@@ -466,23 +349,14 @@ export interface CreateLmsEntityInput extends JsonObject {
 }
 export interface UpdateLmsEntityInput extends Partial<CreateLmsEntityInput> {
 }
-export interface CreateCourseInput extends CreateLmsEntityInput {
-    price?: string | null;
-    /** Independent delivery prices; null leaves a price unset. */
-    in_person_price?: string | null;
-    online_price?: string | null;
-    title: string;
-    category_id?: string;
-    description?: string;
-}
-export interface UpdateCourseInput extends Partial<CreateCourseInput> {
-}
+export type CreateCourseInput = import("./operations.types.js").CourseStoreCoursePostInput;
+export type UpdateCourseInput = import("./operations.types.js").CourseUpdateCoursePatchInput;
 export interface CreateCourseSessionInput extends CreateLmsEntityInput {
     course_id: string;
     name: string;
     description?: string | null;
     sort_order: number;
-    session_type: string;
+    session_type?: string;
     session_type_id?: string | null;
     exam_id?: string | null;
     duration_minutes?: number | null;
@@ -495,113 +369,47 @@ export interface CreateCourseSessionInput extends CreateLmsEntityInput {
 }
 export interface UpdateCourseSessionInput extends Partial<Omit<CreateCourseSessionInput, "course_id">> {
 }
-export interface CreateCourseCategoryInput extends CreateLmsEntityInput {
-    name: string;
-}
-export interface UpdateCourseCategoryInput extends Partial<CreateCourseCategoryInput> {
-}
+export type CreateCourseCategoryInput = import("./operations.types.js").CourseStoreCategoryPostInput;
+export type UpdateCourseCategoryInput = import("./operations.types.js").CourseUpdateCategoryPatchInput;
 export interface CreateVideoSectionInput extends CreateLmsEntityInput {
     course_id: string;
     video_url?: string;
 }
 export interface UpdateVideoSectionInput extends Partial<CreateVideoSectionInput> {
 }
-export interface CreateClassroomInput extends CreateLmsEntityInput {
-    course_id: string;
-    name: string;
-    starts_at: string;
-    status: string;
-    code?: string | null;
+export type CreateClassroomInput = import("./operations.types.js").ClassroomStoreClassroomPostInput;
+export type UpdateClassroomInput = import("./operations.types.js").ClassroomUpdateClassroomPatchInput;
+export type CreateClassroomSessionInput = import("./operations.types.js").ClassroomStoreSessionPostInput;
+export type UpdateClassroomSessionInput = import("./operations.types.js").ClassroomUpdateSessionPatchInput;
+export type CreateExamInput = import("./operations.types.js").ExamStoreExamPostInput;
+export type UpdateExamInput = import("./operations.types.js").ExamUpdateExamPatchInput;
+export type CreateExamQuestionInput = import("./operations.types.js").ExamStoreQuestionPostInput;
+export type UpdateExamQuestionInput = import("./operations.types.js").ExamUpdateQuestionPatchInput;
+export type CreateExamSessionInput = import("./operations.types.js").ExamStoreSessionPostInput;
+export interface UpdateExamSessionInput extends JsonObject {
+    exam_id?: string | null;
+    classroom_id?: string | null;
+    classroom_session_id?: string | null;
+    name?: string | null;
     description?: string | null;
     info?: string | null;
-    classroom_type_id?: string | null;
-    school_grade_id?: string | null;
-    grade_id?: string | null;
+    duration_minutes?: number | null;
+    questions_count?: number | null;
+    easy_count?: number | null;
+    medium_count?: number | null;
+    hard_count?: number | null;
+    selection_mode?: string | null;
     teacher_user_id?: string | null;
     consultant_user_id?: string | null;
     support_user_id?: string | null;
-    capacity?: number | null;
-    notifications?: JsonValue;
-    weekly_schedule?: ClassroomWeeklyScheduleRuleInput[];
-    check_sessions?: JsonValue;
+    starts_at?: string | null;
     ends_at?: string | null;
+    status?: string | null;
 }
-export interface UpdateClassroomInput extends Partial<CreateClassroomInput> {
-}
-export interface CreateClassroomSessionInput extends CreateLmsEntityInput {
-    /** Nonempty subset of enrolled classroom students (UUIDs). Omit/null for the whole class. Duplicates are removed; nonmembers return 422. Requires lms:classroom:create. */
-    student_user_ids?: string[] | null;
-    course_session_type_id?: string;
-    classroom_id: string;
-    course_session_id?: string;
-    name?: string;
-    session_number?: number;
-    duration_minutes?: number;
-    description?: string;
-    teacher_user_id?: string;
-    locked?: boolean;
-    auto_unlock?: boolean;
-    auto_present?: boolean;
-    invited?: boolean;
-    starts_at?: string;
-    ends_at?: string;
-    status: string;
-}
-export interface UpdateClassroomSessionInput extends Partial<Omit<CreateClassroomSessionInput, "student_user_ids">> {
-    /** Confirms deletion of recordings when this reschedule resets an existing room generation. */
-    confirm_recording_reset?: boolean;
-    /** Reassigns every later classroom session to weekly schedule slots after the selected start. */
-    shift_following_sessions?: boolean;
-}
-export interface CreateExamInput extends CreateLmsEntityInput {
-    course_id?: string;
-    duration_minutes?: number;
-}
-export interface UpdateExamInput extends Partial<CreateExamInput> {
-}
-export interface CreateExamQuestionInput extends CreateLmsEntityInput {
-    exam_id: string;
-    question: string;
-}
-export interface UpdateExamQuestionInput extends Partial<CreateExamQuestionInput> {
-}
-export interface CreateExamSessionInput extends CreateLmsEntityInput {
-    exam_id: string;
-    user_id: string;
-}
-export interface UpdateExamSessionInput extends Partial<CreateExamSessionInput> {
-    score?: number;
-}
-export interface CreateHomeworkInput extends JsonObject {
-    name: string;
-    status: "active" | "inactive";
-    homework_bank_id?: string;
-    course_id?: string;
-    title?: string | null;
-    description?: string | null;
-    sort_order?: number;
-    difficulty?: HomeworkDifficulty | null;
-    points?: number;
-}
-export interface UpdateHomeworkInput extends Partial<CreateHomeworkInput> {
-}
-export interface CreateHomeworkQuestionInput extends JsonObject {
-    homework_id: string;
-    /** Optional display name; blank or omitted names fall back to truncated question text. */
-    name?: string | null;
-    question_text: string;
-    description?: string | null;
-    answer?: string | null;
-    question_type?: "notification" | "answer" | "link" | (string & {});
-    kind?: HomeworkItemKind;
-    points?: number;
-    is_final?: boolean;
-    media?: JsonValue;
-    status?: "active" | "inactive";
-    sort_order?: number;
-}
-export interface UpdateHomeworkQuestionInput extends Partial<CreateHomeworkQuestionInput> {
-}
+export type CreateHomeworkInput = import("./operations.types.js").HomeworkStoreHomeworkPostInput;
+export type UpdateHomeworkInput = import("./operations.types.js").HomeworkUpdateHomeworkPatchInput;
+export type CreateHomeworkQuestionInput = import("./operations.types.js").HomeworkStoreQuestionPostInput;
+export type UpdateHomeworkQuestionInput = import("./operations.types.js").HomeworkUpdateQuestionPatchInput;
 export interface CreateCertificateInput extends CreateLmsEntityInput {
     user_id: string;
     course_id?: string | null;
@@ -614,7 +422,7 @@ export interface CreateCertificateInput extends CreateLmsEntityInput {
     issued_by?: string | null;
     issued_at: string;
     media_url?: string | null;
-    render_snapshot?: CertificateRenderSnapshot | null;
+    render_snapshot?: JsonValue;
 }
 export interface UpdateCertificateInput extends JsonObject {
     user_id?: string;
@@ -626,7 +434,7 @@ export interface UpdateCertificateInput extends JsonObject {
     verification_code?: string | null;
     issued_at?: string;
     media_url?: string | null;
-    render_snapshot?: CertificateRenderSnapshot;
+    render_snapshot?: JsonValue;
     revoke_reason?: string;
 }
 export interface CreateCertificateTemplateInput extends JsonObject {
@@ -635,7 +443,7 @@ export interface CreateCertificateTemplateInput extends JsonObject {
     background_url: string;
     canvas_width: number;
     canvas_height: number;
-    layout?: CertificateLayout | null;
+    layout?: JsonValue;
     status?: CertificateTemplateStatus;
 }
 export interface UpdateCertificateTemplateInput extends JsonObject {
@@ -644,7 +452,7 @@ export interface UpdateCertificateTemplateInput extends JsonObject {
     background_url?: string;
     canvas_width?: number;
     canvas_height?: number;
-    layout?: CertificateLayout;
+    layout?: JsonValue;
     status?: CertificateTemplateStatus;
 }
 export interface CreateEventInput extends CreateLmsEntityInput {
@@ -659,32 +467,18 @@ export interface CreateInteractiveContentInput extends CreateLmsEntityInput {
 }
 export interface UpdateInteractiveContentInput extends Partial<CreateInteractiveContentInput> {
 }
-export interface CreateGradeInput extends CreateLmsEntityInput {
-    name: string;
-}
-export interface UpdateGradeInput extends Partial<CreateGradeInput> {
-}
-export interface CreateClassroomTypeInput extends CreateLmsEntityInput {
-    name: string;
-}
-export interface UpdateClassroomTypeInput extends Partial<CreateClassroomTypeInput> {
-}
+export type CreateGradeInput = import("./operations.types.js").ConfigStoreGradePostInput;
+export type UpdateGradeInput = import("./operations.types.js").ConfigUpdateGradePatchInput;
+export type CreateClassroomTypeInput = import("./operations.types.js").ConfigStoreClassroomTypePostInput;
+export type UpdateClassroomTypeInput = import("./operations.types.js").ConfigUpdateClassroomTypePatchInput;
 export interface CreateTextTemplateInput extends CreateLmsEntityInput {
     name: string;
     content?: string;
 }
 export interface UpdateTextTemplateInput extends Partial<CreateTextTemplateInput> {
 }
-export interface ClassroomUserInput extends JsonObject {
-    user_id: string;
-    role?: string;
-}
-export interface LmsDashboard extends JsonObject {
-    courses: number;
-    classrooms: number;
-    students: number;
-    teachers: number;
-}
+export type ClassroomUserInput = import("./operations.types.js").ClassroomEnrollClassroomUserPostInput;
+export type LmsDashboard = import("./operations.types.js").DashboardIndexGetResponseData;
 export interface ReportRow extends JsonObject {
     id: string;
     name?: string;
@@ -722,6 +516,7 @@ export interface ClassroomSessionListQuery extends QueryParams {
     page_size?: number;
     status?: string;
     classroom_id?: string;
+    user_id?: string;
     from?: string;
     to?: string;
 }
@@ -747,8 +542,7 @@ export interface ClassroomSessionLinks extends JsonObject {
     room: string | null;
     recording: string | null;
 }
-export interface ClassroomUserResponse extends ApiEnvelope<Classroom> {
-}
+export type ClassroomUserResponse = import("./operations.types.js").ClassroomEnrollClassroomUserPostResponse;
 export interface LmsReportResponse extends ApiEnvelope<ReportRow[]> {
 }
 

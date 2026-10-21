@@ -9,16 +9,17 @@
     }
   },
   "package_source_sha256": {
-    "packages/session/src/branding.types.ts": "f311af3abf41b7b0fdb4b850d9bc7186c4d8aae54f0fbaf8c367f802647d6937",
+    "packages/session/src/branding.types.ts": "f9e5a893519e0536415eb7eb6c9f81d7f85676d7ce6bd4f8fd92e744e4cf25eb",
     "packages/session/src/contracts.types.ts": "74f6581755fbb1b3c81ed3fc3fed46c17092931db8629bc044c0dc822c867fb9",
-    "packages/session/src/index.ts": "9a60c5d65f4173beb259a08db39b9e47022174e230ef4f78537b9b2e68282dba",
-    "packages/session/src/operations.ts": "3ded98d9dddda1a6cd3e3c917ab52f6840edf89d0bebd68bd52a3073340643c2",
-    "packages/session/src/operations.types.ts": "0493b2a6529c7e8850c4d8a60f57a0d1fb20992ed7f2565106c4626d471e2073",
-    "packages/session/src/types.ts": "7e847ef7af79b2c92f17a9d6324e7a4e715b79f610d4c3a881efb5cb3e20c21c"
+    "packages/session/src/index.ts": "3e22e15b293c012873a755eaeb7de2e4ab3a2bfc88b81f4bbd4dd6c8cd22dd8b",
+    "packages/session/src/operations.ts": "ae31fa6889f5f44214d56545eee1f1e46d4ae1ad8b18f1d8284df3c55ac4860f",
+    "packages/session/src/operations.types.ts": "ed1d4d51d3ce8b05dc1249333fa5bb51759f3d74eeaa00cebb2f4fac9e666e00",
+    "packages/session/src/reviewed-wire.ts": "5585a15b340d6667b5b5b2f1733e0e41545d483587d6dbaa9c09de931a25f533",
+    "packages/session/src/types.ts": "1d66388c362deba53bab68d12cb33f7d107e5612aed63766da7e14fee80f0f94"
   },
   "capability_review_sha256": "6d51b56107772902bf71e179352ba32a4b4fd29ced4ffc2b87ef83d94b5566d5",
   "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
-  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 45,

@@ -10,16 +10,17 @@
   },
   "package_source_sha256": {
     "packages/idp/src/authority.ts": "771caff551a474f09b7a2cf429dccbd5c1c5c9c8ca970b4668f03a99b5d94344",
-    "packages/idp/src/contracts.types.ts": "904d2d5243224deee5422bec0a391c47f5605187224b247abc443c5ad2ad9a36",
-    "packages/idp/src/index.ts": "146f9819b75f8b751add4ead7fb929a0c3a532a7b6fd04bfca35ff7312facf97",
+    "packages/idp/src/contracts.types.ts": "4898b0cd715c9509f57fa9cce06b3139bfeec1e0f0c4dc8effade5e8b8b6301d",
+    "packages/idp/src/index.ts": "736e0279225716a55fb3351241d1d9fa88ba100c1d7bb25754e3680807733da6",
     "packages/idp/src/memberships.ts": "ba3c661e38eec353e2df2ce5f28b41fb2275fed59a0d2ac7680030809088aecf",
-    "packages/idp/src/operations.ts": "44eb86730487c20214d0cf8fab032696facb00639af2d21930bd75b58c620aa8",
-    "packages/idp/src/operations.types.ts": "abb0d1d04ae8ed5ce0e5bc0884294535516f80955b8d98c7cfbd7381f57fc45f",
-    "packages/idp/src/types.ts": "b815bf972fd565d8894e3f669687c28f79a0e8c986d4967d1cb04245f03c99b9"
+    "packages/idp/src/operations.ts": "6cf26148073558a124ebf8aec65f4e4d87466126e1cf375460a39f3cc3328eeb",
+    "packages/idp/src/operations.types.ts": "557b314a5e0cc5c2af16850769c0d6a83911aa86264c70ede8c669f162d9903c",
+    "packages/idp/src/resources.ts": "f43143979124466f6bd4c93e21fed8de3b44b11fd994e8a917a04d10bf78a7ed",
+    "packages/idp/src/types.ts": "b1e400b1074bece1d7ace82b6c9d1cfe3a77bd2c10b48d269b84ecac6fff8474"
   },
-  "capability_review_sha256": "fb5b0000b722241adb31a5eb4e6d30b115eb6c473f96630254c8658d39a72cf7",
+  "capability_review_sha256": "8ee5e21c8c47c329209a68516ef164a58309ebe97829ca2582d0ee3ca8e0b83d",
   "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
-  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 109,

@@ -9,16 +9,16 @@
     }
   },
   "package_source_sha256": {
-    "packages/messenger/src/contracts.types.ts": "148736e77d30681294308db37c9e0a1abe1cc35f2e6ce5a6019449d3cc960c73",
-    "packages/messenger/src/delivery.ts": "97b7d2f7f1a624ce2f1ef23219632010c51777324c1be98b8f3b86137dc56321",
-    "packages/messenger/src/index.ts": "0b7fb2cd527607df9cd7723a439b0d1aa4b327768edf1dcc9399124ffb4e7c31",
-    "packages/messenger/src/operations.ts": "22f1e77366e2850038731c82b6a937ef4a23e450b875d06096515146453cbe47",
-    "packages/messenger/src/operations.types.ts": "1c917bb77d1aa5aa8c77a8958f1c2b776d3e5dd1e347e078e0a0ac2d568dd09e",
-    "packages/messenger/src/types.ts": "2465170d2bcbdccc9438a86be12d564e924b1b44f71461a3b73eea47d0ca9bf5"
+    "packages/messenger/src/contracts.types.ts": "f1a99249d3a851ec18bb87529daadb86cf47b6652ef4aac05aa820e1c36dfe3f",
+    "packages/messenger/src/delivery.ts": "edbbd00156ff7e585bd8719f72b833171956aa4ae07b12d7fcb95884fa936345",
+    "packages/messenger/src/index.ts": "4b6d3daf90b3f0b6b0da422b67b5fdb0d2c81cda49655eccd8ec10dccdcaa7f9",
+    "packages/messenger/src/operations.ts": "038a15cd38ed3e4d73598afd211b83299cb36924e3779b5c2171244355d6525f",
+    "packages/messenger/src/operations.types.ts": "22a305c1943e06111b1ae77be45c59c3671a49770d4973c5992bf5f773cdd814",
+    "packages/messenger/src/types.ts": "5f8ad4a56260b3e8e30cf0d80440608485bcb7ddb4223ea6ea0b174d98a4b7ec"
   },
-  "capability_review_sha256": "e091b91da036f31e86dc20f325cc468638142d042d8daa986ad26437e7e2ff4b",
+  "capability_review_sha256": "f67864c287fbd792023c1b8afcbccb6892e87646f18558e63fac46b0256c059e",
   "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
-  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 47,

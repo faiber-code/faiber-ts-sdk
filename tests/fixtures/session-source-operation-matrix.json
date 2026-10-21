@@ -1,0 +1,641 @@
+[
+  {
+    "operation": "session:GET /",
+    "method": "GET",
+    "path": "/",
+    "methodName": "routerStatusRouteGet",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/config/branding",
+    "method": "GET",
+    "path": "/api/v1/config/branding",
+    "methodName": "brandingShowGet",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:PUT /api/v1/config/branding",
+    "method": "PUT",
+    "path": "/api/v1/config/branding",
+    "methodName": "brandingUpdatePut",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:POST /api/v1/config/branding/assets",
+    "method": "POST",
+    "path": "/api/v1/config/branding/assets",
+    "methodName": "brandingUploadPost",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": true,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/config/livekit",
+    "method": "GET",
+    "path": "/api/v1/config/livekit",
+    "methodName": "configurationLivekitConfigShowGet",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:PUT /api/v1/config/livekit",
+    "method": "PUT",
+    "path": "/api/v1/config/livekit",
+    "methodName": "configurationLivekitConfigUpdatePut",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/integration/docs",
+    "method": "GET",
+    "path": "/api/v1/integration/docs",
+    "methodName": "integrationIntegrationDocsShowGet",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/integrations/chat/tool-schema",
+    "method": "GET",
+    "path": "/api/v1/integrations/chat/tool-schema",
+    "methodName": "assistantToolsToolSchemaGet",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/integrations/chat/users/{user_id}/sessions",
+    "method": "GET",
+    "path": "/api/v1/integrations/chat/users/{user_id}/sessions",
+    "methodName": "assistantToolsListUserSessionsGet",
+    "pathArgs": [
+      "user_id"
+    ],
+    "hasBody": false,
+    "hasQuery": true,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/integrations/chat/users/{user_id}/sessions/{room_id}",
+    "method": "GET",
+    "path": "/api/v1/integrations/chat/users/{user_id}/sessions/{room_id}",
+    "methodName": "assistantToolsUserSessionDetailGet",
+    "pathArgs": [
+      "user_id",
+      "room_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/integrations/lms/rooms/{id}/notification-state",
+    "method": "GET",
+    "path": "/api/v1/integrations/lms/rooms/{id}/notification-state",
+    "methodName": "notificationStateSnapshotGet",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/public/branding",
+    "method": "GET",
+    "path": "/api/v1/public/branding",
+    "methodName": "brandingPublicShowGet",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/public/branding/assets/{key}",
+    "method": "GET",
+    "path": "/api/v1/public/branding/assets/{key}",
+    "methodName": "brandingAssetGet",
+    "pathArgs": [
+      "key"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": true,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/recordings",
+    "method": "GET",
+    "path": "/api/v1/recordings",
+    "methodName": "recordingRecordingsIndexGet",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": true,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/recordings/{recording_id}/manifest",
+    "method": "GET",
+    "path": "/api/v1/recordings/{recording_id}/manifest",
+    "methodName": "recordingRecordingManifestGet",
+    "pathArgs": [
+      "recording_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:POST /api/v1/recordings/{recording_id}/schedule",
+    "method": "POST",
+    "path": "/api/v1/recordings/{recording_id}/schedule",
+    "methodName": "recordingRecordingSchedulePost",
+    "pathArgs": [
+      "recording_id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/recordings/audio-models",
+    "method": "GET",
+    "path": "/api/v1/recordings/audio-models",
+    "methodName": "recordingAudioModelsGet",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:POST /api/v1/room_states/{room_state_id}/respond",
+    "method": "POST",
+    "path": "/api/v1/room_states/{room_state_id}/respond",
+    "methodName": "roomStateRoomStateRespondPost",
+    "pathArgs": [
+      "room_state_id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/rooms",
+    "method": "GET",
+    "path": "/api/v1/rooms",
+    "methodName": "roomRoomsIndexGet",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": true,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:POST /api/v1/rooms",
+    "method": "POST",
+    "path": "/api/v1/rooms",
+    "methodName": "roomRoomsCreatePost",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:DELETE /api/v1/rooms/{room_id}",
+    "method": "DELETE",
+    "path": "/api/v1/rooms/{room_id}",
+    "methodName": "roomRoomsDeleteDelete",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/rooms/{room_id}",
+    "method": "GET",
+    "path": "/api/v1/rooms/{room_id}",
+    "methodName": "roomRoomsShowGet",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:PATCH /api/v1/rooms/{room_id}",
+    "method": "PATCH",
+    "path": "/api/v1/rooms/{room_id}",
+    "methodName": "roomRoomsUpdatePatch",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:PUT /api/v1/rooms/{room_id}",
+    "method": "PUT",
+    "path": "/api/v1/rooms/{room_id}",
+    "methodName": "roomRoomsUpdatePut",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:POST /api/v1/rooms/{room_id}/end",
+    "method": "POST",
+    "path": "/api/v1/rooms/{room_id}/end",
+    "methodName": "roomRoomsEndPost",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:POST /api/v1/rooms/{room_id}/interactions",
+    "method": "POST",
+    "path": "/api/v1/rooms/{room_id}/interactions",
+    "methodName": "assetEconomyInteractPost",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:POST /api/v1/rooms/{room_id}/interactive/start",
+    "method": "POST",
+    "path": "/api/v1/rooms/{room_id}/interactive/start",
+    "methodName": "roomRoomsInteractiveStartPost",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/rooms/{room_id}/join",
+    "method": "GET",
+    "path": "/api/v1/rooms/{room_id}/join",
+    "methodName": "roomRoomsJoinGet",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/rooms/{room_id}/leaderboard",
+    "method": "GET",
+    "path": "/api/v1/rooms/{room_id}/leaderboard",
+    "methodName": "roomRoomsLeaderboardGet",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/rooms/{room_id}/livekit-token",
+    "method": "GET",
+    "path": "/api/v1/rooms/{room_id}/livekit-token",
+    "methodName": "roomRoomsLivekitTokenGet",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/rooms/{room_id}/moderation",
+    "method": "GET",
+    "path": "/api/v1/rooms/{room_id}/moderation",
+    "methodName": "roomRoomsSelfModerationGet",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:PUT /api/v1/rooms/{room_id}/participants/{profile_id}/mute",
+    "method": "PUT",
+    "path": "/api/v1/rooms/{room_id}/participants/{profile_id}/mute",
+    "methodName": "roomRoomsParticipantMutePut",
+    "pathArgs": [
+      "room_id",
+      "profile_id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/rooms/{room_id}/playback",
+    "method": "GET",
+    "path": "/api/v1/rooms/{room_id}/playback",
+    "methodName": "roomRoomsPlaybackShowGet",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/rooms/{room_id}/presence-events",
+    "method": "GET",
+    "path": "/api/v1/rooms/{room_id}/presence-events",
+    "methodName": "roomRoomsPresenceEventsGet",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/rooms/{room_id}/recordings",
+    "method": "GET",
+    "path": "/api/v1/rooms/{room_id}/recordings",
+    "methodName": "roomRoomsRecordingsGet",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/rooms/{room_id}/stop",
+    "method": "GET",
+    "path": "/api/v1/rooms/{room_id}/stop",
+    "methodName": "roomRoomsStopGet",
+    "pathArgs": [
+      "room_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /api/v1/rooms/analytics",
+    "method": "GET",
+    "path": "/api/v1/rooms/analytics",
+    "methodName": "roomRoomsAnalyticsGet",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:POST /api/v1/rooms/livekit/webhook",
+    "method": "POST",
+    "path": "/api/v1/rooms/livekit/webhook",
+    "methodName": "roomLivekitWebhookPost",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": true
+  },
+  {
+    "operation": "session:GET /api/v1/summary-access",
+    "method": "GET",
+    "path": "/api/v1/summary-access",
+    "methodName": "nativeSummaryAccessStatus",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:PUT /api/v1/summary-access",
+    "method": "PUT",
+    "path": "/api/v1/summary-access",
+    "methodName": "saveNativeSummaryAccessPolicy",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:POST /api/v1/summary-access/revocations",
+    "method": "POST",
+    "path": "/api/v1/summary-access/revocations",
+    "methodName": "revokeNativeSummaryObject",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:DELETE /api/v1/summary-access/revocations/{object}",
+    "method": "DELETE",
+    "path": "/api/v1/summary-access/revocations/{object}",
+    "methodName": "restoreNativeSummaryObject",
+    "pathArgs": [
+      "object"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:ANY /api/v1/view/{service}/{*path}",
+    "method": "GET",
+    "path": "/api/v1/view/{service}/{*path}",
+    "methodName": "routerProxyViewServiceAny",
+    "pathArgs": [
+      "service",
+      "path"
+    ],
+    "hasBody": true,
+    "hasQuery": true,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false,
+    "dynamicMethod": true
+  },
+  {
+    "operation": "session:GET /health",
+    "method": "GET",
+    "path": "/health",
+    "methodName": "routerStatusRouteGetHealth",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  },
+  {
+    "operation": "session:GET /integration/flow",
+    "method": "GET",
+    "path": "/integration/flow",
+    "methodName": "integrationFlowIntegrationShowGet",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binaryDownload": false,
+    "sourceOnly": true,
+    "multipart": false,
+    "binary": false
+  }
+]

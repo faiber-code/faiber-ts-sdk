@@ -1,4 +1,4 @@
-/** Native Branding/PublicBranding wire contract, LMS candidate470949b.
+/** Native Branding/PublicBranding wire contract, LMS 1a557957.
  * Runtime discovery is public output and is never persisted as administrator branding.
  */
 export interface LmsBrandText {title:string|null}

@@ -2,1584 +2,381 @@ import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, Quer
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend query type: AuditQuery. */
-export interface RouterAuditEventsGetQuery extends QueryParams {
-  "page"?: number | null;
-  "size"?: number | null;
-  "from"?: string | null;
-  "to"?: string | null;
-}
+export type RouterAuditEventsGetQuery = import("./wire.types.js").DrmAuditQuery;
 /** Backend response type: Page<audit_event::Model>. */
-export type RouterAuditEventsGetResponse = BackendJson<"Page<audit_event::Model>">;
+export type RouterAuditEventsGetResponse = import("./wire.types.js").DrmPage<import("./wire.types.js").DrmAuditEvent>;
 
 /** Backend query type: AnalysisQuery. */
-export interface RouterListAnalysesGetQuery extends QueryParams {
-  "page"?: number | null;
-  "size"?: number | null;
-  "search"?: string | null;
-  "status"?: string | null;
-  "from"?: string | null;
-  "to"?: string | null;
-}
+export type RouterListAnalysesGetQuery = import("./wire.types.js").DrmAnalysisQuery;
 /** Backend response type: Page<CompositionAnalysis>. */
-export type RouterListAnalysesGetResponse = BackendJson<"Page<CompositionAnalysis>">;
+export type RouterListAnalysesGetResponse = import("./wire.types.js").DrmPage<import("./wire.types.js").DrmCompositionAnalysis>;
 
 /** Backend response type: Vec<composition_category::Model>. */
-export interface RouterListCompositionCategoriesGetResponseItem extends JsonObject {
-  "id": string;
-  "parent_id": string | null;
-  "title": string;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterListCompositionCategoriesGetResponse = RouterListCompositionCategoriesGetResponseItem[];
+export type RouterListCompositionCategoriesGetResponse = (import("./wire.types.js").DrmCompositionCategory)[];
 
 /** Backend request type: CompositionCategoryInput. */
-export interface RouterCreateCompositionCategoryPostInput extends JsonObject {
-  "title": string;
-  "parent_id"?: string | null;
-}
+export type RouterCreateCompositionCategoryPostInput = import("./wire.types.js").DrmCompositionCategoryInput;
 /** Backend response type: composition_category::Model. */
-export interface RouterCreateCompositionCategoryPostResponseData extends JsonObject {
-  "id": string;
-  "parent_id": string | null;
-  "title": string;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterCreateCompositionCategoryPostResponse = RouterCreateCompositionCategoryPostResponseData;
+export type RouterCreateCompositionCategoryPostResponse = import("./wire.types.js").DrmCompositionCategory;
 
 /** Backend response type: no-content. */
 export type RouterDeleteCompositionCategoryDeleteResponse = void;
 
 /** Backend request type: CompositionCategoryInput. */
-export interface RouterUpdateCompositionCategoryPatchInput extends JsonObject {
-  "title": string;
-  "parent_id"?: string | null;
-}
+export type RouterUpdateCompositionCategoryPatchInput = import("./wire.types.js").DrmCompositionCategoryInput;
 /** Backend response type: composition_category::Model. */
-export interface RouterUpdateCompositionCategoryPatchResponseData extends JsonObject {
-  "id": string;
-  "parent_id": string | null;
-  "title": string;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterUpdateCompositionCategoryPatchResponse = RouterUpdateCompositionCategoryPatchResponseData;
+export type RouterUpdateCompositionCategoryPatchResponse = import("./wire.types.js").DrmCompositionCategory;
 
 /** Backend query type: CompositionQuery. */
-export interface RouterListCompositionsGetQuery extends QueryParams {
-  "search"?: string | null;
-  "category_id"?: string | null;
-  "uncategorized"?: boolean;
-  "page"?: number | null;
-  "size"?: number | null;
-}
+export type RouterListCompositionsGetQuery = import("./wire.types.js").DrmCompositionQuery;
 /** Backend response type: Page<mixed_media::Model>. */
-export type RouterListCompositionsGetResponse = BackendJson<"Page<mixed_media::Model>">;
+export type RouterListCompositionsGetResponse = import("./wire.types.js").DrmPage<import("./wire.types.js").DrmMixedMedia>;
 
 /** Backend request type: CompositionInput. */
-export interface RouterCreateCompositionPostInput extends JsonObject {
-  "id"?: string | null;
-  "library_id": string;
-  "name": string;
-  "description"?: string | null;
-  "category_id"?: string | null;
-}
+export type RouterCreateCompositionPostInput = import("./wire.types.js").DrmCompositionInput;
 /** Backend response type: mixed_media::Model. */
-export interface RouterCreateCompositionPostResponseData extends JsonObject {
-  "id": string;
-  "library_id": string;
-  "category_id": string | null;
-  "name": string;
-  "description": string | null;
-  "transcription_language": string;
-  "status": string;
-  "manifest_version": number;
-  "published_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterCreateCompositionPostResponse = RouterCreateCompositionPostResponseData;
+export type RouterCreateCompositionPostResponse = import("./wire.types.js").DrmMixedMedia;
 
 /** Backend response type: Vec<mixed_media_manifest::Model>. */
-export interface RouterListManifestsGetApiV1CompositionsIdManifestsResponseItem extends JsonObject {
-  "id": string;
-  "mixed_media_id": string;
-  "version": number;
-  "document": BackendJson<"Json">;
-  "created_at": string;
-}
-export type RouterListManifestsGetApiV1CompositionsIdManifestsResponse = RouterListManifestsGetApiV1CompositionsIdManifestsResponseItem[];
+export type RouterListManifestsGetApiV1CompositionsIdManifestsResponse = (import("./wire.types.js").DrmMixedMediaManifest)[];
 
 /** Backend request type: HistoricalManifestInput. */
-export interface RouterCreateManifestVersionPostInput extends JsonObject {
-  "id"?: string | null;
-  "document": JsonValue;
-  "created_at"?: string | null;
-}
+export type RouterCreateManifestVersionPostInput = import("./wire.types.js").DrmHistoricalManifestInput;
 /** Backend response type: mixed_media_manifest::Model. */
-export interface RouterCreateManifestVersionPostResponseData extends JsonObject {
-  "id": string;
-  "mixed_media_id": string;
-  "version": number;
-  "document": BackendJson<"Json">;
-  "created_at": string;
-}
-export type RouterCreateManifestVersionPostResponse = RouterCreateManifestVersionPostResponseData;
+export type RouterCreateManifestVersionPostResponse = import("./wire.types.js").DrmMixedMediaManifest;
 
 /** Backend response type: mixed_media_manifest::Model. */
-export interface RouterPublishPostApiV1CompositionsIdPublishResponseData extends JsonObject {
-  "id": string;
-  "mixed_media_id": string;
-  "version": number;
-  "document": BackendJson<"Json">;
-  "created_at": string;
-}
-export type RouterPublishPostApiV1CompositionsIdPublishResponse = RouterPublishPostApiV1CompositionsIdPublishResponseData;
+export type RouterPublishPostApiV1CompositionsIdPublishResponse = import("./wire.types.js").DrmMixedMediaManifest;
 
 /** Backend response type: mixed_media_workflow::Model. */
-export interface RouterGetWorkflowGetApiV1CompositionsIdWorkflowResponseData extends JsonObject {
-  "mixed_media_id": string;
-  "nodes": BackendJson<"Json">;
-  "edges": BackendJson<"Json">;
-  "revision": number;
-  "updated_at": string;
-}
-export type RouterGetWorkflowGetApiV1CompositionsIdWorkflowResponse = RouterGetWorkflowGetApiV1CompositionsIdWorkflowResponseData;
+export type RouterGetWorkflowGetApiV1CompositionsIdWorkflowResponse = import("./wire.types.js").DrmMixedMediaWorkflow;
 
 /** Backend request type: WorkflowInput. */
-export interface RouterSaveWorkflowPutApiV1CompositionsIdWorkflowInput extends JsonObject {
-  "nodes": JsonValue;
-  "edges": JsonValue;
-}
+export type RouterSaveWorkflowPutApiV1CompositionsIdWorkflowInput = import("./wire.types.js").DrmWorkflowInput;
 /** Backend response type: mixed_media_workflow::Model. */
-export interface RouterSaveWorkflowPutApiV1CompositionsIdWorkflowResponseData extends JsonObject {
-  "mixed_media_id": string;
-  "nodes": BackendJson<"Json">;
-  "edges": BackendJson<"Json">;
-  "revision": number;
-  "updated_at": string;
-}
-export type RouterSaveWorkflowPutApiV1CompositionsIdWorkflowResponse = RouterSaveWorkflowPutApiV1CompositionsIdWorkflowResponseData;
+export type RouterSaveWorkflowPutApiV1CompositionsIdWorkflowResponse = import("./wire.types.js").DrmMixedMediaWorkflow;
 
 /** Backend response type: serde_json::Value. */
-export type RouterDashboardGetResponse = JsonValue;
+export type RouterDashboardGetResponse = import("./wire.types.js").DrmDashboard;
 
 /** Backend query type: DrmJobQuery. */
-export interface RouterListJobsGetQuery extends QueryParams {
-  "status"?: string | null;
-  "media_id"?: string | null;
-  "page"?: number | null;
-  "size"?: number | null;
-  "from"?: string | null;
-  "to"?: string | null;
-}
+export type RouterListJobsGetQuery = import("./wire.types.js").DrmJobQuery;
 /** Backend response type: Page<DrmJobResponse>. */
-export type RouterListJobsGetResponse = BackendJson<"Page<DrmJobResponse>">;
+export type RouterListJobsGetResponse = import("./wire.types.js").DrmPage<import("./wire.types.js").DrmJobResponse>;
 
 /** Backend request type: EnqueueDrmInput. */
-export interface RouterCreateJobPostInputConfig extends JsonObject {
-  "download"?: boolean;
-  "transcode"?: boolean;
-  "package"?: boolean;
-  "allow_video_only_on_audio_error"?: boolean;
-}
-export interface RouterCreateJobPostInput extends JsonObject {
-  "media_id": string;
-  "config"?: RouterCreateJobPostInputConfig;
-}
+export type RouterCreateJobPostInput = import("./wire.types.js").DrmEnqueueDrmInput;
 /** Backend response type: DrmJobResponse. */
-export interface RouterCreateJobPostResponseData extends JsonObject {
-  "id": string;
-  "media_id": string;
-  "package_id": string | null;
-  "status": string;
-  "stage": string;
-  "progress": number;
-  "attempts": number;
-  "max_attempts": number;
-  "next_retry_at": string | null;
-  "last_error": string | null;
-  "config": BackendJson<"Json">;
-  "created_at": string;
-  "updated_at": string;
-  "started_at": string | null;
-  "completed_at": string | null;
-  "media_name": string;
-  "media_type": string;
-}
-export type RouterCreateJobPostResponse = RouterCreateJobPostResponseData;
+export type RouterCreateJobPostResponse = import("./wire.types.js").DrmJobResponse;
 
 /** Backend response type: no-content. */
 export type RouterCancelJobDeleteResponse = void;
 
 /** Backend request type: DrmConfig. */
-export interface RouterRetryJobPostInput extends JsonObject {
-  "download"?: boolean;
-  "transcode"?: boolean;
-  "package"?: boolean;
-  "allow_video_only_on_audio_error"?: boolean;
-}
+export type RouterRetryJobPostInput = import("./wire.types.js").DrmConfig | undefined;
 /** Backend response type: DrmJobResponse. */
-export interface RouterRetryJobPostResponseData extends JsonObject {
-  "id": string;
-  "media_id": string;
-  "package_id": string | null;
-  "status": string;
-  "stage": string;
-  "progress": number;
-  "attempts": number;
-  "max_attempts": number;
-  "next_retry_at": string | null;
-  "last_error": string | null;
-  "config": BackendJson<"Json">;
-  "created_at": string;
-  "updated_at": string;
-  "started_at": string | null;
-  "completed_at": string | null;
-  "media_name": string;
-  "media_type": string;
-}
-export type RouterRetryJobPostResponse = RouterRetryJobPostResponseData;
+export type RouterRetryJobPostResponse = import("./wire.types.js").DrmJobResponse;
 
 /** Backend response type: RetryFailedResponse. */
-export interface RouterRetryAllFailedPostResponseData extends JsonObject {
-  "count": number;
-}
-export type RouterRetryAllFailedPostResponse = RouterRetryAllFailedPostResponseData;
+export type RouterRetryAllFailedPostResponse = import("./wire.types.js").DrmRetryFailedResponse;
 
 /** Backend query type: ExternalReferenceQuery. */
-export interface RouterListExternalReferencesGetQuery extends QueryParams {
-  "internal_type"?: string | null;
-  "internal_id"?: string | null;
-}
+export type RouterListExternalReferencesGetQuery = import("./wire.types.js").DrmExternalReferenceQuery;
 /** Backend response type: Vec<external_reference::Model>. */
-export interface RouterListExternalReferencesGetResponseItem extends JsonObject {
-  "system": string;
-  "entity_type": string;
-  "external_id": string;
-  "internal_type": string;
-  "internal_id": string;
-  "metadata": BackendJson<"Json">;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterListExternalReferencesGetResponse = RouterListExternalReferencesGetResponseItem[];
+export type RouterListExternalReferencesGetResponse = (import("./wire.types.js").DrmExternalReference)[];
 
 /** Backend request type: ExternalReferenceInput. */
-export interface RouterUpsertExternalReferencePostInput extends JsonObject {
-  "system": string;
-  "entity_type": string;
-  "external_id": string;
-  "internal_type": string;
-  "internal_id": string;
-  "metadata"?: JsonValue;
-}
+export type RouterUpsertExternalReferencePostInput = import("./wire.types.js").DrmExternalReferenceInput;
 /** Backend response type: external_reference::Model. */
-export interface RouterUpsertExternalReferencePostResponseData extends JsonObject {
-  "system": string;
-  "entity_type": string;
-  "external_id": string;
-  "internal_type": string;
-  "internal_id": string;
-  "metadata": BackendJson<"Json">;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterUpsertExternalReferencePostResponse = RouterUpsertExternalReferencePostResponseData;
+export type RouterUpsertExternalReferencePostResponse = import("./wire.types.js").DrmExternalReference;
 
 /** Backend response type: Vec<folder::Model>. */
-export interface RouterListFoldersGetResponseItem extends JsonObject {
-  "id": string;
-  "parent_id": string | null;
-  "name": string;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterListFoldersGetResponse = RouterListFoldersGetResponseItem[];
+export type RouterListFoldersGetResponse = (import("./wire.types.js").DrmFolder)[];
 
 /** Backend request type: FolderInput. */
-export interface RouterCreateFolderPostInput extends JsonObject {
-  "name": string;
-  "parent_id"?: string | null;
-}
+export type RouterCreateFolderPostInput = import("./wire.types.js").DrmFolderInput;
 /** Backend response type: folder::Model. */
-export interface RouterCreateFolderPostResponseData extends JsonObject {
-  "id": string;
-  "parent_id": string | null;
-  "name": string;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterCreateFolderPostResponse = RouterCreateFolderPostResponseData;
+export type RouterCreateFolderPostResponse = import("./wire.types.js").DrmFolder;
 
 /** Backend response type: no-content. */
 export type RouterDeleteFolderDeleteResponse = void;
 
 /** Backend request type: FolderInput. */
-export interface RouterUpdateFolderPatchInput extends JsonObject {
-  "name": string;
-  "parent_id"?: string | null;
-}
+export type RouterUpdateFolderPatchInput = import("./wire.types.js").DrmFolderInput;
 /** Backend response type: folder::Model. */
-export interface RouterUpdateFolderPatchResponseData extends JsonObject {
-  "id": string;
-  "parent_id": string | null;
-  "name": string;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterUpdateFolderPatchResponse = RouterUpdateFolderPatchResponseData;
+export type RouterUpdateFolderPatchResponse = import("./wire.types.js").DrmFolder;
 
 /** Backend response type: Vec<content_library::Model>. */
-export interface RouterListLibrariesGetResponseItem extends JsonObject {
-  "id": string;
-  "name": string;
-  "description": string | null;
-  "status": string;
-  "visibility": string;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterListLibrariesGetResponse = RouterListLibrariesGetResponseItem[];
+export type RouterListLibrariesGetResponse = (import("./wire.types.js").DrmContentLibrary)[];
 
 /** Backend request type: LibraryInput. */
-export interface RouterCreateLibraryPostInput extends JsonObject {
-  "id"?: string | null;
-  "name": string;
-  "description"?: string | null;
-  "status"?: string | null;
-  "visibility"?: string | null;
-}
+export type RouterCreateLibraryPostInput = import("./wire.types.js").DrmLibraryInput;
 /** Backend response type: content_library::Model. */
-export interface RouterCreateLibraryPostResponseData extends JsonObject {
-  "id": string;
-  "name": string;
-  "description": string | null;
-  "status": string;
-  "visibility": string;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterCreateLibraryPostResponse = RouterCreateLibraryPostResponseData;
+export type RouterCreateLibraryPostResponse = import("./wire.types.js").DrmContentLibrary;
 
 /** Backend response type: no-content. */
 export type RouterDeleteLibraryDeleteResponse = void;
 
 /** Backend response type: content_library::Model. */
-export interface RouterGetLibraryGetResponseData extends JsonObject {
-  "id": string;
-  "name": string;
-  "description": string | null;
-  "status": string;
-  "visibility": string;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterGetLibraryGetResponse = RouterGetLibraryGetResponseData;
+export type RouterGetLibraryGetResponse = import("./wire.types.js").DrmContentLibrary;
 
 /** Backend request type: LibraryInput. */
-export interface RouterUpdateLibraryPatchInput extends JsonObject {
-  "id"?: string | null;
-  "name": string;
-  "description"?: string | null;
-  "status"?: string | null;
-  "visibility"?: string | null;
-}
+export type RouterUpdateLibraryPatchInput = import("./wire.types.js").DrmLibraryInput;
 /** Backend response type: content_library::Model. */
-export interface RouterUpdateLibraryPatchResponseData extends JsonObject {
-  "id": string;
-  "name": string;
-  "description": string | null;
-  "status": string;
-  "visibility": string;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterUpdateLibraryPatchResponse = RouterUpdateLibraryPatchResponseData;
+export type RouterUpdateLibraryPatchResponse = import("./wire.types.js").DrmContentLibrary;
 
 /** Backend response type: Vec<content_category::Model>. */
-export interface RouterListCategoriesGetResponseItem extends JsonObject {
-  "id": string;
-  "mixed_media_id": string | null;
-  "library_id": string;
-  "parent_id": string | null;
-  "title": string;
-  "created_at": string;
-  "updated_at": string;
-  "archived_at": string | null;
-}
-export type RouterListCategoriesGetResponse = RouterListCategoriesGetResponseItem[];
+export type RouterListCategoriesGetResponse = (import("./wire.types.js").DrmContentCategory)[];
 
 /** Backend request type: GenericCategoryInput. */
-export interface RouterCreateCategoryPostApiV1LibrariesIdCategoriesInput extends JsonObject {
-  "id"?: string | null;
-  "parent_id"?: string | null;
-  "title": string;
-}
+export type RouterCreateCategoryPostApiV1LibrariesIdCategoriesInput = import("./wire.types.js").DrmGenericCategoryInput;
 /** Backend response type: content_category::Model. */
-export interface RouterCreateCategoryPostApiV1LibrariesIdCategoriesResponseData extends JsonObject {
-  "id": string;
-  "mixed_media_id": string | null;
-  "library_id": string;
-  "parent_id": string | null;
-  "title": string;
-  "created_at": string;
-  "updated_at": string;
-  "archived_at": string | null;
-}
-export type RouterCreateCategoryPostApiV1LibrariesIdCategoriesResponse = RouterCreateCategoryPostApiV1LibrariesIdCategoriesResponseData;
+export type RouterCreateCategoryPostApiV1LibrariesIdCategoriesResponse = import("./wire.types.js").DrmContentCategory;
 
 /** Backend response type: Vec<media_part::Model>. */
-export interface RouterListItemsGetResponseItem extends JsonObject {
-  "id": string;
-  "mixed_media_id": string | null;
-  "library_id": string;
-  "category_id": string | null;
-  "title": string;
-  "state": string;
-  "media_type": string | null;
-  "duration_seconds": number;
-  "textual": BackendJson<"Json">;
-  "rewards": BackendJson<"Json">;
-  "textual_hint": string | null;
-  "game_id": string | null;
-  "primary_media_id": string | null;
-  "hint_media_id": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "archived_at": string | null;
-}
-export type RouterListItemsGetResponse = RouterListItemsGetResponseItem[];
+export type RouterListItemsGetResponse = (import("./wire.types.js").DrmMediaPart)[];
 
 /** Backend request type: ContentItemInput. */
-export interface RouterCreateItemPostInput extends JsonObject {
-  "id"?: string | null;
-  "category_id"?: string | null;
-  "title": string;
-  "state": string;
-  "media_type"?: string | null;
-  "duration_seconds"?: number;
-  "textual"?: JsonValue;
-  "rewards"?: JsonValue;
-  "textual_hint"?: string | null;
-  "game_id"?: string | null;
-}
+export type RouterCreateItemPostInput = import("./wire.types.js").DrmContentItemInput;
 /** Backend response type: media_part::Model. */
-export interface RouterCreateItemPostResponseData extends JsonObject {
-  "id": string;
-  "mixed_media_id": string | null;
-  "library_id": string;
-  "category_id": string | null;
-  "title": string;
-  "state": string;
-  "media_type": string | null;
-  "duration_seconds": number;
-  "textual": BackendJson<"Json">;
-  "rewards": BackendJson<"Json">;
-  "textual_hint": string | null;
-  "game_id": string | null;
-  "primary_media_id": string | null;
-  "hint_media_id": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "archived_at": string | null;
-}
-export type RouterCreateItemPostResponse = RouterCreateItemPostResponseData;
+export type RouterCreateItemPostResponse = import("./wire.types.js").DrmMediaPart;
 
 /** Backend query type: ContentItemsQuery. */
-export interface RouterQueryItemsGetQuery extends QueryParams {
-  "category_id"?: string | null;
-  "direct"?: boolean;
-  "errors"?: boolean;
-  "search"?: string | null;
-  "page"?: number | null;
-  "size"?: number | null;
-}
+export type RouterQueryItemsGetQuery = import("./wire.types.js").DrmContentItemsQuery;
 /** Backend response type: Page<media_part::Model>. */
-export type RouterQueryItemsGetResponse = BackendJson<"Page<media_part::Model>">;
+export type RouterQueryItemsGetResponse = import("./wire.types.js").DrmPage<import("./wire.types.js").DrmMediaPart>;
 
 /** Backend response type: LibraryStats. */
-export interface RouterLibraryStatsGetResponseData extends JsonObject {
-  "total": number;
-  "question": number;
-  "task": number;
-  "video": number;
-  "game": number;
-}
-export type RouterLibraryStatsGetResponse = RouterLibraryStatsGetResponseData;
+export type RouterLibraryStatsGetResponse = import("./wire.types.js").DrmLibraryStats;
 
 /** Backend response type: no-content. */
 export type RouterArchiveCategoryDeleteResponse = void;
 
 /** Backend request type: GenericCategoryInput. */
-export interface RouterUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesIdInput extends JsonObject {
-  "id"?: string | null;
-  "parent_id"?: string | null;
-  "title": string;
-}
+export type RouterUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesIdInput = import("./wire.types.js").DrmGenericCategoryInput;
 /** Backend response type: content_category::Model. */
-export interface RouterUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesIdResponseData extends JsonObject {
-  "id": string;
-  "mixed_media_id": string | null;
-  "library_id": string;
-  "parent_id": string | null;
-  "title": string;
-  "created_at": string;
-  "updated_at": string;
-  "archived_at": string | null;
-}
-export type RouterUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesIdResponse = RouterUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesIdResponseData;
+export type RouterUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesIdResponse = import("./wire.types.js").DrmContentCategory;
 
 /** Backend response type: no-content. */
 export type RouterArchiveItemDeleteResponse = void;
 
 /** Backend response type: media_part::Model. */
-export interface RouterGetItemGetResponseData extends JsonObject {
-  "id": string;
-  "mixed_media_id": string | null;
-  "library_id": string;
-  "category_id": string | null;
-  "title": string;
-  "state": string;
-  "media_type": string | null;
-  "duration_seconds": number;
-  "textual": BackendJson<"Json">;
-  "rewards": BackendJson<"Json">;
-  "textual_hint": string | null;
-  "game_id": string | null;
-  "primary_media_id": string | null;
-  "hint_media_id": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "archived_at": string | null;
-}
-export type RouterGetItemGetResponse = RouterGetItemGetResponseData;
+export type RouterGetItemGetResponse = import("./wire.types.js").DrmMediaPart;
 
 /** Backend request type: ContentItemInput. */
-export interface RouterUpdateItemPutInput extends JsonObject {
-  "id"?: string | null;
-  "category_id"?: string | null;
-  "title": string;
-  "state": string;
-  "media_type"?: string | null;
-  "duration_seconds"?: number;
-  "textual"?: JsonValue;
-  "rewards"?: JsonValue;
-  "textual_hint"?: string | null;
-  "game_id"?: string | null;
-}
+export type RouterUpdateItemPutInput = import("./wire.types.js").DrmContentItemInput;
 /** Backend response type: media_part::Model. */
-export interface RouterUpdateItemPutResponseData extends JsonObject {
-  "id": string;
-  "mixed_media_id": string | null;
-  "library_id": string;
-  "category_id": string | null;
-  "title": string;
-  "state": string;
-  "media_type": string | null;
-  "duration_seconds": number;
-  "textual": BackendJson<"Json">;
-  "rewards": BackendJson<"Json">;
-  "textual_hint": string | null;
-  "game_id": string | null;
-  "primary_media_id": string | null;
-  "hint_media_id": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "archived_at": string | null;
-}
-export type RouterUpdateItemPutResponse = RouterUpdateItemPutResponseData;
+export type RouterUpdateItemPutResponse = import("./wire.types.js").DrmMediaPart;
 
 /** Backend response type: Vec<content_item_media::Model>. */
-export interface RouterItemAttachmentsGetResponseItem extends JsonObject {
-  "content_item_id": string;
-  "media_id": string;
-  "slot": string;
-  "position": number;
-  "is_current": boolean;
-  "created_at": string;
-}
-export type RouterItemAttachmentsGetResponse = RouterItemAttachmentsGetResponseItem[];
+export type RouterItemAttachmentsGetResponse = (import("./wire.types.js").DrmContentItemMedia)[];
 
 /** Backend request type: AttachmentInput. */
-export interface RouterAttachMediaPostInput extends JsonObject {
-  "media_id": string;
-  "slot": string;
-  "position"?: number;
-  "is_current"?: boolean;
-}
+export type RouterAttachMediaPostInput = import("./wire.types.js").DrmAttachmentInput;
 /** Backend response type: content_item_media::Model. */
-export interface RouterAttachMediaPostResponseData extends JsonObject {
-  "content_item_id": string;
-  "media_id": string;
-  "slot": string;
-  "position": number;
-  "is_current": boolean;
-  "created_at": string;
-}
-export type RouterAttachMediaPostResponse = RouterAttachMediaPostResponseData;
+export type RouterAttachMediaPostResponse = import("./wire.types.js").DrmContentItemMedia;
 
 /** Backend query type: PackageQuery. */
-export interface RouterClearKeyLicenseGetQuery extends QueryParams {
-  "package_id"?: string | null;
-}
+export type RouterClearKeyLicenseGetQuery = import("./wire.types.js").DrmPackageQuery;
 /** Backend response type: serde_json::Value. */
-export type RouterClearKeyLicenseGetResponse = JsonValue;
+export type RouterClearKeyLicenseGetResponse = import("./wire.types.js").DrmClearKeyLicense;
 
 /** Backend query type: ListQuery. */
-export interface RouterListMediaGetQuery extends QueryParams {
-  "search"?: string | null;
-  "media_type"?: string | null;
-  "folder_id"?: string | null;
-  "tag_id"?: string | null;
-  "page"?: number | null;
-  "size"?: number | null;
-}
+export type RouterListMediaGetQuery = import("./wire.types.js").DrmMediaListQuery;
 /** Backend response type: Page<MediaResponse>. */
-export type RouterListMediaGetResponse = BackendJson<"Page<MediaResponse>">;
+export type RouterListMediaGetResponse = import("./wire.types.js").DrmPage<import("./wire.types.js").DrmMediaRecord>;
 
 /** Backend request type: multipart/form-data. */
 export type RouterUploadMediaPostInput = FormData;
 /** Backend response type: MediaResponse. */
-export interface RouterUploadMediaPostResponseDataTags extends JsonObject {
-  "id": string;
-  "name": string;
-  "created_at": string;
-}
-export interface RouterUploadMediaPostResponseDataTranscription extends JsonObject {
-  "id": string;
-  "media_id": string;
-  "model_ref": string;
-  "language": string;
-  "detected_language": string | null;
-  "status": string;
-  "transcript": string | null;
-  "last_error": string | null;
-  "attempts": number;
-  "max_attempts": number;
-  "next_retry_at": string | null;
-  "queued_at": string;
-  "started_at": string | null;
-  "completed_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface RouterUploadMediaPostResponseData extends JsonObject {
-  "id": string;
-  "folder_id": string | null;
-  "name": string;
-  "description": string | null;
-  "media_type": string;
-  "mime_type": string;
-  "object_key": string;
-  "bucket": string;
-  "size_bytes": number;
-  "duration_seconds": number | null;
-  "status": string;
-  "original_filename": string | null;
-  "checksum_sha256": string | null;
-  "archived_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "tags": RouterUploadMediaPostResponseDataTags[];
-  "transcription": RouterUploadMediaPostResponseDataTranscription | null;
-}
-export type RouterUploadMediaPostResponse = RouterUploadMediaPostResponseData;
+export type RouterUploadMediaPostResponse = import("./wire.types.js").DrmMediaRecord;
 
 /** Backend response type: no-content. */
 export type RouterDeleteMediaDeleteResponse = void;
 
 /** Backend response type: MediaResponse. */
-export interface RouterGetMediaGetResponseDataTags extends JsonObject {
-  "id": string;
-  "name": string;
-  "created_at": string;
-}
-export interface RouterGetMediaGetResponseDataTranscription extends JsonObject {
-  "id": string;
-  "media_id": string;
-  "model_ref": string;
-  "language": string;
-  "detected_language": string | null;
-  "status": string;
-  "transcript": string | null;
-  "last_error": string | null;
-  "attempts": number;
-  "max_attempts": number;
-  "next_retry_at": string | null;
-  "queued_at": string;
-  "started_at": string | null;
-  "completed_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface RouterGetMediaGetResponseData extends JsonObject {
-  "id": string;
-  "folder_id": string | null;
-  "name": string;
-  "description": string | null;
-  "media_type": string;
-  "mime_type": string;
-  "object_key": string;
-  "bucket": string;
-  "size_bytes": number;
-  "duration_seconds": number | null;
-  "status": string;
-  "original_filename": string | null;
-  "checksum_sha256": string | null;
-  "archived_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "tags": RouterGetMediaGetResponseDataTags[];
-  "transcription": RouterGetMediaGetResponseDataTranscription | null;
-}
-export type RouterGetMediaGetResponse = RouterGetMediaGetResponseData;
+export type RouterGetMediaGetResponse = import("./wire.types.js").DrmMediaRecord;
 
 /** Backend request type: MediaUpdate. */
-export interface RouterUpdateMediaPatchInput extends JsonObject {
-  "name"?: string | null;
-  "description"?: string | null;
-  "folder_id"?: string | null;
-  "duration_seconds"?: number | null;
-  "status"?: string | null;
-  "tag_ids"?: string[] | null;
-}
+export type RouterUpdateMediaPatchInput = import("./wire.types.js").DrmMediaUpdate;
 /** Backend response type: MediaResponse. */
-export interface RouterUpdateMediaPatchResponseDataTags extends JsonObject {
-  "id": string;
-  "name": string;
-  "created_at": string;
-}
-export interface RouterUpdateMediaPatchResponseDataTranscription extends JsonObject {
-  "id": string;
-  "media_id": string;
-  "model_ref": string;
-  "language": string;
-  "detected_language": string | null;
-  "status": string;
-  "transcript": string | null;
-  "last_error": string | null;
-  "attempts": number;
-  "max_attempts": number;
-  "next_retry_at": string | null;
-  "queued_at": string;
-  "started_at": string | null;
-  "completed_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface RouterUpdateMediaPatchResponseData extends JsonObject {
-  "id": string;
-  "folder_id": string | null;
-  "name": string;
-  "description": string | null;
-  "media_type": string;
-  "mime_type": string;
-  "object_key": string;
-  "bucket": string;
-  "size_bytes": number;
-  "duration_seconds": number | null;
-  "status": string;
-  "original_filename": string | null;
-  "checksum_sha256": string | null;
-  "archived_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "tags": RouterUpdateMediaPatchResponseDataTags[];
-  "transcription": RouterUpdateMediaPatchResponseDataTranscription | null;
-}
-export type RouterUpdateMediaPatchResponse = RouterUpdateMediaPatchResponseData;
+export type RouterUpdateMediaPatchResponse = import("./wire.types.js").DrmMediaRecord;
 
 /** Backend response type: Vec<PackageResponse>. */
-export interface RouterListPackagesGetResponseItem extends JsonObject {
-  "id": string;
-  "media_id": string;
-  "revision": number;
-  "status": string;
-  "profile": BackendJson<"Json">;
-  "manifest_dash_key": string | null;
-  "manifest_hls_key": string | null;
-  "object_prefix": string;
-  "checksum_manifest": string | null;
-  "last_error": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "completed_at": string | null;
-  "dash_url": string | null;
-  "hls_url": string | null;
-}
-export type RouterListPackagesGetResponse = RouterListPackagesGetResponseItem[];
+export type RouterListPackagesGetResponse = (import("./wire.types.js").DrmPackageResponse)[];
 
 /** Backend request type: Option<DrmConfig. */
-export interface RouterRegeneratePostInput extends JsonObject {
-  "download"?: boolean;
-  "transcode"?: boolean;
-  "package"?: boolean;
-  "allow_video_only_on_audio_error"?: boolean;
-}
+export type RouterRegeneratePostInput = import("./wire.types.js").DrmConfig | null;
 /** Backend response type: drm_job::Model. */
-export interface RouterRegeneratePostResponseData extends JsonObject {
-  "id": string;
-  "media_id": string;
-  "package_id": string | null;
-  "status": string;
-  "stage": string;
-  "progress": number;
-  "attempts": number;
-  "max_attempts": number;
-  "next_retry_at": string | null;
-  "last_error": string | null;
-  "config": BackendJson<"Json">;
-  "created_at": string;
-  "updated_at": string;
-  "started_at": string | null;
-  "completed_at": string | null;
-}
-export type RouterRegeneratePostResponse = RouterRegeneratePostResponseData;
+export type RouterRegeneratePostResponse = import("./wire.types.js").DrmJob;
 
 /** Backend response type: PlaybackResponse. */
-export interface RouterPlaybackGetResponseData extends JsonObject {
-  "media_id": string;
-  "media_type": string;
-  "mime_type": string;
-  "url": string;
-  "expires_in_seconds": number;
-}
-export type RouterPlaybackGetResponse = RouterPlaybackGetResponseData;
+export type RouterPlaybackGetResponse = import("./wire.types.js").DrmPlayback;
 
 /** Backend request type: BatchMediaInput. */
-export interface RouterBatchMediaPostInput extends JsonObject {
-  "ids": string[];
-}
+export type RouterBatchMediaPostInput = import("./wire.types.js").DrmBatchMediaInput;
 /** Backend response type: Vec<MediaResponse>. */
-export interface RouterBatchMediaPostResponseItemTags extends JsonObject {
-  "id": string;
-  "name": string;
-  "created_at": string;
-}
-export interface RouterBatchMediaPostResponseItemTranscription extends JsonObject {
-  "id": string;
-  "media_id": string;
-  "model_ref": string;
-  "language": string;
-  "detected_language": string | null;
-  "status": string;
-  "transcript": string | null;
-  "last_error": string | null;
-  "attempts": number;
-  "max_attempts": number;
-  "next_retry_at": string | null;
-  "queued_at": string;
-  "started_at": string | null;
-  "completed_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface RouterBatchMediaPostResponseItem extends JsonObject {
-  "id": string;
-  "folder_id": string | null;
-  "name": string;
-  "description": string | null;
-  "media_type": string;
-  "mime_type": string;
-  "object_key": string;
-  "bucket": string;
-  "size_bytes": number;
-  "duration_seconds": number | null;
-  "status": string;
-  "original_filename": string | null;
-  "checksum_sha256": string | null;
-  "archived_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "tags": RouterBatchMediaPostResponseItemTags[];
-  "transcription": RouterBatchMediaPostResponseItemTranscription | null;
-}
-export type RouterBatchMediaPostResponse = RouterBatchMediaPostResponseItem[];
+export type RouterBatchMediaPostResponse = (import("./wire.types.js").DrmMediaRecord)[];
 
 /** Backend query type: DrmStatusesQuery. */
-export interface RouterDrmStatusesGetQuery extends QueryParams {
-  "ids": string;
-}
+export type RouterDrmStatusesGetQuery = import("./wire.types.js").DrmStatusesQuery;
 /** Backend response type: Vec<MediaDrmStatusResponse>. */
-export interface RouterDrmStatusesGetResponseItem extends JsonObject {
-  "media_id": string;
-  "media_type": string;
-  "media_status": string;
-  "package_status": string | null;
-  "job_status": string | null;
-  "effective_status": string;
-}
-export type RouterDrmStatusesGetResponse = RouterDrmStatusesGetResponseItem[];
+export type RouterDrmStatusesGetResponse = (import("./wire.types.js").DrmMediaDrmStatusResponse)[];
 
 /** Backend response type: no-content. */
 export type RouterArchivePackageDeleteResponse = void;
 
 /** Backend request type: RegisterMediaInput. */
-export interface RouterRegisterExistingMediaPostInput extends JsonObject {
-  "id"?: string | null;
-  "object_key": string;
-  "original_filename": string;
-  "name"?: string | null;
-  "description"?: string | null;
-  "mime_type": string;
-  "size_bytes": number;
-  "checksum_sha256"?: string | null;
-  "folder_id"?: string | null;
-}
+export type RouterRegisterExistingMediaPostInput = import("./wire.types.js").DrmRegisterMediaInput;
 /** Backend response type: MediaResponse. */
-export interface RouterRegisterExistingMediaPostResponseDataTags extends JsonObject {
-  "id": string;
-  "name": string;
-  "created_at": string;
-}
-export interface RouterRegisterExistingMediaPostResponseDataTranscription extends JsonObject {
-  "id": string;
-  "media_id": string;
-  "model_ref": string;
-  "language": string;
-  "detected_language": string | null;
-  "status": string;
-  "transcript": string | null;
-  "last_error": string | null;
-  "attempts": number;
-  "max_attempts": number;
-  "next_retry_at": string | null;
-  "queued_at": string;
-  "started_at": string | null;
-  "completed_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface RouterRegisterExistingMediaPostResponseData extends JsonObject {
-  "id": string;
-  "folder_id": string | null;
-  "name": string;
-  "description": string | null;
-  "media_type": string;
-  "mime_type": string;
-  "object_key": string;
-  "bucket": string;
-  "size_bytes": number;
-  "duration_seconds": number | null;
-  "status": string;
-  "original_filename": string | null;
-  "checksum_sha256": string | null;
-  "archived_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "tags": RouterRegisterExistingMediaPostResponseDataTags[];
-  "transcription": RouterRegisterExistingMediaPostResponseDataTranscription | null;
-}
-export type RouterRegisterExistingMediaPostResponse = RouterRegisterExistingMediaPostResponseData;
+export type RouterRegisterExistingMediaPostResponse = import("./wire.types.js").DrmMediaRecord;
 
 /** Backend response type: Vec<mixed_media::Model>. */
-export interface RouterListMixedMediaGetResponseItem extends JsonObject {
-  "id": string;
-  "library_id": string;
-  "category_id": string | null;
-  "name": string;
-  "description": string | null;
-  "transcription_language": string;
-  "status": string;
-  "manifest_version": number;
-  "published_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterListMixedMediaGetResponse = RouterListMixedMediaGetResponseItem[];
+export type RouterListMixedMediaGetResponse = (import("./wire.types.js").DrmMixedMedia)[];
 
 /** Backend request type: MixedMediaInput. */
-export interface RouterCreateMixedMediaPostInput extends JsonObject {
-  "library_id": string;
-  "name": string;
-  "description"?: string | null;
-  "category_id"?: string | null;
-  "transcription_language"?: string | null;
-}
+export type RouterCreateMixedMediaPostInput = import("./wire.types.js").DrmMixedMediaInput;
 /** Backend response type: mixed_media::Model. */
-export interface RouterCreateMixedMediaPostResponseData extends JsonObject {
-  "id": string;
-  "library_id": string;
-  "category_id": string | null;
-  "name": string;
-  "description": string | null;
-  "transcription_language": string;
-  "status": string;
-  "manifest_version": number;
-  "published_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterCreateMixedMediaPostResponse = RouterCreateMixedMediaPostResponseData;
+export type RouterCreateMixedMediaPostResponse = import("./wire.types.js").DrmMixedMedia;
 
 /** Backend response type: no-content. */
 export type RouterDeleteMixedMediaDeleteResponse = void;
 
 /** Backend response type: mixed_media::Model. */
-export interface RouterGetMixedMediaGetResponseData extends JsonObject {
-  "id": string;
-  "library_id": string;
-  "category_id": string | null;
-  "name": string;
-  "description": string | null;
-  "transcription_language": string;
-  "status": string;
-  "manifest_version": number;
-  "published_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterGetMixedMediaGetResponse = RouterGetMixedMediaGetResponseData;
+export type RouterGetMixedMediaGetResponse = import("./wire.types.js").DrmMixedMedia;
 
 /** Backend request type: MixedMediaUpdate. */
-export interface RouterUpdateMixedMediaPatchInput extends JsonObject {
-  "library_id"?: string | null;
-  "name"?: string | null;
-  "description"?: string | null;
-  "status"?: string | null;
-  "transcription_language"?: string | null;
-  "category_id"?: string | null;
-}
+export type RouterUpdateMixedMediaPatchInput = import("./wire.types.js").DrmMixedMediaUpdate;
 /** Backend response type: mixed_media::Model. */
-export interface RouterUpdateMixedMediaPatchResponseData extends JsonObject {
-  "id": string;
-  "library_id": string;
-  "category_id": string | null;
-  "name": string;
-  "description": string | null;
-  "transcription_language": string;
-  "status": string;
-  "manifest_version": number;
-  "published_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export type RouterUpdateMixedMediaPatchResponse = RouterUpdateMixedMediaPatchResponseData;
+export type RouterUpdateMixedMediaPatchResponse = import("./wire.types.js").DrmMixedMedia;
 
 /** Backend response type: Option<CompositionAnalysis>. */
-export type RouterGetAnalysisGetResponse = BackendJson<"CompositionAnalysis"> | null;
+export type RouterGetAnalysisGetResponse = import("./wire.types.js").DrmCompositionAnalysis | null;
 
 /** Backend request type: StartAnalysisInput. */
-export interface RouterStartAnalysisPostInput extends JsonObject {
-  "language"?: string | null;
-  "force"?: boolean;
-}
+export type RouterStartAnalysisPostInput = import("./wire.types.js").DrmStartAnalysisInput | undefined;
 /** Backend response type: CompositionAnalysis. */
-export interface RouterStartAnalysisPostResponseData extends JsonObject {
-  "mixed_media_id": string;
-  "composition_name": string;
-  "manifest_version": number;
-  "model_ref": string;
-  "summary_model_ref": string | null;
-  "language": string;
-  "detected_language": string | null;
-  "status": string;
-  "transcript": string | null;
-  "summary": string | null;
-  "last_error": string | null;
-  "queued_at": string;
-  "started_at": string | null;
-  "completed_at": string | null;
-  "updated_at": string;
-}
-export type RouterStartAnalysisPostResponse = RouterStartAnalysisPostResponseData;
+export type RouterStartAnalysisPostResponse = import("./wire.types.js").DrmCompositionAnalysis;
 
 /** Backend request type: CategoryInput. */
-export interface RouterCreateCategoryPostApiV1MixedMediaIdCategoriesInput extends JsonObject {
-  "title": string;
-  "parent_id"?: string | null;
-}
+export type RouterCreateCategoryPostApiV1MixedMediaIdCategoriesInput = import("./wire.types.js").DrmCategoryInput;
 /** Backend response type: content_category::Model. */
-export interface RouterCreateCategoryPostApiV1MixedMediaIdCategoriesResponseData extends JsonObject {
-  "id": string;
-  "mixed_media_id": string | null;
-  "library_id": string;
-  "parent_id": string | null;
-  "title": string;
-  "created_at": string;
-  "updated_at": string;
-  "archived_at": string | null;
-}
-export type RouterCreateCategoryPostApiV1MixedMediaIdCategoriesResponse = RouterCreateCategoryPostApiV1MixedMediaIdCategoriesResponseData;
+export type RouterCreateCategoryPostApiV1MixedMediaIdCategoriesResponse = import("./wire.types.js").DrmContentCategory;
 
 /** Backend response type: KnowledgeSyncSettings. */
-export interface RouterGetSettingsGetApiV1MixedMediaIdKnowledgeSyncResponseData extends JsonObject {
-  "mixed_media_id": string;
-  "enabled": boolean;
-  "knowledge_base_id": string | null;
-  "sync_status": string;
-  "synced_manifest_version": number | null;
-  "knowledge_document_id": string | null;
-  "sync_event_id": string | null;
-  "last_error": string | null;
-  "last_synced_at": string | null;
-}
-export type RouterGetSettingsGetApiV1MixedMediaIdKnowledgeSyncResponse = RouterGetSettingsGetApiV1MixedMediaIdKnowledgeSyncResponseData;
+export type RouterGetSettingsGetApiV1MixedMediaIdKnowledgeSyncResponse = import("./wire.types.js").DrmKnowledgeSyncSettings;
 
 /** Backend response type: KnowledgeSyncSettings. */
-export interface RouterSyncNowPostResponseData extends JsonObject {
-  "mixed_media_id": string;
-  "enabled": boolean;
-  "knowledge_base_id": string | null;
-  "sync_status": string;
-  "synced_manifest_version": number | null;
-  "knowledge_document_id": string | null;
-  "sync_event_id": string | null;
-  "last_error": string | null;
-  "last_synced_at": string | null;
-}
-export type RouterSyncNowPostResponse = RouterSyncNowPostResponseData;
+export type RouterSyncNowPostResponse = import("./wire.types.js").DrmKnowledgeSyncSettings;
 
 /** Backend request type: UpdateKnowledgeSync. */
-export interface RouterUpdateSettingsPutInput extends JsonObject {
-  "enabled": boolean;
-  "knowledge_base_id"?: string | null;
-}
+export type RouterUpdateSettingsPutInput = import("./wire.types.js").DrmUpdateKnowledgeSync;
 /** Backend response type: KnowledgeSyncSettings. */
-export interface RouterUpdateSettingsPutResponseData extends JsonObject {
-  "mixed_media_id": string;
-  "enabled": boolean;
-  "knowledge_base_id": string | null;
-  "sync_status": string;
-  "synced_manifest_version": number | null;
-  "knowledge_document_id": string | null;
-  "sync_event_id": string | null;
-  "last_error": string | null;
-  "last_synced_at": string | null;
-}
-export type RouterUpdateSettingsPutResponse = RouterUpdateSettingsPutResponseData;
+export type RouterUpdateSettingsPutResponse = import("./wire.types.js").DrmKnowledgeSyncSettings;
 
 /** Backend response type: mixed_media_manifest::Model. */
-export interface RouterGetManifestGetResponseData extends JsonObject {
-  "id": string;
-  "mixed_media_id": string;
-  "version": number;
-  "document": BackendJson<"Json">;
-  "created_at": string;
-}
-export type RouterGetManifestGetResponse = RouterGetManifestGetResponseData;
+export type RouterGetManifestGetResponse = import("./wire.types.js").DrmMixedMediaManifest;
 
 /** Backend response type: Vec<mixed_media_manifest::Model>. */
-export interface RouterListManifestsGetApiV1MixedMediaIdManifestsResponseItem extends JsonObject {
-  "id": string;
-  "mixed_media_id": string;
-  "version": number;
-  "document": BackendJson<"Json">;
-  "created_at": string;
-}
-export type RouterListManifestsGetApiV1MixedMediaIdManifestsResponse = RouterListManifestsGetApiV1MixedMediaIdManifestsResponseItem[];
+export type RouterListManifestsGetApiV1MixedMediaIdManifestsResponse = (import("./wire.types.js").DrmMixedMediaManifest)[];
 
 /** Backend request type: PartInput. */
-export interface RouterCreatePartPostInput extends JsonObject {
-  "category_id"?: string | null;
-  "title": string;
-  "state": string;
-  "media_type"?: string | null;
-  "duration_seconds"?: number;
-  "textual"?: JsonValue;
-  "rewards"?: JsonValue;
-  "textual_hint"?: string | null;
-  "game_id"?: string | null;
-  "primary_media_id"?: string | null;
-  "hint_media_id"?: string | null;
-}
+export type RouterCreatePartPostInput = import("./wire.types.js").DrmPartInput;
 /** Backend response type: media_part::Model. */
-export interface RouterCreatePartPostResponseData extends JsonObject {
-  "id": string;
-  "mixed_media_id": string | null;
-  "library_id": string;
-  "category_id": string | null;
-  "title": string;
-  "state": string;
-  "media_type": string | null;
-  "duration_seconds": number;
-  "textual": BackendJson<"Json">;
-  "rewards": BackendJson<"Json">;
-  "textual_hint": string | null;
-  "game_id": string | null;
-  "primary_media_id": string | null;
-  "hint_media_id": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "archived_at": string | null;
-}
-export type RouterCreatePartPostResponse = RouterCreatePartPostResponseData;
+export type RouterCreatePartPostResponse = import("./wire.types.js").DrmMediaPart;
 
 /** Backend response type: mixed_media_manifest::Model. */
-export interface RouterPublishPostApiV1MixedMediaIdPublishResponseData extends JsonObject {
-  "id": string;
-  "mixed_media_id": string;
-  "version": number;
-  "document": BackendJson<"Json">;
-  "created_at": string;
-}
-export type RouterPublishPostApiV1MixedMediaIdPublishResponse = RouterPublishPostApiV1MixedMediaIdPublishResponseData;
+export type RouterPublishPostApiV1MixedMediaIdPublishResponse = import("./wire.types.js").DrmMixedMediaManifest;
 
 /** Backend response type: EditorResources. */
-export interface RouterResourcesGetResponseDataCategories extends JsonObject {
-  "id": string;
-  "mixed_media_id": string | null;
-  "library_id": string;
-  "parent_id": string | null;
-  "title": string;
-  "created_at": string;
-  "updated_at": string;
-  "archived_at": string | null;
-}
-export interface RouterResourcesGetResponseDataParts extends JsonObject {
-  "id": string;
-  "mixed_media_id": string | null;
-  "library_id": string;
-  "category_id": string | null;
-  "title": string;
-  "state": string;
-  "media_type": string | null;
-  "duration_seconds": number;
-  "textual": BackendJson<"Json">;
-  "rewards": BackendJson<"Json">;
-  "textual_hint": string | null;
-  "game_id": string | null;
-  "primary_media_id": string | null;
-  "hint_media_id": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "archived_at": string | null;
-}
-export interface RouterResourcesGetResponseData extends JsonObject {
-  "categories": RouterResourcesGetResponseDataCategories[];
-  "parts": RouterResourcesGetResponseDataParts[];
-}
-export type RouterResourcesGetResponse = RouterResourcesGetResponseData;
+export type RouterResourcesGetResponse = import("./wire.types.js").DrmEditorResources;
 
 /** Backend response type: mixed_media_workflow::Model. */
-export interface RouterGetWorkflowGetApiV1MixedMediaIdWorkflowResponseData extends JsonObject {
-  "mixed_media_id": string;
-  "nodes": BackendJson<"Json">;
-  "edges": BackendJson<"Json">;
-  "revision": number;
-  "updated_at": string;
-}
-export type RouterGetWorkflowGetApiV1MixedMediaIdWorkflowResponse = RouterGetWorkflowGetApiV1MixedMediaIdWorkflowResponseData;
+export type RouterGetWorkflowGetApiV1MixedMediaIdWorkflowResponse = import("./wire.types.js").DrmMixedMediaWorkflow;
 
 /** Backend request type: WorkflowInput. */
-export interface RouterSaveWorkflowPutApiV1MixedMediaIdWorkflowInput extends JsonObject {
-  "nodes": JsonValue;
-  "edges": JsonValue;
-}
+export type RouterSaveWorkflowPutApiV1MixedMediaIdWorkflowInput = import("./wire.types.js").DrmWorkflowInput;
 /** Backend response type: mixed_media_workflow::Model. */
-export interface RouterSaveWorkflowPutApiV1MixedMediaIdWorkflowResponseData extends JsonObject {
-  "mixed_media_id": string;
-  "nodes": BackendJson<"Json">;
-  "edges": BackendJson<"Json">;
-  "revision": number;
-  "updated_at": string;
-}
-export type RouterSaveWorkflowPutApiV1MixedMediaIdWorkflowResponse = RouterSaveWorkflowPutApiV1MixedMediaIdWorkflowResponseData;
+export type RouterSaveWorkflowPutApiV1MixedMediaIdWorkflowResponse = import("./wire.types.js").DrmMixedMediaWorkflow;
 
 /** Backend response type: no-content. */
 export type RouterDeleteCategoryDeleteResponse = void;
 
 /** Backend request type: CategoryInput. */
-export interface RouterUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesIdInput extends JsonObject {
-  "title": string;
-  "parent_id"?: string | null;
-}
+export type RouterUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesIdInput = import("./wire.types.js").DrmCategoryInput;
 /** Backend response type: content_category::Model. */
-export interface RouterUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesIdResponseData extends JsonObject {
-  "id": string;
-  "mixed_media_id": string | null;
-  "library_id": string;
-  "parent_id": string | null;
-  "title": string;
-  "created_at": string;
-  "updated_at": string;
-  "archived_at": string | null;
-}
-export type RouterUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesIdResponse = RouterUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesIdResponseData;
+export type RouterUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesIdResponse = import("./wire.types.js").DrmContentCategory;
 
 /** Backend response type: no-content. */
 export type RouterDeletePartDeleteResponse = void;
 
 /** Backend response type: media_part::Model. */
-export interface RouterGetPartGetResponseData extends JsonObject {
-  "id": string;
-  "mixed_media_id": string | null;
-  "library_id": string;
-  "category_id": string | null;
-  "title": string;
-  "state": string;
-  "media_type": string | null;
-  "duration_seconds": number;
-  "textual": BackendJson<"Json">;
-  "rewards": BackendJson<"Json">;
-  "textual_hint": string | null;
-  "game_id": string | null;
-  "primary_media_id": string | null;
-  "hint_media_id": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "archived_at": string | null;
-}
-export type RouterGetPartGetResponse = RouterGetPartGetResponseData;
+export type RouterGetPartGetResponse = import("./wire.types.js").DrmMediaPart;
 
 /** Backend request type: PartInput. */
-export interface RouterUpdatePartPutInput extends JsonObject {
-  "category_id"?: string | null;
-  "title": string;
-  "state": string;
-  "media_type"?: string | null;
-  "duration_seconds"?: number;
-  "textual"?: JsonValue;
-  "rewards"?: JsonValue;
-  "textual_hint"?: string | null;
-  "game_id"?: string | null;
-  "primary_media_id"?: string | null;
-  "hint_media_id"?: string | null;
-}
+export type RouterUpdatePartPutInput = import("./wire.types.js").DrmPartInput;
 /** Backend response type: media_part::Model. */
-export interface RouterUpdatePartPutResponseData extends JsonObject {
-  "id": string;
-  "mixed_media_id": string | null;
-  "library_id": string;
-  "category_id": string | null;
-  "title": string;
-  "state": string;
-  "media_type": string | null;
-  "duration_seconds": number;
-  "textual": BackendJson<"Json">;
-  "rewards": BackendJson<"Json">;
-  "textual_hint": string | null;
-  "game_id": string | null;
-  "primary_media_id": string | null;
-  "hint_media_id": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "archived_at": string | null;
-}
-export type RouterUpdatePartPutResponse = RouterUpdatePartPutResponseData;
+export type RouterUpdatePartPutResponse = import("./wire.types.js").DrmMediaPart;
 
 /** Backend response type: serde_json::Value. */
-export type RouterHealthGetResponse = JsonValue;
+export type RouterHealthGetResponse = import("./wire.types.js").DrmHealth;
 
 /** Backend response type: Value. */
-export type RouterKnowledgeCatalogGetResponse = JsonValue;
+export type RouterKnowledgeCatalogGetResponse = import("./wire.types.js").DrmKnowledgeCatalog;
 
 /** Backend response type: SettingsResponse. */
-export interface RouterGetSettingsGetApiV1OperationsSettingsResponseData extends JsonObject {
-  "package_concurrency": number;
-  "transcription_enabled": boolean;
-  "transcription_model_ref": string | null;
-  "summary_model_ref": string | null;
-}
-export type RouterGetSettingsGetApiV1OperationsSettingsResponse = RouterGetSettingsGetApiV1OperationsSettingsResponseData;
+export type RouterGetSettingsGetApiV1OperationsSettingsResponse = import("./wire.types.js").DrmSettingsResponse;
 
 /** Backend request type: SettingsInput. */
-export interface RouterUpdateSettingsPatchInput extends JsonObject {
-  "package_concurrency": number;
-  "transcription_enabled"?: boolean;
-  "transcription_model_ref"?: string | null;
-  "summary_model_ref"?: string | null;
-}
+export type RouterUpdateSettingsPatchInput = import("./wire.types.js").DrmSettingsInput;
 /** Backend response type: SettingsResponse. */
-export interface RouterUpdateSettingsPatchResponseData extends JsonObject {
-  "package_concurrency": number;
-  "transcription_enabled": boolean;
-  "transcription_model_ref": string | null;
-  "summary_model_ref": string | null;
-}
-export type RouterUpdateSettingsPatchResponse = RouterUpdateSettingsPatchResponseData;
+export type RouterUpdateSettingsPatchResponse = import("./wire.types.js").DrmSettingsResponse;
 
 /** Backend response type: Vec<TranscriptionModel>. */
-export interface RouterTranscriptionModelsGetResponseItem extends JsonObject {
-  "model_ref": string;
-  "model": string;
-  "provider_label": string;
-  "source": string;
-  "capabilities": string[];
-}
-export type RouterTranscriptionModelsGetResponse = RouterTranscriptionModelsGetResponseItem[];
+export type RouterTranscriptionModelsGetResponse = (import("./wire.types.js").DrmTranscriptionModel)[];
 
 /** Backend request type: LegacyPackageInput. */
-export interface RouterLegacyEnqueuePostInput extends JsonObject {
-  "id": string;
-  "download"?: boolean;
-  "transcode"?: boolean;
-  "package"?: boolean;
-}
+export type RouterLegacyEnqueuePostInput = import("./wire.types.js").DrmLegacyPackageInput;
 /** Backend response type: serde_json::Value. */
-export type RouterLegacyEnqueuePostResponse = JsonValue;
+export type RouterLegacyEnqueuePostResponse = import("./wire.types.js").DrmLegacyEnqueue;
 
 /** Backend response type: serde_json::Value. */
-export type RouterLegacyStatusGetResponse = JsonValue;
+export type RouterLegacyStatusGetResponse = import("./wire.types.js").DrmLegacyStatus;
 
 /** Backend response type: raw-response. */
-export interface RouterPackageFileGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RouterPackageFileGetResponse = import("./wire.types.js").DrmPackageFile;
 
 /** Backend response type: serde_json::Value. */
-export type RouterStatusGetResponse = JsonValue;
+export type RouterStatusGetResponse = import("./wire.types.js").DrmStatus;
 
 /** Backend response type: Vec<tag::Model>. */
-export interface RouterListTagsGetResponseItem extends JsonObject {
-  "id": string;
-  "name": string;
-  "created_at": string;
-}
-export type RouterListTagsGetResponse = RouterListTagsGetResponseItem[];
+export type RouterListTagsGetResponse = (import("./wire.types.js").DrmTag)[];
 
 /** Backend request type: TagInput. */
-export interface RouterCreateTagPostInput extends JsonObject {
-  "name": string;
-}
+export type RouterCreateTagPostInput = import("./wire.types.js").DrmTagInput;
 /** Backend response type: tag::Model. */
-export interface RouterCreateTagPostResponseData extends JsonObject {
-  "id": string;
-  "name": string;
-  "created_at": string;
-}
-export type RouterCreateTagPostResponse = RouterCreateTagPostResponseData;
+export type RouterCreateTagPostResponse = import("./wire.types.js").DrmTag;
 
 /** Backend response type: no-content. */
 export type RouterDeleteTagDeleteResponse = void;
 
 /** Backend request type: UploadSessionInput. */
-export interface RouterCreateUploadSessionPostInput extends JsonObject {
-  "media_id"?: string | null;
-  "filename": string;
-  "name"?: string | null;
-  "description"?: string | null;
-  "mime_type": string;
-  "folder_id"?: string | null;
-  "total_bytes": number;
-  "part_size"?: number | null;
-}
+export type RouterCreateUploadSessionPostInput = import("./wire.types.js").DrmUploadSessionInput;
 /** Backend response type: UploadSessionResponse. */
-export interface RouterCreateUploadSessionPostResponseDataParts extends JsonObject {
-  "session_id": string;
-  "part_number": number;
-  "etag": string;
-  "size_bytes": number;
-  "created_at": string;
-}
-export interface RouterCreateUploadSessionPostResponseData extends JsonObject {
-  "id": string;
-  "media_id": string;
-  "object_key": string;
-  "multipart_upload_id": string;
-  "filename": string;
-  "name": string;
-  "description": string | null;
-  "mime_type": string;
-  "media_type": string;
-  "folder_id": string | null;
-  "total_bytes": number;
-  "part_size": number;
-  "checksum_sha256": string | null;
-  "status": string;
-  "error": string | null;
-  "expires_at": string;
-  "created_at": string;
-  "updated_at": string;
-  "completed_at": string | null;
-  "parts": RouterCreateUploadSessionPostResponseDataParts[];
-}
-export type RouterCreateUploadSessionPostResponse = RouterCreateUploadSessionPostResponseData;
+export type RouterCreateUploadSessionPostResponse = import("./wire.types.js").DrmUploadSessionResponse;
 
 /** Backend response type: no-content. */
 export type RouterCancelUploadDeleteResponse = void;
 
 /** Backend response type: UploadSessionResponse. */
-export interface RouterGetUploadSessionGetResponseDataParts extends JsonObject {
-  "session_id": string;
-  "part_number": number;
-  "etag": string;
-  "size_bytes": number;
-  "created_at": string;
-}
-export interface RouterGetUploadSessionGetResponseData extends JsonObject {
-  "id": string;
-  "media_id": string;
-  "object_key": string;
-  "multipart_upload_id": string;
-  "filename": string;
-  "name": string;
-  "description": string | null;
-  "mime_type": string;
-  "media_type": string;
-  "folder_id": string | null;
-  "total_bytes": number;
-  "part_size": number;
-  "checksum_sha256": string | null;
-  "status": string;
-  "error": string | null;
-  "expires_at": string;
-  "created_at": string;
-  "updated_at": string;
-  "completed_at": string | null;
-  "parts": RouterGetUploadSessionGetResponseDataParts[];
-}
-export type RouterGetUploadSessionGetResponse = RouterGetUploadSessionGetResponseData;
+export type RouterGetUploadSessionGetResponse = import("./wire.types.js").DrmUploadSessionResponse;
 
 /** Backend request type: CompleteUploadInput. */
-export interface RouterCompleteUploadPostInput extends JsonObject {
-  "checksum_sha256"?: string | null;
-}
+export type RouterCompleteUploadPostInput = import("./wire.types.js").DrmCompleteUploadInput;
 /** Backend response type: MediaResponse. */
-export interface RouterCompleteUploadPostResponseDataTags extends JsonObject {
-  "id": string;
-  "name": string;
-  "created_at": string;
-}
-export interface RouterCompleteUploadPostResponseDataTranscription extends JsonObject {
-  "id": string;
-  "media_id": string;
-  "model_ref": string;
-  "language": string;
-  "detected_language": string | null;
-  "status": string;
-  "transcript": string | null;
-  "last_error": string | null;
-  "attempts": number;
-  "max_attempts": number;
-  "next_retry_at": string | null;
-  "queued_at": string;
-  "started_at": string | null;
-  "completed_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface RouterCompleteUploadPostResponseData extends JsonObject {
-  "id": string;
-  "folder_id": string | null;
-  "name": string;
-  "description": string | null;
-  "media_type": string;
-  "mime_type": string;
-  "object_key": string;
-  "bucket": string;
-  "size_bytes": number;
-  "duration_seconds": number | null;
-  "status": string;
-  "original_filename": string | null;
-  "checksum_sha256": string | null;
-  "archived_at": string | null;
-  "created_at": string;
-  "updated_at": string;
-  "tags": RouterCompleteUploadPostResponseDataTags[];
-  "transcription": RouterCompleteUploadPostResponseDataTranscription | null;
-}
-export type RouterCompleteUploadPostResponse = RouterCompleteUploadPostResponseData;
+export type RouterCompleteUploadPostResponse = import("./wire.types.js").DrmMediaRecord;
 
 /** Backend request type: binary byte stream. */
-export type RouterPutUploadPartPutInput = Blob | ArrayBuffer | ArrayBufferView;
+export type RouterPutUploadPartPutInput = import("./wire.types.js").DrmUploadPartBody;
 /** Backend response type: upload_part::Model. */
-export interface RouterPutUploadPartPutResponseData extends JsonObject {
-  "session_id": string;
-  "part_number": number;
-  "etag": string;
-  "size_bytes": number;
-  "created_at": string;
-}
-export type RouterPutUploadPartPutResponse = RouterPutUploadPartPutResponseData;
+export type RouterPutUploadPartPutResponse = import("./wire.types.js").DrmUploadPart;

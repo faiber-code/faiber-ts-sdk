@@ -1,4 +1,4 @@
-/** Active runtime source review at5e6d6add; server BFF credentials never belong in a browser. */
+/** Source review at d067ac956571abd73211b06d835caa658b1f09bc; server BFF credentials never belong in a browser. */
 export const socialDiscoveryContracts = {
   "social:GET /api/v1/public/posts": {
     "response": "import(\"./discovery.types.js\").SocialDiscoveryResponse<import(\"./discovery.types.js\").SocialDiscoveryPost[]>",
@@ -44,7 +44,7 @@ export const socialDiscoveryContracts = {
   "social:PUT /api/v1/follow/{kind}/{id}": {
     "response": "void",
     "auth": "trusted server BFF_SERVICE_KEY bearer plus actor UUID",
-    "purpose": "Idempotently follow a user/place. Self-follow400 and blocked user403. Returns204; may emit a durable follow notification.",
+    "purpose": "Idempotently follow a user/place. Self-follow400 and blocked user403. Returns204; the migration 6 database trigger may enqueue an opted-in user-follow notification for a new edge.",
     "pathTypes": {
       "kind": "import(\"./discovery.types.js\").SocialFollowTargetKind",
       "id": "string"

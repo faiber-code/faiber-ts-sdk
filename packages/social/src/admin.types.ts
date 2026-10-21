@@ -1,6 +1,6 @@
 import type {JsonValue, QueryParams} from '@faiber/sdk-core';
 import type {SocialCategory,SocialPost,SocialComment,SocialReport,SocialListMeta,ModerationStatus,SocialPostKind,SocialVisibility,CreateCategoryInput,UpdateCategoryInput} from './types.js';
-/** Wire shapes reviewed against src/admin.rs and migrations 1–4 at Social 79462976. */
+/** Wire shapes reviewed against src/admin.rs and migrations 1–4 at Social d067ac956571abd73211b06d835caa658b1f09bc. */
 export interface SocialAdminResponse<T> { status:'success'; data:T; }
 export interface SocialAdminPage<T> extends SocialAdminResponse<T[]> { meta:SocialListMeta; }
 /** Offset pagination defaults page1/limit30; server clamps page>=1 and limit1..100. */
@@ -20,7 +20,7 @@ export interface SocialAdminMedia {id:string;organization_id:string;uploader_use
 export interface SocialAdminCategory extends SocialCategory {deleted_at:string|null;}
 export type SocialAdminCreateCategoryInput=CreateCategoryInput;
 export type SocialAdminUpdateCategoryInput=UpdateCategoryInput;
-/** Only these section names are accepted. Section contents are intentionally JSON-configurable; the service currently interprets each section's required:boolean when validating capability input. */
+/** Only these section names are accepted. Section contents intentionally remain arbitrary JSON. The evaluator inspects settings such as required, allowed_types, access_policies, navigation_allowed, allowed_units and enabled; it does not validate an exhaustive section schema. */
 export interface SocialAdminPolicyConfig {subject?:JsonValue;location?:JsonValue;bounty?:JsonValue;claims?:JsonValue;resolution?:JsonValue;expiry?:JsonValue;linked_actions?:JsonValue;}
 export interface SocialAdminPolicyInput {category_id:string;config:SocialAdminPolicyConfig;}
 export interface SocialAdminPolicy {id:string;organization_id:string;category_id:string;version:number;status:'draft'|'published'|'retired';config:SocialAdminPolicyConfig;created_by:string;published_by:string|null;created_at:string;updated_at:string;published_at:string|null;}
@@ -45,6 +45,12 @@ export interface SocialAdminAudit {id:string;organization_id:string;operator_use
 /** payload is the application-defined event body stored by Social's durable integration outbox. */
 export interface SocialAdminIntegration {id:string;organization_id:string;topic:string;aggregate_type:string;aggregate_id:string;payload:JsonValue;status:'pending'|'delivered'|'failed'|'dead_letter';attempts:number;last_error:string|null;next_attempt_at:string|null;created_at:string;updated_at:string;}
 export interface SocialAdminSettings {contract_version:'capabilities-v1';location_encryption_configured:boolean;assertion_issuers_configured:boolean;secrets_exposed:false;}
-export interface SocialAdminCapabilities {version:1;post_id:string;author_user_id:string;lifecycle_status:SocialAdminLifecycle;subject:{subject_type:string|null;subject_ref:string|null;public_snapshot:JsonValue}|null;location:{public_label:string|null;public_precision:string|null;navigation_enabled:boolean;exact_location_available:boolean}|null;bounty:{unit:string|null;code:string|null;amount:string|null;status:string|null;expires_at:string|null}|null;linked_actions:{action_type:string|null;resource_ref:string|null;public_snapshot:JsonValue}[];}
+/** Public assertion snapshot contents are intentionally issuer-defined JSON, stored verbatim by the service. */
+export interface SocialCapabilitySubject {subject_type:string|null;subject_ref:string|null;public_snapshot:JsonValue;}
+export interface SocialCapabilityLocation {public_label:string|null;public_precision:string|null;navigation_enabled:boolean;exact_location_available:boolean;}
+export interface SocialCapabilityBounty {unit:string|null;code:string|null;amount:string|null;status:string|null;expires_at:string|null;}
+export interface SocialCapabilityLinkedAction {action_type:string|null;resource_ref:string|null;public_snapshot:JsonValue;}
+export interface SocialAdminCapabilities {version:1;post_id:string;author_user_id:string;lifecycle_status:SocialAdminLifecycle;subject:SocialCapabilitySubject|null;location:SocialCapabilityLocation|null;bounty:SocialCapabilityBounty|null;linked_actions:SocialCapabilityLinkedAction[];}
+
 export interface SocialAdminPostDetail {post:Omit<SocialAdminPost,'metadata'>;metadata:JsonValue;reports:SocialAdminReport[];comments:number;views:number;shares:number;capabilities:SocialAdminCapabilities;}
 export interface SocialAdminModerationQueue {posts:SocialAdminPost[];comments:SocialAdminComment[];reports:SocialAdminReport[];}

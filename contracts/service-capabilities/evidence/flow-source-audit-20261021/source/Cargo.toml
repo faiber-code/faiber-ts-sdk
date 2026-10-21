@@ -1,0 +1,52 @@
+[package]
+name = "infera_flow"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "infera_flow"
+path = "src/lib.rs"
+
+[[bin]]
+name = "infera_flow"
+path = "src/main.rs"
+
+[workspace]
+members = [".", "entity", "migration"]
+
+[dependencies]
+entity = { path = "entity" }
+migration = { path = "migration" }
+infera-idp-sdk = { git = "https://hamgit.ir/faiber/faiber-sdk.git", features = ["dev-fallback"] }
+infera-idp-macro = { git = "https://hamgit.ir/faiber/faiber-sdk.git" }
+axum = { version = "0.8.4" }
+clap = { version = "4.5.40", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.46.1", features = ["macros", "rt-multi-thread", "fs", "io-util"] }
+dotenvy = "0.15"
+tower = "0.5.2"
+validator = { version = "0.20", features = ["derive"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+uuid = { version = "1", features = ["v4", "serde"] }
+tower-http = { version = "0.6.8", features = ["trace", "cors", "fs", "timeout"] }
+anyhow = "1.0.75"
+sea-orm = { version = "1.1.13", features = ["sqlx-postgres", "runtime-tokio-rustls", "macros", "with-chrono", "with-json", "with-uuid"] }
+reqwest = { version = "0.12", features = ["json", "rustls-tls-native-roots"] }
+lapin = "3.2.1"
+infera-flow-sdk = { git = "https://hamgit.ir/faiber/faiber-sdk.git" }
+chrono = { version = "0.4", features = ["serde"] }
+async-trait = "0.1"
+utoipa = { version = "5.4.0", features = ["uuid", "chrono"] }
+futures-lite = "2.6"
+slug = "0.1"
+inventory = "0.3.21"
+
+[dependencies.sea-orm-migration]
+version = "1.1.13"
+features = ["runtime-tokio-rustls", "sqlx-postgres"]
+
+[dev-dependencies]
+dotenvy = "0.15"
+tokio = { version = "1.46.1", features = ["macros", "rt-multi-thread"] }

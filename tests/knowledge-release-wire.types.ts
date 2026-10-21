@@ -1,4 +1,4 @@
-import type { KnowledgeApi, KnowledgeBase, KnowledgeRelease, KnowledgeReleaseResponse, KnowledgeExportResponse, CreateItemInput, UpdateItemInput, RoutesPublishPostResponse, RoutesGetReleaseGetResponse, RoutesCreateItemPostResponse } from '../packages/knowledge/src/index.js';
+import type { KnowledgeApi, KnowledgeBase, KnowledgeRelease, KnowledgeReleaseResponse, KnowledgeExportResponse, CreateItemInput, UpdateItemInput, RoutesPublishPostResponse, RoutesGetReleaseGetResponse, RoutesCreateItemPostResponse } from '@faiber/faiber-knowledge';
 import type { AxiosResponse } from 'axios';
 declare const api: KnowledgeApi;
 declare const release: KnowledgeRelease;
@@ -46,7 +46,7 @@ api.operations.platformCreateSourcePost({knowledge_base_id:'base',slug:'source',
 api.operations.platformProcessingJobsGet().then(response=>{const job=response.data.data[0]!;const lease:string|null=job.lease_owner;const attempts:number=job.attempts;const completed:number=job.item_completed;void [lease,attempts,completed];});
 
 // Native selected-media quota emits the serialized additive exclusion reason.
-import type { TaskProjectionsPassagesPostResponseDataExcludedResultsReason } from '../packages/knowledge/src/index.js';
+import type { TaskProjectionsPassagesPostResponseDataExcludedResultsReason } from '@faiber/faiber-knowledge';
 const selectedMediaLimit: TaskProjectionsPassagesPostResponseDataExcludedResultsReason = 'selected_media_limit';
 // @ts-expect-error Rust enum names are not the public snake_case wire spelling
 const invalidSelectedMediaLimit: TaskProjectionsPassagesPostResponseDataExcludedResultsReason = 'SelectedMediaLimit';
@@ -56,4 +56,22 @@ void [selectedMediaLimit, invalidSelectedMediaLimit];
 api.queryAssistant('assistant', {
  user_id:'user', profile_version:null, profile_source:null, profile_refreshed_at:null,
  conversation_id:null, model_id:null, context_cursor:null, evaluation_case_id:null,
+});
+
+// Exact pinned response projections and legitimate null/default branches.
+api.recordMemoryTurn('assistant',{user_id:'user',conversation_id:'conversation',user_message:'Hello',assistant_message:'Hi',profile_version:null,user_message_id:null}).then(response=>{
+ const receipt=response.data.data;
+ if(receipt.queued){const id:string=receipt.outbox_id;void id;}else{const reason:string=receipt.reason;void reason;}
+});
+api.recordRetrievalUsage('trace',{final_prompt_tokens:4,actual_cost:null,outcome:null}).then(response=>{const cost:number|null=response.data.data.actual_cost;void cost;});
+api.ingestDocument({knowledge_base_id:'base',title:'Title',content:'Text',language:null});
+api.queryAssistant('assistant',{user_id:'user'}).then(response=>{const sections:Record<string,number>|undefined=response.data.data.budget.sections;const short:import('@faiber/sdk-core').JsonValue[]=response.data.data.memory.short;void [sections,short];});
+api.operations.platformCatalogGet().then(response=>{const base:string=response.data.data.knowledge_bases[0]!.slug;const policies:string[]=response.data.data.assistant_policies[0]!.knowledge_base_ids;void [base,policies];});
+api.operations.platformListRecommendersGet().then(response=>{const score:number=response.data.data[0]!.items[0]!.base_score;void score;});
+api.operations.platformConvertersGet().then(response=>{const features:string[]=response.data.data[0]!.features;void features;});
+api.operations.platformStatusGet().then(response=>{const p95:number|null=response.data.data.retrieval.p95_ms;void p95;});
+api.operations.taskProjectionsPassagesPost({user_id:'user',query:'query',locale:'en',sources:[]}).then(response=>{
+ const score:number=response.data.data.score_explanations['result']!.final_score;
+ const dependency:import('@faiber/faiber-knowledge').DependencyState=response.data.data.dependency_state['database']!;
+ void [score,dependency];
 });

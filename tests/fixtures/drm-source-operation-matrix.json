@@ -1,0 +1,1389 @@
+[
+  {
+    "operation": "GET /api/v1/status",
+    "methodName": "routerStatusGet",
+    "method": "GET",
+    "path": "/api/v1/status",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/folders",
+    "methodName": "routerListFoldersGet",
+    "method": "GET",
+    "path": "/api/v1/folders",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/folders",
+    "methodName": "routerCreateFolderPost",
+    "method": "POST",
+    "path": "/api/v1/folders",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "PATCH /api/v1/folders/{id}",
+    "methodName": "routerUpdateFolderPatch",
+    "method": "PATCH",
+    "path": "/api/v1/folders/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "DELETE /api/v1/folders/{id}",
+    "methodName": "routerDeleteFolderDelete",
+    "method": "DELETE",
+    "path": "/api/v1/folders/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/tags",
+    "methodName": "routerListTagsGet",
+    "method": "GET",
+    "path": "/api/v1/tags",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/tags",
+    "methodName": "routerCreateTagPost",
+    "method": "POST",
+    "path": "/api/v1/tags",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "DELETE /api/v1/tags/{id}",
+    "methodName": "routerDeleteTagDelete",
+    "method": "DELETE",
+    "path": "/api/v1/tags/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/media",
+    "methodName": "routerListMediaGet",
+    "method": "GET",
+    "path": "/api/v1/media",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": true,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/media",
+    "methodName": "routerUploadMediaPost",
+    "method": "POST",
+    "path": "/api/v1/media",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": true,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/media/drm-statuses",
+    "methodName": "routerDrmStatusesGet",
+    "method": "GET",
+    "path": "/api/v1/media/drm-statuses",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": true,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/media/batch",
+    "methodName": "routerBatchMediaPost",
+    "method": "POST",
+    "path": "/api/v1/media/batch",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/media/{id}",
+    "methodName": "routerGetMediaGet",
+    "method": "GET",
+    "path": "/api/v1/media/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "PATCH /api/v1/media/{id}",
+    "methodName": "routerUpdateMediaPatch",
+    "method": "PATCH",
+    "path": "/api/v1/media/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "DELETE /api/v1/media/{id}",
+    "methodName": "routerDeleteMediaDelete",
+    "method": "DELETE",
+    "path": "/api/v1/media/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/media/{id}/playback",
+    "methodName": "routerPlaybackGet",
+    "method": "GET",
+    "path": "/api/v1/media/{id}/playback",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/mixed-media",
+    "methodName": "routerListMixedMediaGet",
+    "method": "GET",
+    "path": "/api/v1/mixed-media",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/mixed-media",
+    "methodName": "routerCreateMixedMediaPost",
+    "method": "POST",
+    "path": "/api/v1/mixed-media",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/mixed-media/{id}",
+    "methodName": "routerGetMixedMediaGet",
+    "method": "GET",
+    "path": "/api/v1/mixed-media/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "PATCH /api/v1/mixed-media/{id}",
+    "methodName": "routerUpdateMixedMediaPatch",
+    "method": "PATCH",
+    "path": "/api/v1/mixed-media/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "DELETE /api/v1/mixed-media/{id}",
+    "methodName": "routerDeleteMixedMediaDelete",
+    "method": "DELETE",
+    "path": "/api/v1/mixed-media/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/mixed-media/{id}/resources",
+    "methodName": "routerResourcesGet",
+    "method": "GET",
+    "path": "/api/v1/mixed-media/{id}/resources",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/mixed-media/{id}/categories",
+    "methodName": "routerCreateCategoryPostApiV1MixedMediaIdCategories",
+    "method": "POST",
+    "path": "/api/v1/mixed-media/{id}/categories",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "PATCH /api/v1/mixed-media/{mixed_id}/categories/{id}",
+    "methodName": "routerUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesId",
+    "method": "PATCH",
+    "path": "/api/v1/mixed-media/{mixed_id}/categories/{id}",
+    "pathArgs": [
+      "mixed_id",
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "DELETE /api/v1/mixed-media/{mixed_id}/categories/{id}",
+    "methodName": "routerDeleteCategoryDelete",
+    "method": "DELETE",
+    "path": "/api/v1/mixed-media/{mixed_id}/categories/{id}",
+    "pathArgs": [
+      "mixed_id",
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/mixed-media/{id}/parts",
+    "methodName": "routerCreatePartPost",
+    "method": "POST",
+    "path": "/api/v1/mixed-media/{id}/parts",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/mixed-media/{mixed_id}/parts/{id}",
+    "methodName": "routerGetPartGet",
+    "method": "GET",
+    "path": "/api/v1/mixed-media/{mixed_id}/parts/{id}",
+    "pathArgs": [
+      "mixed_id",
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "PUT /api/v1/mixed-media/{mixed_id}/parts/{id}",
+    "methodName": "routerUpdatePartPut",
+    "method": "PUT",
+    "path": "/api/v1/mixed-media/{mixed_id}/parts/{id}",
+    "pathArgs": [
+      "mixed_id",
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "DELETE /api/v1/mixed-media/{mixed_id}/parts/{id}",
+    "methodName": "routerDeletePartDelete",
+    "method": "DELETE",
+    "path": "/api/v1/mixed-media/{mixed_id}/parts/{id}",
+    "pathArgs": [
+      "mixed_id",
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/mixed-media/{id}/workflow",
+    "methodName": "routerGetWorkflowGetApiV1MixedMediaIdWorkflow",
+    "method": "GET",
+    "path": "/api/v1/mixed-media/{id}/workflow",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "PUT /api/v1/mixed-media/{id}/workflow",
+    "methodName": "routerSaveWorkflowPutApiV1MixedMediaIdWorkflow",
+    "method": "PUT",
+    "path": "/api/v1/mixed-media/{id}/workflow",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/mixed-media/{id}/publish",
+    "methodName": "routerPublishPostApiV1MixedMediaIdPublish",
+    "method": "POST",
+    "path": "/api/v1/mixed-media/{id}/publish",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/mixed-media/{id}/manifest",
+    "methodName": "routerGetManifestGet",
+    "method": "GET",
+    "path": "/api/v1/mixed-media/{id}/manifest",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/mixed-media/{id}/manifests",
+    "methodName": "routerListManifestsGetApiV1MixedMediaIdManifests",
+    "method": "GET",
+    "path": "/api/v1/mixed-media/{id}/manifests",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/mixed-media/{id}/knowledge-sync",
+    "methodName": "routerGetSettingsGetApiV1MixedMediaIdKnowledgeSync",
+    "method": "GET",
+    "path": "/api/v1/mixed-media/{id}/knowledge-sync",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "PUT /api/v1/mixed-media/{id}/knowledge-sync",
+    "methodName": "routerUpdateSettingsPut",
+    "method": "PUT",
+    "path": "/api/v1/mixed-media/{id}/knowledge-sync",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/mixed-media/{id}/knowledge-sync",
+    "methodName": "routerSyncNowPost",
+    "method": "POST",
+    "path": "/api/v1/mixed-media/{id}/knowledge-sync",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/mixed-media/{id}/analysis",
+    "methodName": "routerGetAnalysisGet",
+    "method": "GET",
+    "path": "/api/v1/mixed-media/{id}/analysis",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/mixed-media/{id}/analysis",
+    "methodName": "routerStartAnalysisPost",
+    "method": "POST",
+    "path": "/api/v1/mixed-media/{id}/analysis",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/composition-analyses",
+    "methodName": "routerListAnalysesGet",
+    "method": "GET",
+    "path": "/api/v1/composition-analyses",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": true,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/drm/jobs",
+    "methodName": "routerListJobsGet",
+    "method": "GET",
+    "path": "/api/v1/drm/jobs",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": true,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/drm/jobs",
+    "methodName": "routerCreateJobPost",
+    "method": "POST",
+    "path": "/api/v1/drm/jobs",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/drm/jobs/{id}/retry",
+    "methodName": "routerRetryJobPost",
+    "method": "POST",
+    "path": "/api/v1/drm/jobs/{id}/retry",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/drm/jobs/actions/retry-failed",
+    "methodName": "routerRetryAllFailedPost",
+    "method": "POST",
+    "path": "/api/v1/drm/jobs/actions/retry-failed",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "DELETE /api/v1/drm/jobs/{id}",
+    "methodName": "routerCancelJobDelete",
+    "method": "DELETE",
+    "path": "/api/v1/drm/jobs/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/packages/{kind}/{media_id}",
+    "methodName": "routerLegacyStatusGet",
+    "method": "GET",
+    "path": "/api/v1/packages/{kind}/{media_id}",
+    "pathArgs": [
+      "kind",
+      "media_id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/packages",
+    "methodName": "routerLegacyEnqueuePost",
+    "method": "POST",
+    "path": "/api/v1/packages",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/libraries",
+    "methodName": "routerListLibrariesGet",
+    "method": "GET",
+    "path": "/api/v1/libraries",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/libraries",
+    "methodName": "routerCreateLibraryPost",
+    "method": "POST",
+    "path": "/api/v1/libraries",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/libraries/{id}",
+    "methodName": "routerGetLibraryGet",
+    "method": "GET",
+    "path": "/api/v1/libraries/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "PATCH /api/v1/libraries/{id}",
+    "methodName": "routerUpdateLibraryPatch",
+    "method": "PATCH",
+    "path": "/api/v1/libraries/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "DELETE /api/v1/libraries/{id}",
+    "methodName": "routerDeleteLibraryDelete",
+    "method": "DELETE",
+    "path": "/api/v1/libraries/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/libraries/{id}/categories",
+    "methodName": "routerListCategoriesGet",
+    "method": "GET",
+    "path": "/api/v1/libraries/{id}/categories",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/libraries/{id}/categories",
+    "methodName": "routerCreateCategoryPostApiV1LibrariesIdCategories",
+    "method": "POST",
+    "path": "/api/v1/libraries/{id}/categories",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "PATCH /api/v1/libraries/{library_id}/categories/{id}",
+    "methodName": "routerUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesId",
+    "method": "PATCH",
+    "path": "/api/v1/libraries/{library_id}/categories/{id}",
+    "pathArgs": [
+      "library_id",
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "DELETE /api/v1/libraries/{library_id}/categories/{id}",
+    "methodName": "routerArchiveCategoryDelete",
+    "method": "DELETE",
+    "path": "/api/v1/libraries/{library_id}/categories/{id}",
+    "pathArgs": [
+      "library_id",
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/libraries/{id}/items",
+    "methodName": "routerListItemsGet",
+    "method": "GET",
+    "path": "/api/v1/libraries/{id}/items",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/libraries/{id}/items",
+    "methodName": "routerCreateItemPost",
+    "method": "POST",
+    "path": "/api/v1/libraries/{id}/items",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/libraries/{id}/stats",
+    "methodName": "routerLibraryStatsGet",
+    "method": "GET",
+    "path": "/api/v1/libraries/{id}/stats",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/libraries/{id}/items/query",
+    "methodName": "routerQueryItemsGet",
+    "method": "GET",
+    "path": "/api/v1/libraries/{id}/items/query",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": true,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/libraries/{library_id}/items/{id}",
+    "methodName": "routerGetItemGet",
+    "method": "GET",
+    "path": "/api/v1/libraries/{library_id}/items/{id}",
+    "pathArgs": [
+      "library_id",
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "PUT /api/v1/libraries/{library_id}/items/{id}",
+    "methodName": "routerUpdateItemPut",
+    "method": "PUT",
+    "path": "/api/v1/libraries/{library_id}/items/{id}",
+    "pathArgs": [
+      "library_id",
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "DELETE /api/v1/libraries/{library_id}/items/{id}",
+    "methodName": "routerArchiveItemDelete",
+    "method": "DELETE",
+    "path": "/api/v1/libraries/{library_id}/items/{id}",
+    "pathArgs": [
+      "library_id",
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/libraries/{library_id}/items/{id}/attachments",
+    "methodName": "routerItemAttachmentsGet",
+    "method": "GET",
+    "path": "/api/v1/libraries/{library_id}/items/{id}/attachments",
+    "pathArgs": [
+      "library_id",
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/libraries/{library_id}/items/{id}/attachments",
+    "methodName": "routerAttachMediaPost",
+    "method": "POST",
+    "path": "/api/v1/libraries/{library_id}/items/{id}/attachments",
+    "pathArgs": [
+      "library_id",
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/compositions",
+    "methodName": "routerListCompositionsGet",
+    "method": "GET",
+    "path": "/api/v1/compositions",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": true,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/compositions",
+    "methodName": "routerCreateCompositionPost",
+    "method": "POST",
+    "path": "/api/v1/compositions",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/composition-categories",
+    "methodName": "routerListCompositionCategoriesGet",
+    "method": "GET",
+    "path": "/api/v1/composition-categories",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/composition-categories",
+    "methodName": "routerCreateCompositionCategoryPost",
+    "method": "POST",
+    "path": "/api/v1/composition-categories",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "PATCH /api/v1/composition-categories/{id}",
+    "methodName": "routerUpdateCompositionCategoryPatch",
+    "method": "PATCH",
+    "path": "/api/v1/composition-categories/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "DELETE /api/v1/composition-categories/{id}",
+    "methodName": "routerDeleteCompositionCategoryDelete",
+    "method": "DELETE",
+    "path": "/api/v1/composition-categories/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/compositions/{id}/workflow",
+    "methodName": "routerGetWorkflowGetApiV1CompositionsIdWorkflow",
+    "method": "GET",
+    "path": "/api/v1/compositions/{id}/workflow",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "PUT /api/v1/compositions/{id}/workflow",
+    "methodName": "routerSaveWorkflowPutApiV1CompositionsIdWorkflow",
+    "method": "PUT",
+    "path": "/api/v1/compositions/{id}/workflow",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/compositions/{id}/manifests",
+    "methodName": "routerListManifestsGetApiV1CompositionsIdManifests",
+    "method": "GET",
+    "path": "/api/v1/compositions/{id}/manifests",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/compositions/{id}/manifests",
+    "methodName": "routerCreateManifestVersionPost",
+    "method": "POST",
+    "path": "/api/v1/compositions/{id}/manifests",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/compositions/{id}/publish",
+    "methodName": "routerPublishPostApiV1CompositionsIdPublish",
+    "method": "POST",
+    "path": "/api/v1/compositions/{id}/publish",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/external-references",
+    "methodName": "routerListExternalReferencesGet",
+    "method": "GET",
+    "path": "/api/v1/external-references",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": true,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/external-references",
+    "methodName": "routerUpsertExternalReferencePost",
+    "method": "POST",
+    "path": "/api/v1/external-references",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/upload-sessions",
+    "methodName": "routerCreateUploadSessionPost",
+    "method": "POST",
+    "path": "/api/v1/upload-sessions",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/upload-sessions/{id}",
+    "methodName": "routerGetUploadSessionGet",
+    "method": "GET",
+    "path": "/api/v1/upload-sessions/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "DELETE /api/v1/upload-sessions/{id}",
+    "methodName": "routerCancelUploadDelete",
+    "method": "DELETE",
+    "path": "/api/v1/upload-sessions/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "PUT /api/v1/upload-sessions/{id}/parts/{part_number}",
+    "methodName": "routerPutUploadPartPut",
+    "method": "PUT",
+    "path": "/api/v1/upload-sessions/{id}/parts/{part_number}",
+    "pathArgs": [
+      "id",
+      "part_number"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": true,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/upload-sessions/{id}/complete",
+    "methodName": "routerCompleteUploadPost",
+    "method": "POST",
+    "path": "/api/v1/upload-sessions/{id}/complete",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/media/register",
+    "methodName": "routerRegisterExistingMediaPost",
+    "method": "POST",
+    "path": "/api/v1/media/register",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/media/{id}/packages",
+    "methodName": "routerListPackagesGet",
+    "method": "GET",
+    "path": "/api/v1/media/{id}/packages",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "POST /api/v1/media/{id}/packages",
+    "methodName": "routerRegeneratePost",
+    "method": "POST",
+    "path": "/api/v1/media/{id}/packages",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/packages/{package_id}/files/{*path}",
+    "methodName": "routerPackageFileGet",
+    "method": "GET",
+    "path": "/api/v1/packages/{package_id}/files/{*path}",
+    "pathArgs": [
+      "package_id",
+      "path"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": true
+  },
+  {
+    "operation": "DELETE /api/v1/media/packages/{id}",
+    "methodName": "routerArchivePackageDelete",
+    "method": "DELETE",
+    "path": "/api/v1/media/packages/{id}",
+    "pathArgs": [
+      "id"
+    ],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/licenses/clearkey",
+    "methodName": "routerClearKeyLicenseGet",
+    "method": "GET",
+    "path": "/api/v1/licenses/clearkey",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": true,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/dashboard/summary",
+    "methodName": "routerDashboardGet",
+    "method": "GET",
+    "path": "/api/v1/dashboard/summary",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/operations/health",
+    "methodName": "routerHealthGet",
+    "method": "GET",
+    "path": "/api/v1/operations/health",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/operations/transcription-models",
+    "methodName": "routerTranscriptionModelsGet",
+    "method": "GET",
+    "path": "/api/v1/operations/transcription-models",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/operations/knowledge-catalog",
+    "methodName": "routerKnowledgeCatalogGet",
+    "method": "GET",
+    "path": "/api/v1/operations/knowledge-catalog",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/operations/settings",
+    "methodName": "routerGetSettingsGetApiV1OperationsSettings",
+    "method": "GET",
+    "path": "/api/v1/operations/settings",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "PATCH /api/v1/operations/settings",
+    "methodName": "routerUpdateSettingsPatch",
+    "method": "PATCH",
+    "path": "/api/v1/operations/settings",
+    "pathArgs": [],
+    "hasBody": true,
+    "hasQuery": false,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  },
+  {
+    "operation": "GET /api/v1/audit-events",
+    "methodName": "routerAuditEventsGet",
+    "method": "GET",
+    "path": "/api/v1/audit-events",
+    "pathArgs": [],
+    "hasBody": false,
+    "hasQuery": true,
+    "binary": false,
+    "multipart": false,
+    "noContent": false,
+    "binaryDownload": false
+  }
+]

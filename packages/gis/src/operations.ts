@@ -6,7 +6,7 @@ export class GisOperations extends ServiceApi {
    * List readable GIS datasets.
    * Calls `GET /api/v1/datasets` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference..
    */
   datasets(options?: RequestOptions) {
@@ -17,7 +17,7 @@ export class GisOperations extends ServiceApi {
    * Calls `POST /api/v1/datasets` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference..
    */
   createDataset(data: T.CreateDatasetInput, options?: RequestOptions<T.CreateDatasetInput>) {
@@ -28,7 +28,7 @@ export class GisOperations extends ServiceApi {
    * Calls `GET /api/v1/datasets/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference..
    */
   dataset(id: Identifier, options?: RequestOptions) {
@@ -40,7 +40,7 @@ export class GisOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference..
    */
   publishDataset(id: Identifier, data: T.PublishDatasetInput, options?: RequestOptions<T.PublishDatasetInput>) {
@@ -52,7 +52,7 @@ export class GisOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference..
    */
   features(id: Identifier, params?: T.FeaturesQuery, options?: RequestOptions) {
@@ -64,7 +64,7 @@ export class GisOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference..
    */
   writeFeatures(id: Identifier, data: T.WriteFeaturesInput, options?: RequestOptions<T.WriteFeaturesInput>) {
@@ -77,7 +77,7 @@ export class GisOperations extends ServiceApi {
    * @param feature Backend path identifier `feature`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference..
    */
   deleteFeature(id: Identifier, feature: Identifier, data: T.DeleteFeatureInput, options?: RequestOptions<T.DeleteFeatureInput>) {
@@ -88,7 +88,7 @@ export class GisOperations extends ServiceApi {
    * Calls `GET /api/v1/datasets/{id}/history` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference. History specifically requires write-level dataset access, not ordinary public/read access..
    */
   datasetHistory(id: Identifier, options?: RequestOptions) {
@@ -102,7 +102,7 @@ export class GisOperations extends ServiceApi {
    * @param x Backend path identifier `x`.
    * @param y Backend path identifier `y`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference..
    */
   tile(id: Identifier, z: Identifier, x: Identifier, y: Identifier, options?: RequestOptions) {
@@ -112,7 +112,7 @@ export class GisOperations extends ServiceApi {
    * List visible persistent import jobs.
    * Calls `GET /api/v1/imports` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Authenticated actor within its organization: only owned jobs, or all organization jobs with gis:dataset:manage. At most100 newest jobs; no pagination. Listing does not fetch current issuer grants and never exposes lease_id..
    */
   imports(options?: RequestOptions) {
@@ -123,7 +123,7 @@ export class GisOperations extends ServiceApi {
    * Calls `POST /api/v1/imports` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current issuer-bound IDP owner grant snapshot; original issuer cannot be rebound; dataset scope policy and exact cookie origin. Unavailable authority503, inactive owner401..
    */
   createImport(data: T.CreateImportInput, options?: RequestOptions<T.CreateImportInput>) {
@@ -134,7 +134,7 @@ export class GisOperations extends ServiceApi {
    * Calls `POST /api/v1/imports/{id}/retry` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current issuer-bound IDP owner grant snapshot; original issuer cannot be rebound; dataset scope policy and exact cookie origin. Unavailable authority503, inactive owner401..
    */
   retryImport(id: Identifier, options?: RequestOptions) {
@@ -144,7 +144,7 @@ export class GisOperations extends ServiceApi {
    * Read pending place integration events.
    * Calls `GET /api/v1/internal/outbox` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Exact comma element places:integrations:read required; no wildcard match or whitespace trimming in worker predicate..
    */
   outbox(options?: RequestOptions) {
@@ -155,7 +155,7 @@ export class GisOperations extends ServiceApi {
    * Calls `PUT /api/v1/internal/outbox/{id}/ack` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Exact comma element places:integrations:read required; no wildcard match or whitespace trimming in worker predicate..
    */
   ackEvent(id: Identifier, options?: RequestOptions) {
@@ -165,7 +165,7 @@ export class GisOperations extends ServiceApi {
    * List accessible map records.
    * Calls `GET /api/v1/maps` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference..
    */
   maps(options?: RequestOptions) {
@@ -176,7 +176,7 @@ export class GisOperations extends ServiceApi {
    * Calls `POST /api/v1/maps` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference..
    */
   createMap(data: T.CreateMapInput, options?: RequestOptions<T.CreateMapInput>) {
@@ -187,7 +187,7 @@ export class GisOperations extends ServiceApi {
    * Calls `GET /api/v1/maps/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference..
    */
   map(id: Identifier, options?: RequestOptions) {
@@ -199,7 +199,7 @@ export class GisOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference..
    */
   updateMap(id: Identifier, data: T.UpdateMapInput, options?: RequestOptions<T.UpdateMapInput>) {
@@ -211,7 +211,7 @@ export class GisOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference..
    */
   publishMap(id: Identifier, data: T.PublishMapInput, options?: RequestOptions<T.PublishMapInput>) {
@@ -223,7 +223,7 @@ export class GisOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference..
    */
   mapStyle(id: Identifier, params?: T.MapStyleQuery, options?: RequestOptions) {
@@ -233,7 +233,7 @@ export class GisOperations extends ServiceApi {
    * Read the authenticated GIS actor context.
    * Calls `GET /api/v1/me` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation..
    */
   me(options?: RequestOptions) {
@@ -243,7 +243,7 @@ export class GisOperations extends ServiceApi {
    * Read places proposed by the current user.
    * Calls `GET /api/v1/me/contributions` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission..
    */
   contributions(options?: RequestOptions) {
@@ -253,7 +253,7 @@ export class GisOperations extends ServiceApi {
    * Read the current user’s saved visible places.
    * Calls `GET /api/v1/me/saves` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission..
    */
   savedPlaces(options?: RequestOptions) {
@@ -263,7 +263,7 @@ export class GisOperations extends ServiceApi {
    * Read pending proposals and place reports.
    * Calls `GET /api/v1/moderation` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Also comma-separated permission must match places:moderate, places:place:moderate, places:*, gis:place:manage, gis:* or *..
    */
   moderationQueue(options?: RequestOptions) {
@@ -275,7 +275,7 @@ export class GisOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Also comma-separated permission must match places:moderate, places:place:moderate, places:*, gis:place:manage, gis:* or *..
    */
   moderatePlace(id: Identifier, data: T.ModeratePlaceInput, options?: RequestOptions<T.ModeratePlaceInput>) {
@@ -286,7 +286,7 @@ export class GisOperations extends ServiceApi {
    * Calls `GET /api/v1/moderation/{id}/history` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Also comma-separated permission must match places:moderate, places:place:moderate, places:*, gis:place:manage, gis:* or *..
    */
   placeHistory(id: Identifier, options?: RequestOptions) {
@@ -298,7 +298,7 @@ export class GisOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Also comma-separated permission must match places:moderate, places:place:moderate, places:*, gis:place:manage, gis:* or *..
    */
   resolveReport(id: Identifier, data: T.ResolveReportInput, options?: RequestOptions<T.ResolveReportInput>) {
@@ -308,7 +308,7 @@ export class GisOperations extends ServiceApi {
    * List the current user’s private personal places.
    * Calls `GET /api/v1/my-places` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation..
    */
   personalPlaces(options?: RequestOptions) {
@@ -319,7 +319,7 @@ export class GisOperations extends ServiceApi {
    * Calls `POST /api/v1/my-places` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation..
    */
   createPersonalPlace(data: T.CreatePersonalPlaceInput, options?: RequestOptions<T.CreatePersonalPlaceInput>) {
@@ -330,7 +330,7 @@ export class GisOperations extends ServiceApi {
    * Calls `DELETE /api/v1/my-places/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation..
    */
   deletePersonalPlace(id: Identifier, options?: RequestOptions) {
@@ -341,7 +341,7 @@ export class GisOperations extends ServiceApi {
    * Calls `GET /api/v1/my-places/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation..
    */
   personalPlace(id: Identifier, options?: RequestOptions) {
@@ -353,7 +353,7 @@ export class GisOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation..
    */
   updatePersonalPlace(id: Identifier, data: T.UpdatePersonalPlaceInput, options?: RequestOptions<T.UpdatePersonalPlaceInput>) {
@@ -364,7 +364,7 @@ export class GisOperations extends ServiceApi {
    * Calls `GET /api/v1/places` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Anonymous handler, fixed deployment tenant. Unlike /public/*, a supplied cookie still invokes global IDP validation: transport outage can return503. No caller-selected tenant..
    */
   places(params?: T.PlacesQuery, options?: RequestOptions) {
@@ -375,7 +375,7 @@ export class GisOperations extends ServiceApi {
    * Calls `POST /api/v1/places` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission..
    */
   proposePlace(data: T.ProposePlaceInput, options?: RequestOptions<T.ProposePlaceInput>) {
@@ -386,7 +386,7 @@ export class GisOperations extends ServiceApi {
    * Calls `GET /api/v1/places/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Anonymous handler, fixed deployment tenant. Unlike /public/*, a supplied cookie still invokes global IDP validation: transport outage can return503. No caller-selected tenant..
    */
   place(id: Identifier, options?: RequestOptions) {
@@ -397,7 +397,7 @@ export class GisOperations extends ServiceApi {
    * Calls `POST /api/v1/places/{id}/assertion` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission..
    */
   placeAssertion(id: Identifier, options?: RequestOptions) {
@@ -408,7 +408,7 @@ export class GisOperations extends ServiceApi {
    * Calls `GET /api/v1/places/{id}/references` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Anonymous handler, fixed deployment tenant. Unlike /public/*, a supplied cookie still invokes global IDP validation: transport outage can return503. No caller-selected tenant..
    */
   placeReferences(id: Identifier, options?: RequestOptions) {
@@ -420,7 +420,7 @@ export class GisOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission..
    */
   reportPlace(id: Identifier, data: T.ReportPlaceInput, options?: RequestOptions<T.ReportPlaceInput>) {
@@ -431,7 +431,7 @@ export class GisOperations extends ServiceApi {
    * Calls `DELETE /api/v1/places/{id}/save` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission..
    */
   unsavePlace(id: Identifier, options?: RequestOptions) {
@@ -442,7 +442,7 @@ export class GisOperations extends ServiceApi {
    * Calls `PUT /api/v1/places/{id}/save` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission..
    */
   savePlace(id: Identifier, options?: RequestOptions) {
@@ -454,7 +454,7 @@ export class GisOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Anonymous path explicitly bypasses IDP cookie validation; public_dataset requires published AND public and either global scope or deployment tenant organization. Missing/private404..
    */
   publicFeatures(id: Identifier, params?: T.PublicFeaturesQuery, options?: RequestOptions) {
@@ -465,7 +465,7 @@ export class GisOperations extends ServiceApi {
    * Calls `GET /api/v1/public/datasets/{id}/tilejson` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Anonymous public path; same public_dataset checks as public GeoJSON..
    */
   tileJson(id: Identifier, options?: RequestOptions) {
@@ -479,7 +479,7 @@ export class GisOperations extends ServiceApi {
    * @param x Backend path identifier `x`.
    * @param y Backend path identifier `y`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Anonymous public path, current published/public/global-or-deployment organization checked on every tile..
    */
   publicTile(id: Identifier, z: Identifier, x: Identifier, y: Identifier, options?: RequestOptions) {
@@ -489,7 +489,7 @@ export class GisOperations extends ServiceApi {
    * List published maps for public delivery.
    * Calls `GET /api/v1/public/maps` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Anonymous handler. /api/v1/public/* bypasses cookie validation; map and dataset publication are checked at read time..
    */
   publicMaps(options?: RequestOptions) {
@@ -500,7 +500,7 @@ export class GisOperations extends ServiceApi {
    * Calls `GET /api/v1/public/maps/{slug}` through the shared IDP-aware Faiber client.
    * @param slug Backend path identifier `slug`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Anonymous handler. /api/v1/public/* bypasses cookie validation; map and dataset publication are checked at read time..
    */
   publicMap(slug: Identifier, options?: RequestOptions) {
@@ -511,7 +511,7 @@ export class GisOperations extends ServiceApi {
    * Calls `GET /api/v1/public/maps/{slug}/geojson` through the shared IDP-aware Faiber client.
    * @param slug Backend path identifier `slug`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Anonymous handler. /api/v1/public/* bypasses cookie validation; map and dataset publication are checked at read time..
    */
   publicMapFeatures(slug: Identifier, options?: RequestOptions) {
@@ -523,7 +523,7 @@ export class GisOperations extends ServiceApi {
    * @param slug Backend path identifier `slug`.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Anonymous handler. /api/v1/public/* bypasses cookie validation; map and dataset publication are checked at read time..
    */
   publicMapStyle(slug: Identifier, params?: T.PublicMapStyleQuery, options?: RequestOptions) {
@@ -533,7 +533,7 @@ export class GisOperations extends ServiceApi {
    * Read GIS database and private Martin renderer dependency readiness.
    * Calls `GET /health` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: No actor permission. Global middleware explicitly bypasses identity for /health, including unavailable cookie validation..
    */
   health(options?: RequestOptions) {
