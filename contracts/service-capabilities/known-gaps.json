@@ -561,7 +561,7 @@
       "id": "sdk-working-lms-contract-drift",
       "owner": "sdk",
       "required": true,
-      "status": "concurrent_working_contract_reconciliation_required",
+      "status": "resolved",
       "meaning": "Fenced SDK build passed,104 tests ran:101 passed/3 failed. Current LMS operations contain174 documented operations versus182 in the contract manifest, and published aiSummaryJobsGet et al were removed. These are preserved unrelated working changes, not fixed by weakening compatibility/count tests. Later uncommitted1.0.0 version edits are not verified by that0.23.0 run. Complete source/SDK contract and breaking-version reconciliation before release.",
       "source_refs": [
         "faiber-ts-sdk/packages/lms/src/operations.ts",
@@ -570,7 +570,13 @@
         "faiber-ts-sdk/tests/facade-completeness.test.mjs",
         "faiber-ts-sdk/tests/release-contract-regressions.test.mjs"
       ],
-      "artifact_path": "evidence/sdk-tests.log"
+      "artifact_path": "evidence/sdk-tests.log",
+      "historical_status": "concurrent_working_contract_reconciliation_required",
+      "resolution": "The selected 1.0.0 candidate has exact mounted-source/generated-operation coverage, passing type/build/transport regressions, and explicit documented retirement of the eight LMS summary methods. The original 174/182 mismatch and 101/104 failing working snapshot no longer describe this source. This closes that historical SDK synchronization finding only; per-endpoint semantic/native/gateway/deployment checks remain separately open.",
+      "test_evidence": [
+        "sdk-current-lms-contract-reconciliation-20261021"
+      ],
+      "resolution_source_revision": "9a08305e95605d32c1596db7a65dda79f02dc622"
     },
     {
       "id": "manage-agent-project-thread-contract",
