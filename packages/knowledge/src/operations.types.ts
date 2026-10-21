@@ -561,7 +561,7 @@ export interface RoutesRuntimeQueryPostInput extends JsonObject {
 /** Backend response type: RuntimeResult. */
 export interface RoutesRuntimeQueryPostResponseData extends JsonObject {
   "chat_slug": string;
-  "release"?: JsonValue | null;
+  "release": JsonValue | null;
   "knowledge": JsonValue[];
   "suggestions": JsonValue[];
   "matched_rules": JsonValue[];
@@ -654,7 +654,7 @@ export interface MainConvertPostResponseDataTables extends JsonObject {
 export interface MainConvertPostResponseData extends JsonObject {
   "text": string;
   "tables": MainConvertPostResponseDataTables[];
-  "pages"?: number | null;
+  "pages": number | null;
   "warnings": string[];
   "converter_version": string;
 }

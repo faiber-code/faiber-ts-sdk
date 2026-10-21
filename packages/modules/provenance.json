@@ -12,7 +12,7 @@
     "packages/modules/src/contracts.types.ts": "8773417d2222df45b45116a1e7dc473ba5d326f95761883d4c84f4ba98755695",
     "packages/modules/src/index.ts": "8f5ba3a0112d5b1f7a407456d612d7ebaf6d1ac821ef78b735ef533c0dfbe0d6",
     "packages/modules/src/operations.ts": "a6ae131e7b2ae769cab0b1c870e61078b72b11d0f669dbb78638a586db475e05",
-    "packages/modules/src/operations.types.ts": "963d5d8c306c17a5f9597d2b83f28f291c932129fe496ca4895641da6d561b5b",
+    "packages/modules/src/operations.types.ts": "79cea15c28e9c2527205df37f97429f7bca2f2e552b107fbd6ba1c83f18426d2",
     "packages/modules/src/types.ts": "5c8234e25b7d5a658abac6b57b7d7e5586ccec3bd7732362ecbb31b04ef2c261"
   },
   "capability_review_sha256": "47ff2b8d89e4d405c604dba7d6943d2ab7746955b13e1daa834ddc13cf3798c8",

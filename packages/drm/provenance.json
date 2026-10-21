@@ -11,7 +11,7 @@
   "package_source_sha256": {
     "packages/drm/src/index.ts": "f6facf3350218154a05841f20e4fb7098e9fe9c4b630aa2a8e8ece90d5061e7e",
     "packages/drm/src/operations.ts": "6370a55bb3df259742187728dcf2e4609324342462268b625d113710ee0bb965",
-    "packages/drm/src/operations.types.ts": "e7de936233d62554150eb2227b498035cf08f1a1dbdf635e96d06c98a299f0df",
+    "packages/drm/src/operations.types.ts": "fe998fa3084b70561c074cfaf95952b69afbd35e7989462e6bbeb01ae0987d3a",
     "packages/drm/src/types.ts": "a34b9dd592948c4f44f8a813d17ea125e15f38d0d44d40ed35df881ed891bb45"
   },
   "capability_review_sha256": "be5ee78c1d4029445ed202e5f5c4f40085f03ee70283c046f890473d131ff620",

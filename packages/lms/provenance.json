@@ -16,7 +16,7 @@
     "packages/lms/src/media.ts": "d5d72f0efbd6bd237ef306e02f9488b9e912b28bf2d4eac23af02ceb07b75512",
     "packages/lms/src/notification-settings.ts": "2784e29db21a6c2b925c3fa9c35a8523590f53bec8650ad0278791ab2c5f240a",
     "packages/lms/src/operations.ts": "20db70607febdd54a8f7d379e9a16cf9537a65d40af2f877ae804c65cc2d2970",
-    "packages/lms/src/operations.types.ts": "a454322c17293712dd76e179a1a791b8493d0bf3172abc0fbbaf63eaea599464",
+    "packages/lms/src/operations.types.ts": "939a75a36df3a7d183d8b01bcf66a4ba06f90ffb59ad6a35815b6738099ae082",
     "packages/lms/src/types.ts": "5ebbbcaa438559b3c44aff5ffa316763ac16f75af82728689e66f468575231d9"
   },
   "capability_review_sha256": "61d353b8d4cd74e3a8385f3a126d71d39391c90dfcd13af057d5f9814c619344",

@@ -14,9 +14,9 @@ export interface RoutesEffectiveAccessGetQuery extends QueryParams {
 export interface RoutesEffectiveAccessGetResponseData extends JsonObject {
   "user_id": string;
   "workspace_id": string;
-  "team_id"?: string | null;
-  "project_id"?: string | null;
-  "work_item_id"?: string | null;
+  "team_id": string | null;
+  "project_id": string | null;
+  "work_item_id": string | null;
   "capabilities": string[];
 }
 export interface RoutesEffectiveAccessGetResponse extends ApiEnvelope<RoutesEffectiveAccessGetResponseData> {
@@ -466,7 +466,7 @@ export interface RoutesListProjectsGetResponseItem extends JsonObject {
   "id": string;
   "created_by": string;
   "workspace_id": string;
-  "team_id"?: string | null;
+  "team_id": string | null;
   "key": string;
   "name": string;
   "description": string;
@@ -560,9 +560,9 @@ export interface RoutesGetGetApiV1ProjectsIdReportResponseDataTasks extends Json
   "priority": string;
   "owner_id": string;
   "created_at": string;
-  "due_at"?: string | null;
-  "completed_at"?: string | null;
-  "completed_by"?: string | null;
+  "due_at": string | null;
+  "completed_at": string | null;
+  "completed_by": string | null;
   "period_seconds": number;
   "total_seconds": number;
   "times": RoutesGetGetApiV1ProjectsIdReportResponseDataTasksTimes[];
@@ -584,7 +584,7 @@ export interface RoutesWorkflowStatesGetResponseItem extends JsonObject {
   "name": JsonValue;
   "category": string;
   "position": number;
-  "wip_limit"?: number | null;
+  "wip_limit": number | null;
 }
 export interface RoutesWorkflowStatesGetResponse extends ApiEnvelope<RoutesWorkflowStatesGetResponseItem[]> {
 }
@@ -682,13 +682,13 @@ export interface RoutesListSprintsGetQuery extends QueryParams {
 export interface RoutesListSprintsGetResponseItem extends JsonObject {
   "id": string;
   "team_id": string;
-  "project_id"?: string | null;
+  "project_id": string | null;
   "name": string;
   "goal": string;
   "status": string;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "capacity"?: number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "capacity": number | null;
   "version": number;
 }
 export interface RoutesListSprintsGetResponse extends ApiEnvelope<RoutesListSprintsGetResponseItem[]> {
@@ -772,32 +772,32 @@ export interface RoutesListWorkItemsGetResponseItem extends JsonObject {
   "id": string;
   "workspace_id": string;
   "project_id": string;
-  "team_id"?: string | null;
-  "parent_id"?: string | null;
+  "team_id": string | null;
+  "parent_id": string | null;
   "sequence": number;
   "key": string;
   "item_type": string;
   "title": string;
   "description": string;
   "status": string;
-  "stage_id"?: string | null;
-  "status_category"?: string;
+  "stage_id": string | null;
+  "status_category": string;
   "priority": string;
   "rank": string;
   "owner_id": string;
   "reporter_id": string;
-  "estimate"?: number | null;
-  "story_points"?: number | null;
-  "progress_started_at"?: string | null;
-  "start_at"?: string | null;
-  "folder_id"?: string | null;
-  "planned_start_at"?: string | null;
-  "planned_end_at"?: string | null;
-  "due_at"?: string | null;
-  "completed_at"?: string | null;
-  "sprint_id"?: string | null;
-  "release_id"?: string | null;
-  "campaign_id"?: string | null;
+  "estimate": number | null;
+  "story_points": number | null;
+  "progress_started_at": string | null;
+  "start_at": string | null;
+  "folder_id": string | null;
+  "planned_start_at": string | null;
+  "planned_end_at": string | null;
+  "due_at": string | null;
+  "completed_at": string | null;
+  "sprint_id": string | null;
+  "release_id": string | null;
+  "campaign_id": string | null;
   "custom_fields": JsonValue;
   "version": number;
   "created_at": string;
@@ -964,7 +964,7 @@ export interface RoutesCommentPageGetResponseDataItems extends JsonObject {
 }
 export interface RoutesCommentPageGetResponseData extends JsonObject {
   "items": RoutesCommentPageGetResponseDataItems[];
-  "next_cursor"?: string | null;
+  "next_cursor": string | null;
 }
 export interface RoutesCommentPageGetResponse extends ApiEnvelope<RoutesCommentPageGetResponseData> {
 }
@@ -977,9 +977,9 @@ export interface RoutesListCommitsGetResponseItem extends JsonObject {
   "sandbox_project": string;
   "commit_sha": string;
   "subject": string;
-  "branch"?: string | null;
-  "repository_label"?: string | null;
-  "committed_at"?: string | null;
+  "branch": string | null;
+  "repository_label": string | null;
+  "committed_at": string | null;
   "metadata": JsonValue;
   "created_at": string;
 }
@@ -1045,7 +1045,7 @@ export interface RoutesListWorkLogsGetResponseItem extends JsonObject {
   "work_item_id": string;
   "author_id": string;
   "body": string;
-  "minutes"?: number | null;
+  "minutes": number | null;
   "log_type": string;
   "created_at": string;
 }
@@ -1072,12 +1072,12 @@ export interface RoutesListWorkSessionsGetResponseItem extends JsonObject {
   "state": string;
   "runtime_state": string;
   "started_at": string;
-  "ended_at"?: string | null;
+  "ended_at": string | null;
   "last_heartbeat_at": string;
   "active_seconds": number;
   "idle_seconds": number;
   "elapsed_seconds": number;
-  "stop_reason"?: string | null;
+  "stop_reason": string | null;
   "metadata": JsonValue;
   "version": number;
 }
@@ -1110,12 +1110,12 @@ export interface RoutesHeartbeatWorkSessionPostResponseData extends JsonObject {
   "state": string;
   "runtime_state": string;
   "started_at": string;
-  "ended_at"?: string | null;
+  "ended_at": string | null;
   "last_heartbeat_at": string;
   "active_seconds": number;
   "idle_seconds": number;
   "elapsed_seconds": number;
-  "stop_reason"?: string | null;
+  "stop_reason": string | null;
   "metadata": JsonValue;
   "version": number;
 }
@@ -1136,12 +1136,12 @@ export interface RoutesStopWorkSessionPostResponseData extends JsonObject {
   "state": string;
   "runtime_state": string;
   "started_at": string;
-  "ended_at"?: string | null;
+  "ended_at": string | null;
   "last_heartbeat_at": string;
   "active_seconds": number;
   "idle_seconds": number;
   "elapsed_seconds": number;
-  "stop_reason"?: string | null;
+  "stop_reason": string | null;
   "metadata": JsonValue;
   "version": number;
 }
@@ -1158,12 +1158,12 @@ export interface RoutesActiveWorkSessionsGetResponseItem extends JsonObject {
   "state": string;
   "runtime_state": string;
   "started_at": string;
-  "ended_at"?: string | null;
+  "ended_at": string | null;
   "last_heartbeat_at": string;
   "active_seconds": number;
   "idle_seconds": number;
   "elapsed_seconds": number;
-  "stop_reason"?: string | null;
+  "stop_reason": string | null;
   "metadata": JsonValue;
   "version": number;
 }

@@ -138,19 +138,19 @@ export interface NotificationNotificationsIndexGetResponseItem extends JsonObjec
   "service_name": string;
   "template_id": number;
   "channel": string;
-  "correlation_id"?: string | null;
+  "correlation_id": string | null;
   "recipient": string;
   "status": string;
-  "description"?: string | null;
-  "params"?: JsonValue | null;
-  "options"?: JsonValue | null;
-  "delivery_attempts"?: JsonValue | null;
+  "description": string | null;
+  "params": JsonValue | null;
+  "options": JsonValue | null;
+  "delivery_attempts": JsonValue | null;
   "delivered": boolean;
   "read": boolean;
-  "read_at"?: string | null;
-  "scheduled_at"?: string | null;
-  "sent_at"?: string | null;
-  "failed_at"?: string | null;
+  "read_at": string | null;
+  "scheduled_at": string | null;
+  "sent_at": string | null;
+  "failed_at": string | null;
   "created_at": string;
 }
 export interface NotificationNotificationsIndexGetResponsePageMeta extends JsonObject {
@@ -192,19 +192,19 @@ export interface NotificationNotificationsShowGetResponseData extends JsonObject
   "service_name": string;
   "template_id": number;
   "channel": string;
-  "correlation_id"?: string | null;
+  "correlation_id": string | null;
   "recipient": string;
   "status": string;
-  "description"?: string | null;
-  "params"?: JsonValue | null;
-  "options"?: JsonValue | null;
-  "delivery_attempts"?: JsonValue | null;
+  "description": string | null;
+  "params": JsonValue | null;
+  "options": JsonValue | null;
+  "delivery_attempts": JsonValue | null;
   "delivered": boolean;
   "read": boolean;
-  "read_at"?: string | null;
-  "scheduled_at"?: string | null;
-  "sent_at"?: string | null;
-  "failed_at"?: string | null;
+  "read_at": string | null;
+  "scheduled_at": string | null;
+  "sent_at": string | null;
+  "failed_at": string | null;
   "created_at": string;
 }
 export interface NotificationNotificationsShowGetResponse extends ApiEnvelope<NotificationNotificationsShowGetResponseData> {
@@ -220,19 +220,19 @@ export interface NotificationNotificationsMarkReadPatchResponseData extends Json
   "service_name": string;
   "template_id": number;
   "channel": string;
-  "correlation_id"?: string | null;
+  "correlation_id": string | null;
   "recipient": string;
   "status": string;
-  "description"?: string | null;
-  "params"?: JsonValue | null;
-  "options"?: JsonValue | null;
-  "delivery_attempts"?: JsonValue | null;
+  "description": string | null;
+  "params": JsonValue | null;
+  "options": JsonValue | null;
+  "delivery_attempts": JsonValue | null;
   "delivered": boolean;
   "read": boolean;
-  "read_at"?: string | null;
-  "scheduled_at"?: string | null;
-  "sent_at"?: string | null;
-  "failed_at"?: string | null;
+  "read_at": string | null;
+  "scheduled_at": string | null;
+  "sent_at": string | null;
+  "failed_at": string | null;
   "created_at": string;
 }
 export interface NotificationNotificationsMarkReadPatchResponse extends ApiEnvelope<NotificationNotificationsMarkReadPatchResponseData> {
@@ -246,12 +246,12 @@ export interface NotificationNotificationsMyInboxGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<InboxItem>. */
 export interface NotificationNotificationsMyInboxGetResponseItem extends JsonObject {
   "id": number;
-  "title"?: string | null;
-  "description"?: string | null;
-  "path"?: string | null;
-  "destination"?: JsonValue | null;
-  "work_item_id"?: string | null;
-  "event"?: string | null;
+  "title": string | null;
+  "description": string | null;
+  "path": string | null;
+  "destination": JsonValue | null;
+  "work_item_id": string | null;
+  "event": string | null;
   "read": boolean;
   "created_at": string;
 }
@@ -271,12 +271,12 @@ export interface NotificationNotificationsMyInboxGetResponse extends ApiEnvelope
 /** Backend response type: InboxItem. */
 export interface NotificationNotificationsMyMarkReadPatchResponseData extends JsonObject {
   "id": number;
-  "title"?: string | null;
-  "description"?: string | null;
-  "path"?: string | null;
-  "destination"?: JsonValue | null;
-  "work_item_id"?: string | null;
-  "event"?: string | null;
+  "title": string | null;
+  "description": string | null;
+  "path": string | null;
+  "destination": JsonValue | null;
+  "work_item_id": string | null;
+  "event": string | null;
   "read": boolean;
   "created_at": string;
 }
@@ -344,7 +344,7 @@ export interface ServiceServicesIndexGetResponseItem extends JsonObject {
   "name": string;
   "provider": string;
   "channel": string;
-  "options"?: JsonValue | null;
+  "options": JsonValue | null;
   "priority": number;
 }
 export interface ServiceServicesIndexGetResponse extends ApiEnvelope<ServiceServicesIndexGetResponseItem[]> {
@@ -364,7 +364,7 @@ export interface ServiceServicesCreatePostResponseData extends JsonObject {
   "name": string;
   "provider": string;
   "channel": string;
-  "options"?: JsonValue | null;
+  "options": JsonValue | null;
   "priority": number;
 }
 export interface ServiceServicesCreatePostResponse extends ApiEnvelope<ServiceServicesCreatePostResponseData> {
@@ -380,7 +380,7 @@ export interface ServiceServicesShowGetResponseData extends JsonObject {
   "name": string;
   "provider": string;
   "channel": string;
-  "options"?: JsonValue | null;
+  "options": JsonValue | null;
   "priority": number;
 }
 export interface ServiceServicesShowGetResponse extends ApiEnvelope<ServiceServicesShowGetResponseData> {
@@ -400,7 +400,7 @@ export interface ServiceServicesUpdatePatchResponseData extends JsonObject {
   "name": string;
   "provider": string;
   "channel": string;
-  "options"?: JsonValue | null;
+  "options": JsonValue | null;
   "priority": number;
 }
 export interface ServiceServicesUpdatePatchResponse extends ApiEnvelope<ServiceServicesUpdatePatchResponseData> {
@@ -417,8 +417,8 @@ export interface TemplateTemplatesIndexGetResponseItem extends JsonObject {
   "id": number;
   "name": string;
   "fa_name": string;
-  "params"?: JsonValue | null;
-  "channel_id"?: number | null;
+  "params": JsonValue | null;
+  "channel_id": number | null;
 }
 export interface TemplateTemplatesIndexGetResponse extends ApiEnvelope<TemplateTemplatesIndexGetResponseItem[]> {
 }
@@ -435,8 +435,8 @@ export interface TemplateTemplatesCreatePostResponseData extends JsonObject {
   "id": number;
   "name": string;
   "fa_name": string;
-  "params"?: JsonValue | null;
-  "channel_id"?: number | null;
+  "params": JsonValue | null;
+  "channel_id": number | null;
 }
 export interface TemplateTemplatesCreatePostResponse extends ApiEnvelope<TemplateTemplatesCreatePostResponseData> {
 }
@@ -450,8 +450,8 @@ export interface TemplateTemplatesShowGetResponseData extends JsonObject {
   "id": number;
   "name": string;
   "fa_name": string;
-  "params"?: JsonValue | null;
-  "channel_id"?: number | null;
+  "params": JsonValue | null;
+  "channel_id": number | null;
 }
 export interface TemplateTemplatesShowGetResponse extends ApiEnvelope<TemplateTemplatesShowGetResponseData> {
 }
@@ -468,8 +468,8 @@ export interface TemplateTemplatesUpdatePatchResponseData extends JsonObject {
   "id": number;
   "name": string;
   "fa_name": string;
-  "params"?: JsonValue | null;
-  "channel_id"?: number | null;
+  "params": JsonValue | null;
+  "channel_id": number | null;
 }
 export interface TemplateTemplatesUpdatePatchResponse extends ApiEnvelope<TemplateTemplatesUpdatePatchResponseData> {
 }
@@ -480,7 +480,7 @@ export interface TemplateTemplateContentsIndexGetResponseItem extends JsonObject
   "template_id": number;
   "channel": string;
   "text": string;
-  "options"?: JsonValue | null;
+  "options": JsonValue | null;
 }
 export interface TemplateTemplateContentsIndexGetResponse extends ApiEnvelope<TemplateTemplateContentsIndexGetResponseItem[]> {
 }
@@ -497,7 +497,7 @@ export interface TemplateTemplateContentsCreatePostResponseData extends JsonObje
   "template_id": number;
   "channel": string;
   "text": string;
-  "options"?: JsonValue | null;
+  "options": JsonValue | null;
 }
 export interface TemplateTemplateContentsCreatePostResponse extends ApiEnvelope<TemplateTemplateContentsCreatePostResponseData> {
 }
@@ -513,7 +513,7 @@ export interface TemplateTemplateContentsUpdatePatchResponseData extends JsonObj
   "template_id": number;
   "channel": string;
   "text": string;
-  "options"?: JsonValue | null;
+  "options": JsonValue | null;
 }
 export interface TemplateTemplateContentsUpdatePatchResponse extends ApiEnvelope<TemplateTemplateContentsUpdatePatchResponseData> {
 }

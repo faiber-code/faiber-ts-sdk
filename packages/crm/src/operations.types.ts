@@ -47,33 +47,33 @@ export interface ApiCreateActivityPostInput extends JsonObject {
 /** Backend response type: ActivityResponse. */
 export interface ApiCreateActivityPostResponseDataProfile extends JsonObject {
   "id": string;
-  "user_id"?: string | null;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "status"?: string | null;
-  "employee_type"?: string | null;
-  "avatar"?: string | null;
+  "user_id": string | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "status": string | null;
+  "employee_type": string | null;
+  "avatar": string | null;
 }
 export interface ApiCreateActivityPostResponseData extends JsonObject {
   "id": string;
-  "lead_id"?: string | null;
-  "deal_id"?: string | null;
-  "contact_id"?: string | null;
-  "company_id"?: string | null;
+  "lead_id": string | null;
+  "deal_id": string | null;
+  "contact_id": string | null;
+  "company_id": string | null;
   "owner_user_id": string;
   "activity_type": string;
-  "direction"?: string | null;
-  "subject"?: string | null;
-  "body"?: string | null;
-  "outcome"?: string | null;
+  "direction": string | null;
+  "subject": string | null;
+  "body": string | null;
+  "outcome": string | null;
   "occurred_at": string;
-  "duration_seconds"?: number | null;
+  "duration_seconds": number | null;
   "metadata": BackendJson<"JsonValue">;
   "created_at": string;
-  "profile"?: ApiCreateActivityPostResponseDataProfile | null;
+  "profile": ApiCreateActivityPostResponseDataProfile | null;
 }
 export type ApiCreateActivityPostResponse = import("./types.js").CrmApiResponse<ApiCreateActivityPostResponseData>;
 
@@ -112,50 +112,50 @@ export interface ApiCreateActivityWithReminderPostInput extends JsonObject {
 /** Backend response type: ActivityWithReminder. */
 export interface ApiCreateActivityWithReminderPostResponseDataActivityProfile extends JsonObject {
   "id": string;
-  "user_id"?: string | null;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "status"?: string | null;
-  "employee_type"?: string | null;
-  "avatar"?: string | null;
+  "user_id": string | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "status": string | null;
+  "employee_type": string | null;
+  "avatar": string | null;
 }
 export interface ApiCreateActivityWithReminderPostResponseDataActivity extends JsonObject {
   "id": string;
-  "lead_id"?: string | null;
-  "deal_id"?: string | null;
-  "contact_id"?: string | null;
-  "company_id"?: string | null;
+  "lead_id": string | null;
+  "deal_id": string | null;
+  "contact_id": string | null;
+  "company_id": string | null;
   "owner_user_id": string;
   "activity_type": string;
-  "direction"?: string | null;
-  "subject"?: string | null;
-  "body"?: string | null;
-  "outcome"?: string | null;
+  "direction": string | null;
+  "subject": string | null;
+  "body": string | null;
+  "outcome": string | null;
   "occurred_at": string;
-  "duration_seconds"?: number | null;
+  "duration_seconds": number | null;
   "metadata": BackendJson<"JsonValue">;
   "created_at": string;
-  "profile"?: ApiCreateActivityWithReminderPostResponseDataActivityProfile | null;
+  "profile": ApiCreateActivityWithReminderPostResponseDataActivityProfile | null;
 }
 export interface ApiCreateActivityWithReminderPostResponseDataReminder extends JsonObject {
   "id": string;
-  "lead_id"?: string | null;
-  "deal_id"?: string | null;
-  "contact_id"?: string | null;
-  "company_id"?: string | null;
-  "profile_id"?: string | null;
+  "lead_id": string | null;
+  "deal_id": string | null;
+  "contact_id": string | null;
+  "company_id": string | null;
+  "profile_id": string | null;
   "assignee_user_id": string;
   "created_by": string;
   "title": string;
-  "description"?: string | null;
+  "description": string | null;
   "task_type": string;
   "priority": string;
   "status": string;
-  "due_at"?: string | null;
-  "completed_at"?: string | null;
+  "due_at": string | null;
+  "completed_at": string | null;
   "version": number;
   "created_at": string;
   "updated_at": string;
@@ -206,14 +206,14 @@ export type ApiBoardGetResponse = import("./types.js").CrmBoardResponse;
 /** Backend response type: Vec<Campaign>. */
 export interface ApiCampaignsGetResponseItem extends JsonObject {
   "id": string;
-  "source_id"?: string | null;
+  "source_id": string | null;
   "name": string;
   "slug": string;
   "status": string;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "budget"?: number | null;
-  "actual_cost"?: number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "budget": number | null;
+  "actual_cost": number | null;
   "currency": string;
   "metadata": BackendJson<"JsonValue">;
   "version": number;
@@ -238,14 +238,14 @@ export interface ApiCreateCampaignPostInput extends JsonObject {
 /** Backend response type: Campaign. */
 export interface ApiCreateCampaignPostResponseData extends JsonObject {
   "id": string;
-  "source_id"?: string | null;
+  "source_id": string | null;
   "name": string;
   "slug": string;
   "status": string;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "budget"?: number | null;
-  "actual_cost"?: number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "budget": number | null;
+  "actual_cost": number | null;
   "currency": string;
   "metadata": BackendJson<"JsonValue">;
   "version": number;
@@ -292,17 +292,17 @@ export interface ApiCreateCompanyPostInput extends JsonObject {
 /** Backend response type: Company. */
 export interface ApiCreateCompanyPostResponseData extends JsonObject {
   "id": string;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
   "name": string;
-  "legal_name"?: string | null;
-  "domain"?: string | null;
-  "industry"?: string | null;
-  "employee_count"?: number | null;
-  "annual_revenue"?: number | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "website"?: string | null;
+  "legal_name": string | null;
+  "domain": string | null;
+  "industry": string | null;
+  "employee_count": number | null;
+  "annual_revenue": number | null;
+  "phone": string | null;
+  "email": string | null;
+  "website": string | null;
   "address": BackendJson<"JsonValue">;
   "custom_data": BackendJson<"JsonValue">;
   "version": number;
@@ -315,17 +315,17 @@ export type ApiCreateCompanyPostResponse = import("./types.js").CrmApiResponse<A
 /** Backend response type: Company. */
 export interface ApiCompanyGetResponseData extends JsonObject {
   "id": string;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
   "name": string;
-  "legal_name"?: string | null;
-  "domain"?: string | null;
-  "industry"?: string | null;
-  "employee_count"?: number | null;
-  "annual_revenue"?: number | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "website"?: string | null;
+  "legal_name": string | null;
+  "domain": string | null;
+  "industry": string | null;
+  "employee_count": number | null;
+  "annual_revenue": number | null;
+  "phone": string | null;
+  "email": string | null;
+  "website": string | null;
   "address": BackendJson<"JsonValue">;
   "custom_data": BackendJson<"JsonValue">;
   "version": number;
@@ -351,17 +351,17 @@ export interface ApiUpdateCompanyPatchInput extends JsonObject {
 /** Backend response type: Company. */
 export interface ApiUpdateCompanyPatchResponseData extends JsonObject {
   "id": string;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
   "name": string;
-  "legal_name"?: string | null;
-  "domain"?: string | null;
-  "industry"?: string | null;
-  "employee_count"?: number | null;
-  "annual_revenue"?: number | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "website"?: string | null;
+  "legal_name": string | null;
+  "domain": string | null;
+  "industry": string | null;
+  "employee_count": number | null;
+  "annual_revenue": number | null;
+  "phone": string | null;
+  "email": string | null;
+  "website": string | null;
   "address": BackendJson<"JsonValue">;
   "custom_data": BackendJson<"JsonValue">;
   "version": number;
@@ -408,16 +408,16 @@ export interface ApiCreateContactPostInput extends JsonObject {
 /** Backend response type: Contact. */
 export interface ApiCreateContactPostResponseData extends JsonObject {
   "id": string;
-  "company_id"?: string | null;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
-  "profile_id"?: string | null;
+  "company_id": string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
+  "profile_id": string | null;
   "first_name": string;
-  "last_name"?: string | null;
-  "job_title"?: string | null;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "preferred_channel"?: string | null;
+  "last_name": string | null;
+  "job_title": string | null;
+  "email": string | null;
+  "phone": string | null;
+  "preferred_channel": string | null;
   "lifecycle_status": string;
   "consent": BackendJson<"JsonValue">;
   "custom_data": BackendJson<"JsonValue">;
@@ -431,16 +431,16 @@ export type ApiCreateContactPostResponse = import("./types.js").CrmApiResponse<A
 /** Backend response type: Contact. */
 export interface ApiContactGetResponseData extends JsonObject {
   "id": string;
-  "company_id"?: string | null;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
-  "profile_id"?: string | null;
+  "company_id": string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
+  "profile_id": string | null;
   "first_name": string;
-  "last_name"?: string | null;
-  "job_title"?: string | null;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "preferred_channel"?: string | null;
+  "last_name": string | null;
+  "job_title": string | null;
+  "email": string | null;
+  "phone": string | null;
+  "preferred_channel": string | null;
   "lifecycle_status": string;
   "consent": BackendJson<"JsonValue">;
   "custom_data": BackendJson<"JsonValue">;
@@ -465,16 +465,16 @@ export interface ApiUpdateContactPatchInput extends JsonObject {
 /** Backend response type: Contact. */
 export interface ApiUpdateContactPatchResponseData extends JsonObject {
   "id": string;
-  "company_id"?: string | null;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
-  "profile_id"?: string | null;
+  "company_id": string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
+  "profile_id": string | null;
   "first_name": string;
-  "last_name"?: string | null;
-  "job_title"?: string | null;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "preferred_channel"?: string | null;
+  "last_name": string | null;
+  "job_title": string | null;
+  "email": string | null;
+  "phone": string | null;
+  "preferred_channel": string | null;
   "lifecycle_status": string;
   "consent": BackendJson<"JsonValue">;
   "custom_data": BackendJson<"JsonValue">;
@@ -493,8 +493,8 @@ export interface ApiContextGetResponseData extends JsonObject {
   "timezone": string;
   "currency": string;
   "ai_mode": string;
-  "project_id"?: string | null;
-  "project_owner_user_id"?: string | null;
+  "project_id": string | null;
+  "project_owner_user_id": string | null;
   "agentic_enabled": boolean;
   "settings": BackendJson<"JsonValue">;
   "version": number;
@@ -543,21 +543,21 @@ export interface ApiCreateDealPostResponseData extends JsonObject {
   "id": string;
   "pipeline_id": string;
   "stage_id": string;
-  "lead_id"?: string | null;
-  "company_id"?: string | null;
-  "primary_contact_id"?: string | null;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
+  "lead_id": string | null;
+  "company_id": string | null;
+  "primary_contact_id": string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
   "name": string;
   "amount": number;
   "currency": string;
   "probability": number;
-  "expected_close_date"?: string | null;
-  "closed_at"?: string | null;
+  "expected_close_date": string | null;
+  "closed_at": string | null;
   "status": string;
-  "loss_reason"?: string | null;
-  "recurring_amount"?: number | null;
-  "recurring_interval"?: string | null;
+  "loss_reason": string | null;
+  "recurring_amount": number | null;
+  "recurring_interval": string | null;
   "custom_data": BackendJson<"JsonValue">;
   "version": number;
   "created_by": string;
@@ -571,21 +571,21 @@ export interface ApiDealGetResponseData extends JsonObject {
   "id": string;
   "pipeline_id": string;
   "stage_id": string;
-  "lead_id"?: string | null;
-  "company_id"?: string | null;
-  "primary_contact_id"?: string | null;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
+  "lead_id": string | null;
+  "company_id": string | null;
+  "primary_contact_id": string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
   "name": string;
   "amount": number;
   "currency": string;
   "probability": number;
-  "expected_close_date"?: string | null;
-  "closed_at"?: string | null;
+  "expected_close_date": string | null;
+  "closed_at": string | null;
   "status": string;
-  "loss_reason"?: string | null;
-  "recurring_amount"?: number | null;
-  "recurring_interval"?: string | null;
+  "loss_reason": string | null;
+  "recurring_amount": number | null;
+  "recurring_interval": string | null;
   "custom_data": BackendJson<"JsonValue">;
   "version": number;
   "created_by": string;
@@ -610,21 +610,21 @@ export interface ApiUpdateDealPatchResponseData extends JsonObject {
   "id": string;
   "pipeline_id": string;
   "stage_id": string;
-  "lead_id"?: string | null;
-  "company_id"?: string | null;
-  "primary_contact_id"?: string | null;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
+  "lead_id": string | null;
+  "company_id": string | null;
+  "primary_contact_id": string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
   "name": string;
   "amount": number;
   "currency": string;
   "probability": number;
-  "expected_close_date"?: string | null;
-  "closed_at"?: string | null;
+  "expected_close_date": string | null;
+  "closed_at": string | null;
   "status": string;
-  "loss_reason"?: string | null;
-  "recurring_amount"?: number | null;
-  "recurring_interval"?: string | null;
+  "loss_reason": string | null;
+  "recurring_amount": number | null;
+  "recurring_interval": string | null;
   "custom_data": BackendJson<"JsonValue">;
   "version": number;
   "created_by": string;
@@ -644,21 +644,21 @@ export interface ApiAssignDealPatchResponseData extends JsonObject {
   "id": string;
   "pipeline_id": string;
   "stage_id": string;
-  "lead_id"?: string | null;
-  "company_id"?: string | null;
-  "primary_contact_id"?: string | null;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
+  "lead_id": string | null;
+  "company_id": string | null;
+  "primary_contact_id": string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
   "name": string;
   "amount": number;
   "currency": string;
   "probability": number;
-  "expected_close_date"?: string | null;
-  "closed_at"?: string | null;
+  "expected_close_date": string | null;
+  "closed_at": string | null;
   "status": string;
-  "loss_reason"?: string | null;
-  "recurring_amount"?: number | null;
-  "recurring_interval"?: string | null;
+  "loss_reason": string | null;
+  "recurring_amount": number | null;
+  "recurring_interval": string | null;
   "custom_data": BackendJson<"JsonValue">;
   "version": number;
   "created_by": string;
@@ -678,21 +678,21 @@ export interface ApiMoveDealStagePatchResponseData extends JsonObject {
   "id": string;
   "pipeline_id": string;
   "stage_id": string;
-  "lead_id"?: string | null;
-  "company_id"?: string | null;
-  "primary_contact_id"?: string | null;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
+  "lead_id": string | null;
+  "company_id": string | null;
+  "primary_contact_id": string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
   "name": string;
   "amount": number;
   "currency": string;
   "probability": number;
-  "expected_close_date"?: string | null;
-  "closed_at"?: string | null;
+  "expected_close_date": string | null;
+  "closed_at": string | null;
   "status": string;
-  "loss_reason"?: string | null;
-  "recurring_amount"?: number | null;
-  "recurring_interval"?: string | null;
+  "loss_reason": string | null;
+  "recurring_amount": number | null;
+  "recurring_interval": string | null;
   "custom_data": BackendJson<"JsonValue">;
   "version": number;
   "created_by": string;
@@ -759,29 +759,29 @@ export interface ApiCreateLeadPostResponseData extends JsonObject {
   "id": string;
   "pipeline_id": string;
   "stage_id": string;
-  "company_id"?: string | null;
-  "contact_id"?: string | null;
-  "source_id"?: string | null;
-  "campaign_id"?: string | null;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
-  "profile_id"?: string | null;
+  "company_id": string | null;
+  "contact_id": string | null;
+  "source_id": string | null;
+  "campaign_id": string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
+  "profile_id": string | null;
   "title": string;
-  "first_name"?: string | null;
-  "last_name"?: string | null;
-  "company_name"?: string | null;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "segment"?: string | null;
-  "offer"?: string | null;
+  "first_name": string | null;
+  "last_name": string | null;
+  "company_name": string | null;
+  "email": string | null;
+  "phone": string | null;
+  "segment": string | null;
+  "offer": string | null;
   "status": string;
   "score": number;
-  "estimated_value"?: number | null;
+  "estimated_value": number | null;
   "currency": string;
-  "next_activity_at"?: string | null;
-  "converted_at"?: string | null;
-  "converted_deal_id"?: string | null;
-  "loss_reason"?: string | null;
+  "next_activity_at": string | null;
+  "converted_at": string | null;
+  "converted_deal_id": string | null;
+  "loss_reason": string | null;
   "custom_data": BackendJson<"JsonValue">;
   "version": number;
   "created_by": string;
@@ -793,49 +793,49 @@ export type ApiCreateLeadPostResponse = import("./types.js").CrmApiResponse<ApiC
 /** Backend response type: LeadResponse. */
 export interface ApiLeadGetResponseDataProfile extends JsonObject {
   "id": string;
-  "user_id"?: string | null;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "status"?: string | null;
-  "employee_type"?: string | null;
-  "avatar"?: string | null;
+  "user_id": string | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "status": string | null;
+  "employee_type": string | null;
+  "avatar": string | null;
 }
 export interface ApiLeadGetResponseData extends JsonObject {
   "id": string;
   "pipeline_id": string;
   "stage_id": string;
-  "company_id"?: string | null;
-  "contact_id"?: string | null;
-  "source_id"?: string | null;
-  "campaign_id"?: string | null;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
-  "profile_id"?: string | null;
+  "company_id": string | null;
+  "contact_id": string | null;
+  "source_id": string | null;
+  "campaign_id": string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
+  "profile_id": string | null;
   "title": string;
-  "first_name"?: string | null;
-  "last_name"?: string | null;
-  "company_name"?: string | null;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "segment"?: string | null;
-  "offer"?: string | null;
+  "first_name": string | null;
+  "last_name": string | null;
+  "company_name": string | null;
+  "email": string | null;
+  "phone": string | null;
+  "segment": string | null;
+  "offer": string | null;
   "status": string;
   "score": number;
-  "estimated_value"?: number | null;
+  "estimated_value": number | null;
   "currency": string;
-  "next_activity_at"?: string | null;
-  "converted_at"?: string | null;
-  "converted_deal_id"?: string | null;
-  "loss_reason"?: string | null;
+  "next_activity_at": string | null;
+  "converted_at": string | null;
+  "converted_deal_id": string | null;
+  "loss_reason": string | null;
   "custom_data": BackendJson<"JsonValue">;
   "version": number;
   "created_by": string;
   "created_at": string;
   "updated_at": string;
-  "profile"?: ApiLeadGetResponseDataProfile | null;
+  "profile": ApiLeadGetResponseDataProfile | null;
 }
 export type ApiLeadGetResponse = import("./types.js").CrmApiResponse<ApiLeadGetResponseData>;
 
@@ -862,29 +862,29 @@ export interface ApiUpdateLeadPatchResponseData extends JsonObject {
   "id": string;
   "pipeline_id": string;
   "stage_id": string;
-  "company_id"?: string | null;
-  "contact_id"?: string | null;
-  "source_id"?: string | null;
-  "campaign_id"?: string | null;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
-  "profile_id"?: string | null;
+  "company_id": string | null;
+  "contact_id": string | null;
+  "source_id": string | null;
+  "campaign_id": string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
+  "profile_id": string | null;
   "title": string;
-  "first_name"?: string | null;
-  "last_name"?: string | null;
-  "company_name"?: string | null;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "segment"?: string | null;
-  "offer"?: string | null;
+  "first_name": string | null;
+  "last_name": string | null;
+  "company_name": string | null;
+  "email": string | null;
+  "phone": string | null;
+  "segment": string | null;
+  "offer": string | null;
   "status": string;
   "score": number;
-  "estimated_value"?: number | null;
+  "estimated_value": number | null;
   "currency": string;
-  "next_activity_at"?: string | null;
-  "converted_at"?: string | null;
-  "converted_deal_id"?: string | null;
-  "loss_reason"?: string | null;
+  "next_activity_at": string | null;
+  "converted_at": string | null;
+  "converted_deal_id": string | null;
+  "loss_reason": string | null;
   "custom_data": BackendJson<"JsonValue">;
   "version": number;
   "created_by": string;
@@ -904,29 +904,29 @@ export interface ApiAssignLeadPatchResponseData extends JsonObject {
   "id": string;
   "pipeline_id": string;
   "stage_id": string;
-  "company_id"?: string | null;
-  "contact_id"?: string | null;
-  "source_id"?: string | null;
-  "campaign_id"?: string | null;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
-  "profile_id"?: string | null;
+  "company_id": string | null;
+  "contact_id": string | null;
+  "source_id": string | null;
+  "campaign_id": string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
+  "profile_id": string | null;
   "title": string;
-  "first_name"?: string | null;
-  "last_name"?: string | null;
-  "company_name"?: string | null;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "segment"?: string | null;
-  "offer"?: string | null;
+  "first_name": string | null;
+  "last_name": string | null;
+  "company_name": string | null;
+  "email": string | null;
+  "phone": string | null;
+  "segment": string | null;
+  "offer": string | null;
   "status": string;
   "score": number;
-  "estimated_value"?: number | null;
+  "estimated_value": number | null;
   "currency": string;
-  "next_activity_at"?: string | null;
-  "converted_at"?: string | null;
-  "converted_deal_id"?: string | null;
-  "loss_reason"?: string | null;
+  "next_activity_at": string | null;
+  "converted_at": string | null;
+  "converted_deal_id": string | null;
+  "loss_reason": string | null;
   "custom_data": BackendJson<"JsonValue">;
   "version": number;
   "created_by": string;
@@ -938,21 +938,21 @@ export type ApiAssignLeadPatchResponse = import("./types.js").CrmApiResponse<Api
 /** Backend response type: Vec<LeadHistoryEvent>. */
 export interface ApiLeadHistoryGetResponseItemProfile extends JsonObject {
   "id": string;
-  "user_id"?: string | null;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "status"?: string | null;
-  "employee_type"?: string | null;
-  "avatar"?: string | null;
+  "user_id": string | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "status": string | null;
+  "employee_type": string | null;
+  "avatar": string | null;
 }
 export interface ApiLeadHistoryGetResponseItem extends JsonObject {
   "id": string;
   "event_type": string;
-  "actor_user_id"?: string | null;
-  "profile"?: ApiLeadHistoryGetResponseItemProfile | null;
+  "actor_user_id": string | null;
+  "profile": ApiLeadHistoryGetResponseItemProfile | null;
   "data": BackendJson<"JsonValue">;
   "occurred_at": string;
 }
@@ -988,29 +988,29 @@ export interface ApiMoveLeadStagePatchResponseData extends JsonObject {
   "id": string;
   "pipeline_id": string;
   "stage_id": string;
-  "company_id"?: string | null;
-  "contact_id"?: string | null;
-  "source_id"?: string | null;
-  "campaign_id"?: string | null;
-  "owner_user_id"?: string | null;
-  "team_id"?: string | null;
-  "profile_id"?: string | null;
+  "company_id": string | null;
+  "contact_id": string | null;
+  "source_id": string | null;
+  "campaign_id": string | null;
+  "owner_user_id": string | null;
+  "team_id": string | null;
+  "profile_id": string | null;
   "title": string;
-  "first_name"?: string | null;
-  "last_name"?: string | null;
-  "company_name"?: string | null;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "segment"?: string | null;
-  "offer"?: string | null;
+  "first_name": string | null;
+  "last_name": string | null;
+  "company_name": string | null;
+  "email": string | null;
+  "phone": string | null;
+  "segment": string | null;
+  "offer": string | null;
   "status": string;
   "score": number;
-  "estimated_value"?: number | null;
+  "estimated_value": number | null;
   "currency": string;
-  "next_activity_at"?: string | null;
-  "converted_at"?: string | null;
-  "converted_deal_id"?: string | null;
-  "loss_reason"?: string | null;
+  "next_activity_at": string | null;
+  "converted_at": string | null;
+  "converted_deal_id": string | null;
+  "loss_reason": string | null;
   "custom_data": BackendJson<"JsonValue">;
   "version": number;
   "created_by": string;
@@ -1059,11 +1059,11 @@ export interface ApiUpdatePipelinePatchResponseData extends JsonObject {
   "name": string;
   "slug": string;
   "entity_type": string;
-  "team_id"?: string | null;
+  "team_id": string | null;
   "is_default": boolean;
   "is_active": boolean;
   "priority": number;
-  "hint"?: string | null;
+  "hint": string | null;
   "daily_quota": number;
   "can_create_lead": boolean;
   "acquire_flags": BackendJson<"JsonValue">;
@@ -1079,13 +1079,13 @@ export interface ApiReportRunGetResponseData extends JsonObject {
   "period_start": string;
   "period_end": string;
   "status": string;
-  "deterministic_summary"?: BackendJson<"JsonValue"> | null;
-  "ai_job_id"?: string | null;
-  "ai_interpretation"?: BackendJson<"JsonValue"> | null;
-  "error"?: string | null;
+  "deterministic_summary": BackendJson<"JsonValue"> | null;
+  "ai_job_id": string | null;
+  "ai_interpretation": BackendJson<"JsonValue"> | null;
+  "error": string | null;
   "requested_by": string;
   "created_at": string;
-  "completed_at"?: string | null;
+  "completed_at": string | null;
 }
 export type ApiReportRunGetResponse = import("./types.js").CrmApiResponse<ApiReportRunGetResponseData>;
 
@@ -1156,7 +1156,7 @@ export interface ApiDailyStatsGetResponseDataWorkflows extends JsonObject {
   "name": string;
   "slug": string;
   "priority": number;
-  "hint"?: string | null;
+  "hint": string | null;
   "daily_tasks": number;
   "leads_count": number;
 }
@@ -1223,20 +1223,20 @@ export interface ApiCreateTaskPostInput extends JsonObject {
 /** Backend response type: Task. */
 export interface ApiCreateTaskPostResponseData extends JsonObject {
   "id": string;
-  "lead_id"?: string | null;
-  "deal_id"?: string | null;
-  "contact_id"?: string | null;
-  "company_id"?: string | null;
-  "profile_id"?: string | null;
+  "lead_id": string | null;
+  "deal_id": string | null;
+  "contact_id": string | null;
+  "company_id": string | null;
+  "profile_id": string | null;
   "assignee_user_id": string;
   "created_by": string;
   "title": string;
-  "description"?: string | null;
+  "description": string | null;
   "task_type": string;
   "priority": string;
   "status": string;
-  "due_at"?: string | null;
-  "completed_at"?: string | null;
+  "due_at": string | null;
+  "completed_at": string | null;
   "version": number;
   "created_at": string;
   "updated_at": string;
@@ -1258,20 +1258,20 @@ export interface ApiUpdateTaskStatusPatchInput extends JsonObject {
 /** Backend response type: Task. */
 export interface ApiUpdateTaskStatusPatchResponseData extends JsonObject {
   "id": string;
-  "lead_id"?: string | null;
-  "deal_id"?: string | null;
-  "contact_id"?: string | null;
-  "company_id"?: string | null;
-  "profile_id"?: string | null;
+  "lead_id": string | null;
+  "deal_id": string | null;
+  "contact_id": string | null;
+  "company_id": string | null;
+  "profile_id": string | null;
   "assignee_user_id": string;
   "created_by": string;
   "title": string;
-  "description"?: string | null;
+  "description": string | null;
   "task_type": string;
   "priority": string;
   "status": string;
-  "due_at"?: string | null;
-  "completed_at"?: string | null;
+  "due_at": string | null;
+  "completed_at": string | null;
   "version": number;
   "created_at": string;
   "updated_at": string;
@@ -1282,8 +1282,8 @@ export type ApiUpdateTaskStatusPatchResponse = import("./types.js").CrmApiRespon
 export interface ApiTeamsGetResponseItem extends JsonObject {
   "id": string;
   "name": string;
-  "description"?: string | null;
-  "manager_user_id"?: string | null;
+  "description": string | null;
+  "manager_user_id": string | null;
   "is_active": boolean;
   "version": number;
   "member_count": number;
@@ -1302,8 +1302,8 @@ export interface ApiCreateTeamPostInput extends JsonObject {
 export interface ApiCreateTeamPostResponseData extends JsonObject {
   "id": string;
   "name": string;
-  "description"?: string | null;
-  "manager_user_id"?: string | null;
+  "description": string | null;
+  "manager_user_id": string | null;
   "is_active": boolean;
   "version": number;
   "member_count": number;
@@ -1337,7 +1337,7 @@ export interface ApiAddTeamMemberPostResponseData extends JsonObject {
   "id": string;
   "team_id": string;
   "user_id": string;
-  "title"?: string | null;
+  "title": string | null;
   "capacity": number;
   "is_active": boolean;
   "created_at": string;
@@ -1350,7 +1350,7 @@ export interface ApiRemoveTeamMemberDeleteResponseData extends JsonObject {
   "id": string;
   "team_id": string;
   "user_id": string;
-  "title"?: string | null;
+  "title": string | null;
   "capacity": number;
   "is_active": boolean;
   "created_at": string;
@@ -1380,7 +1380,7 @@ export interface ApiListWorkflowsRouteGetApiV1WorkflowResponseItemActions extend
   "key": string;
   "kind": ApiListWorkflowsRouteGetApiV1WorkflowResponseItemActionsKind;
   "form": string;
-  "required"?: boolean;
+  "required": boolean;
 }
 export interface ApiListWorkflowsRouteGetApiV1WorkflowResponseItem extends JsonObject {
   "id": string;
@@ -1390,14 +1390,14 @@ export interface ApiListWorkflowsRouteGetApiV1WorkflowResponseItem extends JsonO
   "acquire_flags": string[];
   "priority": number;
   "entity_type": string;
-  "team_id"?: string | null;
+  "team_id": string | null;
   "is_default": boolean;
   "is_active": boolean;
   "daily_quota": number;
   "version": number;
   "can_create_lead": boolean;
   "actions": ApiListWorkflowsRouteGetApiV1WorkflowResponseItemActions[];
-  "hint"?: string | null;
+  "hint": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1432,7 +1432,7 @@ export interface ApiCreateWorkflowRoutePostApiV1WorkflowResponseDataActions exte
   "key": string;
   "kind": ApiCreateWorkflowRoutePostApiV1WorkflowResponseDataActionsKind;
   "form": string;
-  "required"?: boolean;
+  "required": boolean;
 }
 export interface ApiCreateWorkflowRoutePostApiV1WorkflowResponseData extends JsonObject {
   "id": string;
@@ -1442,14 +1442,14 @@ export interface ApiCreateWorkflowRoutePostApiV1WorkflowResponseData extends Jso
   "acquire_flags": string[];
   "priority": number;
   "entity_type": string;
-  "team_id"?: string | null;
+  "team_id": string | null;
   "is_default": boolean;
   "is_active": boolean;
   "daily_quota": number;
   "version": number;
   "can_create_lead": boolean;
   "actions": ApiCreateWorkflowRoutePostApiV1WorkflowResponseDataActions[];
-  "hint"?: string | null;
+  "hint": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1479,12 +1479,12 @@ export interface ApiListWorkflowNodesCompatRouteGetResponseItem extends JsonObje
   "priority": number;
   "probability": number;
   "stage_type": string;
-  "sla_minutes"?: number | null;
+  "sla_minutes": number | null;
   "is_active": boolean;
   "workflow_id": string;
   "is_draggable_in": boolean;
   "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
+  "actions": JsonValue | null;
   "auto_win": boolean;
   "created_at": string;
   "updated_at": string;
@@ -1502,12 +1502,12 @@ export interface ApiShowWorkflowNodeCompatRouteGetResponseData extends JsonObjec
   "priority": number;
   "probability": number;
   "stage_type": string;
-  "sla_minutes"?: number | null;
+  "sla_minutes": number | null;
   "is_active": boolean;
   "workflow_id": string;
   "is_draggable_in": boolean;
   "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
+  "actions": JsonValue | null;
   "auto_win": boolean;
   "created_at": string;
   "updated_at": string;
@@ -1536,12 +1536,12 @@ export interface ApiUpdateWorkflowNodeCompatRoutePatchResponseData extends JsonO
   "priority": number;
   "probability": number;
   "stage_type": string;
-  "sla_minutes"?: number | null;
+  "sla_minutes": number | null;
   "is_active": boolean;
   "workflow_id": string;
   "is_draggable_in": boolean;
   "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
+  "actions": JsonValue | null;
   "auto_win": boolean;
   "created_at": string;
   "updated_at": string;
@@ -1570,12 +1570,12 @@ export interface ApiCreateWorkflowNodeRoutePostApiV1WorkflowNodeIdResponseData e
   "priority": number;
   "probability": number;
   "stage_type": string;
-  "sla_minutes"?: number | null;
+  "sla_minutes": number | null;
   "is_active": boolean;
   "workflow_id": string;
   "is_draggable_in": boolean;
   "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
+  "actions": JsonValue | null;
   "auto_win": boolean;
   "created_at": string;
   "updated_at": string;
@@ -1604,12 +1604,12 @@ export interface ApiUpdateWorkflowNodeCompatRoutePutResponseData extends JsonObj
   "priority": number;
   "probability": number;
   "stage_type": string;
-  "sla_minutes"?: number | null;
+  "sla_minutes": number | null;
   "is_active": boolean;
   "workflow_id": string;
   "is_draggable_in": boolean;
   "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
+  "actions": JsonValue | null;
   "auto_win": boolean;
   "created_at": string;
   "updated_at": string;
@@ -1629,7 +1629,7 @@ export interface ApiShowWorkflowRouteGetApiV1WorkflowIdResponseDataActions exten
   "key": string;
   "kind": ApiShowWorkflowRouteGetApiV1WorkflowIdResponseDataActionsKind;
   "form": string;
-  "required"?: boolean;
+  "required": boolean;
 }
 export interface ApiShowWorkflowRouteGetApiV1WorkflowIdResponseData extends JsonObject {
   "id": string;
@@ -1639,14 +1639,14 @@ export interface ApiShowWorkflowRouteGetApiV1WorkflowIdResponseData extends Json
   "acquire_flags": string[];
   "priority": number;
   "entity_type": string;
-  "team_id"?: string | null;
+  "team_id": string | null;
   "is_default": boolean;
   "is_active": boolean;
   "daily_quota": number;
   "version": number;
   "can_create_lead": boolean;
   "actions": ApiShowWorkflowRouteGetApiV1WorkflowIdResponseDataActions[];
-  "hint"?: string | null;
+  "hint": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1675,7 +1675,7 @@ export interface ApiUpdateWorkflowRoutePatchApiV1WorkflowIdResponseDataActions e
   "key": string;
   "kind": ApiUpdateWorkflowRoutePatchApiV1WorkflowIdResponseDataActionsKind;
   "form": string;
-  "required"?: boolean;
+  "required": boolean;
 }
 export interface ApiUpdateWorkflowRoutePatchApiV1WorkflowIdResponseData extends JsonObject {
   "id": string;
@@ -1685,14 +1685,14 @@ export interface ApiUpdateWorkflowRoutePatchApiV1WorkflowIdResponseData extends 
   "acquire_flags": string[];
   "priority": number;
   "entity_type": string;
-  "team_id"?: string | null;
+  "team_id": string | null;
   "is_default": boolean;
   "is_active": boolean;
   "daily_quota": number;
   "version": number;
   "can_create_lead": boolean;
   "actions": ApiUpdateWorkflowRoutePatchApiV1WorkflowIdResponseDataActions[];
-  "hint"?: string | null;
+  "hint": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1721,7 +1721,7 @@ export interface ApiUpdateWorkflowRoutePutResponseDataActions extends JsonObject
   "key": string;
   "kind": ApiUpdateWorkflowRoutePutResponseDataActionsKind;
   "form": string;
-  "required"?: boolean;
+  "required": boolean;
 }
 export interface ApiUpdateWorkflowRoutePutResponseData extends JsonObject {
   "id": string;
@@ -1731,14 +1731,14 @@ export interface ApiUpdateWorkflowRoutePutResponseData extends JsonObject {
   "acquire_flags": string[];
   "priority": number;
   "entity_type": string;
-  "team_id"?: string | null;
+  "team_id": string | null;
   "is_default": boolean;
   "is_active": boolean;
   "daily_quota": number;
   "version": number;
   "can_create_lead": boolean;
   "actions": ApiUpdateWorkflowRoutePutResponseDataActions[];
-  "hint"?: string | null;
+  "hint": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1766,7 +1766,7 @@ export interface ApiListWorkflowsRouteGetApiV1WorkflowsResponseItemActions exten
   "key": string;
   "kind": ApiListWorkflowsRouteGetApiV1WorkflowsResponseItemActionsKind;
   "form": string;
-  "required"?: boolean;
+  "required": boolean;
 }
 export interface ApiListWorkflowsRouteGetApiV1WorkflowsResponseItem extends JsonObject {
   "id": string;
@@ -1776,14 +1776,14 @@ export interface ApiListWorkflowsRouteGetApiV1WorkflowsResponseItem extends Json
   "acquire_flags": string[];
   "priority": number;
   "entity_type": string;
-  "team_id"?: string | null;
+  "team_id": string | null;
   "is_default": boolean;
   "is_active": boolean;
   "daily_quota": number;
   "version": number;
   "can_create_lead": boolean;
   "actions": ApiListWorkflowsRouteGetApiV1WorkflowsResponseItemActions[];
-  "hint"?: string | null;
+  "hint": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1818,7 +1818,7 @@ export interface ApiCreateWorkflowRoutePostApiV1WorkflowsResponseDataActions ext
   "key": string;
   "kind": ApiCreateWorkflowRoutePostApiV1WorkflowsResponseDataActionsKind;
   "form": string;
-  "required"?: boolean;
+  "required": boolean;
 }
 export interface ApiCreateWorkflowRoutePostApiV1WorkflowsResponseData extends JsonObject {
   "id": string;
@@ -1828,14 +1828,14 @@ export interface ApiCreateWorkflowRoutePostApiV1WorkflowsResponseData extends Js
   "acquire_flags": string[];
   "priority": number;
   "entity_type": string;
-  "team_id"?: string | null;
+  "team_id": string | null;
   "is_default": boolean;
   "is_active": boolean;
   "daily_quota": number;
   "version": number;
   "can_create_lead": boolean;
   "actions": ApiCreateWorkflowRoutePostApiV1WorkflowsResponseDataActions[];
-  "hint"?: string | null;
+  "hint": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1854,7 +1854,7 @@ export interface ApiShowWorkflowRouteGetApiV1WorkflowsIdResponseDataActions exte
   "key": string;
   "kind": ApiShowWorkflowRouteGetApiV1WorkflowsIdResponseDataActionsKind;
   "form": string;
-  "required"?: boolean;
+  "required": boolean;
 }
 export interface ApiShowWorkflowRouteGetApiV1WorkflowsIdResponseData extends JsonObject {
   "id": string;
@@ -1864,14 +1864,14 @@ export interface ApiShowWorkflowRouteGetApiV1WorkflowsIdResponseData extends Jso
   "acquire_flags": string[];
   "priority": number;
   "entity_type": string;
-  "team_id"?: string | null;
+  "team_id": string | null;
   "is_default": boolean;
   "is_active": boolean;
   "daily_quota": number;
   "version": number;
   "can_create_lead": boolean;
   "actions": ApiShowWorkflowRouteGetApiV1WorkflowsIdResponseDataActions[];
-  "hint"?: string | null;
+  "hint": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1900,7 +1900,7 @@ export interface ApiUpdateWorkflowRoutePatchApiV1WorkflowsIdResponseDataActions 
   "key": string;
   "kind": ApiUpdateWorkflowRoutePatchApiV1WorkflowsIdResponseDataActionsKind;
   "form": string;
-  "required"?: boolean;
+  "required": boolean;
 }
 export interface ApiUpdateWorkflowRoutePatchApiV1WorkflowsIdResponseData extends JsonObject {
   "id": string;
@@ -1910,14 +1910,14 @@ export interface ApiUpdateWorkflowRoutePatchApiV1WorkflowsIdResponseData extends
   "acquire_flags": string[];
   "priority": number;
   "entity_type": string;
-  "team_id"?: string | null;
+  "team_id": string | null;
   "is_default": boolean;
   "is_active": boolean;
   "daily_quota": number;
   "version": number;
   "can_create_lead": boolean;
   "actions": ApiUpdateWorkflowRoutePatchApiV1WorkflowsIdResponseDataActions[];
-  "hint"?: string | null;
+  "hint": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1927,8 +1927,8 @@ export type ApiUpdateWorkflowRoutePatchApiV1WorkflowsIdResponse = import("./type
 export interface ApiListWorkflowAssignmentsGetResponseItem extends JsonObject {
   "id": string;
   "workflow_id": string;
-  "team_id"?: string | null;
-  "user_id"?: string | null;
+  "team_id": string | null;
+  "user_id": string | null;
   "created_by": string;
   "created_at": string;
 }
@@ -1943,8 +1943,8 @@ export interface ApiCreateWorkflowAssignmentPostInput extends JsonObject {
 export interface ApiCreateWorkflowAssignmentPostResponseData extends JsonObject {
   "id": string;
   "workflow_id": string;
-  "team_id"?: string | null;
-  "user_id"?: string | null;
+  "team_id": string | null;
+  "user_id": string | null;
   "created_by": string;
   "created_at": string;
 }
@@ -1981,12 +1981,12 @@ export interface ApiListWorkflowNodesRouteGetResponseItem extends JsonObject {
   "priority": number;
   "probability": number;
   "stage_type": string;
-  "sla_minutes"?: number | null;
+  "sla_minutes": number | null;
   "is_active": boolean;
   "workflow_id": string;
   "is_draggable_in": boolean;
   "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
+  "actions": JsonValue | null;
   "auto_win": boolean;
   "created_at": string;
   "updated_at": string;
@@ -2015,12 +2015,12 @@ export interface ApiCreateWorkflowNodeRoutePostApiV1WorkflowsWorkflowIdNodesResp
   "priority": number;
   "probability": number;
   "stage_type": string;
-  "sla_minutes"?: number | null;
+  "sla_minutes": number | null;
   "is_active": boolean;
   "workflow_id": string;
   "is_draggable_in": boolean;
   "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
+  "actions": JsonValue | null;
   "auto_win": boolean;
   "created_at": string;
   "updated_at": string;
@@ -2042,12 +2042,12 @@ export interface ApiShowWorkflowNodeRouteGetResponseData extends JsonObject {
   "priority": number;
   "probability": number;
   "stage_type": string;
-  "sla_minutes"?: number | null;
+  "sla_minutes": number | null;
   "is_active": boolean;
   "workflow_id": string;
   "is_draggable_in": boolean;
   "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
+  "actions": JsonValue | null;
   "auto_win": boolean;
   "created_at": string;
   "updated_at": string;
@@ -2076,12 +2076,12 @@ export interface ApiUpdateWorkflowNodeRoutePatchResponseData extends JsonObject 
   "priority": number;
   "probability": number;
   "stage_type": string;
-  "sla_minutes"?: number | null;
+  "sla_minutes": number | null;
   "is_active": boolean;
   "workflow_id": string;
   "is_draggable_in": boolean;
   "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
+  "actions": JsonValue | null;
   "auto_win": boolean;
   "created_at": string;
   "updated_at": string;
@@ -2094,7 +2094,7 @@ export interface ApiMemberWorkflowsGetResponseItemActions extends JsonObject {
   "key": string;
   "kind": ApiMemberWorkflowsGetResponseItemActionsKind;
   "form": string;
-  "required"?: boolean;
+  "required": boolean;
 }
 export interface ApiMemberWorkflowsGetResponseItem extends JsonObject {
   "id": string;
@@ -2104,14 +2104,14 @@ export interface ApiMemberWorkflowsGetResponseItem extends JsonObject {
   "acquire_flags": string[];
   "priority": number;
   "entity_type": string;
-  "team_id"?: string | null;
+  "team_id": string | null;
   "is_default": boolean;
   "is_active": boolean;
   "daily_quota": number;
   "version": number;
   "can_create_lead": boolean;
   "actions": ApiMemberWorkflowsGetResponseItemActions[];
-  "hint"?: string | null;
+  "hint": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -2129,7 +2129,7 @@ export interface ApiWorklogsGetResponseItem extends JsonObject {
   "profile_id": string;
   "start_date": string;
   "duration": number;
-  "description"?: string | null;
+  "description": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -2153,8 +2153,8 @@ export interface ApiUpdateWorkspacePatchResponseData extends JsonObject {
   "timezone": string;
   "currency": string;
   "ai_mode": string;
-  "project_id"?: string | null;
-  "project_owner_user_id"?: string | null;
+  "project_id": string | null;
+  "project_owner_user_id": string | null;
   "agentic_enabled": boolean;
   "settings": BackendJson<"JsonValue">;
   "version": number;

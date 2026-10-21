@@ -11,7 +11,7 @@
   "package_source_sha256": {
     "packages/crm/src/index.ts": "e4ba15823bbe965190b2f4bfb761acbd8151e201cfb602952007389df51a37cc",
     "packages/crm/src/operations.ts": "fe5168b5dbe35a9d301ce05227c7035e8e66c6d9b336fef800daf96aa29ec836",
-    "packages/crm/src/operations.types.ts": "a9b222e909e10385ddc91928760763968975f5d27f406fe05aa7dd5723abcf0a",
+    "packages/crm/src/operations.types.ts": "4766ebd56beb75222263827f8e71aa6deb2e90d97ba96bd405d03b1abe35cf48",
     "packages/crm/src/types.ts": "31edac010487077632f888d3aba02dc3f1769dd14bdba1030fef98253c08b6e9"
   },
   "capability_review_sha256": "0fe9ceed905bb589f319eb1bdee2c3e78e2c872ece739594859efaae991d15f5",

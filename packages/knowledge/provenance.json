@@ -11,7 +11,7 @@
   "package_source_sha256": {
     "packages/knowledge/src/index.ts": "f0a0e5d6108dcf44cead9d67b59bdbfee6b2380e2b1da0b5362c150348cbac00",
     "packages/knowledge/src/operations.ts": "1ba6965ad9bcec755dd60d0fc24b2206ff89e179d306912998e94cdad7d7594b",
-    "packages/knowledge/src/operations.types.ts": "6d594c28f50756bf5e93130f427638774d815ded2ebbddfbd8e64cf94fdeb386",
+    "packages/knowledge/src/operations.types.ts": "43db4ee6e04c32ae3e7937c68179044e9ed295b9284db7cb5e1b8a98a1103f1e",
     "packages/knowledge/src/types.ts": "492380f6f5ad12285d1b530b9bce9b346de041144eb52fd552dad5f89bac7cb7"
   },
   "capability_review_sha256": "c662805acd3f0f0e463cabb6fccb25e05b8dab7d29295af95a431dd3e5e01cdc",

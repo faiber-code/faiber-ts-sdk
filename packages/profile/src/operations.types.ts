@@ -115,48 +115,48 @@ export interface SessionGetSelfGetResponseDataProfileCredential extends JsonObje
 }
 export interface SessionGetSelfGetResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface SessionGetSelfGetResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface SessionGetSelfGetResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface SessionGetSelfGetResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface SessionGetSelfGetResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface SessionGetSelfGetResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": SessionGetSelfGetResponseDataProfileOfficeEnrollments[];
   "transactions": SessionGetSelfGetResponseDataProfileOfficeTransactions[];
   "installments": SessionGetSelfGetResponseDataProfileOfficeInstallments[];
@@ -165,28 +165,28 @@ export interface SessionGetSelfGetResponseDataProfileOffice extends JsonObject {
 }
 export interface SessionGetSelfGetResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface SessionGetSelfGetResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface SessionGetSelfGetResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface SessionGetSelfGetResponseDataProfileLms extends JsonObject {
   "classrooms": SessionGetSelfGetResponseDataProfileLmsClassrooms[];
@@ -200,31 +200,31 @@ export interface SessionGetSelfGetResponseDataProfileParent extends JsonObject {
 export interface SessionGetSelfGetResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": SessionGetSelfGetResponseDataProfileRoles[];
-  "credential"?: SessionGetSelfGetResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": SessionGetSelfGetResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: SessionGetSelfGetResponseDataProfileOffice | null;
   "lms"?: SessionGetSelfGetResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -262,48 +262,48 @@ export interface SessionUpdateSelfNamePatchResponseDataProfileCredential extends
 }
 export interface SessionUpdateSelfNamePatchResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface SessionUpdateSelfNamePatchResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface SessionUpdateSelfNamePatchResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface SessionUpdateSelfNamePatchResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface SessionUpdateSelfNamePatchResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface SessionUpdateSelfNamePatchResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": SessionUpdateSelfNamePatchResponseDataProfileOfficeEnrollments[];
   "transactions": SessionUpdateSelfNamePatchResponseDataProfileOfficeTransactions[];
   "installments": SessionUpdateSelfNamePatchResponseDataProfileOfficeInstallments[];
@@ -312,28 +312,28 @@ export interface SessionUpdateSelfNamePatchResponseDataProfileOffice extends Jso
 }
 export interface SessionUpdateSelfNamePatchResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface SessionUpdateSelfNamePatchResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface SessionUpdateSelfNamePatchResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface SessionUpdateSelfNamePatchResponseDataProfileLms extends JsonObject {
   "classrooms": SessionUpdateSelfNamePatchResponseDataProfileLmsClassrooms[];
@@ -347,31 +347,31 @@ export interface SessionUpdateSelfNamePatchResponseDataProfileParent extends Jso
 export interface SessionUpdateSelfNamePatchResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": SessionUpdateSelfNamePatchResponseDataProfileRoles[];
-  "credential"?: SessionUpdateSelfNamePatchResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": SessionUpdateSelfNamePatchResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: SessionUpdateSelfNamePatchResponseDataProfileOffice | null;
   "lms"?: SessionUpdateSelfNamePatchResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -410,48 +410,48 @@ export interface SessionCompleteOnboardingPutResponseDataProfileCredential exten
 }
 export interface SessionCompleteOnboardingPutResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface SessionCompleteOnboardingPutResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface SessionCompleteOnboardingPutResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface SessionCompleteOnboardingPutResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface SessionCompleteOnboardingPutResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface SessionCompleteOnboardingPutResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": SessionCompleteOnboardingPutResponseDataProfileOfficeEnrollments[];
   "transactions": SessionCompleteOnboardingPutResponseDataProfileOfficeTransactions[];
   "installments": SessionCompleteOnboardingPutResponseDataProfileOfficeInstallments[];
@@ -460,28 +460,28 @@ export interface SessionCompleteOnboardingPutResponseDataProfileOffice extends J
 }
 export interface SessionCompleteOnboardingPutResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface SessionCompleteOnboardingPutResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface SessionCompleteOnboardingPutResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface SessionCompleteOnboardingPutResponseDataProfileLms extends JsonObject {
   "classrooms": SessionCompleteOnboardingPutResponseDataProfileLmsClassrooms[];
@@ -495,31 +495,31 @@ export interface SessionCompleteOnboardingPutResponseDataProfileParent extends J
 export interface SessionCompleteOnboardingPutResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": SessionCompleteOnboardingPutResponseDataProfileRoles[];
-  "credential"?: SessionCompleteOnboardingPutResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": SessionCompleteOnboardingPutResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: SessionCompleteOnboardingPutResponseDataProfileOffice | null;
   "lms"?: SessionCompleteOnboardingPutResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -551,12 +551,12 @@ export interface CityIndexGetResponseDataCities extends JsonObject {
   "id": string;
   "province_id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface CityIndexGetResponseData extends JsonObject {
   "cities": CityIndexGetResponseDataCities[];
@@ -583,12 +583,12 @@ export interface CityStorePostResponseDataCity extends JsonObject {
   "id": string;
   "province_id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface CityStorePostResponseData extends JsonObject {
   "city": CityStorePostResponseDataCity;
@@ -605,12 +605,12 @@ export interface CityShowGetResponseDataCity extends JsonObject {
   "id": string;
   "province_id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface CityShowGetResponseData extends JsonObject {
   "city": CityShowGetResponseDataCity;
@@ -631,12 +631,12 @@ export interface CityUpdatePatchResponseDataCity extends JsonObject {
   "id": string;
   "province_id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface CityUpdatePatchResponseData extends JsonObject {
   "city": CityUpdatePatchResponseDataCity;
@@ -657,12 +657,12 @@ export interface CityUpdatePutResponseDataCity extends JsonObject {
   "id": string;
   "province_id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface CityUpdatePutResponseData extends JsonObject {
   "city": CityUpdatePutResponseDataCity;
@@ -692,12 +692,12 @@ export interface CountryIndexGetQuery extends QueryParams {
 export interface CountryIndexGetResponseDataCountries extends JsonObject {
   "id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface CountryIndexGetResponseData extends JsonObject {
   "countries": CountryIndexGetResponseDataCountries[];
@@ -722,12 +722,12 @@ export interface CountryStorePostInput extends JsonObject {
 export interface CountryStorePostResponseDataCountry extends JsonObject {
   "id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface CountryStorePostResponseData extends JsonObject {
   "country": CountryStorePostResponseDataCountry;
@@ -743,12 +743,12 @@ export interface CountryDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
 export interface CountryShowGetResponseDataCountry extends JsonObject {
   "id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface CountryShowGetResponseData extends JsonObject {
   "country": CountryShowGetResponseDataCountry;
@@ -767,12 +767,12 @@ export interface CountryUpdatePatchInput extends JsonObject {
 export interface CountryUpdatePatchResponseDataCountry extends JsonObject {
   "id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface CountryUpdatePatchResponseData extends JsonObject {
   "country": CountryUpdatePatchResponseDataCountry;
@@ -791,12 +791,12 @@ export interface CountryUpdatePutInput extends JsonObject {
 export interface CountryUpdatePutResponseDataCountry extends JsonObject {
   "id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface CountryUpdatePutResponseData extends JsonObject {
   "country": CountryUpdatePutResponseDataCountry;
@@ -828,7 +828,7 @@ export interface CustomTypeIndexGetResponseDataCustomTypes extends JsonObject {
   "options": JsonValue;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface CustomTypeIndexGetResponseData extends JsonObject {
   "custom_types": CustomTypeIndexGetResponseDataCustomTypes[];
@@ -857,7 +857,7 @@ export interface CustomTypeStorePostResponseDataCustomType extends JsonObject {
   "options": JsonValue;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface CustomTypeStorePostResponseData extends JsonObject {
   "custom_type": CustomTypeStorePostResponseDataCustomType;
@@ -877,7 +877,7 @@ export interface CustomTypeShowGetResponseDataCustomType extends JsonObject {
   "options": JsonValue;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface CustomTypeShowGetResponseData extends JsonObject {
   "custom_type": CustomTypeShowGetResponseDataCustomType;
@@ -900,7 +900,7 @@ export interface CustomTypeUpdatePatchResponseDataCustomType extends JsonObject 
   "options": JsonValue;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface CustomTypeUpdatePatchResponseData extends JsonObject {
   "custom_type": CustomTypeUpdatePatchResponseDataCustomType;
@@ -1221,48 +1221,48 @@ export interface ProfileIndexGetResponseDataProfilesCredential extends JsonObjec
 }
 export interface ProfileIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileIndexGetResponseDataProfilesOfficeEnrollments[];
   "transactions": ProfileIndexGetResponseDataProfilesOfficeTransactions[];
   "installments": ProfileIndexGetResponseDataProfilesOfficeInstallments[];
@@ -1271,28 +1271,28 @@ export interface ProfileIndexGetResponseDataProfilesOffice extends JsonObject {
 }
 export interface ProfileIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileIndexGetResponseDataProfilesLms extends JsonObject {
   "classrooms": ProfileIndexGetResponseDataProfilesLmsClassrooms[];
@@ -1306,31 +1306,31 @@ export interface ProfileIndexGetResponseDataProfilesParent extends JsonObject {
 export interface ProfileIndexGetResponseDataProfiles extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileIndexGetResponseDataProfilesRoles[];
-  "credential"?: ProfileIndexGetResponseDataProfilesCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileIndexGetResponseDataProfilesCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileIndexGetResponseDataProfilesOffice | null;
   "lms"?: ProfileIndexGetResponseDataProfilesLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -1383,19 +1383,19 @@ export interface ProfilePropertyIndexGetResponseDataProfilePropertyDefinitions e
   "key": string;
   "title": string;
   "validator_type": string;
-  "validator_config"?: JsonValue | null;
-  "custom_type_id"?: string | null;
+  "validator_config": JsonValue | null;
+  "custom_type_id": string | null;
   "visible_in_list": boolean;
   "visible_in_get": boolean;
   "visible_in_full": boolean;
   "visible_in_chat": boolean;
   "filterable": boolean;
-  "index_value_kind"?: string | null;
+  "index_value_kind": string | null;
   "sort_order": number;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ProfilePropertyIndexGetResponseData extends JsonObject {
   "profile_property_definitions": ProfilePropertyIndexGetResponseDataProfilePropertyDefinitions[];
@@ -1431,19 +1431,19 @@ export interface ProfilePropertyStorePostResponseDataProfilePropertyDefinition e
   "key": string;
   "title": string;
   "validator_type": string;
-  "validator_config"?: JsonValue | null;
-  "custom_type_id"?: string | null;
+  "validator_config": JsonValue | null;
+  "custom_type_id": string | null;
   "visible_in_list": boolean;
   "visible_in_get": boolean;
   "visible_in_full": boolean;
   "visible_in_chat": boolean;
   "filterable": boolean;
-  "index_value_kind"?: string | null;
+  "index_value_kind": string | null;
   "sort_order": number;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ProfilePropertyStorePostResponseData extends JsonObject {
   "profile_property_definition": ProfilePropertyStorePostResponseDataProfilePropertyDefinition;
@@ -1461,19 +1461,19 @@ export interface ProfilePropertyShowGetResponseDataProfilePropertyDefinition ext
   "key": string;
   "title": string;
   "validator_type": string;
-  "validator_config"?: JsonValue | null;
-  "custom_type_id"?: string | null;
+  "validator_config": JsonValue | null;
+  "custom_type_id": string | null;
   "visible_in_list": boolean;
   "visible_in_get": boolean;
   "visible_in_full": boolean;
   "visible_in_chat": boolean;
   "filterable": boolean;
-  "index_value_kind"?: string | null;
+  "index_value_kind": string | null;
   "sort_order": number;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ProfilePropertyShowGetResponseData extends JsonObject {
   "profile_property_definition": ProfilePropertyShowGetResponseDataProfilePropertyDefinition;
@@ -1503,19 +1503,19 @@ export interface ProfilePropertyUpdatePatchResponseDataProfilePropertyDefinition
   "key": string;
   "title": string;
   "validator_type": string;
-  "validator_config"?: JsonValue | null;
-  "custom_type_id"?: string | null;
+  "validator_config": JsonValue | null;
+  "custom_type_id": string | null;
   "visible_in_list": boolean;
   "visible_in_get": boolean;
   "visible_in_full": boolean;
   "visible_in_chat": boolean;
   "filterable": boolean;
-  "index_value_kind"?: string | null;
+  "index_value_kind": string | null;
   "sort_order": number;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ProfilePropertyUpdatePatchResponseData extends JsonObject {
   "profile_property_definition": ProfilePropertyUpdatePatchResponseDataProfilePropertyDefinition;
@@ -1545,19 +1545,19 @@ export interface ProfilePropertyUpdatePutResponseDataProfilePropertyDefinition e
   "key": string;
   "title": string;
   "validator_type": string;
-  "validator_config"?: JsonValue | null;
-  "custom_type_id"?: string | null;
+  "validator_config": JsonValue | null;
+  "custom_type_id": string | null;
   "visible_in_list": boolean;
   "visible_in_get": boolean;
   "visible_in_full": boolean;
   "visible_in_chat": boolean;
   "filterable": boolean;
-  "index_value_kind"?: string | null;
+  "index_value_kind": string | null;
   "sort_order": number;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ProfilePropertyUpdatePutResponseData extends JsonObject {
   "profile_property_definition": ProfilePropertyUpdatePutResponseDataProfilePropertyDefinition;
@@ -1577,45 +1577,45 @@ export interface ProfilePropertyRestoreGetResponse extends ApiEnvelope<JsonValue
 export interface ReferralShowProfileReferralGetResponseData extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "national_number"?: string | null;
-  "first_name_fa"?: string | null;
-  "first_name_en"?: string | null;
-  "last_name_fa"?: string | null;
-  "last_name_en"?: string | null;
-  "birthday"?: string | null;
-  "nationality"?: string | null;
-  "religion"?: string | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "education_id"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "referral_source_id"?: string | null;
-  "referrer_profile_id"?: string | null;
-  "description"?: string | null;
-  "marital"?: string | null;
-  "nickname"?: string | null;
-  "country_id"?: string | null;
-  "province_id"?: string | null;
-  "city_id"?: string | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "national_number": string | null;
+  "first_name_fa": string | null;
+  "first_name_en": string | null;
+  "last_name_fa": string | null;
+  "last_name_en": string | null;
+  "birthday": string | null;
+  "nationality": string | null;
+  "religion": string | null;
+  "gender": string | null;
+  "job": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "education_id": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "referral_source_id": string | null;
+  "referrer_profile_id": string | null;
+  "description": string | null;
+  "marital": string | null;
+  "nickname": string | null;
+  "country_id": string | null;
+  "province_id": string | null;
+  "city_id": string | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
-  "red_gem"?: number | null;
-  "blue_gem"?: number | null;
-  "green_gem"?: number | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "red_gem": number | null;
+  "blue_gem": number | null;
+  "green_gem": number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ReferralShowProfileReferralGetResponse extends ApiEnvelope<ReferralShowProfileReferralGetResponseData> {
 }
@@ -1629,45 +1629,45 @@ export interface ReferralAssignPutInput extends JsonObject {
 export interface ReferralAssignPutResponseData extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "national_number"?: string | null;
-  "first_name_fa"?: string | null;
-  "first_name_en"?: string | null;
-  "last_name_fa"?: string | null;
-  "last_name_en"?: string | null;
-  "birthday"?: string | null;
-  "nationality"?: string | null;
-  "religion"?: string | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "education_id"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "referral_source_id"?: string | null;
-  "referrer_profile_id"?: string | null;
-  "description"?: string | null;
-  "marital"?: string | null;
-  "nickname"?: string | null;
-  "country_id"?: string | null;
-  "province_id"?: string | null;
-  "city_id"?: string | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "national_number": string | null;
+  "first_name_fa": string | null;
+  "first_name_en": string | null;
+  "last_name_fa": string | null;
+  "last_name_en": string | null;
+  "birthday": string | null;
+  "nationality": string | null;
+  "religion": string | null;
+  "gender": string | null;
+  "job": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "education_id": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "referral_source_id": string | null;
+  "referrer_profile_id": string | null;
+  "description": string | null;
+  "marital": string | null;
+  "nickname": string | null;
+  "country_id": string | null;
+  "province_id": string | null;
+  "city_id": string | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
-  "red_gem"?: number | null;
-  "blue_gem"?: number | null;
-  "green_gem"?: number | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "red_gem": number | null;
+  "blue_gem": number | null;
+  "green_gem": number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ReferralAssignPutResponse extends ApiEnvelope<ReferralAssignPutResponseData> {
 }
@@ -1683,11 +1683,11 @@ export interface RelationListRelationsGetResponseItem extends JsonObject {
   "source_profile_id": string;
   "target_profile_id": string;
   "relation_type_id": string;
-  "inverse_relation_id"?: string | null;
+  "inverse_relation_id": string | null;
   "metadata": BackendJson<"Json">;
   "active": boolean;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface RelationListRelationsGetResponse extends ApiEnvelope<RelationListRelationsGetResponseItem[]> {
 }
@@ -1705,11 +1705,11 @@ export interface RelationCreateRelationPostResponseItem extends JsonObject {
   "source_profile_id": string;
   "target_profile_id": string;
   "relation_type_id": string;
-  "inverse_relation_id"?: string | null;
+  "inverse_relation_id": string | null;
   "metadata": BackendJson<"Json">;
   "active": boolean;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface RelationCreateRelationPostResponse extends ApiEnvelope<RelationCreateRelationPostResponseItem[]> {
 }
@@ -1724,11 +1724,11 @@ export interface RelationShowRelationGetResponseData extends JsonObject {
   "source_profile_id": string;
   "target_profile_id": string;
   "relation_type_id": string;
-  "inverse_relation_id"?: string | null;
+  "inverse_relation_id": string | null;
   "metadata": BackendJson<"Json">;
   "active": boolean;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface RelationShowRelationGetResponse extends ApiEnvelope<RelationShowRelationGetResponseData> {
 }
@@ -1744,11 +1744,11 @@ export interface RelationUpdateRelationPutResponseItem extends JsonObject {
   "source_profile_id": string;
   "target_profile_id": string;
   "relation_type_id": string;
-  "inverse_relation_id"?: string | null;
+  "inverse_relation_id": string | null;
   "metadata": BackendJson<"Json">;
   "active": boolean;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface RelationUpdateRelationPutResponse extends ApiEnvelope<RelationUpdateRelationPutResponseItem[]> {
 }
@@ -1777,48 +1777,48 @@ export interface ProfileShowGetResponseDataProfileCredential extends JsonObject 
 }
 export interface ProfileShowGetResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileShowGetResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileShowGetResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileShowGetResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileShowGetResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileShowGetResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileShowGetResponseDataProfileOfficeEnrollments[];
   "transactions": ProfileShowGetResponseDataProfileOfficeTransactions[];
   "installments": ProfileShowGetResponseDataProfileOfficeInstallments[];
@@ -1827,28 +1827,28 @@ export interface ProfileShowGetResponseDataProfileOffice extends JsonObject {
 }
 export interface ProfileShowGetResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileShowGetResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileShowGetResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileShowGetResponseDataProfileLms extends JsonObject {
   "classrooms": ProfileShowGetResponseDataProfileLmsClassrooms[];
@@ -1862,31 +1862,31 @@ export interface ProfileShowGetResponseDataProfileParent extends JsonObject {
 export interface ProfileShowGetResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileShowGetResponseDataProfileRoles[];
-  "credential"?: ProfileShowGetResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileShowGetResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileShowGetResponseDataProfileOffice | null;
   "lms"?: ProfileShowGetResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -1945,48 +1945,48 @@ export interface ProfileUpdatePatchResponseDataProfileCredential extends JsonObj
 }
 export interface ProfileUpdatePatchResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileUpdatePatchResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdatePatchResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdatePatchResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileUpdatePatchResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileUpdatePatchResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileUpdatePatchResponseDataProfileOfficeEnrollments[];
   "transactions": ProfileUpdatePatchResponseDataProfileOfficeTransactions[];
   "installments": ProfileUpdatePatchResponseDataProfileOfficeInstallments[];
@@ -1995,28 +1995,28 @@ export interface ProfileUpdatePatchResponseDataProfileOffice extends JsonObject 
 }
 export interface ProfileUpdatePatchResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileUpdatePatchResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileUpdatePatchResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileUpdatePatchResponseDataProfileLms extends JsonObject {
   "classrooms": ProfileUpdatePatchResponseDataProfileLmsClassrooms[];
@@ -2030,31 +2030,31 @@ export interface ProfileUpdatePatchResponseDataProfileParent extends JsonObject 
 export interface ProfileUpdatePatchResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileUpdatePatchResponseDataProfileRoles[];
-  "credential"?: ProfileUpdatePatchResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileUpdatePatchResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileUpdatePatchResponseDataProfileOffice | null;
   "lms"?: ProfileUpdatePatchResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -2083,48 +2083,48 @@ export interface ProfileShowAdminGetResponseDataProfileCredential extends JsonOb
 }
 export interface ProfileShowAdminGetResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileShowAdminGetResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileShowAdminGetResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileShowAdminGetResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileShowAdminGetResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileShowAdminGetResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileShowAdminGetResponseDataProfileOfficeEnrollments[];
   "transactions": ProfileShowAdminGetResponseDataProfileOfficeTransactions[];
   "installments": ProfileShowAdminGetResponseDataProfileOfficeInstallments[];
@@ -2133,28 +2133,28 @@ export interface ProfileShowAdminGetResponseDataProfileOffice extends JsonObject
 }
 export interface ProfileShowAdminGetResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileShowAdminGetResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileShowAdminGetResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileShowAdminGetResponseDataProfileLms extends JsonObject {
   "classrooms": ProfileShowAdminGetResponseDataProfileLmsClassrooms[];
@@ -2168,31 +2168,31 @@ export interface ProfileShowAdminGetResponseDataProfileParent extends JsonObject
 export interface ProfileShowAdminGetResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileShowAdminGetResponseDataProfileRoles[];
-  "credential"?: ProfileShowAdminGetResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileShowAdminGetResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileShowAdminGetResponseDataProfileOffice | null;
   "lms"?: ProfileShowAdminGetResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -2247,48 +2247,48 @@ export interface ProfileUpdateEmployeeTypePatchResponseDataProfileCredential ext
 }
 export interface ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileUpdateEmployeeTypePatchResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeEnrollments[];
   "transactions": ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeTransactions[];
   "installments": ProfileUpdateEmployeeTypePatchResponseDataProfileOfficeInstallments[];
@@ -2297,28 +2297,28 @@ export interface ProfileUpdateEmployeeTypePatchResponseDataProfileOffice extends
 }
 export interface ProfileUpdateEmployeeTypePatchResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileUpdateEmployeeTypePatchResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileUpdateEmployeeTypePatchResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileUpdateEmployeeTypePatchResponseDataProfileLms extends JsonObject {
   "classrooms": ProfileUpdateEmployeeTypePatchResponseDataProfileLmsClassrooms[];
@@ -2332,31 +2332,31 @@ export interface ProfileUpdateEmployeeTypePatchResponseDataProfileParent extends
 export interface ProfileUpdateEmployeeTypePatchResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileUpdateEmployeeTypePatchResponseDataProfileRoles[];
-  "credential"?: ProfileUpdateEmployeeTypePatchResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileUpdateEmployeeTypePatchResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileUpdateEmployeeTypePatchResponseDataProfileOffice | null;
   "lms"?: ProfileUpdateEmployeeTypePatchResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -2389,48 +2389,48 @@ export interface ProfileUpdateEmployeeTypePutResponseDataProfileCredential exten
 }
 export interface ProfileUpdateEmployeeTypePutResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileUpdateEmployeeTypePutResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdateEmployeeTypePutResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdateEmployeeTypePutResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileUpdateEmployeeTypePutResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileUpdateEmployeeTypePutResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileUpdateEmployeeTypePutResponseDataProfileOfficeEnrollments[];
   "transactions": ProfileUpdateEmployeeTypePutResponseDataProfileOfficeTransactions[];
   "installments": ProfileUpdateEmployeeTypePutResponseDataProfileOfficeInstallments[];
@@ -2439,28 +2439,28 @@ export interface ProfileUpdateEmployeeTypePutResponseDataProfileOffice extends J
 }
 export interface ProfileUpdateEmployeeTypePutResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileUpdateEmployeeTypePutResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileUpdateEmployeeTypePutResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileUpdateEmployeeTypePutResponseDataProfileLms extends JsonObject {
   "classrooms": ProfileUpdateEmployeeTypePutResponseDataProfileLmsClassrooms[];
@@ -2474,31 +2474,31 @@ export interface ProfileUpdateEmployeeTypePutResponseDataProfileParent extends J
 export interface ProfileUpdateEmployeeTypePutResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileUpdateEmployeeTypePutResponseDataProfileRoles[];
-  "credential"?: ProfileUpdateEmployeeTypePutResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileUpdateEmployeeTypePutResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileUpdateEmployeeTypePutResponseDataProfileOffice | null;
   "lms"?: ProfileUpdateEmployeeTypePutResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -2531,48 +2531,48 @@ export interface ProfileUpdateFreemiumPatchResponseDataProfileCredential extends
 }
 export interface ProfileUpdateFreemiumPatchResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileUpdateFreemiumPatchResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdateFreemiumPatchResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdateFreemiumPatchResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileUpdateFreemiumPatchResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileUpdateFreemiumPatchResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileUpdateFreemiumPatchResponseDataProfileOfficeEnrollments[];
   "transactions": ProfileUpdateFreemiumPatchResponseDataProfileOfficeTransactions[];
   "installments": ProfileUpdateFreemiumPatchResponseDataProfileOfficeInstallments[];
@@ -2581,28 +2581,28 @@ export interface ProfileUpdateFreemiumPatchResponseDataProfileOffice extends Jso
 }
 export interface ProfileUpdateFreemiumPatchResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileUpdateFreemiumPatchResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileUpdateFreemiumPatchResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileUpdateFreemiumPatchResponseDataProfileLms extends JsonObject {
   "classrooms": ProfileUpdateFreemiumPatchResponseDataProfileLmsClassrooms[];
@@ -2616,31 +2616,31 @@ export interface ProfileUpdateFreemiumPatchResponseDataProfileParent extends Jso
 export interface ProfileUpdateFreemiumPatchResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileUpdateFreemiumPatchResponseDataProfileRoles[];
-  "credential"?: ProfileUpdateFreemiumPatchResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileUpdateFreemiumPatchResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileUpdateFreemiumPatchResponseDataProfileOffice | null;
   "lms"?: ProfileUpdateFreemiumPatchResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -2673,48 +2673,48 @@ export interface ProfileUpdateFreemiumPutResponseDataProfileCredential extends J
 }
 export interface ProfileUpdateFreemiumPutResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileUpdateFreemiumPutResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdateFreemiumPutResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdateFreemiumPutResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileUpdateFreemiumPutResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileUpdateFreemiumPutResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileUpdateFreemiumPutResponseDataProfileOfficeEnrollments[];
   "transactions": ProfileUpdateFreemiumPutResponseDataProfileOfficeTransactions[];
   "installments": ProfileUpdateFreemiumPutResponseDataProfileOfficeInstallments[];
@@ -2723,28 +2723,28 @@ export interface ProfileUpdateFreemiumPutResponseDataProfileOffice extends JsonO
 }
 export interface ProfileUpdateFreemiumPutResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileUpdateFreemiumPutResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileUpdateFreemiumPutResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileUpdateFreemiumPutResponseDataProfileLms extends JsonObject {
   "classrooms": ProfileUpdateFreemiumPutResponseDataProfileLmsClassrooms[];
@@ -2758,31 +2758,31 @@ export interface ProfileUpdateFreemiumPutResponseDataProfileParent extends JsonO
 export interface ProfileUpdateFreemiumPutResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileUpdateFreemiumPutResponseDataProfileRoles[];
-  "credential"?: ProfileUpdateFreemiumPutResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileUpdateFreemiumPutResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileUpdateFreemiumPutResponseDataProfileOffice | null;
   "lms"?: ProfileUpdateFreemiumPutResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -2811,48 +2811,48 @@ export interface ProfileShowFullGetResponseDataProfileCredential extends JsonObj
 }
 export interface ProfileShowFullGetResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileShowFullGetResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileShowFullGetResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileShowFullGetResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileShowFullGetResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileShowFullGetResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileShowFullGetResponseDataProfileOfficeEnrollments[];
   "transactions": ProfileShowFullGetResponseDataProfileOfficeTransactions[];
   "installments": ProfileShowFullGetResponseDataProfileOfficeInstallments[];
@@ -2861,28 +2861,28 @@ export interface ProfileShowFullGetResponseDataProfileOffice extends JsonObject 
 }
 export interface ProfileShowFullGetResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileShowFullGetResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileShowFullGetResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileShowFullGetResponseDataProfileLms extends JsonObject {
   "classrooms": ProfileShowFullGetResponseDataProfileLmsClassrooms[];
@@ -2896,31 +2896,31 @@ export interface ProfileShowFullGetResponseDataProfileParent extends JsonObject 
 export interface ProfileShowFullGetResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileShowFullGetResponseDataProfileRoles[];
-  "credential"?: ProfileShowFullGetResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileShowFullGetResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileShowFullGetResponseDataProfileOffice | null;
   "lms"?: ProfileShowFullGetResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -2983,48 +2983,48 @@ export interface ProfileUpdateStatusPatchResponseDataProfileCredential extends J
 }
 export interface ProfileUpdateStatusPatchResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileUpdateStatusPatchResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdateStatusPatchResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdateStatusPatchResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileUpdateStatusPatchResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileUpdateStatusPatchResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileUpdateStatusPatchResponseDataProfileOfficeEnrollments[];
   "transactions": ProfileUpdateStatusPatchResponseDataProfileOfficeTransactions[];
   "installments": ProfileUpdateStatusPatchResponseDataProfileOfficeInstallments[];
@@ -3033,28 +3033,28 @@ export interface ProfileUpdateStatusPatchResponseDataProfileOffice extends JsonO
 }
 export interface ProfileUpdateStatusPatchResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileUpdateStatusPatchResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileUpdateStatusPatchResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileUpdateStatusPatchResponseDataProfileLms extends JsonObject {
   "classrooms": ProfileUpdateStatusPatchResponseDataProfileLmsClassrooms[];
@@ -3068,31 +3068,31 @@ export interface ProfileUpdateStatusPatchResponseDataProfileParent extends JsonO
 export interface ProfileUpdateStatusPatchResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileUpdateStatusPatchResponseDataProfileRoles[];
-  "credential"?: ProfileUpdateStatusPatchResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileUpdateStatusPatchResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileUpdateStatusPatchResponseDataProfileOffice | null;
   "lms"?: ProfileUpdateStatusPatchResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -3125,48 +3125,48 @@ export interface ProfileUpdateStatusPutResponseDataProfileCredential extends Jso
 }
 export interface ProfileUpdateStatusPutResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileUpdateStatusPutResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdateStatusPutResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdateStatusPutResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileUpdateStatusPutResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileUpdateStatusPutResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileUpdateStatusPutResponseDataProfileOfficeEnrollments[];
   "transactions": ProfileUpdateStatusPutResponseDataProfileOfficeTransactions[];
   "installments": ProfileUpdateStatusPutResponseDataProfileOfficeInstallments[];
@@ -3175,28 +3175,28 @@ export interface ProfileUpdateStatusPutResponseDataProfileOffice extends JsonObj
 }
 export interface ProfileUpdateStatusPutResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileUpdateStatusPutResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileUpdateStatusPutResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileUpdateStatusPutResponseDataProfileLms extends JsonObject {
   "classrooms": ProfileUpdateStatusPutResponseDataProfileLmsClassrooms[];
@@ -3210,31 +3210,31 @@ export interface ProfileUpdateStatusPutResponseDataProfileParent extends JsonObj
 export interface ProfileUpdateStatusPutResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileUpdateStatusPutResponseDataProfileRoles[];
-  "credential"?: ProfileUpdateStatusPutResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileUpdateStatusPutResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileUpdateStatusPutResponseDataProfileOffice | null;
   "lms"?: ProfileUpdateStatusPutResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -3265,48 +3265,48 @@ export interface ProfileAccountantIndexGetResponseDataProfilesCredential extends
 }
 export interface ProfileAccountantIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileAccountantIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileAccountantIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileAccountantIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileAccountantIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileAccountantIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileAccountantIndexGetResponseDataProfilesOfficeEnrollments[];
   "transactions": ProfileAccountantIndexGetResponseDataProfilesOfficeTransactions[];
   "installments": ProfileAccountantIndexGetResponseDataProfilesOfficeInstallments[];
@@ -3315,28 +3315,28 @@ export interface ProfileAccountantIndexGetResponseDataProfilesOffice extends Jso
 }
 export interface ProfileAccountantIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileAccountantIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileAccountantIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileAccountantIndexGetResponseDataProfilesLms extends JsonObject {
   "classrooms": ProfileAccountantIndexGetResponseDataProfilesLmsClassrooms[];
@@ -3350,31 +3350,31 @@ export interface ProfileAccountantIndexGetResponseDataProfilesParent extends Jso
 export interface ProfileAccountantIndexGetResponseDataProfiles extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileAccountantIndexGetResponseDataProfilesRoles[];
-  "credential"?: ProfileAccountantIndexGetResponseDataProfilesCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileAccountantIndexGetResponseDataProfilesCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileAccountantIndexGetResponseDataProfilesOffice | null;
   "lms"?: ProfileAccountantIndexGetResponseDataProfilesLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -3477,48 +3477,48 @@ export interface ProfileCityGetPostResponseDataProfilesCredential extends JsonOb
 }
 export interface ProfileCityGetPostResponseDataProfilesOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileCityGetPostResponseDataProfilesOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileCityGetPostResponseDataProfilesOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileCityGetPostResponseDataProfilesOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileCityGetPostResponseDataProfilesOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileCityGetPostResponseDataProfilesOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileCityGetPostResponseDataProfilesOfficeEnrollments[];
   "transactions": ProfileCityGetPostResponseDataProfilesOfficeTransactions[];
   "installments": ProfileCityGetPostResponseDataProfilesOfficeInstallments[];
@@ -3527,28 +3527,28 @@ export interface ProfileCityGetPostResponseDataProfilesOffice extends JsonObject
 }
 export interface ProfileCityGetPostResponseDataProfilesLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileCityGetPostResponseDataProfilesLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileCityGetPostResponseDataProfilesLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileCityGetPostResponseDataProfilesLms extends JsonObject {
   "classrooms": ProfileCityGetPostResponseDataProfilesLmsClassrooms[];
@@ -3562,31 +3562,31 @@ export interface ProfileCityGetPostResponseDataProfilesParent extends JsonObject
 export interface ProfileCityGetPostResponseDataProfiles extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileCityGetPostResponseDataProfilesRoles[];
-  "credential"?: ProfileCityGetPostResponseDataProfilesCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileCityGetPostResponseDataProfilesCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileCityGetPostResponseDataProfilesOffice | null;
   "lms"?: ProfileCityGetPostResponseDataProfilesLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -3617,48 +3617,48 @@ export interface ProfileConsultantIndexGetResponseDataProfilesCredential extends
 }
 export interface ProfileConsultantIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileConsultantIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileConsultantIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileConsultantIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileConsultantIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileConsultantIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileConsultantIndexGetResponseDataProfilesOfficeEnrollments[];
   "transactions": ProfileConsultantIndexGetResponseDataProfilesOfficeTransactions[];
   "installments": ProfileConsultantIndexGetResponseDataProfilesOfficeInstallments[];
@@ -3667,28 +3667,28 @@ export interface ProfileConsultantIndexGetResponseDataProfilesOffice extends Jso
 }
 export interface ProfileConsultantIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileConsultantIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileConsultantIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileConsultantIndexGetResponseDataProfilesLms extends JsonObject {
   "classrooms": ProfileConsultantIndexGetResponseDataProfilesLmsClassrooms[];
@@ -3702,31 +3702,31 @@ export interface ProfileConsultantIndexGetResponseDataProfilesParent extends Jso
 export interface ProfileConsultantIndexGetResponseDataProfiles extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileConsultantIndexGetResponseDataProfilesRoles[];
-  "credential"?: ProfileConsultantIndexGetResponseDataProfilesCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileConsultantIndexGetResponseDataProfilesCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileConsultantIndexGetResponseDataProfilesOffice | null;
   "lms"?: ProfileConsultantIndexGetResponseDataProfilesLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -3767,48 +3767,48 @@ export interface ProfileCountryGetPostResponseDataProfilesCredential extends Jso
 }
 export interface ProfileCountryGetPostResponseDataProfilesOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileCountryGetPostResponseDataProfilesOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileCountryGetPostResponseDataProfilesOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileCountryGetPostResponseDataProfilesOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileCountryGetPostResponseDataProfilesOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileCountryGetPostResponseDataProfilesOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileCountryGetPostResponseDataProfilesOfficeEnrollments[];
   "transactions": ProfileCountryGetPostResponseDataProfilesOfficeTransactions[];
   "installments": ProfileCountryGetPostResponseDataProfilesOfficeInstallments[];
@@ -3817,28 +3817,28 @@ export interface ProfileCountryGetPostResponseDataProfilesOffice extends JsonObj
 }
 export interface ProfileCountryGetPostResponseDataProfilesLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileCountryGetPostResponseDataProfilesLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileCountryGetPostResponseDataProfilesLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileCountryGetPostResponseDataProfilesLms extends JsonObject {
   "classrooms": ProfileCountryGetPostResponseDataProfilesLmsClassrooms[];
@@ -3852,31 +3852,31 @@ export interface ProfileCountryGetPostResponseDataProfilesParent extends JsonObj
 export interface ProfileCountryGetPostResponseDataProfiles extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileCountryGetPostResponseDataProfilesRoles[];
-  "credential"?: ProfileCountryGetPostResponseDataProfilesCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileCountryGetPostResponseDataProfilesCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileCountryGetPostResponseDataProfilesOffice | null;
   "lms"?: ProfileCountryGetPostResponseDataProfilesLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -3913,48 +3913,48 @@ export interface ProfileBulkGetPostResponseDataProfilesCredential extends JsonOb
 }
 export interface ProfileBulkGetPostResponseDataProfilesOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileBulkGetPostResponseDataProfilesOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileBulkGetPostResponseDataProfilesOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileBulkGetPostResponseDataProfilesOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileBulkGetPostResponseDataProfilesOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileBulkGetPostResponseDataProfilesOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileBulkGetPostResponseDataProfilesOfficeEnrollments[];
   "transactions": ProfileBulkGetPostResponseDataProfilesOfficeTransactions[];
   "installments": ProfileBulkGetPostResponseDataProfilesOfficeInstallments[];
@@ -3963,28 +3963,28 @@ export interface ProfileBulkGetPostResponseDataProfilesOffice extends JsonObject
 }
 export interface ProfileBulkGetPostResponseDataProfilesLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileBulkGetPostResponseDataProfilesLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileBulkGetPostResponseDataProfilesLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileBulkGetPostResponseDataProfilesLms extends JsonObject {
   "classrooms": ProfileBulkGetPostResponseDataProfilesLmsClassrooms[];
@@ -3998,31 +3998,31 @@ export interface ProfileBulkGetPostResponseDataProfilesParent extends JsonObject
 export interface ProfileBulkGetPostResponseDataProfiles extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileBulkGetPostResponseDataProfilesRoles[];
-  "credential"?: ProfileBulkGetPostResponseDataProfilesCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileBulkGetPostResponseDataProfilesCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileBulkGetPostResponseDataProfilesOffice | null;
   "lms"?: ProfileBulkGetPostResponseDataProfilesLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -4069,48 +4069,48 @@ export interface ProfileManagerIndexGetResponseDataProfilesCredential extends Js
 }
 export interface ProfileManagerIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileManagerIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileManagerIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileManagerIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileManagerIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileManagerIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileManagerIndexGetResponseDataProfilesOfficeEnrollments[];
   "transactions": ProfileManagerIndexGetResponseDataProfilesOfficeTransactions[];
   "installments": ProfileManagerIndexGetResponseDataProfilesOfficeInstallments[];
@@ -4119,28 +4119,28 @@ export interface ProfileManagerIndexGetResponseDataProfilesOffice extends JsonOb
 }
 export interface ProfileManagerIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileManagerIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileManagerIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileManagerIndexGetResponseDataProfilesLms extends JsonObject {
   "classrooms": ProfileManagerIndexGetResponseDataProfilesLmsClassrooms[];
@@ -4154,31 +4154,31 @@ export interface ProfileManagerIndexGetResponseDataProfilesParent extends JsonOb
 export interface ProfileManagerIndexGetResponseDataProfiles extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileManagerIndexGetResponseDataProfilesRoles[];
-  "credential"?: ProfileManagerIndexGetResponseDataProfilesCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileManagerIndexGetResponseDataProfilesCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileManagerIndexGetResponseDataProfilesOffice | null;
   "lms"?: ProfileManagerIndexGetResponseDataProfilesLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -4252,48 +4252,48 @@ export interface ProfileOtherIndexGetResponseDataProfilesCredential extends Json
 }
 export interface ProfileOtherIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileOtherIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileOtherIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileOtherIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileOtherIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileOtherIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileOtherIndexGetResponseDataProfilesOfficeEnrollments[];
   "transactions": ProfileOtherIndexGetResponseDataProfilesOfficeTransactions[];
   "installments": ProfileOtherIndexGetResponseDataProfilesOfficeInstallments[];
@@ -4302,28 +4302,28 @@ export interface ProfileOtherIndexGetResponseDataProfilesOffice extends JsonObje
 }
 export interface ProfileOtherIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileOtherIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileOtherIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileOtherIndexGetResponseDataProfilesLms extends JsonObject {
   "classrooms": ProfileOtherIndexGetResponseDataProfilesLmsClassrooms[];
@@ -4337,31 +4337,31 @@ export interface ProfileOtherIndexGetResponseDataProfilesParent extends JsonObje
 export interface ProfileOtherIndexGetResponseDataProfiles extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileOtherIndexGetResponseDataProfilesRoles[];
-  "credential"?: ProfileOtherIndexGetResponseDataProfilesCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileOtherIndexGetResponseDataProfilesCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileOtherIndexGetResponseDataProfilesOffice | null;
   "lms"?: ProfileOtherIndexGetResponseDataProfilesLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -4399,48 +4399,48 @@ export interface ProfileParentIndexGetResponseDataProfilesCredential extends Jso
 }
 export interface ProfileParentIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileParentIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileParentIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileParentIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileParentIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileParentIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileParentIndexGetResponseDataProfilesOfficeEnrollments[];
   "transactions": ProfileParentIndexGetResponseDataProfilesOfficeTransactions[];
   "installments": ProfileParentIndexGetResponseDataProfilesOfficeInstallments[];
@@ -4449,28 +4449,28 @@ export interface ProfileParentIndexGetResponseDataProfilesOffice extends JsonObj
 }
 export interface ProfileParentIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileParentIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileParentIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileParentIndexGetResponseDataProfilesLms extends JsonObject {
   "classrooms": ProfileParentIndexGetResponseDataProfilesLmsClassrooms[];
@@ -4484,31 +4484,31 @@ export interface ProfileParentIndexGetResponseDataProfilesParent extends JsonObj
 export interface ProfileParentIndexGetResponseDataProfiles extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileParentIndexGetResponseDataProfilesRoles[];
-  "credential"?: ProfileParentIndexGetResponseDataProfilesCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileParentIndexGetResponseDataProfilesCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileParentIndexGetResponseDataProfilesOffice | null;
   "lms"?: ProfileParentIndexGetResponseDataProfilesLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -4533,12 +4533,12 @@ export type ProfileSearchResolvePostInput = import("./types.js").ResolvePeopleIn
 /** Backend response type: PeopleResult. */
 export interface ProfileSearchResolvePostResponseDataResults extends JsonObject {
   "user_id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "first_name_en"?: string | null;
-  "last_name_en"?: string | null;
-  "email"?: string | null;
-  "phone"?: string | null;
+  "first_name_fa": string | null;
+  "last_name_fa": string | null;
+  "first_name_en": string | null;
+  "last_name_en": string | null;
+  "email": string | null;
+  "phone": string | null;
 }
 export interface ProfileSearchResolvePostResponseData extends JsonObject {
   "results": ProfileSearchResolvePostResponseDataResults[];
@@ -4554,12 +4554,12 @@ export interface ProfileSearchSearchPostApiV1ProfilePeopleSearchInput extends Js
 /** Backend response type: PeopleResult. */
 export interface ProfileSearchSearchPostApiV1ProfilePeopleSearchResponseDataResults extends JsonObject {
   "user_id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "first_name_en"?: string | null;
-  "last_name_en"?: string | null;
-  "email"?: string | null;
-  "phone"?: string | null;
+  "first_name_fa": string | null;
+  "last_name_fa": string | null;
+  "first_name_en": string | null;
+  "last_name_en": string | null;
+  "email": string | null;
+  "phone": string | null;
 }
 export interface ProfileSearchSearchPostApiV1ProfilePeopleSearchResponseData extends JsonObject {
   "results": ProfileSearchSearchPostApiV1ProfilePeopleSearchResponseDataResults[];
@@ -4589,48 +4589,48 @@ export interface ProfileProvinceGetPostResponseDataProfilesCredential extends Js
 }
 export interface ProfileProvinceGetPostResponseDataProfilesOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileProvinceGetPostResponseDataProfilesOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileProvinceGetPostResponseDataProfilesOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileProvinceGetPostResponseDataProfilesOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileProvinceGetPostResponseDataProfilesOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileProvinceGetPostResponseDataProfilesOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileProvinceGetPostResponseDataProfilesOfficeEnrollments[];
   "transactions": ProfileProvinceGetPostResponseDataProfilesOfficeTransactions[];
   "installments": ProfileProvinceGetPostResponseDataProfilesOfficeInstallments[];
@@ -4639,28 +4639,28 @@ export interface ProfileProvinceGetPostResponseDataProfilesOffice extends JsonOb
 }
 export interface ProfileProvinceGetPostResponseDataProfilesLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileProvinceGetPostResponseDataProfilesLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileProvinceGetPostResponseDataProfilesLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileProvinceGetPostResponseDataProfilesLms extends JsonObject {
   "classrooms": ProfileProvinceGetPostResponseDataProfilesLmsClassrooms[];
@@ -4674,31 +4674,31 @@ export interface ProfileProvinceGetPostResponseDataProfilesParent extends JsonOb
 export interface ProfileProvinceGetPostResponseDataProfiles extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileProvinceGetPostResponseDataProfilesRoles[];
-  "credential"?: ProfileProvinceGetPostResponseDataProfilesCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileProvinceGetPostResponseDataProfilesCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileProvinceGetPostResponseDataProfilesOffice | null;
   "lms"?: ProfileProvinceGetPostResponseDataProfilesLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -4769,48 +4769,48 @@ export interface ProfileStudentIndexGetResponseDataProfilesCredential extends Js
 }
 export interface ProfileStudentIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileStudentIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileStudentIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileStudentIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileStudentIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileStudentIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileStudentIndexGetResponseDataProfilesOfficeEnrollments[];
   "transactions": ProfileStudentIndexGetResponseDataProfilesOfficeTransactions[];
   "installments": ProfileStudentIndexGetResponseDataProfilesOfficeInstallments[];
@@ -4819,28 +4819,28 @@ export interface ProfileStudentIndexGetResponseDataProfilesOffice extends JsonOb
 }
 export interface ProfileStudentIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileStudentIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileStudentIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileStudentIndexGetResponseDataProfilesLms extends JsonObject {
   "classrooms": ProfileStudentIndexGetResponseDataProfilesLmsClassrooms[];
@@ -4854,31 +4854,31 @@ export interface ProfileStudentIndexGetResponseDataProfilesParent extends JsonOb
 export interface ProfileStudentIndexGetResponseDataProfiles extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileStudentIndexGetResponseDataProfilesRoles[];
-  "credential"?: ProfileStudentIndexGetResponseDataProfilesCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileStudentIndexGetResponseDataProfilesCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileStudentIndexGetResponseDataProfilesOffice | null;
   "lms"?: ProfileStudentIndexGetResponseDataProfilesLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -4928,48 +4928,48 @@ export interface ProfileSupportIndexGetResponseDataProfilesCredential extends Js
 }
 export interface ProfileSupportIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileSupportIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileSupportIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileSupportIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileSupportIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileSupportIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileSupportIndexGetResponseDataProfilesOfficeEnrollments[];
   "transactions": ProfileSupportIndexGetResponseDataProfilesOfficeTransactions[];
   "installments": ProfileSupportIndexGetResponseDataProfilesOfficeInstallments[];
@@ -4978,28 +4978,28 @@ export interface ProfileSupportIndexGetResponseDataProfilesOffice extends JsonOb
 }
 export interface ProfileSupportIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileSupportIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileSupportIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileSupportIndexGetResponseDataProfilesLms extends JsonObject {
   "classrooms": ProfileSupportIndexGetResponseDataProfilesLmsClassrooms[];
@@ -5013,31 +5013,31 @@ export interface ProfileSupportIndexGetResponseDataProfilesParent extends JsonOb
 export interface ProfileSupportIndexGetResponseDataProfiles extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileSupportIndexGetResponseDataProfilesRoles[];
-  "credential"?: ProfileSupportIndexGetResponseDataProfilesCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileSupportIndexGetResponseDataProfilesCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileSupportIndexGetResponseDataProfilesOffice | null;
   "lms"?: ProfileSupportIndexGetResponseDataProfilesLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -5087,48 +5087,48 @@ export interface ProfileTeacherIndexGetResponseDataProfilesCredential extends Js
 }
 export interface ProfileTeacherIndexGetResponseDataProfilesOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileTeacherIndexGetResponseDataProfilesOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileTeacherIndexGetResponseDataProfilesOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileTeacherIndexGetResponseDataProfilesOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileTeacherIndexGetResponseDataProfilesOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileTeacherIndexGetResponseDataProfilesOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileTeacherIndexGetResponseDataProfilesOfficeEnrollments[];
   "transactions": ProfileTeacherIndexGetResponseDataProfilesOfficeTransactions[];
   "installments": ProfileTeacherIndexGetResponseDataProfilesOfficeInstallments[];
@@ -5137,28 +5137,28 @@ export interface ProfileTeacherIndexGetResponseDataProfilesOffice extends JsonOb
 }
 export interface ProfileTeacherIndexGetResponseDataProfilesLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileTeacherIndexGetResponseDataProfilesLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileTeacherIndexGetResponseDataProfilesLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileTeacherIndexGetResponseDataProfilesLms extends JsonObject {
   "classrooms": ProfileTeacherIndexGetResponseDataProfilesLmsClassrooms[];
@@ -5172,31 +5172,31 @@ export interface ProfileTeacherIndexGetResponseDataProfilesParent extends JsonOb
 export interface ProfileTeacherIndexGetResponseDataProfiles extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileTeacherIndexGetResponseDataProfilesRoles[];
-  "credential"?: ProfileTeacherIndexGetResponseDataProfilesCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileTeacherIndexGetResponseDataProfilesCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileTeacherIndexGetResponseDataProfilesOffice | null;
   "lms"?: ProfileTeacherIndexGetResponseDataProfilesLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -5243,12 +5243,12 @@ export interface EducationUpdatePutResponseDataCity extends JsonObject {
   "id": string;
   "province_id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface EducationUpdatePutResponseData extends JsonObject {
   "city": EducationUpdatePutResponseDataCity;
@@ -5291,48 +5291,48 @@ export interface ProfileUpdatePersonalPatchResponseDataProfileCredential extends
 }
 export interface ProfileUpdatePersonalPatchResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileUpdatePersonalPatchResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdatePersonalPatchResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdatePersonalPatchResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileUpdatePersonalPatchResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileUpdatePersonalPatchResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileUpdatePersonalPatchResponseDataProfileOfficeEnrollments[];
   "transactions": ProfileUpdatePersonalPatchResponseDataProfileOfficeTransactions[];
   "installments": ProfileUpdatePersonalPatchResponseDataProfileOfficeInstallments[];
@@ -5341,28 +5341,28 @@ export interface ProfileUpdatePersonalPatchResponseDataProfileOffice extends Jso
 }
 export interface ProfileUpdatePersonalPatchResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileUpdatePersonalPatchResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileUpdatePersonalPatchResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileUpdatePersonalPatchResponseDataProfileLms extends JsonObject {
   "classrooms": ProfileUpdatePersonalPatchResponseDataProfileLmsClassrooms[];
@@ -5376,31 +5376,31 @@ export interface ProfileUpdatePersonalPatchResponseDataProfileParent extends Jso
 export interface ProfileUpdatePersonalPatchResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileUpdatePersonalPatchResponseDataProfileRoles[];
-  "credential"?: ProfileUpdatePersonalPatchResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileUpdatePersonalPatchResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileUpdatePersonalPatchResponseDataProfileOffice | null;
   "lms"?: ProfileUpdatePersonalPatchResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -5448,48 +5448,48 @@ export interface ProfileUpdatePersonalPutResponseDataProfileCredential extends J
 }
 export interface ProfileUpdatePersonalPutResponseDataProfileOfficeEnrollments extends JsonObject {
   "enrollment_id": number;
-  "student_id"?: number | null;
-  "classroom_id"?: number | null;
-  "course_id"?: number | null;
-  "support_user_id"?: string | null;
-  "amount"?: number | null;
-  "discount_amount"?: number | null;
-  "remain_amount"?: number | null;
-  "total_sessions"?: number | null;
-  "freemium_sessions"?: number | null;
-  "freemium_sessions_used"?: number | null;
-  "education_status_id"?: number | null;
+  "student_id": number | null;
+  "classroom_id": number | null;
+  "course_id": number | null;
+  "support_user_id": string | null;
+  "amount": number | null;
+  "discount_amount": number | null;
+  "remain_amount": number | null;
+  "total_sessions": number | null;
+  "freemium_sessions": number | null;
+  "freemium_sessions_used": number | null;
+  "education_status_id": number | null;
   "archive": boolean;
 }
 export interface ProfileUpdatePersonalPutResponseDataProfileOfficeTransactions extends JsonObject {
   "transaction_id": number;
-  "subject"?: string | null;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "support_user_id"?: string | null;
-  "deposit_at"?: string | null;
+  "subject": string | null;
+  "amount": number | null;
+  "status": string | null;
+  "support_user_id": string | null;
+  "deposit_at": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdatePersonalPutResponseDataProfileOfficeInstallments extends JsonObject {
   "installment_id": number;
-  "amount"?: number | null;
-  "status"?: string | null;
-  "paid_at"?: string | null;
-  "deadline"?: string | null;
+  "amount": number | null;
+  "status": string | null;
+  "paid_at": string | null;
+  "deadline": string | null;
   "archive": boolean;
 }
 export interface ProfileUpdatePersonalPutResponseDataProfileOfficeWallets extends JsonObject {
   "wallet_id": number;
-  "balance"?: number | null;
+  "balance": number | null;
 }
 export interface ProfileUpdatePersonalPutResponseDataProfileOfficeWalletTransactions extends JsonObject {
   "wallet_transaction_id": number;
-  "amount"?: number | null;
-  "transaction_type"?: string | null;
+  "amount": number | null;
+  "transaction_type": string | null;
 }
 export interface ProfileUpdatePersonalPutResponseDataProfileOffice extends JsonObject {
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "enrollments": ProfileUpdatePersonalPutResponseDataProfileOfficeEnrollments[];
   "transactions": ProfileUpdatePersonalPutResponseDataProfileOfficeTransactions[];
   "installments": ProfileUpdatePersonalPutResponseDataProfileOfficeInstallments[];
@@ -5498,28 +5498,28 @@ export interface ProfileUpdatePersonalPutResponseDataProfileOffice extends JsonO
 }
 export interface ProfileUpdatePersonalPutResponseDataProfileLmsClassrooms extends JsonObject {
   "classroom_id": string;
-  "name"?: string | null;
-  "course_id"?: string | null;
-  "capacity"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "classroom_type_id"?: string | null;
-  "status"?: string | null;
-  "consultant_user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "support_user_id"?: string | null;
+  "name": string | null;
+  "course_id": string | null;
+  "capacity": number | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "classroom_type_id": string | null;
+  "status": string | null;
+  "consultant_user_id": string | null;
+  "teacher_user_id": string | null;
+  "support_user_id": string | null;
 }
 export interface ProfileUpdatePersonalPutResponseDataProfileLmsClassroomSessions extends JsonObject {
   "session_id": string;
-  "classroom_id"?: string | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
-  "status"?: string | null;
+  "classroom_id": string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
+  "status": string | null;
 }
 export interface ProfileUpdatePersonalPutResponseDataProfileLmsClassroomUsers extends JsonObject {
   "classroom_id": string;
-  "score"?: number | null;
-  "status"?: string | null;
+  "score": number | null;
+  "status": string | null;
 }
 export interface ProfileUpdatePersonalPutResponseDataProfileLms extends JsonObject {
   "classrooms": ProfileUpdatePersonalPutResponseDataProfileLmsClassrooms[];
@@ -5533,31 +5533,31 @@ export interface ProfileUpdatePersonalPutResponseDataProfileParent extends JsonO
 export interface ProfileUpdatePersonalPutResponseDataProfile extends JsonObject {
   "id": string;
   "user_id": string;
-  "email"?: string | null;
-  "phone"?: string | null;
-  "national_code"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "gender"?: string | null;
-  "job"?: string | null;
-  "education_id"?: string | null;
-  "attendance_mode"?: string | null;
-  "level"?: string | null;
-  "referral_source"?: string | null;
-  "referrer_uuid"?: string | null;
-  "description"?: string | null;
-  "account_balance"?: number | null;
-  "wallet_balance"?: number | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "gender": string | null;
+  "job": string | null;
+  "education_id": string | null;
+  "attendance_mode": string | null;
+  "level": string | null;
+  "referral_source": string | null;
+  "referrer_uuid": string | null;
+  "description": string | null;
+  "account_balance": number | null;
+  "wallet_balance": number | null;
   "status": string;
-  "employee_type"?: string | null;
-  "freemium_session_limit"?: number | null;
-  "avatar"?: string | null;
+  "employee_type": string | null;
+  "freemium_session_limit": number | null;
+  "avatar": string | null;
   "has_active_enrollment": boolean;
   "roles": ProfileUpdatePersonalPutResponseDataProfileRoles[];
-  "credential"?: ProfileUpdatePersonalPutResponseDataProfileCredential | null;
-  "meta"?: JsonValue | null;
-  "app"?: JsonValue | null;
-  "assessment"?: JsonValue | null;
+  "credential": ProfileUpdatePersonalPutResponseDataProfileCredential | null;
+  "meta": JsonValue | null;
+  "app": JsonValue | null;
+  "assessment": JsonValue | null;
   "office"?: ProfileUpdatePersonalPutResponseDataProfileOffice | null;
   "lms"?: ProfileUpdatePersonalPutResponseDataProfileLms | null;
   "properties"?: BackendJson<"serde_json::Map<String, Value>"> | null;
@@ -5586,12 +5586,12 @@ export interface ProvinceIndexGetResponseDataProvinces extends JsonObject {
   "id": string;
   "country_id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ProvinceIndexGetResponseData extends JsonObject {
   "provinces": ProvinceIndexGetResponseDataProvinces[];
@@ -5618,12 +5618,12 @@ export interface ProvinceStorePostResponseDataProvince extends JsonObject {
   "id": string;
   "country_id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ProvinceStorePostResponseData extends JsonObject {
   "province": ProvinceStorePostResponseDataProvince;
@@ -5640,12 +5640,12 @@ export interface ProvinceShowGetResponseDataProvince extends JsonObject {
   "id": string;
   "country_id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ProvinceShowGetResponseData extends JsonObject {
   "province": ProvinceShowGetResponseDataProvince;
@@ -5666,12 +5666,12 @@ export interface ProvinceUpdatePatchResponseDataProvince extends JsonObject {
   "id": string;
   "country_id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ProvinceUpdatePatchResponseData extends JsonObject {
   "province": ProvinceUpdatePatchResponseDataProvince;
@@ -5692,12 +5692,12 @@ export interface ProvinceUpdatePutResponseDataProvince extends JsonObject {
   "id": string;
   "country_id": string;
   "name": string;
-  "latitude"?: number | null;
-  "longitude"?: number | null;
+  "latitude": number | null;
+  "longitude": number | null;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ProvinceUpdatePutResponseData extends JsonObject {
   "province": ProvinceUpdatePutResponseDataProvince;
@@ -5722,8 +5722,8 @@ export interface ReferralListGetResponseItem extends JsonObject {
   "active": boolean;
   "sort_order": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ReferralListGetResponse extends ApiEnvelope<ReferralListGetResponseItem[]> {
 }
@@ -5745,8 +5745,8 @@ export interface ReferralCreatePostResponseData extends JsonObject {
   "active": boolean;
   "sort_order": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ReferralCreatePostResponse extends ApiEnvelope<ReferralCreatePostResponseData> {
 }
@@ -5764,8 +5764,8 @@ export interface ReferralShowGetResponseData extends JsonObject {
   "active": boolean;
   "sort_order": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ReferralShowGetResponse extends ApiEnvelope<ReferralShowGetResponseData> {
 }
@@ -5787,8 +5787,8 @@ export interface ReferralUpdatePutResponseData extends JsonObject {
   "active": boolean;
   "sort_order": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface ReferralUpdatePutResponse extends ApiEnvelope<ReferralUpdatePutResponseData> {
 }
@@ -5798,7 +5798,7 @@ export interface RelationListTypesGetResponseItem extends JsonObject {
   "id": string;
   "code": string;
   "labels": BackendJson<"Json">;
-  "inverse_type_id"?: string | null;
+  "inverse_type_id": string | null;
   "symmetric": boolean;
   "managed_inverse": boolean;
   "allow_self": boolean;
@@ -5806,8 +5806,8 @@ export interface RelationListTypesGetResponseItem extends JsonObject {
   "active": boolean;
   "sort_order": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface RelationListTypesGetResponse extends ApiEnvelope<RelationListTypesGetResponseItem[]> {
 }
@@ -5829,7 +5829,7 @@ export interface RelationCreateTypePostResponseData extends JsonObject {
   "id": string;
   "code": string;
   "labels": BackendJson<"Json">;
-  "inverse_type_id"?: string | null;
+  "inverse_type_id": string | null;
   "symmetric": boolean;
   "managed_inverse": boolean;
   "allow_self": boolean;
@@ -5837,8 +5837,8 @@ export interface RelationCreateTypePostResponseData extends JsonObject {
   "active": boolean;
   "sort_order": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface RelationCreateTypePostResponse extends ApiEnvelope<RelationCreateTypePostResponseData> {
 }
@@ -5852,7 +5852,7 @@ export interface RelationShowTypeGetResponseData extends JsonObject {
   "id": string;
   "code": string;
   "labels": BackendJson<"Json">;
-  "inverse_type_id"?: string | null;
+  "inverse_type_id": string | null;
   "symmetric": boolean;
   "managed_inverse": boolean;
   "allow_self": boolean;
@@ -5860,8 +5860,8 @@ export interface RelationShowTypeGetResponseData extends JsonObject {
   "active": boolean;
   "sort_order": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface RelationShowTypeGetResponse extends ApiEnvelope<RelationShowTypeGetResponseData> {
 }
@@ -5883,7 +5883,7 @@ export interface RelationUpdateTypePutResponseData extends JsonObject {
   "id": string;
   "code": string;
   "labels": BackendJson<"Json">;
-  "inverse_type_id"?: string | null;
+  "inverse_type_id": string | null;
   "symmetric": boolean;
   "managed_inverse": boolean;
   "allow_self": boolean;
@@ -5891,8 +5891,8 @@ export interface RelationUpdateTypePutResponseData extends JsonObject {
   "active": boolean;
   "sort_order": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface RelationUpdateTypePutResponse extends ApiEnvelope<RelationUpdateTypePutResponseData> {
 }
@@ -5904,7 +5904,7 @@ export interface SettingIndexGetResponseDataSetting extends JsonObject {
   "title": string;
   "value": number;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface SettingIndexGetResponseData extends JsonObject {
   "setting": SettingIndexGetResponseDataSetting[];
@@ -5925,7 +5925,7 @@ export interface SettingStorePostResponseDataSetting extends JsonObject {
   "title": string;
   "value": number;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface SettingStorePostResponseData extends JsonObject {
   "setting": SettingStorePostResponseDataSetting;
@@ -5945,14 +5945,14 @@ export interface LifecycleActionsListGetResponseItem extends JsonObject {
   "action_type": string;
   "labels": BackendJson<"Json">;
   "config": BackendJson<"Json">;
-  "condition"?: BackendJson<"Json"> | null;
+  "condition": BackendJson<"Json"> | null;
   "delay_seconds": number;
   "retry_policy": BackendJson<"Json">;
   "max_attempts": number;
   "sort_order": number;
   "enabled": boolean;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface LifecycleActionsListGetResponse extends ApiEnvelope<LifecycleActionsListGetResponseItem[]> {
 }
@@ -5979,14 +5979,14 @@ export interface LifecycleCreateActionPostResponseData extends JsonObject {
   "action_type": string;
   "labels": BackendJson<"Json">;
   "config": BackendJson<"Json">;
-  "condition"?: BackendJson<"Json"> | null;
+  "condition": BackendJson<"Json"> | null;
   "delay_seconds": number;
   "retry_policy": BackendJson<"Json">;
   "max_attempts": number;
   "sort_order": number;
   "enabled": boolean;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface LifecycleCreateActionPostResponse extends ApiEnvelope<LifecycleCreateActionPostResponseData> {
 }
@@ -6003,14 +6003,14 @@ export interface LifecycleShowActionGetResponseData extends JsonObject {
   "action_type": string;
   "labels": BackendJson<"Json">;
   "config": BackendJson<"Json">;
-  "condition"?: BackendJson<"Json"> | null;
+  "condition": BackendJson<"Json"> | null;
   "delay_seconds": number;
   "retry_policy": BackendJson<"Json">;
   "max_attempts": number;
   "sort_order": number;
   "enabled": boolean;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface LifecycleShowActionGetResponse extends ApiEnvelope<LifecycleShowActionGetResponseData> {
 }
@@ -6037,14 +6037,14 @@ export interface LifecycleUpdateActionPutResponseData extends JsonObject {
   "action_type": string;
   "labels": BackendJson<"Json">;
   "config": BackendJson<"Json">;
-  "condition"?: BackendJson<"Json"> | null;
+  "condition": BackendJson<"Json"> | null;
   "delay_seconds": number;
   "retry_policy": BackendJson<"Json">;
   "max_attempts": number;
   "sort_order": number;
   "enabled": boolean;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface LifecycleUpdateActionPutResponse extends ApiEnvelope<LifecycleUpdateActionPutResponseData> {
 }
@@ -6084,8 +6084,8 @@ export interface LifecycleStatesGetResponseItem extends JsonObject {
   "active": boolean;
   "version": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface LifecycleStatesGetResponse extends ApiEnvelope<LifecycleStatesGetResponseItem[]> {
 }
@@ -6114,8 +6114,8 @@ export interface LifecycleCreateStatePostResponseData extends JsonObject {
   "active": boolean;
   "version": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface LifecycleCreateStatePostResponse extends ApiEnvelope<LifecycleCreateStatePostResponseData> {
 }
@@ -6137,8 +6137,8 @@ export interface LifecycleShowStateGetResponseData extends JsonObject {
   "active": boolean;
   "version": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface LifecycleShowStateGetResponse extends ApiEnvelope<LifecycleShowStateGetResponseData> {
 }
@@ -6167,8 +6167,8 @@ export interface LifecycleUpdateStatePutResponseData extends JsonObject {
   "active": boolean;
   "version": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface LifecycleUpdateStatePutResponse extends ApiEnvelope<LifecycleUpdateStatePutResponseData> {
 }
@@ -6183,9 +6183,9 @@ export interface LifecycleActionAttemptsGetResponseItem extends JsonObject {
   "outbox_id": string;
   "attempt": number;
   "status": string;
-  "error"?: string | null;
+  "error": string | null;
   "started_at": string;
-  "finished_at"?: string | null;
+  "finished_at": string | null;
 }
 export interface LifecycleActionAttemptsGetResponse extends ApiEnvelope<LifecycleActionAttemptsGetResponseItem[]> {
 }
@@ -6207,9 +6207,9 @@ export interface LifecycleEvaluatePostResponseDataCandidates extends JsonObject 
 }
 export interface LifecycleEvaluatePostResponseData extends JsonObject {
   "eligible": boolean;
-  "selected_state_id"?: string | null;
-  "selected_state_code"?: string | null;
-  "current_state_id"?: string | null;
+  "selected_state_id": string | null;
+  "selected_state_code": string | null;
+  "current_state_id": string | null;
   "changed": boolean;
   "candidates": LifecycleEvaluatePostResponseDataCandidates[];
   "facts": JsonValue;
@@ -6230,10 +6230,10 @@ export interface LifecycleOutboxGetResponseItem extends JsonObject {
   "available_at": string;
   "status": string;
   "attempts": number;
-  "last_error"?: string | null;
-  "completed_at"?: string | null;
+  "last_error": string | null;
+  "completed_at": string | null;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface LifecycleOutboxGetResponse extends ApiEnvelope<LifecycleOutboxGetResponseItem[]> {
 }
@@ -6247,10 +6247,10 @@ export interface LifecycleRetryPostResponseData extends JsonObject {
   "available_at": string;
   "status": string;
   "attempts": number;
-  "last_error"?: string | null;
-  "completed_at"?: string | null;
+  "last_error": string | null;
+  "completed_at": string | null;
   "created_at": string;
-  "updated_at"?: string | null;
+  "updated_at": string | null;
 }
 export interface LifecycleRetryPostResponse extends ApiEnvelope<LifecycleRetryPostResponseData> {
 }
@@ -6276,9 +6276,9 @@ export interface LifecyclePreviewPostResponseDataCandidates extends JsonObject {
 }
 export interface LifecyclePreviewPostResponseData extends JsonObject {
   "eligible": boolean;
-  "selected_state_id"?: string | null;
-  "selected_state_code"?: string | null;
-  "current_state_id"?: string | null;
+  "selected_state_id": string | null;
+  "selected_state_code": string | null;
+  "current_state_id": string | null;
   "changed": boolean;
   "candidates": LifecyclePreviewPostResponseDataCandidates[];
   "facts": JsonValue;
@@ -6296,7 +6296,7 @@ export interface LifecycleTransitionsGetResponseItem extends JsonObject {
   "id": string;
   "profile_id": string;
   "system_id": string;
-  "from_state_id"?: string | null;
+  "from_state_id": string | null;
   "to_state_id": string;
   "definition_version": number;
   "trigger": string;
@@ -6323,13 +6323,13 @@ export interface LifecycleSystemsGetResponseItem extends JsonObject {
   "labels": BackendJson<"Json">;
   "description": BackendJson<"Json">;
   "eligibility_rule": BackendJson<"Json">;
-  "evaluation_schedule"?: string | null;
+  "evaluation_schedule": string | null;
   "publish_mode": string;
   "active": boolean;
   "version": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface LifecycleSystemsGetResponse extends ApiEnvelope<LifecycleSystemsGetResponseItem[]> {
 }
@@ -6351,13 +6351,13 @@ export interface LifecycleCreateSystemPostResponseData extends JsonObject {
   "labels": BackendJson<"Json">;
   "description": BackendJson<"Json">;
   "eligibility_rule": BackendJson<"Json">;
-  "evaluation_schedule"?: string | null;
+  "evaluation_schedule": string | null;
   "publish_mode": string;
   "active": boolean;
   "version": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface LifecycleCreateSystemPostResponse extends ApiEnvelope<LifecycleCreateSystemPostResponseData> {
 }
@@ -6373,13 +6373,13 @@ export interface LifecycleShowSystemGetResponseData extends JsonObject {
   "labels": BackendJson<"Json">;
   "description": BackendJson<"Json">;
   "eligibility_rule": BackendJson<"Json">;
-  "evaluation_schedule"?: string | null;
+  "evaluation_schedule": string | null;
   "publish_mode": string;
   "active": boolean;
   "version": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface LifecycleShowSystemGetResponse extends ApiEnvelope<LifecycleShowSystemGetResponseData> {
 }
@@ -6401,13 +6401,13 @@ export interface LifecycleUpdateSystemPutResponseData extends JsonObject {
   "labels": BackendJson<"Json">;
   "description": BackendJson<"Json">;
   "eligibility_rule": BackendJson<"Json">;
-  "evaluation_schedule"?: string | null;
+  "evaluation_schedule": string | null;
   "publish_mode": string;
   "active": boolean;
   "version": number;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface LifecycleUpdateSystemPutResponse extends ApiEnvelope<LifecycleUpdateSystemPutResponseData> {
 }
@@ -6445,8 +6445,8 @@ export interface TrustedServiceIndexGetResponseDataTrustedServices extends JsonO
   "title": string;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface TrustedServiceIndexGetResponseData extends JsonObject {
   "trusted_services": TrustedServiceIndexGetResponseDataTrustedServices[];
@@ -6473,8 +6473,8 @@ export interface TrustedServiceStorePostResponseDataTrustedService extends JsonO
   "title": string;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface TrustedServiceStorePostResponseData extends JsonObject {
   "trusted_service": TrustedServiceStorePostResponseDataTrustedService;
@@ -6493,8 +6493,8 @@ export interface TrustedServiceShowGetResponseDataTrustedService extends JsonObj
   "title": string;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface TrustedServiceShowGetResponseData extends JsonObject {
   "trusted_service": TrustedServiceShowGetResponseDataTrustedService;
@@ -6515,8 +6515,8 @@ export interface TrustedServiceUpdatePatchResponseDataTrustedService extends Jso
   "title": string;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface TrustedServiceUpdatePatchResponseData extends JsonObject {
   "trusted_service": TrustedServiceUpdatePatchResponseDataTrustedService;
@@ -6537,8 +6537,8 @@ export interface TrustedServiceUpdatePutResponseDataTrustedService extends JsonO
   "title": string;
   "status": string;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface TrustedServiceUpdatePutResponseData extends JsonObject {
   "trusted_service": TrustedServiceUpdatePutResponseDataTrustedService;
@@ -6566,10 +6566,10 @@ export interface TrustedServiceEventIndexGetResponseDataTrustedServiceEvents ext
   "visible_in_list": boolean;
   "visible_in_get": boolean;
   "visible_in_full": boolean;
-  "payload_schema"?: JsonValue | null;
+  "payload_schema": JsonValue | null;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface TrustedServiceEventIndexGetResponseData extends JsonObject {
   "trusted_service_events": TrustedServiceEventIndexGetResponseDataTrustedServiceEvents[];
@@ -6602,10 +6602,10 @@ export interface TrustedServiceEventStorePostResponseDataTrustedServiceEvent ext
   "visible_in_list": boolean;
   "visible_in_get": boolean;
   "visible_in_full": boolean;
-  "payload_schema"?: JsonValue | null;
+  "payload_schema": JsonValue | null;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface TrustedServiceEventStorePostResponseData extends JsonObject {
   "trusted_service_event": TrustedServiceEventStorePostResponseDataTrustedServiceEvent;
@@ -6626,10 +6626,10 @@ export interface TrustedServiceEventShowGetResponseDataTrustedServiceEvent exten
   "visible_in_list": boolean;
   "visible_in_get": boolean;
   "visible_in_full": boolean;
-  "payload_schema"?: JsonValue | null;
+  "payload_schema": JsonValue | null;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface TrustedServiceEventShowGetResponseData extends JsonObject {
   "trusted_service_event": TrustedServiceEventShowGetResponseDataTrustedServiceEvent;
@@ -6655,10 +6655,10 @@ export interface TrustedServiceEventUpdatePatchResponseDataTrustedServiceEvent e
   "visible_in_list": boolean;
   "visible_in_get": boolean;
   "visible_in_full": boolean;
-  "payload_schema"?: JsonValue | null;
+  "payload_schema": JsonValue | null;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface TrustedServiceEventUpdatePatchResponseData extends JsonObject {
   "trusted_service_event": TrustedServiceEventUpdatePatchResponseDataTrustedServiceEvent;
@@ -6684,10 +6684,10 @@ export interface TrustedServiceEventUpdatePutResponseDataTrustedServiceEvent ext
   "visible_in_list": boolean;
   "visible_in_get": boolean;
   "visible_in_full": boolean;
-  "payload_schema"?: JsonValue | null;
+  "payload_schema": JsonValue | null;
   "created_at": string;
-  "updated_at"?: string | null;
-  "deleted_at"?: string | null;
+  "updated_at": string | null;
+  "deleted_at": string | null;
 }
 export interface TrustedServiceEventUpdatePutResponseData extends JsonObject {
   "trusted_service_event": TrustedServiceEventUpdatePutResponseDataTrustedServiceEvent;

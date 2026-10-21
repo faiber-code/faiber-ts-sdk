@@ -42,14 +42,14 @@ export interface EventEmitPostResponse extends ApiEnvelope<JsonValue> {
 export interface FlowIndexGetResponseItemGraphNodes extends JsonObject {
   "id": string;
   "type": string;
-  "position"?: JsonValue | null;
+  "position": JsonValue | null;
   "data": JsonValue;
 }
 export interface FlowIndexGetResponseItemGraphEdges extends JsonObject {
   "id": string;
   "source": string;
   "target": string;
-  "data"?: JsonValue | null;
+  "data": JsonValue | null;
 }
 export interface FlowIndexGetResponseItemGraph extends JsonObject {
   "nodes": FlowIndexGetResponseItemGraphNodes[];
@@ -98,14 +98,14 @@ export interface FlowStorePostInput extends JsonObject {
 export interface FlowStorePostResponseDataGraphNodes extends JsonObject {
   "id": string;
   "type": string;
-  "position"?: JsonValue | null;
+  "position": JsonValue | null;
   "data": JsonValue;
 }
 export interface FlowStorePostResponseDataGraphEdges extends JsonObject {
   "id": string;
   "source": string;
   "target": string;
-  "data"?: JsonValue | null;
+  "data": JsonValue | null;
 }
 export interface FlowStorePostResponseDataGraph extends JsonObject {
   "nodes": FlowStorePostResponseDataGraphNodes[];
@@ -134,14 +134,14 @@ export interface FlowDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
 export interface FlowShowGetResponseDataGraphNodes extends JsonObject {
   "id": string;
   "type": string;
-  "position"?: JsonValue | null;
+  "position": JsonValue | null;
   "data": JsonValue;
 }
 export interface FlowShowGetResponseDataGraphEdges extends JsonObject {
   "id": string;
   "source": string;
   "target": string;
-  "data"?: JsonValue | null;
+  "data": JsonValue | null;
 }
 export interface FlowShowGetResponseDataGraph extends JsonObject {
   "nodes": FlowShowGetResponseDataGraphNodes[];
@@ -190,14 +190,14 @@ export interface FlowUpdatePutInput extends JsonObject {
 export interface FlowUpdatePutResponseDataGraphNodes extends JsonObject {
   "id": string;
   "type": string;
-  "position"?: JsonValue | null;
+  "position": JsonValue | null;
   "data": JsonValue;
 }
 export interface FlowUpdatePutResponseDataGraphEdges extends JsonObject {
   "id": string;
   "source": string;
   "target": string;
-  "data"?: JsonValue | null;
+  "data": JsonValue | null;
 }
 export interface FlowUpdatePutResponseDataGraph extends JsonObject {
   "nodes": FlowUpdatePutResponseDataGraphNodes[];
@@ -317,9 +317,9 @@ export interface RunIndexGetResponseItem extends JsonObject {
   "flow_id": string;
   "trigger_event_id": string;
   "status": string;
-  "error"?: string | null;
+  "error": string | null;
   "started_at": string;
-  "finished_at"?: string | null;
+  "finished_at": string | null;
 }
 export interface RunIndexGetResponse extends ApiEnvelope<RunIndexGetResponseItem[]> {
 }
@@ -329,8 +329,8 @@ export interface RunShowGetResponseDataSteps extends JsonObject {
   "id": string;
   "node_id": string;
   "condition_passed": boolean;
-  "emitted_event"?: string | null;
-  "payload"?: JsonValue | null;
+  "emitted_event": string | null;
+  "payload": JsonValue | null;
   "created_at": string;
 }
 export interface RunShowGetResponseData extends JsonObject {
@@ -338,10 +338,10 @@ export interface RunShowGetResponseData extends JsonObject {
   "flow_id": string;
   "trigger_event_id": string;
   "status": string;
-  "error"?: string | null;
+  "error": string | null;
   "started_at": string;
-  "finished_at"?: string | null;
-  "context"?: JsonValue | null;
+  "finished_at": string | null;
+  "context": JsonValue | null;
   "steps": RunShowGetResponseDataSteps[];
 }
 export interface RunShowGetResponse extends ApiEnvelope<RunShowGetResponseData> {

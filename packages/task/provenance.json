@@ -13,7 +13,7 @@
     "packages/task/src/feedback.ts": "a208b298a40e2f9e25d0e36dd4261fc2c9eb2187c3d5f87d96a01af2413c6035",
     "packages/task/src/index.ts": "1683bb2273ac62704103fb7cc240b31c351a8ddb8cb19a6619f5f34c7fba2d2e",
     "packages/task/src/operations.ts": "d8f54ece2f03c6fcbf7774f08e6e6728b98d31a8df4054c32b3eb3cc4a10cc22",
-    "packages/task/src/operations.types.ts": "74037452102a37a301c2a1c50b68f7eed287eea7c97141ec343688cd0b7183f7",
+    "packages/task/src/operations.types.ts": "dfe9c53e82397b33c5e2b3650c843c6f00fd1f144c5e9c9b31142f431bdcff4b",
     "packages/task/src/types.ts": "f6e792714a11c9df04fa880ffdda968d2ede9e10dbe26a636dba1a417ff053a7",
     "packages/task/src/workspace.ts": "dffe79a11398c10b1d71a5d57cc483a995a0ccc49799eed6e09791d9a19dcf99"
   },

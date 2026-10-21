@@ -12,7 +12,7 @@
     "packages/profile/src/contracts.types.ts": "8556f3835ce6a1f79e262128a7b6fad52ffc26ef0e790e540eaeab09022d5381",
     "packages/profile/src/index.ts": "4d5a495ed9ca417806839595484268529d4836567f6972a2670f1801ccfb03df",
     "packages/profile/src/operations.ts": "1376c8554ed3bbd92da6928a9c94126f7452c13c971a2978d7c97fe4e6fc775f",
-    "packages/profile/src/operations.types.ts": "3cbce7c104b8ae1cdff3340482a61a7edc02b3a39c01f9b50087a1186a9cca93",
+    "packages/profile/src/operations.types.ts": "d64f97ae91786845a1b5bf1f1b3f056f0fea00b15d0956f0f7230d072c96476c",
     "packages/profile/src/summaries.ts": "4ec306ff7987b5ce0cc930baed0c09bfa90b249bd526306603139dce16c11e96",
     "packages/profile/src/summaries.types.ts": "bb97b4bbb3c476425fd158792da4d9e6742fbde863967370bcd89c125c4f6c3e",
     "packages/profile/src/types.ts": "63b678d24d3810eabc8a8a2a49d9db7fa7978af7df99c08d8ef797c55a89c638"

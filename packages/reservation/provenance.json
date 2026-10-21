@@ -12,7 +12,7 @@
     "packages/reservation/src/contracts.types.ts": "a0fecaa0d64c88972769a739e5cbf8a061a1d54bf80a6024915aefc884202b1a",
     "packages/reservation/src/index.ts": "c37105e27b28b0059c320e4a2f9a080a5efb9070a362cb56fb63b7d765440bad",
     "packages/reservation/src/operations.ts": "8f0492f92da67288437361d7f8d8ff55ca66b3998b8072102e3c45d4d69a724f",
-    "packages/reservation/src/operations.types.ts": "73c2eeb0d50df3efb45d08c3a28aff36b8ff9b2df0df1d48ea7edd7ca92bb719",
+    "packages/reservation/src/operations.types.ts": "bd23d2fa37c44fe8412050592b3e65d64392ce9ba9e323ae0cde8d50e87526d7",
     "packages/reservation/src/types.ts": "0a55b14665eb66259a41d2fc9212479fbc3ba0b618590071407ac33bb62a8164"
   },
   "capability_review_sha256": "54e6dbc53cfed805dbe926d8a2749a70073cf653c753c9514965ca3f1604ec25",

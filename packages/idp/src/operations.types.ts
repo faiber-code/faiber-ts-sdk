@@ -18,7 +18,7 @@ export interface AclPermissionTemplatesIndexGetResponseDataTemplates extends Jso
   "name": string;
   "description": string;
   "category": AclPermissionTemplatesIndexGetResponseDataTemplatesCategory;
-  "service"?: string | null;
+  "service": string | null;
   "permissions": AclPermissionTemplatesIndexGetResponseDataTemplatesPermissions[];
 }
 export interface AclPermissionTemplatesIndexGetResponseData extends JsonObject {
@@ -160,17 +160,17 @@ export interface AuthLoginAccountPostResponse extends ApiEnvelope<JsonValue> {
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityPublicShowGetResponseData extends JsonObject {
   "mode": string;
-  "canonical_provider_id"?: string | null;
-  "canonical_provider_key"?: string | null;
-  "canonical_display_name"?: string | null;
-  "canonical_issuer"?: string | null;
+  "canonical_provider_id": string | null;
+  "canonical_provider_key": string | null;
+  "canonical_display_name": string | null;
+  "canonical_issuer": string | null;
   "subject_policy": string;
   "jit_provisioning": boolean;
-  "activated_at"?: string | null;
-  "last_discovery_at"?: string | null;
-  "last_login_at"?: string | null;
-  "last_logout_at"?: string | null;
-  "last_error"?: string | null;
+  "activated_at": string | null;
+  "last_discovery_at": string | null;
+  "last_login_at": string | null;
+  "last_logout_at": string | null;
+  "last_error": string | null;
   "federated_session_count": number;
   "rollout_enabled": boolean;
 }
@@ -215,7 +215,7 @@ export interface CustomOauthPublicProvidersGetResponseItem extends JsonObject {
   "id": string;
   "provider_key": string;
   "display_name": string;
-  "icon_url"?: string | null;
+  "icon_url": string | null;
 }
 export interface CustomOauthPublicProvidersGetResponse extends ApiEnvelope<CustomOauthPublicProvidersGetResponseItem[]> {
 }
@@ -285,7 +285,7 @@ export interface AuthLinkedFaiberBillingGetResponseDataDailyCosts extends JsonOb
 export interface AuthLinkedFaiberBillingGetResponseDataProjectPricing extends JsonObject {
   "project": string;
   "currency": string;
-  "fixed_monthly_price"?: string | null;
+  "fixed_monthly_price": string | null;
   "hourly_price": string;
   "daily_estimate": string;
   "monthly_estimate": string;
@@ -294,7 +294,7 @@ export interface AuthLinkedFaiberBillingGetResponseData extends JsonObject {
   "provider_id": string;
   "wallet": AuthLinkedFaiberBillingGetResponseDataWallet;
   "daily_costs": AuthLinkedFaiberBillingGetResponseDataDailyCosts;
-  "project_pricing"?: AuthLinkedFaiberBillingGetResponseDataProjectPricing | null;
+  "project_pricing": AuthLinkedFaiberBillingGetResponseDataProjectPricing | null;
 }
 export interface AuthLinkedFaiberBillingGetResponse extends ApiEnvelope<AuthLinkedFaiberBillingGetResponseData> {
 }
@@ -434,12 +434,12 @@ export interface AuthListSessionsGetResponseItem extends JsonObject {
   "client": AuthListSessionsGetResponseItemClient;
   "browser": string;
   "operating_system": string;
-  "device_id"?: string | null;
-  "user_agent"?: string | null;
-  "ip_address"?: string | null;
-  "ip_address_v6"?: string | null;
+  "device_id": string | null;
+  "user_agent": string | null;
+  "ip_address": string | null;
+  "ip_address_v6": string | null;
   "created_at": string;
-  "last_accessed"?: string | null;
+  "last_accessed": string | null;
   "is_current": boolean;
 }
 export interface AuthListSessionsGetResponse extends ApiEnvelope<AuthListSessionsGetResponseItem[]> {
@@ -501,7 +501,7 @@ export interface CustomOauthListGetResponseItem extends JsonObject {
   "provider_key": string;
   "display_name": string;
   "protocol": string;
-  "issuer_url"?: string | null;
+  "issuer_url": string | null;
   "authorization_url": string;
   "token_url": string;
   "userinfo_url": string;
@@ -511,8 +511,8 @@ export interface CustomOauthListGetResponseItem extends JsonObject {
   "claim_mapping": JsonValue;
   "extra_authorize_params": JsonValue;
   "role_mapping": JsonValue;
-  "default_role_id"?: string | null;
-  "icon_url"?: string | null;
+  "default_role_id": string | null;
+  "icon_url": string | null;
   "display_order": number;
   "enabled": boolean;
 }
@@ -545,7 +545,7 @@ export interface CustomOauthCreatePostResponseData extends JsonObject {
   "provider_key": string;
   "display_name": string;
   "protocol": string;
-  "issuer_url"?: string | null;
+  "issuer_url": string | null;
   "authorization_url": string;
   "token_url": string;
   "userinfo_url": string;
@@ -555,8 +555,8 @@ export interface CustomOauthCreatePostResponseData extends JsonObject {
   "claim_mapping": JsonValue;
   "extra_authorize_params": JsonValue;
   "role_mapping": JsonValue;
-  "default_role_id"?: string | null;
-  "icon_url"?: string | null;
+  "default_role_id": string | null;
+  "icon_url": string | null;
   "display_order": number;
   "enabled": boolean;
 }
@@ -596,7 +596,7 @@ export interface CustomOauthUpdatePutResponseData extends JsonObject {
   "provider_key": string;
   "display_name": string;
   "protocol": string;
-  "issuer_url"?: string | null;
+  "issuer_url": string | null;
   "authorization_url": string;
   "token_url": string;
   "userinfo_url": string;
@@ -606,8 +606,8 @@ export interface CustomOauthUpdatePutResponseData extends JsonObject {
   "claim_mapping": JsonValue;
   "extra_authorize_params": JsonValue;
   "role_mapping": JsonValue;
-  "default_role_id"?: string | null;
-  "icon_url"?: string | null;
+  "default_role_id": string | null;
+  "icon_url": string | null;
   "display_order": number;
   "enabled": boolean;
 }
@@ -617,17 +617,17 @@ export interface CustomOauthUpdatePutResponse extends ApiEnvelope<CustomOauthUpd
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityAdminShowGetResponseData extends JsonObject {
   "mode": string;
-  "canonical_provider_id"?: string | null;
-  "canonical_provider_key"?: string | null;
-  "canonical_display_name"?: string | null;
-  "canonical_issuer"?: string | null;
+  "canonical_provider_id": string | null;
+  "canonical_provider_key": string | null;
+  "canonical_display_name": string | null;
+  "canonical_issuer": string | null;
   "subject_policy": string;
   "jit_provisioning": boolean;
-  "activated_at"?: string | null;
-  "last_discovery_at"?: string | null;
-  "last_login_at"?: string | null;
-  "last_logout_at"?: string | null;
-  "last_error"?: string | null;
+  "activated_at": string | null;
+  "last_discovery_at": string | null;
+  "last_login_at": string | null;
+  "last_logout_at": string | null;
+  "last_error": string | null;
   "federated_session_count": number;
   "rollout_enabled": boolean;
 }
@@ -643,17 +643,17 @@ export interface IdentityAuthorityUpdatePutInput extends JsonObject {
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityUpdatePutResponseData extends JsonObject {
   "mode": string;
-  "canonical_provider_id"?: string | null;
-  "canonical_provider_key"?: string | null;
-  "canonical_display_name"?: string | null;
-  "canonical_issuer"?: string | null;
+  "canonical_provider_id": string | null;
+  "canonical_provider_key": string | null;
+  "canonical_display_name": string | null;
+  "canonical_issuer": string | null;
   "subject_policy": string;
   "jit_provisioning": boolean;
-  "activated_at"?: string | null;
-  "last_discovery_at"?: string | null;
-  "last_login_at"?: string | null;
-  "last_logout_at"?: string | null;
-  "last_error"?: string | null;
+  "activated_at": string | null;
+  "last_discovery_at": string | null;
+  "last_login_at": string | null;
+  "last_logout_at": string | null;
+  "last_error": string | null;
   "federated_session_count": number;
   "rollout_enabled": boolean;
 }
@@ -663,17 +663,17 @@ export interface IdentityAuthorityUpdatePutResponse extends ApiEnvelope<Identity
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityActivateCanonicalPostResponseData extends JsonObject {
   "mode": string;
-  "canonical_provider_id"?: string | null;
-  "canonical_provider_key"?: string | null;
-  "canonical_display_name"?: string | null;
-  "canonical_issuer"?: string | null;
+  "canonical_provider_id": string | null;
+  "canonical_provider_key": string | null;
+  "canonical_display_name": string | null;
+  "canonical_issuer": string | null;
   "subject_policy": string;
   "jit_provisioning": boolean;
-  "activated_at"?: string | null;
-  "last_discovery_at"?: string | null;
-  "last_login_at"?: string | null;
-  "last_logout_at"?: string | null;
-  "last_error"?: string | null;
+  "activated_at": string | null;
+  "last_discovery_at": string | null;
+  "last_login_at": string | null;
+  "last_logout_at": string | null;
+  "last_error": string | null;
   "federated_session_count": number;
   "rollout_enabled": boolean;
 }
@@ -691,7 +691,7 @@ export interface IdentityAuthorityDiscoverPostResponseData extends JsonObject {
   "token_endpoint": string;
   "userinfo_endpoint": string;
   "jwks_uri": string;
-  "end_session_endpoint"?: string | null;
+  "end_session_endpoint": string | null;
   "backchannel_logout_supported": boolean;
 }
 export interface IdentityAuthorityDiscoverPostResponse extends ApiEnvelope<IdentityAuthorityDiscoverPostResponseData> {
@@ -705,17 +705,17 @@ export interface IdentityAuthorityPairCanonicalPostInput extends JsonObject {
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityPairCanonicalPostResponseData extends JsonObject {
   "mode": string;
-  "canonical_provider_id"?: string | null;
-  "canonical_provider_key"?: string | null;
-  "canonical_display_name"?: string | null;
-  "canonical_issuer"?: string | null;
+  "canonical_provider_id": string | null;
+  "canonical_provider_key": string | null;
+  "canonical_display_name": string | null;
+  "canonical_issuer": string | null;
   "subject_policy": string;
   "jit_provisioning": boolean;
-  "activated_at"?: string | null;
-  "last_discovery_at"?: string | null;
-  "last_login_at"?: string | null;
-  "last_logout_at"?: string | null;
-  "last_error"?: string | null;
+  "activated_at": string | null;
+  "last_discovery_at": string | null;
+  "last_login_at": string | null;
+  "last_logout_at": string | null;
+  "last_error": string | null;
   "federated_session_count": number;
   "rollout_enabled": boolean;
 }
@@ -730,17 +730,17 @@ export interface IdentityAuthorityPairFaiberPostInput extends JsonObject {
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityPairFaiberPostResponseData extends JsonObject {
   "mode": string;
-  "canonical_provider_id"?: string | null;
-  "canonical_provider_key"?: string | null;
-  "canonical_display_name"?: string | null;
-  "canonical_issuer"?: string | null;
+  "canonical_provider_id": string | null;
+  "canonical_provider_key": string | null;
+  "canonical_display_name": string | null;
+  "canonical_issuer": string | null;
   "subject_policy": string;
   "jit_provisioning": boolean;
-  "activated_at"?: string | null;
-  "last_discovery_at"?: string | null;
-  "last_login_at"?: string | null;
-  "last_logout_at"?: string | null;
-  "last_error"?: string | null;
+  "activated_at": string | null;
+  "last_discovery_at": string | null;
+  "last_login_at": string | null;
+  "last_logout_at": string | null;
+  "last_error": string | null;
   "federated_session_count": number;
   "rollout_enabled": boolean;
 }
@@ -762,17 +762,17 @@ export interface IdentityAuthorityCreatePairingInvitationPostResponse extends Ap
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityRecoverCanonicalModePostResponseData extends JsonObject {
   "mode": string;
-  "canonical_provider_id"?: string | null;
-  "canonical_provider_key"?: string | null;
-  "canonical_display_name"?: string | null;
-  "canonical_issuer"?: string | null;
+  "canonical_provider_id": string | null;
+  "canonical_provider_key": string | null;
+  "canonical_display_name": string | null;
+  "canonical_issuer": string | null;
   "subject_policy": string;
   "jit_provisioning": boolean;
-  "activated_at"?: string | null;
-  "last_discovery_at"?: string | null;
-  "last_login_at"?: string | null;
-  "last_logout_at"?: string | null;
-  "last_error"?: string | null;
+  "activated_at": string | null;
+  "last_discovery_at": string | null;
+  "last_login_at": string | null;
+  "last_logout_at": string | null;
+  "last_error": string | null;
   "federated_session_count": number;
   "rollout_enabled": boolean;
 }
@@ -781,11 +781,11 @@ export interface IdentityAuthorityRecoverCanonicalModePostResponse extends ApiEn
 
 /** Backend response type: LoginPageSettingsResponse. */
 export interface SettingsLoginPageSettingsShowGetResponseData extends JsonObject {
-  "title"?: string | null;
-  "subtitle"?: string | null;
-  "trademark"?: string | null;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
+  "title": string | null;
+  "subtitle": string | null;
+  "trademark": string | null;
+  "icon_asset_key": string | null;
+  "icon_url": string | null;
   "localizations": Record<string, BackendJson<"LoginPageLocalization">>;
   "mockup_asset_keys": string[];
   "mockup_image_urls": string[];
@@ -806,11 +806,11 @@ export interface SettingsLoginPageSettingsUpdatePutInput extends JsonObject {
 }
 /** Backend response type: LoginPageSettingsResponse. */
 export interface SettingsLoginPageSettingsUpdatePutResponseData extends JsonObject {
-  "title"?: string | null;
-  "subtitle"?: string | null;
-  "trademark"?: string | null;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
+  "title": string | null;
+  "subtitle": string | null;
+  "trademark": string | null;
+  "icon_asset_key": string | null;
+  "icon_url": string | null;
   "localizations": Record<string, BackendJson<"LoginPageLocalization">>;
   "mockup_asset_keys": string[];
   "mockup_image_urls": string[];
@@ -835,11 +835,11 @@ export interface SettingsLoginPageAssetGetResponse extends ApiEnvelope<JsonValue
 
 /** Backend response type: LoginPageSettingsResponse. */
 export interface SettingsLoginPageSettingsPublicGetResponseData extends JsonObject {
-  "title"?: string | null;
-  "subtitle"?: string | null;
-  "trademark"?: string | null;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
+  "title": string | null;
+  "subtitle": string | null;
+  "trademark": string | null;
+  "icon_asset_key": string | null;
+  "icon_url": string | null;
   "localizations": Record<string, BackendJson<"LoginPageLocalization">>;
   "mockup_asset_keys": string[];
   "mockup_image_urls": string[];
@@ -852,12 +852,12 @@ export interface SettingsLoginPageSettingsPublicGetResponse extends ApiEnvelope<
 export interface SettingsOauthSettingsShowGetResponseDataGoogle extends JsonObject {
   "client_id": string;
   "has_secret": boolean;
-  "scope"?: string | null;
+  "scope": string | null;
 }
 export interface SettingsOauthSettingsShowGetResponseDataGithub extends JsonObject {
   "client_id": string;
   "has_secret": boolean;
-  "scope"?: string | null;
+  "scope": string | null;
 }
 export interface SettingsOauthSettingsShowGetResponseData extends JsonObject {
   "google": SettingsOauthSettingsShowGetResponseDataGoogle;
@@ -885,12 +885,12 @@ export interface SettingsOauthSettingsUpdatePutInput extends JsonObject {
 export interface SettingsOauthSettingsUpdatePutResponseDataGoogle extends JsonObject {
   "client_id": string;
   "has_secret": boolean;
-  "scope"?: string | null;
+  "scope": string | null;
 }
 export interface SettingsOauthSettingsUpdatePutResponseDataGithub extends JsonObject {
   "client_id": string;
   "has_secret": boolean;
-  "scope"?: string | null;
+  "scope": string | null;
 }
 export interface SettingsOauthSettingsUpdatePutResponseData extends JsonObject {
   "google": SettingsOauthSettingsUpdatePutResponseDataGoogle;
@@ -911,7 +911,7 @@ export interface OauthClientsListGetResponseItem extends JsonObject {
   "client_type": string;
   "token_endpoint_auth_method": string;
   "trusted": boolean;
-  "service_user_id"?: string | null;
+  "service_user_id": string | null;
   "status": number;
 }
 export interface OauthClientsListGetResponse extends ApiEnvelope<OauthClientsListGetResponseItem[]> {
@@ -943,12 +943,12 @@ export interface OauthClientsCreatePostResponseDataClient extends JsonObject {
   "client_type": string;
   "token_endpoint_auth_method": string;
   "trusted": boolean;
-  "service_user_id"?: string | null;
+  "service_user_id": string | null;
   "status": number;
 }
 export interface OauthClientsCreatePostResponseData extends JsonObject {
   "client": OauthClientsCreatePostResponseDataClient;
-  "client_secret"?: string | null;
+  "client_secret": string | null;
 }
 export interface OauthClientsCreatePostResponse extends ApiEnvelope<OauthClientsCreatePostResponseData> {
 }
@@ -986,7 +986,7 @@ export interface OauthClientsUpdatePutResponseData extends JsonObject {
   "client_type": string;
   "token_endpoint_auth_method": string;
   "trusted": boolean;
-  "service_user_id"?: string | null;
+  "service_user_id": string | null;
   "status": number;
 }
 export interface OauthClientsUpdatePutResponse extends ApiEnvelope<OauthClientsUpdatePutResponseData> {
@@ -1004,12 +1004,12 @@ export interface OauthClientsRotatePostResponseDataClient extends JsonObject {
   "client_type": string;
   "token_endpoint_auth_method": string;
   "trusted": boolean;
-  "service_user_id"?: string | null;
+  "service_user_id": string | null;
   "status": number;
 }
 export interface OauthClientsRotatePostResponseData extends JsonObject {
   "client": OauthClientsRotatePostResponseDataClient;
-  "client_secret"?: string | null;
+  "client_secret": string | null;
 }
 export interface OauthClientsRotatePostResponse extends ApiEnvelope<OauthClientsRotatePostResponseData> {
 }
@@ -1030,7 +1030,7 @@ export interface OauthClientsBootstrapWebsitePostResponseData extends JsonObject
   "client_type": string;
   "token_endpoint_auth_method": string;
   "trusted": boolean;
-  "service_user_id"?: string | null;
+  "service_user_id": string | null;
   "status": number;
 }
 export interface OauthClientsBootstrapWebsitePostResponse extends ApiEnvelope<OauthClientsBootstrapWebsitePostResponseData> {
@@ -1053,10 +1053,10 @@ export interface UserUsersIndexGetResponseDataUsersRoles extends JsonObject {
 export interface UserUsersIndexGetResponseDataUsers extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUsersIndexGetResponseDataUsersRoles[];
@@ -1064,10 +1064,10 @@ export interface UserUsersIndexGetResponseDataUsers extends JsonObject {
 }
 export interface UserUsersIndexGetResponseDataRoleFilter extends JsonObject {
   "version": number;
-  "role_id"?: string | null;
-  "role_name"?: string | null;
+  "role_id": string | null;
+  "role_name": string | null;
   "active_membership": boolean;
-  "user_status"?: string | null;
+  "user_status": string | null;
 }
 export interface UserUsersIndexGetResponseData extends JsonObject {
   "users": UserUsersIndexGetResponseDataUsers[];
@@ -1095,10 +1095,10 @@ export interface UserUserCreatePostResponseDataUserRoles extends JsonObject {
 export interface UserUserCreatePostResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserCreatePostResponseDataUserRoles[];
@@ -1118,10 +1118,10 @@ export interface UserUserDeleteDeleteResponseDataUserRoles extends JsonObject {
 export interface UserUserDeleteDeleteResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserDeleteDeleteResponseDataUserRoles[];
@@ -1141,10 +1141,10 @@ export interface UserUserFindGetResponseDataUserRoles extends JsonObject {
 export interface UserUserFindGetResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserFindGetResponseDataUserRoles[];
@@ -1170,10 +1170,10 @@ export interface UserUserUpdatePatchResponseDataUserRoles extends JsonObject {
 export interface UserUserUpdatePatchResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserUpdatePatchResponseDataUserRoles[];
@@ -1199,10 +1199,10 @@ export interface UserUserUpdatePutResponseDataUserRoles extends JsonObject {
 export interface UserUserUpdatePutResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserUpdatePutResponseDataUserRoles[];
@@ -1226,10 +1226,10 @@ export interface UserChangePasswordPatchResponseDataUserRoles extends JsonObject
 export interface UserChangePasswordPatchResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserChangePasswordPatchResponseDataUserRoles[];
@@ -1253,10 +1253,10 @@ export interface UserChangePasswordPutResponseDataUserRoles extends JsonObject {
 export interface UserChangePasswordPutResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserChangePasswordPutResponseDataUserRoles[];
@@ -1280,10 +1280,10 @@ export interface UserChangeRolesPatchResponseDataUserRoles extends JsonObject {
 export interface UserChangeRolesPatchResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserChangeRolesPatchResponseDataUserRoles[];
@@ -1307,10 +1307,10 @@ export interface UserChangeRolesPutResponseDataUserRoles extends JsonObject {
 export interface UserChangeRolesPutResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserChangeRolesPutResponseDataUserRoles[];
@@ -1330,10 +1330,10 @@ export interface UserUserLogoutGetResponseDataUserRoles extends JsonObject {
 export interface UserUserLogoutGetResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserLogoutGetResponseDataUserRoles[];
@@ -1365,10 +1365,10 @@ export interface UserUserSetStatusPatchResponseDataUserRoles extends JsonObject 
 export interface UserUserSetStatusPatchResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserSetStatusPatchResponseDataUserRoles[];
@@ -1392,10 +1392,10 @@ export interface UserUserSetStatusPutResponseDataUserRoles extends JsonObject {
 export interface UserUserSetStatusPutResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserSetStatusPutResponseDataUserRoles[];
@@ -1414,9 +1414,9 @@ export interface UserUsersDirectoryGetQuery extends QueryParams {
 /** Backend response type: DirectoryUserListResponse. */
 export interface UserUsersDirectoryGetResponseDataUsers extends JsonObject {
   "id": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
 }
 export interface UserUsersDirectoryGetResponseData extends JsonObject {
   "users": UserUsersDirectoryGetResponseDataUsers[];
@@ -1503,9 +1503,9 @@ export interface UserUserFindSelfGetResponseDataPermissions extends JsonObject {
 }
 export interface UserUserFindSelfGetResponseData extends JsonObject {
   "id": string;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "roles": UserUserFindSelfGetResponseDataRoles[];
   "permissions": UserUserFindSelfGetResponseDataPermissions[];
@@ -1530,9 +1530,9 @@ export interface UserUserUpdateSelfPatchResponseDataPermissions extends JsonObje
 }
 export interface UserUserUpdateSelfPatchResponseData extends JsonObject {
   "id": string;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "roles": UserUserUpdateSelfPatchResponseDataRoles[];
   "permissions": UserUserUpdateSelfPatchResponseDataPermissions[];

@@ -80,3 +80,66 @@ pub async fn query(Json(body): Json<Query>) -> Json<Query> { todo!() }
   assert.match(types,/"optional_wire"\??: string \| null/);
  }finally{rmSync(f.work,{recursive:true,force:true});}
 });
+
+test('serde response presence is distinct from request defaults, including nested fields',()=>{
+ const f=fixture();
+ try{
+  writeFileSync(join(f.work,'Service/infera-profile/src/routes.rs'),`
+#[derive(Deserialize, Serialize)]
+pub struct Child {
+ #[serde(default)]
+ pub enabled: bool,
+ pub note: Option<String>,
+}
+#[derive(Deserialize, Serialize)]
+pub struct Query {
+ #[serde(default, rename = "displayName")]
+ pub display_name: String,
+ pub note: Option<String>,
+ #[serde(skip_serializing_if = "Option::is_none")]
+ pub conditional: Option<String>,
+ #[serde(skip_deserializing)]
+ pub server_value: String,
+ #[serde(skip_serializing)]
+ pub password: String,
+ pub child: Child,
+}
+pub async fn query(Json(body): Json<Query>) -> Json<Query> { todo!() }
+`);
+  writeFileSync(join(f.work,'manifest.json'),JSON.stringify({profile:[{method:'POST',path:'/query',module:'routes',handler:'query',handlerModule:'routes',source:'infera-profile/src/routes.rs',body:'Query',response:'Query',responseEnvelope:'raw',permissions:[]}]}));
+  const result=generate(f,'profile');assert.equal(result.status,0,result.stderr);
+  const types=readFileSync(join(f.dest,'operations.types.ts'),'utf8');
+  const body=name=>types.match(new RegExp('export interface '+name+' extends JsonObject \\{([\\s\\S]*?)\\n\\}'))?.[1]??assert.fail('Missing '+name);
+  const input=body('RoutesQueryPostInput'),output=body('RoutesQueryPostResponseData');
+  assert.match(input,/"displayName"\?: string/);assert.match(output,/"displayName": string/);
+  assert.match(input,/"note"\?: string \| null/);assert.match(output,/"note": string \| null/);
+  assert.match(output,/"conditional"\?: string \| null/);
+  assert.doesNotMatch(input,/server_value/);assert.match(output,/"server_value": string/);
+  assert.match(input,/"password": string/);assert.doesNotMatch(output,/password/);
+  assert.match(body('RoutesQueryPostInputChild'),/"enabled"\?: boolean/);
+  assert.match(body('RoutesQueryPostResponseDataChild'),/"enabled": boolean/);
+ }finally{rmSync(f.work,{recursive:true,force:true});}
+});
+
+test('literal bracket query names and legacy nested query fields share one URL parameter',()=>{
+ const f=fixture();
+ try{
+  writeFileSync(join(f.work,'Service/infera-profile/src/routes.rs'),`
+#[derive(Deserialize)]
+pub struct Page { pub number: Option<u64> }
+#[derive(Deserialize)]
+pub struct Query {
+ pub page: Option<Page>,
+ #[serde(default, rename = "page[number]")]
+ pub page_number: Option<String>,
+}
+pub async fn query(Query(body): Query<Query>) -> Json<Value> { todo!() }
+`);
+  writeFileSync(join(f.work,'manifest.json'),JSON.stringify({profile:[{method:'GET',path:'/query',module:'routes',handler:'query',handlerModule:'routes',source:'infera-profile/src/routes.rs',query:'Query',response:'Value',responseEnvelope:'raw',permissions:[]}]}));
+  const result=generate(f,'profile');assert.equal(result.status,0,result.stderr);
+  const types=readFileSync(join(f.dest,'operations.types.ts'),'utf8');
+  assert.equal((types.match(/"page\[number\]"/g)??[]).length,1);
+  assert.match(types,/"page\[number\]"\?: number \| null \| string/);
+  assert.doesNotMatch(types,/"page_number"/);
+ }finally{rmSync(f.work,{recursive:true,force:true});}
+});

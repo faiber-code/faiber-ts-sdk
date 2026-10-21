@@ -13,7 +13,7 @@
     "packages/chat/src/index.ts": "47e6a8dfcfccfe65b88c4c0981872eadf3249f4aab01729dbb854fa45f39b29f",
     "packages/chat/src/learning.ts": "362ca67a1e763cfb8c8e2d9105330b1f61622f4e916d1b77b5257387fa54691f",
     "packages/chat/src/operations.ts": "390e42c500957fbbb15baaaaf14e47f23027a3d59f918865337ffe2ff21c0ad6",
-    "packages/chat/src/operations.types.ts": "beb73e304c2047bf8e401c020e46a2ec59a3c2286f2c9ff287423b95c7354c57",
+    "packages/chat/src/operations.types.ts": "6fec6716d998806d9f70d4187465b7917eb0e5460d93bfdaed3eebddb2fa8160",
     "packages/chat/src/personal.ts": "d62a7061fa93acadf13bffc9901962fac59f4781687214f86353f5c47ad5960b",
     "packages/chat/src/speech-live.ts": "30fcab33101d3e3a7e5bd9ee1fb4618f910f81c7af39f4a38b38e5ca59782e5e",
     "packages/chat/src/speech-playback.ts": "90f32542a3e6cf392782538b66244d87186f023de73092b2b74470c85b92da46",

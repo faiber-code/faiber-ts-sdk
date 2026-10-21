@@ -228,12 +228,15 @@ function structFrom(file, name) {
     // serde(skip) excludes a field from both wire directions. Do not confuse
     // skip_serializing_if with unconditional exclusion: that field is public.
     if (/#\[serde\(\s*(?:[^\]]*,\s*)?skip\s*(?:,|\))/.test(part)) return [];
-    const rename = part.match(/#\[serde\(rename\s*=\s*"([^"]+)"\)\]/)?.[1];
-    const flatten = /#\[serde\(flatten\)\]/.test(part);
+    const rename = part.match(/#\[serde\([^\]]*\brename\s*=\s*"([^"]+)"/)?.[1];
+    const flatten = /#\[serde\([^\]]*\bflatten\b/.test(part);
     const defaulted = /#\[serde\([^\]]*\bdefault\b[^\]]*\)\]/.test(part);
+    const skipInput = /#\[serde\([^\]]*\bskip_deserializing\b/.test(part);
+    const skipOutput = /#\[serde\([^\]]*\bskip_serializing\b/.test(part);
+    const conditionalOutput = /#\[serde\([^\]]*\bskip_serializing_if\s*=/.test(part);
     const clean = part.replace(/#\[[\s\S]*?\]/g, "").replace(/\/\/.*$/gm, "").trim();
     const field = clean.match(/(?:pub(?:\([^)]*\))?\s+)?(\w+)\s*:\s*([\s\S]+)$/);
-    return field ? [{ name: rename ?? wireName(field[1]), rustType: field[2].trim(), flatten, defaulted }] : [];
+    return field ? [{ name: rename ?? wireName(field[1]), rustType: field[2].trim(), flatten, defaulted, skipInput, skipOutput, conditionalOutput }] : [];
   });
   return { file, fields };
 }
@@ -323,19 +326,20 @@ function resolveEnum(files, module, raw) {
     ?? matches.find(item => item.file.path.includes(`/${module}/`)) ?? matches[0] ?? null;
 }
 
-function renderedFields(files, module, raw, seen = new Set(), query = false, declarations = null, base = "Nested", declared = new Set()) {
+function renderedFields(files, module, raw, seen = new Set(), query = false, declarations = null, base = "Nested", declared = new Set(), input = query) {
   const resolved = resolveStruct(files, module, raw);
   const name = typeName(raw);
   if (!resolved || !name || seen.has(`${resolved.file.path}:${name}`)) return [];
   const nextSeen = new Set(seen).add(`${resolved.file.path}:${name}`);
-  return resolved.fields.flatMap(field => {
-    if (field.flatten) return renderedFields(files, module, field.rustType, nextSeen, query, declarations, base, declared);
+  const fields = resolved.fields.flatMap(field => {
+    if (input ? field.skipInput : field.skipOutput) return [];
+    if (field.flatten) return renderedFields(files, module, field.rustType, nextSeen, query, declarations, base, declared, input);
     const outer = unwrap(field.rustType, "Option");
     const optional = Boolean(outer);
     const valueRaw = outer ?? field.rustType;
-    const nested = query ? renderedFields(files, module, valueRaw, nextSeen, true, declarations, base, declared) : [];
+    const nested = query ? renderedFields(files, module, valueRaw, nextSeen, true, declarations, base, declared, input) : [];
     if (nested.length) return nested.map(item => ({ ...item, name: `${field.name}[${item.name}]`, optional: optional || item.optional }));
-    let renderedType = tsType(valueRaw, query, base.includes("Input"));
+    let renderedType = tsType(valueRaw, query, input);
     if (module === "classroom" && field.name === "weekly_schedule" && !query) {
       renderedType = base.endsWith("Input")
         ? 'import("./types.js").ClassroomWeeklyScheduleRuleInput[]'
@@ -355,7 +359,7 @@ function renderedFields(files, module, raw, seen = new Set(), query = false, dec
         const key = `${nestedStruct.file.path}:${typeName(candidate)}:${nestedName}`;
         if (!declared.has(key)) {
           declared.add(key);
-          const fields = renderedFields(files, module, candidate, nextSeen, false, declarations, nestedName, declared);
+          const fields = renderedFields(files, module, candidate, nextSeen, false, declarations, nestedName, declared, input);
           declarations.push(`export interface ${nestedName} extends JsonObject {`);
           writeFields(declarations, fields);
           declarations.push("}");
@@ -373,8 +377,20 @@ function renderedFields(files, module, raw, seen = new Set(), query = false, dec
     // Query strings accept omitted/string values; null is not a wire query value.
     if (query && typeName(raw) === "HostedListQuery" && field.name === "search") return [{ name: field.name, optional: true, type: "string" }];
     if (!query && /^(CategoryListCategoriesGet|TagListTagsGet|SeoContentListSeoContentsGet)ResponseData$/.test(base) && field.name === "search") return [{ name: field.name, optional: false, type: "string | null" }];
-    return [{ name: field.name, optional: optional || field.defaulted, type: optional && !renderedType.includes("null") ? `${renderedType} | null` : renderedType }];
+    return [{ name: field.name, optional: input ? optional || field.defaulted : field.conditionalOutput, type: optional && !renderedType.includes("null") ? `${renderedType} | null` : renderedType }];
   });
+  if (!query) return fields;
+  // A backend can accept legacy nested pagination and literal bracket keys.
+  // Both become the same URL parameter; retain each accepted scalar spelling.
+  const parameters = new Map();
+  for (const field of fields) {
+    const previous = parameters.get(field.name);
+    parameters.set(field.name, previous ? {
+      ...field, optional: previous.optional && field.optional,
+      type: [...new Set([...previous.type.split(" | "), ...field.type.split(" | ")])].join(" | "),
+    } : field);
+  }
+  return [...parameters.values()];
 }
 
 function writeFields(lines, fields) {
@@ -489,7 +505,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       } else if (/^(?:serde_json::)?Value$/.test(endpoint.body)) {
         typeLines.push(`export type ${base}Input = JsonValue;`);
       } else {
-        const inputFields = renderedFields(files, endpoint.handlerModule ?? endpoint.module, endpoint.body, new Set(), false, typeLines, `${base}Input`);
+        const inputFields = renderedFields(files, endpoint.handlerModule ?? endpoint.module, endpoint.body, new Set(), false, typeLines, `${base}Input`, new Set(), true);
         typeLines.push(`export interface ${base}Input extends JsonObject {`);
         writeFields(typeLines, inputFields);
         typeLines.push("}");

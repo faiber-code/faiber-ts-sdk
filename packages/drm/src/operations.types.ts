@@ -26,7 +26,7 @@ export type RouterListAnalysesGetResponse = BackendJson<"Page<CompositionAnalysi
 /** Backend response type: Vec<composition_category::Model>. */
 export interface RouterListCompositionCategoriesGetResponseItem extends JsonObject {
   "id": string;
-  "parent_id"?: string | null;
+  "parent_id": string | null;
   "title": string;
   "created_at": string;
   "updated_at": string;
@@ -41,7 +41,7 @@ export interface RouterCreateCompositionCategoryPostInput extends JsonObject {
 /** Backend response type: composition_category::Model. */
 export interface RouterCreateCompositionCategoryPostResponseData extends JsonObject {
   "id": string;
-  "parent_id"?: string | null;
+  "parent_id": string | null;
   "title": string;
   "created_at": string;
   "updated_at": string;
@@ -59,7 +59,7 @@ export interface RouterUpdateCompositionCategoryPatchInput extends JsonObject {
 /** Backend response type: composition_category::Model. */
 export interface RouterUpdateCompositionCategoryPatchResponseData extends JsonObject {
   "id": string;
-  "parent_id"?: string | null;
+  "parent_id": string | null;
   "title": string;
   "created_at": string;
   "updated_at": string;
@@ -89,13 +89,13 @@ export interface RouterCreateCompositionPostInput extends JsonObject {
 export interface RouterCreateCompositionPostResponseData extends JsonObject {
   "id": string;
   "library_id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "transcription_language": string;
   "status": string;
   "manifest_version": number;
-  "published_at"?: string | null;
+  "published_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -192,19 +192,19 @@ export interface RouterCreateJobPostInput extends JsonObject {
 export interface RouterCreateJobPostResponseData extends JsonObject {
   "id": string;
   "media_id": string;
-  "package_id"?: string | null;
+  "package_id": string | null;
   "status": string;
   "stage": string;
   "progress": number;
   "attempts": number;
   "max_attempts": number;
-  "next_retry_at"?: string | null;
-  "last_error"?: string | null;
+  "next_retry_at": string | null;
+  "last_error": string | null;
   "config": BackendJson<"Json">;
   "created_at": string;
   "updated_at": string;
-  "started_at"?: string | null;
-  "completed_at"?: string | null;
+  "started_at": string | null;
+  "completed_at": string | null;
   "media_name": string;
   "media_type": string;
 }
@@ -224,19 +224,19 @@ export interface RouterRetryJobPostInput extends JsonObject {
 export interface RouterRetryJobPostResponseData extends JsonObject {
   "id": string;
   "media_id": string;
-  "package_id"?: string | null;
+  "package_id": string | null;
   "status": string;
   "stage": string;
   "progress": number;
   "attempts": number;
   "max_attempts": number;
-  "next_retry_at"?: string | null;
-  "last_error"?: string | null;
+  "next_retry_at": string | null;
+  "last_error": string | null;
   "config": BackendJson<"Json">;
   "created_at": string;
   "updated_at": string;
-  "started_at"?: string | null;
-  "completed_at"?: string | null;
+  "started_at": string | null;
+  "completed_at": string | null;
   "media_name": string;
   "media_type": string;
 }
@@ -291,7 +291,7 @@ export type RouterUpsertExternalReferencePostResponse = RouterUpsertExternalRefe
 /** Backend response type: Vec<folder::Model>. */
 export interface RouterListFoldersGetResponseItem extends JsonObject {
   "id": string;
-  "parent_id"?: string | null;
+  "parent_id": string | null;
   "name": string;
   "created_at": string;
   "updated_at": string;
@@ -306,7 +306,7 @@ export interface RouterCreateFolderPostInput extends JsonObject {
 /** Backend response type: folder::Model. */
 export interface RouterCreateFolderPostResponseData extends JsonObject {
   "id": string;
-  "parent_id"?: string | null;
+  "parent_id": string | null;
   "name": string;
   "created_at": string;
   "updated_at": string;
@@ -324,7 +324,7 @@ export interface RouterUpdateFolderPatchInput extends JsonObject {
 /** Backend response type: folder::Model. */
 export interface RouterUpdateFolderPatchResponseData extends JsonObject {
   "id": string;
-  "parent_id"?: string | null;
+  "parent_id": string | null;
   "name": string;
   "created_at": string;
   "updated_at": string;
@@ -335,7 +335,7 @@ export type RouterUpdateFolderPatchResponse = RouterUpdateFolderPatchResponseDat
 export interface RouterListLibrariesGetResponseItem extends JsonObject {
   "id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "status": string;
   "visibility": string;
   "created_at": string;
@@ -355,7 +355,7 @@ export interface RouterCreateLibraryPostInput extends JsonObject {
 export interface RouterCreateLibraryPostResponseData extends JsonObject {
   "id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "status": string;
   "visibility": string;
   "created_at": string;
@@ -370,7 +370,7 @@ export type RouterDeleteLibraryDeleteResponse = void;
 export interface RouterGetLibraryGetResponseData extends JsonObject {
   "id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "status": string;
   "visibility": string;
   "created_at": string;
@@ -390,7 +390,7 @@ export interface RouterUpdateLibraryPatchInput extends JsonObject {
 export interface RouterUpdateLibraryPatchResponseData extends JsonObject {
   "id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "status": string;
   "visibility": string;
   "created_at": string;
@@ -401,13 +401,13 @@ export type RouterUpdateLibraryPatchResponse = RouterUpdateLibraryPatchResponseD
 /** Backend response type: Vec<content_category::Model>. */
 export interface RouterListCategoriesGetResponseItem extends JsonObject {
   "id": string;
-  "mixed_media_id"?: string | null;
+  "mixed_media_id": string | null;
   "library_id": string;
-  "parent_id"?: string | null;
+  "parent_id": string | null;
   "title": string;
   "created_at": string;
   "updated_at": string;
-  "archived_at"?: string | null;
+  "archived_at": string | null;
 }
 export type RouterListCategoriesGetResponse = RouterListCategoriesGetResponseItem[];
 
@@ -420,35 +420,35 @@ export interface RouterCreateCategoryPostApiV1LibrariesIdCategoriesInput extends
 /** Backend response type: content_category::Model. */
 export interface RouterCreateCategoryPostApiV1LibrariesIdCategoriesResponseData extends JsonObject {
   "id": string;
-  "mixed_media_id"?: string | null;
+  "mixed_media_id": string | null;
   "library_id": string;
-  "parent_id"?: string | null;
+  "parent_id": string | null;
   "title": string;
   "created_at": string;
   "updated_at": string;
-  "archived_at"?: string | null;
+  "archived_at": string | null;
 }
 export type RouterCreateCategoryPostApiV1LibrariesIdCategoriesResponse = RouterCreateCategoryPostApiV1LibrariesIdCategoriesResponseData;
 
 /** Backend response type: Vec<media_part::Model>. */
 export interface RouterListItemsGetResponseItem extends JsonObject {
   "id": string;
-  "mixed_media_id"?: string | null;
+  "mixed_media_id": string | null;
   "library_id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "title": string;
   "state": string;
-  "media_type"?: string | null;
+  "media_type": string | null;
   "duration_seconds": number;
   "textual": BackendJson<"Json">;
   "rewards": BackendJson<"Json">;
-  "textual_hint"?: string | null;
-  "game_id"?: string | null;
-  "primary_media_id"?: string | null;
-  "hint_media_id"?: string | null;
+  "textual_hint": string | null;
+  "game_id": string | null;
+  "primary_media_id": string | null;
+  "hint_media_id": string | null;
   "created_at": string;
   "updated_at": string;
-  "archived_at"?: string | null;
+  "archived_at": string | null;
 }
 export type RouterListItemsGetResponse = RouterListItemsGetResponseItem[];
 
@@ -468,22 +468,22 @@ export interface RouterCreateItemPostInput extends JsonObject {
 /** Backend response type: media_part::Model. */
 export interface RouterCreateItemPostResponseData extends JsonObject {
   "id": string;
-  "mixed_media_id"?: string | null;
+  "mixed_media_id": string | null;
   "library_id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "title": string;
   "state": string;
-  "media_type"?: string | null;
+  "media_type": string | null;
   "duration_seconds": number;
   "textual": BackendJson<"Json">;
   "rewards": BackendJson<"Json">;
-  "textual_hint"?: string | null;
-  "game_id"?: string | null;
-  "primary_media_id"?: string | null;
-  "hint_media_id"?: string | null;
+  "textual_hint": string | null;
+  "game_id": string | null;
+  "primary_media_id": string | null;
+  "hint_media_id": string | null;
   "created_at": string;
   "updated_at": string;
-  "archived_at"?: string | null;
+  "archived_at": string | null;
 }
 export type RouterCreateItemPostResponse = RouterCreateItemPostResponseData;
 
@@ -521,13 +521,13 @@ export interface RouterUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesIdInp
 /** Backend response type: content_category::Model. */
 export interface RouterUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesIdResponseData extends JsonObject {
   "id": string;
-  "mixed_media_id"?: string | null;
+  "mixed_media_id": string | null;
   "library_id": string;
-  "parent_id"?: string | null;
+  "parent_id": string | null;
   "title": string;
   "created_at": string;
   "updated_at": string;
-  "archived_at"?: string | null;
+  "archived_at": string | null;
 }
 export type RouterUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesIdResponse = RouterUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesIdResponseData;
 
@@ -537,22 +537,22 @@ export type RouterArchiveItemDeleteResponse = void;
 /** Backend response type: media_part::Model. */
 export interface RouterGetItemGetResponseData extends JsonObject {
   "id": string;
-  "mixed_media_id"?: string | null;
+  "mixed_media_id": string | null;
   "library_id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "title": string;
   "state": string;
-  "media_type"?: string | null;
+  "media_type": string | null;
   "duration_seconds": number;
   "textual": BackendJson<"Json">;
   "rewards": BackendJson<"Json">;
-  "textual_hint"?: string | null;
-  "game_id"?: string | null;
-  "primary_media_id"?: string | null;
-  "hint_media_id"?: string | null;
+  "textual_hint": string | null;
+  "game_id": string | null;
+  "primary_media_id": string | null;
+  "hint_media_id": string | null;
   "created_at": string;
   "updated_at": string;
-  "archived_at"?: string | null;
+  "archived_at": string | null;
 }
 export type RouterGetItemGetResponse = RouterGetItemGetResponseData;
 
@@ -572,22 +572,22 @@ export interface RouterUpdateItemPutInput extends JsonObject {
 /** Backend response type: media_part::Model. */
 export interface RouterUpdateItemPutResponseData extends JsonObject {
   "id": string;
-  "mixed_media_id"?: string | null;
+  "mixed_media_id": string | null;
   "library_id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "title": string;
   "state": string;
-  "media_type"?: string | null;
+  "media_type": string | null;
   "duration_seconds": number;
   "textual": BackendJson<"Json">;
   "rewards": BackendJson<"Json">;
-  "textual_hint"?: string | null;
-  "game_id"?: string | null;
-  "primary_media_id"?: string | null;
-  "hint_media_id"?: string | null;
+  "textual_hint": string | null;
+  "game_id": string | null;
+  "primary_media_id": string | null;
+  "hint_media_id": string | null;
   "created_at": string;
   "updated_at": string;
-  "archived_at"?: string | null;
+  "archived_at": string | null;
 }
 export type RouterUpdateItemPutResponse = RouterUpdateItemPutResponseData;
 
@@ -652,38 +652,38 @@ export interface RouterUploadMediaPostResponseDataTranscription extends JsonObje
   "media_id": string;
   "model_ref": string;
   "language": string;
-  "detected_language"?: string | null;
+  "detected_language": string | null;
   "status": string;
-  "transcript"?: string | null;
-  "last_error"?: string | null;
+  "transcript": string | null;
+  "last_error": string | null;
   "attempts": number;
   "max_attempts": number;
-  "next_retry_at"?: string | null;
+  "next_retry_at": string | null;
   "queued_at": string;
-  "started_at"?: string | null;
-  "completed_at"?: string | null;
+  "started_at": string | null;
+  "completed_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
 export interface RouterUploadMediaPostResponseData extends JsonObject {
   "id": string;
-  "folder_id"?: string | null;
+  "folder_id": string | null;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "media_type": string;
   "mime_type": string;
   "object_key": string;
   "bucket": string;
   "size_bytes": number;
-  "duration_seconds"?: number | null;
+  "duration_seconds": number | null;
   "status": string;
-  "original_filename"?: string | null;
-  "checksum_sha256"?: string | null;
-  "archived_at"?: string | null;
+  "original_filename": string | null;
+  "checksum_sha256": string | null;
+  "archived_at": string | null;
   "created_at": string;
   "updated_at": string;
   "tags": RouterUploadMediaPostResponseDataTags[];
-  "transcription"?: RouterUploadMediaPostResponseDataTranscription | null;
+  "transcription": RouterUploadMediaPostResponseDataTranscription | null;
 }
 export type RouterUploadMediaPostResponse = RouterUploadMediaPostResponseData;
 
@@ -701,38 +701,38 @@ export interface RouterGetMediaGetResponseDataTranscription extends JsonObject {
   "media_id": string;
   "model_ref": string;
   "language": string;
-  "detected_language"?: string | null;
+  "detected_language": string | null;
   "status": string;
-  "transcript"?: string | null;
-  "last_error"?: string | null;
+  "transcript": string | null;
+  "last_error": string | null;
   "attempts": number;
   "max_attempts": number;
-  "next_retry_at"?: string | null;
+  "next_retry_at": string | null;
   "queued_at": string;
-  "started_at"?: string | null;
-  "completed_at"?: string | null;
+  "started_at": string | null;
+  "completed_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
 export interface RouterGetMediaGetResponseData extends JsonObject {
   "id": string;
-  "folder_id"?: string | null;
+  "folder_id": string | null;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "media_type": string;
   "mime_type": string;
   "object_key": string;
   "bucket": string;
   "size_bytes": number;
-  "duration_seconds"?: number | null;
+  "duration_seconds": number | null;
   "status": string;
-  "original_filename"?: string | null;
-  "checksum_sha256"?: string | null;
-  "archived_at"?: string | null;
+  "original_filename": string | null;
+  "checksum_sha256": string | null;
+  "archived_at": string | null;
   "created_at": string;
   "updated_at": string;
   "tags": RouterGetMediaGetResponseDataTags[];
-  "transcription"?: RouterGetMediaGetResponseDataTranscription | null;
+  "transcription": RouterGetMediaGetResponseDataTranscription | null;
 }
 export type RouterGetMediaGetResponse = RouterGetMediaGetResponseData;
 
@@ -756,38 +756,38 @@ export interface RouterUpdateMediaPatchResponseDataTranscription extends JsonObj
   "media_id": string;
   "model_ref": string;
   "language": string;
-  "detected_language"?: string | null;
+  "detected_language": string | null;
   "status": string;
-  "transcript"?: string | null;
-  "last_error"?: string | null;
+  "transcript": string | null;
+  "last_error": string | null;
   "attempts": number;
   "max_attempts": number;
-  "next_retry_at"?: string | null;
+  "next_retry_at": string | null;
   "queued_at": string;
-  "started_at"?: string | null;
-  "completed_at"?: string | null;
+  "started_at": string | null;
+  "completed_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
 export interface RouterUpdateMediaPatchResponseData extends JsonObject {
   "id": string;
-  "folder_id"?: string | null;
+  "folder_id": string | null;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "media_type": string;
   "mime_type": string;
   "object_key": string;
   "bucket": string;
   "size_bytes": number;
-  "duration_seconds"?: number | null;
+  "duration_seconds": number | null;
   "status": string;
-  "original_filename"?: string | null;
-  "checksum_sha256"?: string | null;
-  "archived_at"?: string | null;
+  "original_filename": string | null;
+  "checksum_sha256": string | null;
+  "archived_at": string | null;
   "created_at": string;
   "updated_at": string;
   "tags": RouterUpdateMediaPatchResponseDataTags[];
-  "transcription"?: RouterUpdateMediaPatchResponseDataTranscription | null;
+  "transcription": RouterUpdateMediaPatchResponseDataTranscription | null;
 }
 export type RouterUpdateMediaPatchResponse = RouterUpdateMediaPatchResponseData;
 
@@ -798,16 +798,16 @@ export interface RouterListPackagesGetResponseItem extends JsonObject {
   "revision": number;
   "status": string;
   "profile": BackendJson<"Json">;
-  "manifest_dash_key"?: string | null;
-  "manifest_hls_key"?: string | null;
+  "manifest_dash_key": string | null;
+  "manifest_hls_key": string | null;
   "object_prefix": string;
-  "checksum_manifest"?: string | null;
-  "last_error"?: string | null;
+  "checksum_manifest": string | null;
+  "last_error": string | null;
   "created_at": string;
   "updated_at": string;
-  "completed_at"?: string | null;
-  "dash_url"?: string | null;
-  "hls_url"?: string | null;
+  "completed_at": string | null;
+  "dash_url": string | null;
+  "hls_url": string | null;
 }
 export type RouterListPackagesGetResponse = RouterListPackagesGetResponseItem[];
 
@@ -822,19 +822,19 @@ export interface RouterRegeneratePostInput extends JsonObject {
 export interface RouterRegeneratePostResponseData extends JsonObject {
   "id": string;
   "media_id": string;
-  "package_id"?: string | null;
+  "package_id": string | null;
   "status": string;
   "stage": string;
   "progress": number;
   "attempts": number;
   "max_attempts": number;
-  "next_retry_at"?: string | null;
-  "last_error"?: string | null;
+  "next_retry_at": string | null;
+  "last_error": string | null;
   "config": BackendJson<"Json">;
   "created_at": string;
   "updated_at": string;
-  "started_at"?: string | null;
-  "completed_at"?: string | null;
+  "started_at": string | null;
+  "completed_at": string | null;
 }
 export type RouterRegeneratePostResponse = RouterRegeneratePostResponseData;
 
@@ -863,38 +863,38 @@ export interface RouterBatchMediaPostResponseItemTranscription extends JsonObjec
   "media_id": string;
   "model_ref": string;
   "language": string;
-  "detected_language"?: string | null;
+  "detected_language": string | null;
   "status": string;
-  "transcript"?: string | null;
-  "last_error"?: string | null;
+  "transcript": string | null;
+  "last_error": string | null;
   "attempts": number;
   "max_attempts": number;
-  "next_retry_at"?: string | null;
+  "next_retry_at": string | null;
   "queued_at": string;
-  "started_at"?: string | null;
-  "completed_at"?: string | null;
+  "started_at": string | null;
+  "completed_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
 export interface RouterBatchMediaPostResponseItem extends JsonObject {
   "id": string;
-  "folder_id"?: string | null;
+  "folder_id": string | null;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "media_type": string;
   "mime_type": string;
   "object_key": string;
   "bucket": string;
   "size_bytes": number;
-  "duration_seconds"?: number | null;
+  "duration_seconds": number | null;
   "status": string;
-  "original_filename"?: string | null;
-  "checksum_sha256"?: string | null;
-  "archived_at"?: string | null;
+  "original_filename": string | null;
+  "checksum_sha256": string | null;
+  "archived_at": string | null;
   "created_at": string;
   "updated_at": string;
   "tags": RouterBatchMediaPostResponseItemTags[];
-  "transcription"?: RouterBatchMediaPostResponseItemTranscription | null;
+  "transcription": RouterBatchMediaPostResponseItemTranscription | null;
 }
 export type RouterBatchMediaPostResponse = RouterBatchMediaPostResponseItem[];
 
@@ -907,8 +907,8 @@ export interface RouterDrmStatusesGetResponseItem extends JsonObject {
   "media_id": string;
   "media_type": string;
   "media_status": string;
-  "package_status"?: string | null;
-  "job_status"?: string | null;
+  "package_status": string | null;
+  "job_status": string | null;
   "effective_status": string;
 }
 export type RouterDrmStatusesGetResponse = RouterDrmStatusesGetResponseItem[];
@@ -939,38 +939,38 @@ export interface RouterRegisterExistingMediaPostResponseDataTranscription extend
   "media_id": string;
   "model_ref": string;
   "language": string;
-  "detected_language"?: string | null;
+  "detected_language": string | null;
   "status": string;
-  "transcript"?: string | null;
-  "last_error"?: string | null;
+  "transcript": string | null;
+  "last_error": string | null;
   "attempts": number;
   "max_attempts": number;
-  "next_retry_at"?: string | null;
+  "next_retry_at": string | null;
   "queued_at": string;
-  "started_at"?: string | null;
-  "completed_at"?: string | null;
+  "started_at": string | null;
+  "completed_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
 export interface RouterRegisterExistingMediaPostResponseData extends JsonObject {
   "id": string;
-  "folder_id"?: string | null;
+  "folder_id": string | null;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "media_type": string;
   "mime_type": string;
   "object_key": string;
   "bucket": string;
   "size_bytes": number;
-  "duration_seconds"?: number | null;
+  "duration_seconds": number | null;
   "status": string;
-  "original_filename"?: string | null;
-  "checksum_sha256"?: string | null;
-  "archived_at"?: string | null;
+  "original_filename": string | null;
+  "checksum_sha256": string | null;
+  "archived_at": string | null;
   "created_at": string;
   "updated_at": string;
   "tags": RouterRegisterExistingMediaPostResponseDataTags[];
-  "transcription"?: RouterRegisterExistingMediaPostResponseDataTranscription | null;
+  "transcription": RouterRegisterExistingMediaPostResponseDataTranscription | null;
 }
 export type RouterRegisterExistingMediaPostResponse = RouterRegisterExistingMediaPostResponseData;
 
@@ -978,13 +978,13 @@ export type RouterRegisterExistingMediaPostResponse = RouterRegisterExistingMedi
 export interface RouterListMixedMediaGetResponseItem extends JsonObject {
   "id": string;
   "library_id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "transcription_language": string;
   "status": string;
   "manifest_version": number;
-  "published_at"?: string | null;
+  "published_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1002,13 +1002,13 @@ export interface RouterCreateMixedMediaPostInput extends JsonObject {
 export interface RouterCreateMixedMediaPostResponseData extends JsonObject {
   "id": string;
   "library_id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "transcription_language": string;
   "status": string;
   "manifest_version": number;
-  "published_at"?: string | null;
+  "published_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1021,13 +1021,13 @@ export type RouterDeleteMixedMediaDeleteResponse = void;
 export interface RouterGetMixedMediaGetResponseData extends JsonObject {
   "id": string;
   "library_id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "transcription_language": string;
   "status": string;
   "manifest_version": number;
-  "published_at"?: string | null;
+  "published_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1046,13 +1046,13 @@ export interface RouterUpdateMixedMediaPatchInput extends JsonObject {
 export interface RouterUpdateMixedMediaPatchResponseData extends JsonObject {
   "id": string;
   "library_id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "transcription_language": string;
   "status": string;
   "manifest_version": number;
-  "published_at"?: string | null;
+  "published_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1072,16 +1072,16 @@ export interface RouterStartAnalysisPostResponseData extends JsonObject {
   "composition_name": string;
   "manifest_version": number;
   "model_ref": string;
-  "summary_model_ref"?: string | null;
+  "summary_model_ref": string | null;
   "language": string;
-  "detected_language"?: string | null;
+  "detected_language": string | null;
   "status": string;
-  "transcript"?: string | null;
-  "summary"?: string | null;
-  "last_error"?: string | null;
+  "transcript": string | null;
+  "summary": string | null;
+  "last_error": string | null;
   "queued_at": string;
-  "started_at"?: string | null;
-  "completed_at"?: string | null;
+  "started_at": string | null;
+  "completed_at": string | null;
   "updated_at": string;
 }
 export type RouterStartAnalysisPostResponse = RouterStartAnalysisPostResponseData;
@@ -1094,13 +1094,13 @@ export interface RouterCreateCategoryPostApiV1MixedMediaIdCategoriesInput extend
 /** Backend response type: content_category::Model. */
 export interface RouterCreateCategoryPostApiV1MixedMediaIdCategoriesResponseData extends JsonObject {
   "id": string;
-  "mixed_media_id"?: string | null;
+  "mixed_media_id": string | null;
   "library_id": string;
-  "parent_id"?: string | null;
+  "parent_id": string | null;
   "title": string;
   "created_at": string;
   "updated_at": string;
-  "archived_at"?: string | null;
+  "archived_at": string | null;
 }
 export type RouterCreateCategoryPostApiV1MixedMediaIdCategoriesResponse = RouterCreateCategoryPostApiV1MixedMediaIdCategoriesResponseData;
 
@@ -1108,13 +1108,13 @@ export type RouterCreateCategoryPostApiV1MixedMediaIdCategoriesResponse = Router
 export interface RouterGetSettingsGetApiV1MixedMediaIdKnowledgeSyncResponseData extends JsonObject {
   "mixed_media_id": string;
   "enabled": boolean;
-  "knowledge_base_id"?: string | null;
+  "knowledge_base_id": string | null;
   "sync_status": string;
-  "synced_manifest_version"?: number | null;
-  "knowledge_document_id"?: string | null;
-  "sync_event_id"?: string | null;
-  "last_error"?: string | null;
-  "last_synced_at"?: string | null;
+  "synced_manifest_version": number | null;
+  "knowledge_document_id": string | null;
+  "sync_event_id": string | null;
+  "last_error": string | null;
+  "last_synced_at": string | null;
 }
 export type RouterGetSettingsGetApiV1MixedMediaIdKnowledgeSyncResponse = RouterGetSettingsGetApiV1MixedMediaIdKnowledgeSyncResponseData;
 
@@ -1122,13 +1122,13 @@ export type RouterGetSettingsGetApiV1MixedMediaIdKnowledgeSyncResponse = RouterG
 export interface RouterSyncNowPostResponseData extends JsonObject {
   "mixed_media_id": string;
   "enabled": boolean;
-  "knowledge_base_id"?: string | null;
+  "knowledge_base_id": string | null;
   "sync_status": string;
-  "synced_manifest_version"?: number | null;
-  "knowledge_document_id"?: string | null;
-  "sync_event_id"?: string | null;
-  "last_error"?: string | null;
-  "last_synced_at"?: string | null;
+  "synced_manifest_version": number | null;
+  "knowledge_document_id": string | null;
+  "sync_event_id": string | null;
+  "last_error": string | null;
+  "last_synced_at": string | null;
 }
 export type RouterSyncNowPostResponse = RouterSyncNowPostResponseData;
 
@@ -1141,13 +1141,13 @@ export interface RouterUpdateSettingsPutInput extends JsonObject {
 export interface RouterUpdateSettingsPutResponseData extends JsonObject {
   "mixed_media_id": string;
   "enabled": boolean;
-  "knowledge_base_id"?: string | null;
+  "knowledge_base_id": string | null;
   "sync_status": string;
-  "synced_manifest_version"?: number | null;
-  "knowledge_document_id"?: string | null;
-  "sync_event_id"?: string | null;
-  "last_error"?: string | null;
-  "last_synced_at"?: string | null;
+  "synced_manifest_version": number | null;
+  "knowledge_document_id": string | null;
+  "sync_event_id": string | null;
+  "last_error": string | null;
+  "last_synced_at": string | null;
 }
 export type RouterUpdateSettingsPutResponse = RouterUpdateSettingsPutResponseData;
 
@@ -1188,22 +1188,22 @@ export interface RouterCreatePartPostInput extends JsonObject {
 /** Backend response type: media_part::Model. */
 export interface RouterCreatePartPostResponseData extends JsonObject {
   "id": string;
-  "mixed_media_id"?: string | null;
+  "mixed_media_id": string | null;
   "library_id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "title": string;
   "state": string;
-  "media_type"?: string | null;
+  "media_type": string | null;
   "duration_seconds": number;
   "textual": BackendJson<"Json">;
   "rewards": BackendJson<"Json">;
-  "textual_hint"?: string | null;
-  "game_id"?: string | null;
-  "primary_media_id"?: string | null;
-  "hint_media_id"?: string | null;
+  "textual_hint": string | null;
+  "game_id": string | null;
+  "primary_media_id": string | null;
+  "hint_media_id": string | null;
   "created_at": string;
   "updated_at": string;
-  "archived_at"?: string | null;
+  "archived_at": string | null;
 }
 export type RouterCreatePartPostResponse = RouterCreatePartPostResponseData;
 
@@ -1220,32 +1220,32 @@ export type RouterPublishPostApiV1MixedMediaIdPublishResponse = RouterPublishPos
 /** Backend response type: EditorResources. */
 export interface RouterResourcesGetResponseDataCategories extends JsonObject {
   "id": string;
-  "mixed_media_id"?: string | null;
+  "mixed_media_id": string | null;
   "library_id": string;
-  "parent_id"?: string | null;
+  "parent_id": string | null;
   "title": string;
   "created_at": string;
   "updated_at": string;
-  "archived_at"?: string | null;
+  "archived_at": string | null;
 }
 export interface RouterResourcesGetResponseDataParts extends JsonObject {
   "id": string;
-  "mixed_media_id"?: string | null;
+  "mixed_media_id": string | null;
   "library_id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "title": string;
   "state": string;
-  "media_type"?: string | null;
+  "media_type": string | null;
   "duration_seconds": number;
   "textual": BackendJson<"Json">;
   "rewards": BackendJson<"Json">;
-  "textual_hint"?: string | null;
-  "game_id"?: string | null;
-  "primary_media_id"?: string | null;
-  "hint_media_id"?: string | null;
+  "textual_hint": string | null;
+  "game_id": string | null;
+  "primary_media_id": string | null;
+  "hint_media_id": string | null;
   "created_at": string;
   "updated_at": string;
-  "archived_at"?: string | null;
+  "archived_at": string | null;
 }
 export interface RouterResourcesGetResponseData extends JsonObject {
   "categories": RouterResourcesGetResponseDataCategories[];
@@ -1289,13 +1289,13 @@ export interface RouterUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesIdInpu
 /** Backend response type: content_category::Model. */
 export interface RouterUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesIdResponseData extends JsonObject {
   "id": string;
-  "mixed_media_id"?: string | null;
+  "mixed_media_id": string | null;
   "library_id": string;
-  "parent_id"?: string | null;
+  "parent_id": string | null;
   "title": string;
   "created_at": string;
   "updated_at": string;
-  "archived_at"?: string | null;
+  "archived_at": string | null;
 }
 export type RouterUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesIdResponse = RouterUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesIdResponseData;
 
@@ -1305,22 +1305,22 @@ export type RouterDeletePartDeleteResponse = void;
 /** Backend response type: media_part::Model. */
 export interface RouterGetPartGetResponseData extends JsonObject {
   "id": string;
-  "mixed_media_id"?: string | null;
+  "mixed_media_id": string | null;
   "library_id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "title": string;
   "state": string;
-  "media_type"?: string | null;
+  "media_type": string | null;
   "duration_seconds": number;
   "textual": BackendJson<"Json">;
   "rewards": BackendJson<"Json">;
-  "textual_hint"?: string | null;
-  "game_id"?: string | null;
-  "primary_media_id"?: string | null;
-  "hint_media_id"?: string | null;
+  "textual_hint": string | null;
+  "game_id": string | null;
+  "primary_media_id": string | null;
+  "hint_media_id": string | null;
   "created_at": string;
   "updated_at": string;
-  "archived_at"?: string | null;
+  "archived_at": string | null;
 }
 export type RouterGetPartGetResponse = RouterGetPartGetResponseData;
 
@@ -1341,22 +1341,22 @@ export interface RouterUpdatePartPutInput extends JsonObject {
 /** Backend response type: media_part::Model. */
 export interface RouterUpdatePartPutResponseData extends JsonObject {
   "id": string;
-  "mixed_media_id"?: string | null;
+  "mixed_media_id": string | null;
   "library_id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "title": string;
   "state": string;
-  "media_type"?: string | null;
+  "media_type": string | null;
   "duration_seconds": number;
   "textual": BackendJson<"Json">;
   "rewards": BackendJson<"Json">;
-  "textual_hint"?: string | null;
-  "game_id"?: string | null;
-  "primary_media_id"?: string | null;
-  "hint_media_id"?: string | null;
+  "textual_hint": string | null;
+  "game_id": string | null;
+  "primary_media_id": string | null;
+  "hint_media_id": string | null;
   "created_at": string;
   "updated_at": string;
-  "archived_at"?: string | null;
+  "archived_at": string | null;
 }
 export type RouterUpdatePartPutResponse = RouterUpdatePartPutResponseData;
 
@@ -1370,8 +1370,8 @@ export type RouterKnowledgeCatalogGetResponse = JsonValue;
 export interface RouterGetSettingsGetApiV1OperationsSettingsResponseData extends JsonObject {
   "package_concurrency": number;
   "transcription_enabled": boolean;
-  "transcription_model_ref"?: string | null;
-  "summary_model_ref"?: string | null;
+  "transcription_model_ref": string | null;
+  "summary_model_ref": string | null;
 }
 export type RouterGetSettingsGetApiV1OperationsSettingsResponse = RouterGetSettingsGetApiV1OperationsSettingsResponseData;
 
@@ -1386,8 +1386,8 @@ export interface RouterUpdateSettingsPatchInput extends JsonObject {
 export interface RouterUpdateSettingsPatchResponseData extends JsonObject {
   "package_concurrency": number;
   "transcription_enabled": boolean;
-  "transcription_model_ref"?: string | null;
-  "summary_model_ref"?: string | null;
+  "transcription_model_ref": string | null;
+  "summary_model_ref": string | null;
 }
 export type RouterUpdateSettingsPatchResponse = RouterUpdateSettingsPatchResponseData;
 
@@ -1470,19 +1470,19 @@ export interface RouterCreateUploadSessionPostResponseData extends JsonObject {
   "multipart_upload_id": string;
   "filename": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "mime_type": string;
   "media_type": string;
-  "folder_id"?: string | null;
+  "folder_id": string | null;
   "total_bytes": number;
   "part_size": number;
-  "checksum_sha256"?: string | null;
+  "checksum_sha256": string | null;
   "status": string;
-  "error"?: string | null;
+  "error": string | null;
   "expires_at": string;
   "created_at": string;
   "updated_at": string;
-  "completed_at"?: string | null;
+  "completed_at": string | null;
   "parts": RouterCreateUploadSessionPostResponseDataParts[];
 }
 export type RouterCreateUploadSessionPostResponse = RouterCreateUploadSessionPostResponseData;
@@ -1505,19 +1505,19 @@ export interface RouterGetUploadSessionGetResponseData extends JsonObject {
   "multipart_upload_id": string;
   "filename": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "mime_type": string;
   "media_type": string;
-  "folder_id"?: string | null;
+  "folder_id": string | null;
   "total_bytes": number;
   "part_size": number;
-  "checksum_sha256"?: string | null;
+  "checksum_sha256": string | null;
   "status": string;
-  "error"?: string | null;
+  "error": string | null;
   "expires_at": string;
   "created_at": string;
   "updated_at": string;
-  "completed_at"?: string | null;
+  "completed_at": string | null;
   "parts": RouterGetUploadSessionGetResponseDataParts[];
 }
 export type RouterGetUploadSessionGetResponse = RouterGetUploadSessionGetResponseData;
@@ -1537,38 +1537,38 @@ export interface RouterCompleteUploadPostResponseDataTranscription extends JsonO
   "media_id": string;
   "model_ref": string;
   "language": string;
-  "detected_language"?: string | null;
+  "detected_language": string | null;
   "status": string;
-  "transcript"?: string | null;
-  "last_error"?: string | null;
+  "transcript": string | null;
+  "last_error": string | null;
   "attempts": number;
   "max_attempts": number;
-  "next_retry_at"?: string | null;
+  "next_retry_at": string | null;
   "queued_at": string;
-  "started_at"?: string | null;
-  "completed_at"?: string | null;
+  "started_at": string | null;
+  "completed_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
 export interface RouterCompleteUploadPostResponseData extends JsonObject {
   "id": string;
-  "folder_id"?: string | null;
+  "folder_id": string | null;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "media_type": string;
   "mime_type": string;
   "object_key": string;
   "bucket": string;
   "size_bytes": number;
-  "duration_seconds"?: number | null;
+  "duration_seconds": number | null;
   "status": string;
-  "original_filename"?: string | null;
-  "checksum_sha256"?: string | null;
-  "archived_at"?: string | null;
+  "original_filename": string | null;
+  "checksum_sha256": string | null;
+  "archived_at": string | null;
   "created_at": string;
   "updated_at": string;
   "tags": RouterCompleteUploadPostResponseDataTags[];
-  "transcription"?: RouterCompleteUploadPostResponseDataTranscription | null;
+  "transcription": RouterCompleteUploadPostResponseDataTranscription | null;
 }
 export type RouterCompleteUploadPostResponse = RouterCompleteUploadPostResponseData;
 

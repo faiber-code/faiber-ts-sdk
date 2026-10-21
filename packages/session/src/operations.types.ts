@@ -38,11 +38,11 @@ export interface ConfigurationLivekitConfigShowGetResponseData extends JsonObjec
   "agentic_url": string;
   "has_agentic_service_token": boolean;
   "audio_processing_enabled": boolean;
-  "audio_model_ref"?: string | null;
+  "audio_model_ref": string | null;
   "audio_language": string;
-  "chat_model_ref"?: string | null;
-  "chat_assistant_id"?: string | null;
-  "task_validation_model_ref"?: string | null;
+  "chat_model_ref": string | null;
+  "chat_assistant_id": string | null;
+  "task_validation_model_ref": string | null;
   "archive_delay_minutes": number;
   "processing_window_start": string;
   "processing_window_end": string;
@@ -94,11 +94,11 @@ export interface ConfigurationLivekitConfigUpdatePutResponseData extends JsonObj
   "agentic_url": string;
   "has_agentic_service_token": boolean;
   "audio_processing_enabled": boolean;
-  "audio_model_ref"?: string | null;
+  "audio_model_ref": string | null;
   "audio_language": string;
-  "chat_model_ref"?: string | null;
-  "chat_assistant_id"?: string | null;
-  "task_validation_model_ref"?: string | null;
+  "chat_model_ref": string | null;
+  "chat_assistant_id": string | null;
+  "task_validation_model_ref": string | null;
   "archive_delay_minutes": number;
   "processing_window_start": string;
   "processing_window_end": string;
@@ -169,13 +169,13 @@ export interface RecordingRecordingsIndexGetResponseDataRecordings extends JsonO
   "room_name": string;
   "duration": number;
   "status": string;
-  "process_at"?: string | null;
-  "processing_started_at"?: string | null;
-  "completed_at"?: string | null;
-  "processing_error"?: string | null;
+  "process_at": string | null;
+  "processing_started_at": string | null;
+  "completed_at": string | null;
+  "processing_error": string | null;
   "audio_processing": boolean;
-  "started_at"?: string | null;
-  "stopped_at"?: string | null;
+  "started_at": string | null;
+  "stopped_at": string | null;
 }
 export interface RecordingRecordingsIndexGetResponseDataMeta extends JsonObject {
   "page": number;
@@ -194,22 +194,22 @@ export interface RecordingRecordingsIndexGetResponse extends ApiEnvelope<Recordi
 export interface RecordingRecordingManifestGetResponseDataTracks extends JsonObject {
   "id": string;
   "participant_identity": string;
-  "profile_id"?: string | null;
+  "profile_id": string | null;
   "track_sid": string;
   "kind": string;
   "source": string;
   "mime_type": string;
   "object_key": string;
   "started_at": string;
-  "ended_at"?: string | null;
-  "duration_ms"?: number | null;
+  "ended_at": string | null;
+  "duration_ms": number | null;
   "status": string;
 }
 export interface RecordingRecordingManifestGetResponseDataAudioAnalyses extends JsonObject {
   "track_id": string;
-  "profile_id"?: string | null;
+  "profile_id": string | null;
   "started_at": string;
-  "ended_at"?: string | null;
+  "ended_at": string | null;
   "model_ref": string;
   "transcript": string;
   "analysis": JsonValue;
@@ -219,10 +219,10 @@ export interface RecordingRecordingManifestGetResponseData extends JsonObject {
   "recording_id": string;
   "room_id": string;
   "status": string;
-  "started_at"?: string | null;
-  "stopped_at"?: string | null;
-  "archive_key"?: string | null;
-  "manifest_key"?: string | null;
+  "started_at": string | null;
+  "stopped_at": string | null;
+  "archive_key": string | null;
+  "manifest_key": string | null;
   "tracks": RecordingRecordingManifestGetResponseDataTracks[];
   "audio_analyses": RecordingRecordingManifestGetResponseDataAudioAnalyses[];
 }
@@ -239,22 +239,22 @@ export interface RecordingRecordingSchedulePostInput extends JsonObject {
 export interface RecordingRecordingSchedulePostResponseDataTracks extends JsonObject {
   "id": string;
   "participant_identity": string;
-  "profile_id"?: string | null;
+  "profile_id": string | null;
   "track_sid": string;
   "kind": string;
   "source": string;
   "mime_type": string;
   "object_key": string;
   "started_at": string;
-  "ended_at"?: string | null;
-  "duration_ms"?: number | null;
+  "ended_at": string | null;
+  "duration_ms": number | null;
   "status": string;
 }
 export interface RecordingRecordingSchedulePostResponseDataAudioAnalyses extends JsonObject {
   "track_id": string;
-  "profile_id"?: string | null;
+  "profile_id": string | null;
   "started_at": string;
-  "ended_at"?: string | null;
+  "ended_at": string | null;
   "model_ref": string;
   "transcript": string;
   "analysis": JsonValue;
@@ -264,10 +264,10 @@ export interface RecordingRecordingSchedulePostResponseData extends JsonObject {
   "recording_id": string;
   "room_id": string;
   "status": string;
-  "started_at"?: string | null;
-  "stopped_at"?: string | null;
-  "archive_key"?: string | null;
-  "manifest_key"?: string | null;
+  "started_at": string | null;
+  "stopped_at": string | null;
+  "archive_key": string | null;
+  "manifest_key": string | null;
   "tracks": RecordingRecordingSchedulePostResponseDataTracks[];
   "audio_analyses": RecordingRecordingSchedulePostResponseDataAudioAnalyses[];
 }
@@ -299,7 +299,7 @@ export interface RoomStateRoomStateRespondPostInput extends JsonObject {
 export interface RoomStateRoomStateRespondPostResponseData extends JsonObject {
   "validated": boolean;
   "event": string;
-  "reason"?: string | null;
+  "reason": string | null;
 }
 export interface RoomStateRoomStateRespondPostResponse extends ApiEnvelope<RoomStateRoomStateRespondPostResponseData> {
 }
@@ -317,10 +317,10 @@ export interface RoomRoomsIndexGetResponseDataRooms extends JsonObject {
   "name": string;
   "capacity": number;
   "status": number;
-  "session_id"?: string | null;
-  "starts_at"?: string | null;
-  "ended_at"?: string | null;
-  "current_state"?: string | null;
+  "session_id": string | null;
+  "starts_at": string | null;
+  "ended_at": string | null;
+  "current_state": string | null;
   "is_done": boolean;
 }
 export interface RoomRoomsIndexGetResponseData extends JsonObject {
@@ -431,19 +431,19 @@ export interface RoomRoomsCreatePostResponseDataRoomClients extends JsonObject {
   "id": string;
   "profile_id": string;
   "roles": string[];
-  "name"?: string | null;
-  "token"?: string | null;
+  "name": string | null;
+  "token": string | null;
   "status": number;
-  "muted_until"?: string | null;
-  "muted_by"?: string | null;
+  "muted_until": string | null;
+  "muted_by": string | null;
 }
 export interface RoomRoomsCreatePostResponseDataRoomCurrentStateClientResponses extends JsonObject {
   "id": string;
   "client_id": string;
   "room_state_id": string;
-  "validated"?: boolean | null;
+  "validated": boolean | null;
   "created_at": string;
-  "validated_at"?: string | null;
+  "validated_at": string | null;
 }
 export interface RoomRoomsCreatePostResponseDataRoomCurrentStateDataGameHintVideo extends JsonObject {
   "id": number;
@@ -453,9 +453,9 @@ export interface RoomRoomsCreatePostResponseDataRoomCurrentStateDataGame extends
   "id": string;
   "game_id": string;
   "duration": number;
-  "hint_text"?: string | null;
-  "hint_image"?: string | null;
-  "hint_video"?: RoomRoomsCreatePostResponseDataRoomCurrentStateDataGameHintVideo | null;
+  "hint_text": string | null;
+  "hint_image": string | null;
+  "hint_video": RoomRoomsCreatePostResponseDataRoomCurrentStateDataGameHintVideo | null;
 }
 export interface RoomRoomsCreatePostResponseDataRoomCurrentStateDataQuestionVideo extends JsonObject {
   "id": number;
@@ -472,13 +472,13 @@ export interface RoomRoomsCreatePostResponseDataRoomCurrentStateDataQuestionOpti
 export interface RoomRoomsCreatePostResponseDataRoomCurrentStateDataQuestion extends JsonObject {
   "id": string;
   "duration": number;
-  "text"?: string | null;
-  "hint_text"?: string | null;
-  "image"?: string | null;
-  "hint_image"?: string | null;
-  "video"?: RoomRoomsCreatePostResponseDataRoomCurrentStateDataQuestionVideo | null;
-  "hint_video"?: RoomRoomsCreatePostResponseDataRoomCurrentStateDataQuestionHintVideo | null;
-  "options"?: RoomRoomsCreatePostResponseDataRoomCurrentStateDataQuestionOptions[] | null;
+  "text": string | null;
+  "hint_text": string | null;
+  "image": string | null;
+  "hint_image": string | null;
+  "video": RoomRoomsCreatePostResponseDataRoomCurrentStateDataQuestionVideo | null;
+  "hint_video": RoomRoomsCreatePostResponseDataRoomCurrentStateDataQuestionHintVideo | null;
+  "options": RoomRoomsCreatePostResponseDataRoomCurrentStateDataQuestionOptions[] | null;
 }
 export interface RoomRoomsCreatePostResponseDataRoomCurrentStateDataTaskVideo extends JsonObject {
   "id": number;
@@ -491,12 +491,12 @@ export interface RoomRoomsCreatePostResponseDataRoomCurrentStateDataTaskHintVide
 export interface RoomRoomsCreatePostResponseDataRoomCurrentStateDataTask extends JsonObject {
   "id": string;
   "duration": number;
-  "text"?: string | null;
-  "hint_text"?: string | null;
-  "image"?: string | null;
-  "hint_image"?: string | null;
-  "video"?: RoomRoomsCreatePostResponseDataRoomCurrentStateDataTaskVideo | null;
-  "hint_video"?: RoomRoomsCreatePostResponseDataRoomCurrentStateDataTaskHintVideo | null;
+  "text": string | null;
+  "hint_text": string | null;
+  "image": string | null;
+  "hint_image": string | null;
+  "video": RoomRoomsCreatePostResponseDataRoomCurrentStateDataTaskVideo | null;
+  "hint_video": RoomRoomsCreatePostResponseDataRoomCurrentStateDataTaskHintVideo | null;
 }
 export interface RoomRoomsCreatePostResponseDataRoomCurrentStateDataInteractiveVideo extends JsonObject {
   "id": number;
@@ -505,7 +505,7 @@ export interface RoomRoomsCreatePostResponseDataRoomCurrentStateDataInteractiveV
 export interface RoomRoomsCreatePostResponseDataRoomCurrentStateDataInteractive extends JsonObject {
   "id": string;
   "duration": number;
-  "video"?: RoomRoomsCreatePostResponseDataRoomCurrentStateDataInteractiveVideo | null;
+  "video": RoomRoomsCreatePostResponseDataRoomCurrentStateDataInteractiveVideo | null;
 }
 export type RoomRoomsCreatePostResponseDataRoomCurrentStateDataValidationType = "Equality" | "AssistantPrompt";
 export interface RoomRoomsCreatePostResponseDataRoomCurrentStateDataValidation extends JsonObject {
@@ -516,14 +516,14 @@ export interface RoomRoomsCreatePostResponseDataRoomCurrentStateDataRewards exte
   "on_complete": string;
 }
 export interface RoomRoomsCreatePostResponseDataRoomCurrentStateData extends JsonObject {
-  "game"?: RoomRoomsCreatePostResponseDataRoomCurrentStateDataGame | null;
-  "question"?: RoomRoomsCreatePostResponseDataRoomCurrentStateDataQuestion | null;
-  "task"?: RoomRoomsCreatePostResponseDataRoomCurrentStateDataTask | null;
-  "interactive"?: RoomRoomsCreatePostResponseDataRoomCurrentStateDataInteractive | null;
-  "validation"?: RoomRoomsCreatePostResponseDataRoomCurrentStateDataValidation[] | null;
-  "rewards"?: RoomRoomsCreatePostResponseDataRoomCurrentStateDataRewards | null;
-  "content_id"?: string | null;
-  "composition"?: JsonValue | null;
+  "game": RoomRoomsCreatePostResponseDataRoomCurrentStateDataGame | null;
+  "question": RoomRoomsCreatePostResponseDataRoomCurrentStateDataQuestion | null;
+  "task": RoomRoomsCreatePostResponseDataRoomCurrentStateDataTask | null;
+  "interactive": RoomRoomsCreatePostResponseDataRoomCurrentStateDataInteractive | null;
+  "validation": RoomRoomsCreatePostResponseDataRoomCurrentStateDataValidation[] | null;
+  "rewards": RoomRoomsCreatePostResponseDataRoomCurrentStateDataRewards | null;
+  "content_id": string | null;
+  "composition": JsonValue | null;
 }
 export type RoomRoomsCreatePostResponseDataRoomCurrentStateState = "NotOpen" | "Awaiting" | "Question" | "Game" | "Task" | "Ended" | "Closed" | "Replay" | "Live" | "Interactive" | "ChargeLow";
 export interface RoomRoomsCreatePostResponseDataRoomCurrentState extends JsonObject {
@@ -531,29 +531,29 @@ export interface RoomRoomsCreatePostResponseDataRoomCurrentState extends JsonObj
   "room_id": string;
   "duration_in_seconds": number;
   "client_responses": RoomRoomsCreatePostResponseDataRoomCurrentStateClientResponses[];
-  "data"?: RoomRoomsCreatePostResponseDataRoomCurrentStateData | null;
+  "data": RoomRoomsCreatePostResponseDataRoomCurrentStateData | null;
   "state": RoomRoomsCreatePostResponseDataRoomCurrentStateState;
-  "started_at"?: string | null;
-  "ended_at"?: string | null;
+  "started_at": string | null;
+  "ended_at": string | null;
   "status": number;
 }
 export interface RoomRoomsCreatePostResponseDataRoom extends JsonObject {
   "id": string;
-  "lms_classroom_session_id"?: string | null;
+  "lms_classroom_session_id": string | null;
   "name": string;
   "capacity": number;
-  "starts_at"?: string | null;
-  "started_at"?: string | null;
-  "ended_at"?: string | null;
+  "starts_at": string | null;
+  "started_at": string | null;
+  "ended_at": string | null;
   "clients": RoomRoomsCreatePostResponseDataRoomClients[];
-  "current_state"?: RoomRoomsCreatePostResponseDataRoomCurrentState | null;
+  "current_state": RoomRoomsCreatePostResponseDataRoomCurrentState | null;
   "duration_in_seconds": number;
   "room_name": string;
   "room_channel": string;
   "server_time": string;
   "status": number;
-  "drm_mixed_media_id"?: string | null;
-  "drm_manifest_version"?: number | null;
+  "drm_mixed_media_id": string | null;
+  "drm_manifest_version": number | null;
 }
 export interface RoomRoomsCreatePostResponseData extends JsonObject {
   "room": RoomRoomsCreatePostResponseDataRoom;
@@ -566,19 +566,19 @@ export interface RoomRoomsDeleteDeleteResponseDataRoomClients extends JsonObject
   "id": string;
   "profile_id": string;
   "roles": string[];
-  "name"?: string | null;
-  "token"?: string | null;
+  "name": string | null;
+  "token": string | null;
   "status": number;
-  "muted_until"?: string | null;
-  "muted_by"?: string | null;
+  "muted_until": string | null;
+  "muted_by": string | null;
 }
 export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateClientResponses extends JsonObject {
   "id": string;
   "client_id": string;
   "room_state_id": string;
-  "validated"?: boolean | null;
+  "validated": boolean | null;
   "created_at": string;
-  "validated_at"?: string | null;
+  "validated_at": string | null;
 }
 export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataGameHintVideo extends JsonObject {
   "id": number;
@@ -588,9 +588,9 @@ export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataGame exten
   "id": string;
   "game_id": string;
   "duration": number;
-  "hint_text"?: string | null;
-  "hint_image"?: string | null;
-  "hint_video"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataGameHintVideo | null;
+  "hint_text": string | null;
+  "hint_image": string | null;
+  "hint_video": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataGameHintVideo | null;
 }
 export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataQuestionVideo extends JsonObject {
   "id": number;
@@ -607,13 +607,13 @@ export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataQuestionOp
 export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataQuestion extends JsonObject {
   "id": string;
   "duration": number;
-  "text"?: string | null;
-  "hint_text"?: string | null;
-  "image"?: string | null;
-  "hint_image"?: string | null;
-  "video"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataQuestionVideo | null;
-  "hint_video"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataQuestionHintVideo | null;
-  "options"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataQuestionOptions[] | null;
+  "text": string | null;
+  "hint_text": string | null;
+  "image": string | null;
+  "hint_image": string | null;
+  "video": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataQuestionVideo | null;
+  "hint_video": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataQuestionHintVideo | null;
+  "options": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataQuestionOptions[] | null;
 }
 export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataTaskVideo extends JsonObject {
   "id": number;
@@ -626,12 +626,12 @@ export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataTaskHintVi
 export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataTask extends JsonObject {
   "id": string;
   "duration": number;
-  "text"?: string | null;
-  "hint_text"?: string | null;
-  "image"?: string | null;
-  "hint_image"?: string | null;
-  "video"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataTaskVideo | null;
-  "hint_video"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataTaskHintVideo | null;
+  "text": string | null;
+  "hint_text": string | null;
+  "image": string | null;
+  "hint_image": string | null;
+  "video": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataTaskVideo | null;
+  "hint_video": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataTaskHintVideo | null;
 }
 export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataInteractiveVideo extends JsonObject {
   "id": number;
@@ -640,7 +640,7 @@ export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataInteractiv
 export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataInteractive extends JsonObject {
   "id": string;
   "duration": number;
-  "video"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataInteractiveVideo | null;
+  "video": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataInteractiveVideo | null;
 }
 export type RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataValidationType = "Equality" | "AssistantPrompt";
 export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataValidation extends JsonObject {
@@ -651,14 +651,14 @@ export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataRewards ex
   "on_complete": string;
 }
 export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateData extends JsonObject {
-  "game"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataGame | null;
-  "question"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataQuestion | null;
-  "task"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataTask | null;
-  "interactive"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataInteractive | null;
-  "validation"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataValidation[] | null;
-  "rewards"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataRewards | null;
-  "content_id"?: string | null;
-  "composition"?: JsonValue | null;
+  "game": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataGame | null;
+  "question": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataQuestion | null;
+  "task": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataTask | null;
+  "interactive": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataInteractive | null;
+  "validation": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataValidation[] | null;
+  "rewards": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateDataRewards | null;
+  "content_id": string | null;
+  "composition": JsonValue | null;
 }
 export type RoomRoomsDeleteDeleteResponseDataRoomCurrentStateState = "NotOpen" | "Awaiting" | "Question" | "Game" | "Task" | "Ended" | "Closed" | "Replay" | "Live" | "Interactive" | "ChargeLow";
 export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentState extends JsonObject {
@@ -666,29 +666,29 @@ export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentState extends JsonO
   "room_id": string;
   "duration_in_seconds": number;
   "client_responses": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateClientResponses[];
-  "data"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentStateData | null;
+  "data": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateData | null;
   "state": RoomRoomsDeleteDeleteResponseDataRoomCurrentStateState;
-  "started_at"?: string | null;
-  "ended_at"?: string | null;
+  "started_at": string | null;
+  "ended_at": string | null;
   "status": number;
 }
 export interface RoomRoomsDeleteDeleteResponseDataRoom extends JsonObject {
   "id": string;
-  "lms_classroom_session_id"?: string | null;
+  "lms_classroom_session_id": string | null;
   "name": string;
   "capacity": number;
-  "starts_at"?: string | null;
-  "started_at"?: string | null;
-  "ended_at"?: string | null;
+  "starts_at": string | null;
+  "started_at": string | null;
+  "ended_at": string | null;
   "clients": RoomRoomsDeleteDeleteResponseDataRoomClients[];
-  "current_state"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentState | null;
+  "current_state": RoomRoomsDeleteDeleteResponseDataRoomCurrentState | null;
   "duration_in_seconds": number;
   "room_name": string;
   "room_channel": string;
   "server_time": string;
   "status": number;
-  "drm_mixed_media_id"?: string | null;
-  "drm_manifest_version"?: number | null;
+  "drm_mixed_media_id": string | null;
+  "drm_manifest_version": number | null;
 }
 export interface RoomRoomsDeleteDeleteResponseData extends JsonObject {
   "room": RoomRoomsDeleteDeleteResponseDataRoom;
@@ -701,19 +701,19 @@ export interface RoomRoomsShowGetResponseDataRoomClients extends JsonObject {
   "id": string;
   "profile_id": string;
   "roles": string[];
-  "name"?: string | null;
-  "token"?: string | null;
+  "name": string | null;
+  "token": string | null;
   "status": number;
-  "muted_until"?: string | null;
-  "muted_by"?: string | null;
+  "muted_until": string | null;
+  "muted_by": string | null;
 }
 export interface RoomRoomsShowGetResponseDataRoomCurrentStateClientResponses extends JsonObject {
   "id": string;
   "client_id": string;
   "room_state_id": string;
-  "validated"?: boolean | null;
+  "validated": boolean | null;
   "created_at": string;
-  "validated_at"?: string | null;
+  "validated_at": string | null;
 }
 export interface RoomRoomsShowGetResponseDataRoomCurrentStateDataGameHintVideo extends JsonObject {
   "id": number;
@@ -723,9 +723,9 @@ export interface RoomRoomsShowGetResponseDataRoomCurrentStateDataGame extends Js
   "id": string;
   "game_id": string;
   "duration": number;
-  "hint_text"?: string | null;
-  "hint_image"?: string | null;
-  "hint_video"?: RoomRoomsShowGetResponseDataRoomCurrentStateDataGameHintVideo | null;
+  "hint_text": string | null;
+  "hint_image": string | null;
+  "hint_video": RoomRoomsShowGetResponseDataRoomCurrentStateDataGameHintVideo | null;
 }
 export interface RoomRoomsShowGetResponseDataRoomCurrentStateDataQuestionVideo extends JsonObject {
   "id": number;
@@ -742,13 +742,13 @@ export interface RoomRoomsShowGetResponseDataRoomCurrentStateDataQuestionOptions
 export interface RoomRoomsShowGetResponseDataRoomCurrentStateDataQuestion extends JsonObject {
   "id": string;
   "duration": number;
-  "text"?: string | null;
-  "hint_text"?: string | null;
-  "image"?: string | null;
-  "hint_image"?: string | null;
-  "video"?: RoomRoomsShowGetResponseDataRoomCurrentStateDataQuestionVideo | null;
-  "hint_video"?: RoomRoomsShowGetResponseDataRoomCurrentStateDataQuestionHintVideo | null;
-  "options"?: RoomRoomsShowGetResponseDataRoomCurrentStateDataQuestionOptions[] | null;
+  "text": string | null;
+  "hint_text": string | null;
+  "image": string | null;
+  "hint_image": string | null;
+  "video": RoomRoomsShowGetResponseDataRoomCurrentStateDataQuestionVideo | null;
+  "hint_video": RoomRoomsShowGetResponseDataRoomCurrentStateDataQuestionHintVideo | null;
+  "options": RoomRoomsShowGetResponseDataRoomCurrentStateDataQuestionOptions[] | null;
 }
 export interface RoomRoomsShowGetResponseDataRoomCurrentStateDataTaskVideo extends JsonObject {
   "id": number;
@@ -761,12 +761,12 @@ export interface RoomRoomsShowGetResponseDataRoomCurrentStateDataTaskHintVideo e
 export interface RoomRoomsShowGetResponseDataRoomCurrentStateDataTask extends JsonObject {
   "id": string;
   "duration": number;
-  "text"?: string | null;
-  "hint_text"?: string | null;
-  "image"?: string | null;
-  "hint_image"?: string | null;
-  "video"?: RoomRoomsShowGetResponseDataRoomCurrentStateDataTaskVideo | null;
-  "hint_video"?: RoomRoomsShowGetResponseDataRoomCurrentStateDataTaskHintVideo | null;
+  "text": string | null;
+  "hint_text": string | null;
+  "image": string | null;
+  "hint_image": string | null;
+  "video": RoomRoomsShowGetResponseDataRoomCurrentStateDataTaskVideo | null;
+  "hint_video": RoomRoomsShowGetResponseDataRoomCurrentStateDataTaskHintVideo | null;
 }
 export interface RoomRoomsShowGetResponseDataRoomCurrentStateDataInteractiveVideo extends JsonObject {
   "id": number;
@@ -775,7 +775,7 @@ export interface RoomRoomsShowGetResponseDataRoomCurrentStateDataInteractiveVide
 export interface RoomRoomsShowGetResponseDataRoomCurrentStateDataInteractive extends JsonObject {
   "id": string;
   "duration": number;
-  "video"?: RoomRoomsShowGetResponseDataRoomCurrentStateDataInteractiveVideo | null;
+  "video": RoomRoomsShowGetResponseDataRoomCurrentStateDataInteractiveVideo | null;
 }
 export type RoomRoomsShowGetResponseDataRoomCurrentStateDataValidationType = "Equality" | "AssistantPrompt";
 export interface RoomRoomsShowGetResponseDataRoomCurrentStateDataValidation extends JsonObject {
@@ -786,14 +786,14 @@ export interface RoomRoomsShowGetResponseDataRoomCurrentStateDataRewards extends
   "on_complete": string;
 }
 export interface RoomRoomsShowGetResponseDataRoomCurrentStateData extends JsonObject {
-  "game"?: RoomRoomsShowGetResponseDataRoomCurrentStateDataGame | null;
-  "question"?: RoomRoomsShowGetResponseDataRoomCurrentStateDataQuestion | null;
-  "task"?: RoomRoomsShowGetResponseDataRoomCurrentStateDataTask | null;
-  "interactive"?: RoomRoomsShowGetResponseDataRoomCurrentStateDataInteractive | null;
-  "validation"?: RoomRoomsShowGetResponseDataRoomCurrentStateDataValidation[] | null;
-  "rewards"?: RoomRoomsShowGetResponseDataRoomCurrentStateDataRewards | null;
-  "content_id"?: string | null;
-  "composition"?: JsonValue | null;
+  "game": RoomRoomsShowGetResponseDataRoomCurrentStateDataGame | null;
+  "question": RoomRoomsShowGetResponseDataRoomCurrentStateDataQuestion | null;
+  "task": RoomRoomsShowGetResponseDataRoomCurrentStateDataTask | null;
+  "interactive": RoomRoomsShowGetResponseDataRoomCurrentStateDataInteractive | null;
+  "validation": RoomRoomsShowGetResponseDataRoomCurrentStateDataValidation[] | null;
+  "rewards": RoomRoomsShowGetResponseDataRoomCurrentStateDataRewards | null;
+  "content_id": string | null;
+  "composition": JsonValue | null;
 }
 export type RoomRoomsShowGetResponseDataRoomCurrentStateState = "NotOpen" | "Awaiting" | "Question" | "Game" | "Task" | "Ended" | "Closed" | "Replay" | "Live" | "Interactive" | "ChargeLow";
 export interface RoomRoomsShowGetResponseDataRoomCurrentState extends JsonObject {
@@ -801,29 +801,29 @@ export interface RoomRoomsShowGetResponseDataRoomCurrentState extends JsonObject
   "room_id": string;
   "duration_in_seconds": number;
   "client_responses": RoomRoomsShowGetResponseDataRoomCurrentStateClientResponses[];
-  "data"?: RoomRoomsShowGetResponseDataRoomCurrentStateData | null;
+  "data": RoomRoomsShowGetResponseDataRoomCurrentStateData | null;
   "state": RoomRoomsShowGetResponseDataRoomCurrentStateState;
-  "started_at"?: string | null;
-  "ended_at"?: string | null;
+  "started_at": string | null;
+  "ended_at": string | null;
   "status": number;
 }
 export interface RoomRoomsShowGetResponseDataRoom extends JsonObject {
   "id": string;
-  "lms_classroom_session_id"?: string | null;
+  "lms_classroom_session_id": string | null;
   "name": string;
   "capacity": number;
-  "starts_at"?: string | null;
-  "started_at"?: string | null;
-  "ended_at"?: string | null;
+  "starts_at": string | null;
+  "started_at": string | null;
+  "ended_at": string | null;
   "clients": RoomRoomsShowGetResponseDataRoomClients[];
-  "current_state"?: RoomRoomsShowGetResponseDataRoomCurrentState | null;
+  "current_state": RoomRoomsShowGetResponseDataRoomCurrentState | null;
   "duration_in_seconds": number;
   "room_name": string;
   "room_channel": string;
   "server_time": string;
   "status": number;
-  "drm_mixed_media_id"?: string | null;
-  "drm_manifest_version"?: number | null;
+  "drm_mixed_media_id": string | null;
+  "drm_manifest_version": number | null;
 }
 export interface RoomRoomsShowGetResponseData extends JsonObject {
   "room": RoomRoomsShowGetResponseDataRoom;
@@ -932,19 +932,19 @@ export interface RoomRoomsUpdatePatchResponseDataRoomClients extends JsonObject 
   "id": string;
   "profile_id": string;
   "roles": string[];
-  "name"?: string | null;
-  "token"?: string | null;
+  "name": string | null;
+  "token": string | null;
   "status": number;
-  "muted_until"?: string | null;
-  "muted_by"?: string | null;
+  "muted_until": string | null;
+  "muted_by": string | null;
 }
 export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateClientResponses extends JsonObject {
   "id": string;
   "client_id": string;
   "room_state_id": string;
-  "validated"?: boolean | null;
+  "validated": boolean | null;
   "created_at": string;
-  "validated_at"?: string | null;
+  "validated_at": string | null;
 }
 export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataGameHintVideo extends JsonObject {
   "id": number;
@@ -954,9 +954,9 @@ export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataGame extend
   "id": string;
   "game_id": string;
   "duration": number;
-  "hint_text"?: string | null;
-  "hint_image"?: string | null;
-  "hint_video"?: RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataGameHintVideo | null;
+  "hint_text": string | null;
+  "hint_image": string | null;
+  "hint_video": RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataGameHintVideo | null;
 }
 export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataQuestionVideo extends JsonObject {
   "id": number;
@@ -973,13 +973,13 @@ export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataQuestionOpt
 export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataQuestion extends JsonObject {
   "id": string;
   "duration": number;
-  "text"?: string | null;
-  "hint_text"?: string | null;
-  "image"?: string | null;
-  "hint_image"?: string | null;
-  "video"?: RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataQuestionVideo | null;
-  "hint_video"?: RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataQuestionHintVideo | null;
-  "options"?: RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataQuestionOptions[] | null;
+  "text": string | null;
+  "hint_text": string | null;
+  "image": string | null;
+  "hint_image": string | null;
+  "video": RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataQuestionVideo | null;
+  "hint_video": RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataQuestionHintVideo | null;
+  "options": RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataQuestionOptions[] | null;
 }
 export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataTaskVideo extends JsonObject {
   "id": number;
@@ -992,12 +992,12 @@ export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataTaskHintVid
 export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataTask extends JsonObject {
   "id": string;
   "duration": number;
-  "text"?: string | null;
-  "hint_text"?: string | null;
-  "image"?: string | null;
-  "hint_image"?: string | null;
-  "video"?: RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataTaskVideo | null;
-  "hint_video"?: RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataTaskHintVideo | null;
+  "text": string | null;
+  "hint_text": string | null;
+  "image": string | null;
+  "hint_image": string | null;
+  "video": RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataTaskVideo | null;
+  "hint_video": RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataTaskHintVideo | null;
 }
 export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataInteractiveVideo extends JsonObject {
   "id": number;
@@ -1006,7 +1006,7 @@ export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataInteractive
 export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataInteractive extends JsonObject {
   "id": string;
   "duration": number;
-  "video"?: RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataInteractiveVideo | null;
+  "video": RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataInteractiveVideo | null;
 }
 export type RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataValidationType = "Equality" | "AssistantPrompt";
 export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataValidation extends JsonObject {
@@ -1017,14 +1017,14 @@ export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataRewards ext
   "on_complete": string;
 }
 export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateData extends JsonObject {
-  "game"?: RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataGame | null;
-  "question"?: RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataQuestion | null;
-  "task"?: RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataTask | null;
-  "interactive"?: RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataInteractive | null;
-  "validation"?: RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataValidation[] | null;
-  "rewards"?: RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataRewards | null;
-  "content_id"?: string | null;
-  "composition"?: JsonValue | null;
+  "game": RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataGame | null;
+  "question": RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataQuestion | null;
+  "task": RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataTask | null;
+  "interactive": RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataInteractive | null;
+  "validation": RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataValidation[] | null;
+  "rewards": RoomRoomsUpdatePatchResponseDataRoomCurrentStateDataRewards | null;
+  "content_id": string | null;
+  "composition": JsonValue | null;
 }
 export type RoomRoomsUpdatePatchResponseDataRoomCurrentStateState = "NotOpen" | "Awaiting" | "Question" | "Game" | "Task" | "Ended" | "Closed" | "Replay" | "Live" | "Interactive" | "ChargeLow";
 export interface RoomRoomsUpdatePatchResponseDataRoomCurrentState extends JsonObject {
@@ -1032,29 +1032,29 @@ export interface RoomRoomsUpdatePatchResponseDataRoomCurrentState extends JsonOb
   "room_id": string;
   "duration_in_seconds": number;
   "client_responses": RoomRoomsUpdatePatchResponseDataRoomCurrentStateClientResponses[];
-  "data"?: RoomRoomsUpdatePatchResponseDataRoomCurrentStateData | null;
+  "data": RoomRoomsUpdatePatchResponseDataRoomCurrentStateData | null;
   "state": RoomRoomsUpdatePatchResponseDataRoomCurrentStateState;
-  "started_at"?: string | null;
-  "ended_at"?: string | null;
+  "started_at": string | null;
+  "ended_at": string | null;
   "status": number;
 }
 export interface RoomRoomsUpdatePatchResponseDataRoom extends JsonObject {
   "id": string;
-  "lms_classroom_session_id"?: string | null;
+  "lms_classroom_session_id": string | null;
   "name": string;
   "capacity": number;
-  "starts_at"?: string | null;
-  "started_at"?: string | null;
-  "ended_at"?: string | null;
+  "starts_at": string | null;
+  "started_at": string | null;
+  "ended_at": string | null;
   "clients": RoomRoomsUpdatePatchResponseDataRoomClients[];
-  "current_state"?: RoomRoomsUpdatePatchResponseDataRoomCurrentState | null;
+  "current_state": RoomRoomsUpdatePatchResponseDataRoomCurrentState | null;
   "duration_in_seconds": number;
   "room_name": string;
   "room_channel": string;
   "server_time": string;
   "status": number;
-  "drm_mixed_media_id"?: string | null;
-  "drm_manifest_version"?: number | null;
+  "drm_mixed_media_id": string | null;
+  "drm_manifest_version": number | null;
 }
 export interface RoomRoomsUpdatePatchResponseData extends JsonObject {
   "room": RoomRoomsUpdatePatchResponseDataRoom;
@@ -1163,19 +1163,19 @@ export interface RoomRoomsUpdatePutResponseDataRoomClients extends JsonObject {
   "id": string;
   "profile_id": string;
   "roles": string[];
-  "name"?: string | null;
-  "token"?: string | null;
+  "name": string | null;
+  "token": string | null;
   "status": number;
-  "muted_until"?: string | null;
-  "muted_by"?: string | null;
+  "muted_until": string | null;
+  "muted_by": string | null;
 }
 export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateClientResponses extends JsonObject {
   "id": string;
   "client_id": string;
   "room_state_id": string;
-  "validated"?: boolean | null;
+  "validated": boolean | null;
   "created_at": string;
-  "validated_at"?: string | null;
+  "validated_at": string | null;
 }
 export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateDataGameHintVideo extends JsonObject {
   "id": number;
@@ -1185,9 +1185,9 @@ export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateDataGame extends 
   "id": string;
   "game_id": string;
   "duration": number;
-  "hint_text"?: string | null;
-  "hint_image"?: string | null;
-  "hint_video"?: RoomRoomsUpdatePutResponseDataRoomCurrentStateDataGameHintVideo | null;
+  "hint_text": string | null;
+  "hint_image": string | null;
+  "hint_video": RoomRoomsUpdatePutResponseDataRoomCurrentStateDataGameHintVideo | null;
 }
 export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateDataQuestionVideo extends JsonObject {
   "id": number;
@@ -1204,13 +1204,13 @@ export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateDataQuestionOptio
 export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateDataQuestion extends JsonObject {
   "id": string;
   "duration": number;
-  "text"?: string | null;
-  "hint_text"?: string | null;
-  "image"?: string | null;
-  "hint_image"?: string | null;
-  "video"?: RoomRoomsUpdatePutResponseDataRoomCurrentStateDataQuestionVideo | null;
-  "hint_video"?: RoomRoomsUpdatePutResponseDataRoomCurrentStateDataQuestionHintVideo | null;
-  "options"?: RoomRoomsUpdatePutResponseDataRoomCurrentStateDataQuestionOptions[] | null;
+  "text": string | null;
+  "hint_text": string | null;
+  "image": string | null;
+  "hint_image": string | null;
+  "video": RoomRoomsUpdatePutResponseDataRoomCurrentStateDataQuestionVideo | null;
+  "hint_video": RoomRoomsUpdatePutResponseDataRoomCurrentStateDataQuestionHintVideo | null;
+  "options": RoomRoomsUpdatePutResponseDataRoomCurrentStateDataQuestionOptions[] | null;
 }
 export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateDataTaskVideo extends JsonObject {
   "id": number;
@@ -1223,12 +1223,12 @@ export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateDataTaskHintVideo
 export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateDataTask extends JsonObject {
   "id": string;
   "duration": number;
-  "text"?: string | null;
-  "hint_text"?: string | null;
-  "image"?: string | null;
-  "hint_image"?: string | null;
-  "video"?: RoomRoomsUpdatePutResponseDataRoomCurrentStateDataTaskVideo | null;
-  "hint_video"?: RoomRoomsUpdatePutResponseDataRoomCurrentStateDataTaskHintVideo | null;
+  "text": string | null;
+  "hint_text": string | null;
+  "image": string | null;
+  "hint_image": string | null;
+  "video": RoomRoomsUpdatePutResponseDataRoomCurrentStateDataTaskVideo | null;
+  "hint_video": RoomRoomsUpdatePutResponseDataRoomCurrentStateDataTaskHintVideo | null;
 }
 export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateDataInteractiveVideo extends JsonObject {
   "id": number;
@@ -1237,7 +1237,7 @@ export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateDataInteractiveVi
 export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateDataInteractive extends JsonObject {
   "id": string;
   "duration": number;
-  "video"?: RoomRoomsUpdatePutResponseDataRoomCurrentStateDataInteractiveVideo | null;
+  "video": RoomRoomsUpdatePutResponseDataRoomCurrentStateDataInteractiveVideo | null;
 }
 export type RoomRoomsUpdatePutResponseDataRoomCurrentStateDataValidationType = "Equality" | "AssistantPrompt";
 export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateDataValidation extends JsonObject {
@@ -1248,14 +1248,14 @@ export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateDataRewards exten
   "on_complete": string;
 }
 export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateData extends JsonObject {
-  "game"?: RoomRoomsUpdatePutResponseDataRoomCurrentStateDataGame | null;
-  "question"?: RoomRoomsUpdatePutResponseDataRoomCurrentStateDataQuestion | null;
-  "task"?: RoomRoomsUpdatePutResponseDataRoomCurrentStateDataTask | null;
-  "interactive"?: RoomRoomsUpdatePutResponseDataRoomCurrentStateDataInteractive | null;
-  "validation"?: RoomRoomsUpdatePutResponseDataRoomCurrentStateDataValidation[] | null;
-  "rewards"?: RoomRoomsUpdatePutResponseDataRoomCurrentStateDataRewards | null;
-  "content_id"?: string | null;
-  "composition"?: JsonValue | null;
+  "game": RoomRoomsUpdatePutResponseDataRoomCurrentStateDataGame | null;
+  "question": RoomRoomsUpdatePutResponseDataRoomCurrentStateDataQuestion | null;
+  "task": RoomRoomsUpdatePutResponseDataRoomCurrentStateDataTask | null;
+  "interactive": RoomRoomsUpdatePutResponseDataRoomCurrentStateDataInteractive | null;
+  "validation": RoomRoomsUpdatePutResponseDataRoomCurrentStateDataValidation[] | null;
+  "rewards": RoomRoomsUpdatePutResponseDataRoomCurrentStateDataRewards | null;
+  "content_id": string | null;
+  "composition": JsonValue | null;
 }
 export type RoomRoomsUpdatePutResponseDataRoomCurrentStateState = "NotOpen" | "Awaiting" | "Question" | "Game" | "Task" | "Ended" | "Closed" | "Replay" | "Live" | "Interactive" | "ChargeLow";
 export interface RoomRoomsUpdatePutResponseDataRoomCurrentState extends JsonObject {
@@ -1263,29 +1263,29 @@ export interface RoomRoomsUpdatePutResponseDataRoomCurrentState extends JsonObje
   "room_id": string;
   "duration_in_seconds": number;
   "client_responses": RoomRoomsUpdatePutResponseDataRoomCurrentStateClientResponses[];
-  "data"?: RoomRoomsUpdatePutResponseDataRoomCurrentStateData | null;
+  "data": RoomRoomsUpdatePutResponseDataRoomCurrentStateData | null;
   "state": RoomRoomsUpdatePutResponseDataRoomCurrentStateState;
-  "started_at"?: string | null;
-  "ended_at"?: string | null;
+  "started_at": string | null;
+  "ended_at": string | null;
   "status": number;
 }
 export interface RoomRoomsUpdatePutResponseDataRoom extends JsonObject {
   "id": string;
-  "lms_classroom_session_id"?: string | null;
+  "lms_classroom_session_id": string | null;
   "name": string;
   "capacity": number;
-  "starts_at"?: string | null;
-  "started_at"?: string | null;
-  "ended_at"?: string | null;
+  "starts_at": string | null;
+  "started_at": string | null;
+  "ended_at": string | null;
   "clients": RoomRoomsUpdatePutResponseDataRoomClients[];
-  "current_state"?: RoomRoomsUpdatePutResponseDataRoomCurrentState | null;
+  "current_state": RoomRoomsUpdatePutResponseDataRoomCurrentState | null;
   "duration_in_seconds": number;
   "room_name": string;
   "room_channel": string;
   "server_time": string;
   "status": number;
-  "drm_mixed_media_id"?: string | null;
-  "drm_manifest_version"?: number | null;
+  "drm_mixed_media_id": string | null;
+  "drm_manifest_version": number | null;
 }
 export interface RoomRoomsUpdatePutResponseData extends JsonObject {
   "room": RoomRoomsUpdatePutResponseDataRoom;
@@ -1355,7 +1355,7 @@ export interface RoomRoomsLivekitTokenGetResponse extends ApiEnvelope<RoomRoomsL
 /** Backend response type: ParticipantMuteResponse. */
 export interface RoomRoomsSelfModerationGetResponseData extends JsonObject {
   "profile_id": string;
-  "muted_until"?: string | null;
+  "muted_until": string | null;
 }
 export interface RoomRoomsSelfModerationGetResponse extends ApiEnvelope<RoomRoomsSelfModerationGetResponseData> {
 }
@@ -1367,7 +1367,7 @@ export interface RoomRoomsParticipantMutePutInput extends JsonObject {
 /** Backend response type: ParticipantMuteResponse. */
 export interface RoomRoomsParticipantMutePutResponseData extends JsonObject {
   "profile_id": string;
-  "muted_until"?: string | null;
+  "muted_until": string | null;
 }
 export interface RoomRoomsParticipantMutePutResponse extends ApiEnvelope<RoomRoomsParticipantMutePutResponseData> {
 }
@@ -1377,19 +1377,19 @@ export interface RoomRoomsPlaybackShowGetResponseDataRoomClients extends JsonObj
   "id": string;
   "profile_id": string;
   "roles": string[];
-  "name"?: string | null;
-  "token"?: string | null;
+  "name": string | null;
+  "token": string | null;
   "status": number;
-  "muted_until"?: string | null;
-  "muted_by"?: string | null;
+  "muted_until": string | null;
+  "muted_by": string | null;
 }
 export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesClientResponses extends JsonObject {
   "id": string;
   "client_id": string;
   "room_state_id": string;
-  "validated"?: boolean | null;
+  "validated": boolean | null;
   "created_at": string;
-  "validated_at"?: string | null;
+  "validated_at": string | null;
 }
 export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesDataGameHintVideo extends JsonObject {
   "id": number;
@@ -1399,9 +1399,9 @@ export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesDataGame extends 
   "id": string;
   "game_id": string;
   "duration": number;
-  "hint_text"?: string | null;
-  "hint_image"?: string | null;
-  "hint_video"?: RoomRoomsPlaybackShowGetResponseDataRoomStatesDataGameHintVideo | null;
+  "hint_text": string | null;
+  "hint_image": string | null;
+  "hint_video": RoomRoomsPlaybackShowGetResponseDataRoomStatesDataGameHintVideo | null;
 }
 export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesDataQuestionVideo extends JsonObject {
   "id": number;
@@ -1418,13 +1418,13 @@ export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesDataQuestionOptio
 export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesDataQuestion extends JsonObject {
   "id": string;
   "duration": number;
-  "text"?: string | null;
-  "hint_text"?: string | null;
-  "image"?: string | null;
-  "hint_image"?: string | null;
-  "video"?: RoomRoomsPlaybackShowGetResponseDataRoomStatesDataQuestionVideo | null;
-  "hint_video"?: RoomRoomsPlaybackShowGetResponseDataRoomStatesDataQuestionHintVideo | null;
-  "options"?: RoomRoomsPlaybackShowGetResponseDataRoomStatesDataQuestionOptions[] | null;
+  "text": string | null;
+  "hint_text": string | null;
+  "image": string | null;
+  "hint_image": string | null;
+  "video": RoomRoomsPlaybackShowGetResponseDataRoomStatesDataQuestionVideo | null;
+  "hint_video": RoomRoomsPlaybackShowGetResponseDataRoomStatesDataQuestionHintVideo | null;
+  "options": RoomRoomsPlaybackShowGetResponseDataRoomStatesDataQuestionOptions[] | null;
 }
 export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesDataTaskVideo extends JsonObject {
   "id": number;
@@ -1437,12 +1437,12 @@ export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesDataTaskHintVideo
 export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesDataTask extends JsonObject {
   "id": string;
   "duration": number;
-  "text"?: string | null;
-  "hint_text"?: string | null;
-  "image"?: string | null;
-  "hint_image"?: string | null;
-  "video"?: RoomRoomsPlaybackShowGetResponseDataRoomStatesDataTaskVideo | null;
-  "hint_video"?: RoomRoomsPlaybackShowGetResponseDataRoomStatesDataTaskHintVideo | null;
+  "text": string | null;
+  "hint_text": string | null;
+  "image": string | null;
+  "hint_image": string | null;
+  "video": RoomRoomsPlaybackShowGetResponseDataRoomStatesDataTaskVideo | null;
+  "hint_video": RoomRoomsPlaybackShowGetResponseDataRoomStatesDataTaskHintVideo | null;
 }
 export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesDataInteractiveVideo extends JsonObject {
   "id": number;
@@ -1451,7 +1451,7 @@ export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesDataInteractiveVi
 export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesDataInteractive extends JsonObject {
   "id": string;
   "duration": number;
-  "video"?: RoomRoomsPlaybackShowGetResponseDataRoomStatesDataInteractiveVideo | null;
+  "video": RoomRoomsPlaybackShowGetResponseDataRoomStatesDataInteractiveVideo | null;
 }
 export type RoomRoomsPlaybackShowGetResponseDataRoomStatesDataValidationType = "Equality" | "AssistantPrompt";
 export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesDataValidation extends JsonObject {
@@ -1462,14 +1462,14 @@ export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesDataRewards exten
   "on_complete": string;
 }
 export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesData extends JsonObject {
-  "game"?: RoomRoomsPlaybackShowGetResponseDataRoomStatesDataGame | null;
-  "question"?: RoomRoomsPlaybackShowGetResponseDataRoomStatesDataQuestion | null;
-  "task"?: RoomRoomsPlaybackShowGetResponseDataRoomStatesDataTask | null;
-  "interactive"?: RoomRoomsPlaybackShowGetResponseDataRoomStatesDataInteractive | null;
-  "validation"?: RoomRoomsPlaybackShowGetResponseDataRoomStatesDataValidation[] | null;
-  "rewards"?: RoomRoomsPlaybackShowGetResponseDataRoomStatesDataRewards | null;
-  "content_id"?: string | null;
-  "composition"?: JsonValue | null;
+  "game": RoomRoomsPlaybackShowGetResponseDataRoomStatesDataGame | null;
+  "question": RoomRoomsPlaybackShowGetResponseDataRoomStatesDataQuestion | null;
+  "task": RoomRoomsPlaybackShowGetResponseDataRoomStatesDataTask | null;
+  "interactive": RoomRoomsPlaybackShowGetResponseDataRoomStatesDataInteractive | null;
+  "validation": RoomRoomsPlaybackShowGetResponseDataRoomStatesDataValidation[] | null;
+  "rewards": RoomRoomsPlaybackShowGetResponseDataRoomStatesDataRewards | null;
+  "content_id": string | null;
+  "composition": JsonValue | null;
 }
 export type RoomRoomsPlaybackShowGetResponseDataRoomStatesState = "NotOpen" | "Awaiting" | "Question" | "Game" | "Task" | "Ended" | "Closed" | "Replay" | "Live" | "Interactive" | "ChargeLow";
 export interface RoomRoomsPlaybackShowGetResponseDataRoomStates extends JsonObject {
@@ -1477,29 +1477,29 @@ export interface RoomRoomsPlaybackShowGetResponseDataRoomStates extends JsonObje
   "room_id": string;
   "duration_in_seconds": number;
   "client_responses": RoomRoomsPlaybackShowGetResponseDataRoomStatesClientResponses[];
-  "data"?: RoomRoomsPlaybackShowGetResponseDataRoomStatesData | null;
+  "data": RoomRoomsPlaybackShowGetResponseDataRoomStatesData | null;
   "state": RoomRoomsPlaybackShowGetResponseDataRoomStatesState;
-  "started_at"?: string | null;
-  "ended_at"?: string | null;
+  "started_at": string | null;
+  "ended_at": string | null;
   "status": number;
 }
 export interface RoomRoomsPlaybackShowGetResponseDataRoom extends JsonObject {
   "id": string;
-  "lms_classroom_session_id"?: string | null;
+  "lms_classroom_session_id": string | null;
   "name": string;
   "capacity": number;
-  "starts_at"?: string | null;
-  "started_at"?: string | null;
-  "ended_at"?: string | null;
-  "available_until"?: string | null;
+  "starts_at": string | null;
+  "started_at": string | null;
+  "ended_at": string | null;
+  "available_until": string | null;
   "clients": RoomRoomsPlaybackShowGetResponseDataRoomClients[];
   "states": RoomRoomsPlaybackShowGetResponseDataRoomStates[];
   "room_name": string;
   "room_channel": string;
   "server_time": string;
   "status": number;
-  "drm_mixed_media_id"?: string | null;
-  "drm_manifest_version"?: number | null;
+  "drm_mixed_media_id": string | null;
+  "drm_manifest_version": number | null;
 }
 export interface RoomRoomsPlaybackShowGetResponseData extends JsonObject {
   "room": RoomRoomsPlaybackShowGetResponseDataRoom;
@@ -1517,7 +1517,7 @@ export interface RoomRoomsRecordingsGetResponseDataRoom extends JsonObject {
   "status": number;
 }
 export interface RoomRoomsRecordingsGetResponseDataRecordingsAudioAnalyses extends JsonObject {
-  "profile_id"?: string | null;
+  "profile_id": string | null;
   "participant_identity": string;
   "transcript": string;
   "analysis": JsonValue;
@@ -1527,15 +1527,15 @@ export interface RoomRoomsRecordingsGetResponseDataRecordings extends JsonObject
   "name": string;
   "url": string;
   "duration": number;
-  "started_at"?: string | null;
-  "stopped_at"?: string | null;
+  "started_at": string | null;
+  "stopped_at": string | null;
   "status": string;
-  "process_at"?: string | null;
-  "completed_at"?: string | null;
-  "processing_error"?: string | null;
+  "process_at": string | null;
+  "completed_at": string | null;
+  "processing_error": string | null;
   "audio_processing": boolean;
-  "audio_model_ref"?: string | null;
-  "manifest_key"?: string | null;
+  "audio_model_ref": string | null;
+  "manifest_key": string | null;
   "audio_analyses": RoomRoomsRecordingsGetResponseDataRecordingsAudioAnalyses[];
 }
 export interface RoomRoomsRecordingsGetResponseData extends JsonObject {
@@ -1550,19 +1550,19 @@ export interface RoomRoomsStopGetResponseDataRoomClients extends JsonObject {
   "id": string;
   "profile_id": string;
   "roles": string[];
-  "name"?: string | null;
-  "token"?: string | null;
+  "name": string | null;
+  "token": string | null;
   "status": number;
-  "muted_until"?: string | null;
-  "muted_by"?: string | null;
+  "muted_until": string | null;
+  "muted_by": string | null;
 }
 export interface RoomRoomsStopGetResponseDataRoomCurrentStateClientResponses extends JsonObject {
   "id": string;
   "client_id": string;
   "room_state_id": string;
-  "validated"?: boolean | null;
+  "validated": boolean | null;
   "created_at": string;
-  "validated_at"?: string | null;
+  "validated_at": string | null;
 }
 export interface RoomRoomsStopGetResponseDataRoomCurrentStateDataGameHintVideo extends JsonObject {
   "id": number;
@@ -1572,9 +1572,9 @@ export interface RoomRoomsStopGetResponseDataRoomCurrentStateDataGame extends Js
   "id": string;
   "game_id": string;
   "duration": number;
-  "hint_text"?: string | null;
-  "hint_image"?: string | null;
-  "hint_video"?: RoomRoomsStopGetResponseDataRoomCurrentStateDataGameHintVideo | null;
+  "hint_text": string | null;
+  "hint_image": string | null;
+  "hint_video": RoomRoomsStopGetResponseDataRoomCurrentStateDataGameHintVideo | null;
 }
 export interface RoomRoomsStopGetResponseDataRoomCurrentStateDataQuestionVideo extends JsonObject {
   "id": number;
@@ -1591,13 +1591,13 @@ export interface RoomRoomsStopGetResponseDataRoomCurrentStateDataQuestionOptions
 export interface RoomRoomsStopGetResponseDataRoomCurrentStateDataQuestion extends JsonObject {
   "id": string;
   "duration": number;
-  "text"?: string | null;
-  "hint_text"?: string | null;
-  "image"?: string | null;
-  "hint_image"?: string | null;
-  "video"?: RoomRoomsStopGetResponseDataRoomCurrentStateDataQuestionVideo | null;
-  "hint_video"?: RoomRoomsStopGetResponseDataRoomCurrentStateDataQuestionHintVideo | null;
-  "options"?: RoomRoomsStopGetResponseDataRoomCurrentStateDataQuestionOptions[] | null;
+  "text": string | null;
+  "hint_text": string | null;
+  "image": string | null;
+  "hint_image": string | null;
+  "video": RoomRoomsStopGetResponseDataRoomCurrentStateDataQuestionVideo | null;
+  "hint_video": RoomRoomsStopGetResponseDataRoomCurrentStateDataQuestionHintVideo | null;
+  "options": RoomRoomsStopGetResponseDataRoomCurrentStateDataQuestionOptions[] | null;
 }
 export interface RoomRoomsStopGetResponseDataRoomCurrentStateDataTaskVideo extends JsonObject {
   "id": number;
@@ -1610,12 +1610,12 @@ export interface RoomRoomsStopGetResponseDataRoomCurrentStateDataTaskHintVideo e
 export interface RoomRoomsStopGetResponseDataRoomCurrentStateDataTask extends JsonObject {
   "id": string;
   "duration": number;
-  "text"?: string | null;
-  "hint_text"?: string | null;
-  "image"?: string | null;
-  "hint_image"?: string | null;
-  "video"?: RoomRoomsStopGetResponseDataRoomCurrentStateDataTaskVideo | null;
-  "hint_video"?: RoomRoomsStopGetResponseDataRoomCurrentStateDataTaskHintVideo | null;
+  "text": string | null;
+  "hint_text": string | null;
+  "image": string | null;
+  "hint_image": string | null;
+  "video": RoomRoomsStopGetResponseDataRoomCurrentStateDataTaskVideo | null;
+  "hint_video": RoomRoomsStopGetResponseDataRoomCurrentStateDataTaskHintVideo | null;
 }
 export interface RoomRoomsStopGetResponseDataRoomCurrentStateDataInteractiveVideo extends JsonObject {
   "id": number;
@@ -1624,7 +1624,7 @@ export interface RoomRoomsStopGetResponseDataRoomCurrentStateDataInteractiveVide
 export interface RoomRoomsStopGetResponseDataRoomCurrentStateDataInteractive extends JsonObject {
   "id": string;
   "duration": number;
-  "video"?: RoomRoomsStopGetResponseDataRoomCurrentStateDataInteractiveVideo | null;
+  "video": RoomRoomsStopGetResponseDataRoomCurrentStateDataInteractiveVideo | null;
 }
 export type RoomRoomsStopGetResponseDataRoomCurrentStateDataValidationType = "Equality" | "AssistantPrompt";
 export interface RoomRoomsStopGetResponseDataRoomCurrentStateDataValidation extends JsonObject {
@@ -1635,14 +1635,14 @@ export interface RoomRoomsStopGetResponseDataRoomCurrentStateDataRewards extends
   "on_complete": string;
 }
 export interface RoomRoomsStopGetResponseDataRoomCurrentStateData extends JsonObject {
-  "game"?: RoomRoomsStopGetResponseDataRoomCurrentStateDataGame | null;
-  "question"?: RoomRoomsStopGetResponseDataRoomCurrentStateDataQuestion | null;
-  "task"?: RoomRoomsStopGetResponseDataRoomCurrentStateDataTask | null;
-  "interactive"?: RoomRoomsStopGetResponseDataRoomCurrentStateDataInteractive | null;
-  "validation"?: RoomRoomsStopGetResponseDataRoomCurrentStateDataValidation[] | null;
-  "rewards"?: RoomRoomsStopGetResponseDataRoomCurrentStateDataRewards | null;
-  "content_id"?: string | null;
-  "composition"?: JsonValue | null;
+  "game": RoomRoomsStopGetResponseDataRoomCurrentStateDataGame | null;
+  "question": RoomRoomsStopGetResponseDataRoomCurrentStateDataQuestion | null;
+  "task": RoomRoomsStopGetResponseDataRoomCurrentStateDataTask | null;
+  "interactive": RoomRoomsStopGetResponseDataRoomCurrentStateDataInteractive | null;
+  "validation": RoomRoomsStopGetResponseDataRoomCurrentStateDataValidation[] | null;
+  "rewards": RoomRoomsStopGetResponseDataRoomCurrentStateDataRewards | null;
+  "content_id": string | null;
+  "composition": JsonValue | null;
 }
 export type RoomRoomsStopGetResponseDataRoomCurrentStateState = "NotOpen" | "Awaiting" | "Question" | "Game" | "Task" | "Ended" | "Closed" | "Replay" | "Live" | "Interactive" | "ChargeLow";
 export interface RoomRoomsStopGetResponseDataRoomCurrentState extends JsonObject {
@@ -1650,29 +1650,29 @@ export interface RoomRoomsStopGetResponseDataRoomCurrentState extends JsonObject
   "room_id": string;
   "duration_in_seconds": number;
   "client_responses": RoomRoomsStopGetResponseDataRoomCurrentStateClientResponses[];
-  "data"?: RoomRoomsStopGetResponseDataRoomCurrentStateData | null;
+  "data": RoomRoomsStopGetResponseDataRoomCurrentStateData | null;
   "state": RoomRoomsStopGetResponseDataRoomCurrentStateState;
-  "started_at"?: string | null;
-  "ended_at"?: string | null;
+  "started_at": string | null;
+  "ended_at": string | null;
   "status": number;
 }
 export interface RoomRoomsStopGetResponseDataRoom extends JsonObject {
   "id": string;
-  "lms_classroom_session_id"?: string | null;
+  "lms_classroom_session_id": string | null;
   "name": string;
   "capacity": number;
-  "starts_at"?: string | null;
-  "started_at"?: string | null;
-  "ended_at"?: string | null;
+  "starts_at": string | null;
+  "started_at": string | null;
+  "ended_at": string | null;
   "clients": RoomRoomsStopGetResponseDataRoomClients[];
-  "current_state"?: RoomRoomsStopGetResponseDataRoomCurrentState | null;
+  "current_state": RoomRoomsStopGetResponseDataRoomCurrentState | null;
   "duration_in_seconds": number;
   "room_name": string;
   "room_channel": string;
   "server_time": string;
   "status": number;
-  "drm_mixed_media_id"?: string | null;
-  "drm_manifest_version"?: number | null;
+  "drm_mixed_media_id": string | null;
+  "drm_manifest_version": number | null;
 }
 export interface RoomRoomsStopGetResponseData extends JsonObject {
   "room": RoomRoomsStopGetResponseDataRoom;

@@ -197,8 +197,8 @@ export interface RoutesCompleteAttachmentPostResponseData extends JsonObject {
   "id": string;
   "organization_id": string;
   "conversation_id": string;
-  "message_id"?: string | null;
-  "uploader_id"?: string | null;
+  "message_id": string | null;
+  "uploader_id": string | null;
   "storage_provider": string;
   "bucket": string;
   "object_key": string;
@@ -206,14 +206,14 @@ export interface RoutesCompleteAttachmentPostResponseData extends JsonObject {
   "file_name": string;
   "media_type": string;
   "byte_size": number;
-  "checksum_sha256"?: string | null;
+  "checksum_sha256": string | null;
   "status": string;
   "metadata": BackendJson<"Json">;
-  "legacy_source"?: string | null;
-  "legacy_id"?: number | null;
+  "legacy_source": string | null;
+  "legacy_id": number | null;
   "created_at": string;
   "updated_at": string;
-  "deleted_at"?: string | null;
+  "deleted_at": string | null;
 }
 export interface RoutesCompleteAttachmentPostResponse extends ApiEnvelope<RoutesCompleteAttachmentPostResponseData> {
 }
@@ -303,8 +303,8 @@ export interface RoutesCreateAttachmentPostResponseDataAttachment extends JsonOb
   "id": string;
   "organization_id": string;
   "conversation_id": string;
-  "message_id"?: string | null;
-  "uploader_id"?: string | null;
+  "message_id": string | null;
+  "uploader_id": string | null;
   "storage_provider": string;
   "bucket": string;
   "object_key": string;
@@ -312,14 +312,14 @@ export interface RoutesCreateAttachmentPostResponseDataAttachment extends JsonOb
   "file_name": string;
   "media_type": string;
   "byte_size": number;
-  "checksum_sha256"?: string | null;
+  "checksum_sha256": string | null;
   "status": string;
   "metadata": BackendJson<"Json">;
-  "legacy_source"?: string | null;
-  "legacy_id"?: number | null;
+  "legacy_source": string | null;
+  "legacy_id": number | null;
   "created_at": string;
   "updated_at": string;
-  "deleted_at"?: string | null;
+  "deleted_at": string | null;
 }
 export interface RoutesCreateAttachmentPostResponseData extends JsonObject {
   "attachment": RoutesCreateAttachmentPostResponseDataAttachment;
