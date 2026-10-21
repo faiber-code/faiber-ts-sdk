@@ -5,7 +5,7 @@
   "scope": "business",
   "purpose": {
     "en": "Scoped spatial datasets, validated geometry, maps, authorized tiles, import jobs, public places and strictly private personal places.",
-    "fa": "مجموعه‌دادهٔ مکانی محدودشده، هندسهٔ معتبر، نقشه، کاشی با کنترل دسترسی، ورود داده، مکان عمومی و مکان شخصی خصوصی."
+    "fa": "\u0645\u062c\u0645\u0648\u0639\u0647\u200c\u062f\u0627\u062f\u0647\u0654 \u0645\u06a9\u0627\u0646\u06cc \u0645\u062d\u062f\u0648\u062f\u0634\u062f\u0647\u060c \u0647\u0646\u062f\u0633\u0647\u0654 \u0645\u0639\u062a\u0628\u0631\u060c \u0646\u0642\u0634\u0647\u060c \u06a9\u0627\u0634\u06cc \u0628\u0627 \u06a9\u0646\u062a\u0631\u0644 \u062f\u0633\u062a\u0631\u0633\u06cc\u060c \u0648\u0631\u0648\u062f \u062f\u0627\u062f\u0647\u060c \u0645\u06a9\u0627\u0646 \u0639\u0645\u0648\u0645\u06cc \u0648 \u0645\u06a9\u0627\u0646 \u0634\u062e\u0635\u06cc \u062e\u0635\u0648\u0635\u06cc."
   },
   "sources": [
     "README.md",
@@ -15,7 +15,15 @@
   ],
   "inventory_source": "sdk",
   "inventory_revision": "0bc8423a51887450b928e7b372153014cd47e582",
-  "source_decision": null,
+  "source_decision": {
+    "status": "verified",
+    "revision": "0bc8423a51887450b928e7b372153014cd47e582",
+    "source_tree_checksum": "17200d38c4e85cb2aabcd6e5566e4b1638a92b37c82533dba56716e4c19e0e3c",
+    "basis": "immutable SDK source lock",
+    "reason": "All 31 inventory source files match selected Git objects. Current SDK passes all 48 operations against equivalent native runtime with real PostGIS and pinned Martin; test source differs only by cfg(test) module. This selects supported SDK source, not a deployed image.",
+    "drift_resolution": "Selected SDK source retained. Semantic changes from older canonical source and live deployment reconciliation remain pending.",
+    "deployment_status": "unverified"
+  },
   "relationship_review": null,
   "canonical_revision": "d07b4facd1f73d40a20291dde479365845ec4023",
   "sdk_source_revision": "0bc8423a51887450b928e7b372153014cd47e582",
@@ -325,7 +333,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "eacc6dc65251913464dd81070327617f019607231d1021c4153382c2a45ab138",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.health"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -387,7 +406,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "4c8bfa30884fce7397ee9bd946c6b85b7800b30b5b1472a37b3deb57db70bdf8",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.datasets"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -461,7 +491,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "65ff9b1d986821bf2d66f47eb3ecef350a6cb4d0efd29626a04c8c535422858a",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.createDataset"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -528,7 +569,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "cfb1705f1666373f64eed14b436e7364059b86dc7a0bbe9305bc00dea62ab9e6",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.dataset"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -607,7 +659,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "85ca65efb99f52f2606c9b6bc0a642ba4e03f95a69a42111156a779b8ebfb17e",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.publishDataset"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -686,7 +749,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "be20a936b8bf78acd3d9c3033d3e443e3666e5270bea52128934d7857bfdcfbe",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.features"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -783,7 +857,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "6ef0811bfe43896eda5387e87257eaddcfd041de54b5149bca6c18fe46c19f0f",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.writeFeatures"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -862,7 +947,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "162e4662fea12e343518ab89bcc03d51ff9ca9e38a6bd99c95c11cdbf689da61",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.deleteFeature"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -929,7 +1025,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "bf87eb3bbee6c3a712bcd770beca445fa9011e99ddf90ebcc8bdbba8aaf67ae8",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.datasetHistory"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -1008,7 +1115,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "8ebbcb62bb379800904e6853e93f51b20a931165daed6da11077971b3d26b021",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.publicFeatures"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -1070,7 +1188,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "82c56f98c250d4ac8e2fdb0d2c1accb9446db228989b232a00a7bb8682b7f7f2",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.maps"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -1151,7 +1280,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "d886cf23c7feaa248dfe475d64070c34e1ffc9652a12e6b47955852b85193801",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.createMap"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -1218,7 +1358,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "8a5e6c3686f219eb2849830cc08fd19e81f03d3a95f807e7dae3bfe99b77f126",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.map"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -1297,7 +1448,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "6be674bc3986678171e5ba87b1dd66462040fb37d4fbb22949e23389af2954b2",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.updateMap"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -1376,7 +1538,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "a823be82deeb584ca57c74a1bf893bd5a4ccbf7c8682621675eae9a3655013ae",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.mapStyle"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -1455,7 +1628,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "d832eea15dfd0d4f82474fab5efddae33592c30857c8837c9213a4f34214efa1",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.publishMap"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -1517,7 +1701,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "b88f82e37d195dd533110daed187ff79dcd41b084f448fa8059ef71bf731d2e8",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.publicMaps"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -1584,7 +1779,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "51ce0abf0d7a09ef7432cf558d4ca5b22928b67b8c3d4005ca10bf4ba9d5768c",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.publicMap"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -1663,7 +1869,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "cf915aa13aa864430731a4189516837517e755f715c07d93859d9d70f78cdce0",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.publicMapStyle"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -1740,7 +1957,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "d71004b30537e3f2d04ca7f574494dc125ab388026903235516ddb2e91636df3",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.publicMapFeatures"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -1807,7 +2035,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "7fe183ccd11232f625b6eafce828cae6594b9a177f8d3eb87702bffe5eeacd2a",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.tileJson"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -1869,7 +2108,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "171ec43cdc9be06e0b6cbaada6f0d485e5f10ec3c38efe8604544d2435b4cfc0",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.publicTile"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -1959,7 +2209,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "19c90d623a4b1594ca2d0d475b2150c635c24147f566c2ebac02a9232bbab21b",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.tile"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -2021,7 +2282,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "013b83116e26d7c80e7ee05a698b04be3ac6ac33c8bb8d17d755bc77ecb5e102",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.imports"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -2095,7 +2367,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "669ded9f8ea5e815ecf26474b0f438dddc245f2524c62d995f99254a027fb687",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.createImport"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -2169,7 +2452,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "fb5c26c3e2ea18b159a6d1a551be627857b9113bfb6e66c1e5a2483081b95298",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.retryImport"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -2231,7 +2525,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "8ce2aa27a7a81100275c75dc4bb9d598f5d0b24f400ff4b8b01b9c1e6f855c2c",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.personalPlaces"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -2305,7 +2610,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "57c08fe97158268a4a4e544f2412339c0afd7968933e4086bb6356a8475fb434",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.createPersonalPlace"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -2372,7 +2688,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "17a602141cf37f1491a863f3ec98ebe7c63bdccdfefe5aa3518e1e8256455d5f",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.personalPlace"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -2451,7 +2778,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "96dd9e50c1c933061e43725fd95db1d13d30c2c7f0b033900e44f3e769a52e11",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.updatePersonalPlace"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -2518,7 +2856,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "4cd5d1719255d4c636baa0d5015d3a04fe010651b87446a6ca76d93189870e83",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.deletePersonalPlace"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -2585,7 +2934,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "cbdb3f9b1c3d127dc971d86dcad9231cf9dd145dbc04eb3a448ac2be763f4879",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.me"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -2659,7 +3019,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "961cab05c48bdd89808a5eb092ac600d9d49701ff92176f35348bb0c85be3ca3",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.places"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -2733,7 +3104,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "ae7b2e27c033ce49150dcf85c0d4b6560caa7bceb13565699859ddac0f38c296",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.proposePlace"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -2800,7 +3182,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "cddbfb78fc035a96fd41218d9f2b68ae4199575f4196050efc6fa885ce40945a",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.place"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -2867,7 +3260,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "b86f47d06d2972b6b5153c28c444f49238018c76b0fdda925145a76acbf8fa09",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.savePlace"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -2934,7 +3338,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "c25f2978f1794e30a97128a45478ee993a3a673a7efcd9b07629e91d68801e2e",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.unsavePlace"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -3013,7 +3428,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "0389fd67d090362646d34bb32a5cf2ea5df0e835f589d8c626f8d4f4f6ab2125",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.reportPlace"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -3080,7 +3506,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "25c82a2177dc6dbe2075772f2a1e59f8522ebf1657575445bcce965c985a6c27",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.placeAssertion"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -3142,7 +3579,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "774e4da8bd487b695a6c5fea4cd44aa0223c44d5b4abc67cb01d7ff88384927b",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.savedPlaces"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -3204,7 +3652,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "92afb1bf89fefb51686249f9e93de3275ea1fdf4515830afdc32a268d9e3d3ff",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.contributions"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -3266,7 +3725,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "42d0832456af544babda411a7a13f2561c13ead09d00b301ee861bc95c7869af",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.outbox"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -3333,7 +3803,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "930d73e0797b9837ada1baf3fa89a1c2b38478cff06b17d289b316b24353799d",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.ackEvent"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -3400,7 +3881,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "48e2cc7c8da404fc1e14b063fd0a05b69244ef7fd34ce988189d98e3bd05c87a",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.placeReferences"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -3467,7 +3959,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "af259033a7c5d2e7e2641ea4e222d39d41af236c27d938f8da3035f84e5a92b1",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.placeHistory"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -3546,7 +4049,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "a4ff8a68cf8a39a2b8ac57ce93e00b328a5ee92794c1d01698e2faf1942f946d",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.resolveReport"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -3608,7 +4122,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "26316a3b8211ab163a70acf4cb6c2de8a3ce82bc71f388cfb7547cbfa99df665",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.moderationQueue"
       },
       "manage": {
         "status": "requires_workflow_verification"
@@ -3694,7 +4219,18 @@
         ]
       },
       "sdk": {
-        "status": "requires_wire_verification"
+        "status": "verified",
+        "source_checksum": "2be266cdb038dd1ff7b5c1cca6f57a065a7e58f577275d4ba308ba7e1cf368f9",
+        "source_refs": [
+          "packages/gis/src/operations.ts",
+          "packages/gis/src/operations.types.ts",
+          "contracts/service-capabilities/evidence/gis-finalization-20261021/business-probe.mjs"
+        ],
+        "test_evidence": [
+          "gis-current-sdk-native-martin-20261021"
+        ],
+        "package": "@faiber/faiber-gis",
+        "exported_operation": "GisApi.operations.moderatePlace"
       },
       "manage": {
         "status": "requires_workflow_verification"

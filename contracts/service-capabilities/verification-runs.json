@@ -422,7 +422,7 @@
       "working_tree_status": "?? .vscode/",
       "checkout_sha256": "f1e9b664b396cb51b5fd6b26ed0f6d32475da9687d5061ad96a8925f83f1a96f"
     },
-    "source_capture_note": "Post-test source digest matched the producer source independently fenced throughout the real Control→Version HTTP run. Core tests are not Kubernetes acceptance.",
+    "source_capture_note": "Post-test source digest matched the producer source independently fenced throughout the real Control\u2192Version HTTP run. Core tests are not Kubernetes acceptance.",
     "artifact_path": "evidence/control-core-tests.log",
     "artifact_sha256": "8f21dc5fb518c0b7b5691d2b2a93c2e5101484590381b5f2ac5a1b3cc1899aa6",
     "resolved_cargo_lock_sha256": "b32888badcab0be87f7afbd05f3eaf6ac716f678ec10a9770fe92527c8914c16",
@@ -2023,6 +2023,119 @@
       "source_protocol_http"
     ],
     "scope": "Owned real PostgreSQL/RabbitMQ and immutable standalone locked dependency closure. Filtered legacy-claim regression or full backend suite. When wire_result is present, all30 actual mounted operations are called through current compiled SDK. Gateway identities are trusted fixtures, not live JWT/namespace/IDP membership or cross-service user existence proof.",
+    "canonical_certification": false
+  },
+  "gis-current-sdk-native-martin-20261021": {
+    "kind": "real_locked_current_sdk_http_postgis_martin_contract",
+    "status": "passed",
+    "command": "cargo test --locked --offline -p infera-gis sdk_http_tests -- --include-ignored --nocapture --test-threads=1",
+    "exit_code": 0,
+    "tests_executed": 2,
+    "source_revisions": {
+      "gis": "0bc8423a51887450b928e7b372153014cd47e582"
+    },
+    "test_source_revision": "82fa0ca586a38ca71603e76f5ab1ed5dc1deca8d",
+    "sdk_revision": "f66f75b496de7fb811e7f959259da29df080d93b",
+    "source_unchanged_during_run": true,
+    "artifact_path": "evidence/gis-finalization-20261021/receipt.json",
+    "artifact_sha256": "e9ada6ec2c282abc54502e273d864c2676b167f4016ecf27271280a2277561fa",
+    "resolved_cargo_lock_artifact_path": "evidence/gis-finalization-20261021/resolved-Cargo.lock",
+    "resolved_cargo_lock_sha256": "27102baa6c3d8b8f38f846afe8c4ed0bcecb8b2ed737af04205b3d6f5bd42d2a",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/gis-finalization-20261021/business-probe.mjs",
+        "sha256": "04027229f310469e1ad95fac7cbcc445ee5e26875f8c83133d651c77e805b4d8"
+      },
+      {
+        "artifact_path": "evidence/gis-finalization-20261021/import-probe.mjs",
+        "sha256": "e4cfd7deb0b6f074e0fe990eb542c0503fadd37f2e6241923c33ee64d5eac55c"
+      },
+      {
+        "artifact_path": "evidence/gis-finalization-20261021/martin-fixture.yaml",
+        "sha256": "89cbe0d33cea299e2a9f1aa0501f83cc0fb6490f6b3bd31d4eb5db9d496488d5"
+      },
+      {
+        "artifact_path": "evidence/gis-finalization-20261021/martin.log",
+        "sha256": "261d6668f30445365b167530d9f1c9c78913f6428af7662274177a765cb23409"
+      },
+      {
+        "artifact_path": "evidence/gis-finalization-20261021/native.log",
+        "sha256": "190701420ad4fa21970bbbf44b47aaf60f7f4cb4c4333ddd12c8c98216a0fda2"
+      },
+      {
+        "artifact_path": "evidence/gis-finalization-20261021/probe.mjs",
+        "sha256": "740a27ec665a387b65f16c47b6bd7ab7bae46b35c361b206dc19661e3055e9d5"
+      },
+      {
+        "artifact_path": "evidence/gis-finalization-20261021/run.py",
+        "sha256": "acd6ee0cc3663839cbd9c7b4a05abc3f95fcd1e732a4f20a980bd14600fb7e95"
+      },
+      {
+        "artifact_path": "evidence/gis-finalization-20261021/sdk-inputs.json",
+        "sha256": "329f0d2c5a99fc5cfb39ea2bada0f41be1ed22f50fa1e5fb5829cc8b1b69701f"
+      },
+      {
+        "artifact_path": "evidence/gis-finalization-20261021/source-equivalence.json",
+        "sha256": "77b00799253d30132800b5d0ec8958c63e8fdc8b756033a6b345515238453b40"
+      }
+    ],
+    "covered_operations": {
+      "gis": [
+        "GET /api/v1/datasets",
+        "POST /api/v1/datasets",
+        "GET /api/v1/datasets/{id}",
+        "PATCH /api/v1/datasets/{id}",
+        "GET /api/v1/datasets/{id}/features",
+        "PUT /api/v1/datasets/{id}/features",
+        "PUT /api/v1/datasets/{id}/features/{feature}",
+        "GET /api/v1/datasets/{id}/history",
+        "GET /api/v1/datasets/{id}/tiles/{z}/{x}/{y}",
+        "GET /api/v1/imports",
+        "POST /api/v1/imports",
+        "POST /api/v1/imports/{id}/retry",
+        "GET /api/v1/internal/outbox",
+        "PUT /api/v1/internal/outbox/{id}/ack",
+        "GET /api/v1/maps",
+        "POST /api/v1/maps",
+        "GET /api/v1/maps/{id}",
+        "PATCH /api/v1/maps/{id}",
+        "PUT /api/v1/maps/{id}/publish",
+        "GET /api/v1/maps/{id}/style",
+        "GET /api/v1/me",
+        "GET /api/v1/me/contributions",
+        "GET /api/v1/me/saves",
+        "GET /api/v1/moderation",
+        "POST /api/v1/moderation/{id}",
+        "GET /api/v1/moderation/{id}/history",
+        "POST /api/v1/moderation/reports/{id}",
+        "GET /api/v1/my-places",
+        "POST /api/v1/my-places",
+        "DELETE /api/v1/my-places/{id}",
+        "GET /api/v1/my-places/{id}",
+        "PUT /api/v1/my-places/{id}",
+        "GET /api/v1/places",
+        "POST /api/v1/places",
+        "GET /api/v1/places/{id}",
+        "POST /api/v1/places/{id}/assertion",
+        "GET /api/v1/places/{id}/references",
+        "POST /api/v1/places/{id}/reports",
+        "DELETE /api/v1/places/{id}/save",
+        "PUT /api/v1/places/{id}/save",
+        "GET /api/v1/public/datasets/{id}/geojson",
+        "GET /api/v1/public/datasets/{id}/tilejson",
+        "GET /api/v1/public/datasets/{id}/tiles/{z}/{x}/{y}",
+        "GET /api/v1/public/maps",
+        "GET /api/v1/public/maps/{slug}",
+        "GET /api/v1/public/maps/{slug}/geojson",
+        "GET /api/v1/public/maps/{slug}/style",
+        "GET /health"
+      ]
+    },
+    "boundaries": [
+      "typescript_sdk_http",
+      "source_protocol_http"
+    ],
+    "scope": "Current compiled SDK HTTP consumer through production GIS router and full migrated owned PostGIS. Trusted BFF identity and IDP fixture remains explicit; tiles use actual pinned Martin1.16.1. Unconfigured imports/retry503 negative coverage; actual import business lease proof is separate. No deployed IDP or all-service certification.",
     "canonical_certification": false
   }
 }
