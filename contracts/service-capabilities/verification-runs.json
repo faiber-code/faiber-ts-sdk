@@ -1917,5 +1917,45 @@
       }
     ],
     "scope": "Current SDK build/type/transport/regression/generation checks. Resolves the historical LMS generated-operation mismatch and documented 1.0.0 summary operation retirement compatibility accounting only. Does not certify all LMS endpoint semantics, native lifecycle, gateway permissions or deployment."
+  },
+  "version-current-sdk-native-20261021": {
+    "kind": "real_locked_current_sdk_http_postgres_contract",
+    "status": "passed",
+    "command": "cargo --config profile.test.package.infera_version.debug=0 --config profile.test.package.infera_version.strip=\"debuginfo\" test --locked --offline --workspace -- --include-ignored --test-threads=1",
+    "exit_code": 0,
+    "tests_executed": 12,
+    "source_revisions": {
+      "version": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e",
+      "control": "e15272c1539eee4c1b183a8b2ec7e0453301d8b3"
+    },
+    "source_unchanged_during_run": true,
+    "sdk_revision": "8c3d0699eda6d4ab82ea71b7aa8326024b9225a3",
+    "artifact_path": "evidence/version-finalization-20261021/version-sdk-wire-tests.json",
+    "artifact_sha256": "f5bb116696098703b6673f5bc1e0e42525627512aa914801e2327d2f85f5aace",
+    "resolved_cargo_lock_artifact_path": "evidence/version-finalization-20261021/version-resolved-40d58b6aa969961af652f5bc8804fbdf5b58f1b211ce80d9ab7e10b1b00f2486.Cargo.lock",
+    "resolved_cargo_lock_sha256": "40d58b6aa969961af652f5bc8804fbdf5b58f1b211ce80d9ab7e10b1b00f2486",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/version-finalization-20261021/version-sdk-wire-tests.log",
+        "sha256": "099c6b52b2b5d7edb68b012f1988241b9ace62b3f36268a3f06600b463f2503e"
+      }
+    ],
+    "covered_operations": {
+      "version": [
+        "GET /health",
+        "POST /api/v1/apk/releases",
+        "GET /api/openapi.json",
+        "GET /api/v1/services",
+        "GET /api/v1/services/{service_slug}",
+        "GET /api/v1/services/{service_slug}/all",
+        "GET /api/v1/versions/{version_id}"
+      ]
+    },
+    "boundaries": [
+      "typescript_sdk_http",
+      "source_protocol_http"
+    ],
+    "scope": "Actual compiled TypeScript SDK over loopback HTTP to mounted Version service with real disposable PostgreSQL/RabbitMQ, all seven operations. Also Version workspace and Control publisher regressions. Current deployed gateway grants, canonical service merge and Manage UI acceptance remain separate gates",
+    "canonical_certification": false
   }
 }
