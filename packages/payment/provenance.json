@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-payment",
+  "version": "1.1.0",
+  "source_revisions": {
+    "payment": {
+      "directory": "infera-payment",
+      "revision": "ca2f9bbd7ea9e43a78874a2d93bbbd68e5d257c8"
+    }
+  },
+  "package_source_sha256": {
+    "packages/payment/src/contracts.types.ts": "795eb1a1a592c669223d3aaec2f663dd82689a590f71cc104b7bcde2099d19eb",
+    "packages/payment/src/index.ts": "c17b741892a6f7c76e2ed345a8f471959708ddb119ddb3670eb18ad7466887a5",
+    "packages/payment/src/operations.ts": "1ce86476d0fb15e2257618ef9b162dd0a14371895a469f998e9e93b07aa9f43d",
+    "packages/payment/src/operations.types.ts": "15db1318ff221a0af6bbcc4232a48299836b67492e46095ca1a509ca0ae6079c",
+    "packages/payment/src/types.ts": "cd9a57df50bf2e8ea26cc10fdda63908f97a66c64492710c552951483812f2ee"
+  },
+  "capability_review_sha256": "2e335010c118007dd92a4c2145fa96cde9025b1b43f8d8e43a9f26f9633fdce6",
+  "source_pin_file_sha256": "bcfd980e1db1c6498d3769a33c70ac61c46dcbba09bf01eb97c857bebf8927d6",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
+  "public_contract": {
+    "kind": "source-extracted-http",
+    "operation_count": 36,
+    "sha256": "2095768913b7d7a271eeeb27e0a60569176c753ccc2490d0a5e1e80707561f9b"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

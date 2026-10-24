@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-10-21T12:37:02.855987+00:00",
+  "version": "1.0.0",
+  "status": "sdk_package_checks_passed_full_capability_gate_blocked",
+  "package_count": 23,
+  "mounted_business_operations": 1671,
+  "runtime_tests": {
+    "passed": 581,
+    "failed": 0
+  },
+  "source_regression_tests": {
+    "passed": 14,
+    "failed": 0
+  },
+  "checks": {
+    "build": "passed",
+    "strict_public_types": "passed",
+    "source_extraction_and_generation": "passed",
+    "pack_provenance_and_contents": "passed",
+    "actual_tarball_install_exports_and_types": "passed",
+    "full_sdk_capability_audit": "blocked"
+  },
+  "published": false,
+  "limitations": [
+    "Adapter tests verify SDK transport, not execution by live backends.",
+    "Existing native evidence remains scoped to its tested revision and cases.",
+    "Full capability gate still has pending native/deployed, cross-service and platform evidence; its counts are not confirmed defect counts.",
+    "OpenAPI URL probing was not configured and is not claimed as a successful verification."
+  ],
+  "log_sha256": {
+    "types.log": "dc5ca9d48f59361fb74eb941d72b5118a91d4f912cf03896b609ad0fca9b5c0e",
+    "capability-audit.json": "9ec786b5b263ab325ce0fe96c31d2db245b5f29fb93a2e2e5c0d2c7acf7e9368",
+    "lms-generation-final.log": "36f154b546798df96c1309fb918f3ae4f19128482690bb7fce04b495592a9284",
+    "generator-tests.log": "980071924e0a035d307ddd5492fa1962c6fb25c43e262f9102a545f3314657ec",
+    "pack.log": "c969a35afe03b11a55be81315cb25dae430ab01f081e0d76dad9df01b1057a20",
+    "generation.log": "d2c4be26201317c24180a49c09ec3727207eff9389f63ec8bc1929d998e9cfdd",
+    "tests.log": "79fcc2f843b363c03a18f01bcb3c8bb9d073cfca1546a25b3c463b286219d1d2",
+    "packed-consumer-report.json": "04e3b39d375f2781b922521c29f884a0c9e8328c1f1b62a7db960ed18e8ac090",
+    "build.log": "ba1d13e113ff487ce6af907c97d1f4cb18e8476ffc52b703f0757cf0fa9f200c"
+  },
+  "package_provenance_sha256": {
+    "drm": "3b28bde40650f8d5483c85c355bd2af611464c274e11df7cb4e853c3d8b4d08f",
+    "idp": "fed4378cb5b0c9b5b8667341be97467bb77c6650e92b30ddb9fd0aa2b413da9e",
+    "core": "87031ea3f7e45abfcbc33602c0e0cd750c832af90c54f5b50afaa9e836f2302d",
+    "asset": "bd2163275450a2e25ab3f76c847843b68cf99d2caaea86a63579774218278173",
+    "chat": "d7a142e138949dc7244d6c7693dfbf2efd59bd65cc99dde291fe11db41f2e852",
+    "lms": "44d36106a869b88ae4b670b21d7bed0ec0b4cec3560cac151b8bec788905d933",
+    "payment": "d05e7a483e96096e7cf65191e70a8c9e47acf73ac0796e401ed4014ff2a1e84c",
+    "crm": "ad528df4b75786280cc82001d6a391cd2b4331c1a87564a0535fa5bde325a30f",
+    "reservation": "10153254922db7635390737db0f527a160019efea051aebc4203a5dfc05c3fbc",
+    "game": "5fd9b7011548dccdd4feb52d29c985584cd28073ff4e4bcadc27b46aba2c60aa",
+    "state": "16b1514ac6400767501f1c89eee1ef8c99b6630156253ba7d9af4366b508eff1",
+    "social": "b0af632cd15b4545c0f467ae5ed7d08244e95224582599487c27d6dc8c872ec7",
+    "messenger": "347576fc275b602e4c91d846ccdaebf47a253b615b5d98d9dc750ceaaed9a30e",
+    "profile": "7f5c0618fbb5fc5899a9a92752c481084ff150cb20a97309402a86b5042586c7",
+    "version": "d521e580b1378057f3732e43e8275e7572a7bc4d8b5040cf3e02ba25ee25dcd0",
+    "knowledge": "7e6e60dc36686a5886a8d22d9ec7089fac3b5726f2a7e2d24695545c33bb845f",
+    "sdk": "8b1743baf0b452aabea3289922d5809903d3a9b8be4432f79d992223f0df2883",
+    "task": "39c33238936e325c429305d244bb6077b999b803355c29556de1bbd16019d626",
+    "manage": "95f95228c7d8b78575cff146d42cae5a0744da26f027ad804b34d77e1170a0ec",
+    "modules": "deedea1d48b6a9575c618a2858ad699d6d6ba40cd12f35e0d22f0a2605d84db9",
+    "gis": "451739ec26cdd23b444e40503fc4e000f5e8af760935edbf844feaf0f591ef2d",
+    "session": "c24ff086232c82739e16ff89ae6c5efa8a80db74b46ffec0ec0891c6007e9d6d",
+    "flow": "58ecbd0198c6e90c73b8ef601156ede81d724d5e50a7619e6e02fa65cd8967a9"
+  },
+  "dependency_findings": {
+    "flow": "Observed local external dependency291c81a verified; production lock absent",
+    "modules": "Observed local external dependency291c81a verified; production lock lacks immutable source binding"
+  }
+}

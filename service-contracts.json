@@ -7,6 +7,7 @@
       "handler": "status_route",
       "permissions": [],
       "source": "infera-asset/src/router.rs",
+      "response": "HealthResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -18,7 +19,8 @@
       "handler": "openapi_json",
       "permissions": [],
       "source": "infera-asset/src/router.rs",
-      "responseEnvelope": "api",
+      "response": "utoipa::openapi::OpenApi",
+      "responseEnvelope": "raw",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -196,6 +198,7 @@
       ],
       "source": "infera-asset/src/sandbox_billing.rs",
       "body": "AdminProjectPricingInput",
+      "pathParam": "(Uuid, String)",
       "response": "AllocationView",
       "responseEnvelope": "api",
       "multipart": false,
@@ -271,6 +274,7 @@
         "admin:charge:read"
       ],
       "source": "infera-asset/src/trial_gifts.rs",
+      "pathParam": "(String, Uuid)",
       "responseEnvelope": "raw-response",
       "multipart": false,
       "formUrlEncoded": false
@@ -285,6 +289,7 @@
       ],
       "source": "infera-asset/src/trial_gifts.rs",
       "body": "GiftWrite",
+      "pathParam": "(String, Uuid)",
       "responseEnvelope": "raw-response",
       "multipart": false,
       "formUrlEncoded": false
@@ -298,6 +303,7 @@
         "admin:charge:update"
       ],
       "source": "infera-asset/src/trial_gifts.rs",
+      "pathParam": "(String, Uuid)",
       "responseEnvelope": "raw-response",
       "multipart": false,
       "formUrlEncoded": false
@@ -1407,6 +1413,7 @@
       "handler": "delete_permanently",
       "permissions": [],
       "source": "infera-asset/src/service_lifecycle.rs",
+      "pathParam": "(String, String)",
       "response": "APIEmptyResponse",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -1419,6 +1426,7 @@
       "handler": "pause",
       "permissions": [],
       "source": "infera-asset/src/service_lifecycle.rs",
+      "pathParam": "(String, String)",
       "response": "ServiceLifecycleView",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -1431,6 +1439,7 @@
       "handler": "remove",
       "permissions": [],
       "source": "infera-asset/src/service_lifecycle.rs",
+      "pathParam": "(String, String)",
       "response": "ServiceLifecycleView",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -1443,6 +1452,7 @@
       "handler": "resume",
       "permissions": [],
       "source": "infera-asset/src/service_lifecycle.rs",
+      "pathParam": "(String, String)",
       "response": "ServiceLifecycleView",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -1541,6 +1551,18 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "module": "router",
+      "handler": "status_route",
+      "permissions": [],
+      "source": "infera-asset/src/router.rs",
+      "response": "HealthResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     }
   ],
   "chat": [
@@ -1568,6 +1590,37 @@
       ],
       "source": "infera-chat/src/routes.rs",
       "query": "AssistantModelsQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/assistant-policy-operations/{id}",
+      "module": "routes",
+      "handler": "get_policy_operation",
+      "permissions": [
+        "assistant:manage"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/assistant-policy-operations/{id}",
+      "module": "routes",
+      "handler": "reconcile_policy_operation",
+      "permissions": [
+        "assistant:manage"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "body": "PolicyReconciliation",
+      "pathParam": "Uuid",
       "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -1958,6 +2011,7 @@
       ],
       "source": "infera-chat/src/routes.rs",
       "body": "CompleteAiRuntimeInput",
+      "pathParam": "(Uuid, Uuid)",
       "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -1989,7 +2043,7 @@
       ],
       "source": "infera-chat/src/routes.rs",
       "pathParam": "Uuid",
-      "responseEnvelope": "stream",
+      "responseEnvelope": "raw-response",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -2033,6 +2087,7 @@
         "chat:manage"
       ],
       "source": "infera-chat/src/routes.rs",
+      "pathParam": "(Uuid, Uuid)",
       "responseEnvelope": "no-content",
       "multipart": false,
       "formUrlEncoded": false
@@ -2185,6 +2240,19 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/integrations/lms/messages/{id}/notification-context",
+      "module": "human_chat",
+      "handler": "notification_context",
+      "permissions": [],
+      "source": "infera-chat/src/human_chat.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "POST",
       "path": "/api/v1/internal/memory/media",
       "module": "memory_import",
@@ -2240,6 +2308,79 @@
       "body": "Question",
       "pathParam": "Uuid",
       "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/conversations",
+      "module": "human_chat",
+      "handler": "summaries",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/human_chat.rs",
+      "query": "PageQuery",
+      "response": "ConversationPage",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/events",
+      "module": "human_chat",
+      "handler": "events",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/human_chat.rs",
+      "query": "PollQuery",
+      "response": "UserEventPage",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/realtime/auth",
+      "module": "human_chat",
+      "handler": "realtime_auth",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/human_chat.rs",
+      "body": "AuthInput",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/realtime/config",
+      "module": "human_chat",
+      "handler": "realtime_config",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/human_chat.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/unread-count",
+      "module": "human_chat",
+      "handler": "unread",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/human_chat.rs",
+      "response": "UnreadCount",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -2371,6 +2512,66 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/summary-access",
+      "module": "native_access",
+      "handler": "get_status",
+      "permissions": [
+        "chat:summary_access:manage"
+      ],
+      "source": "infera-chat/shared/infera-summary-sdk/src/native_access.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/summary-access",
+      "module": "native_access",
+      "handler": "update_policy",
+      "permissions": [
+        "chat:summary_access:manage"
+      ],
+      "source": "infera-chat/shared/infera-summary-sdk/src/native_access.rs",
+      "body": "NativePolicyUpdate",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/summary-access/revocations",
+      "module": "native_access",
+      "handler": "revoke",
+      "permissions": [
+        "chat:summary_access:manage"
+      ],
+      "source": "infera-chat/shared/infera-summary-sdk/src/native_access.rs",
+      "body": "NativeAccessRevoke",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/summary-access/revocations/{object}",
+      "module": "native_access",
+      "handler": "restore",
+      "permissions": [
+        "chat:summary_access:manage"
+      ],
+      "source": "infera-chat/shared/infera-summary-sdk/src/native_access.rs",
+      "body": "NativeAccessRestore",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/workspace-assistants",
       "module": "routes",
       "handler": "roles",
@@ -2387,10 +2588,10 @@
     {
       "method": "GET",
       "path": "/health",
-      "module": "main",
+      "module": "application",
       "handler": "health",
       "permissions": [],
-      "source": "infera-chat/src/main.rs",
+      "source": "infera-chat/src/application.rs",
       "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -2403,6 +2604,28 @@
       "path": "/",
       "module": "router",
       "handler": "status_route",
+      "permissions": [],
+      "source": "infera-crm/src/router.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "ANY",
+      "path": "/api",
+      "module": "router",
+      "handler": "api_not_found",
+      "permissions": [],
+      "source": "infera-crm/src/router.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "ANY",
+      "path": "/api/{*path}",
+      "module": "router",
+      "handler": "api_not_found",
       "permissions": [],
       "source": "infera-crm/src/router.rs",
       "responseEnvelope": "api",
@@ -2496,6 +2719,7 @@
         "crm:board:read"
       ],
       "source": "infera-crm/src/api/routes.rs",
+      "pathParam": "(String, Uuid)",
       "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -3313,6 +3537,7 @@
       ],
       "source": "infera-crm/src/api/routes.rs",
       "handlerModule": "operations",
+      "pathParam": "(Uuid, Uuid)",
       "response": "TeamMember",
       "responseEnvelope": "api",
       "multipart": false,
@@ -3651,6 +3876,7 @@
       ],
       "source": "infera-crm/src/api/routes.rs",
       "handlerModule": "operations",
+      "pathParam": "(Uuid, Uuid)",
       "response": "DeletionResult",
       "responseEnvelope": "api",
       "multipart": false,
@@ -3702,6 +3928,7 @@
       ],
       "source": "infera-crm/src/api/routes.rs",
       "handlerModule": "operations",
+      "pathParam": "(Uuid, Uuid)",
       "response": "DeletionResult",
       "responseEnvelope": "api",
       "multipart": false,
@@ -3719,6 +3946,7 @@
       ],
       "source": "infera-crm/src/api/routes.rs",
       "handlerModule": "operations",
+      "pathParam": "(Uuid, Uuid)",
       "response": "WorkflowNodeResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -3735,6 +3963,7 @@
       "source": "infera-crm/src/api/routes.rs",
       "handlerModule": "operations",
       "body": "UpdateWorkflowNodeRequest",
+      "pathParam": "(Uuid, Uuid)",
       "response": "WorkflowNodeResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -4423,6 +4652,7 @@
       ],
       "source": "infera-drm/src/router.rs",
       "handlerModule": "generic_handlers",
+      "pathParam": "(Uuid, Uuid)",
       "responseEnvelope": "no-content",
       "multipart": false,
       "formUrlEncoded": false
@@ -4438,6 +4668,7 @@
       "source": "infera-drm/src/router.rs",
       "handlerModule": "generic_handlers",
       "body": "GenericCategoryInput",
+      "pathParam": "(Uuid, Uuid)",
       "response": "content_category::Model",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -4453,6 +4684,7 @@
       ],
       "source": "infera-drm/src/router.rs",
       "handlerModule": "generic_handlers",
+      "pathParam": "(Uuid, Uuid)",
       "responseEnvelope": "no-content",
       "multipart": false,
       "formUrlEncoded": false
@@ -4467,6 +4699,7 @@
       ],
       "source": "infera-drm/src/router.rs",
       "handlerModule": "generic_handlers",
+      "pathParam": "(Uuid, Uuid)",
       "response": "media_part::Model",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -4483,6 +4716,7 @@
       "source": "infera-drm/src/router.rs",
       "handlerModule": "generic_handlers",
       "body": "ContentItemInput",
+      "pathParam": "(Uuid, Uuid)",
       "response": "media_part::Model",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -4498,6 +4732,7 @@
       ],
       "source": "infera-drm/src/router.rs",
       "handlerModule": "generic_handlers",
+      "pathParam": "(Uuid, Uuid)",
       "response": "Vec<content_item_media::Model>",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -4514,6 +4749,7 @@
       "source": "infera-drm/src/router.rs",
       "handlerModule": "generic_handlers",
       "body": "AttachmentInput",
+      "pathParam": "(Uuid, Uuid)",
       "response": "content_item_media::Model",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -5028,6 +5264,7 @@
       ],
       "source": "infera-drm/src/router.rs",
       "handlerModule": "editor_handlers",
+      "pathParam": "(Uuid, Uuid)",
       "responseEnvelope": "no-content",
       "multipart": false,
       "formUrlEncoded": false
@@ -5043,6 +5280,7 @@
       "source": "infera-drm/src/router.rs",
       "handlerModule": "editor_handlers",
       "body": "CategoryInput",
+      "pathParam": "(Uuid, Uuid)",
       "response": "content_category::Model",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -5058,6 +5296,7 @@
       ],
       "source": "infera-drm/src/router.rs",
       "handlerModule": "editor_handlers",
+      "pathParam": "(Uuid, Uuid)",
       "responseEnvelope": "no-content",
       "multipart": false,
       "formUrlEncoded": false
@@ -5072,6 +5311,7 @@
       ],
       "source": "infera-drm/src/router.rs",
       "handlerModule": "editor_handlers",
+      "pathParam": "(Uuid, Uuid)",
       "response": "media_part::Model",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -5088,6 +5328,7 @@
       "source": "infera-drm/src/router.rs",
       "handlerModule": "editor_handlers",
       "body": "PartInput",
+      "pathParam": "(Uuid, Uuid)",
       "response": "media_part::Model",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -5195,6 +5436,7 @@
       ],
       "source": "infera-drm/src/router.rs",
       "handlerModule": "drm_queue",
+      "pathParam": "(String, Uuid)",
       "response": "serde_json::Value",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -5210,6 +5452,7 @@
       ],
       "source": "infera-drm/src/router.rs",
       "handlerModule": "package_handlers",
+      "pathParam": "(Uuid, String)",
       "responseEnvelope": "raw-response",
       "multipart": false,
       "formUrlEncoded": false
@@ -5349,6 +5592,7 @@
       ],
       "source": "infera-drm/src/router.rs",
       "handlerModule": "upload_handlers",
+      "pathParam": "(Uuid, i32)",
       "response": "upload_part::Model",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -5616,12 +5860,13 @@
   "idp": [
     {
       "method": "GET",
-      "path": "/",
-      "module": "router",
-      "handler": "status_route",
+      "path": "/.well-known/openid-configuration",
+      "module": "oidc",
+      "handler": "discovery",
       "permissions": [],
-      "source": "infera-idp/src/router.rs",
-      "responseEnvelope": "api",
+      "source": "infera-idp/src/oidc.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -5632,18 +5877,7 @@
       "handler": "openapi_json",
       "permissions": [],
       "source": "infera-idp/src/router.rs",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/.well-known/openid-configuration",
-      "module": "oidc",
-      "handler": "discovery",
-      "permissions": [],
-      "source": "infera-idp/src/oidc.rs",
-      "response": "Value",
+      "response": "utoipa::openapi::OpenApi",
       "responseEnvelope": "raw",
       "multipart": false,
       "formUrlEncoded": false
@@ -5717,6 +5951,7 @@
       "handler": "roles_show",
       "permissions": [],
       "source": "infera-idp/src/acl/routes.rs",
+      "pathParam": "(Uuid)",
       "response": "RoleSingleResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -5730,6 +5965,7 @@
       "permissions": [],
       "source": "infera-idp/src/acl/routes.rs",
       "body": "UpdateRole",
+      "pathParam": "(Uuid)",
       "response": "RoleSingleResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -5743,7 +5979,49 @@
       "permissions": [],
       "source": "infera-idp/src/acl/routes.rs",
       "body": "UpdateRole",
+      "pathParam": "(Uuid)",
       "response": "RoleSingleResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/acl/roles/{role_id}/permission-grants",
+      "module": "acl",
+      "handler": "read",
+      "permissions": [],
+      "source": "infera-idp/src/acl/permission_grants.rs",
+      "pathParam": "Uuid",
+      "response": "RoleGrantSnapshot",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/acl/roles/{role_id}/permission-grants",
+      "module": "acl",
+      "handler": "change",
+      "permissions": [],
+      "source": "infera-idp/src/acl/permission_grants.rs",
+      "body": "RoleGrantDelta",
+      "pathParam": "Uuid",
+      "response": "RoleGrantSnapshot",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/acl/users/{user_id}/effective-permissions",
+      "module": "effective_permissions",
+      "handler": "read",
+      "permissions": [],
+      "source": "infera-idp/src/effective_permissions.rs",
+      "query": "EffectivePermissionQuery",
+      "pathParam": "Uuid",
+      "response": "EffectivePermissionSnapshot",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -6047,11 +6325,12 @@
     },
     {
       "method": "POST",
-      "path": "/api/v1/auth/secure/generate/one-time",
+      "path": "/api/v1/auth/secure/generate/one-time/{user_id}",
       "module": "auth",
       "handler": "generate_secure_one_time_token_route",
       "permissions": [],
       "source": "infera-idp/src/auth/routes.rs",
+      "pathParam": "(Uuid)",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -6118,6 +6397,17 @@
       "formUrlEncoded": false
     },
     {
+      "method": "OPTIONS",
+      "path": "/api/v1/auth/validate",
+      "module": "auth",
+      "handler": "validate",
+      "permissions": [],
+      "source": "infera-idp/src/auth/routes.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "POST",
       "path": "/api/v1/auth/web-login",
       "module": "auth",
@@ -6139,138 +6429,6 @@
       "body": "EnrollmentInput",
       "response": "EnrollmentView",
       "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/integration/flow",
-      "module": "integration",
-      "handler": "flow_integration_show",
-      "permissions": [],
-      "source": "infera-idp/src/integration/routes.rs",
-      "response": "infera_flow_sdk::FlowIntegrationResponse",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/oauth2/authorize",
-      "module": "oidc",
-      "handler": "authorize",
-      "permissions": [],
-      "source": "infera-idp/src/oidc.rs",
-      "query": "AuthorizeQuery",
-      "responseEnvelope": "redirect",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/oauth2/backchannel-logout",
-      "module": "oidc",
-      "handler": "backchannel_logout",
-      "permissions": [],
-      "source": "infera-idp/src/oidc.rs",
-      "body": "BackchannelLogoutForm",
-      "responseEnvelope": "no-content",
-      "multipart": false,
-      "formUrlEncoded": true
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/oauth2/introspect",
-      "module": "oidc",
-      "handler": "introspect",
-      "permissions": [],
-      "source": "infera-idp/src/oidc.rs",
-      "body": "TokenOnly",
-      "response": "Value",
-      "responseEnvelope": "raw",
-      "multipart": false,
-      "formUrlEncoded": true
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/oauth2/jwks",
-      "module": "oidc",
-      "handler": "jwks",
-      "permissions": [],
-      "source": "infera-idp/src/oidc.rs",
-      "response": "Value",
-      "responseEnvelope": "raw",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/oauth2/logout",
-      "module": "oidc",
-      "handler": "logout",
-      "permissions": [],
-      "source": "infera-idp/src/oidc.rs",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/oauth2/logout",
-      "module": "oidc",
-      "handler": "logout",
-      "permissions": [],
-      "source": "infera-idp/src/oidc.rs",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/oauth2/revoke",
-      "module": "oidc",
-      "handler": "revoke",
-      "permissions": [],
-      "source": "infera-idp/src/oidc.rs",
-      "body": "TokenOnly",
-      "responseEnvelope": "no-content",
-      "multipart": false,
-      "formUrlEncoded": true
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/oauth2/token",
-      "module": "oidc",
-      "handler": "token",
-      "permissions": [],
-      "source": "infera-idp/src/oidc.rs",
-      "body": "TokenForm",
-      "response": "TokenResponse",
-      "responseEnvelope": "raw",
-      "multipart": false,
-      "formUrlEncoded": true
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/oauth2/userinfo",
-      "module": "oidc",
-      "handler": "userinfo",
-      "permissions": [],
-      "source": "infera-idp/src/oidc.rs",
-      "response": "Value",
-      "responseEnvelope": "raw",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/oauth2/userinfo",
-      "module": "oidc",
-      "handler": "userinfo",
-      "permissions": [],
-      "source": "infera-idp/src/oidc.rs",
-      "response": "Value",
-      "responseEnvelope": "raw",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -6624,6 +6782,7 @@
       "handler": "user_delete",
       "permissions": [],
       "source": "infera-idp/src/user/routes.rs",
+      "pathParam": "(Uuid)",
       "response": "UserResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -6636,6 +6795,7 @@
       "handler": "user_find",
       "permissions": [],
       "source": "infera-idp/src/user/routes.rs",
+      "pathParam": "(Uuid)",
       "response": "UserResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -6649,6 +6809,7 @@
       "permissions": [],
       "source": "infera-idp/src/user/routes.rs",
       "body": "UpdateUser",
+      "pathParam": "(Uuid)",
       "response": "UserResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -6662,6 +6823,7 @@
       "permissions": [],
       "source": "infera-idp/src/user/routes.rs",
       "body": "UpdateUser",
+      "pathParam": "(Uuid)",
       "response": "UserResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -6675,6 +6837,7 @@
       "permissions": [],
       "source": "infera-idp/src/user/routes.rs",
       "body": "UpdateUserPassword",
+      "pathParam": "(Uuid)",
       "response": "UserResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -6688,6 +6851,7 @@
       "permissions": [],
       "source": "infera-idp/src/user/routes.rs",
       "body": "UpdateUserPassword",
+      "pathParam": "(Uuid)",
       "response": "UserResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -6701,6 +6865,7 @@
       "permissions": [],
       "source": "infera-idp/src/user/routes.rs",
       "body": "UpdateUserRoles",
+      "pathParam": "(Uuid)",
       "response": "UserResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -6714,6 +6879,7 @@
       "permissions": [],
       "source": "infera-idp/src/user/routes.rs",
       "body": "UpdateUserRoles",
+      "pathParam": "(Uuid)",
       "response": "UserResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -6726,7 +6892,37 @@
       "handler": "user_logout",
       "permissions": [],
       "source": "infera-idp/src/user/routes.rs",
+      "pathParam": "(Uuid)",
       "response": "UserResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/users/{user_id}/role-memberships",
+      "module": "user",
+      "handler": "read",
+      "permissions": [],
+      "source": "infera-idp/src/user/routes.rs",
+      "handlerModule": "memberships",
+      "pathParam": "Uuid",
+      "response": "UserRoleMembershipSnapshot",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/users/{user_id}/role-memberships",
+      "module": "user",
+      "handler": "add",
+      "permissions": [],
+      "source": "infera-idp/src/user/routes.rs",
+      "handlerModule": "memberships",
+      "body": "AddUserRoleMemberships",
+      "pathParam": "Uuid",
+      "response": "AddUserRoleMembershipsResult",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -6739,6 +6935,7 @@
       "permissions": [],
       "source": "infera-idp/src/user/routes.rs",
       "body": "UpdateUserStatus",
+      "pathParam": "(Uuid)",
       "response": "UserResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -6752,6 +6949,7 @@
       "permissions": [],
       "source": "infera-idp/src/user/routes.rs",
       "body": "UpdateUserStatus",
+      "pathParam": "(Uuid)",
       "response": "UserResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -6897,6 +7095,150 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "module": "router",
+      "handler": "status_route",
+      "permissions": [],
+      "source": "infera-idp/src/router.rs",
+      "response": "HealthResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/integration/flow",
+      "module": "integration",
+      "handler": "flow_integration_show",
+      "permissions": [],
+      "source": "infera-idp/src/integration/routes.rs",
+      "response": "infera_flow_sdk::FlowIntegrationResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/oauth2/authorize",
+      "module": "oidc",
+      "handler": "authorize",
+      "permissions": [],
+      "source": "infera-idp/src/oidc.rs",
+      "query": "AuthorizeQuery",
+      "responseEnvelope": "redirect",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/oauth2/backchannel-logout",
+      "module": "oidc",
+      "handler": "backchannel_logout",
+      "permissions": [],
+      "source": "infera-idp/src/oidc.rs",
+      "body": "BackchannelLogoutForm",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": true
+    },
+    {
+      "method": "POST",
+      "path": "/oauth2/introspect",
+      "module": "oidc",
+      "handler": "introspect",
+      "permissions": [],
+      "source": "infera-idp/src/oidc.rs",
+      "body": "TokenOnly",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": true
+    },
+    {
+      "method": "GET",
+      "path": "/oauth2/jwks",
+      "module": "oidc",
+      "handler": "jwks",
+      "permissions": [],
+      "source": "infera-idp/src/oidc.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/oauth2/logout",
+      "module": "oidc",
+      "handler": "logout",
+      "permissions": [],
+      "source": "infera-idp/src/oidc.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/oauth2/logout",
+      "module": "oidc",
+      "handler": "logout",
+      "permissions": [],
+      "source": "infera-idp/src/oidc.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/oauth2/revoke",
+      "module": "oidc",
+      "handler": "revoke",
+      "permissions": [],
+      "source": "infera-idp/src/oidc.rs",
+      "body": "TokenOnly",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": true
+    },
+    {
+      "method": "POST",
+      "path": "/oauth2/token",
+      "module": "oidc",
+      "handler": "token",
+      "permissions": [],
+      "source": "infera-idp/src/oidc.rs",
+      "body": "TokenForm",
+      "response": "TokenResponse",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": true
+    },
+    {
+      "method": "GET",
+      "path": "/oauth2/userinfo",
+      "module": "oidc",
+      "handler": "userinfo",
+      "permissions": [],
+      "source": "infera-idp/src/oidc.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/oauth2/userinfo",
+      "module": "oidc",
+      "handler": "userinfo",
+      "permissions": [],
+      "source": "infera-idp/src/oidc.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
     }
   ],
   "knowledge": [
@@ -6952,7 +7294,8 @@
       "module": "platform",
       "handler": "audit_events",
       "permissions": [
-        "knowledge:read"
+        "knowledge:read",
+        "knowledge:memory:read"
       ],
       "source": "infera-knowledge/src/platform.rs",
       "response": "Value",
@@ -7420,7 +7763,7 @@
         "knowledge:read"
       ],
       "source": "infera-knowledge/src/routes.rs",
-      "query": "ListQuery",
+      "query": "RuleListQuery",
       "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -7515,6 +7858,73 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/memory-subjects/{id}",
+      "module": "platform",
+      "handler": "subject",
+      "permissions": [
+        "knowledge:memory:read"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "handlerModule": "memory_management",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/memory-subjects/{id}/audit-events",
+      "module": "platform",
+      "handler": "audits",
+      "permissions": [
+        "knowledge:memory:read"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "handlerModule": "memory_management",
+      "query": "AuditQuery",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/memory-subjects/{id}/corrections",
+      "module": "platform",
+      "handler": "correct",
+      "permissions": [
+        "knowledge:memory:write"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "handlerModule": "memory_corrections",
+      "body": "Correction",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/memory-subjects/{id}/memories",
+      "module": "platform",
+      "handler": "records",
+      "permissions": [
+        "knowledge:memory:read"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "handlerModule": "memory_management",
+      "query": "RecordsQuery",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "PUT",
       "path": "/api/v1/memory-subjects/{id}/policy",
       "module": "platform",
@@ -7536,7 +7946,24 @@
       "permissions": [],
       "source": "infera-knowledge/src/platform.rs",
       "query": "MemoryClearQuery",
+      "pathParam": "(Uuid, Uuid)",
       "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/memory-subjects/{subject_id}/memories/{memory_id}",
+      "module": "platform",
+      "handler": "record",
+      "permissions": [
+        "knowledge:memory:read"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "handlerModule": "memory_management",
+      "pathParam": "(Uuid, Uuid)",
+      "response": "Value",
+      "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -7686,6 +8113,52 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}",
+      "module": "platform",
+      "handler": "assistant_configuration_operation",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "pathParam": "(Uuid, Uuid)",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}",
+      "module": "platform",
+      "handler": "cancel_assistant_configuration_operation",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "body": "ConfigurationCancellation",
+      "pathParam": "(Uuid, Uuid)",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/runtime/assistants/{assistant_id}/configure",
+      "module": "platform",
+      "handler": "assistant_configuration_snapshot",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "PUT",
       "path": "/api/v1/runtime/assistants/{assistant_id}/configure",
       "module": "platform",
@@ -7711,6 +8184,7 @@
       ],
       "source": "infera-knowledge/src/routes.rs",
       "handlerModule": "contracts",
+      "pathParam": "(Uuid, String)",
       "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -7724,6 +8198,7 @@
       "permissions": [],
       "source": "infera-knowledge/src/platform.rs",
       "body": "AssistantQuery",
+      "pathParam": "Uuid",
       "response": "AssistantRuntimeResult",
       "responseEnvelope": "api",
       "multipart": false,
@@ -7753,6 +8228,7 @@
       "permissions": [],
       "source": "infera-knowledge/src/platform.rs",
       "body": "AssistantQuery",
+      "pathParam": "Uuid",
       "response": "AssistantRuntimeResult",
       "responseEnvelope": "api",
       "multipart": false,
@@ -7901,6 +8377,7 @@
         "knowledge:write"
       ],
       "source": "infera-knowledge/src/platform.rs",
+      "body": "SourceStateInput",
       "pathParam": "Uuid",
       "response": "Value",
       "responseEnvelope": "api",
@@ -8015,12 +8492,25 @@
   "lms": [
     {
       "method": "GET",
+      "path": "/",
+      "module": "router",
+      "handler": "status_route",
+      "permissions": [],
+      "source": "infera-lms/src/router.rs",
+      "response": "HealthResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/openapi.json",
       "module": "router",
       "handler": "openapi_json",
       "permissions": [],
       "source": "infera-lms/src/router.rs",
-      "responseEnvelope": "api",
+      "response": "utoipa::openapi::OpenApi",
+      "responseEnvelope": "raw",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -8108,6 +8598,7 @@
       "handler": "start_exam",
       "permissions": [],
       "source": "infera-lms/src/academy/routes.rs",
+      "pathParam": "(Uuid, Uuid)",
       "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -8121,6 +8612,7 @@
       "permissions": [],
       "source": "infera-lms/src/academy/routes.rs",
       "body": "CompleteRequest",
+      "pathParam": "(Uuid, Uuid)",
       "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -8256,6 +8748,21 @@
       "body": "models::UpdateCertificateTemplateRequest",
       "pathParam": "Uuid",
       "response": "models::CertificateTemplateResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/chat/contacts",
+      "module": "contacts",
+      "handler": "contacts",
+      "permissions": [
+        "lms:chat:contacts:read"
+      ],
+      "source": "infera-lms/src/notifications/contacts.rs",
+      "query": "ContactsQuery",
+      "response": "ContactPage",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -8408,6 +8915,7 @@
         "lms:classroom:update"
       ],
       "source": "infera-lms/src/classroom/routes.rs",
+      "pathParam": "(Uuid, Uuid)",
       "response": "()",
       "responseEnvelope": "api",
       "multipart": false,
@@ -8424,6 +8932,7 @@
       ],
       "source": "infera-lms/src/classroom/routes.rs",
       "body": "models::UpdateClassroomUserRequest",
+      "pathParam": "(Uuid, Uuid)",
       "response": "models::ClassroomUserResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -9026,6 +9535,7 @@
         "lms:course:delete"
       ],
       "source": "infera-lms/src/course/routes.rs",
+      "pathParam": "(Uuid, Uuid)",
       "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -9040,6 +9550,7 @@
         "lms:course:read"
       ],
       "source": "infera-lms/src/course/routes.rs",
+      "pathParam": "(Uuid, Uuid)",
       "response": "models::SessionResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -9055,6 +9566,7 @@
       ],
       "source": "infera-lms/src/course/routes.rs",
       "body": "models::UpdateSessionRequest",
+      "pathParam": "(Uuid, Uuid)",
       "response": "models::SessionResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -9473,6 +9985,7 @@
       ],
       "source": "infera-lms/src/exam/routes.rs",
       "body": "models::SaveAttemptAnswerRequest",
+      "pathParam": "(Uuid, i32)",
       "response": "models::SavedAttemptAnswerResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -9746,6 +10259,7 @@
         "lms:homework:delete"
       ],
       "source": "infera-lms/src/homework/routes.rs",
+      "pathParam": "(Uuid, Uuid)",
       "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -9760,6 +10274,7 @@
         "lms:homework:read"
       ],
       "source": "infera-lms/src/homework/routes.rs",
+      "pathParam": "(Uuid, Uuid)",
       "response": "models::QuestionResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -9775,6 +10290,7 @@
       ],
       "source": "infera-lms/src/homework/routes.rs",
       "body": "models::UpdateBankHomeworkRequest",
+      "pathParam": "(Uuid, Uuid)",
       "response": "models::QuestionResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -10096,6 +10612,19 @@
       "formUrlEncoded": false
     },
     {
+      "method": "POST",
+      "path": "/api/v1/integrations/chat/relationship",
+      "module": "notifications",
+      "handler": "relationship",
+      "permissions": [],
+      "source": "infera-lms/src/notifications/contacts.rs",
+      "body": "RelationshipRequest",
+      "response": "RelationshipResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/interactive/catalog",
       "module": "interactive",
@@ -10321,6 +10850,52 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/notification-rules",
+      "module": "mod",
+      "handler": "index",
+      "permissions": [
+        "lms:notification:settings:read"
+      ],
+      "source": "infera-lms/src/notifications/mod.rs",
+      "query": "RulesQuery",
+      "response": "Vec<NotificationRule>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/notification-rules/{key}",
+      "module": "mod",
+      "handler": "update",
+      "permissions": [
+        "lms:notification:settings:update"
+      ],
+      "source": "infera-lms/src/notifications/mod.rs",
+      "body": "UpdateRule",
+      "pathParam": "String",
+      "response": "NotificationRule",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/notification-rules/{key}/preview",
+      "module": "mod",
+      "handler": "preview",
+      "permissions": [
+        "lms:notification:settings:read"
+      ],
+      "source": "infera-lms/src/notifications/mod.rs",
+      "pathParam": "String",
+      "response": "RulePreview",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/profiles",
       "module": "profile_routes",
       "handler": "index",
@@ -10356,7 +10931,7 @@
       "handler": "public_show",
       "permissions": [],
       "source": "infera-lms/src/branding.rs",
-      "response": "Branding",
+      "response": "PublicBranding",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -10556,6 +11131,19 @@
       "handler": "status_route",
       "permissions": [],
       "source": "infera-lms/src/router.rs",
+      "response": "HealthResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/up",
+      "module": "router",
+      "handler": "status_route",
+      "permissions": [],
+      "source": "infera-lms/src/router.rs",
+      "response": "HealthResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -10805,6 +11393,21 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/notifications/me/events",
+      "module": "inbox_stream",
+      "handler": "events",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/inbox_stream.rs",
+      "query": "PollQuery",
+      "response": "EventPage",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "PATCH",
       "path": "/api/v1/notifications/me/read-all",
       "module": "notification",
@@ -10814,6 +11417,20 @@
       ],
       "source": "infera-messenger/src/notification/routes.rs",
       "response": "MarkAllReadResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/notifications/me/unread-count",
+      "module": "inbox_stream",
+      "handler": "unread",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/inbox_stream.rs",
+      "response": "UnreadCount",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -10858,6 +11475,36 @@
       ],
       "source": "infera-messenger/src/notification/routes.rs",
       "response": "RealtimeConfigResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/push/devices",
+      "module": "mobile_push",
+      "handler": "register",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/mobile_push.rs",
+      "body": "DeviceRegistration",
+      "response": "RegisteredDevice",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/push/devices/{id}",
+      "module": "mobile_push",
+      "handler": "revoke",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/mobile_push.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -11088,6 +11735,80 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/web-push/config",
+      "module": "web_push",
+      "handler": "config",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/web_push.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/web-push/deliveries/{id}",
+      "module": "web_push",
+      "handler": "delivery",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/web_push.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/web-push/subscriptions",
+      "module": "web_push",
+      "handler": "subscribe",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/web_push.rs",
+      "body": "Registration",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/web-push/subscriptions/{id}",
+      "module": "web_push",
+      "handler": "unsubscribe",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/web_push.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/web-push/subscriptions/{id}/test",
+      "module": "web_push",
+      "handler": "test_push",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/web_push.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/health",
       "module": "router",
       "handler": "status_route",
@@ -11117,6 +11838,7 @@
       "handler": "status_route",
       "permissions": [],
       "source": "infera-modules/src/router.rs",
+      "response": "HealthResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -11139,7 +11861,8 @@
       "handler": "openapi_json",
       "permissions": [],
       "source": "infera-modules/src/router.rs",
-      "responseEnvelope": "api",
+      "response": "utoipa::openapi::OpenApi",
+      "responseEnvelope": "raw",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -11150,6 +11873,7 @@
       "handler": "list_on_target",
       "permissions": [],
       "source": "infera-modules/src/access/routes.rs",
+      "pathParam": "(String, Uuid)",
       "response": "Vec<models::AccessResponseDTO>",
       "responseEnvelope": "api",
       "multipart": false,
@@ -11163,6 +11887,7 @@
       "permissions": [],
       "source": "infera-modules/src/access/routes.rs",
       "body": "models::AccessGrantRequest",
+      "pathParam": "(String, Uuid)",
       "response": "models::AccessResponseDTO",
       "responseEnvelope": "api",
       "multipart": false,
@@ -11175,6 +11900,7 @@
       "handler": "revoke_on_target",
       "permissions": [],
       "source": "infera-modules/src/access/routes.rs",
+      "pathParam": "(String, Uuid, Uuid)",
       "response": "EmptyAPIResponse",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -11188,6 +11914,7 @@
       "permissions": [],
       "source": "infera-modules/src/access/routes.rs",
       "body": "models::AccessUpdateRequest",
+      "pathParam": "(String, Uuid, Uuid)",
       "response": "models::AccessResponseDTO",
       "responseEnvelope": "api",
       "multipart": false,
@@ -11200,6 +11927,7 @@
       "handler": "list_on_target",
       "permissions": [],
       "source": "infera-modules/src/audit_log/routes.rs",
+      "pathParam": "(String, Uuid)",
       "response": "Vec<models::AuditLogResponseDTO>",
       "responseEnvelope": "api",
       "multipart": false,
@@ -11384,7 +12112,7 @@
       "handler": "list_categories",
       "permissions": [],
       "source": "infera-modules/src/category/routes.rs",
-      "query": "PaginationQuery",
+      "query": "HostedListQuery",
       "response": "models::CategoryListResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -11411,6 +12139,7 @@
       "permissions": [],
       "source": "infera-modules/src/category/routes.rs",
       "query": "models::CategoryDetachQuery",
+      "pathParam": "(String, Uuid)",
       "response": "EmptyAPIResponse",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -11423,6 +12152,7 @@
       "handler": "list_on_target",
       "permissions": [],
       "source": "infera-modules/src/category/routes.rs",
+      "pathParam": "(String, Uuid)",
       "response": "Vec<models::CategoryAttachmentDTO>",
       "responseEnvelope": "api",
       "multipart": false,
@@ -11436,6 +12166,7 @@
       "permissions": [],
       "source": "infera-modules/src/category/routes.rs",
       "body": "models::CategoryAttachRequest",
+      "pathParam": "(String, Uuid)",
       "response": "models::CategoryAttachmentDTO",
       "responseEnvelope": "api",
       "multipart": false,
@@ -11528,6 +12259,7 @@
       "handler": "list_on_target",
       "permissions": [],
       "source": "infera-modules/src/comment/routes.rs",
+      "pathParam": "(String, Uuid)",
       "response": "Vec<models::CommentAttachmentDTO>",
       "responseEnvelope": "api",
       "multipart": false,
@@ -11541,6 +12273,7 @@
       "permissions": [],
       "source": "infera-modules/src/comment/routes.rs",
       "body": "models::CommentOnTargetRequest",
+      "pathParam": "(String, Uuid)",
       "response": "models::CommentAttachmentDTO",
       "responseEnvelope": "api",
       "multipart": false,
@@ -11634,6 +12367,7 @@
       "permissions": [],
       "source": "infera-modules/src/content/routes.rs",
       "query": "models::ContentDetachQuery",
+      "pathParam": "(String, Uuid)",
       "response": "EmptyAPIResponse",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -11646,6 +12380,7 @@
       "handler": "list_on_target",
       "permissions": [],
       "source": "infera-modules/src/content/routes.rs",
+      "pathParam": "(String, Uuid)",
       "response": "Vec<models::ContentAttachmentDTO>",
       "responseEnvelope": "api",
       "multipart": false,
@@ -11659,6 +12394,7 @@
       "permissions": [],
       "source": "infera-modules/src/content/routes.rs",
       "body": "models::ContentAttachRequest",
+      "pathParam": "(String, Uuid)",
       "response": "models::ContentAttachmentDTO",
       "responseEnvelope": "api",
       "multipart": false,
@@ -11716,18 +12452,6 @@
       "query": "models::ContentUpdateQuery",
       "pathParam": "Uuid",
       "response": "models::ContentResponseDTO",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/integration/flow",
-      "module": "integration",
-      "handler": "flow_integration_show",
-      "permissions": [],
-      "source": "infera-modules/src/integration/routes.rs",
-      "response": "infera_flow_sdk::FlowIntegrationResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -12075,6 +12799,7 @@
       "handler": "restore_content_revision",
       "permissions": [],
       "source": "infera-modules/src/management_api/mod.rs",
+      "pathParam": "(Uuid, i32)",
       "responseEnvelope": "raw-response",
       "multipart": false,
       "formUrlEncoded": false
@@ -12252,6 +12977,7 @@
       "handler": "remove_episode",
       "permissions": [],
       "source": "infera-modules/src/podcast/routes.rs",
+      "pathParam": "(Uuid, Uuid)",
       "response": "EmptyAPIResponse",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -12265,6 +12991,7 @@
       "permissions": [],
       "source": "infera-modules/src/podcast/routes.rs",
       "body": "models::EpisodeUpdate",
+      "pathParam": "(Uuid, Uuid)",
       "response": "entity::podcast_episode::Model",
       "responseEnvelope": "api",
       "multipart": false,
@@ -12357,6 +13084,7 @@
       "handler": "list_public_categories",
       "permissions": [],
       "source": "infera-modules/src/content_transfer/mod.rs",
+      "pathParam": "(String, String)",
       "response": "Vec<CategoryRecord>",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -12370,6 +13098,7 @@
       "permissions": [],
       "source": "infera-modules/src/content_transfer/mod.rs",
       "query": "PublicContentQuery",
+      "pathParam": "(String, String)",
       "response": "PublicContentList",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -12382,6 +13111,7 @@
       "handler": "public_content",
       "permissions": [],
       "source": "infera-modules/src/management_api/mod.rs",
+      "pathParam": "(String, String, String)",
       "responseEnvelope": "raw-response",
       "multipart": false,
       "formUrlEncoded": false
@@ -12447,6 +13177,7 @@
       "permissions": [],
       "source": "infera-modules/src/reaction/routes.rs",
       "query": "models::ReactionDeleteQuery",
+      "pathParam": "(String, Uuid)",
       "response": "EmptyAPIResponse",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -12459,6 +13190,7 @@
       "handler": "list_on_target",
       "permissions": [],
       "source": "infera-modules/src/reaction/routes.rs",
+      "pathParam": "(String, Uuid)",
       "response": "Vec<models::ReactionResponseDTO>",
       "responseEnvelope": "api",
       "multipart": false,
@@ -12472,6 +13204,7 @@
       "permissions": [],
       "source": "infera-modules/src/reaction/routes.rs",
       "body": "models::ReactionCreateRequest",
+      "pathParam": "(String, Uuid)",
       "response": "models::ReactionResponseDTO",
       "responseEnvelope": "api",
       "multipart": false,
@@ -12511,6 +13244,7 @@
       "permissions": [],
       "source": "infera-modules/src/request/routes.rs",
       "query": "models::RequestDetachQuery",
+      "pathParam": "(String, Uuid)",
       "response": "EmptyAPIResponse",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -12523,6 +13257,7 @@
       "handler": "list_on_target",
       "permissions": [],
       "source": "infera-modules/src/request/routes.rs",
+      "pathParam": "(String, Uuid)",
       "response": "Vec<models::RequestAttachmentDTO>",
       "responseEnvelope": "api",
       "multipart": false,
@@ -12536,6 +13271,7 @@
       "permissions": [],
       "source": "infera-modules/src/request/routes.rs",
       "body": "models::RequestAttachRequest",
+      "pathParam": "(String, Uuid)",
       "response": "models::RequestAttachmentDTO",
       "responseEnvelope": "api",
       "multipart": false,
@@ -12848,7 +13584,7 @@
       "handler": "list_seo_contents",
       "permissions": [],
       "source": "infera-modules/src/seo_content/routes.rs",
-      "query": "PaginationQuery",
+      "query": "HostedListQuery",
       "response": "models::SeoContentListResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -12875,6 +13611,7 @@
       "permissions": [],
       "source": "infera-modules/src/seo_content/routes.rs",
       "query": "models::SeoContentDetachQuery",
+      "pathParam": "(String, Uuid)",
       "response": "EmptyAPIResponse",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -12887,6 +13624,7 @@
       "handler": "list_on_target",
       "permissions": [],
       "source": "infera-modules/src/seo_content/routes.rs",
+      "pathParam": "(String, Uuid)",
       "response": "Vec<models::SeoContentAttachmentDTO>",
       "responseEnvelope": "api",
       "multipart": false,
@@ -12900,6 +13638,7 @@
       "permissions": [],
       "source": "infera-modules/src/seo_content/routes.rs",
       "body": "models::SeoContentAttachRequest",
+      "pathParam": "(String, Uuid)",
       "response": "models::SeoContentAttachmentDTO",
       "responseEnvelope": "api",
       "multipart": false,
@@ -13328,7 +14067,7 @@
       "handler": "list_tags",
       "permissions": [],
       "source": "infera-modules/src/tag/routes.rs",
-      "query": "PaginationQuery",
+      "query": "HostedListQuery",
       "response": "models::TagListResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -13355,6 +14094,7 @@
       "permissions": [],
       "source": "infera-modules/src/tag/routes.rs",
       "query": "models::TagDetachQuery",
+      "pathParam": "(String, Uuid)",
       "response": "EmptyAPIResponse",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -13367,6 +14107,7 @@
       "handler": "list_on_target",
       "permissions": [],
       "source": "infera-modules/src/tag/routes.rs",
+      "pathParam": "(String, Uuid)",
       "response": "Vec<models::TagAttachmentDTO>",
       "responseEnvelope": "api",
       "multipart": false,
@@ -13380,6 +14121,7 @@
       "permissions": [],
       "source": "infera-modules/src/tag/routes.rs",
       "body": "models::TagAttachRequest",
+      "pathParam": "(String, Uuid)",
       "response": "models::TagAttachmentDTO",
       "responseEnvelope": "api",
       "multipart": false,
@@ -13438,9 +14180,45 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "module": "router",
+      "handler": "status_route",
+      "permissions": [],
+      "source": "infera-modules/src/router.rs",
+      "response": "HealthResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/integration/flow",
+      "module": "integration",
+      "handler": "flow_integration_show",
+      "permissions": [],
+      "source": "infera-modules/src/integration/routes.rs",
+      "response": "infera_flow_sdk::FlowIntegrationResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     }
   ],
   "payment": [
+    {
+      "method": "GET",
+      "path": "/",
+      "module": "router",
+      "handler": "status_route",
+      "permissions": [],
+      "source": "infera-payment/src/router.rs",
+      "response": "HealthResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
     {
       "method": "GET",
       "path": "/api/openapi.json",
@@ -13448,7 +14226,8 @@
       "handler": "openapi_json",
       "permissions": [],
       "source": "infera-payment/src/router.rs",
-      "responseEnvelope": "api",
+      "response": "utoipa::openapi::OpenApi",
+      "responseEnvelope": "raw",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -13860,6 +14639,7 @@
       "handler": "status_route",
       "permissions": [],
       "source": "infera-payment/src/router.rs",
+      "response": "HealthResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -13899,6 +14679,18 @@
       "query": "CallbackQuery",
       "pathParam": "String",
       "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/up",
+      "module": "router",
+      "handler": "status_route",
+      "permissions": [],
+      "source": "infera-payment/src/router.rs",
+      "response": "HealthResponse",
+      "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
     }
@@ -14278,57 +15070,6 @@
     },
     {
       "method": "GET",
-      "path": "/api/v1/campaign",
-      "module": "campaign",
-      "handler": "index",
-      "permissions": [],
-      "source": "infera-profile/src/campaign/routes.rs",
-      "response": "Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/campaign-profile/me/contributions",
-      "module": "campaign",
-      "handler": "my_contributions",
-      "permissions": [],
-      "source": "infera-profile/src/campaign/routes.rs",
-      "response": "Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/campaign/{id}",
-      "module": "campaign",
-      "handler": "show",
-      "permissions": [],
-      "source": "infera-profile/src/campaign/routes.rs",
-      "pathParam": "Uuid",
-      "response": "Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/campaign/{id}/contributions",
-      "module": "campaign",
-      "handler": "contribute",
-      "permissions": [],
-      "source": "infera-profile/src/campaign/routes.rs",
-      "body": "ContributionRequest",
-      "pathParam": "Uuid",
-      "response": "Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
       "path": "/api/v1/city",
       "module": "city",
       "handler": "index",
@@ -14354,36 +15095,6 @@
       "source": "infera-profile/src/city/routes.rs",
       "body": "models::Create",
       "response": "models::SingleData",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "DELETE",
-      "path": "/api/v1/city/force/{id}",
-      "module": "city",
-      "handler": "force_destroy",
-      "permissions": [
-        "city:delete"
-      ],
-      "source": "infera-profile/src/city/routes.rs",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/city/undo/{id}",
-      "module": "city",
-      "handler": "restore",
-      "permissions": [
-        "city:delete"
-      ],
-      "source": "infera-profile/src/city/routes.rs",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -14446,6 +15157,36 @@
       "body": "models::Update",
       "pathParam": "Uuid",
       "response": "models::SingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/city/force/{id}",
+      "module": "city",
+      "handler": "force_destroy",
+      "permissions": [
+        "city:delete"
+      ],
+      "source": "infera-profile/src/city/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/city/undo/{id}",
+      "module": "city",
+      "handler": "restore",
+      "permissions": [
+        "city:delete"
+      ],
+      "source": "infera-profile/src/city/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -14483,36 +15224,6 @@
     },
     {
       "method": "DELETE",
-      "path": "/api/v1/country/force/{id}",
-      "module": "country",
-      "handler": "force_destroy",
-      "permissions": [
-        "country:delete"
-      ],
-      "source": "infera-profile/src/country/routes.rs",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/country/undo/{id}",
-      "module": "country",
-      "handler": "restore",
-      "permissions": [
-        "country:delete"
-      ],
-      "source": "infera-profile/src/country/routes.rs",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "DELETE",
       "path": "/api/v1/country/{id}",
       "module": "country",
       "handler": "destroy",
@@ -14569,6 +15280,36 @@
       "body": "models::Update",
       "pathParam": "Uuid",
       "response": "models::SingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/country/force/{id}",
+      "module": "country",
+      "handler": "force_destroy",
+      "permissions": [
+        "country:delete"
+      ],
+      "source": "infera-profile/src/country/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/country/undo/{id}",
+      "module": "country",
+      "handler": "restore",
+      "permissions": [
+        "country:delete"
+      ],
+      "source": "infera-profile/src/country/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -15167,10 +15908,12 @@
     },
     {
       "method": "POST",
-      "path": "/api/v1/log-action/direct/{slug}",
+      "path": "/api/v1/log-action/{slug}",
       "module": "log_action",
-      "handler": "store_direct",
-      "permissions": [],
+      "handler": "store_slug",
+      "permissions": [
+        "log_action:create"
+      ],
       "source": "infera-profile/src/log_action/routes.rs",
       "body": "LogActionCreate",
       "pathParam": "String",
@@ -15181,12 +15924,10 @@
     },
     {
       "method": "POST",
-      "path": "/api/v1/log-action/{slug}",
+      "path": "/api/v1/log-action/direct/{slug}",
       "module": "log_action",
-      "handler": "store_slug",
-      "permissions": [
-        "log_action:create"
-      ],
+      "handler": "store_direct",
+      "permissions": [],
       "source": "infera-profile/src/log_action/routes.rs",
       "body": "LogActionCreate",
       "pathParam": "String",
@@ -15252,7 +15993,6 @@
       "module": "profile",
       "handler": "index",
       "permissions": [
-        "/api/v1/profile",
         "profile:read"
       ],
       "source": "infera-profile/src/profile/routes.rs",
@@ -15268,6 +16008,19 @@
       "path": "/api/v1/profile-media/{uuid}/avatar",
       "module": "profile",
       "handler": "avatar_show",
+      "permissions": [],
+      "source": "infera-profile/src/profile/routes.rs",
+      "query": "MediaQuery",
+      "pathParam": "Uuid",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile-media/{uuid}/images",
+      "module": "profile",
+      "handler": "image_show",
       "permissions": [],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "MediaQuery",
@@ -15303,36 +16056,6 @@
       "source": "infera-profile/src/profile_property/routes.rs",
       "body": "models::Create",
       "response": "models::SingleData",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "DELETE",
-      "path": "/api/v1/profile-property-definition/force/{id}",
-      "module": "profile_property",
-      "handler": "force_destroy",
-      "permissions": [
-        "profile_property_definition:force_delete"
-      ],
-      "source": "infera-profile/src/profile_property/routes.rs",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/profile-property-definition/undo/{id}",
-      "module": "profile_property",
-      "handler": "restore",
-      "permissions": [
-        "profile_property_definition:restore"
-      ],
-      "source": "infera-profile/src/profile_property/routes.rs",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -15395,6 +16118,36 @@
       "body": "models::Update",
       "pathParam": "Uuid",
       "response": "models::SingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/profile-property-definition/force/{id}",
+      "module": "profile_property",
+      "handler": "force_destroy",
+      "permissions": [
+        "profile_property_definition:force_delete"
+      ],
+      "source": "infera-profile/src/profile_property/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile-property-definition/undo/{id}",
+      "module": "profile_property",
+      "handler": "restore",
+      "permissions": [
+        "profile_property_definition:restore"
+      ],
+      "source": "infera-profile/src/profile_property/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -15493,16 +16246,319 @@
       "formUrlEncoded": false
     },
     {
+      "method": "DELETE",
+      "path": "/api/v1/profile/{student_uuid}/delete/parent/{parent_uuid}",
+      "module": "profile",
+      "handler": "delete_parent",
+      "permissions": [
+        "profile:update"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "pathParam": "(Uuid, Uuid)",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/profile/{uuid}",
+      "module": "profile",
+      "handler": "destroy",
+      "permissions": [
+        "profile:delete"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/{uuid}",
+      "module": "profile",
+      "handler": "show",
+      "permissions": [
+        "profile:read"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "pathParam": "Uuid",
+      "response": "models::SingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/{uuid}",
+      "module": "profile",
+      "handler": "update",
+      "permissions": [
+        "profile:update"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "body": "models::ProfilePatch",
+      "pathParam": "Uuid",
+      "response": "models::SingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/{uuid}/admin",
+      "module": "profile",
+      "handler": "show_admin",
+      "permissions": [
+        "profile:read_admin"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "pathParam": "Uuid",
+      "response": "models::SingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/profile/{uuid}/avatar",
+      "module": "profile",
+      "handler": "avatar_delete",
+      "permissions": [],
+      "source": "infera-profile/src/profile/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/{uuid}/avatar",
+      "module": "profile",
+      "handler": "avatar_show",
+      "permissions": [],
+      "source": "infera-profile/src/profile/routes.rs",
+      "query": "MediaQuery",
+      "pathParam": "Uuid",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/{uuid}/avatar",
+      "module": "profile",
+      "handler": "avatar_store",
+      "permissions": [],
+      "source": "infera-profile/src/profile/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": true,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/profile/{uuid}/delete/address/{title}",
+      "module": "profile",
+      "handler": "delete_address",
+      "permissions": [
+        "profile:update"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "pathParam": "(Uuid, String)",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/{uuid}/employee-type",
+      "module": "profile",
+      "handler": "update_employee_type",
+      "permissions": [
+        "profile:update_employee_type"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "body": "models::UpdateEmployeeType",
+      "pathParam": "Uuid",
+      "response": "models::SingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/{uuid}/employee-type",
+      "module": "profile",
+      "handler": "update_employee_type",
+      "permissions": [
+        "profile:update_employee_type"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "body": "models::UpdateEmployeeType",
+      "pathParam": "Uuid",
+      "response": "models::SingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/{uuid}/freemium-session-limit",
+      "module": "profile",
+      "handler": "update_freemium",
+      "permissions": [
+        "profile:freemium_session_limit"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "body": "models::UpdateFreemiumLimit",
+      "pathParam": "Uuid",
+      "response": "models::SingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/{uuid}/freemium-session-limit",
+      "module": "profile",
+      "handler": "update_freemium",
+      "permissions": [
+        "profile:freemium_session_limit"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "body": "models::UpdateFreemiumLimit",
+      "pathParam": "Uuid",
+      "response": "models::SingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/{uuid}/full",
+      "module": "profile",
+      "handler": "show_full",
+      "permissions": [
+        "profile:read"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "pathParam": "Uuid",
+      "response": "models::SingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/{uuid}/images",
+      "module": "profile",
+      "handler": "image_store",
+      "permissions": [],
+      "source": "infera-profile/src/profile/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": true,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/{uuid}/media",
+      "module": "profile",
+      "handler": "media_show",
+      "permissions": [],
+      "source": "infera-profile/src/profile/routes.rs",
+      "query": "MediaQuery",
+      "pathParam": "Uuid",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/{uuid}/properties",
+      "module": "profile",
+      "handler": "update_properties",
+      "permissions": [
+        "profile:update"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "body": "property_models::PropertiesUpdate",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/{uuid}/properties",
+      "module": "profile",
+      "handler": "update_properties",
+      "permissions": [
+        "profile:update"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "body": "property_models::PropertiesUpdate",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/{uuid}/status",
+      "module": "profile",
+      "handler": "update_status",
+      "permissions": [
+        "profile:update_status"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "body": "models::UpdateStatus",
+      "pathParam": "Uuid",
+      "response": "models::SingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/{uuid}/status",
+      "module": "profile",
+      "handler": "update_status",
+      "permissions": [
+        "profile:update_status"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "body": "models::UpdateStatus",
+      "pathParam": "Uuid",
+      "response": "models::SingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/profile/accountant",
       "module": "profile",
       "handler": "accountant_index",
-      "permissions": [],
+      "permissions": [
+        "profile:read_accountant"
+      ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
       "response": "models::ListData",
       "responseMeta": "crate::models::PaginationMeta",
-      "responseEnvelope": "api"
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     },
     {
       "method": "PATCH",
@@ -15618,12 +16674,16 @@
       "path": "/api/v1/profile/consultant",
       "module": "profile",
       "handler": "consultant_index",
-      "permissions": [],
+      "permissions": [
+        "profile:read_consultant"
+      ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
       "response": "models::ListData",
       "responseMeta": "crate::models::PaginationMeta",
-      "responseEnvelope": "api"
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     },
     {
       "method": "POST",
@@ -15729,12 +16789,16 @@
       "path": "/api/v1/profile/manager",
       "module": "profile",
       "handler": "manager_index",
-      "permissions": [],
+      "permissions": [
+        "profile:read_manager"
+      ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
       "response": "models::ListData",
       "responseMeta": "crate::models::PaginationMeta",
-      "responseEnvelope": "api"
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     },
     {
       "method": "GET",
@@ -15792,24 +16856,32 @@
       "path": "/api/v1/profile/other",
       "module": "profile",
       "handler": "other_index",
-      "permissions": [],
+      "permissions": [
+        "profile:read"
+      ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
       "response": "models::ListData",
       "responseMeta": "crate::models::PaginationMeta",
-      "responseEnvelope": "api"
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     },
     {
       "method": "GET",
       "path": "/api/v1/profile/parent",
       "module": "profile",
       "handler": "parent_index",
-      "permissions": [],
+      "permissions": [
+        "profile:read_parent"
+      ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
       "response": "models::ListData",
       "responseMeta": "crate::models::PaginationMeta",
-      "responseEnvelope": "api"
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     },
     {
       "method": "POST",
@@ -15877,12 +16949,16 @@
       "path": "/api/v1/profile/student",
       "module": "profile",
       "handler": "student_index",
-      "permissions": [],
+      "permissions": [
+        "profile:read_student"
+      ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
       "response": "models::ListData",
       "responseMeta": "crate::models::PaginationMeta",
-      "responseEnvelope": "api"
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     },
     {
       "method": "GET",
@@ -15913,12 +16989,16 @@
       "path": "/api/v1/profile/support",
       "module": "profile",
       "handler": "support_index",
-      "permissions": [],
+      "permissions": [
+        "profile:read_support"
+      ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
       "response": "models::ListData",
       "responseMeta": "crate::models::PaginationMeta",
-      "responseEnvelope": "api"
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     },
     {
       "method": "GET",
@@ -15949,12 +17029,16 @@
       "path": "/api/v1/profile/teacher",
       "module": "profile",
       "handler": "teacher_index",
-      "permissions": [],
+      "permissions": [
+        "profile:read_teacher"
+      ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
       "response": "models::ListData",
       "responseMeta": "crate::models::PaginationMeta",
-      "responseEnvelope": "api"
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     },
     {
       "method": "GET",
@@ -15965,6 +17049,38 @@
         "profile:restore"
       ],
       "source": "infera-profile/src/profile/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/update/{uuid}/meta",
+      "module": "profile",
+      "handler": "add_meta",
+      "permissions": [
+        "profile:update"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "body": "models::MetaUpdate",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/update/{uuid}/meta",
+      "module": "profile",
+      "handler": "add_meta",
+      "permissions": [
+        "profile:update"
+      ],
+      "source": "infera-profile/src/profile/routes.rs",
+      "body": "models::MetaUpdate",
       "pathParam": "Uuid",
       "response": "serde_json::Value",
       "responseEnvelope": "api",
@@ -16020,322 +17136,6 @@
       "formUrlEncoded": false
     },
     {
-      "method": "PATCH",
-      "path": "/api/v1/profile/update/{uuid}/meta",
-      "module": "profile",
-      "handler": "add_meta",
-      "permissions": [
-        "profile:update"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "body": "models::MetaUpdate",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PUT",
-      "path": "/api/v1/profile/update/{uuid}/meta",
-      "module": "profile",
-      "handler": "add_meta",
-      "permissions": [
-        "profile:update"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "body": "models::MetaUpdate",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "DELETE",
-      "path": "/api/v1/profile/{student_uuid}/delete/parent/{parent_uuid}",
-      "module": "profile",
-      "handler": "delete_parent",
-      "permissions": [
-        "profile:update"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "DELETE",
-      "path": "/api/v1/profile/{uuid}",
-      "module": "profile",
-      "handler": "destroy",
-      "permissions": [
-        "profile:delete"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/profile/{uuid}",
-      "module": "profile",
-      "handler": "show",
-      "permissions": [
-        "profile:read"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "pathParam": "Uuid",
-      "response": "models::SingleData",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/profile/{uuid}",
-      "module": "profile",
-      "handler": "update",
-      "permissions": [
-        "profile:update"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "body": "models::ProfilePatch",
-      "pathParam": "Uuid",
-      "response": "models::SingleData",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/profile/{uuid}/admin",
-      "module": "profile",
-      "handler": "show_admin",
-      "permissions": [
-        "profile:read_admin"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "pathParam": "Uuid",
-      "response": "models::SingleData",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "DELETE",
-      "path": "/api/v1/profile/{uuid}/avatar",
-      "module": "profile",
-      "handler": "avatar_delete",
-      "permissions": [],
-      "source": "infera-profile/src/profile/routes.rs",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/profile/{uuid}/avatar",
-      "module": "profile",
-      "handler": "avatar_show",
-      "permissions": [],
-      "source": "infera-profile/src/profile/routes.rs",
-      "query": "MediaQuery",
-      "pathParam": "Uuid",
-      "responseEnvelope": "raw-response",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/profile/{uuid}/avatar",
-      "module": "profile",
-      "handler": "avatar_store",
-      "permissions": [],
-      "source": "infera-profile/src/profile/routes.rs",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": true,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "DELETE",
-      "path": "/api/v1/profile/{uuid}/delete/address/{title}",
-      "module": "profile",
-      "handler": "delete_address",
-      "permissions": [
-        "profile:update"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/profile/{uuid}/employee-type",
-      "module": "profile",
-      "handler": "update_employee_type",
-      "permissions": [
-        "profile:update_employee_type"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "body": "models::UpdateEmployeeType",
-      "pathParam": "Uuid",
-      "response": "models::SingleData",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PUT",
-      "path": "/api/v1/profile/{uuid}/employee-type",
-      "module": "profile",
-      "handler": "update_employee_type",
-      "permissions": [
-        "profile:update_employee_type"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "body": "models::UpdateEmployeeType",
-      "pathParam": "Uuid",
-      "response": "models::SingleData",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/profile/{uuid}/freemium-session-limit",
-      "module": "profile",
-      "handler": "update_freemium",
-      "permissions": [
-        "profile:freemium_session_limit"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "body": "models::UpdateFreemiumLimit",
-      "pathParam": "Uuid",
-      "response": "models::SingleData",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PUT",
-      "path": "/api/v1/profile/{uuid}/freemium-session-limit",
-      "module": "profile",
-      "handler": "update_freemium",
-      "permissions": [
-        "profile:freemium_session_limit"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "body": "models::UpdateFreemiumLimit",
-      "pathParam": "Uuid",
-      "response": "models::SingleData",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/profile/{uuid}/full",
-      "module": "profile",
-      "handler": "show_full",
-      "permissions": [
-        "profile:read"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "pathParam": "Uuid",
-      "response": "models::SingleData",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/profile/{uuid}/media",
-      "module": "profile",
-      "handler": "media_show",
-      "permissions": [],
-      "source": "infera-profile/src/profile/routes.rs",
-      "query": "MediaQuery",
-      "pathParam": "Uuid",
-      "responseEnvelope": "raw-response",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/profile/{uuid}/properties",
-      "module": "profile",
-      "handler": "update_properties",
-      "permissions": [
-        "profile:update"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "body": "property_models::PropertiesUpdate",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PUT",
-      "path": "/api/v1/profile/{uuid}/properties",
-      "module": "profile",
-      "handler": "update_properties",
-      "permissions": [
-        "profile:update"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "body": "property_models::PropertiesUpdate",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/profile/{uuid}/status",
-      "module": "profile",
-      "handler": "update_status",
-      "permissions": [
-        "profile:update_status"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "body": "models::UpdateStatus",
-      "pathParam": "Uuid",
-      "response": "models::SingleData",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PUT",
-      "path": "/api/v1/profile/{uuid}/status",
-      "module": "profile",
-      "handler": "update_status",
-      "permissions": [
-        "profile:update_status"
-      ],
-      "source": "infera-profile/src/profile/routes.rs",
-      "body": "models::UpdateStatus",
-      "pathParam": "Uuid",
-      "response": "models::SingleData",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
       "method": "GET",
       "path": "/api/v1/province",
       "module": "province",
@@ -16368,36 +17168,6 @@
     },
     {
       "method": "DELETE",
-      "path": "/api/v1/province/force/{id}",
-      "module": "province",
-      "handler": "force_destroy",
-      "permissions": [
-        "province:delete"
-      ],
-      "source": "infera-profile/src/province/routes.rs",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/province/undo/{id}",
-      "module": "province",
-      "handler": "restore",
-      "permissions": [
-        "province:delete"
-      ],
-      "source": "infera-profile/src/province/routes.rs",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "DELETE",
       "path": "/api/v1/province/{id}",
       "module": "province",
       "handler": "destroy",
@@ -16454,6 +17224,36 @@
       "body": "models::Update",
       "pathParam": "Uuid",
       "response": "models::SingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/province/force/{id}",
+      "module": "province",
+      "handler": "force_destroy",
+      "permissions": [
+        "province:delete"
+      ],
+      "source": "infera-profile/src/province/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/province/undo/{id}",
+      "module": "province",
+      "handler": "restore",
+      "permissions": [
+        "province:delete"
+      ],
+      "source": "infera-profile/src/province/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -16644,19 +17444,6 @@
       "formUrlEncoded": false
     },
     {
-      "method": "POST",
-      "path": "/api/v1/state-action/dry-run",
-      "module": "lifecycle",
-      "handler": "dry_run_action",
-      "permissions": [],
-      "source": "infera-profile/src/lifecycle/routes.rs",
-      "body": "ActionWrite",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
       "method": "DELETE",
       "path": "/api/v1/state-action/{id}",
       "module": "lifecycle",
@@ -16692,6 +17479,19 @@
       "body": "ActionWrite",
       "pathParam": "Uuid",
       "response": "entity::state_action::Model",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/state-action/dry-run",
+      "module": "lifecycle",
+      "handler": "dry_run_action",
+      "permissions": [],
+      "source": "infera-profile/src/lifecycle/routes.rs",
+      "body": "ActionWrite",
+      "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -16803,18 +17603,6 @@
     },
     {
       "method": "POST",
-      "path": "/api/v1/state-evaluation/outbox/process",
-      "module": "lifecycle",
-      "handler": "process_outbox",
-      "permissions": [],
-      "source": "infera-profile/src/lifecycle/routes.rs",
-      "response": "usize",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
       "path": "/api/v1/state-evaluation/outbox/{id}/retry",
       "module": "lifecycle",
       "handler": "retry",
@@ -16822,6 +17610,18 @@
       "source": "infera-profile/src/lifecycle/routes.rs",
       "pathParam": "Uuid",
       "response": "entity::state_action_outbox::Model",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/state-evaluation/outbox/process",
+      "module": "lifecycle",
+      "handler": "process_outbox",
+      "permissions": [],
+      "source": "infera-profile/src/lifecycle/routes.rs",
+      "response": "usize",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -17094,6 +17894,7 @@
         "trusted_service:delete"
       ],
       "source": "infera-profile/src/trusted_service/routes.rs",
+      "pathParam": "(Uuid, Uuid)",
       "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -17108,6 +17909,7 @@
         "trusted_service:read"
       ],
       "source": "infera-profile/src/trusted_service/routes.rs",
+      "pathParam": "(Uuid, Uuid)",
       "response": "models::EventSingleData",
       "responseEnvelope": "api",
       "multipart": false,
@@ -17123,6 +17925,7 @@
       ],
       "source": "infera-profile/src/trusted_service/routes.rs",
       "body": "models::EventUpdate",
+      "pathParam": "(Uuid, Uuid)",
       "response": "models::EventSingleData",
       "responseEnvelope": "api",
       "multipart": false,
@@ -17138,7 +17941,59 @@
       ],
       "source": "infera-profile/src/trusted_service/routes.rs",
       "body": "models::EventUpdate",
+      "pathParam": "(Uuid, Uuid)",
       "response": "models::EventSingleData",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/campaign",
+      "module": "campaign",
+      "handler": "index",
+      "permissions": [],
+      "source": "infera-profile/src/campaign/routes.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/campaign-profile/me/contributions",
+      "module": "campaign",
+      "handler": "my_contributions",
+      "permissions": [],
+      "source": "infera-profile/src/campaign/routes.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/campaign/{id}",
+      "module": "campaign",
+      "handler": "show",
+      "permissions": [],
+      "source": "infera-profile/src/campaign/routes.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/campaign/{id}/contributions",
+      "module": "campaign",
+      "handler": "contribute",
+      "permissions": [],
+      "source": "infera-profile/src/campaign/routes.rs",
+      "body": "ContributionRequest",
+      "pathParam": "Uuid",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -17188,7 +18043,8 @@
       "handler": "openapi_json",
       "permissions": [],
       "source": "infera-reservation/src/router.rs",
-      "responseEnvelope": "api",
+      "response": "utoipa::openapi::OpenApi",
+      "responseEnvelope": "raw",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -17272,6 +18128,20 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/providers/{id}/capacity",
+      "module": "provider",
+      "handler": "capacity_report",
+      "permissions": [],
+      "source": "infera-reservation/src/provider/routes.rs",
+      "query": "PaginationQuery",
+      "pathParam": "i64",
+      "response": "super::capacity::CapacityReport",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/providers/{id}/services",
       "module": "provider",
       "handler": "list_services",
@@ -17304,6 +18174,7 @@
       "handler": "remove_service",
       "permissions": [],
       "source": "infera-reservation/src/provider/routes.rs",
+      "pathParam": "(i64, i64)",
       "response": "()",
       "responseEnvelope": "api",
       "multipart": false,
@@ -17647,18 +18518,6 @@
     },
     {
       "method": "GET",
-      "path": "/api/v1/integration/flow",
-      "module": "integration",
-      "handler": "flow_integration_show",
-      "permissions": [],
-      "source": "infera-session/src/integration/routes.rs",
-      "response": "infera_flow_sdk::FlowIntegrationResponse",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
       "path": "/api/v1/integrations/chat/tool-schema",
       "module": "assistant_tools",
       "handler": "tool_schema",
@@ -17690,20 +18549,21 @@
       "handler": "user_session_detail",
       "permissions": [],
       "source": "infera-session/src/assistant_tools.rs",
+      "pathParam": "(Uuid, Uuid)",
       "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
     },
     {
-      "method": "POST",
-      "path": "/api/v1/integrations/lms/performance-context",
-      "module": "integration",
-      "handler": "performance_context",
+      "method": "GET",
+      "path": "/api/v1/integrations/lms/rooms/{id}/notification-state",
+      "module": "notification_state",
+      "handler": "snapshot",
       "permissions": [],
-      "source": "infera-session/src/integration/lms.rs",
-      "body": "ContextRequest",
-      "response": "Value",
+      "source": "infera-session/src/notification_state.rs",
+      "pathParam": "Uuid",
+      "response": "NotificationState",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -17715,7 +18575,7 @@
       "handler": "public_show",
       "permissions": [],
       "source": "infera-session/src/branding.rs",
-      "response": "Branding",
+      "response": "PublicBranding",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -17847,6 +18707,7 @@
         "room:delete"
       ],
       "source": "infera-session/src/room/routes.rs",
+      "pathParam": "(Uuid)",
       "response": "RoomSingleResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -17861,6 +18722,7 @@
         "room:read"
       ],
       "source": "infera-session/src/room/routes.rs",
+      "pathParam": "(Uuid)",
       "response": "RoomSingleResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -17907,6 +18769,7 @@
         "room:end"
       ],
       "source": "infera-session/src/room/routes.rs",
+      "pathParam": "(Uuid)",
       "response": "APIEmptyResponse",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -17982,6 +18845,7 @@
         "room:read_livekit_token"
       ],
       "source": "infera-session/src/room/routes.rs",
+      "pathParam": "(Uuid)",
       "response": "LiveKitTokenResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -18012,6 +18876,7 @@
       ],
       "source": "infera-session/src/room/routes.rs",
       "body": "ParticipantMuteUpdate",
+      "pathParam": "(Uuid, Uuid)",
       "response": "ParticipantMuteResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -18026,6 +18891,7 @@
         "room:read_playback"
       ],
       "source": "infera-session/src/room/routes.rs",
+      "pathParam": "(Uuid)",
       "response": "RoomSingleFullResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -18055,6 +18921,7 @@
         "room_recording:read"
       ],
       "source": "infera-session/src/room/routes.rs",
+      "pathParam": "(Uuid)",
       "response": "RoomRecordingResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -18069,6 +18936,7 @@
         "room:stop"
       ],
       "source": "infera-session/src/room/routes.rs",
+      "pathParam": "(Uuid)",
       "response": "RoomSingleResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -18100,6 +18968,103 @@
       "multipart": false,
       "binary": true,
       "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/summary-access",
+      "module": "native_access",
+      "handler": "get_status",
+      "permissions": [
+        "session:summary_access:manage"
+      ],
+      "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/summary-access",
+      "module": "native_access",
+      "handler": "update_policy",
+      "permissions": [
+        "session:summary_access:manage"
+      ],
+      "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+      "body": "NativePolicyUpdate",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/summary-access/revocations",
+      "module": "native_access",
+      "handler": "revoke",
+      "permissions": [
+        "session:summary_access:manage"
+      ],
+      "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+      "body": "NativeAccessRevoke",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/summary-access/revocations/{object}",
+      "module": "native_access",
+      "handler": "restore",
+      "permissions": [
+        "session:summary_access:manage"
+      ],
+      "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+      "body": "NativeAccessRestore",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "ANY",
+      "path": "/api/v1/view/{service}/{*path}",
+      "module": "router",
+      "handler": "proxy_view_service",
+      "permissions": [],
+      "source": "infera-session/src/router.rs",
+      "body": "OpaqueProxyBody",
+      "query": "OpaqueProxyQuery",
+      "pathParam": "(String, String)",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "module": "router",
+      "handler": "status_route",
+      "permissions": [],
+      "source": "infera-session/src/router.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/integration/flow",
+      "module": "integration",
+      "handler": "flow_integration_show",
+      "permissions": [],
+      "source": "infera-session/src/integration/routes.rs",
+      "response": "infera_flow_sdk::FlowIntegrationResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     }
   ],
   "social": [
@@ -18120,6 +19085,560 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/admin/social/actors",
+      "module": "admin",
+      "handler": "actors",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/actors/{id}",
+      "module": "admin",
+      "handler": "actor_detail",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/analytics",
+      "module": "admin",
+      "handler": "analytics",
+      "permissions": [
+        "social:analytics:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/audit",
+      "module": "admin",
+      "handler": "audit",
+      "permissions": [
+        "social:audit:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/bounties",
+      "module": "admin",
+      "handler": "bounties",
+      "permissions": [
+        "social:funding:review"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/bounties/{id}",
+      "module": "admin",
+      "handler": "bounty_detail",
+      "permissions": [
+        "social:funding:review"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/capability-policies",
+      "module": "admin",
+      "handler": "policies",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/capability-policies",
+      "module": "admin",
+      "handler": "create_policy",
+      "permissions": [
+        "social:capabilities:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "PolicyInput",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/capability-policies/{id}",
+      "module": "admin",
+      "handler": "policy_detail",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/social/capability-policies/{id}",
+      "module": "admin",
+      "handler": "update_policy",
+      "permissions": [
+        "social:capabilities:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "PolicyInput",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/capability-policies/{id}/publish",
+      "module": "admin",
+      "handler": "publish_policy",
+      "permissions": [
+        "social:capabilities:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/categories",
+      "module": "admin",
+      "handler": "categories",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/categories",
+      "module": "admin",
+      "handler": "create_category",
+      "permissions": [
+        "social:categories:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "CreateCategory",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/social/categories/{id}",
+      "module": "admin",
+      "handler": "archive_category",
+      "permissions": [
+        "social:categories:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/categories/{id}",
+      "module": "admin",
+      "handler": "category_detail",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/social/categories/{id}",
+      "module": "admin",
+      "handler": "update_category",
+      "permissions": [
+        "social:categories:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "UpdateCategory",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/claims",
+      "module": "admin",
+      "handler": "claims",
+      "permissions": [
+        "social:claims:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/claims/{id}",
+      "module": "admin",
+      "handler": "claim_detail",
+      "permissions": [
+        "social:claims:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/claims/{id}/approve",
+      "module": "admin",
+      "handler": "approve_claim",
+      "permissions": [
+        "social:claims:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "AdminReason",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/claims/{id}/reject",
+      "module": "admin",
+      "handler": "reject_claim",
+      "permissions": [
+        "social:claims:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "AdminReason",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/comments",
+      "module": "admin",
+      "handler": "comments",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/comments/{id}",
+      "module": "admin",
+      "handler": "comment_detail",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/integrations",
+      "module": "admin",
+      "handler": "integrations",
+      "permissions": [
+        "social:integrations:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/integrations/{id}",
+      "module": "admin",
+      "handler": "integration_detail",
+      "permissions": [
+        "social:integrations:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/integrations/{id}/replay",
+      "module": "admin",
+      "handler": "replay_integration",
+      "permissions": [
+        "social:integrations:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "IntegrationReplay",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/locations/{post_id}/reveal",
+      "module": "admin",
+      "handler": "reveal_location",
+      "permissions": [
+        "social:location:reveal"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "AdminReason",
+      "pathParam": "Uuid",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/media",
+      "module": "admin",
+      "handler": "media",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/moderation/queue",
+      "module": "admin",
+      "handler": "moderation_queue",
+      "permissions": [
+        "social:moderation:review"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/overview",
+      "module": "admin",
+      "handler": "overview",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/posts",
+      "module": "admin",
+      "handler": "posts",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/posts/{id}",
+      "module": "admin",
+      "handler": "post_detail",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/reports",
+      "module": "admin",
+      "handler": "reports",
+      "permissions": [
+        "social:reports:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/reports/{id}",
+      "module": "admin",
+      "handler": "report_detail",
+      "permissions": [
+        "social:reports:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/restrictions",
+      "module": "admin",
+      "handler": "restrictions",
+      "permissions": [
+        "social:actors:restrict"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/restrictions",
+      "module": "admin",
+      "handler": "create_restriction",
+      "permissions": [
+        "social:actors:restrict"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "CreateRestriction",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/restrictions/{id}/revoke",
+      "module": "admin",
+      "handler": "revoke_restriction",
+      "permissions": [
+        "social:actors:restrict"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "AdminReason",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/settings",
+      "module": "admin",
+      "handler": "settings",
+      "permissions": [
+        "social:settings:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/auth/self",
       "module": "api",
       "handler": "self_identity",
@@ -18127,6 +19646,30 @@
       "source": "infera-social/src/api/routes.rs",
       "response": "SessionIdentity",
       "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/block/{id}",
+      "module": "discovery",
+      "handler": "unblock",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "Uuid",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/block/{id}",
+      "module": "discovery",
+      "handler": "block",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "Uuid",
+      "responseEnvelope": "no-content",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -18401,6 +19944,43 @@
       "formUrlEncoded": false
     },
     {
+      "method": "DELETE",
+      "path": "/api/v1/follow/{kind}/{id}",
+      "module": "discovery",
+      "handler": "unfollow",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "(String, Uuid)",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/follow/{kind}/{id}",
+      "module": "discovery",
+      "handler": "relationship",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "(String, Uuid)",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/follow/{kind}/{id}",
+      "module": "discovery",
+      "handler": "follow",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "(String, Uuid)",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "POST",
       "path": "/api/v1/integrations/funding-events",
       "module": "api",
@@ -18412,6 +19992,42 @@
       "body": "FundingEventInput",
       "response": "Value",
       "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/internal/notification-outbox",
+      "module": "discovery",
+      "handler": "outbox",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/internal/notification-outbox/{id}/ack",
+      "module": "discovery",
+      "handler": "ack",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "Uuid",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/internal/place-events",
+      "module": "discovery",
+      "handler": "place_event",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "body": "PlaceEvent",
+      "responseEnvelope": "no-content",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -18503,6 +20119,31 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/me/notification-preferences",
+      "module": "discovery",
+      "handler": "preferences",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/me/notification-preferences",
+      "module": "discovery",
+      "handler": "set_preferences",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "body": "Value",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/me/posts",
       "module": "api",
       "handler": "list_my_posts",
@@ -18565,7 +20206,10 @@
       "path": "/api/v1/moderation/actions",
       "module": "api",
       "handler": "moderate",
-      "permissions": [],
+      "permissions": [
+        "social:moderate",
+        "social:moderation:review"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "body": "ModerateTarget",
       "response": "Value",
@@ -18578,7 +20222,10 @@
       "path": "/api/v1/moderation/audit",
       "module": "api",
       "handler": "moderation_audit",
-      "permissions": [],
+      "permissions": [
+        "social:moderate",
+        "social:moderation:review"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "query": "ModerationAuditQuery",
       "response": "Value",
@@ -18591,7 +20238,10 @@
       "path": "/api/v1/moderation/queue",
       "module": "api",
       "handler": "moderation_queue",
-      "permissions": [],
+      "permissions": [
+        "social:moderate",
+        "social:moderation:review"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "response": "Value",
       "responseEnvelope": "api",
@@ -18930,6 +20580,57 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/public/media/{id}",
+      "module": "discovery",
+      "handler": "media",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "Uuid",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/posts",
+      "module": "discovery",
+      "handler": "feed",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "query": "Feed",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/posts/{id}",
+      "module": "discovery",
+      "handler": "post_detail",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/posts/{id}/comments",
+      "module": "discovery",
+      "handler": "comments",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "DELETE",
       "path": "/api/v1/reactions/post/{id}",
       "module": "api",
@@ -19138,6 +20839,7 @@
       ],
       "source": "infera-state/src/routes.rs",
       "body": "InvokeWasm",
+      "pathParam": "(Uuid, String)",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -19265,6 +20967,7 @@
         "state:write"
       ],
       "source": "infera-state/src/routes.rs",
+      "pathParam": "(Uuid, Uuid)",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -19336,6 +21039,7 @@
         "state:write"
       ],
       "source": "infera-state/src/routes.rs",
+      "pathParam": "(Uuid, Uuid)",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -19529,6 +21233,7 @@
       "handler": "cancel",
       "permissions": [],
       "source": "infera-state/src/kheradgah_routes.rs",
+      "pathParam": "(String, Uuid)",
       "response": "Value",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -19541,6 +21246,7 @@
       "handler": "ticket",
       "permissions": [],
       "source": "infera-state/src/kheradgah_routes.rs",
+      "pathParam": "(String, Uuid)",
       "response": "Value",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -19594,6 +21300,18 @@
       "permissions": [],
       "source": "infera-state/src/kheradgah_routes.rs",
       "responseEnvelope": "websocket",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "module": "process_health",
+      "handler": "process_health",
+      "permissions": [],
+      "source": "infera-state/src/process_health.rs",
+      "response": "ProcessHealthResponse",
+      "responseEnvelope": "raw",
       "multipart": false,
       "formUrlEncoded": false
     }
@@ -19739,6 +21457,188 @@
       "permissions": [],
       "source": "infera-task/src/routes.rs",
       "responseEnvelope": "stream",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/feedback/assignees",
+      "module": "feedback",
+      "handler": "assignees",
+      "permissions": [
+        "task:feedback:assign plus configured local scope"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/feedback/attachments",
+      "module": "feedback",
+      "handler": "initialize",
+      "permissions": [
+        "task:feedback:submit"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "handlerModule": "storage",
+      "body": "InitializeAttachment",
+      "response": "AttachmentView",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/feedback/attachments/{id}/complete",
+      "module": "feedback",
+      "handler": "complete",
+      "permissions": [
+        "task:feedback:submit and attachment ownership"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "handlerModule": "storage",
+      "pathParam": "Uuid",
+      "response": "AttachmentView",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/feedback/attachments/{id}/content",
+      "module": "feedback",
+      "handler": "upload",
+      "permissions": [
+        "task:feedback:submit and attachment ownership"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "handlerModule": "storage",
+      "pathParam": "Uuid",
+      "response": "AttachmentView",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "binary": true,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/feedback/capabilities",
+      "module": "feedback",
+      "handler": "capabilities",
+      "permissions": [
+        "task:feedback:submit"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/feedback/policy",
+      "module": "feedback",
+      "handler": "get_policy",
+      "permissions": [
+        "task:access:use + local workspace.manage"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/feedback/policy",
+      "module": "feedback",
+      "handler": "put_policy",
+      "permissions": [
+        "task:access:use + local workspace.manage; If-Match header required (0 initializes)"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "body": "FeedbackPolicy",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/feedback/requests",
+      "module": "feedback",
+      "handler": "index",
+      "permissions": [
+        "task:feedback:self:read OR scoped review/assignment permission"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "query": "ListQuery",
+      "response": "RequestPage",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/feedback/requests",
+      "module": "feedback",
+      "handler": "create",
+      "permissions": [
+        "task:feedback:submit"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "body": "SubmitRequest",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/feedback/requests/{id}",
+      "module": "feedback",
+      "handler": "show",
+      "permissions": [
+        "task:feedback:self:read OR scoped review/assignment permission"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "pathParam": "Uuid",
+      "response": "RequestDetail",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/feedback/requests/{id}/attachments/{attachment}/content",
+      "module": "feedback",
+      "handler": "content",
+      "permissions": [
+        "authorized current request access"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "handlerModule": "storage",
+      "pathParam": "(Uuid, Uuid)",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/feedback/requests/{id}/decisions",
+      "module": "feedback",
+      "handler": "decision",
+      "permissions": [
+        "task:feedback:review OR task:feedback:assign plus configured local scope"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "body": "DecideRequest",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -20066,6 +21966,7 @@
       "source": "infera-task/src/routes.rs",
       "handlerModule": "note_media",
       "body": "RemoveMedia",
+      "pathParam": "(Uuid, Uuid)",
       "response": "NoteMedia",
       "responseEnvelope": "api",
       "multipart": false,
@@ -20123,6 +22024,7 @@
       "permissions": [],
       "source": "infera-task/src/routes.rs",
       "handlerModule": "note_data",
+      "query": "CatalogQuery",
       "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -20475,6 +22377,7 @@
       "permissions": [],
       "source": "infera-task/src/routes.rs",
       "handlerModule": "collaboration",
+      "pathParam": "(Uuid, Uuid)",
       "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -21162,23 +23065,13 @@
   "version": [
     {
       "method": "GET",
-      "path": "/",
-      "module": "router",
-      "handler": "status_route",
-      "permissions": [],
-      "source": "infera_version/src/router.rs",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
       "path": "/api/openapi.json",
       "module": "router",
       "handler": "openapi_json",
       "permissions": [],
       "source": "infera_version/src/router.rs",
-      "responseEnvelope": "api",
+      "response": "utoipa::openapi::OpenApi",
+      "responseEnvelope": "raw",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -21210,11 +23103,12 @@
     },
     {
       "method": "GET",
-      "path": "/api/v1/services/{service_id}",
+      "path": "/api/v1/services/{service_slug}",
       "module": "service",
       "handler": "service_show",
       "permissions": [],
       "source": "infera_version/src/service/routes.rs",
+      "pathParam": "(String)",
       "response": "ServiceSingleResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -21222,11 +23116,12 @@
     },
     {
       "method": "GET",
-      "path": "/api/v1/services/{service_id}/all",
+      "path": "/api/v1/services/{service_slug}/all",
       "module": "service",
       "handler": "service_show_all",
       "permissions": [],
       "source": "infera_version/src/service/routes.rs",
+      "pathParam": "(String)",
       "response": "ServiceAllSingleResponse",
       "responseEnvelope": "api",
       "multipart": false,
@@ -21239,8 +23134,647 @@
       "handler": "version_show",
       "permissions": [],
       "source": "infera_version/src/version/routes.rs",
+      "pathParam": "(Uuid)",
       "response": "VersionSingleResponse",
       "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "module": "router",
+      "handler": "status_route",
+      "permissions": [],
+      "source": "infera_version/src/router.rs",
+      "response": "HealthResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    }
+  ],
+  "gis": [
+    {
+      "method": "GET",
+      "path": "/api/v1/datasets",
+      "module": "geometry",
+      "handler": "index",
+      "permissions": [],
+      "source": "infera-gis/src/geometry/routes.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/datasets",
+      "module": "geometry",
+      "handler": "create",
+      "permissions": [],
+      "source": "infera-gis/src/geometry/routes.rs",
+      "body": "models::DatasetInput",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/datasets/{id}",
+      "module": "geometry",
+      "handler": "show",
+      "permissions": [],
+      "source": "infera-gis/src/geometry/routes.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/datasets/{id}",
+      "module": "geometry",
+      "handler": "publish",
+      "permissions": [],
+      "source": "infera-gis/src/geometry/routes.rs",
+      "body": "models::Publish",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/datasets/{id}/features",
+      "module": "geometry",
+      "handler": "features",
+      "permissions": [],
+      "source": "infera-gis/src/geometry/routes.rs",
+      "query": "models::Query",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/datasets/{id}/features",
+      "module": "geometry",
+      "handler": "write",
+      "permissions": [],
+      "source": "infera-gis/src/geometry/routes.rs",
+      "body": "models::WriteFeatures",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/datasets/{id}/features/{feature}",
+      "module": "geometry",
+      "handler": "delete_feature",
+      "permissions": [],
+      "source": "infera-gis/src/geometry/routes.rs",
+      "body": "models::Delete",
+      "pathParam": "(Uuid, String)",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/datasets/{id}/history",
+      "module": "geometry",
+      "handler": "history",
+      "permissions": [],
+      "source": "infera-gis/src/geometry/routes.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/datasets/{id}/tiles/{z}/{x}/{y}",
+      "module": "tiles",
+      "handler": "private_tile",
+      "permissions": [],
+      "source": "infera-gis/src/tiles/routes.rs",
+      "pathParam": "(Uuid, u32, u32, u32)",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/imports",
+      "module": "imports",
+      "handler": "index",
+      "permissions": [],
+      "source": "infera-gis/src/imports/mod.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/imports",
+      "module": "imports",
+      "handler": "create",
+      "permissions": [],
+      "source": "infera-gis/src/imports/mod.rs",
+      "body": "Import",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/imports/{id}/retry",
+      "module": "imports",
+      "handler": "retry",
+      "permissions": [],
+      "source": "infera-gis/src/imports/mod.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/internal/outbox",
+      "module": "places",
+      "handler": "outbox",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/internal/outbox/{id}/ack",
+      "module": "places",
+      "handler": "ack_event",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/maps",
+      "module": "maps",
+      "handler": "index",
+      "permissions": [],
+      "source": "infera-gis/src/maps/routes.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/maps",
+      "module": "maps",
+      "handler": "create",
+      "permissions": [],
+      "source": "infera-gis/src/maps/routes.rs",
+      "body": "Input",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/maps/{id}",
+      "module": "maps",
+      "handler": "detail",
+      "permissions": [],
+      "source": "infera-gis/src/maps/routes.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/maps/{id}",
+      "module": "maps",
+      "handler": "update",
+      "permissions": [],
+      "source": "infera-gis/src/maps/routes.rs",
+      "body": "Edit",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/maps/{id}/publish",
+      "module": "maps",
+      "handler": "publish",
+      "permissions": [],
+      "source": "infera-gis/src/maps/routes.rs",
+      "body": "Publish",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/maps/{id}/style",
+      "module": "maps",
+      "handler": "private_style",
+      "permissions": [],
+      "source": "infera-gis/src/maps/routes.rs",
+      "query": "Theme",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me",
+      "module": "router",
+      "handler": "me",
+      "permissions": [],
+      "source": "infera-gis/src/router.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/contributions",
+      "module": "places",
+      "handler": "contributions",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/saves",
+      "module": "places",
+      "handler": "saved",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/moderation",
+      "module": "places",
+      "handler": "queue",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/moderation/{id}",
+      "module": "places",
+      "handler": "moderate",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "body": "Decision",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/moderation/{id}/history",
+      "module": "places",
+      "handler": "history",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/moderation/reports/{id}",
+      "module": "places",
+      "handler": "resolve_report",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "body": "Report",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/my-places",
+      "module": "personal_places",
+      "handler": "index",
+      "permissions": [],
+      "source": "infera-gis/src/personal_places.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/my-places",
+      "module": "personal_places",
+      "handler": "create",
+      "permissions": [],
+      "source": "infera-gis/src/personal_places.rs",
+      "body": "Input",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/my-places/{id}",
+      "module": "personal_places",
+      "handler": "delete",
+      "permissions": [],
+      "source": "infera-gis/src/personal_places.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/my-places/{id}",
+      "module": "personal_places",
+      "handler": "show",
+      "permissions": [],
+      "source": "infera-gis/src/personal_places.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/my-places/{id}",
+      "module": "personal_places",
+      "handler": "update",
+      "permissions": [],
+      "source": "infera-gis/src/personal_places.rs",
+      "body": "Input",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/places",
+      "module": "places",
+      "handler": "list",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "query": "Search",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/places",
+      "module": "places",
+      "handler": "propose",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "body": "Proposal",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/places/{id}",
+      "module": "places",
+      "handler": "detail",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "pathParam": "String",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/places/{id}/assertion",
+      "module": "places",
+      "handler": "assertion",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/places/{id}/references",
+      "module": "places",
+      "handler": "references",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/places/{id}/reports",
+      "module": "places",
+      "handler": "report",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "body": "Report",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/places/{id}/save",
+      "module": "places",
+      "handler": "unsave",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/places/{id}/save",
+      "module": "places",
+      "handler": "save",
+      "permissions": [],
+      "source": "infera-gis/src/places.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/datasets/{id}/geojson",
+      "module": "geometry",
+      "handler": "public_features",
+      "permissions": [],
+      "source": "infera-gis/src/geometry/routes.rs",
+      "query": "models::Query",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/datasets/{id}/tilejson",
+      "module": "tiles",
+      "handler": "tilejson",
+      "permissions": [],
+      "source": "infera-gis/src/tiles/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/datasets/{id}/tiles/{z}/{x}/{y}",
+      "module": "tiles",
+      "handler": "tile",
+      "permissions": [],
+      "source": "infera-gis/src/tiles/routes.rs",
+      "pathParam": "(Uuid, u32, u32, u32)",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/maps",
+      "module": "maps",
+      "handler": "public_index",
+      "permissions": [],
+      "source": "infera-gis/src/maps/routes.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/maps/{slug}",
+      "module": "maps",
+      "handler": "show",
+      "permissions": [],
+      "source": "infera-gis/src/maps/routes.rs",
+      "pathParam": "String",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/maps/{slug}/geojson",
+      "module": "maps",
+      "handler": "geojson",
+      "permissions": [],
+      "source": "infera-gis/src/maps/routes.rs",
+      "pathParam": "String",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/maps/{slug}/style",
+      "module": "maps",
+      "handler": "style",
+      "permissions": [],
+      "source": "infera-gis/src/maps/routes.rs",
+      "query": "Theme",
+      "pathParam": "String",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "module": "router",
+      "handler": "health",
+      "permissions": [],
+      "source": "infera-gis/src/router.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "raw",
       "multipart": false,
       "formUrlEncoded": false
     }

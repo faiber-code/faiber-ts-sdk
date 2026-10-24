@@ -28,7 +28,7 @@ const wallet = await api.operations.walletBillingWalletShowGet();
 
 ## Complete capability
 
-This package exposes 86 registered operations from the assets and billing service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 110 registered operations from the assets and billing service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -38,17 +38,20 @@ This package exposes 86 registered operations from the assets and billing servic
 | `catalog` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `charge` | 2 | `GET`, `PATCH` |
 | `dashboard` | 1 | `GET` |
+| `economy` | 13 | `GET`, `POST`, `PUT` |
+| `fitness` | 1 | `PUT` |
 | `game-escrow` | 4 | `GET`, `POST` |
 | `integration` | 3 | `GET` |
 | `leaderboard` | 1 | `GET` |
 | `llm-usage` | 4 | `DELETE`, `GET`, `PUT` |
 | `logs` | 2 | `GET` |
 | `rank` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
-| `router` | 2 | `GET` |
-| `sandbox-billing` | 10 | `DELETE`, `GET`, `POST`, `PUT` |
+| `router` | 3 | `GET` |
+| `sandbox-billing` | 11 | `DELETE`, `GET`, `POST`, `PUT` |
 | `service-lifecycle` | 4 | `DELETE`, `POST` |
+| `trial-gifts` | 6 | `GET`, `POST`, `PUT` |
 | `wallet` | 9 | `GET` |
-| `wallet-billing` | 20 | `DELETE`, `GET`, `POST`, `PUT` |
+| `wallet-billing` | 22 | `DELETE`, `GET`, `POST`, `PUT` |
 
 Administrative and self-service billing routes are distinct operations. Purchase, top-up, pause, resume, removal, and permanent-data deletion methods preserve the backend verbs and permission annotations.
 
@@ -87,11 +90,13 @@ authorization and cancellation options.
 
 ## Authentication and authorization
 
-Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Permission requirements copied from service route guards are included in each operation's JSDoc. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.
+Configure the Asset URL to use your authenticated Faiber gateway. Use a `TokenProvider` for an in-memory Bearer token, or `withCredentials` for secure HttpOnly cookie sessions. The pinned Asset service reads trusted gateway identity headers; its route permission annotations describe gateway ACL metadata and do not themselves validate user Bearer tokens or cookies. An enforcing gateway must authenticate the caller and apply those permissions. Every SDK operation uses the shared `FaiberClient` transport.
+
+Game escrow operations additionally require a server-only `x-game-service-token` header; fitness product publication uses its own server-only service Bearer token. These credentials must remain on a trusted server. Pass them through request options configured for the relevant operation.
 
 ## Inputs, queries, responses, and transport
 
-All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Nested pagination uses keys such as `page[number]` and `page[size]` where required by the service. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
+All methods return the complete Axios response, including status, headers, and request IDs. Decimal outputs such as wallet balances, catalog quantities and daily usage costs are strings; decimal inputs accept strings or numbers. Asset/rank/action deletes return `data: null`. Self-service subscriptions return `data.subscriptions` without pagination. Request bodies and query objects are named exported interfaces. Nested pagination uses keys such as `page[number]` and `page[size]` where required by the service. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
 
 Generic REST resources are capability-guarded. Calling a legacy method that the service does not register throws `UnsupportedOperationError` before sending a request instead of producing a backend `405`.
 
@@ -112,3 +117,9 @@ Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services 
 `operations.trialGiftsListGet(product, query)` pages through product-owned gifts; `trialGiftsCreatePost`, `trialGiftsUpdatePut`, and `trialGiftsCopyTokenGet` administer them. Product IDs are `2done` and `fitapp`. Both the declared admin Charge permission and the Asset Charge permission are required. Reuse `request_id` when creating a gift; token copying requires an available vault and an unused gift.
 
 `operations.sandboxBillingQuoteResourcesPost(input)` quotes resources without allocating or debiting. Monetary quote values are decimal strings. `walletBillingWalletSubscriptionsPost` atomically purchases subscriptions from the current wallet with a stable `request_id` and a maximum accepted amount; changed quotes return 409 and insufficient balance returns 402. `walletBillingWalletPurchaseShowGet` reads only the authenticated owner's receipt. Fitness product publication is server-only and rejects changes to an already published tier.
+
+### Catalog and rule models
+
+Create assets with `{name, asset_type}` (`Coin`, `Badge`, `XP`, `Charge`, or `Gem`) and ranks with `{name, min_xp}`. User AI plan updates accept `{tier}`. `dashboard({month: "2026-10"})` selects a month. Charge mapping conditions are tagged objects such as `{type: "xp_balance", operator: "gte", value: "100"}`. Action criteria, reward conditions, caps and multiplier models are exported alongside the operation models.
+
+`economyPolicy()` returns `null` before configuration and includes `configuration_revision` afterward; policy updates return the saved policy. Policy models include funding settings and evidence bindings, and capabilities include rule creation/update flags. Economy journal accepts `before` and `descending`; own-history supports `after` and `limit` only. Gift list/detail payloads remain product-owned JSON because Asset forwards the configured adapter's data unchanged; Asset annotates detail/items with `can_copy` and exposes a concrete token-copy response.

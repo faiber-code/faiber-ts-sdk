@@ -1,3 +1,4 @@
+import {reconcileRuntimeInventory} from './runtime-inventory.mjs';
 /** Evaluate evidence-backed completion. Counts and generated declarations cannot pass these gates. */
 import { readFileSync, realpathSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -30,11 +31,11 @@ export function verifyRunArtifacts(runs, evidenceRoot) {
   }));
 }
 
-export function evaluateCapabilityGate(universe, services, relationships = [], verificationRuns = {}, gaps = [], { stage = 'complete' } = {}) {
+export function evaluateCapabilityGate(universe, services, relationships = [], verificationRuns = {}, gaps = [], { stage = 'complete', runtimeInventory = null, selectedSources = null } = {}) {
   if (!['discovery', 'sdk', 'manage', 'complete'].includes(stage)) throw new Error(`Unknown capability gate stage: ${stage}`);
-  const failures = [];
+  const failures = universe.runtime_inventory ? reconcileRuntimeInventory(universe,runtimeInventory) : [];
   const downstreamGaps = [];
-  const requireEvidence = (ids, context, requiredSource) => {
+  const requireEvidence = (ids, context, requiredSource, operationId = null) => {
     if (!Array.isArray(ids) || !ids.length) { failures.push(`${context}: missing verification evidence`); return; }
     for (const id of ids) {
       const run = verificationRuns[id];
@@ -42,20 +43,51 @@ export function evaluateCapabilityGate(universe, services, relationships = [], v
         failures.push(`${context}: ${id} is not a passing nonempty source-bound verification run`);
       } else if (requiredSource && run.source_revisions[requiredSource.service] !== requiredSource.revision) {
         failures.push(`${context}: ${id} verified a different service source revision`);
+      } else if (operationId && (!Array.isArray(run.covered_operations?.[requiredSource.service]) || !run.covered_operations[requiredSource.service].includes(operationId))) {
+        failures.push(`${context}: ${id} does not declare this exact operation in its source-bound coverage`);
       }
     }
   };
   for (const [service, descriptor] of Object.entries(universe.services)) {
     const data = services[service];
     if (!data) { failures.push(`${service}: missing discovery matrix`); continue; }
+    // A raw service mount may be MCP, not a REST operation. Its own protocol and
+    // current authentication need actual source-bound consumer verification.
+    for (const mount of data.protocol_mounts ?? []) {
+      const context=`${service}: protocol boundary ${mount.path} (${mount.source})`;
+      const review=mount.review;
+      if(!mount.id || !mount.source_checksum || review?.status!=='verified' || review.source_checksum!==mount.source_checksum) {
+        failures.push(`${context}: protocol review missing or stale`);continue;
+      }
+      if(!review.protocol || !review.classification || !review.scope || !review.meaning?.en || !review.meaning?.fa) failures.push(`${context}: protocol meaning/scope/classification is incomplete`);
+      for(const key of ['permissions','inputs_outputs','lifecycle','relationships']) {
+        if(review[key]?.status!=='verified' || !review[key]?.source_refs?.length) failures.push(`${context}: ${key} is unverified`);
+      }
+      requireEvidence(review.test_evidence,context,{service,revision:data.source_decision?.revision},mount.id);
+      for(const id of Array.isArray(review.test_evidence)?review.test_evidence:[]) {
+        const run=verificationRuns[id];
+        if(run?.source_unchanged_during_run!==true || !run?.boundaries?.includes('source_protocol_http')) failures.push(`${context}: ${id} does not prove the frozen protocol boundary`);
+      }
+    }
     if (Object.values(data.embedded_source_gaps ?? {}).some(gaps=>gaps.length)) failures.push(`${service}: compiler-embedded source inputs remain unresolved`);
     if (data.missing_meaning_sources?.length) failures.push(`${service}: missing source references`);
+    if(data.inventory_revision && (data.middleware_sources??[]).some(input=>!(data.source_files??[]).some(file=>file.path===input.path&&file.checksum===input.checksum))) {
+      failures.push(`${service}: middleware provenance differs from the actual inventory source`);
+    }
     if (!data.operations?.length) {
       failures.push(`${service}: registered routes have not been reconciled into a mounted operation inventory`);
       continue;
     }
     const source = data.source_decision;
     if (!source?.revision || !source.reason || source.status !== 'verified') failures.push(`${service}: canonical runtime/source revision is unverified`);
+    if(data.inventory_revision && (source?.revision!==data.inventory_revision || source?.source_tree_checksum!==data.source_tree_checksum)) {
+      failures.push(`${service}: selected source review does not bind the actual inventory revision and compiler inputs`);
+    }
+    if(stage!=='discovery' && selectedSources?.[service]) {
+      const selected=selectedSources[service].revision;
+      if(data.sdk_source_revision!==selected) failures.push(`${service}: discovery inventory does not bind the current SDK source lock`);
+      if(source?.revision!==selected) failures.push(`${service}: selected semantic/runtime source differs from the current SDK source lock`);
+    }
     const ids = new Set();
     for (const op of data.operations) {
       const context = `${service} ${op.id}`;
@@ -70,7 +102,42 @@ export function evaluateCapabilityGate(universe, services, relationships = [], v
       for (const key of ['permissions', 'filters', 'inputs_outputs', 'lifecycle', 'relationships']) {
         if (!review[key] || review[key].status !== 'verified' || !review[key].source_refs?.length) failures.push(`${context}: ${key} is unverified`);
       }
-      requireEvidence(review.test_evidence,context,{service,revision:source?.revision});
+      requireEvidence(review.test_evidence,context,{service,revision:source?.revision},op.id);
+      // Source semantics can pass while the callable SDK or readable Manage
+      // workflow is absent. Each later stage must prove its own exact boundary.
+      const requireConsumerBoundary = (record, boundary, label) => {
+        if (record?.status !== 'verified' || record.source_checksum !== op.source_checksum ||
+            !Array.isArray(record.source_refs) || !record.source_refs.length) {
+          failures.push(`${context}: ${label} review missing or stale`);
+          return;
+        }
+        requireEvidence(record.test_evidence,`${context} ${label}`,{service,revision:source?.revision},op.id);
+        for (const id of Array.isArray(record.test_evidence) ? record.test_evidence : []) {
+          const run = verificationRuns[id];
+          if (!Array.isArray(run?.boundaries) || !run.boundaries.includes(boundary) ||
+              run.source_unchanged_during_run !== true || !/^[a-f0-9]{40}$/.test(run.sdk_revision ?? '')) {
+            failures.push(`${context}: ${id} does not prove ${label} on a frozen SDK source`);
+          }
+        }
+      };
+      if (stage !== 'discovery') {
+        requireConsumerBoundary(op.sdk,'typescript_sdk_http','SDK wire');
+        if (!/^@faiber\/[a-z0-9-]+$/.test(op.sdk?.package ?? '') || typeof op.sdk?.exported_operation !== 'string' || !op.sdk.exported_operation.trim()) {
+          failures.push(`${context}: missing concrete SDK package/export mapping`);
+        }
+      }
+      if (stage === 'manage' || stage === 'complete') {
+        requireConsumerBoundary(op.manage,'readable_manage_workflow','Manage workflow');
+        if (typeof op.manage?.workflow !== 'string' || !op.manage.workflow.trim() || op.manage.raw_json_form !== false) {
+          failures.push(`${context}: readable Manage workflow is absent or uses a raw JSON form`);
+        }
+        for (const id of Array.isArray(op.manage?.test_evidence) ? op.manage.test_evidence : []) {
+          const revision = services.manage?.source_decision?.revision;
+          if (!revision || verificationRuns[id]?.source_revisions?.manage !== revision) {
+            failures.push(`${context}: ${id} does not bind the selected Manage source`);
+          }
+        }
+      }
     }
     if (descriptor.scope === 'business' && (data.relationship_review?.status !== 'verified' || !data.relationship_review?.source_refs?.length)) failures.push(`${service}: cross-service relationship audit is unverified`);
     if (data.working_drift && Object.values(data.working_drift).some(rows=>rows.length) && !source?.drift_resolution) failures.push(`${service}: unresolved working/pinned contract drift`);

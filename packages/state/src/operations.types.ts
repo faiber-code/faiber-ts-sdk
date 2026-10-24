@@ -13,8 +13,7 @@ export interface RoutesGameOperationSessionsGetQuery extends QueryParams {
   "session_id"?: string | null;
 }
 /** Backend response type: api. */
-export interface RoutesGameOperationSessionsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGameOperationSessionsGetResponse = import("./contracts.types.js").GameOperationSessionsResponse;
 
 /** Backend query type: AdminEventFilter. */
 export interface RoutesGameOperationEventsGetQuery extends QueryParams {
@@ -24,16 +23,13 @@ export interface RoutesGameOperationEventsGetQuery extends QueryParams {
   "user_id"?: string | null;
 }
 /** Backend response type: api. */
-export interface RoutesGameOperationEventsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGameOperationEventsGetResponse = import("./contracts.types.js").GameOperationEventsResponse;
 
 /** Backend response type: api. */
-export interface RoutesGameOperationsSummaryGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGameOperationsSummaryGetResponse = import("./contracts.types.js").GameOperationsSummaryResponse;
 
 /** Backend response type: api. */
-export interface RoutesGameOperationWorldsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGameOperationWorldsGetResponse = import("./contracts.types.js").GameEconomiesResponse;
 
 /** Backend request type: UpdateGameEconomy. */
 export interface RoutesUpdateGameOperationEconomyPatchInput extends JsonObject {
@@ -42,8 +38,7 @@ export interface RoutesUpdateGameOperationEconomyPatchInput extends JsonObject {
   "enabled": boolean;
 }
 /** Backend response type: api. */
-export interface RoutesUpdateGameOperationEconomyPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdateGameOperationEconomyPatchResponse = import("./contracts.types.js").GameEconomyResponse;
 
 /** Backend query type: RealtimeQuery. */
 export interface RoutesRealtimeGetQuery extends QueryParams {
@@ -280,3 +275,6 @@ export type KheradgahRoutesViewGetResponse = import("./contracts.types.js").Game
 
 /** Backend response type: websocket. */
 export type KheradgahRoutesRealtimeGetResponse = import("./contracts.types.js").KheradgahServerFrame;
+
+/** Backend response type: ProcessHealthResponse. */
+export type MainProcessHealthGetResponse = import("./contracts.types.js").StateProcessHealthResponse;

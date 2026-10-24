@@ -29,16 +29,11 @@ const conversation = await api.createConversation({
 await api.sendMessage(conversation.data.data.id, { content: { text: "Hello" } });
 ```
 
-## Complete capability
+## API surface
 
-This package exposes 57 registered operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 69 source-extracted operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
-| Area | Operations | HTTP methods |
-|---|---:|---|
-| `fitness` | 2 | `POST`, `PUT` |
-| `main` | 1 | `GET` |
-| `memory_import` | 2 | `POST` |
-| `routes` | 52 | `DELETE`, `GET`, `POST`, `PUT` |
+Operation registration describes transport coverage; it does not certify deployed behavior or current authorization. Packaged `provenance.json` identifies the selected service source and contract checksums.
 
 AI turns are executed and billed by Infera Agentic; Chat only coordinates conversation context and reconciliation. The events endpoint is an SSE stream and can be requested with normal SDK authorization headers.
 
@@ -215,3 +210,118 @@ an available compatible Faiber worker or relay. All calls retain authenticated t
 Axios metadata and cancellation options.
 
 Internal operations require a trusted server credential and current tenant scope. Never call them from a browser or expose the service credential to application users.
+
+## Assigned-contact chat and per-user unread state (0.24.1)
+
+Use `chat.personal.conversations()` and `unreadCount()` for authenticated conversation summaries and actual incoming unread-message counts. Own/deleted messages do not count; do not subtract sequence numbers. Initialize `personal.events()` before a snapshot and resume from its cursor. Long polls default to 35 seconds; `realtimeConfig` and `realtimeAuth` authorize only the current organization's private user channel. All methods require `chat:read`, preserve Axios responses/authentication and support cancellation.
+
+When the instance enables LMS assigned-contact policy, direct creation/sending requires the current student/teacher/support relationship. Obtain eligible contacts from LMS rather than a public directory. Existing pair deduplication remains authoritative. A revoked assignment retains readable history but disables sending. Generic member routes cannot expand these direct conversations. Message retries reuse `client_id` with identical content; a changed body conflicts. Read updates are monotonic, cannot exceed accessible message sequences, and should be sent only after visible messages render.
+
+A web application should keep its chat provider above route changes, preserving conversation/draft/scroll state. Safe Markdown must disable raw HTML and unsafe URL schemes; copying and URL/email/phone detection belong in the client. Chat unread counts and Messenger notification counts are separate.
+
+The personal summary, unread-count, cursor-event and private-channel authorization methods require the current member's `chat:read` permission. Personal methods remain under `/api/v1/me/*`; internal LMS notification-context reads use a separate server-only `x-infera-lms-token` and return identifiers/read state without private message content. Do not expose the service token in a browser.
+
+
+### Source summary observation policy
+
+Use the source-owned administration API with a Bearer token authorized for
+`chat:summary_access:manage`. The service rechecks current IDP authority on
+every request; a cookie-only session or caller-supplied user headers do not grant
+access. Enabling also validates the configured collector's current
+`chat:summary:read` permission. This policy does not grant model access or
+change the collector binding.
+
+```ts
+const observed = await sdk.chat.operations.nativeSummaryAccessStatus();
+await sdk.chat.operations.saveNativeSummaryAccessPolicy({
+  enabled: false,
+  expected_revision: observed.data.data.policy?.revision ?? 0,
+  reason: "Pause collection for review",
+});
+await sdk.chat.operations.revokeNativeSummaryObject({
+  object_id: sourceObjectId,
+  reason: "Exclude this source object",
+});
+await sdk.chat.operations.restoreNativeSummaryObject(sourceObjectId, {
+  reason: "Restore after review",
+});
+```
+
+A stale policy revision returns 409; reload and review before retrying. Reasons
+are required and limited to 1024 Unicode characters. Revocations survive policy
+disabling and re-enabling. The restore operation sends its reason as a JSON
+DELETE body. Successful saves return the current binding, policy and counts;
+pending objects can remain until background reconciliation finishes. Axios
+responses, errors, headers, timeouts and abort signals are preserved. The
+separate `/mcp` transport uses signed scoped grants and rejects browser origins;
+these REST methods do not provide an MCP session.
+
+After a transport error or 503, reload current status before retrying a mutation: the source can commit its policy/revocation before a later status read or reconciliation fails. Use the reloaded revision and review the resulting state.
+
+### Assistant edits and durable Knowledge policy reconciliation
+
+managedAssistant(id) returns a typed ManagedAssistantDetailResponse. Capture
+version and expected_knowledge_policy_revision when opening the edit draft.
+updateAssistant requires expected_version, expected_knowledge_policy_revision,
+and a caller-created non-nil configuration_id UUID. createAssistant also requires
+a configuration_id. Preserve the UUID with the exact request across uncertain
+responses. Do not generate a new operation automatically or refresh either
+revision while resubmitting a stale draft.
+
+assistantPolicyOperation(configurationId) returns the tenant-scoped retained
+AssistantConfigurationIntentResponse. reconcileAssistantPolicy accepts an
+AssistantPolicyReconciliationInput with action recover or cancel. Recovery checks
+the authoritative Knowledge outcome before exact idempotent dispatch/application.
+Current assistant:manage is required after restart; grants and credentials are
+never retained. An administrator can apply an existing committed outcome or
+cancel an undispatched intent after its original actor loses authority.
+Cancellation writes a remote tombstone, blocking a delayed old request.
+
+Pending intents block competing edits and deletion. An already applied operation
+cannot be cancelled as absent. Terminal repeats return their immutable original
+result. An assistant changed outside the protocol produces a review conflict;
+the SDK never infers success or overwrites it. Review/recovery belongs on an
+explicit routed Manage page. A generic raw JSON form is not a completed workflow.
+
+Generated equivalents are routesGetManagedAssistantGet, routesCreateAssistantPost,
+routesUpdateAssistantPut, routesGetPolicyOperationGet and
+routesReconcilePolicyOperationPost. Managed detail, retained intent and
+reconciliation DTOs are exported from the Chat package. These are canonical v1
+methods; no private Summary runner credentials or authority DTOs are browser APIs.
+
+## Context selection limits
+
+Configured assistant levels constrain the owning-conversation context request on the selected Chat/Knowledge revisions. Null or omitted request levels do not remove a configured ceiling. Older deployed services may not enforce this behavior; verify the deployed receiver before relying on it.
+
+Selected-assistant group slugs are stored configuration, but forwarding and descendant-versus-exact matching are not fully implemented consistently. Do not use those settings as an authorization boundary or promise that unclassified results are excluded. Server-side current tenant, permissions and base bindings remain authoritative.
+
+Knowledge's selected-media chunk cap applies after governance and deduplication across both packing paths (default 8, valid range 1–20). Query limits are not a strict combined count across all returned lanes. Expansion and reranking settings can be retained as requested values while runtime capabilities report unsupported/not applied; storing a flag does not enable an algorithm or provider. Inspect returned trace/capability information instead of assuming these features ran.
+
+### Response records and message history
+
+Conversation records include nullable `agent_slug`, `assistant_id`, `agentic_thread_id`,
+legacy identifiers and deletion timestamps. Members expose `state`,
+`notification_level` and `last_read_sequence`. `react` returns a `ChatReaction`,
+including `message_id`, `user_id`, `emoji` and `created_at`. It does not return a
+message record. Message history includes an `attachments` array on each row and
+`meta: { limit, has_more }`; other ordinary Chat responses serialize `meta: null`.
+`before` and `after` are exclusive sequence bounds, ordered newest first. The
+backend accepts `q` but currently does not apply a text filter.
+
+The generated `routesSynthesizePost` operation returns raw audio bytes and accepts
+lowercase `mp3` or `wav`; omitted/null format selects WAV on the server. The curated
+`synthesize` helper explicitly requests MP3 by default. Raw `routesTranscribePost`
+requires `{ language: 'auto' | 'en' | 'fa' }` and an audio `Content-Type` matching
+the supplied bytes, such as `audio/webm` or `audio/wav`; it is not a multipart upload.
+
+Workspace bindings accept `2done-action` for the `action` role and `2done-chat` for
+`chat`. The shared `2done-assistants` slug is not a valid binding request. Speech
+settings preserve language overrides when `language_models` is omitted or null;
+pass `{}` to clear them. Version conflicts require reloading and reviewing the draft.
+
+Provider catalogs, source-import data, model-generated fitness plans and runtime
+schema/UI values are forwarded as JSON by the selected backend without a local
+schema check. Their exported types document that behavior. Catalog listings and
+assistant lookup scope follow the selected backend: active/managed assistant lists
+and the public assistant lookup do not apply an organization predicate in their
+repositories. Do not infer tenant isolation from an SDK type or a catalog result.

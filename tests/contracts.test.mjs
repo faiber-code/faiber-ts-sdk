@@ -43,7 +43,7 @@ test("LMS academy and question deletion preserve routes, bodies, and Bearer auth
     } },
   });
   const api = new LmsApi(client);
-  await api.academyCourses({ category_id: 7 });
+  await api.academyCourses({ category_id: "category-uuid" });
   await api.completeAcademySession("enrollment", 9, { idempotency_key: "once" });
   await api.examQuestions.delete(42);
   assert.deepEqual(seen.map(({ method, url }) => [method, url]), [
@@ -52,7 +52,7 @@ test("LMS academy and question deletion preserve routes, bodies, and Bearer auth
     ["delete", "/api/v1/exams/questions/42"],
   ]);
   assert.ok(seen.every((request) => request.headers.get("Authorization") === "Bearer academy-token"));
-  assert.equal(seen[0].params.category_id, 7);
+  assert.equal(seen[0].params.category_id, "category-uuid");
   const completionBody = typeof seen[1].data === "string" ? JSON.parse(seen[1].data) : seen[1].data;
   assert.equal(completionBody.idempotency_key, "once");
 });

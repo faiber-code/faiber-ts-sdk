@@ -1,0 +1,42 @@
+{
+  "production_source_revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+  "test_source_revision": "2f6595825607c36474ef92d38d94c601a202d849",
+  "changed_files": [
+    "tests/sdk_wire_test.rs"
+  ],
+  "production_source_files_verified": 62,
+  "production_delta": "Only the added SDK HTTP test file differs; runtime/compiler inputs unchanged",
+  "test_patch_sha256": "f15ecc548d40ceb6c1d8862bf6c024bf80a6bc6d3cf71fe744847c2289dda406",
+  "sdk_operation_mapping": {
+    "GET /": "routerHealthGet",
+    "GET /api/openapi.json": "routerOpenapiJsonGet",
+    "GET /api/v1/integration/flow": "integrationFlowIntegrationShowGet",
+    "GET /api/v1/providers": "providerIndexGet",
+    "POST /api/v1/providers": "providerStorePost",
+    "DELETE /api/v1/providers/{id}": "providerDestroyDelete",
+    "GET /api/v1/providers/{id}": "providerShowGet",
+    "PATCH /api/v1/providers/{id}": "providerUpdatePatch",
+    "GET /api/v1/providers/{id}/capacity": "providerCapacityReportGet",
+    "GET /api/v1/providers/{id}/services": "providerListServicesGet",
+    "POST /api/v1/providers/{id}/services": "providerAssignServicePost",
+    "DELETE /api/v1/providers/{id}/services/{service_id}": "providerRemoveServiceDelete",
+    "GET /api/v1/providers/{provider_id}/schedules": "workScheduleIndexGet",
+    "PUT /api/v1/providers/{provider_id}/schedules": "workScheduleUpsertPut",
+    "GET /api/v1/reservations": "reservationIndexGet",
+    "POST /api/v1/reservations": "reservationStorePost",
+    "DELETE /api/v1/reservations/{id}": "reservationCancelDelete",
+    "GET /api/v1/reservations/{id}": "reservationShowGet",
+    "PATCH /api/v1/reservations/{id}": "reservationUpdatePatch",
+    "GET /api/v1/services": "reservationServiceIndexGet",
+    "POST /api/v1/services": "reservationServiceStorePost",
+    "DELETE /api/v1/services/{id}": "reservationServiceDestroyDelete",
+    "GET /api/v1/services/{id}": "reservationServiceShowGet",
+    "PATCH /api/v1/services/{id}": "reservationServiceUpdatePatch",
+    "POST /api/v1/slots": "timeSlotGeneratePost",
+    "DELETE /api/v1/slots/{id}": "timeSlotDestroyDelete",
+    "GET /api/v1/slots/{id}": "timeSlotShowGet",
+    "PATCH /api/v1/slots/{id}": "timeSlotUpdatePatch",
+    "GET /api/v1/slots/available": "timeSlotAvailableGet",
+    "GET /health": "routerHealthGetHealth"
+  }
+}

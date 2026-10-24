@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-reservation",
+  "version": "1.1.0",
+  "source_revisions": {
+    "reservation": {
+      "directory": "infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66"
+    }
+  },
+  "package_source_sha256": {
+    "packages/reservation/src/contracts.types.ts": "41f1edcc67636f7c7ff4f8542e54fd1dbe06c1c6e8bc92a3d6ef2b88b14fdc5e",
+    "packages/reservation/src/index.ts": "a02910e05621ad4733376e609f8fba0e0d3b4162a26d2a50a2dd4ded6496b7b2",
+    "packages/reservation/src/operations.ts": "d7687f8d3fbf7e0199681d0ab863d5a1a164ae01c8c1dc74221b4744d607d3bf",
+    "packages/reservation/src/operations.types.ts": "5f34f2b6fc2b948728697caded2d51401a50cf3119448deb13fa39ba930bffc3",
+    "packages/reservation/src/types.ts": "cc62ec3c494ae40e6e0d24ecf69d261ac84c37ba8b048c45512e5faa6e205a43"
+  },
+  "capability_review_sha256": "f7d58de4714cc71716e5d98bebd1664d5e3a405f050d266d386a7b7f0dd45158",
+  "source_pin_file_sha256": "bcfd980e1db1c6498d3769a33c70ac61c46dcbba09bf01eb97c857bebf8927d6",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
+  "public_contract": {
+    "kind": "source-extracted-http",
+    "operation_count": 30,
+    "sha256": "30212a48ac57ff6b7072a10dfa6a55e15ea5e3e086d014598a67d13d12d5db41"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

@@ -1,0 +1,12 @@
+{
+  "original_directory": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v2-supplement",
+  "files": {
+    "before.json": "a5ffc6da48ee935946252386c83a74a313a6f388fc5eeb4c067325cba37668a9",
+    "handoff.json": "b0830723803bd454ffbff30c73e8c99d18a0d10ff2b57e7280f72d6ef1f4fa87",
+    "after.json": "2f5f710f5969ef4b1acfde96114aa4be08c22a926d882db0959cda932df56d92",
+    "README.md": "bbe6a32ad39a81c4b35dfb6f0f260dcc712e1dc93b1b3b492f7050e91f1bbe6b",
+    "lms-native-rebased-test.log": "d81c1894b917ae8b6002406d74f706149c4885817a17780c259f32db2dabebd5",
+    "lms-native-final-pin-test.log": "400e0cc4cb8a6cf219e8dcbe326a75987491ad73b1ccf3f0677c317bfaf281ad"
+  },
+  "note": "Exact source-owner bytes preserved; original paths in metadata are historical. No historical run is recertified against a newer combined security/SDK revision."
+}

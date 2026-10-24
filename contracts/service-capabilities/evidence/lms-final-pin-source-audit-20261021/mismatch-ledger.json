@@ -1,0 +1,709 @@
+{
+  "schema_version": "1.0",
+  "service": "lms",
+  "sdk_source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+  "scope": "public SDK/backend wire contract",
+  "status": "source_only",
+  "native_status": "native_pending",
+  "findings": [
+    {
+      "id": "raw-images",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "GET /api/v1/media/images/{filename}",
+        "GET /api/v1/public/branding/assets/{key}"
+      ],
+      "before": "Raw bytes declared as ApiEnvelope<JsonValue>, request omitted responseType.",
+      "after": "Raw ArrayBuffer | Uint8Array with binaryDownload metadata.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/media.rs",
+          "line": 159
+        },
+        {
+          "path": "infera-lms/src/branding.rs",
+          "line": 299
+        }
+      ]
+    },
+    {
+      "id": "certificate-svg",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "GET /api/v1/public/certificates/{code}/image.svg"
+      ],
+      "before": "SVG type was string but responseType was not text and documentation asserted generic JSON envelope.",
+      "after": "Explicit text response and public-code/render-cache semantics.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/certificate/routes.rs",
+          "line": 237
+        }
+      ]
+    },
+    {
+      "id": "course-report",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "GET /api/v1/reports/courses"
+      ],
+      "before": "Incorrect AcademyCoursesResponse alias.",
+      "after": "Exact LmsCourseReport[] aggregate data.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/report/routes.rs",
+          "line": 238
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 63
+        },
+        {
+          "path": "infera-lms/src/report/methods.rs",
+          "line": 524
+        }
+      ]
+    },
+    {
+      "id": "exam-patch-field",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "PATCH /api/v1/exams/sessions/{id}"
+      ],
+      "before": "PatchField<T> members declared BackendJson, admitting impossible objects and losing nullable scalar semantics.",
+      "after": "Owned named UpdateExamSessionInput with optional string/number|null members.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 6
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 341
+        },
+        {
+          "path": "infera-lms/src/exam/methods.rs",
+          "line": 735
+        }
+      ]
+    },
+    {
+      "id": "integration-json",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "POST /api/v1/classrooms/batch",
+        "GET /api/v1/classrooms/users/current",
+        "POST /api/v1/classrooms/users/dropout-eligibility",
+        "POST /api/v1/courses/batch",
+        "POST /api/v1/courses/successors/batch",
+        "POST /api/v1/integration/legacy-ids/resolve",
+        "GET /api/v1/integration/flow"
+      ],
+      "before": "Fixed integration JSON results were overly broad JsonValue/BackendJson.",
+      "after": "Named nested DTOs for course/classroom batches, successor/legacy maps, users and eligibility, and locked Flow dependency metadata.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/integration/office.rs",
+          "line": 36
+        },
+        {
+          "path": "infera-lms/src/integration/office.rs",
+          "line": 212
+        },
+        {
+          "path": "infera-lms/src/integration/routes.rs",
+          "line": 31
+        }
+      ]
+    },
+    {
+      "id": "branding-upload",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "POST /api/v1/config/branding/assets"
+      ],
+      "before": "JsonValue response concealed fixed asset_key/url object.",
+      "after": "Named LmsBrandingUpload DTO.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/branding.rs",
+          "line": 257
+        }
+      ]
+    },
+    {
+      "id": "profile-null",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "GET /api/v1/profiles/{user_id}"
+      ],
+      "before": "BackendJson<ProfileSummary>|null despite known concrete profile model.",
+      "after": "Named nullable LmsProfileSummary.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/profile_routes.rs",
+          "line": 31
+        },
+        {
+          "path": "infera-lms/src/profile.rs",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "id": "empty-mutations",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "DELETE /api/v1/classrooms/{id}",
+        "DELETE /api/v1/courses/{id}",
+        "DELETE /api/v1/courses/categories/{id}",
+        "DELETE /api/v1/courses/{course_id}/sessions/{id}",
+        "PATCH /api/v1/courses/reorder",
+        "PATCH /api/v1/courses/categories/reorder",
+        "DELETE /api/v1/exams/{id}",
+        "DELETE /api/v1/exams/questions/{id}",
+        "DELETE /api/v1/exams/sessions/{id}",
+        "DELETE /api/v1/homeworks/{id}",
+        "DELETE /api/v1/homework-banks/{id}",
+        "DELETE /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}",
+        "DELETE /api/v1/homeworks/assignments/{id}"
+      ],
+      "before": "Generated JsonValue and generic convenience deleted:boolean disagreed with actual json!({}) data.",
+      "after": "Named Record<string,never> mutation envelope; RestResource seventh delete-result generic selected.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 317
+        },
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 185
+        },
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 245
+        },
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 502
+        }
+      ]
+    },
+    {
+      "id": "unit-null",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "DELETE /api/v1/classrooms/{id}/users/{user_id}"
+      ],
+      "before": "Rust unit serialized as null but SDK declared JsonObject.",
+      "after": "ApiEnvelope<null>.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 367
+        }
+      ]
+    },
+    {
+      "id": "assignment-required-recipient",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "POST /api/v1/homeworks/assignments"
+      ],
+      "before": "Serde optional user_id became optional SDK input, although repository requires a nonnil real learner.",
+      "after": "Named LmsCreateAssignmentInput requires user_id and documents Profile/membership validation.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 321
+        },
+        {
+          "path": "infera-lms/src/homework/methods.rs",
+          "line": 1085
+        },
+        {
+          "path": "infera-lms/src/homework/methods.rs",
+          "line": 1163
+        }
+      ]
+    },
+    {
+      "id": "student-nested-reports",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "GET /api/v1/reports/student-summary",
+        "GET /api/v1/reports/students"
+      ],
+      "before": "Fixed student courses/session/delivery/exam objects were JsonValue[], with optional-null courses despite skip_serializing_if.",
+      "after": "Named nested report types; list omits courses, summary supplies an array.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 95
+        },
+        {
+          "path": "infera-lms/src/report/methods.rs",
+          "line": 765
+        }
+      ]
+    },
+    {
+      "id": "interactive-boolean-check",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "POST /api/v1/interactive/lessons/{id}"
+      ],
+      "before": "LearningCheck.expected excluded boolean although validator permits scalar booleans.",
+      "after": "expected: string | number | boolean.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 13
+        },
+        {
+          "path": "infera-lms/src/interactive/engine.rs",
+          "line": 52
+        }
+      ]
+    },
+    {
+      "id": "evaluation-input",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "POST /api/v1/evaluations/sessions/{id}",
+        "PUT /api/v1/evaluations/settings"
+      ],
+      "before": "Scores allowed arbitrary JSON and input question descriptions were required despite serde defaults.",
+      "after": "Named score dictionary and kind/target discriminated union; question descriptions optional.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/evaluation/methods.rs",
+          "line": 239
+        },
+        {
+          "path": "infera-lms/src/evaluation/methods.rs",
+          "line": 362
+        },
+        {
+          "path": "infera-lms/src/evaluation/models.rs",
+          "line": 37
+        }
+      ]
+    },
+    {
+      "id": "required-licence-query",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "GET /api/v1/service/licence/check"
+      ],
+      "before": "Required user_id/content_id query could be omitted at method call.",
+      "after": "requiredQuery metadata enforces query argument.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/service/routes.rs",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "id": "convenience-dtos",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "GET /api/v1/courses/{id}",
+        "POST /api/v1/courses",
+        "POST /api/v1/courses/categories",
+        "POST /api/v1/exams",
+        "POST /api/v1/exams/questions",
+        "POST /api/v1/exams/sessions",
+        "POST /api/v1/config/grades",
+        "POST /api/v1/classrooms/{id}/users",
+        "GET /api/v1/classrooms/sessions/{id}",
+        "GET /api/v1/homework-banks/{id}"
+      ],
+      "before": "Legacy convenience DTOs omitted required fields, invented exam question/question and session/user fields, lost response nullability/lifecycle metadata, and incorrectly aliased bank to homework DTO.",
+      "after": "Reuse concrete named generated operation DTOs; enrollment returns enrollment; dashboard/report outputs and filters aligned; course-session session_type optional default; reviewed assignment status recognized.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 104
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 448
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 319
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 287
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 282
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "id": "convenience-capabilities",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "DELETE /api/v1/courses/{id}",
+        "DELETE /api/v1/courses/categories/{id}"
+      ],
+      "before": "Mounted course/category delete was disabled; unmounted videoSections/events/textTemplates methods sent requests to absent routes.",
+      "after": "Enable real deletes; unmounted compatibility resources reject before HTTP.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/router.rs",
+          "line": 232
+        },
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 29
+        }
+      ]
+    },
+    {
+      "id": "certificate-dynamic-overconstraint",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "GET /api/v1/certificates/templates/{id}",
+        "POST /api/v1/certificates/templates",
+        "PATCH /api/v1/certificates/templates/{id}",
+        "GET /api/v1/certificates/{id}",
+        "POST /api/v1/certificates",
+        "PATCH /api/v1/certificates/{id}"
+      ],
+      "before": "Certificate layout output required fields, excluding backend empty-object defaults and arbitrary persisted JSON; snapshot also overly constrained.",
+      "after": "Documented JsonValue for actual dynamic storage, preserving structured builder types separately.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 34
+        },
+        {
+          "path": "infera-lms/src/certificate/methods.rs",
+          "line": 119
+        },
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 109
+        }
+      ]
+    },
+    {
+      "id": "documentation-authority",
+      "classification": "real_sdk_mismatch",
+      "status": "fixed_source_only",
+      "native_status": "native_pending",
+      "operations": [
+        "GET /",
+        "GET /health",
+        "GET /up",
+        "GET /api/openapi.json",
+        "GET /api/v1/config/branding",
+        "PUT /api/v1/config/branding",
+        "POST /api/v1/config/branding/assets",
+        "GET /api/v1/public/branding",
+        "GET /api/v1/public/branding/assets/{key}",
+        "GET /api/v1/notification-rules",
+        "PUT /api/v1/notification-rules/{key}",
+        "POST /api/v1/notification-rules/{key}/preview",
+        "GET /api/v1/chat/contacts",
+        "GET /api/v1/interactive/catalog",
+        "GET /api/v1/interactive/certificates",
+        "POST /api/v1/interactive/courses/{id}/certificate",
+        "GET /api/v1/interactive/definitions",
+        "GET /api/v1/interactive/definitions/{id}",
+        "POST /api/v1/interactive/definitions/{id}/publish",
+        "GET /api/v1/interactive/lessons/{id}",
+        "POST /api/v1/interactive/lessons/{id}",
+        "POST /api/v1/interactive/lessons/{id}/start",
+        "GET /api/v1/interactive/runs",
+        "GET /api/v1/interactive/runs/{id}",
+        "PUT /api/v1/interactive/runs/{id}/draft",
+        "POST /api/v1/interactive/runs/{id}/hints",
+        "POST /api/v1/interactive/runs/{id}/attempts",
+        "GET /api/v1/interactive/runs/{id}/teacher-context",
+        "GET /api/v1/courses/categories",
+        "POST /api/v1/courses/categories",
+        "PATCH /api/v1/courses/categories/reorder",
+        "GET /api/v1/courses/categories/{id}",
+        "PATCH /api/v1/courses/categories/{id}",
+        "DELETE /api/v1/courses/categories/{id}",
+        "GET /api/v1/courses",
+        "POST /api/v1/courses",
+        "PATCH /api/v1/courses/reorder",
+        "GET /api/v1/courses/{id}",
+        "PATCH /api/v1/courses/{id}",
+        "DELETE /api/v1/courses/{id}",
+        "GET /api/v1/courses/{course_id}/sessions",
+        "POST /api/v1/courses/{course_id}/sessions",
+        "GET /api/v1/courses/{course_id}/sessions/{id}",
+        "PATCH /api/v1/courses/{course_id}/sessions/{id}",
+        "DELETE /api/v1/courses/{course_id}/sessions/{id}",
+        "GET /api/v1/classrooms/users/sessions/absences",
+        "GET /api/v1/classrooms/session-types",
+        "GET /api/v1/classrooms/sessions/today",
+        "GET /api/v1/classrooms/sessions",
+        "POST /api/v1/classrooms/sessions",
+        "GET /api/v1/classrooms/sessions/{id}",
+        "PATCH /api/v1/classrooms/sessions/{id}",
+        "GET /api/v1/classrooms/sessions/{id}/attendance",
+        "PUT /api/v1/classrooms/sessions/{id}/attendance",
+        "GET /api/v1/classrooms/{id}/users",
+        "POST /api/v1/classrooms/{id}/users",
+        "PATCH /api/v1/classrooms/{id}/users/{user_id}",
+        "DELETE /api/v1/classrooms/{id}/users/{user_id}",
+        "GET /api/v1/classrooms",
+        "POST /api/v1/classrooms",
+        "GET /api/v1/classrooms/{id}/completion",
+        "POST /api/v1/classrooms/{id}/finalize",
+        "GET /api/v1/classrooms/{id}",
+        "PATCH /api/v1/classrooms/{id}",
+        "DELETE /api/v1/classrooms/{id}",
+        "GET /api/v1/exams",
+        "POST /api/v1/exams",
+        "GET /api/v1/exams/{id}",
+        "PATCH /api/v1/exams/{id}",
+        "DELETE /api/v1/exams/{id}",
+        "GET /api/v1/exams/sessions",
+        "POST /api/v1/exams/sessions",
+        "GET /api/v1/exams/sessions/{id}",
+        "PATCH /api/v1/exams/sessions/{id}",
+        "DELETE /api/v1/exams/sessions/{id}",
+        "GET /api/v1/exams/attempts",
+        "GET /api/v1/exams/attempts/{id}",
+        "PATCH /api/v1/exams/attempts/{id}",
+        "GET /api/v1/exams/attempts/{id}/delivery",
+        "POST /api/v1/exams/attempts/{id}/start",
+        "PUT /api/v1/exams/attempts/{id}/answers/{position}",
+        "POST /api/v1/exams/attempts/{id}/submit",
+        "GET /api/v1/exams/questions",
+        "POST /api/v1/exams/questions",
+        "GET /api/v1/exams/questions/{id}",
+        "PATCH /api/v1/exams/questions/{id}",
+        "DELETE /api/v1/exams/questions/{id}",
+        "GET /api/v1/evaluations/settings",
+        "PUT /api/v1/evaluations/settings",
+        "GET /api/v1/evaluations/sessions/{id}",
+        "POST /api/v1/evaluations/sessions/{id}",
+        "POST /api/v1/media/images",
+        "GET /api/v1/media/images/{filename}",
+        "GET /api/v1/homeworks",
+        "POST /api/v1/homeworks",
+        "GET /api/v1/homeworks/assignments/current-term",
+        "GET /api/v1/homeworks/{id}",
+        "PATCH /api/v1/homeworks/{id}",
+        "DELETE /api/v1/homeworks/{id}",
+        "GET /api/v1/homeworks/assignments",
+        "POST /api/v1/homeworks/assignments",
+        "GET /api/v1/homeworks/assignments/{id}",
+        "PATCH /api/v1/homeworks/assignments/{id}",
+        "DELETE /api/v1/homeworks/assignments/{id}",
+        "GET /api/v1/homeworks/questions",
+        "POST /api/v1/homeworks/questions",
+        "GET /api/v1/homeworks/questions/{id}",
+        "PATCH /api/v1/homeworks/questions/{id}",
+        "GET /api/v1/homework-banks",
+        "POST /api/v1/homework-banks",
+        "GET /api/v1/homework-banks/{id}",
+        "PATCH /api/v1/homework-banks/{id}",
+        "DELETE /api/v1/homework-banks/{id}",
+        "GET /api/v1/homework-banks/{homework_bank_id}/homeworks",
+        "POST /api/v1/homework-banks/{homework_bank_id}/homeworks",
+        "GET /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}",
+        "PATCH /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}",
+        "DELETE /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}",
+        "GET /api/v1/certificates/templates",
+        "POST /api/v1/certificates/templates",
+        "GET /api/v1/certificates/templates/{id}",
+        "PATCH /api/v1/certificates/templates/{id}",
+        "GET /api/v1/certificates",
+        "POST /api/v1/certificates",
+        "GET /api/v1/certificates/{id}",
+        "PATCH /api/v1/certificates/{id}",
+        "GET /api/v1/config/grades",
+        "POST /api/v1/config/grades",
+        "GET /api/v1/config/grades/{id}",
+        "PATCH /api/v1/config/grades/{id}",
+        "GET /api/v1/config/weekends",
+        "POST /api/v1/config/weekends",
+        "GET /api/v1/config/weekends/{id}",
+        "PATCH /api/v1/config/weekends/{id}",
+        "GET /api/v1/config/holidays",
+        "POST /api/v1/config/holidays",
+        "GET /api/v1/config/holidays/{id}",
+        "PATCH /api/v1/config/holidays/{id}",
+        "GET /api/v1/config/classroom-types",
+        "POST /api/v1/config/classroom-types",
+        "GET /api/v1/config/classroom-types/{id}",
+        "PATCH /api/v1/config/classroom-types/{id}",
+        "GET /api/v1/config/education-days",
+        "POST /api/v1/config/education-days",
+        "GET /api/v1/config/education-days/{id}",
+        "PATCH /api/v1/config/education-days/{id}",
+        "GET /api/v1/reports/teachers",
+        "GET /api/v1/reports/consultants",
+        "GET /api/v1/reports/courses",
+        "GET /api/v1/reports/classrooms",
+        "GET /api/v1/reports/students",
+        "GET /api/v1/reports/my-students",
+        "GET /api/v1/reports/assigned-students",
+        "GET /api/v1/reports/assigned-chat-contacts",
+        "GET /api/v1/reports/student-summary",
+        "GET /api/v1/dashboard",
+        "GET /api/v1/docs/integration",
+        "GET /api/v1/service/licence/check",
+        "GET /api/v1/auth/self",
+        "GET /api/v1/profiles",
+        "GET /api/v1/profiles/{user_id}",
+        "POST /api/v1/idp/option/transfer-user-data",
+        "GET /api/v1/drm/compositions",
+        "GET /api/v1/academy/categories",
+        "GET /api/v1/academy/courses",
+        "GET /api/v1/academy/courses/{id}",
+        "POST /api/v1/academy/courses/{id}/enroll",
+        "GET /api/v1/academy/enrollments",
+        "POST /api/v1/academy/enrollments/{id}/sessions/{session_id}/complete",
+        "POST /api/v1/academy/enrollments/{id}/exams/{exam_id}/attempts",
+        "POST /api/v1/academy/attempts/{id}/submit",
+        "GET /api/v1/integration/flow",
+        "POST /api/v1/integration/legacy-ids/resolve",
+        "POST /api/v1/courses/batch",
+        "POST /api/v1/courses/successors/batch",
+        "POST /api/v1/classrooms/batch",
+        "GET /api/v1/classrooms/users/current",
+        "POST /api/v1/classrooms/users/dropout-eligibility",
+        "POST /api/v1/integrations/chat/relationship",
+        "GET /api/v1/public/certificates/{code}/image.svg",
+        "GET /api/v1/public/certificates/{code}"
+      ],
+      "before": "Several generic purposes were misleading (e.g. notification rules described sandbox execution); IDP macro metadata read as runtime enforcement.",
+      "after": "Source-specific operation purposes and explicit distinction between declared route ACL metadata, trusted-header extraction/dev fallback and handler-local guards.",
+      "source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "source_refs": [
+        {
+          "path": "infera-lms/Cargo.toml",
+          "line": 21
+        },
+        {
+          "path": "faiber-sdk/crates/infera-idp-macro/src/lib.rs",
+          "line": 22,
+          "revision": "d3a76ff7c204e3da971960417bdfa335f7a73d2c"
+        },
+        {
+          "path": "faiber-sdk/crates/infera-idp-sdk/src/middleware.rs",
+          "line": 16,
+          "revision": "d3a76ff7c204e3da971960417bdfa335f7a73d2c"
+        }
+      ]
+    }
+  ],
+  "legitimate_dynamic_json": [
+    {
+      "members": "ProfileSummary.first_name,last_name",
+      "reason": "Option<serde_json::Value> forwarded from Profile; localized or scalar JSON is intentional.",
+      "source": {
+        "path": "infera-lms/src/profile.rs",
+        "line": 10
+      }
+    },
+    {
+      "members": "exam options, media and answer values",
+      "reason": "serde_json/sea_orm JSON accepts scalars, arrays and objects. Delivery redaction traverses values recursively; answer normalizer accepts value/answer wrappers.",
+      "source": {
+        "path": "infera-lms/src/exam/methods.rs",
+        "line": 1425
+      }
+    },
+    {
+      "members": "classroom notifications/check_sessions and attendance ratings",
+      "reason": "Persisted arbitrary JSON; no fixed request DTO validates a complete object structure.",
+      "source": {
+        "path": "infera-lms/src/classroom/models.rs",
+        "line": 50
+      }
+    },
+    {
+      "members": "certificate layout/render_snapshot",
+      "reason": "Explicit arbitrary JSON storage with empty-object defaults and legacy snapshots. Typed builders remain optional helpers.",
+      "source": {
+        "path": "infera-lms/src/certificate/methods.rs",
+        "line": 119
+      }
+    },
+    {
+      "members": "academy audience_tags, question options/media and answers",
+      "reason": "Native JSON storage/Map<String,Value> intentionally preserves question-specific payloads.",
+      "source": {
+        "path": "infera-lms/src/academy/routes.rs",
+        "line": 29
+      }
+    }
+  ],
+  "remaining_known_sdk_mismatches": [],
+  "remaining_verification": [
+    "Generate all SDK operations after all backend maps integrated",
+    "Run final TypeScript build and consumer/wire tests, including tests/lms-final-pin-wire.test.mjs and tests/lms-final-pin-wire.types.ts",
+    "Current pinned native acceptance not executed; do not infer it from source inspection",
+    "Configured deployed gateway authorization and native integration remain unverified"
+  ]
+}

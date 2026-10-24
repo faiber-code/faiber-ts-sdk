@@ -1,0 +1,4878 @@
+{
+  "service": "lms",
+  "sdk_source_revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+  "source_access": "git archive of immutable revision; dirty service worktree untouched",
+  "mounted_public_operations": 181,
+  "status": "source_only",
+  "native_status": "native_pending",
+  "source_reviewed_operations": [
+    {
+      "id": "GET /",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/router.rs",
+          "line": 294,
+          "name": "status_route"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 52,
+          "name": "HealthResponse"
+        }
+      ],
+      "purpose": "Read the LMS process version in a success envelope. This endpoint does not probe database readiness."
+    },
+    {
+      "id": "GET /health",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/router.rs",
+          "line": 294,
+          "name": "status_route"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 52,
+          "name": "HealthResponse"
+        }
+      ],
+      "purpose": "Read the LMS process version in a success envelope. This endpoint does not probe database readiness."
+    },
+    {
+      "id": "GET /up",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/router.rs",
+          "line": 294,
+          "name": "status_route"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 52,
+          "name": "HealthResponse"
+        }
+      ],
+      "purpose": "Read the LMS process version in a success envelope. This endpoint does not probe database readiness."
+    },
+    {
+      "id": "GET /api/openapi.json",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/router.rs",
+          "line": 288,
+          "name": "openapi_json"
+        }
+      ],
+      "purpose": "Read the raw OpenAPI document. The mounted router remains authoritative because this document omits several supported operations."
+    },
+    {
+      "id": "GET /api/v1/config/branding",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/branding.rs",
+          "line": 198,
+          "name": "show"
+        },
+        {
+          "path": "infera-lms/src/branding.rs",
+          "line": 30,
+          "name": "Branding"
+        }
+      ],
+      "purpose": "Read persisted learner branding. The handler checks a nonnil actor and lms:config:read."
+    },
+    {
+      "id": "PUT /api/v1/config/branding",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/branding.rs",
+          "line": 211,
+          "name": "update"
+        },
+        {
+          "path": "infera-lms/src/branding.rs",
+          "line": 30,
+          "name": "Branding"
+        },
+        {
+          "path": "infera-lms/src/branding.rs",
+          "line": 30,
+          "name": "Branding"
+        }
+      ],
+      "purpose": "Replace learner branding, normalize localized titles, and derive icon_url from a previously uploaded icon_asset_key. Requires a nonnil actor and lms:config:update; omitted fields reset to defaults."
+    },
+    {
+      "id": "POST /api/v1/config/branding/assets",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/branding.rs",
+          "line": 257,
+          "name": "upload"
+        }
+      ],
+      "purpose": "Upload one file multipart field containing PNG, JPEG, or WebP bytes up to 8 MiB. Returns asset_key and public URL; saving branding is a separate request."
+    },
+    {
+      "id": "GET /api/v1/public/branding",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/branding.rs",
+          "line": 183,
+          "name": "public_show"
+        },
+        {
+          "path": "infera-lms/src/branding.rs",
+          "line": 164,
+          "name": "PublicBranding"
+        }
+      ],
+      "purpose": "Read public learner branding and runtime feedback_task_origin. The discovery key is present with null when unconfigured and is not persisted as branding."
+    },
+    {
+      "id": "GET /api/v1/public/branding/assets/{key}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/branding.rs",
+          "line": 299,
+          "name": "asset"
+        }
+      ],
+      "purpose": "Download raw image bytes with Content-Type and cache headers in the complete Axios response. This response has no JSON envelope; invalid or missing assets reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/notification-rules",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 83,
+          "name": "index"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 74,
+          "name": "RulesQuery"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 49,
+          "name": "NotificationRule"
+        }
+      ],
+      "purpose": "List  records through the mounted LMS notifications handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "PUT /api/v1/notification-rules/{key}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 127,
+          "name": "update"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 106,
+          "name": "UpdateRule"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 49,
+          "name": "NotificationRule"
+        }
+      ],
+      "purpose": "Patch  records through the mounted LMS notifications handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "POST /api/v1/notification-rules/{key}/preview",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 201,
+          "name": "preview"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 188,
+          "name": "RulePreview"
+        }
+      ],
+      "purpose": "Preview  records through the mounted LMS notifications handler."
+    },
+    {
+      "id": "GET /api/v1/chat/contacts",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 50,
+          "name": "contacts"
+        },
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 31,
+          "name": "ContactsQuery"
+        },
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 40,
+          "name": "ContactPage"
+        }
+      ],
+      "purpose": "Contacts  records through the mounted LMS notifications::contacts handler."
+    },
+    {
+      "id": "GET /api/v1/interactive/catalog",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 112,
+          "name": "catalog"
+        }
+      ],
+      "purpose": "Catalog  records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "GET /api/v1/interactive/certificates",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 429,
+          "name": "my_certificates"
+        }
+      ],
+      "purpose": "My certificates records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "POST /api/v1/interactive/courses/{id}/certificate",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 415,
+          "name": "claim_certificate"
+        }
+      ],
+      "purpose": "Claim certificate records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "GET /api/v1/interactive/definitions",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 121,
+          "name": "definitions"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 51,
+          "name": "DefinitionRecord"
+        }
+      ],
+      "purpose": "Definitions  records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "GET /api/v1/interactive/definitions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 137,
+          "name": "definition"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 51,
+          "name": "DefinitionRecord"
+        }
+      ],
+      "purpose": "Definition  records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "POST /api/v1/interactive/definitions/{id}/publish",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 171,
+          "name": "publish"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 51,
+          "name": "DefinitionRecord"
+        }
+      ],
+      "purpose": "Publish  records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "GET /api/v1/interactive/lessons/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 199,
+          "name": "lesson"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 51,
+          "name": "DefinitionRecord"
+        }
+      ],
+      "purpose": "Lesson  records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "POST /api/v1/interactive/lessons/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 152,
+          "name": "save_definition"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 60,
+          "name": "SaveDefinition"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 51,
+          "name": "DefinitionRecord"
+        }
+      ],
+      "purpose": "Save definition records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "POST /api/v1/interactive/lessons/{id}/start",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 210,
+          "name": "start"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 65,
+          "name": "StartRun"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 121,
+          "name": "RunResponse"
+        }
+      ],
+      "purpose": "Start  records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "GET /api/v1/interactive/runs",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 241,
+          "name": "runs"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 104,
+          "name": "RunState"
+        }
+      ],
+      "purpose": "Runs  records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "GET /api/v1/interactive/runs/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 253,
+          "name": "run"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 121,
+          "name": "RunResponse"
+        }
+      ],
+      "purpose": "Run  records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "PUT /api/v1/interactive/runs/{id}/draft",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 262,
+          "name": "draft"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 70,
+          "name": "DraftInput"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 121,
+          "name": "RunResponse"
+        }
+      ],
+      "purpose": "Draft  records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "POST /api/v1/interactive/runs/{id}/hints",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 278,
+          "name": "hint"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 85,
+          "name": "HintInput"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 126,
+          "name": "HintResponse"
+        }
+      ],
+      "purpose": "Hint  records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "POST /api/v1/interactive/runs/{id}/attempts",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 341,
+          "name": "submit"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 77,
+          "name": "AttemptInput"
+        },
+        {
+          "path": "infera-lms/src/interactive/models.rs",
+          "line": 131,
+          "name": "AttemptResponse"
+        }
+      ],
+      "purpose": "Submit  records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "GET /api/v1/interactive/runs/{id}/teacher-context",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/interactive/routes.rs",
+          "line": 379,
+          "name": "teacher_context"
+        }
+      ],
+      "purpose": "Teacher context records through the mounted LMS interactive::routes handler."
+    },
+    {
+      "id": "GET /api/v1/courses/categories",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 108,
+          "name": "index_category"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 9,
+          "name": "PaginationQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 39,
+          "name": "CategoryResponse"
+        }
+      ],
+      "purpose": "List course category records through the mounted LMS course::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/courses/categories",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 126,
+          "name": "store_category"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 20,
+          "name": "CreateCategoryRequest"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 39,
+          "name": "CategoryResponse"
+        }
+      ],
+      "purpose": "Create course category records through the mounted LMS course::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "PATCH /api/v1/courses/categories/reorder",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 70,
+          "name": "reorder_categories"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 14,
+          "name": "ReorderRequest"
+        }
+      ],
+      "purpose": "Reorder categories records through the mounted LMS course::routes handler."
+    },
+    {
+      "id": "GET /api/v1/courses/categories/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 147,
+          "name": "show_category"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 39,
+          "name": "CategoryResponse"
+        }
+      ],
+      "purpose": "Read course category records through the mounted LMS course::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/courses/categories/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 165,
+          "name": "update_category"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 29,
+          "name": "UpdateCategoryRequest"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 39,
+          "name": "CategoryResponse"
+        }
+      ],
+      "purpose": "Patch course category records through the mounted LMS course::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "DELETE /api/v1/courses/categories/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 187,
+          "name": "destroy_category"
+        }
+      ],
+      "purpose": "Delete course category records through the mounted LMS course::routes handler. Successful deletion returns an empty data object."
+    },
+    {
+      "id": "GET /api/v1/courses",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 206,
+          "name": "index_course"
+        },
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 20,
+          "name": "CourseListQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 104,
+          "name": "CourseResponse"
+        }
+      ],
+      "purpose": "List course records through the mounted LMS course::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/courses",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 250,
+          "name": "store_course"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 65,
+          "name": "CreateCourseRequest"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 104,
+          "name": "CourseResponse"
+        }
+      ],
+      "purpose": "Create course records through the mounted LMS course::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "PATCH /api/v1/courses/reorder",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 89,
+          "name": "reorder_courses"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 14,
+          "name": "ReorderRequest"
+        }
+      ],
+      "purpose": "Reorder courses records through the mounted LMS course::routes handler."
+    },
+    {
+      "id": "GET /api/v1/courses/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 271,
+          "name": "show_course"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 104,
+          "name": "CourseResponse"
+        }
+      ],
+      "purpose": "Read course records through the mounted LMS course::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/courses/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 295,
+          "name": "update_course"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 84,
+          "name": "UpdateCourseRequest"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 104,
+          "name": "CourseResponse"
+        }
+      ],
+      "purpose": "Patch course records through the mounted LMS course::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "DELETE /api/v1/courses/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 317,
+          "name": "destroy_course"
+        }
+      ],
+      "purpose": "Delete course records through the mounted LMS course::routes handler. Successful deletion returns an empty data object."
+    },
+    {
+      "id": "GET /api/v1/courses/{course_id}/sessions",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 336,
+          "name": "index_session"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 9,
+          "name": "PaginationQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 191,
+          "name": "SessionResponse"
+        }
+      ],
+      "purpose": "List session records through the mounted LMS course::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/courses/{course_id}/sessions",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 361,
+          "name": "store_session"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 146,
+          "name": "CreateSessionRequest"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 191,
+          "name": "SessionResponse"
+        }
+      ],
+      "purpose": "Create session records through the mounted LMS course::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/courses/{course_id}/sessions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 384,
+          "name": "show_session"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 191,
+          "name": "SessionResponse"
+        }
+      ],
+      "purpose": "Read session records through the mounted LMS course::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/courses/{course_id}/sessions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 408,
+          "name": "update_session"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 166,
+          "name": "UpdateSessionRequest"
+        },
+        {
+          "path": "infera-lms/src/course/models.rs",
+          "line": 191,
+          "name": "SessionResponse"
+        }
+      ],
+      "purpose": "Patch session records through the mounted LMS course::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "DELETE /api/v1/courses/{course_id}/sessions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/course/routes.rs",
+          "line": 431,
+          "name": "destroy_session"
+        }
+      ],
+      "purpose": "Delete session records through the mounted LMS course::routes handler. Successful deletion returns an empty data object."
+    },
+    {
+      "id": "GET /api/v1/classrooms/users/sessions/absences",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 386,
+          "name": "index_absences"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 9,
+          "name": "PaginationQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 394,
+          "name": "AbsenceResponse"
+        }
+      ],
+      "purpose": "List absence records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "GET /api/v1/classrooms/session-types",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 60,
+          "name": "index_session_types"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 229,
+          "name": "ClassroomSessionTypeResponse"
+        }
+      ],
+      "purpose": "List session types records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "GET /api/v1/classrooms/sessions/today",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 77,
+          "name": "index_today_sessions"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 34,
+          "name": "TodaySessionListQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 287,
+          "name": "SessionResponse"
+        }
+      ],
+      "purpose": "List today sessions records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "GET /api/v1/classrooms/sessions",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 204,
+          "name": "index_session"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 22,
+          "name": "SessionListQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 287,
+          "name": "SessionResponse"
+        }
+      ],
+      "purpose": "List session records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/classrooms/sessions",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 225,
+          "name": "store_session"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 185,
+          "name": "CreateSessionRequest"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 287,
+          "name": "SessionResponse"
+        }
+      ],
+      "purpose": "Create session records through the mounted LMS classroom::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/classrooms/sessions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 247,
+          "name": "show_session"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 287,
+          "name": "SessionResponse"
+        }
+      ],
+      "purpose": "Read session records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/classrooms/sessions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 268,
+          "name": "update_session"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 205,
+          "name": "UpdateSessionRequest"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 287,
+          "name": "SessionResponse"
+        }
+      ],
+      "purpose": "Patch session records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "GET /api/v1/classrooms/sessions/{id}/attendance",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 429,
+          "name": "index_attendance"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 9,
+          "name": "PaginationQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 394,
+          "name": "AbsenceResponse"
+        }
+      ],
+      "purpose": "List attendance records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "PUT /api/v1/classrooms/sessions/{id}/attendance",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 407,
+          "name": "record_attendance"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 442,
+          "name": "BatchAttendanceRequest"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 450,
+          "name": "BatchAttendanceResponse"
+        }
+      ],
+      "purpose": "Record attendance records through the mounted LMS classroom::routes handler."
+    },
+    {
+      "id": "GET /api/v1/classrooms/{id}/users",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 291,
+          "name": "index_classroom_users"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 9,
+          "name": "PaginationQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 367,
+          "name": "ClassroomUserResponse"
+        }
+      ],
+      "purpose": "List classroom enrollment records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/classrooms/{id}/users",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 314,
+          "name": "enroll_classroom_user"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 354,
+          "name": "EnrollClassroomUserRequest"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 367,
+          "name": "ClassroomUserResponse"
+        }
+      ],
+      "purpose": "Enroll classroom user records through the mounted LMS classroom::routes handler."
+    },
+    {
+      "id": "PATCH /api/v1/classrooms/{id}/users/{user_id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 342,
+          "name": "update_classroom_user"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 361,
+          "name": "UpdateClassroomUserRequest"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 367,
+          "name": "ClassroomUserResponse"
+        }
+      ],
+      "purpose": "Patch classroom user records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "DELETE /api/v1/classrooms/{id}/users/{user_id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 367,
+          "name": "remove_classroom_user"
+        }
+      ],
+      "purpose": "Remove a classroom enrollment. The successful JSON envelope contains data:null; no deleted flag is returned."
+    },
+    {
+      "id": "GET /api/v1/classrooms",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 98,
+          "name": "index_classroom"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 6,
+          "name": "ClassroomListQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 106,
+          "name": "ClassroomResponse"
+        }
+      ],
+      "purpose": "List classroom records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/classrooms",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 119,
+          "name": "store_classroom"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 50,
+          "name": "CreateClassroomRequest"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 106,
+          "name": "ClassroomResponse"
+        }
+      ],
+      "purpose": "Create classroom records through the mounted LMS classroom::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/classrooms/{id}/completion",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 482,
+          "name": "show_completion"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 503,
+          "name": "CompletionReviewResponse"
+        }
+      ],
+      "purpose": "Read completion records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "POST /api/v1/classrooms/{id}/finalize",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 450,
+          "name": "finalize_classroom"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 456,
+          "name": "FinalizeClassroomRequest"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 516,
+          "name": "FinalizeClassroomResponse"
+        }
+      ],
+      "purpose": "Finalize classroom records through the mounted LMS classroom::routes handler."
+    },
+    {
+      "id": "GET /api/v1/classrooms/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 141,
+          "name": "show_classroom"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 106,
+          "name": "ClassroomResponse"
+        }
+      ],
+      "purpose": "Read classroom records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/classrooms/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 162,
+          "name": "update_classroom"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 72,
+          "name": "UpdateClassroomRequest"
+        },
+        {
+          "path": "infera-lms/src/classroom/models.rs",
+          "line": 106,
+          "name": "ClassroomResponse"
+        }
+      ],
+      "purpose": "Patch classroom records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "DELETE /api/v1/classrooms/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/classroom/routes.rs",
+          "line": 185,
+          "name": "destroy_classroom"
+        }
+      ],
+      "purpose": "Delete classroom records through the mounted LMS classroom::routes handler. Successful deletion returns an empty data object."
+    },
+    {
+      "id": "GET /api/v1/exams",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 162,
+          "name": "index_exam"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 58,
+          "name": "ExamListQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 275,
+          "name": "ExamResponse"
+        }
+      ],
+      "purpose": "List exam definition records through the mounted LMS exam::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/exams",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 182,
+          "name": "store_exam"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 239,
+          "name": "CreateExamRequest"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 275,
+          "name": "ExamResponse"
+        }
+      ],
+      "purpose": "Create exam definition records through the mounted LMS exam::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/exams/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 203,
+          "name": "show_exam"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 275,
+          "name": "ExamResponse"
+        }
+      ],
+      "purpose": "Read exam definition records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/exams/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 223,
+          "name": "update_exam"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 257,
+          "name": "UpdateExamRequest"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 275,
+          "name": "ExamResponse"
+        }
+      ],
+      "purpose": "Patch exam definition records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "DELETE /api/v1/exams/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 245,
+          "name": "destroy_exam"
+        }
+      ],
+      "purpose": "Delete exam definition records through the mounted LMS exam::routes handler. Successful deletion returns an empty data object."
+    },
+    {
+      "id": "GET /api/v1/exams/sessions",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 264,
+          "name": "index_session"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 76,
+          "name": "SessionListQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 378,
+          "name": "SessionResponse"
+        }
+      ],
+      "purpose": "List session records through the mounted LMS exam::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/exams/sessions",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 284,
+          "name": "store_session"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 319,
+          "name": "CreateSessionRequest"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 378,
+          "name": "SessionResponse"
+        }
+      ],
+      "purpose": "Create session records through the mounted LMS exam::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/exams/sessions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 305,
+          "name": "show_session"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 378,
+          "name": "SessionResponse"
+        }
+      ],
+      "purpose": "Read session records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/exams/sessions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 325,
+          "name": "update_session"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 341,
+          "name": "UpdateSessionRequest"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 378,
+          "name": "SessionResponse"
+        }
+      ],
+      "purpose": "Patch an exam session. Omit a field to preserve it; explicit null clears PatchField members such as classroom_id, dates, staff, and counts. selection_mode and status use normal optional scalar semantics."
+    },
+    {
+      "id": "DELETE /api/v1/exams/sessions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 348,
+          "name": "destroy_session"
+        }
+      ],
+      "purpose": "Delete session records through the mounted LMS exam::routes handler. Successful deletion returns an empty data object."
+    },
+    {
+      "id": "GET /api/v1/exams/attempts",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 367,
+          "name": "index_attempt"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 95,
+          "name": "AttemptListQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 188,
+          "name": "AttemptResponse"
+        }
+      ],
+      "purpose": "List exam attempt records through the mounted LMS exam::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "GET /api/v1/exams/attempts/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 388,
+          "name": "show_attempt"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 188,
+          "name": "AttemptResponse"
+        }
+      ],
+      "purpose": "Read exam attempt records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/exams/attempts/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 409,
+          "name": "update_attempt"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 113,
+          "name": "UpdateAttemptRequest"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 188,
+          "name": "AttemptResponse"
+        }
+      ],
+      "purpose": "Patch exam attempt records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "GET /api/v1/exams/attempts/{id}/delivery",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 62,
+          "name": "show_attempt_delivery"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 152,
+          "name": "AttemptDeliveryResponse"
+        }
+      ],
+      "purpose": "Read attempt delivery records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "POST /api/v1/exams/attempts/{id}/start",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 83,
+          "name": "start_attempt"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 152,
+          "name": "AttemptDeliveryResponse"
+        }
+      ],
+      "purpose": "Start exam attempt records through the mounted LMS exam::routes handler."
+    },
+    {
+      "id": "PUT /api/v1/exams/attempts/{id}/answers/{position}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 109,
+          "name": "save_attempt_answer"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 123,
+          "name": "SaveAttemptAnswerRequest"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 128,
+          "name": "SavedAttemptAnswerResponse"
+        }
+      ],
+      "purpose": "Save attempt answer records through the mounted LMS exam::routes handler."
+    },
+    {
+      "id": "POST /api/v1/exams/attempts/{id}/submit",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 136,
+          "name": "submit_attempt"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 152,
+          "name": "AttemptDeliveryResponse"
+        }
+      ],
+      "purpose": "Submit exam attempt records through the mounted LMS exam::routes handler."
+    },
+    {
+      "id": "GET /api/v1/exams/questions",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 432,
+          "name": "index_question"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 106,
+          "name": "QuestionListQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 476,
+          "name": "QuestionResponse"
+        }
+      ],
+      "purpose": "List exercise/question records through the mounted LMS exam::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/exams/questions",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 452,
+          "name": "store_question"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 448,
+          "name": "CreateQuestionRequest"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 476,
+          "name": "QuestionResponse"
+        }
+      ],
+      "purpose": "Create exercise/question records through the mounted LMS exam::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/exams/questions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 473,
+          "name": "show_question"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 476,
+          "name": "QuestionResponse"
+        }
+      ],
+      "purpose": "Read exercise/question records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/exams/questions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 493,
+          "name": "update_question"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 462,
+          "name": "UpdateQuestionRequest"
+        },
+        {
+          "path": "infera-lms/src/exam/models.rs",
+          "line": 476,
+          "name": "QuestionResponse"
+        }
+      ],
+      "purpose": "Patch exercise/question records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "DELETE /api/v1/exams/questions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/exam/routes.rs",
+          "line": 515,
+          "name": "destroy_question"
+        }
+      ],
+      "purpose": "Delete exercise/question records through the mounted LMS exam::routes handler. Successful deletion returns an empty data object."
+    },
+    {
+      "id": "GET /api/v1/evaluations/settings",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/evaluation/routes.rs",
+          "line": 31,
+          "name": "get_settings"
+        },
+        {
+          "path": "infera-lms/src/evaluation/models.rs",
+          "line": 5,
+          "name": "EvaluationSettings"
+        }
+      ],
+      "purpose": "Get settings records through the mounted LMS evaluation::routes handler."
+    },
+    {
+      "id": "PUT /api/v1/evaluations/settings",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/evaluation/routes.rs",
+          "line": 47,
+          "name": "update_settings"
+        },
+        {
+          "path": "infera-lms/src/evaluation/models.rs",
+          "line": 12,
+          "name": "UpdateEvaluationSettings"
+        },
+        {
+          "path": "infera-lms/src/evaluation/models.rs",
+          "line": 5,
+          "name": "EvaluationSettings"
+        }
+      ],
+      "purpose": "Patch settings records through the mounted LMS evaluation::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "GET /api/v1/evaluations/sessions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/evaluation/routes.rs",
+          "line": 64,
+          "name": "get_context"
+        },
+        {
+          "path": "infera-lms/src/evaluation/models.rs",
+          "line": 85,
+          "name": "EvaluationContext"
+        }
+      ],
+      "purpose": "Get context records through the mounted LMS evaluation::routes handler."
+    },
+    {
+      "id": "POST /api/v1/evaluations/sessions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/evaluation/routes.rs",
+          "line": 88,
+          "name": "submit"
+        },
+        {
+          "path": "infera-lms/src/evaluation/models.rs",
+          "line": 93,
+          "name": "SubmitEvaluation"
+        },
+        {
+          "path": "infera-lms/src/evaluation/models.rs",
+          "line": 101,
+          "name": "SubmitEvaluationResponse"
+        }
+      ],
+      "purpose": "Submit  records through the mounted LMS evaluation::routes handler."
+    },
+    {
+      "id": "POST /api/v1/media/images",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/media.rs",
+          "line": 88,
+          "name": "upload_image"
+        },
+        {
+          "path": "infera-lms/src/media.rs",
+          "line": 23,
+          "name": "UploadResponse"
+        }
+      ],
+      "purpose": "Upload the first multipart image field containing PNG, JPEG, WebP or GIF bytes up to 10 MiB. Verifies MIME and magic bytes; returns the stored URL/key. Unsupported media returns 415, oversized data 413, storage failures 502."
+    },
+    {
+      "id": "GET /api/v1/media/images/{filename}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/media.rs",
+          "line": 159,
+          "name": "download_image"
+        }
+      ],
+      "purpose": "Download raw image bytes with Content-Type and cache headers in the complete Axios response. This response has no JSON envelope; invalid or missing assets reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/homeworks",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 73,
+          "name": "index_homework"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 6,
+          "name": "HomeworkListQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 80,
+          "name": "HomeworkResponse"
+        }
+      ],
+      "purpose": "List homework definition records through the mounted LMS homework::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/homeworks",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 93,
+          "name": "store_homework"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 48,
+          "name": "CreateHomeworkRequest"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 80,
+          "name": "HomeworkResponse"
+        }
+      ],
+      "purpose": "Create homework definition records through the mounted LMS homework::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/homeworks/assignments/current-term",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 415,
+          "name": "index_current_term_assignment"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 25,
+          "name": "AssignmentListQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 353,
+          "name": "AssignmentResponse"
+        }
+      ],
+      "purpose": "List current term assignment records through the mounted LMS homework::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "GET /api/v1/homeworks/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 114,
+          "name": "show_homework"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 80,
+          "name": "HomeworkResponse"
+        }
+      ],
+      "purpose": "Read homework definition records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/homeworks/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 134,
+          "name": "update_homework"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 65,
+          "name": "UpdateHomeworkRequest"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 80,
+          "name": "HomeworkResponse"
+        }
+      ],
+      "purpose": "Patch homework definition records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "DELETE /api/v1/homeworks/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 157,
+          "name": "destroy_homework"
+        }
+      ],
+      "purpose": "Delete homework definition records through the mounted LMS homework::routes handler. Successful deletion returns an empty data object."
+    },
+    {
+      "id": "GET /api/v1/homeworks/assignments",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 394,
+          "name": "index_assignment"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 25,
+          "name": "AssignmentListQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 353,
+          "name": "AssignmentResponse"
+        }
+      ],
+      "purpose": "List assignment records through the mounted LMS homework::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/homeworks/assignments",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 436,
+          "name": "store_assignment"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 321,
+          "name": "CreateAssignmentRequest"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 353,
+          "name": "AssignmentResponse"
+        }
+      ],
+      "purpose": "Assign a real active exercise to an existing learner. homework_id identifies the exercise/question, not its bank. user_id is required by repository validation; a supplied classroom must contain that learner. Invalid targets return 422; Profile validation outages return 502."
+    },
+    {
+      "id": "GET /api/v1/homeworks/assignments/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 457,
+          "name": "show_assignment"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 353,
+          "name": "AssignmentResponse"
+        }
+      ],
+      "purpose": "Read assignment records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/homeworks/assignments/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 477,
+          "name": "update_assignment"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 335,
+          "name": "UpdateAssignmentRequest"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 353,
+          "name": "AssignmentResponse"
+        }
+      ],
+      "purpose": "Patch assignment records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "DELETE /api/v1/homeworks/assignments/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 502,
+          "name": "destroy_assignment"
+        }
+      ],
+      "purpose": "Delete assignment records through the mounted LMS homework::routes handler. Successful deletion returns an empty data object."
+    },
+    {
+      "id": "GET /api/v1/homeworks/questions",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 604,
+          "name": "index_question"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 417,
+          "name": "QuestionListQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 482,
+          "name": "QuestionResponse"
+        }
+      ],
+      "purpose": "List exercise/question records through the mounted LMS homework::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/homeworks/questions",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 624,
+          "name": "store_question"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 428,
+          "name": "CreateQuestionRequest"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 482,
+          "name": "QuestionResponse"
+        }
+      ],
+      "purpose": "Create exercise/question records through the mounted LMS homework::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/homeworks/questions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 645,
+          "name": "show_question"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 482,
+          "name": "QuestionResponse"
+        }
+      ],
+      "purpose": "Read exercise/question records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/homeworks/questions/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 665,
+          "name": "update_question"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 466,
+          "name": "UpdateQuestionRequest"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 482,
+          "name": "QuestionResponse"
+        }
+      ],
+      "purpose": "Patch exercise/question records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "GET /api/v1/homework-banks",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 176,
+          "name": "index_bank"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 121,
+          "name": "HomeworkBankListQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 282,
+          "name": "HomeworkBankResponse"
+        }
+      ],
+      "purpose": "List homework bank records through the mounted LMS homework::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/homework-banks",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 197,
+          "name": "store_bank"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 215,
+          "name": "CreateHomeworkBankRequest"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 282,
+          "name": "HomeworkBankResponse"
+        }
+      ],
+      "purpose": "Create homework bank records through the mounted LMS homework::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/homework-banks/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 219,
+          "name": "show_bank"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 282,
+          "name": "HomeworkBankResponse"
+        }
+      ],
+      "purpose": "Read homework bank records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/homework-banks/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 240,
+          "name": "update_bank"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 250,
+          "name": "UpdateHomeworkBankRequest"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 282,
+          "name": "HomeworkBankResponse"
+        }
+      ],
+      "purpose": "Patch homework bank records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "DELETE /api/v1/homework-banks/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 263,
+          "name": "destroy_bank"
+        }
+      ],
+      "purpose": "Delete homework bank records through the mounted LMS homework::routes handler. Successful deletion returns an empty data object."
+    },
+    {
+      "id": "GET /api/v1/homework-banks/{homework_bank_id}/homeworks",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 282,
+          "name": "index_bank_homework"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 131,
+          "name": "BankHomeworkListQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 482,
+          "name": "QuestionResponse"
+        }
+      ],
+      "purpose": "List bank exercise records through the mounted LMS homework::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/homework-banks/{homework_bank_id}/homeworks",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 305,
+          "name": "store_bank_homework"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 141,
+          "name": "CreateBankHomeworkRequest"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 482,
+          "name": "QuestionResponse"
+        }
+      ],
+      "purpose": "Create bank exercise records through the mounted LMS homework::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 329,
+          "name": "show_bank_homework"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 482,
+          "name": "QuestionResponse"
+        }
+      ],
+      "purpose": "Read bank exercise records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 351,
+          "name": "update_bank_homework"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 181,
+          "name": "UpdateBankHomeworkRequest"
+        },
+        {
+          "path": "infera-lms/src/homework/models.rs",
+          "line": 482,
+          "name": "QuestionResponse"
+        }
+      ],
+      "purpose": "Patch bank exercise records through the mounted LMS homework::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "DELETE /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/homework/routes.rs",
+          "line": 375,
+          "name": "destroy_bank_homework"
+        }
+      ],
+      "purpose": "Delete bank exercise records through the mounted LMS homework::routes handler. Successful deletion returns an empty data object."
+    },
+    {
+      "id": "GET /api/v1/certificates/templates",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/certificate/routes.rs",
+          "line": 49,
+          "name": "index_template"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 9,
+          "name": "PaginationQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 34,
+          "name": "CertificateTemplateResponse"
+        }
+      ],
+      "purpose": "List certificate template records through the mounted LMS certificate::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/certificates/templates",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/certificate/routes.rs",
+          "line": 70,
+          "name": "store_template"
+        },
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 6,
+          "name": "CreateCertificateTemplateRequest"
+        },
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 34,
+          "name": "CertificateTemplateResponse"
+        }
+      ],
+      "purpose": "Create certificate template records through the mounted LMS certificate::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/certificates/templates/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/certificate/routes.rs",
+          "line": 94,
+          "name": "show_template"
+        },
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 34,
+          "name": "CertificateTemplateResponse"
+        }
+      ],
+      "purpose": "Read certificate template records through the mounted LMS certificate::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/certificates/templates/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/certificate/routes.rs",
+          "line": 112,
+          "name": "update_template"
+        },
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 21,
+          "name": "UpdateCertificateTemplateRequest"
+        },
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 34,
+          "name": "CertificateTemplateResponse"
+        }
+      ],
+      "purpose": "Patch certificate template records through the mounted LMS certificate::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "GET /api/v1/certificates",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/certificate/routes.rs",
+          "line": 137,
+          "name": "index_certificate"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 9,
+          "name": "PaginationQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 109,
+          "name": "CertificateResponse"
+        }
+      ],
+      "purpose": "List certificate records through the mounted LMS certificate::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/certificates",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/certificate/routes.rs",
+          "line": 157,
+          "name": "store_certificate"
+        },
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 65,
+          "name": "CreateCertificateRequest"
+        },
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 109,
+          "name": "CertificateResponse"
+        }
+      ],
+      "purpose": "Create certificate records through the mounted LMS certificate::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/certificates/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/certificate/routes.rs",
+          "line": 178,
+          "name": "show_certificate"
+        },
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 109,
+          "name": "CertificateResponse"
+        }
+      ],
+      "purpose": "Read certificate records through the mounted LMS certificate::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/certificates/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/certificate/routes.rs",
+          "line": 196,
+          "name": "update_certificate"
+        },
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 81,
+          "name": "UpdateCertificateRequest"
+        },
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 109,
+          "name": "CertificateResponse"
+        }
+      ],
+      "purpose": "Patch certificate records through the mounted LMS certificate::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "GET /api/v1/config/grades",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 127,
+          "name": "index_grade"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 9,
+          "name": "PaginationQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 18,
+          "name": "GradeResponse"
+        }
+      ],
+      "purpose": "List school grade records through the mounted LMS config::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/config/grades",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 145,
+          "name": "store_grade"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 6,
+          "name": "CreateGradeRequest"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 18,
+          "name": "GradeResponse"
+        }
+      ],
+      "purpose": "Create school grade records through the mounted LMS config::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/config/grades/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 166,
+          "name": "show_grade"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 18,
+          "name": "GradeResponse"
+        }
+      ],
+      "purpose": "Read school grade records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/config/grades/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 184,
+          "name": "update_grade"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 12,
+          "name": "UpdateGradeRequest"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 18,
+          "name": "GradeResponse"
+        }
+      ],
+      "purpose": "Patch school grade records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "GET /api/v1/config/weekends",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 207,
+          "name": "index_weekend"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 9,
+          "name": "PaginationQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 46,
+          "name": "WeekendResponse"
+        }
+      ],
+      "purpose": "List weekend weekday records through the mounted LMS config::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/config/weekends",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 225,
+          "name": "store_weekend"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 36,
+          "name": "CreateWeekendRequest"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 46,
+          "name": "WeekendResponse"
+        }
+      ],
+      "purpose": "Create weekend weekday records through the mounted LMS config::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/config/weekends/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 246,
+          "name": "show_weekend"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 46,
+          "name": "WeekendResponse"
+        }
+      ],
+      "purpose": "Read weekend weekday records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/config/weekends/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 264,
+          "name": "update_weekend"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 41,
+          "name": "UpdateWeekendRequest"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 46,
+          "name": "WeekendResponse"
+        }
+      ],
+      "purpose": "Patch weekend weekday records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "GET /api/v1/config/holidays",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 51,
+          "name": "index_holiday"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 9,
+          "name": "PaginationQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 80,
+          "name": "HolidayResponse"
+        }
+      ],
+      "purpose": "List holiday records through the mounted LMS config::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/config/holidays",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 68,
+          "name": "store_holiday"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 62,
+          "name": "CreateHolidayRequest"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 80,
+          "name": "HolidayResponse"
+        }
+      ],
+      "purpose": "Create holiday records through the mounted LMS config::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/config/holidays/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 88,
+          "name": "show_holiday"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 80,
+          "name": "HolidayResponse"
+        }
+      ],
+      "purpose": "Read holiday records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/config/holidays/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 105,
+          "name": "update_holiday"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 71,
+          "name": "UpdateHolidayRequest"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 80,
+          "name": "HolidayResponse"
+        }
+      ],
+      "purpose": "Patch holiday records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "GET /api/v1/config/classroom-types",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 287,
+          "name": "index_classroom_type"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 9,
+          "name": "PaginationQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 116,
+          "name": "ClassroomTypeResponse"
+        }
+      ],
+      "purpose": "List classroom type records through the mounted LMS config::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/config/classroom-types",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 306,
+          "name": "store_classroom_type"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 106,
+          "name": "CreateClassroomTypeRequest"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 116,
+          "name": "ClassroomTypeResponse"
+        }
+      ],
+      "purpose": "Create classroom type records through the mounted LMS config::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/config/classroom-types/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 327,
+          "name": "show_classroom_type"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 116,
+          "name": "ClassroomTypeResponse"
+        }
+      ],
+      "purpose": "Read classroom type records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/config/classroom-types/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 345,
+          "name": "update_classroom_type"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 111,
+          "name": "UpdateClassroomTypeRequest"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 116,
+          "name": "ClassroomTypeResponse"
+        }
+      ],
+      "purpose": "Patch classroom type records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "GET /api/v1/config/education-days",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 368,
+          "name": "index_education_day"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 9,
+          "name": "PaginationQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 146,
+          "name": "EducationDayResponse"
+        }
+      ],
+      "purpose": "List education day records through the mounted LMS config::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "POST /api/v1/config/education-days",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 386,
+          "name": "store_education_day"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 132,
+          "name": "CreateEducationDayRequest"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 146,
+          "name": "EducationDayResponse"
+        }
+      ],
+      "purpose": "Create education day records through the mounted LMS config::routes handler. Required JSON fields follow the named input DTO; server validation and database failures reject with AxiosError."
+    },
+    {
+      "id": "GET /api/v1/config/education-days/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 407,
+          "name": "show_education_day"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 146,
+          "name": "EducationDayResponse"
+        }
+      ],
+      "purpose": "Read education day records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "PATCH /api/v1/config/education-days/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/config/routes.rs",
+          "line": 425,
+          "name": "update_education_day"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 139,
+          "name": "UpdateEducationDayRequest"
+        },
+        {
+          "path": "infera-lms/src/config/models.rs",
+          "line": 146,
+          "name": "EducationDayResponse"
+        }
+      ],
+      "purpose": "Patch education day records through the mounted LMS config::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics."
+    },
+    {
+      "id": "GET /api/v1/reports/teachers",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/report/routes.rs",
+          "line": 196,
+          "name": "teachers"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 7,
+          "name": "ReportQuery"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 35,
+          "name": "TeacherReport"
+        }
+      ],
+      "purpose": "Read aggregate classroom/student/session/attendance metrics grouped by assigned teacher. from/to accept RFC3339 or UTC dates and filter classroom starts; requires broad report access."
+    },
+    {
+      "id": "GET /api/v1/reports/consultants",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/report/routes.rs",
+          "line": 217,
+          "name": "consultants"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 7,
+          "name": "ReportQuery"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 49,
+          "name": "ConsultantReport"
+        }
+      ],
+      "purpose": "Read aggregate classroom/student/session/attendance metrics grouped by assigned consultant. Date/status filters select classroom rows; requires broad report access."
+    },
+    {
+      "id": "GET /api/v1/reports/courses",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/report/routes.rs",
+          "line": 238,
+          "name": "courses"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 7,
+          "name": "ReportQuery"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 63,
+          "name": "CourseReport"
+        }
+      ],
+      "purpose": "Read aggregate classroom/student/session/attendance metrics grouped by course. Returns course_id/course_name and counts, distinct from academy catalog DTOs; requires broad report access."
+    },
+    {
+      "id": "GET /api/v1/reports/classrooms",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/report/routes.rs",
+          "line": 259,
+          "name": "classrooms"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 7,
+          "name": "ReportQuery"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 77,
+          "name": "ClassroomReport"
+        }
+      ],
+      "purpose": "Read one aggregate metrics row per classroom with teacher/consultant profiles and date/status filters. Requires broad report access."
+    },
+    {
+      "id": "GET /api/v1/reports/students",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/report/routes.rs",
+          "line": 280,
+          "name": "students"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 7,
+          "name": "ReportQuery"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 95,
+          "name": "StudentReport"
+        }
+      ],
+      "purpose": "Read aggregate student classroom/attendance metrics. courses is omitted on this list; date/status filters apply through classroom scope. Requires broad report access."
+    },
+    {
+      "id": "GET /api/v1/reports/my-students",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/report/routes.rs",
+          "line": 101,
+          "name": "my_students"
+        },
+        {
+          "path": "infera-lms/src/profile.rs",
+          "line": 10,
+          "name": "ProfileSummary"
+        }
+      ],
+      "purpose": "Read Profile-verified child summaries for the authenticated parent. Upstream Profile failure returns 502."
+    },
+    {
+      "id": "GET /api/v1/reports/assigned-students",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/report/routes.rs",
+          "line": 39,
+          "name": "assigned_students"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 21,
+          "name": "AssignedStudentsQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/profile.rs",
+          "line": 10,
+          "name": "ProfileSummary"
+        }
+      ],
+      "purpose": "List students enrolled in classrooms supervised by the actor, with search and standard pagination. Removed/disabled memberships are excluded; rows are Profile summaries."
+    },
+    {
+      "id": "GET /api/v1/reports/assigned-chat-contacts",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/report/routes.rs",
+          "line": 71,
+          "name": "assigned_chat_contacts"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 21,
+          "name": "AssignedStudentsQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 28,
+          "name": "AssignedChatContact"
+        }
+      ],
+      "purpose": "List authorized supervised students and their Profile-linked parents, with search and standard pagination. contact_role and Profile fields are flattened in each row; upstream validation failures return 502."
+    },
+    {
+      "id": "GET /api/v1/reports/student-summary",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/report/routes.rs",
+          "line": 141,
+          "name": "student_summary"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 14,
+          "name": "StudentSummaryQuery"
+        },
+        {
+          "path": "infera-lms/src/report/models.rs",
+          "line": 95,
+          "name": "StudentReport"
+        }
+      ],
+      "purpose": "Read the authenticated learner or selected student_user_id summary and nested courses/sessions/deliveries/exams. Own access permits self or a Profile-verified child; unrelated students return 403 and Profile outages return 502."
+    },
+    {
+      "id": "GET /api/v1/dashboard",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/dashboard/routes.rs",
+          "line": 31,
+          "name": "index"
+        },
+        {
+          "path": "infera-lms/src/dashboard/models.rs",
+          "line": 4,
+          "name": "DashboardQuery"
+        },
+        {
+          "path": "infera-lms/src/dashboard/models.rs",
+          "line": 9,
+          "name": "DashboardStats"
+        }
+      ],
+      "purpose": "List  records through the mounted LMS dashboard::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100)."
+    },
+    {
+      "id": "GET /api/v1/docs/integration",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/docs/routes.rs",
+          "line": 25,
+          "name": "integration"
+        },
+        {
+          "path": "infera-lms/src/docs/models.rs",
+          "line": 4,
+          "name": "IntegrationDocs"
+        }
+      ],
+      "purpose": "Integration  records through the mounted LMS docs::routes handler."
+    },
+    {
+      "id": "GET /api/v1/service/licence/check",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/service/routes.rs",
+          "line": 46,
+          "name": "check_licence"
+        },
+        {
+          "path": "infera-lms/src/service/routes.rs",
+          "line": 21,
+          "name": "LicenceQuery"
+        },
+        {
+          "path": "infera-lms/src/service/routes.rs",
+          "line": 27,
+          "name": "LicenceResponse"
+        }
+      ],
+      "purpose": "Check licence records through the mounted LMS service::routes handler."
+    },
+    {
+      "id": "GET /api/v1/auth/self",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/session/routes.rs",
+          "line": 36,
+          "name": "get_self"
+        },
+        {
+          "path": "infera-lms/src/session/routes.rs",
+          "line": 16,
+          "name": "SessionResponse"
+        }
+      ],
+      "purpose": "Get self records through the mounted LMS session::routes handler."
+    },
+    {
+      "id": "GET /api/v1/profiles",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/profile_routes.rs",
+          "line": 60,
+          "name": "index"
+        },
+        {
+          "path": "infera-lms/src/profile.rs",
+          "line": 57,
+          "name": "ProfileSearchQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/profile.rs",
+          "line": 10,
+          "name": "ProfileSummary"
+        }
+      ],
+      "purpose": "Search Profile summaries through the LMS proxy using page, per_page and filter[search]. Returns LMS pagination metadata."
+    },
+    {
+      "id": "GET /api/v1/profiles/{user_id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/profile_routes.rs",
+          "line": 31,
+          "name": "show"
+        },
+        {
+          "path": "infera-lms/src/profile.rs",
+          "line": 10,
+          "name": "ProfileSummary"
+        }
+      ],
+      "purpose": "Read a Profile summary by user UUID. An absent profile returns data:null; an upstream failure returns 502."
+    },
+    {
+      "id": "POST /api/v1/idp/option/transfer-user-data",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/transfer.rs",
+          "line": 137,
+          "name": "transfer_user_data"
+        },
+        {
+          "path": "infera-lms/src/transfer.rs",
+          "line": 21,
+          "name": "TransferUserDataInput"
+        },
+        {
+          "path": "infera-lms/src/transfer.rs",
+          "line": 40,
+          "name": "TransferUserDataResponse"
+        }
+      ],
+      "purpose": "Transfer learner-owned educational records transactionally between distinct nonnil Profile user UUIDs. Requires Idempotency-Key (1\u2013128 printable ASCII characters without spaces); identical actor/key/payload retries replay success. Conflicts or active attempts return 409; Profile outages return 502. Declared IDP permission is user_data:transfer; the pinned handler itself checks actor presence."
+    },
+    {
+      "id": "GET /api/v1/drm/compositions",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/drm_routes.rs",
+          "line": 30,
+          "name": "index_compositions"
+        },
+        {
+          "path": "infera-lms/src/drm.rs",
+          "line": 45,
+          "name": "CompositionSearchQuery"
+        },
+        {
+          "path": "infera-lms/src/models.rs",
+          "line": 38,
+          "name": "PagedResult"
+        },
+        {
+          "path": "infera-lms/src/drm.rs",
+          "line": 55,
+          "name": "CompositionOption"
+        }
+      ],
+      "purpose": "Search published DRM compositions by page, size and search, retaining selected_id when applicable. Returns composition IDs, names and category paths."
+    },
+    {
+      "id": "GET /api/v1/academy/categories",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/academy/routes.rs",
+          "line": 63,
+          "name": "categories"
+        }
+      ],
+      "purpose": "Categories  records through the mounted LMS academy::routes handler."
+    },
+    {
+      "id": "GET /api/v1/academy/courses",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/academy/routes.rs",
+          "line": 86,
+          "name": "courses"
+        },
+        {
+          "path": "infera-lms/src/academy/routes.rs",
+          "line": 19,
+          "name": "CatalogQuery"
+        }
+      ],
+      "purpose": "Courses  records through the mounted LMS academy::routes handler."
+    },
+    {
+      "id": "GET /api/v1/academy/courses/{id}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/academy/routes.rs",
+          "line": 123,
+          "name": "course"
+        }
+      ],
+      "purpose": "Course  records through the mounted LMS academy::routes handler."
+    },
+    {
+      "id": "POST /api/v1/academy/courses/{id}/enroll",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/academy/routes.rs",
+          "line": 148,
+          "name": "enroll"
+        }
+      ],
+      "purpose": "Enroll  records through the mounted LMS academy::routes handler."
+    },
+    {
+      "id": "GET /api/v1/academy/enrollments",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/academy/routes.rs",
+          "line": 174,
+          "name": "my_enrollments"
+        }
+      ],
+      "purpose": "My enrollments records through the mounted LMS academy::routes handler."
+    },
+    {
+      "id": "POST /api/v1/academy/enrollments/{id}/sessions/{session_id}/complete",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/academy/routes.rs",
+          "line": 188,
+          "name": "complete_session"
+        },
+        {
+          "path": "infera-lms/src/academy/routes.rs",
+          "line": 24,
+          "name": "CompleteRequest"
+        }
+      ],
+      "purpose": "Complete session records through the mounted LMS academy::routes handler."
+    },
+    {
+      "id": "POST /api/v1/academy/enrollments/{id}/exams/{exam_id}/attempts",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/academy/routes.rs",
+          "line": 232,
+          "name": "start_exam"
+        }
+      ],
+      "purpose": "Start exam definition records through the mounted LMS academy::routes handler."
+    },
+    {
+      "id": "POST /api/v1/academy/attempts/{id}/submit",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/academy/routes.rs",
+          "line": 388,
+          "name": "submit_exam"
+        },
+        {
+          "path": "infera-lms/src/academy/routes.rs",
+          "line": 29,
+          "name": "SubmitExamRequest"
+        }
+      ],
+      "purpose": "Submit exam definition records through the mounted LMS academy::routes handler."
+    },
+    {
+      "id": "GET /api/v1/integration/flow",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/integration/routes.rs",
+          "line": 31,
+          "name": "flow_integration_show"
+        }
+      ],
+      "purpose": "Flow integration show records through the mounted LMS integration::routes handler."
+    },
+    {
+      "id": "POST /api/v1/integration/legacy-ids/resolve",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/integration/office.rs",
+          "line": 201,
+          "name": "resolve_legacy_ids"
+        },
+        {
+          "path": "infera-lms/src/integration/office.rs",
+          "line": 23,
+          "name": "LegacyIdBatch"
+        }
+      ],
+      "purpose": "Resolve legacy ids records through the mounted LMS integration::routes handler."
+    },
+    {
+      "id": "POST /api/v1/courses/batch",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/integration/office.rs",
+          "line": 36,
+          "name": "batch_courses"
+        },
+        {
+          "path": "infera-lms/src/integration/office.rs",
+          "line": 17,
+          "name": "IdBatch"
+        }
+      ],
+      "purpose": "Batch courses records through the mounted LMS integration::routes handler."
+    },
+    {
+      "id": "POST /api/v1/courses/successors/batch",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/integration/office.rs",
+          "line": 117,
+          "name": "batch_course_successors"
+        },
+        {
+          "path": "infera-lms/src/integration/office.rs",
+          "line": 17,
+          "name": "IdBatch"
+        }
+      ],
+      "purpose": "Batch course successors records through the mounted LMS integration::routes handler."
+    },
+    {
+      "id": "POST /api/v1/classrooms/batch",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/integration/office.rs",
+          "line": 65,
+          "name": "batch_classrooms"
+        },
+        {
+          "path": "infera-lms/src/integration/office.rs",
+          "line": 17,
+          "name": "IdBatch"
+        }
+      ],
+      "purpose": "Batch classrooms records through the mounted LMS integration::routes handler."
+    },
+    {
+      "id": "GET /api/v1/classrooms/users/current",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/integration/office.rs",
+          "line": 166,
+          "name": "current_classroom_users"
+        }
+      ],
+      "purpose": "Current classroom enrollment records through the mounted LMS integration::routes handler."
+    },
+    {
+      "id": "POST /api/v1/classrooms/users/dropout-eligibility",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/integration/office.rs",
+          "line": 180,
+          "name": "dropout_eligibility"
+        },
+        {
+          "path": "infera-lms/src/integration/office.rs",
+          "line": 31,
+          "name": "UserIdBatch"
+        }
+      ],
+      "purpose": "Dropout eligibility records through the mounted LMS integration::routes handler."
+    },
+    {
+      "id": "POST /api/v1/integrations/chat/relationship",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 87,
+          "name": "relationship"
+        },
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 79,
+          "name": "RelationshipRequest"
+        },
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 84,
+          "name": "RelationshipResponse"
+        }
+      ],
+      "purpose": "Relationship  records through the mounted LMS notifications::contacts handler."
+    },
+    {
+      "id": "GET /api/v1/public/certificates/{code}/image.svg",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/certificate/routes.rs",
+          "line": 237,
+          "name": "render_certificate_image"
+        }
+      ],
+      "purpose": "Render or read the cached SVG for a public, legacy, or verification code. Returns a raw SVG string with cache headers; unknown codes return 404."
+    },
+    {
+      "id": "GET /api/v1/public/certificates/{code}",
+      "source_refs": [
+        {
+          "path": "infera-lms/src/certificate/routes.rs",
+          "line": 219,
+          "name": "verify_certificate"
+        },
+        {
+          "path": "infera-lms/src/certificate/models.rs",
+          "line": 137,
+          "name": "PublicCertificateResponse"
+        }
+      ],
+      "purpose": "Verify a public, legacy, or verification code. Returns certificate identity, validity and result fields; unknown codes return 404."
+    }
+  ],
+  "dependency_review": {
+    "revision": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+    "method": "git show immutable dependency source",
+    "files": [
+      "crates/infera-idp-macro/src/lib.rs",
+      "crates/infera-idp-sdk/src/middleware.rs",
+      "crates/infera-flow-sdk/src/integration_meta.rs"
+    ],
+    "conclusion": "Permission macro submits inventory metadata. IDP middleware extracts trusted identity headers with dev-fallback enabled in LMS Cargo.toml. Additional local guards and configured response-binding validation are separate; no deployed gateway result is claimed."
+  },
+  "source_manifest": [
+    {
+      "path": "infera-lms/entity/src/certificate.rs",
+      "sha256": "f2f322821dcd5408fb872b09abf6b0ca82736c4784d1aaa7243b232d41c7a2fa"
+    },
+    {
+      "path": "infera-lms/entity/src/certificate_template.rs",
+      "sha256": "32acdcf7c7ad3718ceb9c8d9a35199b690256b88ab2fa67573ac02058378b044"
+    },
+    {
+      "path": "infera-lms/entity/src/classroom.rs",
+      "sha256": "dbc9cc67167d0b4672ff0589e4d8f222b091fd6b1b991a0fbaded3c7bf79e1e7"
+    },
+    {
+      "path": "infera-lms/entity/src/classroom_session.rs",
+      "sha256": "a280c11e7b91d37c2de0c37623e50d5a73682b2a07ec27a01c79b457642b6b22"
+    },
+    {
+      "path": "infera-lms/entity/src/classroom_type.rs",
+      "sha256": "1792d16eb1b29436db84fc12b185675357e3a55203d2ad70b230ef65ac6d1c99"
+    },
+    {
+      "path": "infera-lms/entity/src/classroom_user.rs",
+      "sha256": "913b29be28dc9ab40ab634ab49abc90df017c3df75a2e7193b798b82b8a469e6"
+    },
+    {
+      "path": "infera-lms/entity/src/classroom_user_session.rs",
+      "sha256": "5cfb0526ded96907138088dddcebf1003940ce80ddb7b96fb5fcc7744ae16f6d"
+    },
+    {
+      "path": "infera-lms/entity/src/course.rs",
+      "sha256": "102a451fb40c457eced9972e0d7d2202a7ad276a73f15a2f42f82b34f826a0c1"
+    },
+    {
+      "path": "infera-lms/entity/src/course_category.rs",
+      "sha256": "23ae30a47c8e449a965c965b00163bafdc892c6157e5d10fe4fbeab1c32b3bef"
+    },
+    {
+      "path": "infera-lms/entity/src/course_certificate_template.rs",
+      "sha256": "935ba4aad99e701fad9592ce0a0bea37bf7fbcc7a08e7309d7ead0391c570cea"
+    },
+    {
+      "path": "infera-lms/entity/src/course_session.rs",
+      "sha256": "93deb6455090974b585450bcc2c5a4d2c020ae6ceff75a66baa2feddaf0eb044"
+    },
+    {
+      "path": "infera-lms/entity/src/course_session_type.rs",
+      "sha256": "31bb8485eaecb18faa424e521272a810b3ae3ebddf0bda3ab97390982812c435"
+    },
+    {
+      "path": "infera-lms/entity/src/education_day.rs",
+      "sha256": "afd06d9372afeaeb32b34922248d153ad58fb967b37676938296451a5d30456c"
+    },
+    {
+      "path": "infera-lms/entity/src/enums/mod.rs",
+      "sha256": "53e7bd1694e839760487f18aa09eea2498590737dcbc1dfbaee6f7bce69c02a2"
+    },
+    {
+      "path": "infera-lms/entity/src/exam.rs",
+      "sha256": "0d919548ba6ca5d1171088b3b90d6b17841ae25e4a88a9ac0ff7ddcb5278f4ef"
+    },
+    {
+      "path": "infera-lms/entity/src/exam_question.rs",
+      "sha256": "2f9b7753d1923674eebb5b6db5c9971315c7627bf87e177b5b7b846c820c5a78"
+    },
+    {
+      "path": "infera-lms/entity/src/exam_session.rs",
+      "sha256": "ffd8119383c01984c0fa68d775b1e030a33903122a771fe870a89e6abe90d29c"
+    },
+    {
+      "path": "infera-lms/entity/src/exam_user_session.rs",
+      "sha256": "c9a3be2ac618e674c233def9bf20e81ab597b4144389c33877c60773e251cfe2"
+    },
+    {
+      "path": "infera-lms/entity/src/holiday.rs",
+      "sha256": "e1e8a9d0c9c07ef76f68d1a2ec17accf655330b8a2abd564825350300b195c82"
+    },
+    {
+      "path": "infera-lms/entity/src/homework.rs",
+      "sha256": "6d90f538f4fb5a22b7b538a6a0b17394f4ec0dbf0ac6ae654af6ff11dd7f9ae7"
+    },
+    {
+      "path": "infera-lms/entity/src/homework_assignment.rs",
+      "sha256": "17c7bb0f1ffba0f8ed368115df2b37106ca3e0a133473f66e64761c7f6ab823a"
+    },
+    {
+      "path": "infera-lms/entity/src/homework_bank.rs",
+      "sha256": "0a85a3dee72e78fe055267d83f066282c49fb4c3a89b6f62153c502a494b138a"
+    },
+    {
+      "path": "infera-lms/entity/src/homework_question.rs",
+      "sha256": "e6521c63a5200248809735d89a652d60a562a58c3ed3516940add6e3feabc77f"
+    },
+    {
+      "path": "infera-lms/entity/src/lib.rs",
+      "sha256": "ae401bfdfadd0f2cac5da7b312c0994da442b1c81e6121465153241ec28ece07"
+    },
+    {
+      "path": "infera-lms/entity/src/school_grade.rs",
+      "sha256": "308e6b23a4ab651e5f73b0c642723f50b7a642f968f3ba99f88f7450aaf5c2fe"
+    },
+    {
+      "path": "infera-lms/entity/src/seeder/lms_seeder.rs",
+      "sha256": "363d6753053e1a373e49b14e1659e088cc2b47d0dd365b1e0bf36e5fc59bfa3a"
+    },
+    {
+      "path": "infera-lms/entity/src/seeder/mod.rs",
+      "sha256": "e1f7196f866d2c49d5466c9ac25b433db00222f1ab3265b0373a5c65541eb0d3"
+    },
+    {
+      "path": "infera-lms/entity/src/user_grade.rs",
+      "sha256": "f7c7adc690f1a6de90e3406d5505f50c4ec37054849d86884769a8806c85215e"
+    },
+    {
+      "path": "infera-lms/entity/src/weekend.rs",
+      "sha256": "52628ff0024127e4e6e18a5b86ecb0034750a62f70095c07b32c4284f12f741b"
+    },
+    {
+      "path": "infera-lms/migration/src/lib.rs",
+      "sha256": "33fcea46b62ed55405ece2c0da44dbd6de9f0cbef35eac15a7ff037533b31c0a"
+    },
+    {
+      "path": "infera-lms/migration/src/m20250617_000001_create_lms_schema.rs",
+      "sha256": "2dd282db3ff305e2cc89f630eeac7f093eadc13fd26003ab3aaea32c8c74ac5a"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260722_000002_add_session_video_sources.rs",
+      "sha256": "6f9e253978e9c181a29c3ca94937a5dac2138c548824ccd90b9121d24750bb96"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260726_000003_add_course_sort_order.rs",
+      "sha256": "b7b690b21dd7cb1cbf57faf2f5f9c2013b2fc70438e120513715ed060a362124"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260728_000004_add_academy_learning.rs",
+      "sha256": "cdbf4924dd9d6c74aeb46028a03466c0e5a0e26d19e2a15055166e6b595c9cc7"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260729_000005_add_drm_media_uuid.rs",
+      "sha256": "82b851f1a284bd6721a916d7126107f9bad41ee4ab903f75fc596de7f8942d94"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260810_000006_add_course_category_image.rs",
+      "sha256": "8f67679e302ccf5905914711a291664e097918682af727e9237b4dd28ad6401e"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260823_000007_complete_lms_domain.rs",
+      "sha256": "234ff394095a2cc910612c01ecd2edfeb6fcaef03eb1dc486b9e9ce70643dac8"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260823_000008_enrich_homework_questions.rs",
+      "sha256": "aca903fe3ae2c315372da34227789c0080eb6f635c08bb80fe6ccd0ac23784a7"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260824_000009_add_import_key_constraints.rs",
+      "sha256": "717b4dcb573866c34649e22b3ac810ecf8b66070bf67da33073dbe1a9653c15f"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260827_000010_add_own_access_support.rs",
+      "sha256": "c385d62d2c99d640379aa5d3d722dbc7968d26cf46b13e120834a9072bbe2fe0"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260828_000011_complete_certificate_workflow.rs",
+      "sha256": "4e092407ab0ee2a39e114cb650857cb4d28e0201966f0236c0f8cdee14b2894d"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260829_000012_use_uuid_domain_ids.rs",
+      "sha256": "d2ca39814531c7ea3b96a167395b674d8d62adacce11e6d5b356a9504d2cf4d3"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260901_000013_add_course_session_external_video.rs",
+      "sha256": "36072ae0f53f1672048250c1abee97f94c7175b1034f5e9bbcd3708860f0f177"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260902_000014_add_course_successors.rs",
+      "sha256": "9733e5dafa34e617aa8e5997523a3c9e9bfc58ebfe1f6336cc4293c3ddd8aed3"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260906_000015_add_session_access_lifecycle.rs",
+      "sha256": "a90eccf30aca7e2daef3b379307cd8d84a5b93178492df0bfa1869893e131fcb"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260908_000016_remove_classroom_user_status.rs",
+      "sha256": "4179289bfefc80a855b73fc0ae7ff1f84a3faf4af0d39b6d80619f50917e23e2"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260908_000017_learner_branding.rs",
+      "sha256": "33f00e63fe8749042b9c86aeae3dac19513a40e52a263e196fb79368cd7c48fc"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260909_000018_localize_session_type_name.rs",
+      "sha256": "609144e846680838ed8495eac342c054f45861b038cfb49e5183f011734d742d"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260909_000019_restore_classroom_user_status.rs",
+      "sha256": "419f0b137f44d66be518153f8701944854a2a28ae94a9e6a6c201fc4aadf2c82"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260912_000020_session_evaluations.rs",
+      "sha256": "b91f295647f0407eb8e7553f7cb260ea8e79d177c0b5920912dcdcff50039ef0"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260916_000021_ai_performance_summaries.rs",
+      "sha256": "2bb736d0d0a5c046b129438bb229d00492a22c78580347905a2e883a5eb6a412"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260916_000022_evaluation_question_controls.rs",
+      "sha256": "6056e2e684a7d204f3733ecbe7d1690da8f9187a6061b88ab2103307f2af9155"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260916_000023_ai_summary_concurrency.rs",
+      "sha256": "af2c69a73604a368e136d6aef9ee2b84ff160c5d0b9e3152cad7810273d3bf3d"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260916_000024_refresh_persian_ai_summaries.rs",
+      "sha256": "4e4eb1b62adca7b74357f6313b572b6f7780cbcdf3b42d04664783ca3aaed427"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260922_000025_homework_banks.rs",
+      "sha256": "3047692bec8141aa355e480dc18c4a503d36e08d7037919129d698535d2a1953"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260922_000026_separate_legacy_homeworks_from_banks.rs",
+      "sha256": "6b3dd6aa0d044b09c9c275c2ec6bfa1d88e8a4bf857389432488afcaec45bb17"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260922_000027_interactive_learning.rs",
+      "sha256": "b9f3703deb6efa8205932807f7a089734448107baae101e4d175d1159c838864"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260923_000028_add_homework_question_kind.rs",
+      "sha256": "64997ade9f2af596d1f8c9787a957b0861aa27bda6cc028057bd83ea737c464d"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260923_000029_assign_homework_items.rs",
+      "sha256": "b5bf815e0cf9de8140182f6a5b4973a3a2584b77958034a3e6403f743322aa29"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260923_000030_add_homework_question_name.rs",
+      "sha256": "50829466b1867f2ef2aee59c38247de1c0931d3ac6623a6d2ceae7629463f868"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260923_000031_restore_assignment_question_links.rs",
+      "sha256": "841e6747d19038af843fd739cc1cd80bed8a16ea4a607f38203cf67fa288bebf"
+    },
+    {
+      "path": "infera-lms/migration/src/m20261003_000032_educational_transfers.rs",
+      "sha256": "bd0f212d1123d64f94faefcb34722d07a2a59fbdf6056d91d89d97f15635bd57"
+    },
+    {
+      "path": "infera-lms/migration/src/m20261005_000033_add_course_delivery_prices.rs",
+      "sha256": "922349f647df3a0117472d62d402f9563cfdb85b390c0e5d67dc9e74250487bd"
+    },
+    {
+      "path": "infera-lms/migration/src/m20261007_000033_asset_outbox_retry.rs",
+      "sha256": "f79ae4a2f9f35ad1dfed5009ccba032a6c775ef704237c973229bcd53af53f69"
+    },
+    {
+      "path": "infera-lms/migration/src/m20261007_000034_asset_configuration.rs",
+      "sha256": "163819514c0c199a1cfc46368941b45dc706969c11c2f56802f24dc46f86c746"
+    },
+    {
+      "path": "infera-lms/migration/src/m20261018_000034_session_students.rs",
+      "sha256": "821c7175a87fa210eeace0005f41012e8f2852cdaff3b91b62b8ccb5814d0f81"
+    },
+    {
+      "path": "infera-lms/migration/src/m20261019_000035_notifications.rs",
+      "sha256": "a87fcc5646117f69c677aae7d8657c754ad61f005c1bedd4d40755a0159e73b2"
+    },
+    {
+      "path": "infera-lms/migration/src/m20261019_000050_summary_activity_outbox.rs",
+      "sha256": "6cb4a433b38fa142c95ccd8e501318d5915b91a0403298cd7fef0eeb20af63e6"
+    },
+    {
+      "path": "infera-lms/migration/src/m20261020_000051_summary_evaluation_subjects.rs",
+      "sha256": "789b734b1ea2af16c65251d571e5bfad54660e975f602f6758bb4ddd2713175b"
+    },
+    {
+      "path": "infera-lms/migration/src/main.rs",
+      "sha256": "6a9e7c82244ea3b2eab1a9da36d20fc7df609569da9ec2214bfe6a838c5ba99d"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/api.rs",
+      "sha256": "80d5512679333b5dfd0d0b50070f590a1049b8d10c6937366092d271f94ca3de"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/catalog.rs",
+      "sha256": "04049808fb368f4626993efabd8e024daf2f50fec458edf1ac7c205359644ebd"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/config.rs",
+      "sha256": "b75f268806a848e22debadf83dd53e94c9d41e4b5f240908928351e00b78e063"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/evidence.rs",
+      "sha256": "53514c622ce810ee449c5ffac2945997154c9ebfe5e9bdd127a534ae331fdfa4"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/grant.rs",
+      "sha256": "4ec08323843172e92a6ee63e1e9f588b03224b1f79046599ff3780de2d7b220c"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/lib.rs",
+      "sha256": "491d0839363361595ea905d381541d61858404e3d3c941c7653e4d7de8de3672"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/metric.rs",
+      "sha256": "db361bceb5387c75b1da6f0af699cb78c24504e2574d7fd99c1895ef29365d32"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/native_access.rs",
+      "sha256": "897c8a056c6e87b24ae4eeb7a991cfcac789d6aabf553c7aff5d4ef663eb5fb0"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/native_identity.rs",
+      "sha256": "dbb311db9127ad85dfc3d380baa32717b188cc257fe5de582a4e5bb41b8be32e"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/native_policy.rs",
+      "sha256": "c10ea586796bb31b5c5080031ba73ae9e1f7182a84ee56d9ca3f0c8dd3f740a1"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/outbox.rs",
+      "sha256": "b1314102c37b4bb13e839ea6cf39d394bd698757376b2732cf94ac474ba0e2e5"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/query.rs",
+      "sha256": "4ff79884d861d55905c07181f6a85620893defeb7701bd00b072c99b60e12418"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/result.rs",
+      "sha256": "97dcdf949109e7ece33323bec126aa4cc1e2dfe0c917fb6e2a2977f1b7b7751d"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/runner.rs",
+      "sha256": "486304ffbbe09c18ae55b199a8e5b77e3bfc5d78c4e04db9355b821593352b6d"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/runner_crypto.rs",
+      "sha256": "3bea1b556fd47af11e5a03ea65ea03ed7bf83e925a365a7763e87807a7b5a0be"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/runner_identity.rs",
+      "sha256": "78ec0470c4935e3a82cf0acdc713a9ddf7cb6a17197f1952612ef64dfdb522d3"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/runner_transport.rs",
+      "sha256": "f3b4517824522224fdef6b851891203b5072f2a5b7912df05ce92fd3af60eaf8"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/server.rs",
+      "sha256": "54c4983b3f9d80b51a9fea88f84a3791d95ea88e0bfff433a0cca3bbe1581beb"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/ast/data/mod.rs",
+      "sha256": "dfcfd5707ca5bca7f11c8b7262e6ebb47acac28e4796198f9b41758a8875bdcd"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/ast/data/nested_meta.rs",
+      "sha256": "0164c60fdb09d1bf53cb0de9ae094960748fb6b6a882d1e9fe9727f9a904ec23"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/ast/generics.rs",
+      "sha256": "f58bc7cf6be6aabde290f965018bdea236fc40c3b3d234b1f47a101f3d286179"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/ast/mod.rs",
+      "sha256": "58a58eeb1db7682e5994732cc8eb04088f6ca662805460ef443cf089e5c24e2c"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/attr_extractor.rs",
+      "sha256": "9ec3e79a7659bdff066bf1b9ac92e2c8ef63e901e5ba98ab35d7eacf6f0dd7dc"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/attrs_field.rs",
+      "sha256": "4844710750f2675af0e39efb92ca202a5e62a661169fa33882b5862b1ce7e499"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/default_expr.rs",
+      "sha256": "53cbc63c719a7998ee27d9a016fd513a90f8fad888f83aa34963f06619bbd661"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/error.rs",
+      "sha256": "3dde4e14b94ef45c329f6fd40387e418caf3122c0f59289b8d9fea5607b31470"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/field.rs",
+      "sha256": "e1ba98b93f478a677bc188e5feebd1455cd4b50fb8015ba7e72b1e8ff83124b4"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/from_attributes_impl.rs",
+      "sha256": "b41e4c40d4c96d79783c95da4f5e90aa70816fa3f8c63991e76829a68806a45c"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/from_derive_impl.rs",
+      "sha256": "e6b13ab0e16931914c90928e1a74fd1008241d6fd83b5d13b766ef5845b58a5a"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/from_field.rs",
+      "sha256": "1c4254d390fc6914c57f855bc984f86202f7a5f337b81a48d3ab035705cffd26"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/from_meta_impl.rs",
+      "sha256": "df539e4c4346352ed147b470f2309f1f13c10f7d3db7ec4865f683f45fab267e"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/from_type_param.rs",
+      "sha256": "5aacb01ce63f7a19f80aa667fd05f73f1d1fad475f1be5111d2a2d64648900d6"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/from_variant_impl.rs",
+      "sha256": "d6b809b0c62b8fc5e31d2a8b2b0040eb475d1f8b084e19faf06d95d11086a089"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/mod.rs",
+      "sha256": "38ee48646cf768b02199f52695515d9d43ae8e1d23cc3455b39eb8d50540dce3"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/outer_from_impl.rs",
+      "sha256": "b1e63838daed79c8d1c024ca4c88388f32b51454c5a86241717d68d3c3c92414"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/postfix_transform.rs",
+      "sha256": "41c84a239c15671e5a9cb8ce9fbb1b907f20aebe30d5dea4f04f004e3aa584c1"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/trait_impl.rs",
+      "sha256": "5b1d706d0c7a2ad99508fe143e1204306742bd1c21cbc1a7f73614f11ddbf8e8"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/variant.rs",
+      "sha256": "3fd98acd64560ab691edc3950ad68d24f8efcf26a0ba2b5665f09f2bade1cae8"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/codegen/variant_data.rs",
+      "sha256": "0cd8c404d8cb4228a15139938ff4af90b629cec4ccf78caff3ecbf40a252d2cd"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/derive.rs",
+      "sha256": "d35f35233eea28bc66bf6f738358415d650741560ca56f8deaee9465b3e88b2a"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/error/child.rs",
+      "sha256": "a6cc6e21b3a424150a764b2b9a8ffbc525722ccb4c372e197ded5a39021439fc"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/error/kind.rs",
+      "sha256": "4c801498e613cce839f7ce87aa86c142f63b9b2d31178a97539d0bbb4abbdf27"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/error/mod.rs",
+      "sha256": "bf8cdcb7949d8888b43df34f2f6e18036428f2cb75ad84eb53b7e4390bbfd2e0"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/error/util.rs",
+      "sha256": "afbe0076daa80e3bd572f2fecf7a9bedc7715af115712250131acd9b1010cde7"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/from_attributes.rs",
+      "sha256": "9c98a34eccdb66526711793d6d00bd5216de1d0e9d3755133996242a27efe272"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/from_derive_input.rs",
+      "sha256": "a60aba72ebd4deddd6bb9919995652f90aafdf88f6109c00c1a1c4459e439049"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/from_field.rs",
+      "sha256": "1e22b7750843b6a018fe75ae1510fb9252343be99ab02d2093881421e87d867d"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/from_generic_param.rs",
+      "sha256": "bdabc80f49212501e6e3574c7e6c03b4e453d0fe241ac46d465a5f004381f4c9"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/from_generics.rs",
+      "sha256": "b0a156179b2d1d88467183649afc97405403b01a7fdae39e4df8392f6b9f500c"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/from_meta.rs",
+      "sha256": "e58269593f83ea7369e641dedca3754b992578724eff7e313eeb5a14db779275"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/from_type_param.rs",
+      "sha256": "0c8930a42e1f0720429aa968f97f938e207460232dd2169cbf8efec12e7c6f5a"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/from_variant.rs",
+      "sha256": "dd27ffef65ceea0e68809afde7df82d3751cdedc248773062637aa8c146da6e7"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/lib.rs",
+      "sha256": "34808fd70c0c871c1eba5636530ebc5792788a1141999aa7165edabe66cfe9e8"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/macros_private.rs",
+      "sha256": "4373c36e75d516c340fc9b13c52b471d823fff9997cb7faeeb5f93b11d40d0b4"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/macros_public.rs",
+      "sha256": "7d2ce0c5026227ef7854db11d7a885ad891255438b2e49bbdfda56fa2f92feec"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/options/core.rs",
+      "sha256": "41936931c0b505663d577bc2a0338295e86ed29e1082dd0d4f21fe1da6084b24"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/options/forward_attrs.rs",
+      "sha256": "f0240414bbb855795ba13298be8c658e47c84e36b842fdec581dbb8a24edd19e"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/options/forwarded_field.rs",
+      "sha256": "fae53bb7cf0eccf836e8a6d5d01de7cd6bd56479206b085bd54b0ed434f55eed"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/options/from_attributes.rs",
+      "sha256": "b82356ab9a31dac1d4e2b12b02966ac068fa48df1b3492f889d45769c8b8dde3"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/options/from_derive.rs",
+      "sha256": "82a5443b903bb730a137e452db4bf9d8bbac24f0b749b5cd3a6a189a2a601e26"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/options/from_field.rs",
+      "sha256": "93d025e43c8dba21e0e21d40ad8c0d9814eadb95b1ad3b2738156b1699f7e218"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/options/from_meta.rs",
+      "sha256": "6ab7abd3dda4f28c70e7d203f6b5d4013de2dbbbd5006ac4937790432835c544"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/options/from_type_param.rs",
+      "sha256": "d8f68a9927c57321b3e4d717d15fe917ffa91ee561d7e298625bcaf25441d849"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/options/from_variant.rs",
+      "sha256": "104565175aeb238edf9ee68f7ffe2a665620796c50f7f9f3e1e3ef23751214aa"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/options/input_field.rs",
+      "sha256": "f63ca24e3f504e35b34173e430ac29dde29fe9b6bf9cc9ca69c6084104228b8e"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/options/input_variant.rs",
+      "sha256": "6f98c6edabc52d87d895dba549e2c2562365e54ecfc0803f158058d7d3c2e430"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/options/mod.rs",
+      "sha256": "21a18740e1b3d230f293db946fbbbe352f9da8a2c4bd2c881134e0c666be3fa3"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/options/outer_from.rs",
+      "sha256": "eb0a8d6f94dd50d49d0696362f46d68eddc93c606f990f46e7663bca0aadf200"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/options/shape.rs",
+      "sha256": "3908097eea951b947a32456b18f3c8f45b8261d0603bc67b1ab98081cd474c5d"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/usage/generics_ext.rs",
+      "sha256": "b2d15e2ff75c47f43f3ce305b2108e800dd3d89e3a21fadf82bda455837b8090"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/usage/ident_set.rs",
+      "sha256": "30edb2f0a599284967e3c6b579da31e5f9b15f3dd67bc9a82d6335eb44133df0"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/usage/lifetimes.rs",
+      "sha256": "f3dcb3fab5370c07ddb19fa04079f8da1f035d671930d987ab3980f77ae7f3cc"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/usage/mod.rs",
+      "sha256": "e49adadfa8ffed27299d5bbf3c33e68e2c8c7411f89aef655f77e158be9dd642"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/usage/options.rs",
+      "sha256": "0491c995aad0d55783b24cce8a4e40f0f4435988c54ce2ded34763ac9b199fcf"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/usage/type_params.rs",
+      "sha256": "e009419b102ad56878706d411b44cb89f5a497e8d0abbb6769bcd2d4af53c90b"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/callable.rs",
+      "sha256": "b722e91f0f0ad877eba33c6fe35b94191edc88b2ef0c6cea4f5386d9039389ac"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/flag.rs",
+      "sha256": "b2ac32e1a140d2fd9e02d84c73e5db3807b52419841fb293d3144b8e8a847a44"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/ident_string/mod.rs",
+      "sha256": "c01577caaa9dbabe7796684e4718dea0a2b99cc723ed2b5fcea39aa8861f96ad"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/ident_string/serde.rs",
+      "sha256": "775d047c96f564c39fea7593dc397673357d0eddc53eff11f8df40a5eeb71102"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/ignored.rs",
+      "sha256": "099c015023b9be0870fb1c4c44ad00f87789ea13da25e2ca952132443e497214"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/mod.rs",
+      "sha256": "8da138d37e0ce1e2ffb92b77b1534e3527e49af8beabc305a57ab9eabc1a02a5"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/over_ride.rs",
+      "sha256": "f994cbced4608bd1a329d53793c7425bbca7097351dfd040a2f787661560aac7"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/parse_attribute.rs",
+      "sha256": "202b9c05b818caa3d54c05d9dc34a52c7f46c87996a65865c1623084b4fb8eb7"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/parse_expr.rs",
+      "sha256": "71d7eb900ec5460934ff2f1770e85acb68c7a2c317b1e2f9776b4f4d7258f9fa"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/path_list.rs",
+      "sha256": "f5a5e31ad0e0e929ad5fe485b97fca18e8e26ad28fc4089063674b9073ea3ed3"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/path_to_string.rs",
+      "sha256": "c093354f91ab45e0be3c50d2d4356408f415c910f1569fb9275c5087110736f6"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/preserved_str_expr.rs",
+      "sha256": "725609c478d63d03831f887d3126d7c2c371a707cd2c37af4d7344cc4014c20f"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/shape.rs",
+      "sha256": "dda17aa8a063b5023ae1f055bec2859f984ec32633f6cc55938a442252f07204"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/spanned_value.rs",
+      "sha256": "9ad1cb69d8a13c1f826f4c67b3531f0faee8eb2a68bb381871987e85bea561ee"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/core/src/util/with_original.rs",
+      "sha256": "39b233a67976d375145359685ad219334dcd64410565a2b99132a83273be8375"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/macro/src/lib.rs",
+      "sha256": "728be3bb12c9cdaaf0520bce87e489a0820e436c78fa3627e238fc1acc11dd7f"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/src/lib.rs",
+      "sha256": "81bb4648beef113a7fc84737301f14e0116165ec8bb590df205471f82489b619"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/darling/src/macros_public.rs",
+      "sha256": "7d2ce0c5026227ef7854db11d7a885ad891255438b2e49bbdfda56fa2f92feec"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/error.rs",
+      "sha256": "03260e78096396534e176cc1044a79accf5f3f2a202bada642fff3f56b0459bc"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/handler/client/progress.rs",
+      "sha256": "d190d05e4b22ad49be7820594b0463272de031f5b97084b5c50c0a157758443e"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/handler/client.rs",
+      "sha256": "77c0af0dab29a6cdc255eaa49bd56902bab7451deb868af9d6da3dadaa71e3cf"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/handler/server/common.rs",
+      "sha256": "7bb21f5ed98f92566f940f1d0a8c6caa809dcd297dd96ed88a7ba94715a1ca11"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/handler/server/prompt.rs",
+      "sha256": "25d279ea391f64ff04a27a139b56b41a8dbc62f4ebc352deceee2af1ed0a491a"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/handler/server/resource.rs",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/handler/server/router/prompt.rs",
+      "sha256": "9862498db7869b038ebb3832ee86ec9da2708156a7a8ffd24f76753d6b2efac2"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/handler/server/router/tool.rs",
+      "sha256": "42f6d54cf6a29ea459b7c7a897411c15998b7022ce8a5a28b702dcabfc9ff269"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/handler/server/router.rs",
+      "sha256": "6950634ea8577a4ebddc47cea9c2c5a186aaec16aa2634d8e5cb2921eef59b7a"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/handler/server/tool.rs",
+      "sha256": "171becff88228798e44ea89e7f20e11d2035c5cbed590d7ec0bc5dea90c51106"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/handler/server/wrapper/json.rs",
+      "sha256": "c3174184434843cb1598bd419f0c42365448589d0495377820a1fc354dff35fc"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/handler/server/wrapper/parameters.rs",
+      "sha256": "69e3b21fbff36ab2a2e1d75c1c84c99a3335d0d186a661d1b5be4e1a7f2fd11c"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/handler/server/wrapper.rs",
+      "sha256": "e594439b9d2c2df8911fb16c93290c55f717db83d74098b9d68817da44f9befe"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/handler/server.rs",
+      "sha256": "bc8cf5ac070f9d38fbb74eabf16c20ca2a4d4529d8741cdb66fa1d29d75318bd"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/handler.rs",
+      "sha256": "9d1b57b412ff63b0d006a8975f035575043647eeea9c6489332ca2b3f5c1bd7b"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/lib.rs",
+      "sha256": "923b4e3b1a266657b68f3ceb3d8ca87e55ea1ea8c33a51e5d3c2f4b905835c0f"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/model/annotated.rs",
+      "sha256": "55b421db202f76f997477bbbc0ba450f8df605a70fd0d4a02083bf65bfc2280b"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/model/capabilities.rs",
+      "sha256": "fb03ef9109969cf88b734e5aa234eb6982f451e718490992f8b4737c85b3a6e1"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/model/content.rs",
+      "sha256": "3c5bafb7d939a442c8aff2d09adf7b2807b241e954b55431bdad4d9567343ea3"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/model/elicitation_schema.rs",
+      "sha256": "575c1b86c820eaf612b7e457276d46462529fd99e90e0363180e12be2b251f24"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/model/extension.rs",
+      "sha256": "64eec582535739e33ed6c7ecf8aeccc9a8c1558d1457acc8437f4e3304c72ac2"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/model/meta.rs",
+      "sha256": "ee96fde101c79e0b14e5327efc9c6dc79a54c65b490d87d61788ca9313e9527f"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/model/prompt.rs",
+      "sha256": "956dd2b727080022c817453f8d2aa74305b11d23a56c060d0e96d3b07ca5c95e"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/model/resource.rs",
+      "sha256": "aba70ec7c743c7469866b0dac09597e5cef635afc0afc1b915b47052b4443592"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/model/serde_impl.rs",
+      "sha256": "5f04d6843294e9392c52b01cc76a408464ed668b435d3c5674fad3014a55c1e8"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/model/tool.rs",
+      "sha256": "b8128c7317a4d78242214277e1bf7175624c768c52b0c8952a2c420789821e70"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/model.rs",
+      "sha256": "3229292703db268d4a0df22aa54ab5a8e4074fcd7196ea3533a3b43f5096a450"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/service/client.rs",
+      "sha256": "7cbb4a72967e3565c29b8b89f039478d699b444343a0fcf50923ebf69c80369c"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/service/server.rs",
+      "sha256": "74c1a319fce3e7e1bc2cdbbbeda987ea9e149242ac3c2f5d3f0f047a51660cbd"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/service/tower.rs",
+      "sha256": "a8256082605ae9b10a7c12f8dcb872a38bb710f0fec6ded49bff6023b1a72807"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/service.rs",
+      "sha256": "b28b6979638c9e5675ff16129c9e1819d8e0937bb799d720cc46890de6b1d8cb"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/async_rw.rs",
+      "sha256": "edf4cb12df1719dfc42875e08195fdf1776feb8f2f7a9ef72b19e22ab01b6e6b"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/auth.rs",
+      "sha256": "7a933610c163afd42004d2b69c3c7c4bc3ce455a275242f15b97faf844a99fa6"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/child_process.rs",
+      "sha256": "9f7e6d7eb480a34fbd8cb817caeed911fb1c84fe7a974e3af3f42b5080778043"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/common/auth/sse_client.rs",
+      "sha256": "08386dbb747fcc22d455340e64af1a185570a44cb29aff0bf68da1555409d3e0"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/common/auth/streamable_http_client.rs",
+      "sha256": "17432426e411dcca3799928590ac1cd97986ac6d4d01bbce6d868ec1c476b63f"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/common/auth.rs",
+      "sha256": "94d762383f93852b6383d9b37a4292adf1a82812624fc73d8e3f2fb47cc9d0aa"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/common/client_side_sse.rs",
+      "sha256": "66aea191a825ce05a24d8d3d2352ff4a57eecd143a0190fdc18408699cd75fe2"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/common/http_header.rs",
+      "sha256": "335a6211ce87f8b1cac8d6f0ddcffad442c1bed1977825268723cca7b2c6ff08"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/sse_client.rs",
+      "sha256": "8f596fabd69179120677b38e05ec3d6541d465c9cbc98da79124ae81475084be"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs",
+      "sha256": "7402d983180ba5a21d46dde2a4bdde3ec02d25e731209d7322efdf23f0763ec1"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest.rs",
+      "sha256": "c3767a6b27daeb80e721bd8aeae4530d013fa2eeaf3a0b324b0a74ccebadb09b"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/common/server_side_http.rs",
+      "sha256": "4a0c1fa38a048bd9f55aad6e528761376ba087e58c87a8c5d0ff16404a46ba66"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/common.rs",
+      "sha256": "eb03a7e086c46b8203c15ae797636b4f2d41d8fa2f28f110f6f215cebcbf4ef5"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/io.rs",
+      "sha256": "86cbe078a7c03964340570d8940ca6a3276cf7c8056dbd4d64a9f654a7fa077f"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/sink_stream.rs",
+      "sha256": "0c2145227060ce8dbc517437c037dee727606fb5e0350840c7b38e1483f4469a"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/sse_client.rs",
+      "sha256": "aabd355b3fcaf729ebc58f596ead558a460fb8f0030dbb45a8eb824062001887"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/sse_server.rs",
+      "sha256": "4af1150bbda5737808a9a699c0e6d4b929159d27579b9e5e0d4d19f3489d79b2"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_client.rs",
+      "sha256": "2a9b26c1856738811cc31b1c631457e6cd330ec1801dadf6a311b8f0f0783fea"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_server/session/local.rs",
+      "sha256": "8cfe46d9e9eafef97b9ed9af594169a448d3f68b5c1a538e027cca60846afd63"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_server/session/never.rs",
+      "sha256": "7392112f864847eb1c12421fd7c8d581b8cc42e458a313c7d29b7a8793a54891"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_server/session.rs",
+      "sha256": "65ceb48264aed62a5c59770b7cc018bbccef3f30350b0d53f4b6f5d260baf23c"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_server/tower.rs",
+      "sha256": "e8335de946c4e2847dfdec9fbdfdc3e662914d2c2d8242614426e4b2f8c6eddc"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_server.rs",
+      "sha256": "05077a3418071a8c7bf3ac2ac87d4f2fc58d3c5864bfe5dcfef314d3048f6262"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/worker.rs",
+      "sha256": "e4c7a8da898b1752b0516400635c09f78e4c1abcc7b84d381ba90dd494c77d8f"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport/ws.rs",
+      "sha256": "57025a04e15634a80dc4e8247601b62014ce835568b049f3ea433164bdd7811b"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp/src/transport.rs",
+      "sha256": "37076e8cbb814c36cc930e7e1ec4815946b62ebf2254e6f14c93d5d5e6221fbd"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp-macros/src/common.rs",
+      "sha256": "83572bdda00ca6e40ea042f9bae3295df8d9e074565c66d01ffe178b6e62a104"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp-macros/src/lib.rs",
+      "sha256": "2b8035c1cec4306811592c0fffe3469989b29cdd1e07c228da37711158f53c39"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp-macros/src/prompt.rs",
+      "sha256": "31244214b3d2b89c522aa096fe42eaa119486210ed2b17031d35d082a5ce0833"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp-macros/src/prompt_handler.rs",
+      "sha256": "c2a686c7672f5263a3e141bad3d201f5b609ea2f9c8fd516af8ec7e624bb7811"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp-macros/src/prompt_router.rs",
+      "sha256": "929713f5c2f59fb23ddeac9feab4a54378f2a88c4ceceeae442d766d719b2063"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp-macros/src/tool.rs",
+      "sha256": "7e2d360cd9d0425ddcf8f29c3ea576c186447ddb5b8f04f4d008f0620d9cfd2d"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp-macros/src/tool_handler.rs",
+      "sha256": "18735fc8ee71553e37536cf8881265bf3f135ec1d620ada084a8cd20f731ec4d"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/rmcp-macros/src/tool_router.rs",
+      "sha256": "96af6ab8a679169cb27ae2a627375673ced75d3034c88e0d269f1295e3c87ffa"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/_private/mod.rs",
+      "sha256": "5c0e09465931e277e3417275bb34d09d3b5b473b447bf8afa3a748d3fbef57da"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/_private/regex_syntax.rs",
+      "sha256": "ecbcab1829c3cd5a850ed508ddefc90002fd325e62e38f084d873635dbfe7562"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/_private/rustdoc.rs",
+      "sha256": "d694a592d238097876e3ea6d5130451c97ffcddd45be5ad008f3e81026f40e53"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/consts.rs",
+      "sha256": "b271c18a8cb1871790cd0e70f7bd6e08d70bc670e1be47f643999784eaebad96"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/encoding.rs",
+      "sha256": "5730264da41cf0dfa7c38778e573fdcd6a846e3f2e60a78d4778ccc4fffd1634"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/generate.rs",
+      "sha256": "f1ac3f26bdd2b16553fac89728dadea7bc80ed8db5fdac48c303a3a7a2cd79a4"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/array.rs",
+      "sha256": "d1dc225f6047270e85cb03809d17acd80ed97edfb33c8e1ae57d2868f5175571"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/arrayvec07.rs",
+      "sha256": "4f2f79f615dac9d7edffadeb834c19024874cbe3597fa5186be592793a13f31b"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/atomic.rs",
+      "sha256": "70d0aa9c0a4d68ce4fc05d00fd034d45820c445a289fd45cbe9d044c054af270"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/bytes1.rs",
+      "sha256": "a6c7df17cc0ab36d21c0e2517348581c6c7bb316558d50902c0332176092853a"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/chrono04.rs",
+      "sha256": "c6e62c246b7dcf3c494df89cb7888b5e329b7b96fe3d8b7d0a240a297aca4044"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/core.rs",
+      "sha256": "9c5b92a6eff85211fb7f266d62faffdf8c6fb0158606c555d6fa67b1e4e17bb3"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/decimal.rs",
+      "sha256": "f449bce77d3f148d3efb0b4adc827f373c01591d6aed8ac3c0a34b9da633e2d7"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/either1.rs",
+      "sha256": "91c0c4b000cac4178cc2bfb934257350fa7d0efe54ee823b24d63807c79b01ab"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/ffi.rs",
+      "sha256": "24e50406b6e4d6b8a11dfdb214a1267f0bb541b4e49aee1937df174fda4a4013"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/indexmap2.rs",
+      "sha256": "e3fb9b79396a2d6c51a48045d5e496fe9d1dc11714e7972e821154e6694cfbc8"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/jiff02.rs",
+      "sha256": "4b996da175773f66206beac152908d1d86a0ad484021389efd5b654522a34266"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/maps.rs",
+      "sha256": "daf59dce39a748da0ad7167e3dcc44b39a19ab62980b4f3fa54a4188bf725a47"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/mod.rs",
+      "sha256": "a07f94883b24ef593dfed9eca0fe6c2c95a59abe7e4742bfb0ece3433007da48"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/nonzero.rs",
+      "sha256": "c72c6c9dcc19ff0db5604eb2548d9b31e7d058e5cd67dd605e09c5c90dfedb41"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/primitives.rs",
+      "sha256": "3f167f5e8f78958b33f58c3dcc492d71863b04f740961bd5c97aa7ec7d5c2c99"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/semver1.rs",
+      "sha256": "5f29c4aec1c34ee898531c1634de11696728c8a32b7870d69b8fab3779255501"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/sequences.rs",
+      "sha256": "00db231358e1b7591dfc9f5076710da3ca5251cc0ed0b534a468da33232054d7"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/serdejson.rs",
+      "sha256": "fa32a6939d2f9b02bc249c044836fc9f7bfc8e2e8c29fcd9d5d268e98389c031"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/std_time.rs",
+      "sha256": "aec8e48aedc50143ae902717880695ca2e765832ef04ad7ce070c2fc230fa65b"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/tuple.rs",
+      "sha256": "1d9ede3144405396760c1c497b066aff2895964378dafcf710137b5ede882016"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/url2.rs",
+      "sha256": "db550cc98f236a1044dedba34fd5f2cd249d47e7ca1fe7f3b9216c494c5212a4"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/uuid1.rs",
+      "sha256": "bed0371c96daf11631ca16f1d160f78779ee544681221f439d49bbd3bd25c70d"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/json_schema_impls/wrapper.rs",
+      "sha256": "2610ae1876c30f33b467c00014aafe0feb701ffd121ed7e60e5564e011ffd8b0"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/lib.rs",
+      "sha256": "3cbcd1fc89a994ae0143bd0badd0564cb073225da7c05ae43964ff06689218b0"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/macros.rs",
+      "sha256": "a0d7547b22656beee9cc184993bef64eb353bdf4ea08f16b9cf20cb1bbe9ffc5"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/schema.rs",
+      "sha256": "5dd5affccb15a35051cae2c4c5e06d3eb0c6084ae985fc18977cf6661cf591db"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/ser.rs",
+      "sha256": "0531d16c6f27cf96aaa8ed8ef308ae5509a5421d74ace2d51070f9269386b3e7"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars/src/transform.rs",
+      "sha256": "4b275c38b0bbc9bd80c79f0bede4a5ce649310593d7ea3a6f92b63fdf8dbe5b7"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars_derive/src/ast/from_serde.rs",
+      "sha256": "6acb877b9992206c4214d04aabae719339b462ac2dbd203d4f92055e9d32ad93"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs",
+      "sha256": "0b22955e56dcf8bede86b0915b90edf30c19ef5afdb1d10a662f1c7ce688be0a"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars_derive/src/attr/custom_meta.rs",
+      "sha256": "7fea45b540fe99dafe45c317a8e1e318bbddf82f9e5c5b4cd4c3ada447b633c6"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars_derive/src/attr/doc.rs",
+      "sha256": "927c3df4bdcbd157b5be07a92da5c31f406e2a7eac8ff94976dd74030198741a"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars_derive/src/attr/mod.rs",
+      "sha256": "54ee8ac754120985b933fb91af0f94aa4ce7228ea82fb7959c1ce3cc9548eef6"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars_derive/src/attr/parse_meta.rs",
+      "sha256": "c43f374a1d43fad8da680ffe2052c0984337ad05fe857e5791f0358aedc4feff"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars_derive/src/attr/schemars_to_serde.rs",
+      "sha256": "06084c24502892cab9321d7f1b7a5e83bd1ec7826b6a8a4f43f9a23b48e6bbc0"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars_derive/src/attr/validation.rs",
+      "sha256": "1d94ea581dd62c3a02bb59a3469941ab580de288cb60b1df2297590973384931"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars_derive/src/bound.rs",
+      "sha256": "fc0b607628e1f32ea0f1bcb586c5601f44bb092bb11fac08f4749969172a3c9f"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars_derive/src/idents.rs",
+      "sha256": "fd0f739ae1c370dfc13ec47eb923737be6795a5347fc60136852227aa423a7a1"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars_derive/src/lib.rs",
+      "sha256": "0dc7e815c8efcf834aaff60ca01045a7688d710e790863dfa0d40e321f018e60"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars_derive/src/name.rs",
+      "sha256": "7d3fef0a90db8d234d57ce7ad61637aba0a38700cfc14b5b7a89c3f26be99bcf"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/schemars_derive/src/schema_exprs.rs",
+      "sha256": "b84f5aff1d939b3479abaeff89044e311e258799aebb5e068caec61db1984a82"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/sse-stream/src/body.rs",
+      "sha256": "5967a659bc33a151d816ca4b9c1df039ef94935b5de09f2a91222263fd7463b2"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/sse-stream/src/lib.rs",
+      "sha256": "3059b23ed8550af47078015fe2821490932f69fc843ce71aa36136ff2ed5cc3a"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/vendor/sse-stream/src/stream.rs",
+      "sha256": "ee2cecdd2542e840d25e57fa9bf88ea1b00414b617c92b569f497af9ceed784f"
+    },
+    {
+      "path": "infera-lms/src/academy/mod.rs",
+      "sha256": "18cb4e1a253f7cb8df60400fcf0dd6adc86a1fad5c9d64d69a7e57df230682ff"
+    },
+    {
+      "path": "infera-lms/src/academy/routes.rs",
+      "sha256": "34432c49b30d4d45d6ee469389670ff5b07f999c8dd70e56902dcc156d09ea4b"
+    },
+    {
+      "path": "infera-lms/src/access.rs",
+      "sha256": "85bc00a8d3741d92eb801e3a3392c619d0e6ede43e7a66338a0b71cc13f6e167"
+    },
+    {
+      "path": "infera-lms/src/asset_economy.rs",
+      "sha256": "6c9d7f2730fc738fb6394deb68ea961720e95dd1c51fac8e0494150b664b2c70"
+    },
+    {
+      "path": "infera-lms/src/branding.rs",
+      "sha256": "5a08deec3cd6d9905ea52d2032085b783beb03c51292bd0f057e2a1d0d8590b3"
+    },
+    {
+      "path": "infera-lms/src/broker.rs",
+      "sha256": "4f8aa784089c60853191a95ceae08cbff48c558e862d4368d3c3e9690d731c8b"
+    },
+    {
+      "path": "infera-lms/src/certificate/methods.rs",
+      "sha256": "0478c0126297fec99763159e1fef79b919c063d4e7fd2fa39d55c026bd47c0a0"
+    },
+    {
+      "path": "infera-lms/src/certificate/mod.rs",
+      "sha256": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-lms/src/certificate/models.rs",
+      "sha256": "646962bc300ba78ba4c5438cf5d8596d3989878b41b071ee8ec73a5c30fd6bb6"
+    },
+    {
+      "path": "infera-lms/src/certificate/routes.rs",
+      "sha256": "43c63768796e34de467f35c86cce69a93b050aa798c442f116a3e20c68baba6a"
+    },
+    {
+      "path": "infera-lms/src/classroom/methods.rs",
+      "sha256": "a92e53ff56a5b5f9ae3c12f2a35469b65f79074edaa8999dd802b6091df1194d"
+    },
+    {
+      "path": "infera-lms/src/classroom/mod.rs",
+      "sha256": "92ac724d478f5510449d116b02f46ca7668a6f9775ee07a5790130f14467ca03"
+    },
+    {
+      "path": "infera-lms/src/classroom/models.rs",
+      "sha256": "3c95482c19038a04c9d2b294e550ac152ed5a6af9d7e6a5390f7c12830d058e9"
+    },
+    {
+      "path": "infera-lms/src/classroom/routes.rs",
+      "sha256": "c2d6d711a508b6929eb758667c060f665bf6bf00a1d7f2d2f9dd534e689ed7bf"
+    },
+    {
+      "path": "infera-lms/src/classroom/scheduler.rs",
+      "sha256": "838e4cd75bb5ddc37e18bad95fb3c1bdb12661733e1a86b498f29defc3e98636"
+    },
+    {
+      "path": "infera-lms/src/cli/commands/routes_export.rs",
+      "sha256": "e817cea7b6aa06072a082b61263c890a4371a84ac268e1106ed5be802627c1e9"
+    },
+    {
+      "path": "infera-lms/src/cli/commands/seed_commands.rs",
+      "sha256": "4a727177532a92f3d37bd43f0bc609a4ebda6a3a032c59999b281063669ce833"
+    },
+    {
+      "path": "infera-lms/src/cli/commands.rs",
+      "sha256": "a7e44ec462135a2a2ad7a7ab424fa2ab332246d5987971751f677cea1d11a160"
+    },
+    {
+      "path": "infera-lms/src/cli.rs",
+      "sha256": "030373ddde1e267ba2d8fdfca14493d3ed64612d5dfac30d77a966fa1aa4d43c"
+    },
+    {
+      "path": "infera-lms/src/config/methods.rs",
+      "sha256": "f55fab80bf4062d758096cc2807d3e4cb0e178fc8d6ec22daeec462925ba0a7b"
+    },
+    {
+      "path": "infera-lms/src/config/mod.rs",
+      "sha256": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-lms/src/config/models.rs",
+      "sha256": "2aa6c4725a120e8baa437da13495fb860a96c757a027de6258cdd64c2b688c72"
+    },
+    {
+      "path": "infera-lms/src/config/routes.rs",
+      "sha256": "c47f7bef3ff0c06a96e41caac44de93abcc90eb3348ca1a3596fa1672cbbb19b"
+    },
+    {
+      "path": "infera-lms/src/cors.rs",
+      "sha256": "f4850326854dcdb843de07f8f45025c73561b7939ac3f3da1f305f3a35ad56b8"
+    },
+    {
+      "path": "infera-lms/src/course/methods.rs",
+      "sha256": "51f13353618dcdc79be5aaf2bf74e5528c610e34f03bb0e516165eb88955a42a"
+    },
+    {
+      "path": "infera-lms/src/course/mod.rs",
+      "sha256": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-lms/src/course/models.rs",
+      "sha256": "c85494ca9aaac91af208be43bdff1fe4b9421ff4c79e6d799a3c586985a10e80"
+    },
+    {
+      "path": "infera-lms/src/course/routes.rs",
+      "sha256": "ca3484ccb4be3da52deb11d66ef1157a018e550937a873faecc9fc4ff1b4fb5a"
+    },
+    {
+      "path": "infera-lms/src/dashboard/methods.rs",
+      "sha256": "8fd3fc9259b2bc07fd6b5549641b2dec1266c054959114dd422c3bd3dac56a90"
+    },
+    {
+      "path": "infera-lms/src/dashboard/mod.rs",
+      "sha256": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-lms/src/dashboard/models.rs",
+      "sha256": "a25e86611cc311b31dcfaabe2ce56e6a0b0e0620da5b0a1b2933a93c87e64836"
+    },
+    {
+      "path": "infera-lms/src/dashboard/routes.rs",
+      "sha256": "1499a8d6bbdb1d1cb8651ce037cb763adabc7da5215d42e856bb5f4bc1079718"
+    },
+    {
+      "path": "infera-lms/src/db.rs",
+      "sha256": "6d5b016d2b26c50f58e8a5d99423feac1603cb10c9a9ca65024f44b665293153"
+    },
+    {
+      "path": "infera-lms/src/docs/methods.rs",
+      "sha256": "ba3947895d8e9a9f88a70530fc438b22f78fac19eb1fb68a7b1a7388299fa4c2"
+    },
+    {
+      "path": "infera-lms/src/docs/mod.rs",
+      "sha256": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-lms/src/docs/models.rs",
+      "sha256": "9d1ba509db636ba9319f1177657769db12d87a6370b75d64fe6c6109c609c8d2"
+    },
+    {
+      "path": "infera-lms/src/docs/routes.rs",
+      "sha256": "0c3affb39060432cbef14c14b4cc1c5cbdf6cdeb639c4059e42d828a71dc4001"
+    },
+    {
+      "path": "infera-lms/src/drm.rs",
+      "sha256": "b47703805d3cf4636e49f73f6ff9339087c8a8e5825dec2a537e6046c18c1677"
+    },
+    {
+      "path": "infera-lms/src/drm_routes.rs",
+      "sha256": "e2eceae44aa20183796a29538f846633e9f125463dc6329c292c1cb82e262eb3"
+    },
+    {
+      "path": "infera-lms/src/evaluation/methods.rs",
+      "sha256": "5adbff1597482e12fb0b2ec939ea5ee68c6eedb08561ebd7d411d634582d6da1"
+    },
+    {
+      "path": "infera-lms/src/evaluation/mod.rs",
+      "sha256": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-lms/src/evaluation/models.rs",
+      "sha256": "145db99e439fa7b1ce31b08449abe6272b0625b6dc6e19e22789f705f492fa0e"
+    },
+    {
+      "path": "infera-lms/src/evaluation/routes.rs",
+      "sha256": "725a82ab11a611bdafe019497a960c0634cdab63b3297349d3bdaa800cab914b"
+    },
+    {
+      "path": "infera-lms/src/exam/methods.rs",
+      "sha256": "e29f67f7a20910693b5667cbf8a58e39a7081c85151178410ceb93ed1ee709d8"
+    },
+    {
+      "path": "infera-lms/src/exam/mod.rs",
+      "sha256": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-lms/src/exam/models.rs",
+      "sha256": "c8b021281c367b001561e2b8a2f38dbc68186f8dab91ec0bb4cc5d87687e85c1"
+    },
+    {
+      "path": "infera-lms/src/exam/routes.rs",
+      "sha256": "effa969d0275deadf9baf2786d832be05697990e0bc5b3de4c8f58379ea4574c"
+    },
+    {
+      "path": "infera-lms/src/homework/methods.rs",
+      "sha256": "b739ab1fad0c35515a5cb31bb4396bfdf5b3d7fc17e1095eaafbeff03fce3e7c"
+    },
+    {
+      "path": "infera-lms/src/homework/mod.rs",
+      "sha256": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-lms/src/homework/models.rs",
+      "sha256": "df2c0c709fe62730488fa4293dbc7c85d82ad0cea0c50dc72b51cb84769c6185"
+    },
+    {
+      "path": "infera-lms/src/homework/routes.rs",
+      "sha256": "48287b3af24c8c7d5b4ec4920a3069e4937d670665bc9b53c36f66c02c61717e"
+    },
+    {
+      "path": "infera-lms/src/integration/flow.rs",
+      "sha256": "ee275164516e3581d7c7044c8930feeb8b3eafc6cfe8b05d6e597f19b0499777"
+    },
+    {
+      "path": "infera-lms/src/integration/mod.rs",
+      "sha256": "1a63198335eb8953c377901573410c0f2d16a154718442a4096d276f747a6704"
+    },
+    {
+      "path": "infera-lms/src/integration/office.rs",
+      "sha256": "c88e9566a900dea05a33bdb1bb6a39cee0b2b90c33081177e64963e057076ecb"
+    },
+    {
+      "path": "infera-lms/src/integration/routes.rs",
+      "sha256": "82b164a3dd41dc5ebb73c031a2b3268ba3378ff4ae0787a47a3c81aa527a1197"
+    },
+    {
+      "path": "infera-lms/src/interactive/engine.rs",
+      "sha256": "43b598a5cc7dbe670411cb18b76be9a0fd6a213ab7df13c2ddaa24d69d144588"
+    },
+    {
+      "path": "infera-lms/src/interactive/mod.rs",
+      "sha256": "5b1d1753330f8900c94b441917d46ebdb1c201805aa7607f59a288bd0e61f528"
+    },
+    {
+      "path": "infera-lms/src/interactive/models.rs",
+      "sha256": "a6084fa93dca414d44e2ab1fa506573879679aa587b3c83dfc054ca3e3168194"
+    },
+    {
+      "path": "infera-lms/src/interactive/routes.rs",
+      "sha256": "62b8b1b4cfc83374a09893a8bf52cec78fbcda96b061f654be8ab10041f05bc2"
+    },
+    {
+      "path": "infera-lms/src/lib.rs",
+      "sha256": "6ef0be9dbfe123cabf0012406847419c29320986e3ce9c0fc82790c25c3aa330"
+    },
+    {
+      "path": "infera-lms/src/main.rs",
+      "sha256": "837a58d0ef82ffded7c69633e490f5c96b2571b438322a96247569482cd7b08f"
+    },
+    {
+      "path": "infera-lms/src/media.rs",
+      "sha256": "e8366dc67dcaa62d17c83c3c00603c4bd58d11406ca2334c62b2b551986fda7d"
+    },
+    {
+      "path": "infera-lms/src/models.rs",
+      "sha256": "30e23fc2164bcc496530e449e38d75d9c7c66afd0fc2f579cdf858d4c75ef4f8"
+    },
+    {
+      "path": "infera-lms/src/notifications/contacts.rs",
+      "sha256": "e7b867712c777127049e074d98cd00a06ce3ac65092e14343ac37a79f1372864"
+    },
+    {
+      "path": "infera-lms/src/notifications/mod.rs",
+      "sha256": "fd8c5cd12dee9bbb8c29322c70bccbc950baab9b30fd31cc6bb2c619435ce2ff"
+    },
+    {
+      "path": "infera-lms/src/notifications/scheduler.rs",
+      "sha256": "a05f338c7577556fc69e1fd1f146c2148e5a6d3d2ea463dd774f89eba8d6bf14"
+    },
+    {
+      "path": "infera-lms/src/notifications/source_events.rs",
+      "sha256": "14c96cf064531b1afd2fabfcade8ecf466c862bb985f0c978cd617c534fbb5bc"
+    },
+    {
+      "path": "infera-lms/src/pagination.rs",
+      "sha256": "2862b6e2d2dbab95fdc5cb292844aa3c22d91fdb39eeade5e050fc333b5aeca1"
+    },
+    {
+      "path": "infera-lms/src/profile.rs",
+      "sha256": "9d0cef1f037ccfdeedcb33ed392dd1747dcb63f59b3ae50e5aed6b69431a6fb7"
+    },
+    {
+      "path": "infera-lms/src/profile_routes.rs",
+      "sha256": "1db87c2132f98874bca73a633e5d4b152d65ebb232642a32e9d095215430d1c1"
+    },
+    {
+      "path": "infera-lms/src/profile_sync/methods.rs",
+      "sha256": "a52f116f0c42972705d7bc7ef0d053f16d37d9e76cbfa068c9bcdbfe8436a630"
+    },
+    {
+      "path": "infera-lms/src/profile_sync/mod.rs",
+      "sha256": "01d77f5c82e18a3162ac7d4a8ec0fdf2805a15c262b280b88577df5540209467"
+    },
+    {
+      "path": "infera-lms/src/report/methods.rs",
+      "sha256": "2148bebe75d4caff58986c2452a910013cb35a73e88cccec029d2dc840454fe7"
+    },
+    {
+      "path": "infera-lms/src/report/mod.rs",
+      "sha256": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-lms/src/report/models.rs",
+      "sha256": "17a72e9197d91f009ad7d7dedc9412bc2fc59a3769f853444a29dd442ef4c10d"
+    },
+    {
+      "path": "infera-lms/src/report/routes.rs",
+      "sha256": "9a85a9887e377751b601fa68e7d5bdc17ffe75540e28a8106f1b437724862398"
+    },
+    {
+      "path": "infera-lms/src/router.rs",
+      "sha256": "58d5bcc8136757173ff1c5d784a1dfa618ceac1d01c308e9ed67f91f6dcbb49f"
+    },
+    {
+      "path": "infera-lms/src/service/mod.rs",
+      "sha256": "18cb4e1a253f7cb8df60400fcf0dd6adc86a1fad5c9d64d69a7e57df230682ff"
+    },
+    {
+      "path": "infera-lms/src/service/routes.rs",
+      "sha256": "4c99489a336cd4fa8cb2752c8f3d91c3711b2db4a1ca8118c827863f25422953"
+    },
+    {
+      "path": "infera-lms/src/service_billing.rs",
+      "sha256": "bb65b557387b243ebf855e9e61b76bccd26e0719e7cb3f6fe052fe5412a034fb"
+    },
+    {
+      "path": "infera-lms/src/session/mod.rs",
+      "sha256": "18cb4e1a253f7cb8df60400fcf0dd6adc86a1fad5c9d64d69a7e57df230682ff"
+    },
+    {
+      "path": "infera-lms/src/session/routes.rs",
+      "sha256": "d819b3ea7bca5a9ea62ea3d84d5f6bee80900e17283063458db6c74f8d43096e"
+    },
+    {
+      "path": "infera-lms/src/state.rs",
+      "sha256": "f5eef4321d7d3ff67f266a8e07eed313f7dfbe4e6091417757ff6ff84fa6542f"
+    },
+    {
+      "path": "infera-lms/src/summary_evidence.rs",
+      "sha256": "42ca6754662069394456aa9fe34b92831b2b9b75298a81c39d0b5dbad68ad7a6"
+    },
+    {
+      "path": "infera-lms/src/test_support/mod.rs",
+      "sha256": "53dfa3b9e3a0ca920ff5648659c01a74218b93ac0ee800b1050463ae8de934a4"
+    },
+    {
+      "path": "infera-lms/src/transfer.rs",
+      "sha256": "2a4a98e453995d7e52837154a17092e9104c6e092264d2af39f938f3a447fa8d"
+    },
+    {
+      "path": "infera-lms/src/util.rs",
+      "sha256": "c89dcce3187a77449c2881e32dcf79490c0bfc09f8d8a113d9922352da877131"
+    },
+    {
+      "path": "infera-lms/src/viewer_identity.rs",
+      "sha256": "c696b1207bd1dc5d1a5618aaa10c5f12114c36fc86b07f17edb09dc441d12abb"
+    }
+  ],
+  "executed_tests": []
+}

@@ -1,0 +1,9 @@
+{
+  "idp_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+  "cargo_lock_sha256": "827098f03b58e7917925afc097e0154ce377891ebbff7e1ea4dd440ac50f93c8",
+  "dependency_revision": "291c81a67bc302d667fb807da2af3240598bee52",
+  "dependency_source": "crates/infera-flow-sdk/src/integration_meta.rs",
+  "dependency_git_blob": "eb7e7da26ff81d1790625181b85c47aea902c40a",
+  "dependency_file_sha256": "b8c16ae1c4c77fad0c48966830e7b3dbb8b44d5d43cba6068fa4dd12fc4c7f8f",
+  "basis": "Immutable selected IDP Cargo.lock references the exact Git revision; model was read with git show at that revision."
+}

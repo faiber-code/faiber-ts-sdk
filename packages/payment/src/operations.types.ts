@@ -1,205 +1,55 @@
 import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
-/** Backend response type: api. */
-export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: HealthResponse. */
+export type RouterRootStatusGetResponse = import("./types.js").PaymentHealthResponse;
+
+/** Backend response type: utoipa::openapi::OpenApi. */
+export type RouterOpenapiJsonGetResponse = import("@faiber/sdk-core").ServiceOpenApiDocument;
 
 /** Backend response type: SessionResponse. */
-export interface SessionGetSelfGetResponseData extends JsonObject {
-  "user_id": string;
-  "roles": string[];
-  "permissions": string[];
-}
-export interface SessionGetSelfGetResponse extends ApiEnvelope<SessionGetSelfGetResponseData> {
-}
+export type SessionGetSelfGetResponse = import("./types.js").PaymentSessionResponse;
 
 /** Backend query type: GatewayListQuery. */
-export interface GatewayIndexGetQuery extends QueryParams {
-  "status"?: string | null;
-  "page[number]"?: number | null;
-  "page[size]"?: number | null;
-}
+export type GatewayIndexGetQuery = import("./types.js").GatewayListQuery;
 /** Backend response type: crate::models::PagedResult<models::GatewayResponse>. */
-export interface GatewayIndexGetResponseItem extends JsonObject {
-  "id": number;
-  "name": string;
-  "provider": string;
-  "options"?: BackendJson<"Json"> | null;
-  "sandbox"?: boolean | null;
-  "priority": number;
-  "status"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface GatewayIndexGetResponsePageMeta extends JsonObject {
-  "page": number;
-  "page_size": number;
-  "total_items": number;
-  "total_pages": number;
-}
-export interface GatewayIndexGetResponseData extends JsonObject {
-  "data": GatewayIndexGetResponseItem[];
-  "meta": GatewayIndexGetResponsePageMeta;
-}
-export interface GatewayIndexGetResponse extends ApiEnvelope<GatewayIndexGetResponseData> {
-}
+export type GatewayIndexGetResponse = import("./types.js").GatewayListResponse;
 
 /** Backend request type: models::CreateGatewayRequest. */
-export interface GatewayStorePostInput extends JsonObject {
-  "name": string;
-  "provider": string;
-  "priority"?: number | null;
-  "status"?: string | null;
-  "options"?: BackendJson<"serde_json::Map<String, serde_json::Value>"> | null;
-  "sandbox"?: boolean | null;
-}
+export type GatewayStorePostInput = import("./types.js").CreateGatewayInput;
 /** Backend response type: models::GatewayResponse. */
-export interface GatewayStorePostResponseData extends JsonObject {
-  "id": number;
-  "name": string;
-  "provider": string;
-  "options"?: BackendJson<"Json"> | null;
-  "sandbox"?: boolean | null;
-  "priority": number;
-  "status"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface GatewayStorePostResponse extends ApiEnvelope<GatewayStorePostResponseData> {
-}
+export type GatewayStorePostResponse = import("./types.js").GatewayResponse;
 
 /** Backend response type: models::GatewayResponse. */
-export interface GatewayDestroyDeleteResponseData extends JsonObject {
-  "id": number;
-  "name": string;
-  "provider": string;
-  "options"?: BackendJson<"Json"> | null;
-  "sandbox"?: boolean | null;
-  "priority": number;
-  "status"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface GatewayDestroyDeleteResponse extends ApiEnvelope<GatewayDestroyDeleteResponseData> {
-}
+export type GatewayDestroyDeleteResponse = import("./types.js").GatewayResponse;
 
 /** Backend response type: models::GatewayResponse. */
-export interface GatewayShowGetResponseData extends JsonObject {
-  "id": number;
-  "name": string;
-  "provider": string;
-  "options"?: BackendJson<"Json"> | null;
-  "sandbox"?: boolean | null;
-  "priority": number;
-  "status"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface GatewayShowGetResponse extends ApiEnvelope<GatewayShowGetResponseData> {
-}
+export type GatewayShowGetResponse = import("./types.js").GatewayResponse;
 
 /** Backend request type: models::UpdateGatewayRequest. */
-export interface GatewayUpdatePatchInput extends JsonObject {
-  "name"?: string | null;
-  "provider"?: string | null;
-  "priority"?: number | null;
-  "status"?: string | null;
-  "options"?: BackendJson<"serde_json::Map<String, serde_json::Value>"> | null;
-  "sandbox"?: boolean | null;
-}
+export type GatewayUpdatePatchInput = import("./types.js").UpdateGatewayInput;
 /** Backend response type: models::GatewayResponse. */
-export interface GatewayUpdatePatchResponseData extends JsonObject {
-  "id": number;
-  "name": string;
-  "provider": string;
-  "options"?: BackendJson<"Json"> | null;
-  "sandbox"?: boolean | null;
-  "priority": number;
-  "status"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface GatewayUpdatePatchResponse extends ApiEnvelope<GatewayUpdatePatchResponseData> {
-}
+export type GatewayUpdatePatchResponse = import("./types.js").GatewayResponse;
 
 /** Backend response type: models::GatewayOptionsResponse. */
-export interface GatewayOptionsGetResponseDataProviders extends JsonObject {
-  "value": string;
-  "label": string;
-}
-export interface GatewayOptionsGetResponseDataStatuses extends JsonObject {
-  "value": string;
-  "label": string;
-}
-export interface GatewayOptionsGetResponseData extends JsonObject {
-  "providers": GatewayOptionsGetResponseDataProviders[];
-  "statuses": GatewayOptionsGetResponseDataStatuses[];
-}
-export interface GatewayOptionsGetResponse extends ApiEnvelope<GatewayOptionsGetResponseData> {
-}
+export type GatewayOptionsGetResponse = import("./types.js").GatewayOptionsResponse;
 
 /** Backend response type: serde_json::Value. */
 export type GatewaySetupCheckPostResponse = import("./contracts.types.js").PaymentSetupResponse;
 
 /** Backend response type: crate::integration::models::IntegrationDocsResponse. */
-export interface IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields extends JsonObject {
-  "name": string;
-  "field_type": string;
-  "required": boolean;
-  "description": string;
-}
-export interface IntegrationIntegrationDocsShowGetResponseDataDirectEvents extends JsonObject {
-  "event_name": string;
-  "payload_fields": IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields[];
-}
-export interface IntegrationIntegrationDocsShowGetResponseDataDirect extends JsonObject {
-  "transport": string;
-  "queue"?: string | null;
-  "base_url"?: string | null;
-  "broker_url_hint"?: string | null;
-  "sample_profile_id"?: string | null;
-  "events": IntegrationIntegrationDocsShowGetResponseDataDirectEvents[];
-}
-export interface IntegrationIntegrationDocsShowGetResponseDataSdk extends JsonObject {
-  "event_name": string;
-  "method": string;
-  "language": string;
-  "cargo_dep": string;
-  "code": string;
-}
-export interface IntegrationIntegrationDocsShowGetResponseData extends JsonObject {
-  "direct": IntegrationIntegrationDocsShowGetResponseDataDirect;
-  "sdk": IntegrationIntegrationDocsShowGetResponseDataSdk[];
-}
-export interface IntegrationIntegrationDocsShowGetResponse extends ApiEnvelope<IntegrationIntegrationDocsShowGetResponseData> {
-}
+export type IntegrationIntegrationDocsShowGetResponse = import("./types.js").PaymentIntegrationDocsResponse;
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
-}
+export type IntegrationFlowIntegrationShowGetResponse = import("./types.js").PaymentFlowIntegrationResponse;
 
 /** Backend response type: Value. */
 export type ProductPlansAvailabilityGetResponse = import("./contracts.types.js").ProductPaymentAvailabilityResponse;
 
 /** Backend request type: crate::payment::models::CreatePaymentRequest. */
-export interface ProductPlansCreatePostInput extends JsonObject {
-  "amount": number;
-  "service_name": string;
-  "description"?: string | null;
-  "callback_url"?: string | null;
-  "service_model": string;
-  "service_id": string;
-  "queue_name": string;
-  "idempotency_key"?: string | null;
-}
+export type ProductPlansCreatePostInput = import("./types.js").CreatePaymentInput;
 /** Backend response type: crate::payment::models::CreatePaymentResponse. */
-export interface ProductPlansCreatePostResponseData extends JsonObject {
-  "transaction": string;
-  "redirect_url": string;
-}
-export interface ProductPlansCreatePostResponse extends ApiEnvelope<ProductPlansCreatePostResponseData> {
-}
+export type ProductPlansCreatePostResponse = import("./types.js").CreatePaymentResponse;
 
 /** Backend response type: Value. */
 export type ProductPlansReceiptGetResponse = import("./contracts.types.js").ProductPaymentReceiptResponse;
@@ -208,53 +58,20 @@ export type ProductPlansReceiptGetResponse = import("./contracts.types.js").Prod
 export type AssetCheckoutReceiptGetResponse = import("./contracts.types.js").VerifiedAssetPurchaseResponse;
 
 /** Backend request type: crate::payment::models::CreatePaymentRequest. */
-export interface FitnessCreatePostInput extends JsonObject {
-  "amount": number;
-  "service_name": string;
-  "description"?: string | null;
-  "callback_url"?: string | null;
-  "service_model": string;
-  "service_id": string;
-  "queue_name": string;
-  "idempotency_key"?: string | null;
-}
+export type FitnessCreatePostInput = import("./types.js").CreatePaymentInput;
 /** Backend response type: crate::payment::models::CreatePaymentResponse. */
-export interface FitnessCreatePostResponseData extends JsonObject {
-  "transaction": string;
-  "redirect_url": string;
-}
-export interface FitnessCreatePostResponse extends ApiEnvelope<FitnessCreatePostResponseData> {
-}
+export type FitnessCreatePostResponse = import("./types.js").CreatePaymentResponse;
 
 /** Backend response type: Value. */
 export type FitnessReceiptGetResponse = import("./contracts.types.js").ProductPaymentReceiptResponse;
 
 /** Backend response type: crate::payment::models::CreatePaymentResponse. */
-export interface FitnessRetryPostResponseData extends JsonObject {
-  "transaction": string;
-  "redirect_url": string;
-}
-export interface FitnessRetryPostResponse extends ApiEnvelope<FitnessRetryPostResponseData> {
-}
+export type FitnessRetryPostResponse = import("./types.js").CreatePaymentResponse;
 
 /** Backend request type: crate::payment::models::CreatePaymentRequest. */
-export interface ShopCheckoutCreatePostInput extends JsonObject {
-  "amount": number;
-  "service_name": string;
-  "description"?: string | null;
-  "callback_url"?: string | null;
-  "service_model": string;
-  "service_id": string;
-  "queue_name": string;
-  "idempotency_key"?: string | null;
-}
+export type ShopCheckoutCreatePostInput = import("./types.js").CreatePaymentInput;
 /** Backend response type: crate::payment::models::CreatePaymentResponse. */
-export interface ShopCheckoutCreatePostResponseData extends JsonObject {
-  "transaction": string;
-  "redirect_url": string;
-}
-export interface ShopCheckoutCreatePostResponse extends ApiEnvelope<ShopCheckoutCreatePostResponseData> {
-}
+export type ShopCheckoutCreatePostResponse = import("./types.js").CreatePaymentResponse;
 
 /** Backend response type: Value. */
 export type ShopCheckoutReadinessGetResponse = import("./contracts.types.js").ShopPaymentReadiness;
@@ -263,226 +80,55 @@ export type ShopCheckoutReadinessGetResponse = import("./contracts.types.js").Sh
 export type ShopCheckoutReceiptGetResponse = import("./contracts.types.js").ShopPaymentReceiptResponse;
 
 /** Backend request type: models::CreatePaymentRequest. */
-export interface PaymentCreatePaymentPostInput extends JsonObject {
-  "amount": number;
-  "service_name": string;
-  "description"?: string | null;
-  "callback_url"?: string | null;
-  "service_model": string;
-  "service_id": string;
-  "queue_name": string;
-  "idempotency_key"?: string | null;
-}
+export type PaymentCreatePaymentPostInput = import("./types.js").CreatePaymentInput;
 /** Backend response type: models::CreatePaymentResponse. */
-export interface PaymentCreatePaymentPostResponseData extends JsonObject {
-  "transaction": string;
-  "redirect_url": string;
-}
-export interface PaymentCreatePaymentPostResponse extends ApiEnvelope<PaymentCreatePaymentPostResponseData> {
-}
+export type PaymentCreatePaymentPostResponse = import("./types.js").CreatePaymentResponse;
 
 /** Backend response type: models::PaymentSettingsResponse. */
-export interface SettingsShowGetResponseData extends JsonObject {
-  "safe_fallback_url": string;
-}
-export interface SettingsShowGetResponse extends ApiEnvelope<SettingsShowGetResponseData> {
-}
+export type SettingsShowGetResponse = import("./types.js").PaymentSettingsResponse;
 
 /** Backend request type: models::UpdatePaymentSettingsRequest. */
-export interface SettingsUpdatePatchInput extends JsonObject {
-  "safe_fallback_url": string;
-}
+export type SettingsUpdatePatchInput = import("./types.js").UpdatePaymentSettingsInput;
 /** Backend response type: models::PaymentSettingsResponse. */
-export interface SettingsUpdatePatchResponseData extends JsonObject {
-  "safe_fallback_url": string;
-}
-export interface SettingsUpdatePatchResponse extends ApiEnvelope<SettingsUpdatePatchResponseData> {
-}
+export type SettingsUpdatePatchResponse = import("./types.js").PaymentSettingsResponse;
 
 /** Backend query type: models::TransactionListQuery. */
-export interface TransactionIndexGetQuery extends QueryParams {
-  "status"?: string | null;
-  "service_name"?: string | null;
-  "gateway_id"?: number | null;
-  "tracking_code"?: string | null;
-  "masked_card_number"?: string | null;
-  "from_date"?: string | null;
-  "to_date"?: string | null;
-  "page[number]"?: number | null;
-  "page[size]"?: number | null;
-}
+export type TransactionIndexGetQuery = import("./types.js").TransactionListQuery;
 /** Backend response type: models::TransactionListData. */
-export interface TransactionIndexGetResponseDataSummariesStatus extends JsonObject {
-  "accepted": number;
-  "pending": number;
-  "rejected": number;
-}
-export interface TransactionIndexGetResponseDataSummariesServices extends JsonObject {
-  "name": string;
-  "amount": number;
-}
-export interface TransactionIndexGetResponseDataSummaries extends JsonObject {
-  "status": TransactionIndexGetResponseDataSummariesStatus;
-  "services": TransactionIndexGetResponseDataSummariesServices[];
-}
-export interface TransactionIndexGetResponseDataGateways extends JsonObject {
-  "id": number;
-  "name": string;
-  "provider": string;
-}
-export interface TransactionIndexGetResponseData extends JsonObject {
-  "transactions": BackendJson<"crate::models::PagedResult<TransactionResponse>">;
-  "summaries": TransactionIndexGetResponseDataSummaries;
-  "service_names": string[];
-  "gateways": TransactionIndexGetResponseDataGateways[];
-}
-export interface TransactionIndexGetResponse extends ApiEnvelope<TransactionIndexGetResponseData> {
-}
+export type TransactionIndexGetResponse = import("./types.js").TransactionListResponse;
 
 /** Backend response type: models::TransactionStatusResponse. */
-export interface RouterShowStatusGetResponseData extends JsonObject {
-  "status": string;
-}
-export interface RouterShowStatusGetResponse extends ApiEnvelope<RouterShowStatusGetResponseData> {
-}
+export type RouterShowStatusGetResponse = import("./types.js").TransactionResponse;
 
 /** Backend response type: models::VerifyPaymentResponse. */
-export interface TransactionRejectPaymentPostResponseDataTransactionGateway extends JsonObject {
-  "id": number;
-  "name": string;
-  "provider": string;
-}
-export interface TransactionRejectPaymentPostResponseDataTransaction extends JsonObject {
-  "uuid": string;
-  "amount": number;
-  "gateway_id": number;
-  "gateway"?: TransactionRejectPaymentPostResponseDataTransactionGateway | null;
-  "description"?: string | null;
-  "status"?: string | null;
-  "service_name": string;
-  "service_model_type"?: string | null;
-  "service_model_id"?: string | null;
-  "callback_url"?: string | null;
-  "authority"?: string | null;
-  "user_ip"?: string | null;
-  "queue_name"?: string | null;
-  "tracking_code"?: string | null;
-  "masked_card_number"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface TransactionRejectPaymentPostResponseDataVerification extends JsonObject {
-  "id": string;
-  "transaction_uuid": string;
-  "verifier_user_id": string;
-  "successful": boolean;
-  "previous_status"?: string | null;
-  "resulting_status"?: string | null;
-  "tracking_code"?: string | null;
-  "message"?: string | null;
-  "created_at": string;
-}
-export interface TransactionRejectPaymentPostResponseData extends JsonObject {
-  "transaction": TransactionRejectPaymentPostResponseDataTransaction;
-  "verification": TransactionRejectPaymentPostResponseDataVerification;
-}
-export interface TransactionRejectPaymentPostResponse extends ApiEnvelope<TransactionRejectPaymentPostResponseData> {
-}
+export type TransactionRejectPaymentPostResponse = import("./types.js").VerifyPaymentResponse;
 
 /** Backend response type: Vec<models::PaymentVerificationResponse>. */
-export interface TransactionVerificationLogsGetResponseItem extends JsonObject {
-  "id": string;
-  "transaction_uuid": string;
-  "verifier_user_id": string;
-  "successful": boolean;
-  "previous_status"?: string | null;
-  "resulting_status"?: string | null;
-  "tracking_code"?: string | null;
-  "message"?: string | null;
-  "created_at": string;
-}
-export interface TransactionVerificationLogsGetResponse extends ApiEnvelope<TransactionVerificationLogsGetResponseItem[]> {
-}
+export type TransactionVerificationLogsGetResponse = import("./types.js").PaymentVerificationLogsResponse;
 
 /** Backend response type: models::VerifyPaymentResponse. */
-export interface TransactionVerifyPaymentPostResponseDataTransactionGateway extends JsonObject {
-  "id": number;
-  "name": string;
-  "provider": string;
-}
-export interface TransactionVerifyPaymentPostResponseDataTransaction extends JsonObject {
-  "uuid": string;
-  "amount": number;
-  "gateway_id": number;
-  "gateway"?: TransactionVerifyPaymentPostResponseDataTransactionGateway | null;
-  "description"?: string | null;
-  "status"?: string | null;
-  "service_name": string;
-  "service_model_type"?: string | null;
-  "service_model_id"?: string | null;
-  "callback_url"?: string | null;
-  "authority"?: string | null;
-  "user_ip"?: string | null;
-  "queue_name"?: string | null;
-  "tracking_code"?: string | null;
-  "masked_card_number"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface TransactionVerifyPaymentPostResponseDataVerification extends JsonObject {
-  "id": string;
-  "transaction_uuid": string;
-  "verifier_user_id": string;
-  "successful": boolean;
-  "previous_status"?: string | null;
-  "resulting_status"?: string | null;
-  "tracking_code"?: string | null;
-  "message"?: string | null;
-  "created_at": string;
-}
-export interface TransactionVerifyPaymentPostResponseData extends JsonObject {
-  "transaction": TransactionVerifyPaymentPostResponseDataTransaction;
-  "verification": TransactionVerifyPaymentPostResponseDataVerification;
-}
-export interface TransactionVerifyPaymentPostResponse extends ApiEnvelope<TransactionVerifyPaymentPostResponseData> {
-}
+export type TransactionVerifyPaymentPostResponse = import("./types.js").VerifyPaymentResponse;
 
 /** Backend query type: models::DailyIncomeQuery. */
-export interface TransactionDailyIncomeGetQuery extends QueryParams {
-  "days"?: number | null;
-}
+export type TransactionDailyIncomeGetQuery = import("./types.js").DailyIncomeQuery;
 /** Backend response type: Vec<models::DailyIncomePoint>. */
-export interface TransactionDailyIncomeGetResponseItem extends JsonObject {
-  "date": string;
-  "amount": number;
-}
-export interface TransactionDailyIncomeGetResponse extends ApiEnvelope<TransactionDailyIncomeGetResponseItem[]> {
-}
+export type TransactionDailyIncomeGetResponse = import("./types.js").DailyIncomeResponse;
+
+/** Backend response type: HealthResponse. */
+export type RouterStatusRouteGetResponse = import("./types.js").PaymentHealthResponse;
 
 /** Backend response type: api. */
-export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend response type: api. */
-export interface PaymentWebRedirectGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PaymentWebRedirectGetResponse = import("./types.js").PaymentHtmlResponse;
 
 /** Backend query type: CallbackQuery. */
-export interface PaymentWebCallbackGetQuery extends QueryParams {
-  "Authority"?: string | null;
-  "transid"?: string | null;
-  "paymentNumber"?: string | null;
-}
+export type PaymentWebCallbackGetQuery = import("./types.js").PaymentCallbackQuery;
 /** Backend response type: raw-response. */
-export interface PaymentWebCallbackGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PaymentWebCallbackGetResponse = import("./types.js").PaymentHtmlResponse;
 
 /** Backend query type: CallbackQuery. */
-export interface PaymentWebCallbackPostQuery extends QueryParams {
-  "Authority"?: string | null;
-  "transid"?: string | null;
-  "paymentNumber"?: string | null;
-}
+export type PaymentWebCallbackPostQuery = import("./types.js").PaymentCallbackQuery;
 /** Backend response type: raw-response. */
-export interface PaymentWebCallbackPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PaymentWebCallbackPostResponse = import("./types.js").PaymentHtmlResponse;
+
+/** Backend response type: HealthResponse. */
+export type RouterUpGetResponse = import("./types.js").PaymentHealthResponse;

@@ -1,0 +1,336 @@
+{
+  "id": "asset-final-source-audit-20261021",
+  "service": "asset",
+  "source_revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf",
+  "source_tree_checksum": "0a4f9b617a3a21356a96636d66ddd30a3bc6d961078761fafb06c72356b6e68a",
+  "direct_review_scope": "All 110 mounted HTTP operations, mounted router and handler extractors; concrete request/response models; repository filters/SQL/state transitions relevant to each operation; declared metadata versus local auth; relevant source test definitions. Repository implementations were read by relevant function spans, not assumed from route export.",
+  "native_execution": "not_run",
+  "verification_status": "source_only",
+  "source_files": [
+    {
+      "path": "Service/infera-asset/src/router.rs",
+      "sha256": "a2eac0883623342d2d0201f1e5c4efb30d71b24ffbf5e316ccb2dd4ed1f7e2b0",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/main.rs",
+      "sha256": "be67aec595b8c7871935667bea6aeca27f94632aca049f1eff5e10ca2422a963",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/models.rs",
+      "sha256": "19bd6bf001a0547e48d0d50879d07c7a5d11c6bb007d806d12a6f35505519722",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/pagination.rs",
+      "sha256": "2eeba61d3be682762b4c4c34752cf0d9f2e9856e7f2e88153aa4966fd918abb3",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/game_escrow.rs",
+      "sha256": "a5cd9f9a759b8e89e7d68c7daffd6cdfc576db5aa370d967878724e590d85b6d",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/trial_gifts.rs",
+      "sha256": "e2293adf20aeff32aaeb45681a62e7e90f08696e1ffdcf3ee1047da83e6aded7",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/fitness.rs",
+      "sha256": "b83bf3e1116141f7d15bcd514a2aab3cb6a7622e30f75f4bbf8e79066d79c779",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/sandbox_billing.rs",
+      "sha256": "158f5634ebd0e119bfb3ff550733b400bf947ab98dd0236c6581b806ab69640a",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/service_lifecycle.rs",
+      "sha256": "18b1c840d3760ba29be73580e26fa51fd379162a709993f46642f5268c0f7162",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/economy/models.rs",
+      "sha256": "3703bf162c55700ac8a567c02a9e02950ee8ab3d3e8227a18d498af63e919461",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/economy/routes.rs",
+      "sha256": "54a88c5ed4bf49d7403915e1bcf06147e38f7cc9c0163b00aa7b0c5f46eedc45",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/economy/mod.rs",
+      "sha256": "4bcd24c10e9adb38f12db9df0b4a38e29e9bf658801ad406367b18429e0d4223",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/economy/configuration.rs",
+      "sha256": "8a2b3de4b812aca2d40cf46a6edcfd7e4975f1fb48bf4dc208df7f8053a84d10",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/economy/store.rs",
+      "sha256": "7be69ea1c5bd6edadb3b023643b5aec5d35fa9b5693b9ec2e051da0879ce17b1",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/economy/rewards.rs",
+      "sha256": "e24067a6855dac0de195441a8e56c04e9dafaf1e97d62b2edeb2f85a163aff13",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/economy/funding.rs",
+      "sha256": "46bdae5cff3250b39f377c6c3c607b0030073890faa756dff1c3c0a8b3877021",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/economy/purchases.rs",
+      "sha256": "7e16f9be9d1e6af078e580c1dac0c527f0d675f95d470376d27ec4a0eff66fc8",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/economy/interactions.rs",
+      "sha256": "467495d3ce1b263dc3e7c83a492a287eb04a0095430c1bd76d8cfcb2fac66b86",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/reward/engine.rs",
+      "sha256": "d3282e8f488f8594c40a36fc4ab3f70dd97ef22c2f641bae716c38b1713cb978",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/reward/rules.rs",
+      "sha256": "bc47522acb7cc6fdb89af5daa26b6935eda016724a70bcc7f6b832777b491f87",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/badge/models.rs",
+      "sha256": "9fbb88acd7538557e67c1207c2a47ff5aa64145d3fd8f976a0e9e2bc0dd830e4",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/charge/rules.rs",
+      "sha256": "d92f059e663a5bd926e605367948f85f471cbc510807baaf3be7e34c1ee9252c",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/profile/methods.rs",
+      "sha256": "4e80e7e8a55b8aec4f96f45fcdc09bea815ad5d153c1594438ca71faced6e1b5",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/action/routes.rs",
+      "sha256": "c62da8fa37cb7d98f916e94b707871ea50d83fde5de11fa34533071d0f451b29",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/action/models.rs",
+      "sha256": "9fcde60c112c3c10b82575d98dd6baeac06e3d850ebb1584f66c9d53c535726a",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/action/methods.rs",
+      "sha256": "b3c402fac9ba125560fa09cd05d968e7ad7f2f6a1b2f23b8115b3a2b4250d439",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/catalog/routes.rs",
+      "sha256": "db40e655b8f545ab9d549bc1a7507361ed38d333472622d02661905e9a9afc83",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/catalog/models.rs",
+      "sha256": "6b18e8df9557b1d49ab03a8d71964da862d0c4eda641d2ebdc1d558933e05435",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/catalog/methods.rs",
+      "sha256": "5fad45e1f463ddd3c0fb664f06fb47f3da5d858905b4605453e4370d0496dfbe",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/rank/routes.rs",
+      "sha256": "47c74d5cffb8edced798d4053f27e1f02ebdf7b0bd9d028e26c0de8952d070d6",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/rank/models.rs",
+      "sha256": "1787807e12d64ff35fbc510c12d4f683d226eb6c120307b74c08e6ddcaf31caa",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/rank/methods.rs",
+      "sha256": "781234bf69a767554a3631394d27a1e2c51080d448f1b0b0b7f8525204c4b811",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/bank/routes.rs",
+      "sha256": "d8c2c4f252ec19c1dbf1f33133f6a1c96e14109a482418d224e2e5e95c335b28",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/bank/models.rs",
+      "sha256": "c25251fee34f87bcb50e17585621486a2e30ccea0a4921306b55870d863ecc9c",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/bank/methods.rs",
+      "sha256": "cff0f5cd8557a1511fbbfb36f992299c34ab96aabae61fd1cc0344965374cbf2",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/charge/routes.rs",
+      "sha256": "6624df1da3420715369201fb1d41b0d9e00ca18ec4b3757dc954de2040c27678",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/charge/models.rs",
+      "sha256": "35dcfe4147c7663d20f0f27a1758acb363294a7fc16ffc524bd7d24b6f4e9939",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/charge/methods.rs",
+      "sha256": "d5cf7cff0697f254b6b7f56afb0410e65d05d449eb00ffe72ba9f8188766111f",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/dashboard/routes.rs",
+      "sha256": "c69de263001d75c82a3442c1cd159b7a2e09cfc2c9533e130eb0b82b882f6ddf",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/dashboard/models.rs",
+      "sha256": "59c32bcb81bfe810f7ce77493b512636c95f8ec4edfc34d4cb151ba03dbb58c0",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/dashboard/methods.rs",
+      "sha256": "f9f6ff833d3019600367701b09e96cf66691b423abbda6a65e350c95798ced82",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/logs/routes.rs",
+      "sha256": "d1ca2d42ab46ca9b75a6fc16b7ceaa3bc4f2d5713ca51c5c02f17d4f5a5e5a48",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/logs/models.rs",
+      "sha256": "97512e492b35ba446027c6369e2a276afbfcb33087858eba438e5b41389ff174",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/logs/methods.rs",
+      "sha256": "f8b6d073f63d996b18854bdb3fa719b77e3e266a0a1e47f717b580851da4f989",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/leaderboard/routes.rs",
+      "sha256": "caec4477a5856aebbac97ae8e957a9264b6e389e3039890c9baa26235b204f18",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/leaderboard/models.rs",
+      "sha256": "553ab8698dfa0f3c3d8af421902213e159a2e847823df3d4aa0522142e97fcab",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/leaderboard/methods.rs",
+      "sha256": "c64a1acbca1b5e78428d70b9cab50a8ec46c46638854181cb7d23c9dc2c8db95",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/wallet/routes.rs",
+      "sha256": "e2bcf9f9275dc4c2ce0eb32aea0d5a59a2664d2174f4437d50e9d3472b6f5bb8",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/wallet/models.rs",
+      "sha256": "5e3c27e5777e8b85efd8eb363cf31c06812720d946ff1c113b3e0830c2020b7b",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/wallet/methods.rs",
+      "sha256": "a3f89fd5234c7e13e91cc037581abfcb4fd45fdc838ec1e473ed5cc491e768c6",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/wallet_billing/routes.rs",
+      "sha256": "c05321ad863ffc65f6625a8522e985794b3f8e3a8fb90dfe9f9335b3ffa155aa",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/wallet_billing/models.rs",
+      "sha256": "15daacca97c0328bdb00f667b2b88696128d301728a05b5b0ff64fa1e8892eba",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/wallet_billing/methods.rs",
+      "sha256": "323d0bdabcde84121e5352ada2e4af787225871d360f1b11769683b31651dbc6",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/llm_usage/routes.rs",
+      "sha256": "ffcef4af1ce5e4006ae54d83a6d1082ebbe6957fa1fecffdbfc767016e0036bc",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/llm_usage/models.rs",
+      "sha256": "98b765cdb8a7bebe114e299b2c245b88d81869fe8b577b8e38564521346b2e0f",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/llm_usage/methods.rs",
+      "sha256": "be8cd5c32d533625827833a818dfea4e21b59c648bfdcdfdb4b60951562b9cfc",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/ai_billing/routes.rs",
+      "sha256": "62cb41e3ed5d797a65aaa3aeecb54ca7b83c2ff0bef011a4588dda6b01d7e4f0",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/ai_billing/models.rs",
+      "sha256": "7a38e5ea28d8c3f8600363b48dc4ac09a7023a2e57cb978a6594db80fa4677a6",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/ai_billing/methods.rs",
+      "sha256": "50502c79f2acbef0a79488e1ab1f1d17f8eff64c0ea8d2d9fe780b1ff8b68d73",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/integration/routes.rs",
+      "sha256": "9d17a622934ad9d26efa9fd5ead90d92be22b0b868748f30a0610a6678cbee2e",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    {
+      "path": "Service/infera-asset/src/integration/models.rs",
+      "sha256": "90e3438361dd9669cc126203eb333995d7a4ffa2e9751a723f9a61743357f11d",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    }
+  ],
+  "additional_dependency_revision": "faiber-sdk 802dd9a453b1f077ca361b82aac4327d50b5c858",
+  "actual_remaining_contract_mismatches": [],
+  "native_only_gaps": [
+    "Exact pinned backend runtime including database/broker/provider effects",
+    "Current compiled SDK/type/wire checks after all batches integrate",
+    "Actual gateway credential validation and ACL isolation; direct header/dev-fallback context does not certify authority",
+    "Product-specific gift payload schemas require the owning adapter contract; Asset intentionally forwards dynamic JSON",
+    "Native query deserialization of legacy asset_ids Vec filter with flat URL encoding remains unverified; do not infer support from DTO alone"
+  ],
+  "final_checks": [
+    "npm run build",
+    "npm run test:types (include tests/asset-wire.types.ts)",
+    "node --test tests/asset-wire-contracts.test.mjs",
+    "npm run generate:check",
+    "npm run contracts:audit",
+    "npm run capabilities:check",
+    "NPM_CONFIG_CACHE=/tmp/faiber-npm-cache npm run pack:check",
+    "git diff --check"
+  ],
+  "ledger": "operation-mismatch-ledger.json"
+}

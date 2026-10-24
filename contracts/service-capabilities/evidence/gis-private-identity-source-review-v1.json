@@ -1,0 +1,24 @@
+{
+  "status": "source-reviewed-only-not-certified",
+  "revision": "d07b4facd1f73d40a20291dde479365845ec4023",
+  "reviewed_operations": [
+    "GET /health",
+    "GET /api/v1/me",
+    "GET /api/v1/my-places",
+    "GET /api/v1/my-places/{id}",
+    "POST /api/v1/my-places",
+    "PUT /api/v1/my-places/{id}",
+    "DELETE /api/v1/my-places/{id}"
+  ],
+  "source_hashes": {
+    "Service/infera-gis/src/router.rs": "5470f6b17c60aac266752e285aa2c8b53d4a66a336a2e91b006e122a937fd3ad",
+    "Service/infera-gis/src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+    "Service/infera-gis/src/personal_places.rs": "16981da5467aaa678664aee9958e0bb84ff6821bad28c36dd865501935ddd373",
+    "Service/infera-gis/src/error.rs": "2cae736f35db68b57783ba2749120aa8ed49fafc403be9506db8af75c810e7b2",
+    "Service/infera-gis/src/main.rs": "ff25f69feaa66c1ebf3e29426624b56851d8ff0db1c9f8fec250f0cfb034702e",
+    "Service/infera-gis/migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb"
+  },
+  "scope": "Manual review of actual mounted handlers, auth middleware, SQL predicates and projection. No runtime/SDK operation was run by this artifact.",
+  "remaining_operations": 41,
+  "reviews": "reviews/gis.json"
+}

@@ -1,0 +1,223 @@
+warning: unused import: `sea_orm::QuerySelect`
+  --> src/provider/methods.rs:85:9
+   |
+85 |     use sea_orm::QuerySelect;
+   |         ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `post`
+ --> src/provider/routes.rs:1:66
+  |
+1 | use axum::{extract::{Path, Query, State}, routing::{delete, get, post}, Json, Router};
+  |                                                                  ^^^^
+
+warning: unused import: `entity::enums::ReservationStatus`
+ --> src/reservation/models.rs:1:5
+  |
+1 | use entity::enums::ReservationStatus;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `post`
+ --> src/reservation/routes.rs:1:58
+  |
+1 | use axum::{extract::{Path, Query, State}, routing::{get, post}, Json, Router};
+  |                                                          ^^^^
+
+warning: unused imports: `ColumnTrait` and `QueryFilter`
+ --> src/reservation_service/methods.rs:1:51
+  |
+1 | use sea_orm::{ActiveModelTrait, ActiveValue::Set, ColumnTrait, EntityTrait, QueryFilter, QueryOrder};
+  |                                                   ^^^^^^^^^^^               ^^^^^^^^^^^
+
+warning: unused import: `post`
+ --> src/reservation_service/routes.rs:1:58
+  |
+1 | use axum::{extract::{Path, Query, State}, routing::{get, post}, Json, Router};
+  |                                                          ^^^^
+
+warning: unused import: `AppError`
+ --> src/router.rs:2:27
+  |
+2 |     models::{APIResponse, AppError},
+  |                           ^^^^^^^^
+
+warning: unused imports: `delete` and `patch`
+ --> src/time_slot/routes.rs:1:53
+  |
+1 | use axum::{extract::{Path, Query, State}, routing::{delete, get, patch, post}, Json, Router};
+  |                                                     ^^^^^^       ^^^^^
+
+warning: use of `async fn` in public traits is discouraged as auto trait bounds cannot be specified
+ --> src/cli/commands.rs:3:24
+  |
+3 | pub trait CliCommand { async fn run(db: &DatabaseConnection, is_dev: &bool); }
+  |                        ^^^^^
+  |
+  = note: you can suppress this lint if you plan to use the trait only in your own code, or do not care about auto traits like `Send` on the `Future`
+  = note: `#[warn(async_fn_in_trait)]` on by default
+help: you can alternatively desugar to a normal `fn` that returns `impl Future` and add any desired bounds such as `Send`, but these cannot be relaxed without a breaking API change
+  |
+3 - pub trait CliCommand { async fn run(db: &DatabaseConnection, is_dev: &bool); }
+3 + pub trait CliCommand { fn run(db: &DatabaseConnection, is_dev: &bool) -> impl std::future::Future<Output = ()> + Send; }
+  |
+
+warning: `infera_reservation` (lib) generated 9 warnings (run `cargo fix --lib -p infera_reservation` to apply 8 suggestions)
+warning: `infera_reservation` (lib test) generated 9 warnings (9 duplicates)
+warning: unused import: `http_body_util::BodyExt`
+ --> tests/common/mod.rs:9:5
+  |
+9 | use http_body_util::BodyExt;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `parse_api_data` is never used
+  --> tests/common/mod.rs:85:8
+   |
+85 | pub fn parse_api_data(body: &str) -> serde_json::Value {
+   |        ^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `infera_reservation` (test "reservation_flow_test") generated 2 warnings (run `cargo fix --test "reservation_flow_test" -p infera_reservation` to apply 1 suggestion)
+warning: `infera_reservation` (test "provider_capacity_test") generated 1 warning (1 duplicate)
+warning: function `admin_headers` is never used
+  --> tests/common/mod.rs:19:8
+   |
+19 | pub fn admin_headers() -> Vec<(&'static str, &'static str)> {
+   |        ^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `parse_api_data` is never used
+  --> tests/common/mod.rs:85:8
+   |
+85 | pub fn parse_api_data(body: &str) -> serde_json::Value {
+   |        ^^^^^^^^^^^^^^
+
+warning: `infera_reservation` (test "health_test") generated 3 warnings (1 duplicate)
+warning: `infera_reservation` (test "service_api_test") generated 1 warning (1 duplicate)
+warning: function `request` is never used
+  --> tests/common/mod.rs:63:14
+   |
+63 | pub async fn request(
+   |              ^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `infera_reservation` (test "sdk_wire_test") generated 3 warnings (2 duplicates)
+warning: `infera_reservation` (test "reservation_http_contract_test") generated 1 warning (1 duplicate)
+warning: `infera_reservation` (test "provider_api_test") generated 1 warning (1 duplicate)
+    Finished `test` profile [unoptimized] target(s) in 0.15s
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_reservation-96f0747fcc5b9846)
+
+running 3 tests
+test auth::tests::enforces_resource_action_permissions ... ok
+test auth::tests::only_read_only_public_contracts_bypass_management_auth ... ok
+test auth::tests::requires_authenticated_user_and_non_nil_tenant ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_reservation-2dc4a082fded23da)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/health_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/health_test-d09ca8036c0865da)
+
+running 1 test
+test health_returns_200_with_success_status ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+     Running tests/provider_api_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/provider_api_test-8e72ed24794b7e95)
+
+running 2 tests
+test create_provider ... ok
+test list_providers_empty ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+
+     Running tests/provider_capacity_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/provider_capacity_test-dc78cf362d5d441a)
+
+running 9 tests
+test capacity_changes_reject_insufficient_limits_and_preserve_all_bookings ... ok
+test capacity_compares_peak_simultaneous_load_not_intersection_count ... ok
+test capacity_decrease_racing_booking_preserves_the_accepted_limit ... ok
+test capacity_http_contract_preserves_default_validates_limits_and_checks_permissions ... ok
+test capacity_migration_preserves_legacy_overlaps_reports_conflicts_and_guards_rollback ... ok
+test concurrent_distinct_claims_never_exceed_capacity_and_cancellation_frees_exactly_one ... ok
+test default_capacity_covers_same_and_cross_service_intervals_with_adjacent_boundaries ... ok
+test generation_provides_parallel_single_claim_slots_and_retries_preserve_them ... ok
+test legacy_user_claim_is_not_offered_as_public_available_capacity ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.57s
+
+     Running tests/reservation_concurrency_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/reservation_concurrency_test-5dca8469b48d9a86)
+
+running 1 test
+test concurrent_claims_create_exactly_one_reservation ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+     Running tests/reservation_contract_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/reservation_contract_test-4d80002f5ad58785)
+
+running 19 tests
+test available_date_is_strict_utc_and_includes_fractional_last_second_only ... ok
+test axum_query_preserves_bracket_pagination_and_combined_filters ... ok
+test concurrent_booking_and_parent_deletion_keep_every_successful_booking ... ok
+test concurrent_booking_and_slot_deletion_cannot_erase_a_successful_booking ... ok
+test concurrent_generation_and_retries_preserve_claims_and_deduplicate_schedules ... ok
+test concurrent_schedule_replacements_never_mix_sets ... ok
+test database_failure_after_schedule_deletion_rolls_back_the_entire_replacement ... ok
+test every_schedule_entry_is_validated_before_replacement ... ok
+test generation_accepts_range_boundary_but_rejects_excessive_output_without_inserts ... ok
+test generation_is_bounded_validated_and_requires_active_assignment ... ok
+test generation_rolls_back_earlier_bulk_chunks_on_late_storage_failure ... ok
+test history_constraint_migration_round_trip_preserves_existing_records ... ok
+test parent_deletion_and_direct_sql_cannot_cascade_booking_history ... ok
+test patch_delete_and_retries_share_terminal_lifecycle_and_preserve_new_claims ... ok
+test simultaneous_cancellations_are_idempotent_and_inconsistent_ownership_rolls_back ... ok
+test slot_edit_and_generation_serialize_duplicate_start_checks ... ok
+test slot_edits_and_deletes_never_rewrite_or_erase_reservation_history ... ok
+test status_filter_is_applied_and_unknown_values_never_mutate ... ok
+test unreferenced_slot_edits_validate_times_assignment_duplicates_and_claims ... ok
+
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 6.66s
+
+     Running tests/reservation_flow_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/reservation_flow_test-b09d5c704e2094e0)
+
+running 1 test
+test cannot_reserve_nonexistent_slot ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+     Running tests/reservation_http_contract_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/reservation_http_contract_test-99004439a49a5983)
+
+running 1 test
+test booking_http_journey_checks_filters_receipts_retries_and_current_permissions ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+     Running tests/sdk_wire_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/sdk_wire_test-48b04be5e553dc90)
+
+running 1 test
+test mounted_reservation_router_with_compiled_sdk ... {"status":"passed","assertions":188,"operations":["integrationFlowIntegrationShowGet","providerAssignServicePost","providerCapacityReportGet","providerDestroyDelete","providerIndexGet","providerListServicesGet","providerRemoveServiceDelete","providerShowGet","providerStorePost","providerUpdatePatch","reservationCancelDelete","reservationIndexGet","reservationServiceDestroyDelete","reservationServiceIndexGet","reservationServiceShowGet","reservationServiceStorePost","reservationServiceUpdatePatch","reservationShowGet","reservationStorePost","reservationUpdatePatch","routerHealthGet","routerHealthGetHealth","routerOpenapiJsonGet","timeSlotAvailableGet","timeSlotDestroyDelete","timeSlotGeneratePost","timeSlotShowGet","timeSlotUpdatePatch","workScheduleIndexGet","workScheduleUpsertPut"],"observations":[{"method":"get","path":"/","status":200},{"method":"get","path":"/health","status":200},{"method":"get","path":"/api/v1/integration/flow","status":200},{"method":"post","path":"/api/v1/services","status":200},{"method":"post","path":"/api/v1/services","status":200},{"method":"post","path":"/api/v1/services","status":200},{"method":"get","path":"/api/v1/services/67","status":200},{"method":"patch","path":"/api/v1/services/69","status":200},{"method":"get","path":"/api/v1/services","status":200},{"method":"post","path":"/api/v1/providers","status":200},{"method":"get","path":"/api/v1/providers/54","status":200},{"method":"patch","path":"/api/v1/providers/54","status":200},{"method":"get","path":"/api/v1/providers","status":200},{"method":"post","path":"/api/v1/providers/54/services","status":200},{"method":"post","path":"/api/v1/providers/54/services","status":200},{"method":"post","path":"/api/v1/providers/54/services","status":200},{"method":"get","path":"/api/v1/providers/54/services","status":200},{"method":"delete","path":"/api/v1/providers/54/services/69","status":200},{"method":"delete","path":"/api/v1/services/69","status":200},{"method":"post","path":"/api/v1/providers","status":200},{"method":"delete","path":"/api/v1/providers/55","status":200},{"method":"put","path":"/api/v1/providers/54/schedules","status":200},{"method":"get","path":"/api/v1/providers/54/schedules","status":200},{"method":"post","path":"/api/v1/slots","status":200},{"method":"post","path":"/api/v1/slots","status":200},{"method":"get","path":"/api/v1/slots/available","status":200},{"method":"get","path":"/api/v1/slots/1265","status":200},{"method":"patch","path":"/api/v1/slots/1265","status":200},{"method":"get","path":"/api/v1/slots/available","status":200},{"method":"delete","path":"/api/v1/slots/1267","status":200},{"method":"post","path":"/api/v1/reservations","status":200},{"method":"post","path":"/api/v1/reservations","status":200},{"method":"get","path":"/api/v1/reservations/50","status":200},{"method":"patch","path":"/api/v1/reservations/51","status":200},{"method":"get","path":"/api/v1/providers/54/capacity","status":200},{"method":"delete","path":"/api/v1/reservations/50","status":200},{"method":"get","path":"/api/v1/reservations/50","status":200},{"method":"post","path":"/api/v1/reservations","status":200},{"method":"delete","path":"/api/v1/reservations/50","status":200},{"method":"get","path":"/api/v1/reservations/52","status":200},{"method":"get","path":"/api/v1/slots/1265","status":200},{"method":"get","path":"/api/v1/providers/54/capacity","status":200},{"method":"get","path":"/api/v1/reservations","status":200}],"scope":"actual mounted Reservation router and compiled SDK, real PostgreSQL/RabbitMQ; trusted gateway fixture; provider capacity shared across offerings, lifecycle/history, filters and native request permissions; not live IDP/gateway binding or cross-service user identity lookup"}
+
+
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
+
+     Running tests/service_api_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/service_api_test-fec5f69e669c56a9)
+
+running 4 tests
+test create_service_returns_201_data ... ok
+test get_service_by_id ... ok
+test list_services_empty ... ok
+test update_service ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
+

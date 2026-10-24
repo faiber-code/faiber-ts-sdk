@@ -1,6 +1,6 @@
 {
   "name": "@faiber/sdk-core",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -13,10 +13,11 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "provenance.json"
   ],
   "dependencies": {
-    "axios": "^1.18.1",
+    "axios": "^1.20.0",
     "pusher-js": "^8.4.0"
   }
 }

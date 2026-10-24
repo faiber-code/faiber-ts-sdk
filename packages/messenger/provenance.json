@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-messenger",
+  "version": "1.1.0",
+  "source_revisions": {
+    "messenger": {
+      "directory": "infera-messenger",
+      "revision": "0eb2143fae39dee3e0543abaac59ea1aaaed771c"
+    }
+  },
+  "package_source_sha256": {
+    "packages/messenger/src/contracts.types.ts": "f1a99249d3a851ec18bb87529daadb86cf47b6652ef4aac05aa820e1c36dfe3f",
+    "packages/messenger/src/delivery.ts": "edbbd00156ff7e585bd8719f72b833171956aa4ae07b12d7fcb95884fa936345",
+    "packages/messenger/src/index.ts": "4b6d3daf90b3f0b6b0da422b67b5fdb0d2c81cda49655eccd8ec10dccdcaa7f9",
+    "packages/messenger/src/operations.ts": "038a15cd38ed3e4d73598afd211b83299cb36924e3779b5c2171244355d6525f",
+    "packages/messenger/src/operations.types.ts": "22a305c1943e06111b1ae77be45c59c3671a49770d4973c5992bf5f773cdd814",
+    "packages/messenger/src/types.ts": "5f8ad4a56260b3e8e30cf0d80440608485bcb7ddb4223ea6ea0b174d98a4b7ec"
+  },
+  "capability_review_sha256": "f67864c287fbd792023c1b8afcbccb6892e87646f18558e63fac46b0256c059e",
+  "source_pin_file_sha256": "bcfd980e1db1c6498d3769a33c70ac61c46dcbba09bf01eb97c857bebf8927d6",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
+  "public_contract": {
+    "kind": "source-extracted-http",
+    "operation_count": 47,
+    "sha256": "985ed1f26c42ae2e0c648f398018a0cbfed9f0144e6585fb640b9027dfa9b5c2"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

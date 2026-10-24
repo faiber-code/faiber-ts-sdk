@@ -2,109 +2,225 @@ import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, Quer
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend request type: legacy::LegacyImportRequest. */
-export interface ApiImportModulesPostInput extends JsonObject {
-  "dry_run"?: boolean;
-}
+export type ApiImportModulesPostInput = import("./types.js").LegacyImportInput;
 /** Backend response type: legacy::LegacyImportReport. */
 export type ApiImportModulesPostResponse = import("./types.js").LegacyImportResponse;
 
+/** Backend query type: AdminListQuery. */
+export type AdminActorsGetQuery = import("./admin.types.js").SocialAdminActorsQuery;
+/** Backend response type: Value. */
+export type AdminActorsGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminActor>;
+
+/** Backend response type: Value. */
+export type AdminActorDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminActorDetail>;
+
+/** Backend response type: Value. */
+export type AdminAnalyticsGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminAnalytics>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminAuditGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: Value. */
+export type AdminAuditGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminAudit>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminBountiesGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: Value. */
+export type AdminBountiesGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminBounty>;
+
+/** Backend response type: Value. */
+export type AdminBountyDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminBounty>;
+
+/** Backend response type: Value. */
+export type AdminPoliciesGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminPolicy[]>;
+
+/** Backend request type: PolicyInput. */
+export type AdminCreatePolicyPostInput = import("./admin.types.js").SocialAdminPolicyInput;
+/** Backend response type: Value. */
+export type AdminCreatePolicyPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminPolicy>;
+
+/** Backend response type: Value. */
+export type AdminPolicyDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminPolicy>;
+
+/** Backend request type: PolicyInput. */
+export type AdminUpdatePolicyPatchInput = import("./admin.types.js").SocialAdminPolicyInput;
+/** Backend response type: Value. */
+export type AdminUpdatePolicyPatchResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminPolicy>;
+
+/** Backend response type: Value. */
+export type AdminPublishPolicyPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminPolicy>;
+
+/** Backend response type: Value. */
+export type AdminCategoriesGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminCategory[]>;
+
+/** Backend request type: CreateCategory. */
+export type AdminCreateCategoryPostInput = import("./admin.types.js").SocialAdminCreateCategoryInput;
+/** Backend response type: Value. */
+export type AdminCreateCategoryPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminCategory>;
+
+/** Backend response type: no-content. */
+export type AdminArchiveCategoryDeleteResponse = void;
+
+/** Backend response type: Value. */
+export type AdminCategoryDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminCategory>;
+
+/** Backend request type: UpdateCategory. */
+export type AdminUpdateCategoryPatchInput = import("./admin.types.js").SocialAdminUpdateCategoryInput;
+/** Backend response type: Value. */
+export type AdminUpdateCategoryPatchResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminCategory>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminClaimsGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: Value. */
+export type AdminClaimsGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminClaim>;
+
+/** Backend response type: Value. */
+export type AdminClaimDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminClaim>;
+
+/** Backend request type: AdminReason. */
+export type AdminApproveClaimPostInput = import("./admin.types.js").SocialAdminReasonInput;
+/** Backend response type: Value. */
+export type AdminApproveClaimPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminClaimDecision>;
+
+/** Backend request type: AdminReason. */
+export type AdminRejectClaimPostInput = import("./admin.types.js").SocialAdminReasonInput;
+/** Backend response type: Value. */
+export type AdminRejectClaimPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminClaimDecision>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminCommentsGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: Value. */
+export type AdminCommentsGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminComment>;
+
+/** Backend response type: Value. */
+export type AdminCommentDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminComment>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminIntegrationsGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: Value. */
+export type AdminIntegrationsGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminIntegration>;
+
+/** Backend response type: Value. */
+export type AdminIntegrationDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminIntegration>;
+
+/** Backend request type: IntegrationReplay. */
+export type AdminReplayIntegrationPostInput = import("./admin.types.js").SocialAdminReasonInput;
+/** Backend response type: Value. */
+export type AdminReplayIntegrationPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminIntegrationPending>;
+
+/** Backend request type: AdminReason. */
+export type AdminRevealLocationPostInput = import("./admin.types.js").SocialAdminReasonInput;
+/** Backend response type: raw-response. */
+export type AdminRevealLocationPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminLocation>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminMediaGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: Value. */
+export type AdminMediaGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminMedia>;
+
+/** Backend response type: Value. */
+export type AdminModerationQueueGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminModerationQueue>;
+
+/** Backend response type: Value. */
+export type AdminOverviewGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminOverview>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminPostsGetQuery = import("./admin.types.js").SocialAdminPostsQuery;
+/** Backend response type: Value. */
+export type AdminPostsGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminPostSummary>;
+
+/** Backend response type: Value. */
+export type AdminPostDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminPostDetail>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminReportsGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: Value. */
+export type AdminReportsGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminReport>;
+
+/** Backend response type: Value. */
+export type AdminReportDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminReport>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminRestrictionsGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: Value. */
+export type AdminRestrictionsGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminRestriction>;
+
+/** Backend request type: CreateRestriction. */
+export type AdminCreateRestrictionPostInput = import("./admin.types.js").SocialAdminCreateRestrictionInput;
+/** Backend response type: Value. */
+export type AdminCreateRestrictionPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminRestrictionCreated>;
+
+/** Backend request type: AdminReason. */
+export type AdminRevokeRestrictionPostInput = import("./admin.types.js").SocialAdminReasonInput;
+/** Backend response type: Value. */
+export type AdminRevokeRestrictionPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminRestrictionRevoked>;
+
+/** Backend response type: Value. */
+export type AdminSettingsGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminSettings>;
+
 /** Backend response type: SessionIdentity. */
-export interface ApiSelfIdentityGetResponseData extends JsonObject {
-  "user_id": string;
-  "roles": string[];
-  "permissions": string[];
-}
-export interface ApiSelfIdentityGetResponse extends ApiEnvelope<ApiSelfIdentityGetResponseData> {
-}
+export type ApiSelfIdentityGetResponse = import("./types.js").SocialSessionIdentityResponse;
+
+/** Backend response type: no-content. */
+export type DiscoveryUnblockDeleteResponse = void;
+
+/** Backend response type: no-content. */
+export type DiscoveryBlockPutResponse = void;
 
 /** Backend response type: Value. */
 export type ApiListCategoriesGetResponse = import("./types.js").SocialCategoryListResponse;
 
 /** Backend request type: CreateCategory. */
-export interface ApiCreateCategoryPostInput extends JsonObject {
-  "slug": string;
-  "name": JsonValue;
-  "description"?: JsonValue;
-  "icon"?: string | null;
-  "color"?: string | null;
-  "sort_order"?: number;
-  "status"?: string;
-  "moderate_posts"?: boolean;
-  "moderate_comments"?: boolean;
-  "metadata"?: JsonValue;
-}
+export type ApiCreateCategoryPostInput = import("./types.js").CreateCategoryInput;
 /** Backend response type: Value. */
 export type ApiCreateCategoryPostResponse = import("./types.js").SocialCategoryResponse;
 
 /** Backend response type: no-content. */
-export type ApiDeleteCategoryDeleteResponse = import("./types.js").NoContentResponse;
+export type ApiDeleteCategoryDeleteResponse = void;
 
 /** Backend request type: UpdateCategory. */
-export interface ApiUpdateCategoryPatchInput extends JsonObject {
-  "slug"?: string | null;
-  "name"?: JsonValue | null;
-  "description"?: JsonValue | null;
-  "icon"?: string | null;
-  "color"?: string | null;
-  "sort_order"?: number | null;
-  "status"?: string | null;
-  "moderate_posts"?: boolean | null;
-  "moderate_comments"?: boolean | null;
-  "metadata"?: JsonValue | null;
-}
+export type ApiUpdateCategoryPatchInput = import("./types.js").UpdateCategoryInput;
 /** Backend response type: Value. */
 export type ApiUpdateCategoryPatchResponse = import("./types.js").SocialCategoryResponse;
 
 /** Backend response type: Value. */
-export interface ApiCategoryCapabilityPolicyGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ApiCategoryCapabilityPolicyGetResponse = import("./contracts.types.js").SocialCategoryCapabilityPolicyResponse;
 
 /** Backend response type: Value. */
-export interface ApiClaimDetailGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ApiClaimDetailGetResponse = import("./contracts.types.js").SocialClaimDetailResponse;
 
 /** Backend request type: ContactConsentInput. */
-export interface ApiSetContactConsentPutInput extends JsonObject {
-  "consented": boolean;
-}
+export type ApiSetContactConsentPutInput = import("./contracts.types.js").SocialContactConsentInput;
 /** Backend response type: Value. */
-export interface ApiSetContactConsentPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type ApiSetContactConsentPutResponse = import("./contracts.types.js").SocialContactConsentResponse;
 
 /** Backend response type: Value. */
-export interface ApiSelectClaimPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type ApiSelectClaimPostResponse = import("./contracts.types.js").SocialClaimSelectedResponse;
 
 /** Backend response type: Value. */
-export interface ApiWithdrawClaimPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type ApiWithdrawClaimPostResponse = import("./contracts.types.js").SocialClaimWithdrawnResponse;
 
 /** Backend response type: no-content. */
-export type ApiDeleteCommentDeleteResponse = import("./types.js").NoContentResponse;
+export type ApiDeleteCommentDeleteResponse = void;
 
 /** Backend request type: UpdateComment. */
-export interface ApiUpdateCommentPatchInput extends JsonObject {
-  "body": string;
-}
+export type ApiUpdateCommentPatchInput = import("./types.js").UpdateCommentInput;
 /** Backend response type: Value. */
 export type ApiUpdateCommentPatchResponse = import("./types.js").SocialCommentResponse;
 
 /** Backend response type: no-content. */
-export type ApiRemoveCommentReactionDeleteApiV1CommentsIdLikeResponse = import("./types.js").NoContentResponse;
+export type ApiRemoveCommentReactionDeleteApiV1CommentsIdLikeResponse = void;
 
 /** Backend response type: Value. */
 export type ApiLikeCommentPutResponse = import("./types.js").SocialReactionResponse;
 
 /** Backend response type: no-content. */
-export type ApiRemoveCommentReactionDeleteApiV1CommentsIdReactionResponse = import("./types.js").NoContentResponse;
+export type ApiRemoveCommentReactionDeleteApiV1CommentsIdReactionResponse = void;
 
 /** Backend response type: ReactionSummary. */
 export type ApiCommentReactionsGetResponse = import("./types.js").ReactionSummaryResponse;
 
 /** Backend request type: SetReaction. */
-export interface ApiSetCommentReactionPutInput extends JsonObject {
-  "reaction_type": string;
-}
+export type ApiSetCommentReactionPutInput = import("./types.js").SetReactionInput;
 /** Backend response type: Value. */
 export type ApiSetCommentReactionPutResponse = import("./types.js").SocialReactionResponse;
 
@@ -112,32 +228,37 @@ export type ApiSetCommentReactionPutResponse = import("./types.js").SocialReacti
 export type ApiListPostCommentsGetApiV1CommentsPostIdResponse = import("./types.js").SocialCommentListResponse;
 
 /** Backend request type: CreateComment. */
-export interface ApiCreatePostCommentPostApiV1CommentsPostIdInput extends JsonObject {
-  "parent_id"?: string | null;
-  "body": string;
-}
+export type ApiCreatePostCommentPostApiV1CommentsPostIdInput = import("./types.js").CreateCommentInput;
 /** Backend response type: Value. */
 export type ApiCreatePostCommentPostApiV1CommentsPostIdResponse = import("./types.js").SocialCommentResponse;
 
-/** Backend request type: FundingEventInput. */
-export interface ApiReceiveFundingEventPostInput extends JsonObject {
-  "external_event_id": string;
-  "post_id": string;
-  "external_reference": string;
-  "status": string;
-  "unit": string;
-  "code": string;
-  "amount": string;
-}
+/** Backend response type: no-content. */
+export type DiscoveryUnfollowDeleteResponse = void;
+
 /** Backend response type: Value. */
-export interface ApiReceiveFundingEventPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type DiscoveryRelationshipGetResponse = import("./discovery.types.js").SocialGraphResponse<import("./discovery.types.js").SocialRelationship>;
+
+/** Backend response type: no-content. */
+export type DiscoveryFollowPutResponse = void;
+
+/** Backend request type: FundingEventInput. */
+export type ApiReceiveFundingEventPostInput = import("./contracts.types.js").SocialFundingEventInput;
+/** Backend response type: Value. */
+export type ApiReceiveFundingEventPostResponse = import("./contracts.types.js").SocialFundingEventResponse;
+
+/** Backend response type: Value. */
+export type DiscoveryOutboxGetResponse = import("./discovery.types.js").SocialGraphResponse<import("./discovery.types.js").SocialNotificationOutboxEvent[]>;
+
+/** Backend response type: no-content. */
+export type DiscoveryAckPutResponse = void;
+
+/** Backend request type: PlaceEvent. */
+export type DiscoveryPlaceEventPostInput = import("./discovery.types.js").SocialPlaceEventInput;
+/** Backend response type: no-content. */
+export type DiscoveryPlaceEventPostResponse = void;
 
 /** Backend query type: AnalyticsQuery. */
-export interface ApiMyAnalyticsGetQuery extends QueryParams {
-  "from"?: string | null;
-  "to"?: string | null;
-}
+export type ApiMyAnalyticsGetQuery = import("./types.js").AnalyticsQuery;
 /** Backend response type: Value. */
 export type ApiMyAnalyticsGetResponse = import("./types.js").CreatorAnalyticsResponse;
 
@@ -145,54 +266,41 @@ export type ApiMyAnalyticsGetResponse = import("./types.js").CreatorAnalyticsRes
 export type ApiMyBookmarksGetResponse = import("./types.js").SocialBookmarksResponse;
 
 /** Backend query type: ClaimListQuery. */
-export interface ApiMyClaimsGetQuery extends QueryParams {
-  "page"?: number;
-  "limit"?: number;
-}
+export type ApiMyClaimsGetQuery = import("./contracts.types.js").SocialClaimListQuery;
 /** Backend response type: Value. */
-export interface ApiMyClaimsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ApiMyClaimsGetResponse = import("./contracts.types.js").SocialClaimPageResponse;
 
 /** Backend response type: no-content. */
 export type ApiClearFeedLocationDeleteResponse = void;
 
 /** Backend response type: Value. */
-export interface ApiGetFeedLocationGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ApiGetFeedLocationGetResponse = import("./types.js").FeedLocationPreferenceResponse;
 
 /** Backend request type: SetFeedLocation. */
-export interface ApiSetFeedLocationPutInput extends JsonObject {
-  "latitude": number;
-  "longitude": number;
-  "range_km": number;
-}
+export type ApiSetFeedLocationPutInput = import("./types.js").SetFeedLocationInput;
 /** Backend response type: Value. */
-export interface ApiSetFeedLocationPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type ApiSetFeedLocationPutResponse = import("./types.js").SetFeedLocationResponse;
+
+/** Backend response type: Value. */
+export type DiscoveryPreferencesGetResponse = import("./discovery.types.js").SocialGraphResponse<import("./discovery.types.js").SocialNotificationPreferences>;
+
+/** Backend request type: Value. */
+export type DiscoverySetPreferencesPutInput = import("./discovery.types.js").SocialNotificationPreferencesInput;
+/** Backend response type: Value. */
+export type DiscoverySetPreferencesPutResponse = import("./discovery.types.js").SocialGraphResponse<import("./discovery.types.js").SocialNotificationPreferences>;
 
 /** Backend query type: FeedQuery. */
-export interface ApiListMyPostsGetQuery extends QueryParams {
-  "q"?: string | null;
-  "author_id"?: string | null;
-  "kind"?: string | null;
-  "category_id"?: string | null;
-  "page"?: number;
-  "limit"?: number;
-}
+export type ApiListMyPostsGetQuery = import("./types.js").FeedQuery;
 /** Backend response type: Value. */
 export type ApiListMyPostsGetResponse = import("./types.js").SocialPostListResponse;
 
 /** Backend query type: ClaimListQuery. */
-export interface ApiMyPostClaimsGetQuery extends QueryParams {
-  "page"?: number;
-  "limit"?: number;
-}
+export type ApiMyPostClaimsGetQuery = import("./contracts.types.js").SocialClaimListQuery;
 /** Backend response type: Value. */
-export interface ApiMyPostClaimsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ApiMyPostClaimsGetResponse = import("./contracts.types.js").SocialClaimPageResponse;
 
 /** Backend response type: raw-response. */
-export type ApiGetMediaGetResponse = import("./types.js").NoContentResponse;
+export type ApiGetMediaGetResponse = import("./types.js").SocialBinaryMediaResponse;
 
 /** Backend request type: multipart/form-data. */
 export type ApiUploadMediaPostInput = FormData;
@@ -200,22 +308,12 @@ export type ApiUploadMediaPostInput = FormData;
 export type ApiUploadMediaPostResponse = import("./types.js").SocialMediaResponse;
 
 /** Backend request type: ModerateTarget. */
-export interface ApiModeratePostInput extends JsonObject {
-  "target_type": string;
-  "target_id": string;
-  "action": string;
-  "reason"?: string | null;
-}
+export type ApiModeratePostInput = import("./types.js").ModerateTargetInput;
 /** Backend response type: Value. */
 export type ApiModeratePostResponse = import("./types.js").ModerationActionResponse;
 
 /** Backend query type: ModerationAuditQuery. */
-export interface ApiModerationAuditGetQuery extends QueryParams {
-  "target_type"?: string | null;
-  "action"?: string | null;
-  "page"?: number;
-  "limit"?: number;
-}
+export type ApiModerationAuditGetQuery = import("./types.js").ModerationAuditQuery;
 /** Backend response type: Value. */
 export type ApiModerationAuditGetResponse = import("./types.js").ModerationAuditResponse;
 
@@ -223,155 +321,75 @@ export type ApiModerationAuditGetResponse = import("./types.js").ModerationAudit
 export type ApiModerationQueueGetResponse = import("./types.js").ModerationQueueResponse;
 
 /** Backend query type: FeedQuery. */
-export interface ApiListPostsGetQuery extends QueryParams {
-  "q"?: string | null;
-  "author_id"?: string | null;
-  "kind"?: string | null;
-  "category_id"?: string | null;
-  "page"?: number;
-  "limit"?: number;
-}
+export type ApiListPostsGetQuery = import("./types.js").FeedQuery;
 /** Backend response type: Value. */
 export type ApiListPostsGetResponse = import("./types.js").SocialPostListResponse;
 
 /** Backend request type: CreatePost. */
-export interface ApiCreatePostPostInputCapabilitiesSubjectAssertion extends JsonObject {
-  "issuer": string;
-  "token": string;
-}
-export interface ApiCreatePostPostInputCapabilitiesSubject extends JsonObject {
-  "subject_type": string;
-  "subject_ref": string;
-  "assertion": ApiCreatePostPostInputCapabilitiesSubjectAssertion;
-}
-export interface ApiCreatePostPostInputCapabilitiesLocation extends JsonObject {
-  "latitude": number;
-  "longitude": number;
-  "public_label": string;
-  "public_precision"?: string;
-  "access_policy"?: string;
-  "navigation_enabled"?: boolean;
-}
-export interface ApiCreatePostPostInputCapabilitiesBounty extends JsonObject {
-  "unit": string;
-  "code": string;
-  "amount": string;
-  "expires_at"?: string | null;
-}
-export interface ApiCreatePostPostInputCapabilitiesLinkedActionsAssertion extends JsonObject {
-  "issuer": string;
-  "token": string;
-}
-export interface ApiCreatePostPostInputCapabilitiesLinkedActions extends JsonObject {
-  "action_type": string;
-  "resource_ref": string;
-  "assertion": ApiCreatePostPostInputCapabilitiesLinkedActionsAssertion;
-}
-export interface ApiCreatePostPostInputCapabilities extends JsonObject {
-  "version"?: number;
-  "subject"?: ApiCreatePostPostInputCapabilitiesSubject | null;
-  "location"?: ApiCreatePostPostInputCapabilitiesLocation | null;
-  "bounty"?: ApiCreatePostPostInputCapabilitiesBounty | null;
-  "linked_actions"?: ApiCreatePostPostInputCapabilitiesLinkedActions[];
-}
-export interface ApiCreatePostPostInput extends JsonObject {
-  "category_id"?: string | null;
-  "kind"?: string;
-  "visibility"?: string;
-  "title"?: string | null;
-  "body": string;
-  "media"?: JsonValue;
-  "metadata"?: JsonValue;
-  "capabilities"?: ApiCreatePostPostInputCapabilities | null;
-}
+export type ApiCreatePostPostInput = import("./types.js").CreatePostInput;
 /** Backend response type: Value. */
 export type ApiCreatePostPostResponse = import("./types.js").SocialPostResponse;
 
 /** Backend response type: no-content. */
-export type ApiDeletePostDeleteResponse = import("./types.js").NoContentResponse;
+export type ApiDeletePostDeleteResponse = void;
 
 /** Backend response type: Value. */
 export type ApiGetPostGetResponse = import("./types.js").SocialPostResponse;
 
 /** Backend request type: UpdatePost. */
-export interface ApiUpdatePostPatchInput extends JsonObject {
-  "category_id"?: string | null;
-  "kind"?: string | null;
-  "visibility"?: string | null;
-  "title"?: string | null;
-  "body"?: string | null;
-  "media"?: JsonValue | null;
-  "metadata"?: JsonValue | null;
-}
+export type ApiUpdatePostPatchInput = import("./types.js").UpdatePostInput;
 /** Backend response type: Value. */
 export type ApiUpdatePostPatchResponse = import("./types.js").SocialPostResponse;
 
 /** Backend query type: AnalyticsQuery. */
-export interface ApiPostAnalyticsGetQuery extends QueryParams {
-  "from"?: string | null;
-  "to"?: string | null;
-}
+export type ApiPostAnalyticsGetQuery = import("./types.js").AnalyticsQuery;
 /** Backend response type: Value. */
 export type ApiPostAnalyticsGetResponse = import("./types.js").CreatorAnalyticsResponse;
 
 /** Backend response type: no-content. */
-export type ApiUnbookmarkPostDeleteResponse = import("./types.js").NoContentResponse;
+export type ApiUnbookmarkPostDeleteResponse = void;
 
 /** Backend response type: no-content. */
-export type ApiBookmarkPostPutResponse = import("./types.js").NoContentResponse;
+export type ApiBookmarkPostPutResponse = void;
 
 /** Backend response type: Value. */
-export interface ApiCancelCapabilityPostPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type ApiCancelCapabilityPostPostResponse = import("./contracts.types.js").SocialPostCancelledResponse;
 
 /** Backend response type: Value. */
-export interface ApiPostCapabilitiesGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type ApiPostCapabilitiesGetResponse = import("./contracts.types.js").SocialCapabilitiesResponse;
 
 /** Backend request type: CreateClaim. */
-export interface ApiCreateClaimPostInput extends JsonObject {
-  "message": string;
-  "evidence"?: JsonValue;
-}
+export type ApiCreateClaimPostInput = import("./contracts.types.js").SocialCreateClaimInput;
 /** Backend response type: Value. */
-export interface ApiCreateClaimPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type ApiCreateClaimPostResponse = import("./contracts.types.js").SocialClaimCreatedResponse;
 
 /** Backend response type: Value. */
 export type ApiListPostCommentsGetApiV1PostsIdCommentsResponse = import("./types.js").SocialCommentListResponse;
 
 /** Backend request type: CreateComment. */
-export interface ApiCreatePostCommentPostApiV1PostsIdCommentsInput extends JsonObject {
-  "parent_id"?: string | null;
-  "body": string;
-}
+export type ApiCreatePostCommentPostApiV1PostsIdCommentsInput = import("./types.js").CreateCommentInput;
 /** Backend response type: Value. */
 export type ApiCreatePostCommentPostApiV1PostsIdCommentsResponse = import("./types.js").SocialCommentResponse;
 
 /** Backend response type: no-content. */
-export type ApiRemovePostReactionDeleteApiV1PostsIdLikeResponse = import("./types.js").NoContentResponse;
+export type ApiRemovePostReactionDeleteApiV1PostsIdLikeResponse = void;
 
 /** Backend response type: Value. */
 export type ApiLikePostPutResponse = import("./types.js").SocialReactionResponse;
 
 /** Backend request type: NavigationAccessInput. */
-export interface ApiNavigationAccessPostInput extends JsonObject {
-  "reason"?: string | null;
-}
+export type ApiNavigationAccessPostInput = import("./contracts.types.js").SocialNavigationAccessInput;
 /** Backend response type: raw-response. */
-export interface ApiNavigationAccessPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type ApiNavigationAccessPostResponse = import("./contracts.types.js").SocialNavigationAccessResponse;
 
 /** Backend response type: no-content. */
-export type ApiRemovePostReactionDeleteApiV1PostsIdReactionResponse = import("./types.js").NoContentResponse;
+export type ApiRemovePostReactionDeleteApiV1PostsIdReactionResponse = void;
 
 /** Backend response type: ReactionSummary. */
 export type ApiPostReactionsGetApiV1PostsIdReactionResponse = import("./types.js").ReactionSummaryResponse;
 
 /** Backend request type: SetReaction. */
-export interface ApiSetPostReactionPutInput extends JsonObject {
-  "reaction_type": string;
-}
+export type ApiSetPostReactionPutInput = import("./types.js").SetReactionInput;
 /** Backend response type: Value. */
 export type ApiSetPostReactionPutResponse = import("./types.js").SocialReactionResponse;
 
@@ -379,48 +397,44 @@ export type ApiSetPostReactionPutResponse = import("./types.js").SocialReactionR
 export type ApiResubmitPostPostResponse = import("./types.js").SocialPostResponse;
 
 /** Backend request type: ShareEvent. */
-export interface ApiRecordShareEventPostInput extends JsonObject {
-  "channel"?: string;
-  "idempotency_key"?: string | null;
-}
+export type ApiRecordShareEventPostInput = import("./types.js").ShareEventInput;
 /** Backend response type: no-content. */
-export type ApiRecordShareEventPostResponse = import("./types.js").NoContentResponse;
+export type ApiRecordShareEventPostResponse = void;
 
 /** Backend request type: RecordView. */
-export interface ApiRecordPostViewPostInput extends JsonObject {
-  "visible_ms": number;
-}
+export type ApiRecordPostViewPostInput = import("./types.js").RecordViewInput;
 /** Backend response type: Value. */
 export type ApiRecordPostViewPostResponse = import("./types.js").RecordViewResponse;
 
+/** Backend response type: raw-response. */
+export type DiscoveryMediaGetResponse = ArrayBuffer | Uint8Array;
+
+/** Backend query type: Feed. */
+export type DiscoveryFeedGetQuery = import("./discovery.types.js").SocialDiscoveryFeedQuery;
+/** Backend response type: Value. */
+export type DiscoveryFeedGetResponse = import("./discovery.types.js").SocialDiscoveryResponse<import("./discovery.types.js").SocialDiscoveryPost[]>;
+
+/** Backend response type: Value. */
+export type DiscoveryPostDetailGetResponse = import("./discovery.types.js").SocialDiscoveryResponse<import("./discovery.types.js").SocialDiscoveryPost>;
+
+/** Backend response type: Value. */
+export type DiscoveryCommentsGetResponse = import("./discovery.types.js").SocialDiscoveryResponse<import("./discovery.types.js").SocialDiscoveryComment[]>;
+
 /** Backend response type: no-content. */
-export type ApiRemovePostReactionDeleteApiV1ReactionsPostIdResponse = import("./types.js").NoContentResponse;
+export type ApiRemovePostReactionDeleteApiV1ReactionsPostIdResponse = void;
 
 /** Backend response type: ReactionSummary. */
 export type ApiPostReactionsGetApiV1ReactionsPostIdResponse = import("./types.js").ReactionSummaryResponse;
 
 /** Backend request type: SetReaction. */
-export interface ApiSetPostReactionPostInput extends JsonObject {
-  "reaction_type": string;
-}
+export type ApiSetPostReactionPostInput = import("./types.js").SetReactionInput;
 /** Backend response type: Value. */
 export type ApiSetPostReactionPostResponse = import("./types.js").SocialReactionResponse;
 
 /** Backend request type: CreateReport. */
-export interface ApiCreateReportPostInput extends JsonObject {
-  "target_type": string;
-  "target_id": string;
-  "reason": string;
-  "details"?: string | null;
-}
+export type ApiCreateReportPostInput = import("./types.js").CreateReportInput;
 /** Backend response type: Value. */
 export type ApiCreateReportPostResponse = import("./types.js").SocialReportResponse;
 
 /** Backend response type: Health. */
-export interface MainHealthGetResponseData extends JsonObject {
-  "service": string;
-  "version": string;
-  "status": string;
-}
-export interface MainHealthGetResponse extends ApiEnvelope<MainHealthGetResponseData> {
-}
+export type MainHealthGetResponse = import("./types.js").SocialHealthResponse;

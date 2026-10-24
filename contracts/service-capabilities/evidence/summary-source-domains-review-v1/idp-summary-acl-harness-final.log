@@ -1,0 +1,55 @@
+
+running 2 tests
+test seeder::acl_seeder::tests::crm_summary_transport_has_a_separate_explicit_permission ... ok
+test seeder::acl_seeder::tests::summary_evidence_transports_have_explicit_source_permissions ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.09s
+
+   Compiling serde_core v1.0.229
+   Compiling cc v1.9.0
+   Compiling ring v0.17.14
+   Compiling crypto-common v0.1.7
+   Compiling digest v0.10.7
+   Compiling serde v1.0.229
+   Compiling smallvec v1.16.3
+   Compiling icu_normalizer v2.3.0
+   Compiling num-integer v0.1.47
+   Compiling num-bigint v0.4.8
+   Compiling idna_adapter v1.2.2
+   Compiling getrandom v0.4.3
+   Compiling parking_lot_core v0.9.12
+   Compiling deranged v0.5.9
+   Compiling rustls v0.23.46
+   Compiling futures-sink v0.3.34
+   Compiling tokio v1.53.3
+   Compiling time v0.3.55
+   Compiling rust_decimal v1.43.0
+   Compiling form_urlencoded v1.2.2
+   Compiling serde_json v1.0.154
+   Compiling uuid v1.28.0
+   Compiling parking_lot v0.12.5
+   Compiling bigdecimal v0.4.11
+   Compiling idna v1.1.0
+   Compiling chrono v0.4.45
+   Compiling rustls-webpki v0.103.15
+   Compiling futures-util v0.3.34
+   Compiling tracing v0.1.44
+   Compiling sha2 v0.10.9
+   Compiling url v2.5.8
+   Compiling futures-intrusive v0.5.0
+   Compiling tokio-stream v0.1.19
+   Compiling either v1.19.0
+   Compiling hmac v0.12.1
+   Compiling base64 v0.22.1
+   Compiling sqlx-core v0.8.6
+   Compiling hkdf v0.12.4
+   Compiling futures-channel v0.3.34
+   Compiling md-5 v0.10.6
+   Compiling bitflags v2.13.2
+   Compiling sea-query v0.32.7
+   Compiling sqlx-postgres v0.8.6
+   Compiling sqlx v0.8.6
+   Compiling sea-query-binder v0.7.0
+   Compiling sea-orm v1.1.20
+   Compiling summary-acl-contract v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-idp/tests/summary-acl)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 15.57s

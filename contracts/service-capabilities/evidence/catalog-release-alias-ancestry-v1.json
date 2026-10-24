@@ -1,0 +1,114 @@
+{
+  "status": "source-ancestry-only-not-build-attestation",
+  "aliases": [
+    {
+      "alias": "infera-asset-fit8-release",
+      "canonical_service": "asset",
+      "image_source_prefix": "d32932da1c66",
+      "repository": {
+        "url": "https://hamgit.ir/infera/infera-asset.git",
+        "branch": "codex/fit8-paid-coaching",
+        "ref": null,
+        "dockerfile": "Dockerfile",
+        "path": null
+      },
+      "object_resolved": true,
+      "source_revision": "d32932da1c6623df988b5c5875125282092013fb",
+      "sdk_selected_revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf",
+      "source_ancestor_of_sdk": true,
+      "sdk_ancestor_of_source": false,
+      "unique_source_commits": ""
+    },
+    {
+      "alias": "infera-payment-fit8-release",
+      "canonical_service": "payment",
+      "image_source_prefix": "2f91bdecfefe",
+      "repository": {
+        "url": "https://hamgit.ir/infera/infera-payment.git",
+        "branch": "codex/fit8-paid-coaching",
+        "ref": null,
+        "dockerfile": "Dockerfile",
+        "path": null
+      },
+      "object_resolved": true,
+      "source_revision": "2f91bdecfefe1becf1bcce380c0600ff8256541c",
+      "sdk_selected_revision": "ddc661f4a7e6f2ffdcbbd0d137ddf3831daa4eb2",
+      "source_ancestor_of_sdk": true,
+      "sdk_ancestor_of_source": false,
+      "unique_source_commits": ""
+    },
+    {
+      "alias": "infera-knowledge-fit8-release",
+      "canonical_service": "knowledge",
+      "image_source_prefix": "92047358a6b4",
+      "repository": {
+        "url": "https://hamgit.ir/infera/infera-knowledge.git",
+        "branch": "codex/fit8-paid-coaching",
+        "ref": null,
+        "dockerfile": "Dockerfile",
+        "path": null
+      },
+      "object_resolved": true,
+      "source_revision": "92047358a6b4dee1911d47a78621c8359716b7af",
+      "sdk_selected_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
+      "source_ancestor_of_sdk": true,
+      "sdk_ancestor_of_source": false,
+      "unique_source_commits": ""
+    },
+    {
+      "alias": "infera-profile-fit8-release",
+      "canonical_service": "profile",
+      "image_source_prefix": "c908fded7246",
+      "repository": {
+        "url": null,
+        "branch": "main",
+        "ref": null,
+        "dockerfile": "Dockerfile",
+        "path": null
+      },
+      "object_resolved": true,
+      "source_revision": "c908fded7246dd8fb1893feba78a8ce06bc155a2",
+      "sdk_selected_revision": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+      "source_ancestor_of_sdk": true,
+      "sdk_ancestor_of_source": false,
+      "unique_source_commits": ""
+    },
+    {
+      "alias": "infera-chat-fit8-release",
+      "canonical_service": "chat",
+      "image_source_prefix": "912833450d72",
+      "repository": {
+        "url": null,
+        "branch": "main",
+        "ref": null,
+        "dockerfile": "Dockerfile",
+        "path": null
+      },
+      "object_resolved": true,
+      "source_revision": "912833450d723351dc175abead1e1b81351801c3",
+      "sdk_selected_revision": "ab6ce7461d35414b719f3806df57549339002df5",
+      "source_ancestor_of_sdk": true,
+      "sdk_ancestor_of_source": false,
+      "unique_source_commits": ""
+    },
+    {
+      "alias": "infera-idp-fit8-release",
+      "canonical_service": "idp",
+      "image_source_prefix": "7564865222db",
+      "repository": {
+        "url": "https://hamgit.ir/infera/infera-idp.git",
+        "branch": "codex/fit8-paid-coaching",
+        "ref": null,
+        "dockerfile": "Dockerfile",
+        "path": null
+      },
+      "object_resolved": true,
+      "source_revision": "7564865222db77bd70c06d39ed22eed732364a31",
+      "sdk_selected_revision": "360daa64429c966ed04a8081f700fde9c73d56ac",
+      "source_ancestor_of_sdk": true,
+      "sdk_ancestor_of_source": false,
+      "unique_source_commits": ""
+    }
+  ],
+  "no_mutations": true
+}

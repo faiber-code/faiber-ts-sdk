@@ -5,17 +5,30 @@
   "scope": "business",
   "purpose": {
     "en": "Payment gateways, transactions, checkout requests, verification and durable payment result delivery.",
-    "fa": "درگاه پرداخت، تراکنش، درخواست پرداخت، تأیید و ارسال پایدار نتیجه."
+    "fa": "\u062f\u0631\u06af\u0627\u0647 \u067e\u0631\u062f\u0627\u062e\u062a\u060c \u062a\u0631\u0627\u06a9\u0646\u0634\u060c \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u067e\u0631\u062f\u0627\u062e\u062a\u060c \u062a\u0623\u06cc\u06cc\u062f \u0648 \u0627\u0631\u0633\u0627\u0644 \u067e\u0627\u06cc\u062f\u0627\u0631 \u0646\u062a\u06cc\u062c\u0647."
   },
   "sources": [
     "src/router.rs",
     "src/transaction"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "ca2f9bbd7ea9e43a78874a2d93bbbd68e5d257c8",
+  "source_decision": {
+    "status": "verified",
+    "revision": "ca2f9bbd7ea9e43a78874a2d93bbbd68e5d257c8",
+    "source_tree_checksum": "b7f519876887d67a7ff9fb4cb187cf52ec83a0b546177e8dc3ab4ee3c5acf8cf",
+    "basis": "immutable supported SDK source lock",
+    "reason": "All 78 inventoried compiler input files match selected Git objects. This records which backend source the SDK supports; operation semantics and consumer verification remain separately gated.",
+    "drift_resolution": "Use the explicitly pinned SDK candidate. Preserve working checkout and origin/main differences; deployment and main promotion require separate reconciliation.",
+    "deployment_status": "unverified"
+  },
+  "relationship_review": null,
   "canonical_revision": "ddc661f4a7e6f2ffdcbbd0d137ddf3831daa4eb2",
-  "sdk_source_revision": "ddc661f4a7e6f2ffdcbbd0d137ddf3831daa4eb2",
+  "sdk_source_revision": "ca2f9bbd7ea9e43a78874a2d93bbbd68e5d257c8",
   "working_revision": "9c9418bfbdb4ce37c0bca86a359e051f138fe17d",
   "working_changes": [
-    "M migration/src/lib.rs",
+    "M Cargo.toml",
+    " M migration/src/lib.rs",
     " M src/handler.rs",
     " M src/lib.rs",
     " M src/main.rs",
@@ -25,8 +38,12 @@
     "?? src/result_outbox.rs"
   ],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "ed3baff54e85cac6aef574e85afe082dd855d16a683e7a3eb56a6c28d469a22c",
+  "source_tree_checksum": "b7f519876887d67a7ff9fb4cb187cf52ec83a0b546177e8dc3ab4ee3c5acf8cf",
   "source_files": [
+    {
+      "path": "infera-payment/src/admin_auth.rs",
+      "checksum": "b8e6642569bf3dfb2ee6c6e6e91afec015dd79c13ae6547bf2c572b331924b6f"
+    },
     {
       "path": "infera-payment/src/asset_checkout.rs",
       "checksum": "ccbb41f6d10d46f37d65843d72c37a3ac8aa0896d1de5b278f0b1d0d980ba7dc"
@@ -81,7 +98,7 @@
     },
     {
       "path": "infera-payment/src/gateway/routes.rs",
-      "checksum": "1421a02a7477aa58ad27cf922b645f3867d7fbde8f93ad1e3758ce9bbdf7cb0c"
+      "checksum": "d732b35a702feb2ce6b4624633a6df99d0c0936ab7b281042858a046abcec765"
     },
     {
       "path": "infera-payment/src/gateway/setup.rs",
@@ -137,7 +154,7 @@
     },
     {
       "path": "infera-payment/src/lib.rs",
-      "checksum": "35a3d95dedc2898772b43f685b9f2a816cb96fc8d4ac8284c4303c5274c50038"
+      "checksum": "4b1f67a2b064c7a0dddb612c6c292243da99ff0f0464342290037aa10b93913d"
     },
     {
       "path": "infera-payment/src/main.rs",
@@ -145,11 +162,11 @@
     },
     {
       "path": "infera-payment/src/models.rs",
-      "checksum": "93418f65846c5658c6f24c1e637380042ae0191fc26761b05d9d487cb8e68272"
+      "checksum": "942d9d4b708cd838ecb23e93ef3e34fee4fda05f6c9dd2859103156294af4694"
     },
     {
       "path": "infera-payment/src/pagination.rs",
-      "checksum": "9c97e92c81f923a2e785aab42af7678b170095fb208eb6476e88a4327d4002bc"
+      "checksum": "5314994aca7d5427d47f23d6ec48dda0adb34797dcc3acdc4f15e07547ccece6"
     },
     {
       "path": "infera-payment/src/payment/gateway_routing.rs",
@@ -197,7 +214,7 @@
     },
     {
       "path": "infera-payment/src/session/routes.rs",
-      "checksum": "16037ca3ab277e8d9cdeb87b92131f41164908289f14218bad2f55a8d7a15f59"
+      "checksum": "14df2e7feea41057d0bd438a97ed889619282ec8452dfefd258c38503b006c39"
     },
     {
       "path": "infera-payment/src/settings/methods.rs",
@@ -213,7 +230,7 @@
     },
     {
       "path": "infera-payment/src/settings/routes.rs",
-      "checksum": "87f0faf7273f27601ee8e6888ac1abf7db0d70fa64cfcf791d2b46dc122d7b41"
+      "checksum": "bdbfd166c9f07596bec9cf1dde17a69ebdc2228be046aa7f11fd9adfff16caac"
     },
     {
       "path": "infera-payment/src/shop_checkout.rs",
@@ -241,7 +258,7 @@
     },
     {
       "path": "infera-payment/src/transaction/routes.rs",
-      "checksum": "ed87669da600d863f9dc7a1ee6e438d345aa948b409c896de6f2dd0fb91fe6f0"
+      "checksum": "4e149bc53e5c0e9fea40da22d859b54396f93b4b88a581589b47952f8182780d"
     },
     {
       "path": "infera-payment/entity/src/enums.rs",
@@ -317,7 +334,11 @@
     },
     {
       "path": "infera-payment/Cargo.toml",
-      "checksum": "a871b6114785b307e21acd21f2ac98aaf3cc0b68f0d8e72c42e4ff0968e3e102"
+      "checksum": "ee39550560d274a8a301beabe01dc681272d130279a371b4a34a1f6139a8aa52"
+    },
+    {
+      "path": "infera-payment/Cargo.lock",
+      "checksum": "0f3397797d3867d40b07c023d93daf1152147e7138fd5aa3153866b9a7408773"
     },
     {
       "path": "infera-payment/.cargo/config.toml",
@@ -332,8 +353,9 @@
       "checksum": "3e0c4c78985acde9a43cf6733f98cfa53e98e06213f07b300c5ccbee22703199"
     }
   ],
+  "protocol_mounts": [],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "ec1c010bdf6d69972147950284459863e69fae6575195a36314a77ac67e215b1",
@@ -657,10 +679,12 @@
         "handler": "status_route",
         "permissions": [],
         "source": "infera-payment/src/router.rs",
+        "response": "HealthResponse",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-payment/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -669,7 +693,7 @@
           }
         ]
       },
-      "source_checksum": "702b71581aaa1a37cc0eacf8955acd7a372868126da5e3665a04d4ae63958e11",
+      "source_checksum": "405fa00258764f981e7897108b853077ecf1368a869f4b5dcad23680a4028dc6",
       "handler": {
         "ref": "infera-payment/src/router.rs:182:status_route",
         "path": "infera-payment/src/router.rs",
@@ -677,7 +701,19 @@
         "name": "status_route"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-payment/src/models.rs:61:HealthResponse",
+              "path": "infera-payment/src/models.rs",
+              "line": 61,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -707,10 +743,12 @@
         "handler": "status_route",
         "permissions": [],
         "source": "infera-payment/src/router.rs",
+        "response": "HealthResponse",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-payment/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -719,7 +757,7 @@
           }
         ]
       },
-      "source_checksum": "7615e9f45e26a5c389ec93b67a3d2aa8f66777ed3dbc059565d1ae09914ea23f",
+      "source_checksum": "ba082256f346069a10a7b8ce5d16752c48a08f769d9507744e6bbd462a19f66d",
       "handler": {
         "ref": "infera-payment/src/router.rs:182:status_route",
         "path": "infera-payment/src/router.rs",
@@ -727,7 +765,19 @@
         "name": "status_route"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-payment/src/models.rs:61:HealthResponse",
+              "path": "infera-payment/src/models.rs",
+              "line": 61,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -757,10 +807,12 @@
         "handler": "status_route",
         "permissions": [],
         "source": "infera-payment/src/router.rs",
+        "response": "HealthResponse",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-payment/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -769,7 +821,7 @@
           }
         ]
       },
-      "source_checksum": "07455487a7f4253f2913871fbe596754f5f793b4669bb05c50e38888b9b6e568",
+      "source_checksum": "ef9c1a1d6626afdab94f84fa7751d650eee5ef74535c997f0d6a94fe34fe99cd",
       "handler": {
         "ref": "infera-payment/src/router.rs:182:status_route",
         "path": "infera-payment/src/router.rs",
@@ -777,7 +829,19 @@
         "name": "status_route"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-payment/src/models.rs:61:HealthResponse",
+              "path": "infera-payment/src/models.rs",
+              "line": 61,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -807,10 +871,12 @@
         "handler": "openapi_json",
         "permissions": [],
         "source": "infera-payment/src/router.rs",
+        "response": "utoipa::openapi::OpenApi",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-payment/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -819,7 +885,7 @@
           }
         ]
       },
-      "source_checksum": "7620fe3284c02b1340789f623eaeae9d3c99f6bab473e4bffaebec498ca91ff1",
+      "source_checksum": "835b489af394940d3f061a7b9fb8bef5a4241bcedfbc978c0576cb6044251c4e",
       "handler": {
         "ref": "infera-payment/src/router.rs:176:openapi_json",
         "path": "infera-payment/src/router.rs",
@@ -827,7 +893,18 @@
         "name": "openapi_json"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "utoipa::openapi::OpenApi",
+          "models": [
+            {
+              "name": "OpenApi",
+              "unresolved": true,
+              "candidates": []
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -862,6 +939,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "payment_web::routes",
+        "handler_source": "infera-payment/src/payment_web/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -875,7 +953,7 @@
           }
         ]
       },
-      "source_checksum": "831accda17559df502f62e3fc9529f999493728f608ec2360c747cc0f8fef4c2",
+      "source_checksum": "fa9b2912f8755ae3c32cba85b8424a24ea95d5273d04fca7a2e67b5a1e3a2079",
       "handler": {
         "ref": "infera-payment/src/payment_web/routes.rs:30:redirect",
         "path": "infera-payment/src/payment_web/routes.rs",
@@ -924,6 +1002,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "payment_web::routes",
+        "handler_source": "infera-payment/src/payment_web/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -937,7 +1016,7 @@
           }
         ]
       },
-      "source_checksum": "d6f2a50fa5fd6bbe567b9e70e4b948783f9a0258ecd2ffe3bb3274a1ca8d8110",
+      "source_checksum": "71cf2f367f2ca34794ce2133da87ecf3c8247d02634db9af22c8d5acba0695c1",
       "handler": {
         "ref": "infera-payment/src/payment_web/routes.rs:50:callback",
         "path": "infera-payment/src/payment_web/routes.rs",
@@ -1007,6 +1086,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "payment_web::routes",
+        "handler_source": "infera-payment/src/payment_web/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -1020,7 +1100,7 @@
           }
         ]
       },
-      "source_checksum": "9faee2ee6e9b1876c265f7c6405c26d81041af2e61f80021a830601798a505a6",
+      "source_checksum": "55270d35fc280cf30397ab015cd6c1bcf01e52ecf5ab7a51703ad32455d97a57",
       "handler": {
         "ref": "infera-payment/src/payment_web/routes.rs:50:callback",
         "path": "infera-payment/src/payment_web/routes.rs",
@@ -1092,6 +1172,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "transaction::routes",
+        "handler_source": "infera-payment/src/transaction/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -1100,16 +1181,16 @@
           },
           {
             "path": "infera-payment/src/transaction/routes.rs",
-            "line": 113,
+            "line": 114,
             "function": "daily_income_route"
           }
         ]
       },
-      "source_checksum": "9481a923acecd0e4aac3c5769d859d6a93acd851d101dbe55dd1aa61fa6ab56e",
+      "source_checksum": "4bb62161299f2b51bff38ac290255652a2c663212be3169d88d8b0d1f1c01ddb",
       "handler": {
-        "ref": "infera-payment/src/transaction/routes.rs:133:daily_income",
+        "ref": "infera-payment/src/transaction/routes.rs:135:daily_income",
         "path": "infera-payment/src/transaction/routes.rs",
-        "line": 133,
+        "line": 135,
         "name": "daily_income"
       },
       "related_implementation": [],
@@ -1174,6 +1255,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "gateway::routes",
+        "handler_source": "infera-payment/src/gateway/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -1187,11 +1269,11 @@
           }
         ]
       },
-      "source_checksum": "a28ba8441a778b5dcd2be9f63cd049d3a95b56f4e1a4d8d2c2217eceae6a2c4c",
+      "source_checksum": "66f1bc291fff93b274f317e4f41f929534d5027e2ca8e25de52f9e56418ed912",
       "handler": {
-        "ref": "infera-payment/src/gateway/routes.rs:41:index",
+        "ref": "infera-payment/src/gateway/routes.rs:42:index",
         "path": "infera-payment/src/gateway/routes.rs",
-        "line": 41,
+        "line": 42,
         "name": "index"
       },
       "related_implementation": [],
@@ -1211,9 +1293,9 @@
           "declared_type": "crate::models::PagedResult<models::GatewayResponse>",
           "models": [
             {
-              "ref": "infera-payment/src/models.rs:21:PagedResult",
+              "ref": "infera-payment/src/models.rs:47:PagedResult",
               "path": "infera-payment/src/models.rs",
-              "line": 21,
+              "line": 47,
               "name": "PagedResult"
             },
             {
@@ -1262,6 +1344,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "gateway::routes",
+        "handler_source": "infera-payment/src/gateway/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -1275,11 +1358,11 @@
           }
         ]
       },
-      "source_checksum": "92450628631a97eeb4df008692add0eacfb4519e1514509847724a0c74698db3",
+      "source_checksum": "bd64e16e84f91b6528a52e49e451074d72790f1f67ba71ccc1638039c21e3631",
       "handler": {
-        "ref": "infera-payment/src/gateway/routes.rs:73:store",
+        "ref": "infera-payment/src/gateway/routes.rs:74:store",
         "path": "infera-payment/src/gateway/routes.rs",
-        "line": 73,
+        "line": 74,
         "name": "store"
       },
       "related_implementation": [],
@@ -1343,6 +1426,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "gateway::routes",
+        "handler_source": "infera-payment/src/gateway/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -1356,11 +1440,11 @@
           }
         ]
       },
-      "source_checksum": "a41c90c92f698ad178e1c6b983c7eded8bed1480eba49cb049af52208ba46ab4",
+      "source_checksum": "c7c1cbd7cb3e6d06c7de36b8adf1977a0a3a4dde47a13b68d0adb646e4a85d9d",
       "handler": {
-        "ref": "infera-payment/src/gateway/routes.rs:59:options",
+        "ref": "infera-payment/src/gateway/routes.rs:60:options",
         "path": "infera-payment/src/gateway/routes.rs",
-        "line": 59,
+        "line": 60,
         "name": "options"
       },
       "related_implementation": [],
@@ -1413,6 +1497,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "gateway::routes",
+        "handler_source": "infera-payment/src/gateway/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -1426,11 +1511,11 @@
           }
         ]
       },
-      "source_checksum": "2d3d560de2d253eb5c734b52d08ca834716da0dc0597ba4197a6331f76baeba3",
+      "source_checksum": "aa48300754dcf9e9cfb9e00a36e807fd19f689b078bdde632558758ff79f5aa2",
       "handler": {
-        "ref": "infera-payment/src/gateway/routes.rs:151:setup_check",
+        "ref": "infera-payment/src/gateway/routes.rs:152:setup_check",
         "path": "infera-payment/src/gateway/routes.rs",
-        "line": 151,
+        "line": 152,
         "name": "setup_check"
       },
       "related_implementation": [
@@ -1487,6 +1572,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "gateway::routes",
+        "handler_source": "infera-payment/src/gateway/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -1500,11 +1586,11 @@
           }
         ]
       },
-      "source_checksum": "d852926d834dce66ce75acd4544bf0fbc185a6e1dd3598b2ef2850027d655674",
+      "source_checksum": "c11ae5f8705fe5458441c8489363d3aafcf35cdd45aba06787b0b83b5ce5f745",
       "handler": {
-        "ref": "infera-payment/src/gateway/routes.rs:95:show",
+        "ref": "infera-payment/src/gateway/routes.rs:96:show",
         "path": "infera-payment/src/gateway/routes.rs",
-        "line": 95,
+        "line": 96,
         "name": "show"
       },
       "related_implementation": [],
@@ -1563,6 +1649,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "gateway::routes",
+        "handler_source": "infera-payment/src/gateway/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -1576,11 +1663,11 @@
           }
         ]
       },
-      "source_checksum": "4eeb8adae2bb478cfa893f2c070e0ef8320f94052b0e4e0111e17541beb916d0",
+      "source_checksum": "3125d0cd4dea83cb63f848a16798c6897a555cc4c0e90cdde91fedc6b38df5ca",
       "handler": {
-        "ref": "infera-payment/src/gateway/routes.rs:114:update",
+        "ref": "infera-payment/src/gateway/routes.rs:115:update",
         "path": "infera-payment/src/gateway/routes.rs",
-        "line": 114,
+        "line": 115,
         "name": "update"
       },
       "related_implementation": [],
@@ -1649,6 +1736,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "gateway::routes",
+        "handler_source": "infera-payment/src/gateway/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -1662,11 +1750,11 @@
           }
         ]
       },
-      "source_checksum": "e187b6b080ef525099c9a74daedbb5666deb17a23c74886dbde5e7c9f4dc18e4",
+      "source_checksum": "8cbb5dd1f8648706967b44ec19747e2bf20ef3329330148094caa027e7af5fa7",
       "handler": {
-        "ref": "infera-payment/src/gateway/routes.rs:137:destroy",
+        "ref": "infera-payment/src/gateway/routes.rs:138:destroy",
         "path": "infera-payment/src/gateway/routes.rs",
-        "line": 137,
+        "line": 138,
         "name": "destroy"
       },
       "related_implementation": [],
@@ -1724,6 +1812,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "transaction::routes",
+        "handler_source": "infera-payment/src/transaction/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -1737,11 +1826,11 @@
           }
         ]
       },
-      "source_checksum": "a0245f692f71bb069cfee3ba4521db10b784f953d5d9e38fc7e6fd5eae40220a",
+      "source_checksum": "60d8fc4eda59a6f8c60d90c50105d022a83551a9fda7340d545d98a4a3d6465a",
       "handler": {
-        "ref": "infera-payment/src/transaction/routes.rs:157:index",
+        "ref": "infera-payment/src/transaction/routes.rs:159:index",
         "path": "infera-payment/src/transaction/routes.rs",
-        "line": 157,
+        "line": 159,
         "name": "index"
       },
       "related_implementation": [],
@@ -1813,6 +1902,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "transaction::routes",
+        "handler_source": "infera-payment/src/transaction/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -1826,11 +1916,11 @@
           }
         ]
       },
-      "source_checksum": "956e28cf03a5ffc718fd63cffa5ceab1fdc282e951cf5314f7f390a07330db91",
+      "source_checksum": "d67ce804b4b5fa0c899ae8aab019b14f8712c6a25edcf03199bdb2c37ebbc01d",
       "handler": {
-        "ref": "infera-payment/src/transaction/routes.rs:70:verify_payment",
+        "ref": "infera-payment/src/transaction/routes.rs:71:verify_payment",
         "path": "infera-payment/src/transaction/routes.rs",
-        "line": 70,
+        "line": 71,
         "name": "verify_payment"
       },
       "related_implementation": [],
@@ -1888,6 +1978,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "transaction::routes",
+        "handler_source": "infera-payment/src/transaction/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -1901,11 +1992,11 @@
           }
         ]
       },
-      "source_checksum": "0f903c07b63fae6b1b8f9ae6b42fbf25005d4f24e4878b939b8a7045d41069f6",
+      "source_checksum": "b91ade1576375533b42b8913777c6f1b05d868e2cf0e72df3fc839403401153a",
       "handler": {
-        "ref": "infera-payment/src/transaction/routes.rs:39:reject_payment",
+        "ref": "infera-payment/src/transaction/routes.rs:40:reject_payment",
         "path": "infera-payment/src/transaction/routes.rs",
-        "line": 39,
+        "line": 40,
         "name": "reject_payment"
       },
       "related_implementation": [],
@@ -1963,6 +2054,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "transaction::routes",
+        "handler_source": "infera-payment/src/transaction/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -1976,11 +2068,11 @@
           }
         ]
       },
-      "source_checksum": "d3b434225b6d8a8f7cdaee7334adc2bac77e16b3e34ff8f98b233f4489bf842c",
+      "source_checksum": "252164c1605a17e539a119f893ef9eeb8988377b87f1030216bcccee17cd659f",
       "handler": {
-        "ref": "infera-payment/src/transaction/routes.rs:101:verification_logs",
+        "ref": "infera-payment/src/transaction/routes.rs:102:verification_logs",
         "path": "infera-payment/src/transaction/routes.rs",
-        "line": 101,
+        "line": 102,
         "name": "verification_logs"
       },
       "related_implementation": [],
@@ -2044,6 +2136,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "settings::routes",
+        "handler_source": "infera-payment/src/settings/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -2057,11 +2150,11 @@
           }
         ]
       },
-      "source_checksum": "8de8482ad2e4713e8c3786b4360c538823554c50e878671947e0636a22de54dd",
+      "source_checksum": "0b5e82dd33cfba3ea1bd101a9c37363baa3ec59bb8e4880b72477a774ca723d3",
       "handler": {
-        "ref": "infera-payment/src/settings/routes.rs:29:show",
+        "ref": "infera-payment/src/settings/routes.rs:30:show",
         "path": "infera-payment/src/settings/routes.rs",
-        "line": 29,
+        "line": 30,
         "name": "show"
       },
       "related_implementation": [],
@@ -2115,6 +2208,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "settings::routes",
+        "handler_source": "infera-payment/src/settings/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -2128,11 +2222,11 @@
           }
         ]
       },
-      "source_checksum": "053de543b1b78dcb7f8ec39c5cc65566f6b8b4e0afea263c09da389dc431aaa7",
+      "source_checksum": "ef8ebf0af9e365198a7b0e2c4fb5e5a3313dab593419334bf232309063180749",
       "handler": {
-        "ref": "infera-payment/src/settings/routes.rs:52:update",
+        "ref": "infera-payment/src/settings/routes.rs:53:update",
         "path": "infera-payment/src/settings/routes.rs",
-        "line": 52,
+        "line": 53,
         "name": "update"
       },
       "related_implementation": [],
@@ -2194,6 +2288,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "session::routes",
+        "handler_source": "infera-payment/src/session/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -2207,11 +2302,11 @@
           }
         ]
       },
-      "source_checksum": "d2bd6d981a4d977400d95e198611dc343895bf3a4689dced4fca55722aa27268",
+      "source_checksum": "c0481a34d192b299c4726c47613fafac4663a53e07e45a70c025a91800adc758",
       "handler": {
-        "ref": "infera-payment/src/session/routes.rs:36:get_self",
+        "ref": "infera-payment/src/session/routes.rs:37:get_self",
         "path": "infera-payment/src/session/routes.rs",
-        "line": 36,
+        "line": 37,
         "name": "get_self"
       },
       "related_implementation": [],
@@ -2270,6 +2365,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product_plans",
+        "handler_source": "infera-payment/src/product_plans.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -2283,7 +2379,7 @@
           }
         ]
       },
-      "source_checksum": "312d209c0165b701327909dd0d17387794621db44db591eb23d8e3fdb5518a43",
+      "source_checksum": "ca26cddf89ca7f105c5c35d1bdc2420218a18bf9284df59d33a964778b6a3a03",
       "handler": {
         "ref": "infera-payment/src/product_plans.rs:77:create",
         "path": "infera-payment/src/product_plans.rs",
@@ -2367,6 +2463,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product_plans",
+        "handler_source": "infera-payment/src/product_plans.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -2380,7 +2477,7 @@
           }
         ]
       },
-      "source_checksum": "4b5fa855c4912a4c0152d3e7d50f02c4e08b62ab6e76ebb009c01dc64aee5e34",
+      "source_checksum": "7807cb295acf4d24d7789dcbff141a04d4239f709a4add69a0a2abd966dd9a5f",
       "handler": {
         "ref": "infera-payment/src/product_plans.rs:103:receipt",
         "path": "infera-payment/src/product_plans.rs",
@@ -2432,6 +2529,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product_plans",
+        "handler_source": "infera-payment/src/product_plans.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -2445,7 +2543,7 @@
           }
         ]
       },
-      "source_checksum": "ebbf014d93307a64ff5c4a8213a1a5b48b62b52d88bff215d6ce1a66d4fa4cde",
+      "source_checksum": "c530be213a008602a179640c712ff67653777e4c085224fd7d51427bf021395c",
       "handler": {
         "ref": "infera-payment/src/product_plans.rs:51:availability",
         "path": "infera-payment/src/product_plans.rs",
@@ -2513,6 +2611,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "fitness",
+        "handler_source": "infera-payment/src/fitness.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -2526,7 +2625,7 @@
           }
         ]
       },
-      "source_checksum": "430def4bb5850b21a43deea93f73244f9b6e0792adebbe7cdd169397f6787fb1",
+      "source_checksum": "dbbae2402e868d9812f4d71d9dc55f7aae8016d505ad344dad4d34a2f469a757",
       "handler": {
         "ref": "infera-payment/src/fitness.rs:64:create",
         "path": "infera-payment/src/fitness.rs",
@@ -2610,6 +2709,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "fitness",
+        "handler_source": "infera-payment/src/fitness.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -2623,7 +2723,7 @@
           }
         ]
       },
-      "source_checksum": "a7e2949eb39e700257269fe9d575a284c12fcdabdae630c2568b1e8764643ccb",
+      "source_checksum": "98a17649d2a809c750084f2130fcb247726aea717594d2c75a96be30eab3fcd7",
       "handler": {
         "ref": "infera-payment/src/fitness.rs:107:receipt",
         "path": "infera-payment/src/fitness.rs",
@@ -2676,6 +2776,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "fitness",
+        "handler_source": "infera-payment/src/fitness.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -2689,7 +2790,7 @@
           }
         ]
       },
-      "source_checksum": "3502081966d3a33c053355b601ba593339d051b2a15af4596f16d658a2e30f89",
+      "source_checksum": "77ecb73f79d356f364cd19499c54c33ade9721af0385183c98dcd8cf90fdc944",
       "handler": {
         "ref": "infera-payment/src/fitness.rs:149:retry",
         "path": "infera-payment/src/fitness.rs",
@@ -2759,6 +2860,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "asset_checkout",
+        "handler_source": "infera-payment/src/asset_checkout.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -2772,7 +2874,7 @@
           }
         ]
       },
-      "source_checksum": "1f15bf59022fd010902ba3502504e2f3669e2664367fe882b7704c5c362d085e",
+      "source_checksum": "0fa224ac4dc75de5009011c092cb74fb3893b8599e49ec7d13ed8d3f60bec076",
       "handler": {
         "ref": "infera-payment/src/asset_checkout.rs:74:receipt",
         "path": "infera-payment/src/asset_checkout.rs",
@@ -2844,6 +2946,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "shop_checkout",
+        "handler_source": "infera-payment/src/shop_checkout.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -2857,7 +2960,7 @@
           }
         ]
       },
-      "source_checksum": "1b38968ecd6691fbac80c8ba47de38834c1712a6d0d58f20938daa96143d77d8",
+      "source_checksum": "540b745cb31c88bfa5dfafc456e62015e82cdca96390cffdc1f60eb65cc90887",
       "handler": {
         "ref": "infera-payment/src/shop_checkout.rs:187:create",
         "path": "infera-payment/src/shop_checkout.rs",
@@ -2950,6 +3053,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "shop_checkout",
+        "handler_source": "infera-payment/src/shop_checkout.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -2963,7 +3067,7 @@
           }
         ]
       },
-      "source_checksum": "2f787d9778fa3f170ea6d55866a0309411c176304e6060dbea2acd3ef2b83acb",
+      "source_checksum": "92605eaaa2f89ce62e4382e2e88a35bd58a93577661d0baf9565e61d7f4d07b3",
       "handler": {
         "ref": "infera-payment/src/shop_checkout.rs:247:receipt",
         "path": "infera-payment/src/shop_checkout.rs",
@@ -3025,6 +3129,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "shop_checkout",
+        "handler_source": "infera-payment/src/shop_checkout.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -3038,7 +3143,7 @@
           }
         ]
       },
-      "source_checksum": "745875046373ce912f47faf30daf8a19afdf1f8c14b7ef1204564f5183ff1e8a",
+      "source_checksum": "a76fd7a702c48da9a8d8c51a7f0f56e63b0febc1dc2a5d311878365dd3191e66",
       "handler": {
         "ref": "infera-payment/src/shop_checkout.rs:303:readiness",
         "path": "infera-payment/src/shop_checkout.rs",
@@ -3097,6 +3202,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "payment::routes",
+        "handler_source": "infera-payment/src/payment/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -3110,7 +3216,7 @@
           }
         ]
       },
-      "source_checksum": "62d1a1412b2c510d14c1030bee6f49165a432620cf7c11177d8f509dae2c7112",
+      "source_checksum": "9054707a17f132c6b849ab04d280ec52e8ff14cc77176c2d96efc6d452375da9",
       "handler": {
         "ref": "infera-payment/src/payment/routes.rs:27:create_payment",
         "path": "infera-payment/src/payment/routes.rs",
@@ -3155,7 +3261,7 @@
             {
               "name": "new",
               "path": "infera-payment/src/models.rs",
-              "line": 67
+              "line": 93
             }
           ]
         }
@@ -3226,6 +3332,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-payment/src/payment/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -3234,7 +3341,7 @@
           }
         ]
       },
-      "source_checksum": "7c943d826334d2f8e5fa1cffb8aa6112d001df4d93b7a654261ab53460c364e4",
+      "source_checksum": "9d01fbf710c699ec7673b197b491649237f22ce749d4065a783e37dcc7ca82a2",
       "handler": {
         "ref": "infera-payment/src/payment/routes.rs:55:show_status",
         "path": "infera-payment/src/payment/routes.rs",
@@ -3295,6 +3402,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "integration::routes",
+        "handler_source": "infera-payment/src/integration/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -3308,7 +3416,7 @@
           }
         ]
       },
-      "source_checksum": "47c17060f92d444938e387b68916b4a93dd246cfde82824a363e413a2e0de3ce",
+      "source_checksum": "8779758a043a29c8dda6a32588452ea7498120290f21b947f17cca23a4db3dcd",
       "handler": {
         "ref": "infera-payment/src/integration/routes.rs:18:integration_docs_show",
         "path": "infera-payment/src/integration/routes.rs",
@@ -3373,6 +3481,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "integration::routes",
+        "handler_source": "infera-payment/src/integration/routes.rs",
         "mounted_via": [
           {
             "path": "infera-payment/src/router.rs",
@@ -3386,7 +3495,7 @@
           }
         ]
       },
-      "source_checksum": "45696e7f9b5795d2711b7ac3c7389c4703a98f8cf0ebb5a2f0218d65381163e5",
+      "source_checksum": "ff88e28e4d5ac168a09f9dcddf9beb5a70749677c6ab4c5803ca79b3bbbe1879",
       "handler": {
         "ref": "infera-payment/src/integration/routes.rs:26:flow_integration_show",
         "path": "infera-payment/src/integration/routes.rs",
@@ -3428,13 +3537,12 @@
     }
   ],
   "sdk_contract_drift": {
-    "missing": [
-      "GET /",
-      "GET /up"
-    ],
+    "missing": [],
     "extra": [],
     "changed": [
+      "GET /",
       "GET /health",
+      "GET /up",
       "GET /api/openapi.json",
       "GET /payments/{uuid}/redirect",
       "GET /payments/callbacks/{provider}",
@@ -3482,6 +3590,7 @@
         "handlerModule": "router",
         "source": "infera-payment/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -3499,6 +3608,7 @@
         "handlerModule": "router",
         "source": "infera-payment/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -3516,6 +3626,7 @@
         "handlerModule": "router",
         "source": "infera-payment/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -3533,6 +3644,7 @@
         "handlerModule": "router",
         "source": "infera-payment/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -3550,6 +3662,7 @@
         "handlerModule": "payment_web::routes",
         "source": "infera-payment/src/payment_web/routes.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/payment_web/routes.rs",
         "pathParam": "uuid::Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -3573,6 +3686,7 @@
         "handlerModule": "payment_web::routes",
         "source": "infera-payment/src/payment_web/routes.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/payment_web/routes.rs",
         "query": "CallbackQuery",
         "pathParam": "String",
         "responseEnvelope": "raw-response",
@@ -3597,6 +3711,7 @@
         "handlerModule": "payment_web::routes",
         "source": "infera-payment/src/payment_web/routes.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/payment_web/routes.rs",
         "query": "CallbackQuery",
         "pathParam": "String",
         "responseEnvelope": "raw-response",
@@ -3623,6 +3738,7 @@
         "permissions": [
           "admin:transaction:read"
         ],
+        "handler_source": "infera-payment/src/transaction/routes.rs",
         "query": "models::DailyIncomeQuery",
         "response": "Vec<models::DailyIncomePoint>",
         "responseEnvelope": "api",
@@ -3634,7 +3750,7 @@
           },
           {
             "path": "infera-payment/src/transaction/routes.rs",
-            "line": 113,
+            "line": 114,
             "function": "daily_income_route"
           }
         ]
@@ -3649,6 +3765,7 @@
         "permissions": [
           "admin:gateway:read"
         ],
+        "handler_source": "infera-payment/src/gateway/routes.rs",
         "query": "GatewayListQuery",
         "response": "crate::models::PagedResult<models::GatewayResponse>",
         "responseEnvelope": "api",
@@ -3675,6 +3792,7 @@
         "permissions": [
           "admin:gateway:create"
         ],
+        "handler_source": "infera-payment/src/gateway/routes.rs",
         "body": "models::CreateGatewayRequest",
         "response": "models::GatewayResponse",
         "responseEnvelope": "api",
@@ -3701,6 +3819,7 @@
         "permissions": [
           "admin:gateway:read"
         ],
+        "handler_source": "infera-payment/src/gateway/routes.rs",
         "response": "models::GatewayOptionsResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -3726,6 +3845,7 @@
         "permissions": [
           "admin:gateway:read"
         ],
+        "handler_source": "infera-payment/src/gateway/routes.rs",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -3751,6 +3871,7 @@
         "permissions": [
           "admin:gateway:read"
         ],
+        "handler_source": "infera-payment/src/gateway/routes.rs",
         "pathParam": "i64",
         "response": "models::GatewayResponse",
         "responseEnvelope": "api",
@@ -3777,6 +3898,7 @@
         "permissions": [
           "admin:gateway:update"
         ],
+        "handler_source": "infera-payment/src/gateway/routes.rs",
         "body": "models::UpdateGatewayRequest",
         "pathParam": "i64",
         "response": "models::GatewayResponse",
@@ -3804,6 +3926,7 @@
         "permissions": [
           "admin:gateway:delete"
         ],
+        "handler_source": "infera-payment/src/gateway/routes.rs",
         "pathParam": "i64",
         "response": "models::GatewayResponse",
         "responseEnvelope": "api",
@@ -3830,6 +3953,7 @@
         "permissions": [
           "admin:transaction:read"
         ],
+        "handler_source": "infera-payment/src/transaction/routes.rs",
         "query": "models::TransactionListQuery",
         "response": "models::TransactionListData",
         "responseEnvelope": "api",
@@ -3856,6 +3980,7 @@
         "permissions": [
           "admin:transaction:verify"
         ],
+        "handler_source": "infera-payment/src/transaction/routes.rs",
         "pathParam": "Uuid",
         "response": "models::VerifyPaymentResponse",
         "responseEnvelope": "api",
@@ -3882,6 +4007,7 @@
         "permissions": [
           "admin:transaction:verify"
         ],
+        "handler_source": "infera-payment/src/transaction/routes.rs",
         "pathParam": "Uuid",
         "response": "models::VerifyPaymentResponse",
         "responseEnvelope": "api",
@@ -3908,6 +4034,7 @@
         "permissions": [
           "admin:transaction:read"
         ],
+        "handler_source": "infera-payment/src/transaction/routes.rs",
         "pathParam": "Uuid",
         "response": "Vec<models::PaymentVerificationResponse>",
         "responseEnvelope": "api",
@@ -3934,6 +4061,7 @@
         "permissions": [
           "admin:gateway:read"
         ],
+        "handler_source": "infera-payment/src/settings/routes.rs",
         "response": "models::PaymentSettingsResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -3959,6 +4087,7 @@
         "permissions": [
           "admin:gateway:update"
         ],
+        "handler_source": "infera-payment/src/settings/routes.rs",
         "body": "models::UpdatePaymentSettingsRequest",
         "response": "models::PaymentSettingsResponse",
         "responseEnvelope": "api",
@@ -3983,6 +4112,7 @@
         "handlerModule": "session::routes",
         "source": "infera-payment/src/session/routes.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/session/routes.rs",
         "response": "SessionResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -4006,6 +4136,7 @@
         "handlerModule": "product_plans",
         "source": "infera-payment/src/product_plans.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/product_plans.rs",
         "body": "crate::payment::models::CreatePaymentRequest",
         "response": "crate::payment::models::CreatePaymentResponse",
         "responseEnvelope": "api",
@@ -4030,6 +4161,7 @@
         "handlerModule": "product_plans",
         "source": "infera-payment/src/product_plans.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/product_plans.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -4054,6 +4186,7 @@
         "handlerModule": "product_plans",
         "source": "infera-payment/src/product_plans.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/product_plans.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -4077,6 +4210,7 @@
         "handlerModule": "fitness",
         "source": "infera-payment/src/fitness.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/fitness.rs",
         "body": "crate::payment::models::CreatePaymentRequest",
         "response": "crate::payment::models::CreatePaymentResponse",
         "responseEnvelope": "api",
@@ -4101,6 +4235,7 @@
         "handlerModule": "fitness",
         "source": "infera-payment/src/fitness.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/fitness.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -4125,6 +4260,7 @@
         "handlerModule": "fitness",
         "source": "infera-payment/src/fitness.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/fitness.rs",
         "pathParam": "Uuid",
         "response": "crate::payment::models::CreatePaymentResponse",
         "responseEnvelope": "api",
@@ -4149,6 +4285,7 @@
         "handlerModule": "asset_checkout",
         "source": "infera-payment/src/asset_checkout.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/asset_checkout.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -4172,6 +4309,7 @@
         "handlerModule": "shop_checkout",
         "source": "infera-payment/src/shop_checkout.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/shop_checkout.rs",
         "body": "crate::payment::models::CreatePaymentRequest",
         "response": "crate::payment::models::CreatePaymentResponse",
         "responseEnvelope": "api",
@@ -4196,6 +4334,7 @@
         "handlerModule": "shop_checkout",
         "source": "infera-payment/src/shop_checkout.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/shop_checkout.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -4220,6 +4359,7 @@
         "handlerModule": "shop_checkout",
         "source": "infera-payment/src/shop_checkout.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/shop_checkout.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -4242,6 +4382,7 @@
         "handlerModule": "payment::routes",
         "source": "infera-payment/src/payment/routes.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/payment/routes.rs",
         "body": "models::CreatePaymentRequest",
         "response": "models::CreatePaymentResponse",
         "responseEnvelope": "api",
@@ -4266,6 +4407,7 @@
         "handlerModule": "payment::routes",
         "source": "infera-payment/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/payment/routes.rs",
         "pathParam": "Uuid",
         "response": "models::TransactionStatusResponse",
         "responseEnvelope": "api",
@@ -4287,6 +4429,7 @@
         "permissions": [
           "admin:integration:read"
         ],
+        "handler_source": "infera-payment/src/integration/routes.rs",
         "response": "crate::integration::models::IntegrationDocsResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -4310,6 +4453,7 @@
         "handlerModule": "integration::routes",
         "source": "infera-payment/src/integration/routes.rs",
         "permissions": [],
+        "handler_source": "infera-payment/src/integration/routes.rs",
         "response": "infera_flow_sdk::FlowIntegrationResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -4326,20 +4470,12 @@
         ]
       }
     ],
-    "missing_from_extracted_manifest": [
-      "GET /api/v1/transactions/daily-income"
-    ],
-    "absent_from_mounted_graph": [
-      "GET /api/v1/transactions/transactions/daily-income"
-    ]
+    "missing_from_extracted_manifest": [],
+    "absent_from_mounted_graph": []
   },
   "working_drift": {
-    "added": [
-      "GET /api/v1/transactions/transactions/daily-income"
-    ],
-    "absent": [
-      "GET /api/v1/transactions/daily-income"
-    ],
+    "added": [],
+    "absent": [],
     "changed": [
       "GET /",
       "GET /api/openapi.json",
@@ -4371,12 +4507,14 @@
       "POST /api/v1/transactions/{uuid}/reject",
       "GET /api/v1/transactions/{uuid}/verifications",
       "POST /api/v1/transactions/{uuid}/verify",
+      "GET /api/v1/transactions/daily-income",
       "GET /health",
       "GET /payments/{uuid}/redirect",
       "GET /payments/callbacks/{provider}",
       "POST /payments/callbacks/{provider}",
       "GET /up"
-    ]
+    ],
+    "extraction_errors": []
   },
   "working_route_candidates": [
     {
@@ -4568,6 +4706,10 @@
   ],
   "middleware_sources": [
     {
+      "path": "infera-payment/src/admin_auth.rs",
+      "checksum": "b8e6642569bf3dfb2ee6c6e6e91afec015dd79c13ae6547bf2c572b331924b6f"
+    },
+    {
       "path": "infera-payment/src/main.rs",
       "checksum": "e4365f67643acc4b0bf955e3352e75423bfc01efc2343d2b166d2838496f453a"
     },
@@ -4578,6 +4720,30 @@
     {
       "path": "infera-payment/migration/src/main.rs",
       "checksum": "deb49e9c627495887d941ab7597b42076151a34d292271f9ef3f5677a843dae0"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-payment/src/main.rs",
+      "checksum": "e4365f67643acc4b0bf955e3352e75423bfc01efc2343d2b166d2838496f453a"
+    },
+    {
+      "path": "infera-payment/src/router.rs",
+      "checksum": "33c0963884284be02cc9754d64a6279471b5d30df033c70da2a8f364927897be"
+    },
+    {
+      "path": "infera-payment/migration/src/main.rs",
+      "checksum": "deb49e9c627495887d941ab7597b42076151a34d292271f9ef3f5677a843dae0"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-payment/src/router.rs",
+      "checksum": "33c0963884284be02cc9754d64a6279471b5d30df033c70da2a8f364927897be"
+    },
+    {
+      "path": "Service/infera-payment/src/transaction",
+      "checksum": "f8ccd1887aabe777f653398f3e9df9f0587fbb604296abe011896996f65af5b3"
     }
   ],
   "missing_meaning_sources": [],
@@ -4601,6 +4767,24 @@
       ],
       "effects": [],
       "calls": []
+    },
+    "infera-payment/src/models.rs:61:HealthResponse": {
+      "name": "HealthResponse",
+      "kind": "struct",
+      "path": "infera-payment/src/models.rs",
+      "line": 61,
+      "attributes": "#[derive(Debug, Serialize, ToSchema)]",
+      "fields": [
+        {
+          "name": "version",
+          "rust_name": "version",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
     },
     "infera-payment/src/router.rs:176:openapi_json": {
       "name": "openapi_json",
@@ -4733,11 +4917,11 @@
         }
       ]
     },
-    "infera-payment/src/transaction/routes.rs:133:daily_income": {
+    "infera-payment/src/transaction/routes.rs:135:daily_income": {
       "name": "daily_income",
       "path": "infera-payment/src/transaction/routes.rs",
-      "line": 133,
-      "end_line": 144,
+      "line": 135,
+      "end_line": 146,
       "signature": "async fn daily_income(\n    State(state): State<AppState>,\n    Query(query): Query<models::DailyIncomeQuery>,\n) -> Result<Json<APIResponse<Vec<models::DailyIncomePoint>>>, AppError>",
       "declared_permissions": [
         "admin:transaction:read"
@@ -4747,12 +4931,12 @@
       "state": [
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 138,
+          "line": 140,
           "expression": "let data = methods::daily_income(&state, days).await?;"
         },
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 140,
+          "line": 142,
           "expression": "status: \"success\".into(),"
         }
       ],
@@ -4804,11 +4988,11 @@
         }
       ]
     },
-    "infera-payment/src/gateway/routes.rs:41:index": {
+    "infera-payment/src/gateway/routes.rs:42:index": {
       "name": "index",
       "path": "infera-payment/src/gateway/routes.rs",
-      "line": 41,
-      "end_line": 51,
+      "line": 42,
+      "end_line": 52,
       "signature": "async fn index(\n    State(state): State<AppState>,\n    Query(query): Query<GatewayListQuery>,\n) -> Result<Json<APIResponse<crate::models::PagedResult<models::GatewayResponse>>>, AppError>",
       "declared_permissions": [
         "admin:gateway:read"
@@ -4818,12 +5002,12 @@
       "state": [
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 45,
+          "line": 46,
           "expression": "let data = methods::list(&state, query.status, &query.page).await?;"
         },
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 47,
+          "line": 48,
           "expression": "status: \"success\".into(),"
         }
       ],
@@ -4859,11 +5043,11 @@
         }
       ]
     },
-    "infera-payment/src/models.rs:21:PagedResult": {
+    "infera-payment/src/models.rs:47:PagedResult": {
       "name": "PagedResult",
       "kind": "struct",
       "path": "infera-payment/src/models.rs",
-      "line": 21,
+      "line": 47,
       "attributes": "#[derive(Serialize, Debug)]",
       "fields": [
         {
@@ -4976,11 +5160,11 @@
         }
       ]
     },
-    "infera-payment/src/gateway/routes.rs:73:store": {
+    "infera-payment/src/gateway/routes.rs:74:store": {
       "name": "store",
       "path": "infera-payment/src/gateway/routes.rs",
-      "line": 73,
-      "end_line": 86,
+      "line": 74,
+      "end_line": 87,
       "signature": "async fn store(\n    State(state): State<AppState>,\n    Json(payload): Json<models::CreateGatewayRequest>,\n) -> Result<Json<APIResponse<models::GatewayResponse>>, AppError>",
       "declared_permissions": [
         "admin:gateway:create"
@@ -4989,29 +5173,29 @@
       "validation": [
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 78,
+          "line": 79,
           "expression": ".validate()"
         },
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 79,
+          "line": 80,
           "expression": ".map_err(|e| AppError::new(axum::http::StatusCode::UNPROCESSABLE_ENTITY, e.to_string()))?;"
         }
       ],
       "state": [
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 79,
+          "line": 80,
           "expression": ".map_err(|e| AppError::new(axum::http::StatusCode::UNPROCESSABLE_ENTITY, e.to_string()))?;"
         },
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 80,
+          "line": 81,
           "expression": "let data = methods::create(&state, payload).await?;"
         },
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 82,
+          "line": 83,
           "expression": "status: \"success\".into(),"
         }
       ],
@@ -5081,11 +5265,11 @@
         }
       ]
     },
-    "infera-payment/src/gateway/routes.rs:59:options": {
+    "infera-payment/src/gateway/routes.rs:60:options": {
       "name": "options",
       "path": "infera-payment/src/gateway/routes.rs",
-      "line": 59,
-      "end_line": 65,
+      "line": 60,
+      "end_line": 66,
       "signature": "async fn options() -> Json<APIResponse<models::GatewayOptionsResponse>>",
       "declared_permissions": [
         "admin:gateway:read"
@@ -5095,7 +5279,7 @@
       "state": [
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 61,
+          "line": 62,
           "expression": "status: \"success\".into(),"
         }
       ],
@@ -5129,11 +5313,11 @@
         }
       ]
     },
-    "infera-payment/src/gateway/routes.rs:151:setup_check": {
+    "infera-payment/src/gateway/routes.rs:152:setup_check": {
       "name": "setup_check",
       "path": "infera-payment/src/gateway/routes.rs",
-      "line": 151,
-      "end_line": 154,
+      "line": 152,
+      "end_line": 155,
       "signature": "async fn setup_check(State(state):State<AppState>)->Result<Json<APIResponse<serde_json::Value>>,AppError>",
       "declared_permissions": [
         "admin:gateway:read"
@@ -5143,12 +5327,12 @@
       "state": [
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 152,
+          "line": 153,
           "expression": "let data=crate::gateway::setup::check(&state).await?;"
         },
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 153,
+          "line": 154,
           "expression": "Ok(Json(APIResponse{status:\"success\".into(),message:\"ok\".into(),data}))"
         }
       ],
@@ -5212,11 +5396,11 @@
         "crate::gateway_provider::factory::zarinpal_sandbox_enabled"
       ]
     },
-    "infera-payment/src/gateway/routes.rs:95:show": {
+    "infera-payment/src/gateway/routes.rs:96:show": {
       "name": "show",
       "path": "infera-payment/src/gateway/routes.rs",
-      "line": 95,
-      "end_line": 105,
+      "line": 96,
+      "end_line": 106,
       "signature": "async fn show(\n    State(state): State<AppState>,\n    Path(id): Path<i64>,\n) -> Result<Json<APIResponse<models::GatewayResponse>>, AppError>",
       "declared_permissions": [
         "admin:gateway:read"
@@ -5226,23 +5410,23 @@
       "state": [
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 99,
+          "line": 100,
           "expression": "let data = methods::show(&state, id).await?;"
         },
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 101,
+          "line": 102,
           "expression": "status: \"success\".into(),"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-payment/src/gateway/routes.rs:114:update": {
+    "infera-payment/src/gateway/routes.rs:115:update": {
       "name": "update",
       "path": "infera-payment/src/gateway/routes.rs",
-      "line": 114,
-      "end_line": 128,
+      "line": 115,
+      "end_line": 129,
       "signature": "async fn update(\n    State(state): State<AppState>,\n    Path(id): Path<i64>,\n    Json(payload): Json<models::UpdateGatewayRequest>,\n) -> Result<Json<APIResponse<models::GatewayResponse>>, AppError>",
       "declared_permissions": [
         "admin:gateway:update"
@@ -5251,41 +5435,41 @@
       "validation": [
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 120,
+          "line": 121,
           "expression": ".validate()"
         },
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 121,
+          "line": 122,
           "expression": ".map_err(|e| AppError::new(axum::http::StatusCode::UNPROCESSABLE_ENTITY, e.to_string()))?;"
         }
       ],
       "state": [
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 121,
+          "line": 122,
           "expression": ".map_err(|e| AppError::new(axum::http::StatusCode::UNPROCESSABLE_ENTITY, e.to_string()))?;"
         },
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 122,
+          "line": 123,
           "expression": "let data = methods::update(&state, id, payload).await?;"
         },
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 124,
+          "line": 125,
           "expression": "status: \"success\".into(),"
         }
       ],
       "effects": [
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 122,
+          "line": 123,
           "expression": "let data = methods::update(&state, id, payload).await?;"
         },
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 125,
+          "line": 126,
           "expression": "message: \"gateway updated\".into(),"
         }
       ],
@@ -5354,11 +5538,11 @@
         }
       ]
     },
-    "infera-payment/src/gateway/routes.rs:137:destroy": {
+    "infera-payment/src/gateway/routes.rs:138:destroy": {
       "name": "destroy",
       "path": "infera-payment/src/gateway/routes.rs",
-      "line": 137,
-      "end_line": 147,
+      "line": 138,
+      "end_line": 148,
       "signature": "async fn destroy(\n    State(state): State<AppState>,\n    Path(id): Path<i64>,\n) -> Result<Json<APIResponse<models::GatewayResponse>>, AppError>",
       "declared_permissions": [
         "admin:gateway:delete"
@@ -5368,34 +5552,34 @@
       "state": [
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 141,
+          "line": 142,
           "expression": "let data = methods::delete(&state, id).await?;"
         },
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 143,
+          "line": 144,
           "expression": "status: \"success\".into(),"
         }
       ],
       "effects": [
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 141,
+          "line": 142,
           "expression": "let data = methods::delete(&state, id).await?;"
         },
         {
           "path": "infera-payment/src/gateway/routes.rs",
-          "line": 144,
+          "line": 145,
           "expression": "message: \"gateway deleted\".into(),"
         }
       ],
       "calls": []
     },
-    "infera-payment/src/transaction/routes.rs:157:index": {
+    "infera-payment/src/transaction/routes.rs:159:index": {
       "name": "index",
       "path": "infera-payment/src/transaction/routes.rs",
-      "line": 157,
-      "end_line": 167,
+      "line": 159,
+      "end_line": 169,
       "signature": "async fn index(\n    State(state): State<AppState>,\n    Query(query): Query<models::TransactionListQuery>,\n) -> Result<Json<APIResponse<models::TransactionListData>>, AppError>",
       "declared_permissions": [
         "admin:transaction:read"
@@ -5405,12 +5589,12 @@
       "state": [
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 161,
+          "line": 163,
           "expression": "let data = methods::list(&state, query).await?;"
         },
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 163,
+          "line": 165,
           "expression": "status: \"success\".into(),"
         }
       ],
@@ -5545,11 +5729,11 @@
         }
       ]
     },
-    "infera-payment/src/transaction/routes.rs:70:verify_payment": {
+    "infera-payment/src/transaction/routes.rs:71:verify_payment": {
       "name": "verify_payment",
       "path": "infera-payment/src/transaction/routes.rs",
-      "line": 70,
-      "end_line": 87,
+      "line": 71,
+      "end_line": 88,
       "signature": "async fn verify_payment(\n    State(state): State<AppState>,\n    Extension(auth): Extension<AuthContext>,\n    Path(uuid): Path<Uuid>,\n) -> Result<Json<APIResponse<models::VerifyPaymentResponse>>, AppError>",
       "declared_permissions": [
         "admin:transaction:verify"
@@ -5557,12 +5741,12 @@
       "guards": [
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 77,
+          "line": 78,
           "expression": "axum::http::StatusCode::UNAUTHORIZED,"
         },
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 78,
+          "line": 79,
           "expression": "\"authenticated user is required\","
         }
       ],
@@ -5570,17 +5754,17 @@
       "state": [
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 77,
+          "line": 78,
           "expression": "axum::http::StatusCode::UNAUTHORIZED,"
         },
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 81,
+          "line": 82,
           "expression": "let data = methods::verify_payment(&state, uuid, verifier_user_id).await?;"
         },
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 83,
+          "line": 84,
           "expression": "status: \"success\".into(),"
         }
       ],
@@ -5614,11 +5798,11 @@
         }
       ]
     },
-    "infera-payment/src/transaction/routes.rs:39:reject_payment": {
+    "infera-payment/src/transaction/routes.rs:40:reject_payment": {
       "name": "reject_payment",
       "path": "infera-payment/src/transaction/routes.rs",
-      "line": 39,
-      "end_line": 56,
+      "line": 40,
+      "end_line": 57,
       "signature": "async fn reject_payment(\n    State(state): State<AppState>,\n    Extension(auth): Extension<AuthContext>,\n    Path(uuid): Path<Uuid>,\n) -> Result<Json<APIResponse<models::VerifyPaymentResponse>>, AppError>",
       "declared_permissions": [
         "admin:transaction:verify"
@@ -5626,12 +5810,12 @@
       "guards": [
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 46,
+          "line": 47,
           "expression": "axum::http::StatusCode::UNAUTHORIZED,"
         },
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 47,
+          "line": 48,
           "expression": "\"authenticated user is required\","
         }
       ],
@@ -5639,28 +5823,28 @@
       "state": [
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 46,
+          "line": 47,
           "expression": "axum::http::StatusCode::UNAUTHORIZED,"
         },
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 50,
+          "line": 51,
           "expression": "let data = methods::reject_payment(&state, uuid, verifier_user_id).await?;"
         },
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 52,
+          "line": 53,
           "expression": "status: \"success\".into(),"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-payment/src/transaction/routes.rs:101:verification_logs": {
+    "infera-payment/src/transaction/routes.rs:102:verification_logs": {
       "name": "verification_logs",
       "path": "infera-payment/src/transaction/routes.rs",
-      "line": 101,
-      "end_line": 111,
+      "line": 102,
+      "end_line": 112,
       "signature": "async fn verification_logs(\n    State(state): State<AppState>,\n    Path(uuid): Path<Uuid>,\n) -> Result<Json<APIResponse<Vec<models::PaymentVerificationResponse>>>, AppError>",
       "declared_permissions": [
         "admin:transaction:read"
@@ -5670,12 +5854,12 @@
       "state": [
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 105,
+          "line": 106,
           "expression": "let data = methods::verification_logs(&state, uuid).await?;"
         },
         {
           "path": "infera-payment/src/transaction/routes.rs",
-          "line": 107,
+          "line": 108,
           "expression": "status: \"success\".into(),"
         }
       ],
@@ -5772,11 +5956,11 @@
         }
       ]
     },
-    "infera-payment/src/settings/routes.rs:29:show": {
+    "infera-payment/src/settings/routes.rs:30:show": {
       "name": "show",
       "path": "infera-payment/src/settings/routes.rs",
-      "line": 29,
-      "end_line": 38,
+      "line": 30,
+      "end_line": 39,
       "signature": "async fn show(\n    State(state): State<AppState>,\n) -> Result<Json<APIResponse<models::PaymentSettingsResponse>>, AppError>",
       "declared_permissions": [
         "admin:gateway:read"
@@ -5786,12 +5970,12 @@
       "state": [
         {
           "path": "infera-payment/src/settings/routes.rs",
-          "line": 32,
+          "line": 33,
           "expression": "let data = methods::get(&state).await?;"
         },
         {
           "path": "infera-payment/src/settings/routes.rs",
-          "line": 34,
+          "line": 35,
           "expression": "status: \"success\".into(),"
         }
       ],
@@ -5816,11 +6000,11 @@
         }
       ]
     },
-    "infera-payment/src/settings/routes.rs:52:update": {
+    "infera-payment/src/settings/routes.rs:53:update": {
       "name": "update",
       "path": "infera-payment/src/settings/routes.rs",
-      "line": 52,
-      "end_line": 62,
+      "line": 53,
+      "end_line": 63,
       "signature": "async fn update(\n    State(state): State<AppState>,\n    Json(payload): Json<models::UpdatePaymentSettingsRequest>,\n) -> Result<Json<APIResponse<models::PaymentSettingsResponse>>, AppError>",
       "declared_permissions": [
         "admin:gateway:update"
@@ -5830,24 +6014,24 @@
       "state": [
         {
           "path": "infera-payment/src/settings/routes.rs",
-          "line": 56,
+          "line": 57,
           "expression": "let data = methods::update(&state, payload).await?;"
         },
         {
           "path": "infera-payment/src/settings/routes.rs",
-          "line": 58,
+          "line": 59,
           "expression": "status: \"success\".into(),"
         }
       ],
       "effects": [
         {
           "path": "infera-payment/src/settings/routes.rs",
-          "line": 56,
+          "line": 57,
           "expression": "let data = methods::update(&state, payload).await?;"
         },
         {
           "path": "infera-payment/src/settings/routes.rs",
-          "line": 59,
+          "line": 60,
           "expression": "message: \"settings updated\".into(),"
         }
       ],
@@ -5871,17 +6055,17 @@
         }
       ]
     },
-    "infera-payment/src/session/routes.rs:36:get_self": {
+    "infera-payment/src/session/routes.rs:37:get_self": {
       "name": "get_self",
       "path": "infera-payment/src/session/routes.rs",
-      "line": 36,
-      "end_line": 46,
+      "line": 37,
+      "end_line": 47,
       "signature": "async fn get_self(Extension(auth): Extension<AuthContext>) -> Json<APIResponse<SessionResponse>>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-payment/src/session/routes.rs",
-          "line": 43,
+          "line": 44,
           "expression": "permissions: auth.permissions,"
         }
       ],
@@ -5889,7 +6073,7 @@
       "state": [
         {
           "path": "infera-payment/src/session/routes.rs",
-          "line": 38,
+          "line": 39,
           "expression": "status: \"success\".into(),"
         }
       ],

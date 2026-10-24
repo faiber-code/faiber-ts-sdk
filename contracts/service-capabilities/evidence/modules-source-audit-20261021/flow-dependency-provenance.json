@@ -1,0 +1,97 @@
+{
+  "service_revision": "85e42a5f1440b78564f23b4bbf7723a0797d3470",
+  "investigation": "read-only; no Cargo, Docker, native backend, provider or network execution",
+  "selected_snapshot": {
+    "manifest": "Cargo.toml:76 declares unpinned git URL https://hamgit.ir/faiber/faiber-sdk.git",
+    "lock_flow_package": "[[package]]\nname = \"infera-flow-sdk\"\nversion = \"0.1.0\"\ndependencies = [\n \"axum\",\n \"bytes\",\n \"chrono\",\n \"futures-lite\",\n \"http-body-util\",\n \"lapin\",\n \"reqwest\",\n \"serde\",\n \"serde_json\",\n \"tokio\",\n \"tracing\",\n \"uuid\",\n]\n\n",
+    "conclusion": "No immutable Flow revision is recorded in selected Cargo.lock; neither manifest nor selected .cargo/config.toml supplies an exact revision.",
+    "docker_build": "Selected Dockerfile runs cargo chef cook and cargo build --release without --locked and copies no parent local path patch. Dependency re-resolution can choose a different git revision."
+  },
+  "historical_source": {
+    "source_removal_commit": "ebfef823fdb9b6af68889ee36101294672237f2f",
+    "previous_recorded_revision": "291c81a67bc302d667fb807da2af3240598bee52",
+    "meaning": "Confirms the last recorded git identity before path-based lock representation; does not restore an exact dependency pin in the selected service snapshot."
+  },
+  "observed_local_graph": {
+    "parent_cargo_config": "/Users/mohammadralizadeh/Infera/Service/.cargo/config.toml",
+    "parent_config_relevant_lines": [
+      "5: target-dir = \"/Users/mohammadralizadeh/Infera/Service/target\"",
+      "17: [patch.\"https://hamgit.ir/faiber/faiber-sdk.git\"]",
+      "24: infera-flow-sdk = { path = \"faiber-sdk/crates/infera-flow-sdk\" }"
+    ],
+    "modules_fingerprints": [
+      {
+        "file": "/Users/mohammadralizadeh/Infera/Service/target/debug/.fingerprint/infera_modules-1c72a7f8bb2a5a81/test-integration-test-hosted_search.json",
+        "sha256": "a7759d723bcf88042581799d68977f47b578a083561303a70527319c9bf6d11c",
+        "mtime_utc": "2026-10-20T21:39:11.214649+00:00",
+        "flow_dependency": [
+          [
+            6300641422911185709,
+            "infera_flow_sdk",
+            false,
+            8460218827560513631
+          ]
+        ]
+      },
+      {
+        "file": "/Users/mohammadralizadeh/Infera/Service/target/debug/.fingerprint/infera_modules-7adb58647f77b622/test-lib-infera_modules.json",
+        "sha256": "9205ed722ba35f18ba407069613909a81d11d4a088e0ad23a97a5f3a194b9ac0",
+        "mtime_utc": "2026-10-20T21:42:48.807437+00:00",
+        "flow_dependency": [
+          [
+            6300641422911185709,
+            "infera_flow_sdk",
+            false,
+            8460218827560513631
+          ]
+        ]
+      },
+      {
+        "file": "/Users/mohammadralizadeh/Infera/Service/target/debug/.fingerprint/infera_modules-63b1eed87fed95d0/lib-infera_modules.json",
+        "sha256": "2566962c940ad68d91a6fa46bfc7b129027868ac207c6435dc7902b8b3e811cd",
+        "mtime_utc": "2026-10-20T21:35:58.505409+00:00",
+        "flow_dependency": [
+          [
+            6300641422911185709,
+            "infera_flow_sdk",
+            false,
+            8460218827560513631
+          ]
+        ]
+      },
+      {
+        "file": "/Users/mohammadralizadeh/Infera/Service/target/debug/.fingerprint/infera_modules-95f6dce89ee4bc26/bin-infera_modules.json",
+        "sha256": "3bb4b75ed729d8819400d43cb9140907a32f82ed059a429989d76858034fc77e",
+        "mtime_utc": "2026-10-20T21:36:00.163704+00:00",
+        "flow_dependency": [
+          [
+            6300641422911185709,
+            "infera_flow_sdk",
+            false,
+            8460218827560513631
+          ]
+        ]
+      }
+    ],
+    "flow_fingerprint": "infera-flow-sdk-c7a3e80efd4190d2",
+    "flow_dependency_fingerprint_decimal": 8460218827560513631,
+    "flow_dependency_fingerprint_file_value": "5ff0d01233bc6875",
+    "dep_info": "/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_flow_sdk-c7a3e80efd4190d2.d",
+    "source_checkout": "/Users/mohammadralizadeh/Infera/.task-worktrees/manage-hosted-search-20261021/faiber-sdk",
+    "source_checkout_revision": "291c81a67bc302d667fb807da2af3240598bee52",
+    "source_checkout_git_status": "",
+    "flow_subtree_object": "a4b07d00623c31a60587b778832d6ffcabdb5bfa",
+    "integration_meta_sha256": "b8c16ae1c4c77fad0c48966830e7b3dbb8b44d5d43cba6068fa4dd12fc4c7f8f",
+    "meaning": "Existing local Modules compiler fingerprints link to the clean local SDK checkout at this revision. This is an observed local dependency graph, not a reproducible production dependency pin or proof that native artifacts compiled exact Modules85e42 source bytes."
+  },
+  "reviewed_wire_model": {
+    "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+    "fields": "FlowIntegrationResponse {queue:String, events:Vec<IntegrationEventMeta>}; IntegrationEventMeta {event_name:String,payload_fields:Vec<IntegrationField>}; IntegrationField {name:String,field_type:String,required:bool,description:String}",
+    "match": "Matches current named ModulesFlowIntegration/ModulesFlowEvent/ModulesFlowField source contracts. No package source was changed during investigation."
+  },
+  "remaining_blocker": {
+    "exact_production_dependency_revision": "unresolved",
+    "reason": "Selected service source has unpinned git manifest plus path-style lock package with no source hash; no immutable build/deployment attestation tying Modules85e42 to exact Flow source was found. Historical and local compiler evidence are insufficient to invent that pin.",
+    "resolution_needed": "An immutable build attestation/recipe binding exact Modules85e42 and Flow SDK revision, or a separately authorized backend dependency-lock correction and native verification."
+  }
+}

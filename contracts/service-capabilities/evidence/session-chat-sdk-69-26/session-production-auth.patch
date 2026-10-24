@@ -1,0 +1,26 @@
+From 6cdedd4303f4612143ae6bae54edff464a7aa08d Mon Sep 17 00:00:00 2001
+From: Mohammadrasul Alizadeh <mohammad.alizadeh12@gmail.com>
+Date: Mon, 19 Oct 2026 22:15:52 +0330
+Subject: [PATCH] fix: disable development identity fallback in Session
+ production
+
+---
+ Cargo.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index f2a9ec8..8a20747 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -10,7 +10,7 @@ members = [".", "chat", "entity", "migration"]
+ entity = { path = "entity" }
+ migration = { path = "migration" }
+ chat = { path = "chat" }
+-infera-idp-sdk = { git = "https://hamgit.ir/faiber/faiber-sdk.git", features = ["dev-fallback"] }
++infera-idp-sdk = { git = "https://hamgit.ir/faiber/faiber-sdk.git", default-features = false }
+ infera-idp-macro = { git = "https://hamgit.ir/faiber/faiber-sdk.git" }
+ infera-asset-sdk = { git = "https://hamgit.ir/faiber/faiber-sdk.git" , rev="1fb473c341ba376b1ba77766b925372220db354c" }
+ infera-profile-sdk = { git = "https://hamgit.ir/faiber/faiber-sdk.git" }
+-- 
+2.39.5 (Apple Git-154)
+

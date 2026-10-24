@@ -8,8 +8,9 @@ Status: evidence inventory; semantic and wire verification remain required.
 
 The source snapshots below are intentionally distinct. Missing local routes are not automatically removed from a released SDK.
 
-- Canonical source revision: `4c5eefc4062e8e522795478c8dd7d55e48a0c9fc`
-- SDK source revision: `831dde454084a05920441091a8305a7a972d9804`
+- Canonical source revision: `bb6b725f2c35fc27bd04b84897523fca77d2854b`
+- SDK source revision: `7a395d7149a2d4c03d3e1d4746b69919a52cbb05`
+- Evidence inventory revision: `7a395d7149a2d4c03d3e1d4746b69919a52cbb05` (sdk)
 - Working HEAD: `edefa6463fe1877661cc62ef4752515262c71e00`
 - Source relationship: working_behind_sdk
 
@@ -17,13 +18,13 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 
 | Method/path | Handler source | Declared permissions | Semantic review |
 |---|---|---|---|
-| `GET /api/v1/config/branding` | `infera-session/src/branding.rs:172` | config:read | pending |
-| `PUT /api/v1/config/branding` | `infera-session/src/branding.rs:185` | config:update | pending |
-| `POST /api/v1/config/branding/assets` | `infera-session/src/branding.rs:231` | config:update | pending |
-| `GET /api/v1/public/branding` | `infera-session/src/branding.rs:161` | inspect middleware/local scope | pending |
-| `GET /api/v1/public/branding/assets/{key}` | `infera-session/src/branding.rs:273` | inspect middleware/local scope | pending |
-| `GET /` | `infera-session/src/router.rs:702` | inspect middleware/local scope | pending |
-| `GET /health` | `infera-session/src/router.rs:702` | inspect middleware/local scope | pending |
+| `GET /api/v1/config/branding` | `infera-session/src/branding.rs:198` | config:read | pending |
+| `PUT /api/v1/config/branding` | `infera-session/src/branding.rs:211` | config:update | pending |
+| `POST /api/v1/config/branding/assets` | `infera-session/src/branding.rs:257` | config:update | pending |
+| `GET /api/v1/public/branding` | `infera-session/src/branding.rs:183` | inspect middleware/local scope | pending |
+| `GET /api/v1/public/branding/assets/{key}` | `infera-session/src/branding.rs:299` | inspect middleware/local scope | pending |
+| `GET /` | `infera-session/src/router.rs:703` | inspect middleware/local scope | pending |
+| `GET /health` | `infera-session/src/router.rs:703` | inspect middleware/local scope | pending |
 | `POST /api/v1/rooms/{room_id}/interactions` | `infera-session/src/asset_economy.rs:116` | room:read_own | pending |
 | `GET /api/v1/rooms/analytics` | `infera-session/src/room/routes.rs:466` | room:read_analytics | pending |
 | `GET /api/v1/rooms` | `infera-session/src/room/routes.rs:511` | room:read | pending |
@@ -57,6 +58,10 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `ANY /api/v1/view/{service}/{*path}` | `infera-session/src/router.rs:281` | inspect middleware/local scope | pending |
 | `GET /integration/flow` | `infera-session/src/integration/routes.rs:29` | inspect middleware/local scope | pending |
 | `GET /api/v1/integration/docs` | `infera-session/src/integration/routes.rs:18` | integration:read | pending |
-| `POST /api/v1/integrations/lms/performance-context` | `infera-session/src/integration/lms.rs:40` | inspect middleware/local scope | pending |
+| `GET /api/v1/integrations/lms/rooms/{id}/notification-state` | `infera-session/src/notification_state.rs:40` | inspect middleware/local scope | pending |
+| `GET /api/v1/summary-access` | `infera-session/shared/infera-summary-sdk/src/native_access.rs:270` | inspect middleware/local scope | pending |
+| `PUT /api/v1/summary-access` | `infera-session/shared/infera-summary-sdk/src/native_access.rs:278` | inspect middleware/local scope | pending |
+| `POST /api/v1/summary-access/revocations` | `infera-session/shared/infera-summary-sdk/src/native_access.rs:331` | inspect middleware/local scope | pending |
+| `DELETE /api/v1/summary-access/revocations/{object}` | `infera-session/shared/infera-summary-sdk/src/native_access.rs:347` | inspect middleware/local scope | pending |
 
 Full fields, guards, state/side-effect evidence, call dependencies, source checksums and unresolved symbols are in `contracts/service-capabilities/session.json`. Empty declared permission arrays do not establish public access. Review gateway middleware and resource ownership.

@@ -1,0 +1,963 @@
+{
+  "generator_integration": "Existing parent shallow merge over releaseContracts is sufficient; no postprocess hook. Regenerate Profile after reading final profileWireContracts.",
+  "source_lock_change": null,
+  "verification_run_change": null,
+  "operation_fragments": 235,
+  "response_overrides": 137,
+  "input_overrides": 19,
+  "inspection_scope": {
+    "automated_handler_sdk_mapping": 235,
+    "direct_semantic_source_review": 235,
+    "dynamic_json_decisions": "dynamic-json-decisions-all-235.json"
+  },
+  "remaining_gaps": [
+    {
+      "operation": "GET /health",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /up",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/openapi.json",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/fitness/products",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/fitness/trial/redeem",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/fitness/notifications",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/fitness/notifications/{id}/read",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/fitness/admin/provision",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/fitness/admin/catalog",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/fitness/team",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/fitness/team",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/fitness/tariffs",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/fitness/self",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/fitness/intake",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/fitness/intake",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/fitness/orders",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/fitness/orders",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/fitness/orders/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/fitness/orders/{id}/action",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/fitness/orders/{id}/plan",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/fitness/revisions/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/fitness/revisions/{id}/review",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/fitness/coaches",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/fitness/catalog",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/fitness/settings",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/fitness/settings",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/fitness/voice-settings",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/fitness/context",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/fitness/proposals",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/internal/fitness-chat/reserve",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/internal/fitness-chat/settle",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/internal/plans/gifts",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/internal/plans/gifts",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/internal/plans/gifts/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/internal/plans/gifts/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/settings",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/ai-summaries/settings",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/roles",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/models",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/sources",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/sources/{source}/check",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/configurations",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/configurations",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/configurations/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/ai-summaries/configurations/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/configurations/{id}/validate",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/configurations/{id}/publish",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/configurations/{id}/preview",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/ai-summaries/configurations/{id}/status",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/latest",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/summaries",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/runs/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/jobs",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/refresh",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/jobs/{id}/retry",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/profile/get",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/profile/country/get",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/profile/province/get",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/profile/city/get",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/supports/pes",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/supports/pes/schema",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/students/pes",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/students/pes/schema",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/get-chat-list/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}/avatar",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/manager",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/accountant",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/support",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/consultant",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/teacher",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/student",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/parent",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/other",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}/full",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}/admin",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/profile/{uuid}/avatar",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile/{uuid}/avatar",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/profile/{uuid}/images",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}/media",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/{uuid}/freemium-session-limit",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}/freemium-session-limit",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/{uuid}/status",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}/status",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/{uuid}/employee-type",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}/employee-type",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/update/personal-information/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/update/personal-information/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/get/parent/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/add/parent/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/add/parent/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile/{student_uuid}/delete/parent/{parent_uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/get/address/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/add/address/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/add/address/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile/{uuid}/delete/address/{title}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/me/addresses",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/me/addresses",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/me/addresses",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile/me/addresses/{title}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/get/app/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/add/app/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/add/app/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile/undo/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile/force/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/update/{uuid}/meta",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/update/{uuid}/meta",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/{uuid}/properties",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}/properties",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile/update/education-information/{uuid}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/profile/search",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/profile/people/search",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/profile/people/resolve",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile-media/{uuid}/avatar",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile-media/{uuid}/images",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/country",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/country",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/country/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/country/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/country/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/country/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/country/undo/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/country/force/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/custom-type",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/custom-type",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/custom-type/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/custom-type/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/custom-type/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/education",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/education",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/education/dependencies",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/relation-type",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/relation-type",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/relation-type/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/relation-type/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/relation-type/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile-relation",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/profile-relation",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile-relation/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile-relation/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile-relation/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/referral-source",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/referral-source",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/referral-source/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/referral-source/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/referral-source/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile-referral/{profile_id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile-referral/{profile_id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/state-system",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/state-system",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/state-system/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/state-system/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/state-system/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/state-definition",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/state-definition",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/state-definition/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/state-definition/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/state-definition/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/state-action",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/state-action",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/state-action/dry-run",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/state-action/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/state-action/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/state-action/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/preview",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/validate-rule",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/evaluate",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/state-evaluation/transitions",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/state-evaluation/outbox",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/state-evaluation/action-attempts",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/outbox/{id}/retry",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/outbox/process",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/province",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/province",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/province/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/province/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/province/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/province/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/province/undo/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/province/force/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/city",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/city",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/city/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/city/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/city/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/city/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/city/undo/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/city/force/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/setting",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/setting",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile-property-definition",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/profile-property-definition",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile-property-definition/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/profile-property-definition/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/profile-property-definition/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile-property-definition/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/profile-property-definition/undo/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/profile-property-definition/force/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/trusted-service",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/trusted-service",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/trusted-service/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/trusted-service/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/trusted-service/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/trusted-service/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/trusted-service/{id}/event",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/trusted-service/{id}/event",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/trusted-service/{id}/event/{event_id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/trusted-service/{id}/event/{event_id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/trusted-service/{id}/event/{event_id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "DELETE /api/v1/trusted-service/{id}/event/{event_id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/survey",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/survey",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/log-action",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/log-action/{slug}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/log-action/direct/{slug}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/logger",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/logger/{log}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/auth/self",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PATCH /api/v1/auth/self",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "PUT /api/v1/auth/self/onboarding",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/auth/chat-context",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/parent/get",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/parent/children/get",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /api/v1/address/get",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/dependency",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/identity",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/integration/docs",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /api/v1/integration/flow",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /campaign",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /campaign/{id}",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "POST /campaign/{id}/contributions",
+      "native_http_auth_lifecycle_evidence": "pending"
+    },
+    {
+      "operation": "GET /campaign-profile/me/contributions",
+      "native_http_auth_lifecycle_evidence": "pending"
+    }
+  ],
+  "check_commands": [
+    "npm run build",
+    "npm run test:types (after adding tests/profile-wire.types.ts to tests/tsconfig.json)",
+    "node --test tests/profile-wire-contracts.test.mjs",
+    "node scripts/generate-service-operations.mjs service-contracts.json profile --check",
+    "git diff --check"
+  ],
+  "tests_limit": "Adapter regression verifies SDK settings only; does not certify native backend semantics."
+}

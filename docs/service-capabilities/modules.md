@@ -9,9 +9,10 @@ Status: evidence inventory; semantic and wire verification remain required.
 The source snapshots below are intentionally distinct. Missing local routes are not automatically removed from a released SDK.
 
 - Canonical source revision: `58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9`
-- SDK source revision: `58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9`
+- SDK source revision: `85e42a5f1440b78564f23b4bbf7723a0797d3470`
+- Evidence inventory revision: `85e42a5f1440b78564f23b4bbf7723a0797d3470` (sdk)
 - Working HEAD: `58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9`
-- Source relationship: same
+- Source relationship: working_behind_sdk
 
 ## Operation review matrix
 
@@ -84,24 +85,24 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `PUT /api/v1/authors/{id}` | `infera-modules/src/author/routes.rs:132` | inspect middleware/local scope | pending |
 | `PATCH /api/v1/authors/{id}` | `infera-modules/src/author/routes.rs:132` | inspect middleware/local scope | pending |
 | `DELETE /api/v1/authors/{id}` | `infera-modules/src/author/routes.rs:163` | inspect middleware/local scope | pending |
-| `GET /api/v1/categories/{host}/{target_id}` | `infera-modules/src/category/routes.rs:210` | inspect middleware/local scope | pending |
-| `POST /api/v1/categories/{host}/{target_id}` | `infera-modules/src/category/routes.rs:244` | inspect middleware/local scope | pending |
-| `DELETE /api/v1/categories/{host}/{target_id}` | `infera-modules/src/category/routes.rs:279` | inspect middleware/local scope | pending |
-| `GET /api/v1/categories` | `infera-modules/src/category/routes.rs:49` | inspect middleware/local scope | pending |
-| `POST /api/v1/categories` | `infera-modules/src/category/routes.rs:80` | inspect middleware/local scope | pending |
-| `GET /api/v1/categories/{id}` | `infera-modules/src/category/routes.rs:111` | inspect middleware/local scope | pending |
-| `PUT /api/v1/categories/{id}` | `infera-modules/src/category/routes.rs:144` | inspect middleware/local scope | pending |
-| `PATCH /api/v1/categories/{id}` | `infera-modules/src/category/routes.rs:144` | inspect middleware/local scope | pending |
-| `DELETE /api/v1/categories/{id}` | `infera-modules/src/category/routes.rs:177` | inspect middleware/local scope | pending |
-| `GET /api/v1/tags/{host}/{target_id}` | `infera-modules/src/tag/routes.rs:196` | inspect middleware/local scope | pending |
-| `POST /api/v1/tags/{host}/{target_id}` | `infera-modules/src/tag/routes.rs:230` | inspect middleware/local scope | pending |
-| `DELETE /api/v1/tags/{host}/{target_id}` | `infera-modules/src/tag/routes.rs:265` | inspect middleware/local scope | pending |
-| `GET /api/v1/tags` | `infera-modules/src/tag/routes.rs:49` | inspect middleware/local scope | pending |
-| `POST /api/v1/tags` | `infera-modules/src/tag/routes.rs:80` | inspect middleware/local scope | pending |
-| `GET /api/v1/tags/{id}` | `infera-modules/src/tag/routes.rs:106` | inspect middleware/local scope | pending |
-| `PUT /api/v1/tags/{id}` | `infera-modules/src/tag/routes.rs:138` | inspect middleware/local scope | pending |
-| `PATCH /api/v1/tags/{id}` | `infera-modules/src/tag/routes.rs:138` | inspect middleware/local scope | pending |
-| `DELETE /api/v1/tags/{id}` | `infera-modules/src/tag/routes.rs:164` | inspect middleware/local scope | pending |
+| `GET /api/v1/categories/{host}/{target_id}` | `infera-modules/src/category/routes.rs:218` | inspect middleware/local scope | pending |
+| `POST /api/v1/categories/{host}/{target_id}` | `infera-modules/src/category/routes.rs:252` | inspect middleware/local scope | pending |
+| `DELETE /api/v1/categories/{host}/{target_id}` | `infera-modules/src/category/routes.rs:287` | inspect middleware/local scope | pending |
+| `GET /api/v1/categories` | `infera-modules/src/category/routes.rs:50` | inspect middleware/local scope | pending |
+| `POST /api/v1/categories` | `infera-modules/src/category/routes.rs:88` | inspect middleware/local scope | pending |
+| `GET /api/v1/categories/{id}` | `infera-modules/src/category/routes.rs:119` | inspect middleware/local scope | pending |
+| `PUT /api/v1/categories/{id}` | `infera-modules/src/category/routes.rs:152` | inspect middleware/local scope | pending |
+| `PATCH /api/v1/categories/{id}` | `infera-modules/src/category/routes.rs:152` | inspect middleware/local scope | pending |
+| `DELETE /api/v1/categories/{id}` | `infera-modules/src/category/routes.rs:185` | inspect middleware/local scope | pending |
+| `GET /api/v1/tags/{host}/{target_id}` | `infera-modules/src/tag/routes.rs:204` | inspect middleware/local scope | pending |
+| `POST /api/v1/tags/{host}/{target_id}` | `infera-modules/src/tag/routes.rs:238` | inspect middleware/local scope | pending |
+| `DELETE /api/v1/tags/{host}/{target_id}` | `infera-modules/src/tag/routes.rs:273` | inspect middleware/local scope | pending |
+| `GET /api/v1/tags` | `infera-modules/src/tag/routes.rs:50` | inspect middleware/local scope | pending |
+| `POST /api/v1/tags` | `infera-modules/src/tag/routes.rs:88` | inspect middleware/local scope | pending |
+| `GET /api/v1/tags/{id}` | `infera-modules/src/tag/routes.rs:114` | inspect middleware/local scope | pending |
+| `PUT /api/v1/tags/{id}` | `infera-modules/src/tag/routes.rs:146` | inspect middleware/local scope | pending |
+| `PATCH /api/v1/tags/{id}` | `infera-modules/src/tag/routes.rs:146` | inspect middleware/local scope | pending |
+| `DELETE /api/v1/tags/{id}` | `infera-modules/src/tag/routes.rs:172` | inspect middleware/local scope | pending |
 | `GET /api/v1/comments/{host}/{target_id}` | `infera-modules/src/comment/routes.rs:199` | inspect middleware/local scope | pending |
 | `POST /api/v1/comments/{host}/{target_id}` | `infera-modules/src/comment/routes.rs:234` | inspect middleware/local scope | pending |
 | `GET /api/v1/comments` | `infera-modules/src/comment/routes.rs:47` | inspect middleware/local scope | pending |
@@ -119,15 +120,15 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `PUT /api/v1/contents/{id}` | `infera-modules/src/content/routes.rs:144` | inspect middleware/local scope | pending |
 | `PATCH /api/v1/contents/{id}` | `infera-modules/src/content/routes.rs:144` | inspect middleware/local scope | pending |
 | `DELETE /api/v1/contents/{id}` | `infera-modules/src/content/routes.rs:186` | inspect middleware/local scope | pending |
-| `GET /api/v1/seo-contents/{host}/{target_id}` | `infera-modules/src/seo_content/routes.rs:206` | inspect middleware/local scope | pending |
-| `POST /api/v1/seo-contents/{host}/{target_id}` | `infera-modules/src/seo_content/routes.rs:240` | inspect middleware/local scope | pending |
-| `DELETE /api/v1/seo-contents/{host}/{target_id}` | `infera-modules/src/seo_content/routes.rs:275` | inspect middleware/local scope | pending |
-| `GET /api/v1/seo-contents` | `infera-modules/src/seo_content/routes.rs:49` | inspect middleware/local scope | pending |
-| `POST /api/v1/seo-contents` | `infera-modules/src/seo_content/routes.rs:80` | inspect middleware/local scope | pending |
-| `GET /api/v1/seo-contents/{id}` | `infera-modules/src/seo_content/routes.rs:111` | inspect middleware/local scope | pending |
-| `PUT /api/v1/seo-contents/{id}` | `infera-modules/src/seo_content/routes.rs:143` | inspect middleware/local scope | pending |
-| `PATCH /api/v1/seo-contents/{id}` | `infera-modules/src/seo_content/routes.rs:143` | inspect middleware/local scope | pending |
-| `DELETE /api/v1/seo-contents/{id}` | `infera-modules/src/seo_content/routes.rs:174` | inspect middleware/local scope | pending |
+| `GET /api/v1/seo-contents/{host}/{target_id}` | `infera-modules/src/seo_content/routes.rs:214` | inspect middleware/local scope | pending |
+| `POST /api/v1/seo-contents/{host}/{target_id}` | `infera-modules/src/seo_content/routes.rs:248` | inspect middleware/local scope | pending |
+| `DELETE /api/v1/seo-contents/{host}/{target_id}` | `infera-modules/src/seo_content/routes.rs:283` | inspect middleware/local scope | pending |
+| `GET /api/v1/seo-contents` | `infera-modules/src/seo_content/routes.rs:50` | inspect middleware/local scope | pending |
+| `POST /api/v1/seo-contents` | `infera-modules/src/seo_content/routes.rs:88` | inspect middleware/local scope | pending |
+| `GET /api/v1/seo-contents/{id}` | `infera-modules/src/seo_content/routes.rs:119` | inspect middleware/local scope | pending |
+| `PUT /api/v1/seo-contents/{id}` | `infera-modules/src/seo_content/routes.rs:151` | inspect middleware/local scope | pending |
+| `PATCH /api/v1/seo-contents/{id}` | `infera-modules/src/seo_content/routes.rs:151` | inspect middleware/local scope | pending |
+| `DELETE /api/v1/seo-contents/{id}` | `infera-modules/src/seo_content/routes.rs:182` | inspect middleware/local scope | pending |
 | `GET /api/v1/audit-logs/{host}/{target_id}` | `infera-modules/src/audit_log/routes.rs:37` | inspect middleware/local scope | pending |
 | `GET /api/v1/reactions/{host}/{target_id}` | `infera-modules/src/reaction/routes.rs:43` | inspect middleware/local scope | pending |
 | `POST /api/v1/reactions/{host}/{target_id}` | `infera-modules/src/reaction/routes.rs:78` | inspect middleware/local scope | pending |

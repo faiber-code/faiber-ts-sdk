@@ -1,0 +1,24 @@
+{
+  "status": "cross_service_source_reviewed_runtime_pending",
+  "at": "2026-10-20T00:03:16.439793+00:00",
+  "gis_revision": "cdc56ce011ce37a5ed6ef00cc9a08bcbe999981b",
+  "social_revision": "79462976a1c07e7ef8eb913d7cc7015dd50f936e",
+  "source_hashes": {
+    ".task-worktrees/gis-import-current-authority-20261020/infera-gis/src/places.rs": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765",
+    "Service/infera-social/src/security.rs": "5e38446dc353739dab8791618f02e99fd29753a45af75849873695f0d18b9f2f",
+    "Service/infera-social/src/capabilities.rs": "d74ee83b95a79a5da2ab6e5c1640a48d7996873597399c5d2396bde2ea832b15"
+  },
+  "operation": "POST /api/v1/places/{id}/assertion",
+  "meaning": "Attests that the authenticated Social post author may link the published place snapshot. It does not attest ownership of the place. The historical claim owner_user_id is bound by Social to ctx.require_user() for the post author, not used to authorize GIS moderation or transfer place ownership.",
+  "checks": [
+    "GIS requires actor and published place in local configured tenant; issuer=infera-places,aud=infera-social,sub/resource_ref=placeID,owner_user_id=requesting actor,120second expiry,uniquejti.",
+    "Social CapabilitySecurity verifies configured issuersecret/HS256/audience/issuer/expiry,organization,owner_user_id=authenticated post author,resource_type/ref/sub.",
+    "Social persist_capabilities attaches verified snapshot/assertion provenance to the new post; native GIS authority remains separate."
+  ],
+  "remaining_gates": [
+    "Actual GIS issuer to Social verifier positive/negative integration with configured signing keys, wrong tenant/author/resource/audience and expiry.",
+    "Published-place retirement after assertion issuance, replay policies and deployed issuer-key reconciliation.",
+    "Packaged SDK method, readable Manage projection and publication/retention policy."
+  ],
+  "limits": "Source review only; no exploit or deployed compatibility conclusion. No signing key read, created or changed."
+}

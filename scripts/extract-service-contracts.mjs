@@ -1,3 +1,7 @@
+import { classifyReviewedProtocolAlternatives } from './reviewed-protocol-alternatives.mjs';
+import { sourceIndex } from "./capability-source.mjs";
+import { mountedRouterOperations } from "./capability-router.mjs";
+import { integrationEndpoints } from "./integration-contracts.mjs";
 import { productionRust } from "./rust-source.mjs";
 import { serviceSources } from "./service-source-snapshots.mjs";
 import { access, readFile, readdir, writeFile } from "node:fs/promises";
@@ -14,7 +18,7 @@ const discoveredServicesRoot = process.env.FAIBER_SERVICES_ROOT ?? await (async 
 const servicesRoot = resolve(serviceSources(sdkRoot, discoveredServicesRoot));
 const services = [
   "asset", "chat", "crm", "drm", "flow", "idp", "knowledge", "lms", "messenger",
-  "modules", "payment", "profile", "reservation", "session", "social", "state", "task", "version",
+  "modules", "payment", "profile", "reservation", "session", "social", "state", "task", "version", "gis",
 ];
 const serviceDirectories = { version: "infera_version" };
 try { await access(join(servicesRoot, "infera-version", "src")); serviceDirectories.version = "infera-version"; } catch { /* retain legacy checkout support */ }
@@ -174,9 +178,10 @@ function relativeSource(file) {
 }
 
 function handlerSignature(source, handler) {
-  const start = source.search(new RegExp(`(?:pub\\s+)?async\\s+fn\\s+${handler}\\s*\\(`));
-  if (start === -1) return {};
-  const open = source.indexOf("(", start);
+  const declaration = new RegExp(`(?:pub(?:\\([^)]*\\))?\\s+)?async\\s+fn\\s+${handler}\\s*\\(`).exec(source);
+  if (!declaration) return {};
+  // pub(crate) has its own parentheses before the argument list.
+  const open = declaration.index + declaration[0].lastIndexOf("(");
   const close = matchingParen(source, open);
   const params = source.slice(open + 1, close);
   const after = source.slice(close + 1, source.indexOf("{", close));
@@ -184,8 +189,15 @@ function handlerSignature(source, handler) {
     ?? params.match(/Json\s*<\s*([^>]+(?:<[^>]+>)?[^>]*)\s*>/)?.[1]?.trim()
     ?? params.match(/Form\s*\([^)]*\)\s*:\s*Form\s*<\s*([^>]+)\s*>/)?.[1]?.trim();
   const binary = /(?:^|,)\s*(?:\w+\s*:\s*)?(?:axum::body::)?Bytes\s*(?:,|$)/m.test(params);
-  const query = /(?:super::dynamic::)?DynamicListQuery\s*\(/.test(params) ? "models::ListQuery" : params.match(/Query\s*\([^)]*\)\s*:\s*Query\s*<\s*([^>]+)\s*>/)?.[1]?.trim();
-  const pathParam = params.match(/Path\s*\([^)]*\)\s*:\s*Path\s*<\s*([^>]+(?:<[^>]+>)?[^>]*)\s*>/)?.[1]?.trim();
+  const queryType = params.match(/\bQuery\s*</);
+  const queryOpen = queryType ? params.indexOf("<", queryType.index) : -1;
+  const queryClose = queryOpen < 0 ? -1 : matchingAngle(params, queryOpen);
+  const query = /(?:super::dynamic::)?DynamicListQuery\s*\(/.test(params) ? "models::ListQuery"
+    : queryClose < 0 ? undefined : params.slice(queryOpen + 1, queryClose).trim();
+  const pathType = params.match(/\bPath\s*</);
+  const pathOpen = pathType ? params.indexOf("<", pathType.index) : -1;
+  const pathClose = pathOpen < 0 ? -1 : matchingAngle(params, pathOpen);
+  const pathParam = pathClose < 0 ? undefined : params.slice(pathOpen + 1, pathClose).trim();
   const responseMatch = after.match(/(?:APIResponse|ApiResponse)(WithMeta)?\s*</);
   let response;
   let responseMeta;
@@ -256,6 +268,7 @@ function matchingAngle(source, open) {
 }
 
 const manifest = {};
+const protocolMounts = {};
 for (const service of services) {
   const srcRoot = join(servicesRoot, serviceDirectories[service] ?? `infera-${service}`, "src");
   let router;
@@ -291,6 +304,9 @@ for (const service of services) {
     mountedModules.add("main");
   }
   const files = await walk(srcRoot);
+  const sharedRoot = join(dirname(srcRoot), "shared");
+  try { await access(sharedRoot); files.push(...await walk(sharedRoot)); }
+  catch (error) { if (error.code !== "ENOENT") throw error; }
   const fileSources = new Map(await Promise.all(files.map(async file => [file, productionRust(await readFile(file, "utf8"))])));
   // A mounted module may compose another module's router. Resolve those mounts
   // transitively, retaining the parent factory's prefix instead of assuming all
@@ -363,7 +379,9 @@ for (const service of services) {
         unresolved.push(`${relativeSource(file)}:${route.method}:${route.localPath}:${route.handler}`);
         continue;
       }
-      const path = module === "router" && route.localPath.startsWith("/api/")
+      const path = service === "session" && module === "integration" && route.handler === "flow_integration_show"
+        ? cleanPath(route.localPath)
+        : module === "router" && route.localPath.startsWith("/api/")
         ? cleanPath(route.localPath)
         : prefix ? joinPath(prefix, route.localPath)
         : annotated
@@ -390,6 +408,82 @@ for (const service of services) {
       });
     }
   }
+  const reviewedSources = new Set(integrationEndpoints.filter(item => item.service === service).map(item => item.endpoint.source));
+  for (let i=endpoints.length-1;i>=0;i--) if (reviewedSources.has(endpoints[i].source)) endpoints.splice(i,1);
+  // Explicitly reviewed module mounts supplement the parser; require actual handler and route source.
+  for (const integration of integrationEndpoints.filter(item => item.service === service)) {
+    const endpoint = integration.endpoint;
+    const sourcePath = join(servicesRoot, endpoint.source);
+    let source; try { source = await readFile(sourcePath, "utf8"); } catch { continue; }
+    if (!source.includes(endpoint.handler)) throw new Error(`Missing integration handler: ${endpoint.source}:${endpoint.handler}`);
+    endpoints.push(endpoint);
+  }
+  // These service router graphs have source-reviewed mounts. Follow their actual
+  // main/router graph rather than annotation paths or module-prefix guesses. Other
+  // services retain their existing extraction until their mounted graphs are reviewed.
+  if (services.includes(service)) {
+    const indexed = [...fileSources].map(([file,source])=>sourceIndex(source,relativeSource(file)));
+    const main=indexed.find(file=>file.path.endsWith("/src/main.rs"));
+    const serviceRouter=indexed.find(file=>file.path===`${basename(dirname(srcRoot))}/src/router.rs`);
+    const entry=service==="lms" && main?.functions.some(fn=>fn.name==="run_server" && /let\s+app\s*=/.test(fn.body))
+      ? {path:"src/main.rs",function:"run_server",variable:"app"}
+      : service==="session" && main?.functions.some(fn=>fn.name==="application_router")
+      ? {path:"src/main.rs",function:"application_router"}
+      : service==="crm" && serviceRouter?.functions.some(fn=>fn.name==="application")
+      ? {path:"src/router.rs",function:"application"}
+      : service==="task" ? {path:"src/routes.rs",function:"app"} : ["social","chat","knowledge","state","lms"].includes(service) && main?.functions.some(fn=>fn.name==="main" && /let\s+app\s*=/.test(fn.body))
+      ? {path:"src/main.rs",function:"main",variable:"app"}
+      : {path:"src/router.rs",function:"routes"};
+    const graph=mountedRouterOperations(indexed,entry);
+    classifyReviewedProtocolAlternatives(graph,service,indexed);
+    if (graph.protocol_mounts.length) protocolMounts[service]=graph.protocol_mounts;
+    const stateHealth = op => service==="state" && op.method==="GET" && op.path==="/health" &&
+      op.inline_handler?.body.replace(/\s/g,"") === 'get(||async{Json(json!({"data":{"service":"infera-state","status":"healthy","transports":["websocket"],"rulesets":["kheradgah.v1"],"wasm":true}}))})';
+    if (graph.unresolved.length || graph.duplicates.length || graph.operations.some(op=>op.unresolved_handler || (op.inline_handler && !stateHealth(op)))) {
+      throw new Error(`${service}: mounted source graph requires review: ${JSON.stringify(graph.unresolved)} ${JSON.stringify(graph.duplicates)} ${JSON.stringify(graph.operations.filter(op=>op.unresolved_handler || op.inline_handler))}`);
+    }
+    const reviewed=[];
+    for (const op of graph.operations) {
+      if (stateHealth(op)) {
+        reviewed.push({method:op.method,path:op.path,module:"main",handler:"inline",permissions:[],source:op.source,
+          response:"StateProcessHealth",responseEnvelope:"raw",inline_handler:op.inline_handler});
+        continue;
+      }
+      const handlerFile=op.handler_source?indexed.find(file=>file.path===op.handler_source):indexed.find(file=>file.path.replace(/^.*?\/src\//,"").replace(/\.rs$/,"").replace(/\/mod$/,"").replaceAll("/","::")===op.handlerModule);
+      if (!handlerFile) throw new Error(`${service}: missing mounted handler source ${op.handlerModule}::${op.handler}`);
+      const candidates=endpoints.filter(old=>old.method===op.method && old.handler===op.handler && old.source===op.source);
+      const exact=candidates.find(old=>old.path===op.path);
+      const previous=exact??(candidates.length===1?candidates[0]:null);
+      const routeModule=op.module.split("::")[0];
+      const mountedHandler=handlerFile.functions.find(fn=>fn.name===op.handler);
+      // Source-defined declaration macros are expanded by sourceIndex. Parse
+      // that exact declaration so role-list schemas and permissions survive.
+      const declaration=mountedHandler?`${mountedHandler.attributes}\n${mountedHandler.signature}{${mountedHandler.body}}`:handlerFile.source;
+      const signature=handlerSignature(declaration,op.handler);
+      const nativeSummaryAdmin=['chat','session'].includes(service)
+        && op.source===`infera-${service}/shared/infera-summary-sdk/src/native_access.rs`
+        && ['get_status','update_policy','revoke','restore'].includes(op.handler)
+        && /^\/api\/v1\/summary-access(?:\/revocations(?:\/\{object\})?)?$/.test(op.path);
+      if(nativeSummaryAdmin && (!handlerFile.source.includes('summary_access:manage') || !handlerFile.source.includes('.administrator('))) {
+        throw new Error(`${service}: native summary administration authorization changed; review required`);
+      }
+      if (service==="session" && op.method==="ANY" && op.handler==="proxy_view_service") { signature.body="OpaqueProxyBody"; signature.query="OpaqueProxyQuery"; }
+      if (["asset", "idp", "modules", "payment", "profile", "lms", "version"].includes(service) && op.handler==="status_route") {
+        const fn=handlerFile.functions.find(fn=>fn.name===op.handler);
+        if (/data\s*:\s*HealthResponse\s*\{/.test(fn?.body??"")) signature.response="HealthResponse";
+      }
+      if (["asset", "idp", "modules", "payment", "profile", "lms", "version", "reservation"].includes(service) && op.path==="/api/openapi.json") {
+        const fn=handlerFile.functions.find(fn=>fn.name===op.handler);
+        if (/Json\s*\(\s*ApiDoc::openapi\s*\(/.test(fn?.body??"")) {
+          signature.response="utoipa::openapi::OpenApi";signature.responseEnvelope="raw";
+        }
+      }
+      reviewed.push({method:op.method,path:op.path,module:previous?.module??routeModule,handler:op.handler,
+        permissions:nativeSummaryAdmin?[`${service}:summary_access:manage`]:permissionAnnotations(declaration).get(op.handler)??(op.permissions.length?op.permissions:previous?.permissions??[]),source:op.source,
+        ...(op.handlerModule!==op.module?{handlerModule:op.handlerModule.split("::").at(-1)}:{}),...signature});
+    }
+    endpoints.splice(0,endpoints.length,...reviewed);
+  }
   const unique = new Map(endpoints.map(endpoint => [`${endpoint.method} ${endpoint.path}`, endpoint]));
   manifest[service] = [...unique.values()].sort((a, b) => a.path.localeCompare(b.path) || a.method.localeCompare(b.method));
   if (unresolved.length) console.error(`${service}: unresolved registrations\n${unresolved.join("\n")}`);
@@ -397,5 +491,6 @@ for (const service of services) {
 
 const output = process.argv[2] ? resolve(process.argv[2]) : join(sdkRoot, "service-contracts.json");
 await writeFile(output, `${JSON.stringify(manifest, null, 2)}\n`);
+await writeFile(output.replace(/\.json$/, '') + '.protocol-mounts.json', `${JSON.stringify(protocolMounts, null, 2)}\n`);
 for (const [service, endpoints] of Object.entries(manifest)) console.log(`${service}: ${endpoints.length} endpoints`);
 console.log(`wrote ${output}`);

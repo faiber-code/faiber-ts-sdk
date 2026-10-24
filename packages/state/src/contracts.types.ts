@@ -1,6 +1,6 @@
 /** Wire models reviewed against the pinned service handlers and repositories. */
 import type { JsonValue } from '@faiber/sdk-core';
-/** State v2 returns {data}, without the status/message fields used by v1. */
+/** State v1 and v2 return {data}; neither adds status/message fields. */
 export interface GameResult<T> { data: T }
 /** Game-authored board, challenge, metrics and answer payloads vary with the registered game/ruleset. */
 export type GamePayload = JsonValue;
@@ -31,3 +31,31 @@ export interface KheradgahRealtimeOptions { WebSocket?: typeof WebSocket; signal
 
 export interface GameLobbyJoined { sessionId:string;status:"matched" }
 export type StateRoomRealtimeOptions = import("./realtime.js").RealtimeOptions & { signal?:AbortSignal };
+
+/** Static process advertisement; not a persistence or provider readiness check. */
+export interface StateProcessHealthResponse {
+ data: { service: "infera-state"; status: "healthy"; transports: ["websocket"]; rulesets: ["kheradgah.v1"]; wasm: true };
+}
+
+export interface GameEconomyInput { entryCoins: number; burnPercent: number; enabled: boolean }
+export interface GameEconomy extends GameEconomyInput { gameId: string; rulesetRevision: number }
+export interface GameOperationsBreakdown { gameId: string; status: string; paid: boolean; settlementStatus: string; count: number }
+export interface GameOperationsSummary { sessions: number; active: number; finished: number; paid: number; pendingSettlements: number; breakdown: GameOperationsBreakdown[] }
+export interface GameOperationMember { userId: string; score: number; ready: boolean; forfeited: boolean; joinedAt: string }
+export interface GameOperationSession { id: string; gameId: string; ownerId: string; difficulty: string; status: string; paid: boolean; entryCoins: number; burnPercent: number; round: number; totalRounds: number; score: number; attempts: number; hints: number; version: number; sequence: number; metrics: GamePayload; settlementStatus: string; eventCount: number; members: GameOperationMember[]; createdAt: string; finishedAt: string | null }
+/** payload is stored, game-authored event JSON; the enclosing event record is stable. */
+export interface GameOperationEvent { id: string; userId: string; sequence: number; kind: string; payload: GamePayload; createdAt: string }
+export interface GameOperationPage<T> { items: T[]; page: number; pageSize: number; total: number; pages: number }
+export type GameOperationSessionsResponse = GameResult<GameOperationPage<GameOperationSession>>;
+export type GameOperationEventsResponse = GameResult<GameOperationPage<GameOperationEvent>>;
+export type GameOperationsSummaryResponse = GameResult<GameOperationsSummary>;
+export type GameEconomiesResponse = GameResult<GameEconomy[]>;
+export type GameEconomyResponse = GameResult<GameEconomy>;
+export type MatchmakingResponse = GameResult<import("./match.js").MatchmakingTicket>;
+export type MatchViewResponse<View = import("./match.js").MatchView> = GameResult<View>;
+export type MatchConnectionResponse = GameResult<KheradgahConnectionTicket>;
+
+/** Concrete revision-two multiplayer Player DTO. carrying is null when no civilian is held. */
+export interface GameBoardPlayer { id: string; score: number; position: number; carrying: number | null; delivered: number[]; claims: number[]; multiplicationsLeft: number; fuel: number; cargo: number; water: number; energy: number; materials: number; houses: number; transportLeft: number; developments: string[] }
+/** Public multiplayer Board projection excludes the private seed; scene is game-specific JSON and hides private puzzle solutions. */
+export interface GameMultiplayerBoard { game: string; turn: number; maxTurns: number; scene: GamePayload; players: GameBoardPlayer[]; submittedIds: string[] }

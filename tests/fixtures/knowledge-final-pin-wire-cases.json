@@ -1,0 +1,1190 @@
+[
+  {
+    "operation": "GET /health",
+    "methodName": "mainReadinessGetHealth",
+    "args": [],
+    "method": "GET",
+    "path": "/health",
+    "internal": false
+  },
+  {
+    "operation": "GET /health/live",
+    "methodName": "mainLivenessGet",
+    "args": [],
+    "method": "GET",
+    "path": "/health/live",
+    "internal": false
+  },
+  {
+    "operation": "GET /health/ready",
+    "methodName": "mainReadinessGetHealthReady",
+    "args": [],
+    "method": "GET",
+    "path": "/health/ready",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/knowledge-releases/{id}",
+    "methodName": "routesGetReleaseGet",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/knowledge-releases/{id}",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/knowledge-bases",
+    "methodName": "routesListBasesGet",
+    "args": [
+      {
+        "kind": "params",
+        "value": {
+          "page": 2,
+          "limit": 1,
+          "q": "owned"
+        }
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/knowledge-bases",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/knowledge-bases",
+    "methodName": "routesCreateBasePost",
+    "args": [
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/knowledge-bases",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/knowledge-bases/{id}",
+    "methodName": "routesGetBaseGet",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/knowledge-bases/{id}",
+    "internal": false
+  },
+  {
+    "operation": "PUT /api/v1/knowledge-bases/{id}",
+    "methodName": "routesUpdateBasePut",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "PUT",
+    "path": "/api/v1/knowledge-bases/{id}",
+    "internal": false
+  },
+  {
+    "operation": "DELETE /api/v1/knowledge-bases/{id}",
+    "methodName": "routesDeleteBaseDelete",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/knowledge-bases/{id}",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/knowledge-bases/{id}/publish",
+    "methodName": "routesPublishPost",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/knowledge-bases/{id}/publish",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/knowledge-bases/{id}/export",
+    "methodName": "routesExportBaseGet",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/knowledge-bases/{id}/export",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/knowledge-bases/{id}/groups",
+    "methodName": "routesListGroupsGet",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/knowledge-bases/{id}/groups",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/knowledge-bases/{id}/groups",
+    "methodName": "routesCreateGroupPost",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/knowledge-bases/{id}/groups",
+    "internal": false
+  },
+  {
+    "operation": "PUT /api/v1/groups/{id}",
+    "methodName": "routesUpdateGroupPut",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "PUT",
+    "path": "/api/v1/groups/{id}",
+    "internal": false
+  },
+  {
+    "operation": "DELETE /api/v1/groups/{id}",
+    "methodName": "routesDeleteGroupDelete",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/groups/{id}",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/knowledge-bases/{id}/items",
+    "methodName": "routesListItemsGet",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "params",
+        "value": {
+          "page": 2,
+          "limit": 1,
+          "q": "owned"
+        }
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/knowledge-bases/{id}/items",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/knowledge-bases/{id}/items",
+    "methodName": "routesCreateItemPost",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/knowledge-bases/{id}/items",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/items/{id}",
+    "methodName": "routesGetItemGet",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/items/{id}",
+    "internal": false
+  },
+  {
+    "operation": "PUT /api/v1/items/{id}",
+    "methodName": "routesUpdateItemPut",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "PUT",
+    "path": "/api/v1/items/{id}",
+    "internal": false
+  },
+  {
+    "operation": "DELETE /api/v1/items/{id}",
+    "methodName": "routesDeleteItemDelete",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/items/{id}",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/knowledge-bases/{id}/edges",
+    "methodName": "routesListEdgesGet",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/knowledge-bases/{id}/edges",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/knowledge-bases/{id}/edges",
+    "methodName": "routesCreateEdgePost",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/knowledge-bases/{id}/edges",
+    "internal": false
+  },
+  {
+    "operation": "PUT /api/v1/edges/{id}",
+    "methodName": "routesUpdateEdgePut",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "PUT",
+    "path": "/api/v1/edges/{id}",
+    "internal": false
+  },
+  {
+    "operation": "DELETE /api/v1/edges/{id}",
+    "methodName": "routesDeleteEdgeDelete",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/edges/{id}",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/chat-bindings",
+    "methodName": "routesListBindingsGet",
+    "args": [],
+    "method": "GET",
+    "path": "/api/v1/chat-bindings",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/chat-bindings",
+    "methodName": "routesCreateBindingPost",
+    "args": [
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/chat-bindings",
+    "internal": false
+  },
+  {
+    "operation": "PUT /api/v1/chat-bindings/{id}",
+    "methodName": "routesUpdateBindingPut",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "PUT",
+    "path": "/api/v1/chat-bindings/{id}",
+    "internal": false
+  },
+  {
+    "operation": "DELETE /api/v1/chat-bindings/{id}",
+    "methodName": "routesDeleteBindingDelete",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/chat-bindings/{id}",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/match-rules",
+    "methodName": "routesListRulesGet",
+    "args": [
+      {
+        "kind": "params",
+        "value": {
+          "page": 2,
+          "limit": 1,
+          "q": "owned"
+        }
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/match-rules",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/match-rules",
+    "methodName": "routesCreateRulePost",
+    "args": [
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/match-rules",
+    "internal": false
+  },
+  {
+    "operation": "PUT /api/v1/match-rules/{id}",
+    "methodName": "routesUpdateRulePut",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "PUT",
+    "path": "/api/v1/match-rules/{id}",
+    "internal": false
+  },
+  {
+    "operation": "DELETE /api/v1/match-rules/{id}",
+    "methodName": "routesDeleteRuleDelete",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/match-rules/{id}",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/actions",
+    "methodName": "workspaceAssistantContracts",
+    "args": [
+      {
+        "kind": "params",
+        "value": {
+          "page": 2,
+          "limit": 1,
+          "q": "owned"
+        }
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/actions",
+    "internal": false
+  },
+  {
+    "operation": "PATCH /api/v1/actions/{id}/status",
+    "methodName": "routesUpdateActionStatusPatch",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "PATCH",
+    "path": "/api/v1/actions/{id}/status",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/audit",
+    "methodName": "routesListAuditGet",
+    "args": [
+      {
+        "kind": "params",
+        "value": {
+          "page": 2,
+          "limit": 1,
+          "q": "owned"
+        }
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/audit",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/platform/status",
+    "methodName": "platformStatusGet",
+    "args": [],
+    "method": "GET",
+    "path": "/api/v1/platform/status",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/platform/catalog",
+    "methodName": "platformCatalogGet",
+    "args": [],
+    "method": "GET",
+    "path": "/api/v1/platform/catalog",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/platform/converters",
+    "methodName": "platformConvertersGet",
+    "args": [],
+    "method": "GET",
+    "path": "/api/v1/platform/converters",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/processing-jobs",
+    "methodName": "platformProcessingJobsGet",
+    "args": [],
+    "method": "GET",
+    "path": "/api/v1/processing-jobs",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/audit-events",
+    "methodName": "platformAuditEventsGet",
+    "args": [],
+    "method": "GET",
+    "path": "/api/v1/audit-events",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/evaluation-cases",
+    "methodName": "platformListEvaluationCasesGet",
+    "args": [],
+    "method": "GET",
+    "path": "/api/v1/evaluation-cases",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/evaluation-cases",
+    "methodName": "platformSaveEvaluationCasePost",
+    "args": [
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/evaluation-cases",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/sources",
+    "methodName": "platformListSourcesGet",
+    "args": [],
+    "method": "GET",
+    "path": "/api/v1/sources",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/sources",
+    "methodName": "platformCreateSourcePost",
+    "args": [
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/sources",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/sources/{id}/sync",
+    "methodName": "platformSyncSourcePost",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/sources/{id}/sync",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/sources/{id}/pause",
+    "methodName": "platformPauseSourcePost",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/sources/{id}/pause",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/documents",
+    "methodName": "platformListDocumentsGet",
+    "args": [],
+    "method": "GET",
+    "path": "/api/v1/documents",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/documents",
+    "methodName": "platformIngestDocumentPost",
+    "args": [
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/documents",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/documents/{id}/reprocess",
+    "methodName": "platformReprocessDocumentPost",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/documents/{id}/reprocess",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/processing-jobs/{id}/retry",
+    "methodName": "platformRetryProcessingJobPost",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/processing-jobs/{id}/retry",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/processing-jobs/{id}/cancel",
+    "methodName": "platformCancelProcessingJobPost",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/processing-jobs/{id}/cancel",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/platform/cache/invalidate",
+    "methodName": "platformInvalidatePolicyCachePost",
+    "args": [],
+    "method": "POST",
+    "path": "/api/v1/platform/cache/invalidate",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/recommender-groups",
+    "methodName": "platformListRecommendersGet",
+    "args": [],
+    "method": "GET",
+    "path": "/api/v1/recommender-groups",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/recommender-groups",
+    "methodName": "platformCreateRecommenderGroupPost",
+    "args": [
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/recommender-groups",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/recommender-groups/{id}/items",
+    "methodName": "platformCreateRecommenderItemPost",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/recommender-groups/{id}/items",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/memory-subjects",
+    "methodName": "platformListMemorySubjectsGet",
+    "args": [
+      {
+        "kind": "params",
+        "value": {
+          "page": 2,
+          "limit": 1,
+          "q": "owned"
+        }
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/memory-subjects",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/memory-subjects/{id}",
+    "methodName": "platformMemorySubjectGet",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/memory-subjects/{id}",
+    "internal": false
+  },
+  {
+    "operation": "DELETE /api/v1/memory-subjects/{id}",
+    "methodName": "platformClearMemorySubjectDelete",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "params",
+        "value": {
+          "page": 2,
+          "limit": 1,
+          "q": "owned"
+        }
+      }
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/memory-subjects/{id}",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/memory-subjects/{subject_id}/memories/{memory_id}",
+    "methodName": "platformMemoryRecordGet",
+    "args": [
+      {
+        "kind": "subjectId",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "memoryId",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/memory-subjects/{subject_id}/memories/{memory_id}",
+    "internal": false
+  },
+  {
+    "operation": "DELETE /api/v1/memory-subjects/{subject_id}/memories/{memory_id}",
+    "methodName": "platformForgetMemoryDelete",
+    "args": [
+      {
+        "kind": "subjectId",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "memoryId",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "params",
+        "value": {
+          "page": 2,
+          "limit": 1,
+          "q": "owned"
+        }
+      }
+    ],
+    "method": "DELETE",
+    "path": "/api/v1/memory-subjects/{subject_id}/memories/{memory_id}",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/memory-subjects/{id}/memories",
+    "methodName": "platformListMemoriesGet",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "params",
+        "value": {
+          "page": 2,
+          "limit": 1,
+          "q": "owned"
+        }
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/memory-subjects/{id}/memories",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/memory-subjects/{id}/audit-events",
+    "methodName": "platformMemoryAuditGet",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "params",
+        "value": {
+          "page": 2,
+          "limit": 1,
+          "q": "owned"
+        }
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/memory-subjects/{id}/audit-events",
+    "internal": false
+  },
+  {
+    "operation": "PUT /api/v1/memory-subjects/{id}/policy",
+    "methodName": "platformSetMemoryOverridePut",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "PUT",
+    "path": "/api/v1/memory-subjects/{id}/policy",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/memory-subjects/{id}/corrections",
+    "methodName": "platformCorrectMemoryPost",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/memory-subjects/{id}/corrections",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/memory-outbox/{id}/replay",
+    "methodName": "platformReplayMemoryOutboxPost",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/memory-outbox/{id}/replay",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/runtime/chat/{chat_slug}/query",
+    "methodName": "routesRuntimeQueryPost",
+    "args": [
+      {
+        "kind": "chatSlug",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/runtime/chat/{chat_slug}/query",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/runtime/tool-schema",
+    "methodName": "routesToolSchemaGet",
+    "args": [],
+    "method": "GET",
+    "path": "/api/v1/runtime/tool-schema",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/runtime/assistants/{assistant_id}/contracts/{slug}",
+    "methodName": "routesGetGet",
+    "args": [
+      {
+        "kind": "assistantId",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "slug",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/runtime/assistants/{assistant_id}/contracts/{slug}",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}",
+    "methodName": "platformAssistantConfigurationOperationGet",
+    "args": [
+      {
+        "kind": "assistantId",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "operationId",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}",
+    "methodName": "platformCancelAssistantConfigurationOperationPost",
+    "args": [
+      {
+        "kind": "assistantId",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "operationId",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/runtime/assistants/{assistant_id}/configure",
+    "methodName": "platformAssistantConfigurationSnapshotGet",
+    "args": [
+      {
+        "kind": "assistantId",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/runtime/assistants/{assistant_id}/configure",
+    "internal": false
+  },
+  {
+    "operation": "PUT /api/v1/runtime/assistants/{assistant_id}/configure",
+    "methodName": "platformConfigureAssistantPut",
+    "args": [
+      {
+        "kind": "assistantId",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "PUT",
+    "path": "/api/v1/runtime/assistants/{assistant_id}/configure",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/runtime/assistants/{assistant_id}/query",
+    "methodName": "platformQueryAssistantPost",
+    "args": [
+      {
+        "kind": "assistantId",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/runtime/assistants/{assistant_id}/query",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/runtime/assistants/{assistant_id}/preview",
+    "methodName": "platformPreviewAssistantPost",
+    "args": [
+      {
+        "kind": "assistantId",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/runtime/assistants/{assistant_id}/preview",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/runtime/assistants/{assistant_id}/evaluations",
+    "methodName": "platformEvaluateAssistantPost",
+    "args": [
+      {
+        "kind": "assistantId",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/runtime/assistants/{assistant_id}/evaluations",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/runtime/assistants/{assistant_id}/memory/turn",
+    "methodName": "platformRecordTurnPost",
+    "args": [
+      {
+        "kind": "assistantId",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/runtime/assistants/{assistant_id}/memory/turn",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/runtime/evidence/documents/{id}",
+    "methodName": "platformDocumentEvidenceGet",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/runtime/evidence/documents/{id}",
+    "internal": false
+  },
+  {
+    "operation": "GET /api/v1/runtime/evidence/session/{id}",
+    "methodName": "platformSessionEvidenceGet",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      }
+    ],
+    "method": "GET",
+    "path": "/api/v1/runtime/evidence/session/{id}",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/runtime/retrieval-traces/{id}/usage",
+    "methodName": "platformRecordRetrievalUsagePost",
+    "args": [
+      {
+        "kind": "id",
+        "value": "scope /?#"
+      },
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/runtime/retrieval-traces/{id}/usage",
+    "internal": false
+  },
+  {
+    "operation": "POST /api/v1/runtime/mcp",
+    "methodName": "platformMcpPost",
+    "args": [
+      {
+        "kind": "data",
+        "value": {
+          "jsonrpc": "2.0",
+          "method": "tools/list"
+        }
+      }
+    ],
+    "method": "POST",
+    "path": "/api/v1/runtime/mcp",
+    "internal": false
+  },
+  {
+    "operation": "POST /internal/task-projections/sync",
+    "methodName": "taskProjectionsSyncPost",
+    "args": [
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/internal/task-projections/sync",
+    "internal": true
+  },
+  {
+    "operation": "POST /internal/task-projections/candidates",
+    "methodName": "taskProjectionsCandidatesPost",
+    "args": [
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/internal/task-projections/candidates",
+    "internal": true
+  },
+  {
+    "operation": "POST /internal/task-projections/passages",
+    "methodName": "taskProjectionsPassagesPost",
+    "args": [
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/internal/task-projections/passages",
+    "internal": true
+  },
+  {
+    "operation": "POST /internal/task-conversions",
+    "methodName": "mainConvertPost",
+    "args": [
+      {
+        "kind": "data",
+        "value": {}
+      }
+    ],
+    "method": "POST",
+    "path": "/internal/task-conversions",
+    "internal": true
+  }
+]

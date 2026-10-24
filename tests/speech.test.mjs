@@ -69,3 +69,9 @@ test('preloads multiple phrases during playback, schedules contiguous audio and 
  await clearSpeechPlaybackCache();
  await finish(playSpeech(api,input,{cacheScope:'tenant/user-b/voice-1'}),contexts[3]);assert.equal(calls,12,'logout clears replay');
 });
+
+test('Node TTS binary response selection does not change compact MP3 or explicit WAV defaults',async()=>{
+ const seen=[];const api=new ChatApi(new FaiberClient('chat',{domains:{chat:'https://chat.example'},axios:{adapter:async config=>{seen.push(config);return {status:200,statusText:'OK',headers:{},config,data:new Uint8Array([255,251,0,1])};}}}));
+ await api.synthesize({text:'Hello'},{responseType:'arraybuffer'});
+ assert.equal(seen[0].responseType,'arraybuffer');assert.equal(JSON.parse(seen[0].data).format,'mp3');
+});

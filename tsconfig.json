@@ -8,7 +8,7 @@
    { "path": "packages/flow" }, { "path": "packages/knowledge" }, { "path": "packages/chat" },
     { "path": "packages/manage" },
     { "path": "packages/social" }, { "path": "packages/state" }, { "path": "packages/drm" }, { "path": "packages/task" },
-    { "path": "packages/game" },
+    { "path": "packages/game" }, { "path": "packages/gis" },
     { "path": "packages/sdk" }
   ]
 }

@@ -1,0 +1,11 @@
+PHPUnit 11.5.50 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.5.0
+Configuration: /Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/poulstar-accounting-backend/phpunit.xml
+
+DDDD.                                                               5 / 5 (100%)
+
+Time: 00:00.489, Memory: 50.50 MB
+
+OK, but there were issues!
+Tests: 5, Assertions: 74, Deprecations: 2.

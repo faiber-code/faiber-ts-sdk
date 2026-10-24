@@ -1,0 +1,15 @@
+
+> @infera/lms-panel@0.0.0 test
+> vitest run src/features/classrooms/components/SessionStudentPicker.test.tsx src/features/classrooms/pages/ClassroomsPage.test.tsx
+
+
+ RUN  v3.2.4 /Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-lms/panel
+
+ ✓ src/features/classrooms/components/SessionStudentPicker.test.tsx (5 tests) 27ms
+ ✓ src/features/classrooms/pages/ClassroomsPage.test.tsx (2 tests) 46ms
+
+ Test Files  2 passed (2)
+      Tests  7 passed (7)
+   Start at  18:58:45
+   Duration  455ms (transform 135ms, setup 0ms, collect 396ms, tests 73ms, environment 0ms, prepare 65ms)
+

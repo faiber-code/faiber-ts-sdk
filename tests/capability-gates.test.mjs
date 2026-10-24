@@ -10,18 +10,45 @@ function reviewedFixture(){
   const aspect={status:'verified',source_refs:['infera-example/src/routes.rs:5']};
   return {
     universe:{services:{example:{scope:'business'}}},
-    services:{example:{source_decision:{status:'verified',revision:'abc',reason:'Fixture runtime'},relationship_review:aspect,operations:[{
+    services:{manage:{source_decision:{revision:'manage-fixture'}},example:{source_decision:{status:'verified',revision:'abc',reason:'Fixture runtime'},relationship_review:aspect,operations:[{
       id:'GET /api/v1/items',source_checksum:'hash',handler:{path:'src/routes.rs',line:1},
+      sdk:{status:'verified',source_checksum:'hash',source_refs:['packages/example/src/index.ts'],package:'@faiber/faiber-example',exported_operation:'ExampleApi.list',test_evidence:['owned-items']},
+      manage:{status:'verified',source_checksum:'hash',source_refs:['manage/src/items.tsx'],workflow:'Routed translated item list with project filter',raw_json_form:false,test_evidence:['owned-items']},
       review:{status:'verified',source_checksum:'hash',meaning:{en:'List owned items',fa:'فهرست موارد شخصی'},scope:'owner',classification:'public_authenticated',
         permissions:aspect,filters:aspect,inputs_outputs:aspect,lifecycle:aspect,relationships:aspect,test_evidence:['owned-items']},
     }]}},
-    runs:{'owned-items':{status:'passed',exit_code:0,command:'node --test fixture',artifact_verified:true,artifact_sha256:'1'.repeat(64),source_revisions:{example:'abc'},tests_executed:3}},
+    runs:{'owned-items':{status:'passed',exit_code:0,command:'node --test fixture',artifact_verified:true,artifact_sha256:'1'.repeat(64),source_revisions:{example:'abc',manage:'manage-fixture'},boundaries:['typescript_sdk_http','readable_manage_workflow'],source_unchanged_during_run:true,sdk_revision:'a'.repeat(40),covered_operations:{example:['GET /api/v1/items'],other:['GET /api/v1/items']},tests_executed:3}},
   };
 }
 
 test('route counts and unreviewed generated operation metadata cannot satisfy discovery',()=>{
   const fixture=reviewedFixture();fixture.services.example.operations[0].review={status:'pending'};
   assert.equal(evaluateCapabilityGate(fixture.universe,fixture.services,[],fixture.runs).status,'blocked');
+});
+
+test('a changed SDK source lock invalidates older semantic and discovery bindings',()=>{
+ const f=reviewedFixture();f.services.example.sdk_source_revision='abc';
+ const options={stage:'sdk',selectedSources:{example:{revision:'new-source'}}};
+ const failures=evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],options).failures.join('\n');
+ assert.match(failures,/inventory does not bind the current SDK source lock/);
+ assert.match(failures,/semantic\/runtime source differs from the current SDK source lock/);
+ const discovery=evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{...options,stage:'discovery'});
+ assert.equal(discovery.status,'passed');
+});
+
+test('opaque protocol mounts require their own frozen source-bound consumer evidence',()=>{
+ const f=reviewedFixture();
+ const mount={id:'PROTOCOL /mcp',path:'/mcp',source:'example/shared/evidence-sdk/src/server.rs',source_checksum:'protocol-hash'};
+ f.services.example.protocol_mounts=[mount];
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{stage:'discovery'}).failures.join('\n'),/protocol review missing/);
+ const aspect={status:'verified',source_refs:['example/shared/evidence-sdk/src/server.rs:100']};
+ mount.review={status:'verified',source_checksum:'protocol-hash',protocol:'MCP streamable HTTP',classification:'internal_signed_grant',scope:'signed deployment and subject',meaning:{en:'Read scoped source evidence',fa:'خواندن شواهد منبع با دسترسی محدود'},permissions:aspect,inputs_outputs:aspect,lifecycle:aspect,relationships:aspect,test_evidence:['source-mcp']};
+ f.runs['source-mcp']={...f.runs['owned-items'],boundaries:['source_protocol_http'],covered_operations:{example:['PROTOCOL /mcp']}};
+ assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{stage:'discovery'}).status,'passed');
+ f.runs['source-mcp'].source_revisions={example:'different'};
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{stage:'discovery'}).failures.join('\n'),/different service source/);
+ f.runs['source-mcp'].source_revisions={example:'abc'};f.runs['source-mcp'].boundaries=['typescript_sdk_http'];
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{stage:'discovery'}).failures.join('\n'),/frozen protocol boundary/);
 });
 test('a review becomes invalid when the handler or wire evidence changes',()=>{
   const fixture=reviewedFixture();fixture.services.example.operations[0].source_checksum='changed';
@@ -127,4 +154,79 @@ test('cross-service supporting locks and logs are all integrity checked',()=>{
   assert.equal(verifyRunArtifacts({run:{...run,additional_artifacts:{}}},root).run.artifact_verified,false);
   assert.equal(verifyRunArtifacts({run:{...run,additional_artifacts:[null]}},root).run.artifact_verified,false);
  } finally {rmSync(root,{recursive:true,force:true});}
+});
+
+test('a retained dirty-working extraction failure remains unresolved drift rather than an empty verified tree',()=>{
+ const f=reviewedFixture();f.services.example.working_drift={added:[],absent:[],changed:[],extraction_errors:[{status:'failed',artifact_path:'working.stderr.log'}]};
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/unresolved working\/pinned contract drift/);
+});
+
+// A real passing source test may still cover a different operation.
+test('passing source test counts cannot certify an operation outside the declared coverage',()=>{
+ const f=reviewedFixture();
+ f.runs['owned-items'].covered_operations={example:['GET /api/v1/unrelated']};
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/does not declare this exact operation/);
+ f.runs['owned-items'].covered_operations={example:'GET /api/v1/items'};
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/does not declare this exact operation/);
+ f.runs['owned-items'].covered_operations={example:['GET /api/v1/items']};
+ assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs).status,'passed');
+});
+
+
+test('source-only acceptance cannot certify a missing SDK or Manage consumer',()=>{
+ const f=reviewedFixture();delete f.services.example.operations[0].sdk;delete f.services.example.operations[0].manage;
+ assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{stage:'discovery'}).status,'passed');
+ const sdk=evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{stage:'sdk'});
+ assert.match(sdk.failures.join('\n'),/SDK wire review missing/);
+ const manage=evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{stage:'manage'});
+ assert.match(manage.failures.join('\n'),/readable Manage workflow is absent/);
+});
+
+test('source unit tests and transport adapters cannot stand in for actual consumer boundaries',()=>{
+ const f=reviewedFixture();f.runs['owned-items'].boundaries=[];
+ const result=evaluateCapabilityGate(f.universe,f.services,[],f.runs);
+ assert.match(result.failures.join('\n'),/does not prove SDK wire/);
+ assert.match(result.failures.join('\n'),/does not prove Manage workflow/);
+ f.runs['owned-items'].boundaries=['typescript_sdk_http','readable_manage_workflow'];
+ f.runs['owned-items'].source_unchanged_during_run=false;
+ assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs).status,'blocked');
+});
+
+test('raw JSON forms, stale consumer reviews and another Manage source block downstream completion',()=>{
+ const f=reviewedFixture();const op=f.services.example.operations[0];
+ op.manage.raw_json_form=true;
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/raw JSON form/);
+ op.manage.raw_json_form=false;op.sdk.source_checksum='stale';
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/SDK wire review missing or stale/);
+ op.sdk.source_checksum='hash';f.runs['owned-items'].source_revisions.manage='different';
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/does not bind the selected Manage source/);
+});
+
+
+test('malformed consumer evidence fails closed without crashing the release checker',()=>{
+ for(const evidence of [{},'a',null]) {
+  const f=reviewedFixture();const op=f.services.example.operations[0];
+  op.sdk.test_evidence=evidence;op.manage.test_evidence=evidence;
+  assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs).status,'blocked');
+ }
+});
+
+test('claiming a selected source cannot certify a different actual evidence inventory',()=>{
+ const f=reviewedFixture();const data=f.services.example;
+ data.inventory_revision='fresh-main';data.source_tree_checksum='actual-compiler-inputs';
+ data.source_decision.source_tree_checksum=data.source_tree_checksum;
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/actual inventory revision and compiler inputs/);
+ data.inventory_revision=data.source_decision.revision;
+ assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs).status,'passed');
+ data.source_decision.source_tree_checksum='older-inputs';
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/actual inventory revision and compiler inputs/);
+});
+
+test('selected runtime evidence rejects middleware hashes taken from a different working tree',()=>{
+ const f=reviewedFixture();const data=f.services.example;
+ data.inventory_revision='abc';data.source_tree_checksum='inputs';data.source_decision.source_tree_checksum='inputs';
+ data.source_files=[{path:'src/auth.rs',checksum:'selected'}];data.middleware_sources=[{path:'src/auth.rs',checksum:'dirty-working'}];
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/middleware provenance differs/);
+ data.middleware_sources[0].checksum='selected';
+ assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs).status,'passed');
 });

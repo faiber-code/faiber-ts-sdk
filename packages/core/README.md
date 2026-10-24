@@ -80,6 +80,13 @@ subscription.close();
 
 Subscription authorization is repeated on reconnect. `onSubscribed` runs after every successful subscription: reload persisted data to recover events missed while offline. Events are invalidation hints and their service-specific payload is intentionally `unknown`; service HTTP responses remain authoritative. `onError` reports connection/authorization failures; HTTP authorization failures retain normal Axios behavior within your callback. Close cancels the connection and ignores late authorization results. HTTPS pages require `wss:`; allow the exact WebSocket origin in your Content Security Policy.
 
+`RequestOptions<D>` preserves Axios headers, signals, timeout, adapters and the
+`withXSRFToken` predicate. Its exported `RequestOptionsContext<D>` describes the
+encoded wire body and request metadata, excluding the predicate itself. JSON
+requests retain their named input type; URL-encoded login/realtime operations
+provide `URLSearchParams` to that predicate. A generic metadata predicate can be
+reused for typed requests without casting away body types.
+
 ## Short IDs
 
 ```ts

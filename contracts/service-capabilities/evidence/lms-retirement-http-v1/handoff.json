@@ -1,0 +1,307 @@
+{
+  "at": "2026-10-19T16:59:58.639166+00:00",
+  "status": "passed_local_retirement_http_classification",
+  "production_source": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+  "test_only_descendant": "1fbba589305088ecc6210a1baf2e4beb07ce5a82",
+  "checkout": "/Users/mohammadralizadeh/Infera/.task-worktrees/lms-retirement-http-20261019/infera-lms",
+  "production_code_changes": false,
+  "source_refs": [
+    {
+      "file": "src/router.rs",
+      "sha256": "ace2bb938e64d021e2e31fd98b49fc14fcf2ac70e472e185d77d143de46a3765",
+      "git_blob": "b3700119ea77dba869562b5ccc7372e3d3a619ac"
+    },
+    {
+      "file": "src/main.rs",
+      "sha256": "837a58d0ef82ffded7c69633e490f5c96b2571b438322a96247569482cd7b08f",
+      "git_blob": "5ee58738c8cbb1b921c6bb9edc43b97f0cb7fa69"
+    },
+    {
+      "file": "migration/src/lib.rs",
+      "sha256": "ebfb09ec5e1fb37ab698cbd38712ba903d000d97c17cb7e6b8e42cfe650c51b0",
+      "git_blob": "9fd74fad7d157d395c35f754f5cc2b8977cc47c8"
+    },
+    {
+      "file": "migration/src/m20260912_000020_session_evaluations.rs",
+      "sha256": "b91f295647f0407eb8e7553f7cb260ea8e79d177c0b5920912dcdcff50039ef0",
+      "git_blob": "5da1c6f5481094c8ac7518e985756150eb1112d4"
+    },
+    {
+      "file": "migration/src/m20260916_000021_ai_performance_summaries.rs",
+      "sha256": "2bb736d0d0a5c046b129438bb229d00492a22c78580347905a2e883a5eb6a412",
+      "git_blob": "dcc097534c9914622a42f60792da9824199ade4f"
+    },
+    {
+      "file": "tests/run-summary-retirement-http.sh",
+      "sha256": "68a504d592fffa3d189831550705c403023f396efaf05e6002f7413751509b61",
+      "git_blob": "f3a05d38de1e8ad85266ed1896b964451c5f1d0b"
+    },
+    {
+      "file": "tests/summary-retirement-http.mjs",
+      "sha256": "39a511272c27675c7f0d069020eae8b6a86c27ae8aabafb88cf80a09d3a5648f",
+      "git_blob": "dbc4ebcbee872aa94cbec997bf7f411c6a75eb85"
+    },
+    {
+      "file": "tests/summary-retirement-services.compose.yml",
+      "sha256": "1182a8ccc5a9594bd61d01dacdb9fb39347af3203c4f74775870959f3967c3e3",
+      "git_blob": "94f2378c67d9ec034791e3e692bb6e84efc5ffc7"
+    },
+    {
+      "file": "tests/summary_retirement_http.rs",
+      "sha256": "dc6efea2ad2d0a3b670e9b9678c50a470a8f302e3c7b7cf5c7ed0060a2ab13cb",
+      "git_blob": "1f8a55c0a428d1946d1d1dfd3d49e53d678062e3"
+    }
+  ],
+  "sdk": {
+    "source_commit": "40b58b73f1482f49925e34180cee8f7452fc0972",
+    "package": "core + lms independently compiled from git archive in isolated sdk-build",
+    "runtime": "Node22.13.1/Axios1.20.0",
+    "compiler": "TypeScript5.9.3",
+    "build_log": "sdk-build.log",
+    "transport": "Actual LmsApi generic request transport; removed typed wrappers are not reinstated",
+    "source_path_inspection": "No ai-summaries/ai_summary/aiSummary occurrences in archived packages/lms/src; runtime facade/operation names also checked",
+    "owner_head_at_freeze": "081b3b08d869dca1c5bafe4837f2ce5f20636a70",
+    "relevant_sdk_source_equivalent_at_freeze": false,
+    "snapshot_manifests": [
+      "consumer-source-sha256.json",
+      "sdk-build-source-sha256.json"
+    ],
+    "later_change_detail": {
+      "compared_head": "081b3b08d869dca1c5bafe4837f2ce5f20636a70",
+      "file": "packages/core/src/types.ts",
+      "change": "Type-only additive HttpRequestMethod alias and its documentation; no runtime behavior claimed tested on this later revision."
+    }
+  },
+  "execution": {
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--offline",
+      "--test",
+      "summary_retirement_http",
+      "--",
+      "--ignored",
+      "--nocapture"
+    ],
+    "result": "1Rust integration case passed;57JavaScript assertions;16HTTP observations (8operations x2index states)",
+    "raw_logs": [
+      "run-first.log",
+      "run-final.log"
+    ],
+    "raw_failures": "None; first56assertion pass, then final57assertion pass includes added SDK runtime operation-name absence check. No failure was suppressed.",
+    "final_database": "Fresh dedicated local summary_test_retirement_final; actual entire38-migration chain applied",
+    "database_and_broker": "Disposable PostgreSQL16/RabbitMQ3; no production services",
+    "fixture": "Synthetic trusted actor UUID/admin+all old summary/config grants; auth/self confirms exact identity and permissions. Deterministic local Profile name-lookup responder. Real router::routes plus new MCP route mounted; no schedulers or application background consumers started. A unique temporary cwd has a deterministic SPA index, then only that index is removed. No production panel/source files touched.",
+    "rust_resolution": "Locked/offline cached RustSDKd3a76ff. Cache originally populated using documented local Git insteadOf mapping; no canonical remote reproducibility claim."
+  },
+  "observed_classes": {
+    "index_present": {
+      "five_retired_GET": "200,text/html,exact generic SPA sentinel; not a JSON API",
+      "retired_PUT_and_two_POST": "405,Allow:GET,HEAD; generic GET-only fallback"
+    },
+    "index_absent": {
+      "five_retired_GET": "404,not_found",
+      "retired_PUT_and_two_POST": "405,Allow:GET,HEAD"
+    },
+    "not_observed_on_retired_paths": [
+      "401",
+      "403",
+      "JSON summary result",
+      "compatibility proxy"
+    ],
+    "control_requests": [
+      "health JSON200",
+      "auth/self JSON200 with exact trusted actor/grants",
+      "ordinary config/grades JSON200",
+      "ordinary evaluations/settings JSON200",
+      "OpenAPI contains no ai-summaries routes"
+    ]
+  },
+  "retired_routes": [
+    {
+      "phase": "index_present",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/settings",
+      "status": 200,
+      "classification": "spa_fallback",
+      "content_type": "text/html",
+      "allow": null,
+      "body": "<!doctype html><html><body>LMS_RETIREMENT_SPA_FIXTURE</body></html>"
+    },
+    {
+      "phase": "index_present",
+      "method": "PUT",
+      "path": "/api/v1/ai-summaries/settings",
+      "status": 405,
+      "classification": "method_not_allowed",
+      "content_type": null,
+      "allow": "GET,HEAD",
+      "body": ""
+    },
+    {
+      "phase": "index_present",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/models",
+      "status": 200,
+      "classification": "spa_fallback",
+      "content_type": "text/html",
+      "allow": null,
+      "body": "<!doctype html><html><body>LMS_RETIREMENT_SPA_FIXTURE</body></html>"
+    },
+    {
+      "phase": "index_present",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/latest",
+      "status": 200,
+      "classification": "spa_fallback",
+      "content_type": "text/html",
+      "allow": null,
+      "body": "<!doctype html><html><body>LMS_RETIREMENT_SPA_FIXTURE</body></html>"
+    },
+    {
+      "phase": "index_present",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/jobs",
+      "status": 200,
+      "classification": "spa_fallback",
+      "content_type": "text/html",
+      "allow": null,
+      "body": "<!doctype html><html><body>LMS_RETIREMENT_SPA_FIXTURE</body></html>"
+    },
+    {
+      "phase": "index_present",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/summaries",
+      "status": 200,
+      "classification": "spa_fallback",
+      "content_type": "text/html",
+      "allow": null,
+      "body": "<!doctype html><html><body>LMS_RETIREMENT_SPA_FIXTURE</body></html>"
+    },
+    {
+      "phase": "index_present",
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/refresh",
+      "status": 405,
+      "classification": "method_not_allowed",
+      "content_type": null,
+      "allow": "GET,HEAD",
+      "body": ""
+    },
+    {
+      "phase": "index_present",
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/users/bc84262a-7ac8-4e6a-95c9-fe88e6e5992a/student/refresh",
+      "status": 405,
+      "classification": "method_not_allowed",
+      "content_type": null,
+      "allow": "GET,HEAD",
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/settings",
+      "status": 404,
+      "classification": "not_found",
+      "content_type": null,
+      "allow": null,
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "PUT",
+      "path": "/api/v1/ai-summaries/settings",
+      "status": 405,
+      "classification": "method_not_allowed",
+      "content_type": null,
+      "allow": "GET,HEAD",
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/models",
+      "status": 404,
+      "classification": "not_found",
+      "content_type": null,
+      "allow": null,
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/latest",
+      "status": 404,
+      "classification": "not_found",
+      "content_type": null,
+      "allow": null,
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/jobs",
+      "status": 404,
+      "classification": "not_found",
+      "content_type": null,
+      "allow": null,
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/summaries",
+      "status": 404,
+      "classification": "not_found",
+      "content_type": null,
+      "allow": null,
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/refresh",
+      "status": 405,
+      "classification": "method_not_allowed",
+      "content_type": null,
+      "allow": "GET,HEAD",
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/users/bc84262a-7ac8-4e6a-95c9-fe88e6e5992a/student/refresh",
+      "status": 405,
+      "classification": "method_not_allowed",
+      "content_type": null,
+      "allow": "GET,HEAD",
+      "body": ""
+    }
+  ],
+  "storage": {
+    "result_file": "legacy-storage-result.json",
+    "migration_count": 38,
+    "combined_legacy_summary_evaluation_migration_retained": true,
+    "before_equals_after": true,
+    "settings_rows": 3,
+    "seeded_legacy_summary_rows": 1,
+    "seeded_pending_legacy_job_rows": 1,
+    "fingerprint_scope": "MD5 is used only as a local test equality checksum over canonical row JSON, not as a persisted production summary/config identity. Artifact/source manifests use SHA256.",
+    "limit": "Proves these mounted HTTP requests leave legacy rows unchanged; not a live deployment scheduler/failover/cutover test or universal audit of every possible runtime entrypoint."
+  },
+  "boundaries": [
+    "SPA200 is intentional generic router fallback behavior observed at the service boundary; do not advertise all old routes as404.",
+    "Tenant gateway/JWT/ACL real authentication is outside this trusted-header fixture; deployed gateway responses may differ.",
+    "New MCP route is mounted but no source grant/model call was made by this test. No six real domain MCP interoperability/provider/billing verification.",
+    "No paid calls, live config, source push, npm publication or deployed scheduler/global-state changes.",
+    "Existing classroom/CRM contributions and all original handoffs preserved."
+  ],
+  "original_candidates": {
+    "fenced_source_files_verified": 3247,
+    "all_unchanged": true,
+    "owner_sdk_not_edited": true
+  },
+  "delivery": "Shared immutable handoff; no direct thread reply."
+}

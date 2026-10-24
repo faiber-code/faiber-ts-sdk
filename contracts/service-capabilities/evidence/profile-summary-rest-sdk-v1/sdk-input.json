@@ -1,0 +1,8 @@
+{
+  "source_commit": "7a477a0bcf6afc3a72a5aaca95b7cb1b62c4783b",
+  "source_snapshot": "sdk-build-source-sha256.json",
+  "runtime_snapshot": "consumer-source-sha256.json",
+  "build": "sdk-snapshot-build.log",
+  "initial_inspection": "sdk-input-initial.json",
+  "source_equivalent_owner_head_at_freeze": "40b58b73f1482f49925e34180cee8f7452fc0972"
+}

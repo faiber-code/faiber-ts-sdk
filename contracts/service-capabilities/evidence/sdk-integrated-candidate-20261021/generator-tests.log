@@ -1,0 +1,80 @@
+TAP version 13
+# Subtest: reports evidence gaps without claiming confirmed defects or removing failures
+ok 1 - reports evidence gaps without claiming confirmed defects or removing failures
+  ---
+  duration_ms: 0.613208
+  ...
+# Subtest: separates platform scope without silently exempting its operations
+ok 2 - separates platform scope without silently exempting its operations
+  ---
+  duration_ms: 0.073166
+  ...
+# Subtest: discovery does not count skipped consumer requirements
+ok 3 - discovery does not count skipped consumer requirements
+  ---
+  duration_ms: 0.048083
+  ...
+# Subtest: generation check compares complete output and export wiring without changing bytes or mtimes
+ok 4 - generation check compares complete output and export wiring without changing bytes or mtimes
+  ---
+  duration_ms: 171.556375
+  ...
+# Subtest: unknown service selection fails rather than reporting an empty successful generation
+ok 5 - unknown service selection fails rather than reporting an empty successful generation
+  ---
+  duration_ms: 66.251375
+  ...
+# Subtest: optional OpenAPI import never probes a legacy fallback when explicit source configuration is missing
+ok 6 - optional OpenAPI import never probes a legacy fallback when explicit source configuration is missing
+  ---
+  duration_ms: 271.939208
+  ...
+# Subtest: serde skipped internal fields are absent while conditional wire fields remain
+ok 7 - serde skipped internal fields are absent while conditional wire fields remain
+  ---
+  duration_ms: 68.812583
+  ...
+# Subtest: serde response presence is distinct from request defaults, including nested fields
+ok 8 - serde response presence is distinct from request defaults, including nested fields
+  ---
+  duration_ms: 71.697791
+  ...
+# Subtest: literal bracket query names and legacy nested query fields share one URL parameter
+ok 9 - literal bracket query names and legacy nested query fields share one URL parameter
+  ---
+  duration_ms: 75.971792
+  ...
+# Subtest: Rust unit fields serialize to JSON null rather than an object
+ok 10 - Rust unit fields serialize to JSON null rather than an object
+  ---
+  duration_ms: 69.868625
+  ...
+# Subtest: serde enum payloads preserve tags, fields and wire presence instead of becoming string literals
+ok 11 - serde enum payloads preserve tags, fields and wire presence instead of becoming string literals
+  ---
+  duration_ms: 71.802208
+  ...
+# Subtest: JSON aliases retain an explicit JSON type without an unresolved DTO brand
+ok 12 - JSON aliases retain an explicit JSON type without an unresolved DTO brand
+  ---
+  duration_ms: 69.910667
+  ...
+# Subtest: purpose-only release review preserves existing collaboration wire metadata
+ok 13 - purpose-only release review preserves existing collaboration wire metadata
+  ---
+  duration_ms: 68.639542
+  ...
+# Subtest: source extraction follows Social main aliases/admin mounts and Version raw OpenAPI instead of stale annotations
+ok 14 - source extraction follows Social main aliases/admin mounts and Version raw OpenAPI instead of stale annotations
+  ---
+  duration_ms: 130.826166
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1058.654334

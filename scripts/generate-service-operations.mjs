@@ -3,7 +3,7 @@ import { serviceSources } from "./service-source-snapshots.mjs";
 import { releaseContracts } from "./release-contract-overrides.mjs";
 import { collaborationContracts } from "./collaboration-contract-overrides.mjs";
 import { access, readFile, readdir, writeFile } from "node:fs/promises";
-import { basename, dirname, join, resolve } from "node:path";
+import { basename, dirname, join, relative, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const siblingRoots = [join(root, "..", "Service"), join(root, "..", "services")];
@@ -16,14 +16,26 @@ const discoveredServicesRoot = process.env.FAIBER_SERVICES_ROOT ?? await (async 
 const servicesRoot = resolve(serviceSources(root, discoveredServicesRoot));
 const serviceDirectories = { version: "infera_version" };
 try { await access(join(servicesRoot, "infera-version", "src")); serviceDirectories.version = "infera-version"; } catch { /* retain legacy checkout support */ }
-const manifestPath = resolve(process.argv[2] ?? join(root, "service-contracts.json"));
+const checkGenerated = process.argv.includes("--check");
+const positional = process.argv.slice(2).filter(arg => arg !== "--check");
+const manifestPath = resolve(positional[0] ?? join(root, "service-contracts.json"));
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
 const selectedServices = new Set(
-  (process.argv[3] ?? process.env.FAIBER_CONTRACT_SERVICES ?? "")
+  (positional[1] ?? process.env.FAIBER_CONTRACT_SERVICES ?? "")
     .split(",")
     .map(value => value.trim())
     .filter(Boolean),
 );
+
+for (const service of selectedServices) {
+  if (!Object.hasOwn(manifest,service)) throw new Error("Unknown contract service: "+service);
+}
+const staleGenerated = [];
+async function emitGenerated(path,next) {
+  if (!checkGenerated) { await writeFile(path,next); return; }
+  const current=await readFile(path,"utf8").catch(()=>null);
+  if (current!==next) staleGenerated.push(relative(root,path));
+}
 
 const pascal = value => value
   .replace(/[^a-zA-Z0-9]+(.)/g, (_, char) => char.toUpperCase())
@@ -54,11 +66,51 @@ const stableOperationNames = {
 };
 const operationPurpose = endpoint => endpoint.handler.replace(/_/g, " ");
 const placeholders = path => [...path.matchAll(/\{([^}]+)\}/g)].map(match => match[1]);
-const escapedPath = path => `\`${path.replace(/\{([^}]+)\}/g, (_, name) => `\${encodeURIComponent(${camel(name)})}`)}\``;
+const escapedPath = (path, review) => `\`${path.replace(/\{([^}]+)\}/g, (_, name) => `\${${name.startsWith('*')?(review?.notFoundOnly?'unregisteredApiPath':'wildcardPath'):'encodeURIComponent'}(${camel(name)})}`)}\``;
+const routePattern = path => '^'+path.split(/(\{[^}]+\})/).map(part=>part.startsWith('{')?(part.startsWith('{*')?'.+':'[^/]+'):part.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('')+'$';
 
 // Hand-audited response contracts for handlers that intentionally build serde_json::Value or
 // return IntoResponse shapes. These are derived from handler/repository behavior, not routes.
 const responseOverrides = {
+  knowledge: {
+    list_actions: "KnowledgeCustomerActionListResponse",
+    update_action_status: "KnowledgeCustomerActionResponse",
+    list_audit: "KnowledgeAuditLogListResponse",
+    audit_events: "KnowledgeAuditEventListResponse",
+    processing_jobs: "ProcessingJobListResponse",
+    retry_processing_job: "ProcessingJobResponse",
+    cancel_processing_job: "ProcessingJobResponse",
+    list_sources: "KnowledgeSourceListResponse",
+    create_source: "KnowledgeSourceResponse",
+    pause_source: "KnowledgeSourceResponse",
+    sync_source: "KnowledgeQueuedJobResponse",
+    reprocess_document: "KnowledgeQueuedJobResponse",
+    list_documents: "KnowledgeDocumentListResponse",
+    ingest_document: "IngestDocumentResponse",
+    publish: "KnowledgeReleaseResponse",
+    get_release: "KnowledgeReleaseResponse",
+    export_base: "KnowledgeExportResponse",
+    list_bases: "KnowledgeBaseListResponse",
+    get_base: "KnowledgeBaseResponse",
+    create_base: "KnowledgeBaseResponse",
+    update_base: "KnowledgeBaseResponse",
+    list_groups: "KnowledgeGroupListResponse",
+    create_group: "KnowledgeGroupResponse",
+    update_group: "KnowledgeGroupResponse",
+    list_items: "KnowledgeItemListResponse",
+    get_item: "KnowledgeItemResponse",
+    create_item: "KnowledgeItemResponse",
+    update_item: "KnowledgeItemResponse",
+    list_edges: "KnowledgeEdgeListResponse",
+    create_edge: "KnowledgeEdgeResponse",
+    update_edge: "KnowledgeEdgeResponse",
+    list_bindings: "ChatBindingListResponse",
+    create_binding: "ChatBindingResponse",
+    update_binding: "ChatBindingResponse",
+    list_rules: "MatchRuleListResponse",
+    create_rule: "MatchRuleResponse",
+    update_rule: "MatchRuleResponse",
+  },
   asset:{policy_get:"EconomyPolicyResponse",policy_put:"EconomyPolicyResponse",capabilities:"EconomyCapabilitiesResponse",command:"EconomyCommandResponse",objects:"EconomyObjectsResponse",journal:"EconomyJournalResponse",me:"EconomyObjectsResponse",valuation:"EconomyValuationResponse",my_history:"EconomyHistoryResponse",preview:"EconomyCommandResponse",leaderboards:"EconomyLeaderboardResponse",purchase:"EconomyCommandResponse",credit:"EconomyCreditResponse"},
   session:{interact:"RoomInteractionResponse"},
   chat: { events: "ChatEventStream" },
@@ -116,6 +168,7 @@ const responseOverrides = {
   },
 };
 const inputOverrides = {
+  knowledge:{create_source:"CreateKnowledgeSourceInput",create_item:"CreateItemInput",update_item:"UpdateItemInput",update_action_status:"ActionStatusInput"},
   asset:{policy_put:"EconomyPolicy",command:"EconomyOperatorCommand",preview:"EconomyPreviewInput",purchase:"EconomyPurchaseInput",credit:"EconomyCreditInput"},
   session:{interact:"RoomInteractionInput"},
   idp: { browser_login: "BrowserLoginInput" },
@@ -172,12 +225,18 @@ function structFrom(file, name) {
   const renameAll = attrs.match(/serde\([^\]]*rename_all\s*=\s*"([^"]+)"/)?.[1];
   const wireName = name => renameAll === "camelCase" ? name.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase()) : name;
   const fields = splitFields(file.source.slice(open + 1, close)).flatMap(part => {
-    const rename = part.match(/#\[serde\(rename\s*=\s*"([^"]+)"\)\]/)?.[1];
-    const flatten = /#\[serde\(flatten\)\]/.test(part);
+    // serde(skip) excludes a field from both wire directions. Do not confuse
+    // skip_serializing_if with unconditional exclusion: that field is public.
+    if (/#\[serde\(\s*(?:[^\]]*,\s*)?skip\s*(?:,|\))/.test(part)) return [];
+    const rename = part.match(/#\[serde\([^\]]*\brename\s*=\s*"([^"]+)"/)?.[1];
+    const flatten = /#\[serde\([^\]]*\bflatten\b/.test(part);
     const defaulted = /#\[serde\([^\]]*\bdefault\b[^\]]*\)\]/.test(part);
+    const skipInput = /#\[serde\([^\]]*\bskip_deserializing\b/.test(part);
+    const skipOutput = /#\[serde\([^\]]*\bskip_serializing\b/.test(part);
+    const conditionalOutput = /#\[serde\([^\]]*\bskip_serializing_if\s*=/.test(part);
     const clean = part.replace(/#\[[\s\S]*?\]/g, "").replace(/\/\/.*$/gm, "").trim();
     const field = clean.match(/(?:pub(?:\([^)]*\))?\s+)?(\w+)\s*:\s*([\s\S]+)$/);
-    return field ? [{ name: rename ?? wireName(field[1]), rustType: field[2].trim(), flatten, defaulted }] : [];
+    return field ? [{ name: rename ?? wireName(field[1]), rustType: field[2].trim(), flatten, defaulted, skipInput, skipOutput, conditionalOutput }] : [];
   });
   return { file, fields };
 }
@@ -212,8 +271,9 @@ function tsType(raw, query = false, input = false) {
   if (/^(bool)$/.test(type)) return "boolean";
   if (/^(u|i)(8|16|32|64|128|size)$/.test(type) || /^(f32|f64)$/.test(type)) return "number";
   if (/^(Decimal|BigDecimal)$/.test(type)) return input ? "string | number" : "string";
-  if (/^(Value|serde_json::Value)$/.test(type)) return "JsonValue";
-  if (type === "()") return "JsonObject";
+  // Common serde_json and SeaORM aliases are JSON, not unresolved DTOs.
+  if (/^(Value|Json|JsonValue|serde_json::Value|sea_orm::prelude::Json)$/.test(type)) return "JsonValue";
+  if (type === "()") return "null";
   return query ? "QueryValue" : `BackendJson<${JSON.stringify(type)}>`;
 }
 
@@ -244,18 +304,65 @@ function enumFrom(file, name) {
   const open = file.source.indexOf("{", match.index);
   const close = matchingBrace(file.source, open);
   if (close === -1) return null;
-  const attributes = file.source.slice(Math.max(0, file.source.lastIndexOf("#[", match.index)), match.index);
+  const attributes = file.source.slice(Math.max(0, file.source.lastIndexOf("#[derive", match.index)), match.index);
   const renameAll = attributes.match(/serde\([^\]]*rename_all\s*=\s*"([^"]+)"/)?.[1];
   const rename = value => renameAll === "snake_case"
     ? value.replace(/([a-z0-9])([A-Z])/g, "$1_$2").toLowerCase()
-    : renameAll === "kebab-case" ? value.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase() : value;
+    : renameAll === "kebab-case" ? value.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase()
+    : renameAll === "camelCase" ? value[0].toLowerCase() + value.slice(1)
+    : renameAll === "lowercase" ? value.toLowerCase()
+    : renameAll === "UPPERCASE" ? value.toUpperCase()
+    : renameAll === "SCREAMING_SNAKE_CASE" ? value.replace(/([a-z0-9])([A-Z])/g, "$1_$2").toUpperCase() : value;
   const variants = splitFields(file.source.slice(open + 1, close)).flatMap(part => {
-    const explicit = part.match(/#\[serde\(rename\s*=\s*"([^"]+)"\)\]/)?.[1];
-    const clean = part.replace(/#\[[\s\S]*?\]/g, "").replace(/\/\/.*$/gm, "").trim();
-    const variant = clean.match(/^(\w+)\s*(?:\{|\(|$)/)?.[1];
-    return variant ? [explicit ?? rename(variant)] : [];
+    const leading = part.replace(/\/\/.*$/gm, "").trim();
+    const attributes = leading.match(/^(?:#\[[\s\S]*?\]\s*)*/)?.[0] ?? "";
+    if (/#\[serde\([^\]]*\bskip\s*(?:,|\))/.test(attributes)) return [];
+    const explicit = attributes.match(/#\[serde\([^\]]*\brename\s*=\s*"([^"]+)"/)?.[1];
+    const clean = leading.slice(attributes.length).trim();
+    const variant = clean.match(/^(\w+)\s*([\s\S]*)$/);
+    if (!variant) return [];
+    const payload = variant[2].trim();
+    return [{name: explicit ?? rename(variant[1]), rustName: variant[1], payload,
+      skipInput: /#\[serde\([^\]]*\bskip_deserializing\b/.test(attributes),
+      skipOutput: /#\[serde\([^\]]*\bskip_serializing\b/.test(attributes)}];
   });
-  return variants.length ? variants : null;
+  return variants.length ? {variants, tag:attributes.match(/\btag\s*=\s*"([^"]+)"/)?.[1],
+    content:attributes.match(/\bcontent\s*=\s*"([^"]+)"/)?.[1], untagged:/\buntagged\b/.test(attributes)} : null;
+}
+
+function renderEnum(files, module, resolved, raw, seen, declarations, base, declared, input) {
+  const {variants, tag, content, untagged} = resolved.variants;
+  const values = variants.filter(v => !(input ? v.skipInput : v.skipOutput)).map(variant => {
+    const literal = JSON.stringify(variant.name);
+    const payload = variant.payload;
+    if (!payload) return untagged ? "null" : tag ? `{ ${JSON.stringify(tag)}: ${literal} }` : literal;
+    const syntheticName = `${base}${variant.rustName}Payload`;
+    let body;
+    let tuple;
+    if (payload.startsWith("{")) body = payload.slice(1, payload.lastIndexOf("}"));
+    else if (payload.startsWith("(")) {
+      tuple = splitFields(payload.slice(1, payload.lastIndexOf(")"))).map(x=>x.trim()).filter(Boolean);
+      body = tuple.map((type,i)=>`pub value_${i}: ${type}`).join(",");
+    } else throw new Error(`Unsupported enum payload ${raw}::${variant.rustName}`);
+    const synthetic = {path: resolved.file.path, source:`pub struct ${syntheticName} { ${body} }`};
+    const fields = renderedFields([synthetic,...files], module, syntheticName, seen, false, declarations, syntheticName, declared, input);
+    let value;
+    if (tuple) value = fields.length === 1 ? fields[0].type : `[${fields.map(f=>f.type).join(", ")}]`;
+    else {
+      if (!declared.has(syntheticName)) {
+        declared.add(syntheticName);
+        declarations.push(`export interface ${syntheticName} extends JsonObject {`);
+        writeFields(declarations, fields);
+        declarations.push("}");
+      }
+      value = syntheticName;
+    }
+    if (untagged) return value;
+    if (!tag) return `{ ${literal}: ${value} }`;
+    if (content) return `{ ${JSON.stringify(tag)}: ${literal}; ${JSON.stringify(content)}: ${value} }`;
+    return `({ ${JSON.stringify(tag)}: ${literal} } & ${value})`;
+  });
+  return values.join(" | ") || "never";
 }
 
 function resolveEnum(files, module, raw) {
@@ -267,19 +374,20 @@ function resolveEnum(files, module, raw) {
     ?? matches.find(item => item.file.path.includes(`/${module}/`)) ?? matches[0] ?? null;
 }
 
-function renderedFields(files, module, raw, seen = new Set(), query = false, declarations = null, base = "Nested", declared = new Set()) {
+function renderedFields(files, module, raw, seen = new Set(), query = false, declarations = null, base = "Nested", declared = new Set(), input = query) {
   const resolved = resolveStruct(files, module, raw);
   const name = typeName(raw);
   if (!resolved || !name || seen.has(`${resolved.file.path}:${name}`)) return [];
   const nextSeen = new Set(seen).add(`${resolved.file.path}:${name}`);
-  return resolved.fields.flatMap(field => {
-    if (field.flatten) return renderedFields(files, module, field.rustType, nextSeen, query, declarations, base, declared);
+  const fields = resolved.fields.flatMap(field => {
+    if (input ? field.skipInput : field.skipOutput) return [];
+    if (field.flatten) return renderedFields(files, module, field.rustType, nextSeen, query, declarations, base, declared, input);
     const outer = unwrap(field.rustType, "Option");
     const optional = Boolean(outer);
     const valueRaw = outer ?? field.rustType;
-    const nested = query ? renderedFields(files, module, valueRaw, nextSeen, true, declarations, base, declared) : [];
+    const nested = query ? renderedFields(files, module, valueRaw, nextSeen, true, declarations, base, declared, input) : [];
     if (nested.length) return nested.map(item => ({ ...item, name: `${field.name}[${item.name}]`, optional: optional || item.optional }));
-    let renderedType = tsType(valueRaw, query, base.includes("Input"));
+    let renderedType = tsType(valueRaw, query, input);
     if (module === "classroom" && field.name === "weekly_schedule" && !query) {
       renderedType = base.endsWith("Input")
         ? 'import("./types.js").ClassroomWeeklyScheduleRuleInput[]'
@@ -299,22 +407,43 @@ function renderedFields(files, module, raw, seen = new Set(), query = false, dec
         const key = `${nestedStruct.file.path}:${typeName(candidate)}:${nestedName}`;
         if (!declared.has(key)) {
           declared.add(key);
-          const fields = renderedFields(files, module, candidate, nextSeen, false, declarations, nestedName, declared);
+          const fields = renderedFields(files, module, candidate, nextSeen, false, declarations, nestedName, declared, input);
           declarations.push(`export interface ${nestedName} extends JsonObject {`);
           writeFields(declarations, fields);
           declarations.push("}");
         }
         renderedType = `${nestedName}${vector ? "[]" : ""}`;
       } else if (nestedEnum) {
-        if (!declared.has(nestedName)) {
-          declared.add(nestedName);
-          declarations.push(`export type ${nestedName} = ${nestedEnum.variants.map(value => JSON.stringify(value)).join(" | ")};`);
+        declared.enumNames ??= new Map();
+        const enumKey = `${nestedEnum.file.path}:${typeName(candidate)}:${input}`;
+        const existing = declared.enumNames.get(enumKey);
+        const enumName = existing ?? nestedName;
+        if (!existing) {
+          declared.enumNames.set(enumKey, enumName);
+          declared.add(enumName);
+          declarations.push(`export type ${enumName} = ${renderEnum(files, module, nestedEnum, candidate, nextSeen, declarations, enumName, declared, input)};`);
         }
-        renderedType = `${nestedName}${vector ? "[]" : ""}`;
+        renderedType = `${enumName}${vector ? "[]" : ""}`;
       }
     }
-    return [{ name: field.name, optional: optional || field.defaulted, type: optional && !renderedType.includes("null") ? `${renderedType} | null` : renderedType }];
+    // Verified Modules85e hosted lists serialize search even when absent (JSON null).
+    // Query strings accept omitted/string values; null is not a wire query value.
+    if (query && typeName(raw) === "HostedListQuery" && field.name === "search") return [{ name: field.name, optional: true, type: "string" }];
+    if (!query && /^(CategoryListCategoriesGet|TagListTagsGet|SeoContentListSeoContentsGet)ResponseData$/.test(base) && field.name === "search") return [{ name: field.name, optional: false, type: "string | null" }];
+    return [{ name: field.name, optional: input ? optional || field.defaulted : field.conditionalOutput, type: optional && !renderedType.includes("null") ? `${renderedType} | null` : renderedType }];
   });
+  if (!query) return fields;
+  // A backend can accept legacy nested pagination and literal bracket keys.
+  // Both become the same URL parameter; retain each accepted scalar spelling.
+  const parameters = new Map();
+  for (const field of fields) {
+    const previous = parameters.get(field.name);
+    parameters.set(field.name, previous ? {
+      ...field, optional: previous.optional && field.optional,
+      type: [...new Set([...previous.type.split(" | "), ...field.type.split(" | ")])].join(" | "),
+    } : field);
+  }
+  return [...parameters.values()];
 }
 
 function writeFields(lines, fields) {
@@ -356,7 +485,11 @@ function responseDataType(lines, files, module, raw, base) {
 
 for (const [service, endpoints] of Object.entries(manifest)) {
   if (selectedServices.size && !selectedServices.has(service)) continue;
-  const files = await rustFiles(join(servicesRoot, serviceDirectories[service] ?? `infera-${service}`));
+  // A path dependency can define unrelated types named Value or ListQuery.
+  // Service DTO lookup must not accidentally consume those crate-local names.
+  // Public shared-crate handlers require explicit reviewed wire types below.
+  const files = (await rustFiles(join(servicesRoot, serviceDirectories[service] ?? `infera-${service}`)))
+    .filter(file => !file.path.includes('/shared/'));
   const nameCounts = endpoints.reduce((counts, endpoint) => counts.set(operationBaseName(endpoint), (counts.get(operationBaseName(endpoint)) ?? 0) + 1), new Map());
   const operationName = endpoint => {
     const base = operationBaseName(endpoint);
@@ -371,7 +504,23 @@ for (const [service, endpoints] of Object.entries(manifest)) {
   const operationLines = [
     'import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";',
     'import type * as T from "./operations.types.js";',
+    ...(endpoints.some(endpoint=>endpoint.path.includes('{*')) ? [
+      'function wildcardPath(path: Identifier): string {',
+      '  const parts = String(path).split("/");',
+      '  if (parts.some(part => !part || part === "." || part === ".." || /[%?#\\\\]/.test(part))) throw new TypeError("Wildcard paths require nonempty raw segments without dot traversal, percent escapes, query, fragment or backslash");',
+      '  return parts.map(part => encodeURIComponent(part)).join("/");',
+      '}',
+    ] : []),
+    ...(endpoints.some(endpoint=>releaseContracts[`${service}:${endpoint.method} ${endpoint.path}`]?.notFoundOnly) ? [
+      `const registeredApiPaths = ${JSON.stringify([...new Set(endpoints.filter(endpoint=>endpoint.method!=="ANY"&&endpoint.path.startsWith('/api/')).map(endpoint=>routePattern(endpoint.path)))] )}.map(pattern => new RegExp(pattern));`,
+      'function unregisteredApiPath(path: Identifier): string {',
+      '  const encoded = wildcardPath(path);',
+      '  if (registeredApiPaths.some(pattern => pattern.test(`/api/${encoded}`))) throw new TypeError("Use the named CRM operation for registered API paths");',
+      '  return encoded;',
+      '}',
+    ] : []),
     ...(endpoints.some(endpoint => releaseContracts[`${service}:${endpoint.method} ${endpoint.path}`]?.websocket) ? ['import { openMatchRealtime, openRoomRealtime } from "./match-realtime.js";'] : []),
+    ...(endpoints.some(endpoint => releaseContracts[`${service}:${endpoint.method} ${endpoint.path}`]?.membershipRevision) ? ['import { membershipRevisionOptions } from "./memberships.js";'] : []),
     ...(endpoints.some(endpoint => releaseContracts[`${service}:${endpoint.method} ${endpoint.path}`]?.idempotencyKey) ? ['import { AxiosHeaders, type RawAxiosHeaders } from "axios";'] : []),
     "",
     `export class ${pascal(service)}Operations extends ServiceApi {`,
@@ -382,15 +531,19 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     const base = reviewedRelease?.typeBase ?? pascal(operationName(endpoint));
     const methodName = reviewedRelease?.methodName ?? (["task", "chat", "knowledge"].includes(service) ? stableOperationNames[`${endpoint.method} ${endpoint.path}`] : undefined) ?? camel(operationName(endpoint));
     const ids = placeholders(endpoint.path);
-    const reviewed = reviewedRelease ?? collaborationContracts[`${service}:${endpoint.method} ${endpoint.path}`];
+    const reviewed = {...collaborationContracts[`${service}:${endpoint.method} ${endpoint.path}`], ...reviewedRelease};
+    if (endpoint.method === "ANY" && !reviewed?.dynamicMethod) throw new Error(`Unreviewed dynamic HTTP method: ${service} ${endpoint.path}`);
     const hasInput = Boolean(endpoint.body || endpoint.multipart || endpoint.binary);
+    if (endpoint.source.includes('/shared/') && (!reviewed?.response || (hasInput && !reviewed?.input))) {
+      throw new Error(`Public path-dependency wire types require explicit review: ${service} ${endpoint.method} ${endpoint.path}`);
+    }
     const dynamicProfileList = service === "profile" && endpoint.module === "profile" &&
       /^(index|manager_index|accountant_index|support_index|consultant_index|teacher_index|student_index|parent_index|other_index)$/.test(endpoint.handler);
-    const hasQuery = dynamicProfileList || Boolean(endpoint.query);
+    const hasQuery = dynamicProfileList || Boolean(endpoint.query || reviewed?.query);
     const inputOverride = inputOverrides[service]?.[endpoint.handler];
     const responseOverride = responseOverrides[service]?.[endpoint.handler];
     const optionalChatUpload = service === "chat" && endpoint.handler === "complete_attachment";
-    const binaryDownload = (service === "chat" && ["download_attachment", "tts"].includes(endpoint.handler)) || (service === "task" && endpoint.handlerModule === "attachments" && endpoint.handler === "download");
+    const binaryDownload = reviewed?.binaryDownload || (service === "chat" && ["download_attachment", "tts"].includes(endpoint.handler)) || (service === "task" && endpoint.handlerModule === "attachments" && endpoint.handler === "download");
     if (optionalChatUpload) typeLines.push("export type AttachmentUploadBody = Blob | ArrayBuffer | Uint8Array;");
     if (hasInput) {
       typeLines.push(`/** Backend request type: ${endpoint.binary ? "binary byte stream" : endpoint.body ?? "multipart/form-data"}. */`);
@@ -405,7 +558,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       } else if (/^(?:serde_json::)?Value$/.test(endpoint.body)) {
         typeLines.push(`export type ${base}Input = JsonValue;`);
       } else {
-        const inputFields = renderedFields(files, endpoint.handlerModule ?? endpoint.module, endpoint.body, new Set(), false, typeLines, `${base}Input`);
+        const inputFields = renderedFields(files, endpoint.handlerModule ?? endpoint.module, endpoint.body, new Set(), false, typeLines, `${base}Input`, new Set(), true);
         typeLines.push(`export interface ${base}Input extends JsonObject {`);
         writeFields(typeLines, inputFields);
         typeLines.push("}");
@@ -424,6 +577,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       }
     }
     typeLines.push(`/** Backend response type: ${endpoint.response ?? endpoint.responseEnvelope ?? "handler-defined response"}. */`);
+    if (reviewed?.dataAlias) typeLines.push(`export type ${base}ResponseData = ${reviewed.dataAlias};`);
     if (reviewed?.response) {
       typeLines.push(`export type ${base}Response = ${reviewed.response};`);
     } else if (binaryDownload) {
@@ -462,11 +616,13 @@ for (const [service, endpoints] of Object.entries(manifest)) {
         `    return ${roomSocket ? "openRoomRealtime" : "openMatchRealtime"}(this.client, ticket, options);`, "  }");
       continue;
     }
-    const args = ids.map(id => `${camel(id)}: Identifier`);
+    const args = ids.map(id => `${camel(id)}: ${reviewed?.pathTypes?.[id] ?? "Identifier"}`);
+    if (endpoint.method === "ANY") args.push('method: import("@faiber/sdk-core").HttpRequestMethod');
     if (hasInput && !optionalChatUpload) args.push(`data: T.${base}Input`);
     if (hasQuery) args.push(`params${reviewed?.requiredQuery ? "" : "?"}: T.${base}Query`);
     if (reviewed?.idempotencyKey) args.push("idempotencyKey: string");
-    args.push(`options?: RequestOptions${optionalChatUpload ? "<T.AttachmentUploadBody>" : hasInput ? `<T.${base}Input>` : ""}`);
+    if (reviewed?.membershipRevision) args.push("membershipRevision: string");
+    args.push(`options?: RequestOptions${optionalChatUpload ? "<T.AttachmentUploadBody>" : endpoint.formUrlEncoded ? "<URLSearchParams>" : hasInput ? `<T.${base}Input>` : ""}`);
     if (optionalChatUpload) args.push("data?: T.AttachmentUploadBody");
     const permissions = reviewed?.auth ?? (endpoint.permissions.length ? endpoint.permissions.join(", ") : endpoint.path.startsWith("/internal/") || endpoint.path.startsWith("/api/v1/internal/") ? "trusted backend service credential and tenant scope; not a public browser endpoint" : "session-derived or public bootstrap route");
     operationLines.push("  /**");
@@ -474,14 +630,21 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     operationLines.push(`   * Calls \`${endpoint.method} ${endpoint.path}\` through the shared IDP-aware Faiber client.`);
     if (dynamicProfileList) operationLines.push("   * Supports live core/property/trusted-event filters, repeated date ranges and sorting before pagination; invalid clauses return HTTP 400.");
     for (const id of ids) operationLines.push(`   * @param ${camel(id)} Backend path identifier \`${id}\`.`);
+    if (endpoint.method === "ANY") operationLines.push("   * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.");
+    if (reviewed?.membershipRevision) operationLines.push("   * @param membershipRevision Exact opaque revision from the reviewed membership snapshot; stale revisions return 409 without automatic refetch.");
     if (reviewed?.idempotencyKey) operationLines.push("   * @param idempotencyKey Stable printable ASCII key (1–128 characters, without spaces); reuse for identical retries.");
     if (hasInput) operationLines.push(`   * @param data Typed ${endpoint.multipart ? "multipart form" : endpoint.binary ? "binary byte stream" : endpoint.formUrlEncoded ? "URL-encoded form" : "JSON request body"}.`);
     if (hasQuery) operationLines.push("   * @param params Typed query parameters; omitted members retain backend defaults.");
     operationLines.push("   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.");
-    operationLines.push("   * @returns The complete Axios response, including the typed service envelope, status, and headers.");
+    operationLines.push("   * @returns The complete Axios response, including the typed handler payload, status, and headers.");
     operationLines.push(`   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: ${permissions}.`);
     operationLines.push("   */");
     operationLines.push(`  ${methodName}(${args.join(", ")}) {`);
+    if (reviewed?.membershipRevision) operationLines.push('    options = membershipRevisionOptions(membershipRevision, options);');
+    if (endpoint.method === "ANY") {
+      operationLines.push('    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");');
+      operationLines.push('    if (method === "CONNECT" && !options?.adapter) throw new TypeError("CONNECT requires an explicit tunnel-capable Axios adapter");');
+    }
     if (reviewed?.idempotencyKey) {
       operationLines.push('    if (!/^[\\x21-\\x7e]{1,128}$/.test(idempotencyKey)) throw new TypeError("Idempotency-Key must be 1–128 printable ASCII characters without spaces");');
       operationLines.push('    const headers = new AxiosHeaders(options?.headers as RawAxiosHeaders | AxiosHeaders | undefined);');
@@ -491,12 +654,12 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       ? `{ ...data, ${Object.entries(reviewed.pathFields).map(([field, arg]) => `${JSON.stringify(field)}: String(${arg})`).join(", ")} }` : "data";
     if (optionalChatUpload) {
       operationLines.push(`    return this.client.request<T.${base}Response, T.AttachmentUploadBody>({ ...options, method: "POST", url: ${escapedPath(endpoint.path)}, ...(data === undefined ? {} : { data, headers: { ...options?.headers, "Content-Type": "application/octet-stream" } }) });`);
-    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ...options, method: "${endpoint.method}", url: ${escapedPath(endpoint.path)}${reviewed?.idempotencyKey ? ", headers" : ""}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? ', headers: { "Content-Type": "application/octet-stream", ...options?.headers }' : ""} });`);
+    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ${reviewed?.timeout ? `timeout: ${reviewed.timeout}, ` : ""}...options, method: ${endpoint.method === "ANY" ? "method" : `"${endpoint.method}"`}, url: ${escapedPath(endpoint.path,reviewed)}${reviewed?.idempotencyKey ? ", headers" : ""}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${reviewed?.textResponse ? ', responseType: "text"' : binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${reviewed?.fetchStream ? ', adapter: options?.adapter ?? "fetch"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? `, headers: { "Content-Type": ${reviewed?.binaryContentType === "blob" ? '(typeof Blob !== "undefined" && data instanceof Blob && data.type ? data.type : "application/octet-stream")' : '"application/octet-stream"'}, ...options?.headers }` : reviewed?.jsonBody ? ', headers: { "Content-Type": "application/json", ...options?.headers }' : ""} });`);
     operationLines.push("  }");
   }
   operationLines.push("}", "");
-  await writeFile(join(root, "packages", service, "src", "operations.types.ts"), `${typeLines.join("\n").trimEnd()}\n`);
-  await writeFile(join(root, "packages", service, "src", "operations.ts"), `${operationLines.join("\n").trimEnd()}\n`);
+  await emitGenerated(join(root, "packages", service, "src", "operations.types.ts"), `${typeLines.join("\n").trimEnd()}\n`);
+  await emitGenerated(join(root, "packages", service, "src", "operations.ts"), `${operationLines.join("\n").trimEnd()}\n`);
   const indexPath = join(root, "packages", service, "src", service === "state" ? "api.ts" : "index.ts");
   let index = await readFile(indexPath, "utf8");
   const operationsClass = `${pascal(service)}Operations`;
@@ -507,9 +670,15 @@ for (const [service, endpoints] of Object.entries(manifest)) {
   if (!index.includes("readonly operations =")) {
     index = index.replace(/(export class \w+ extends ServiceApi \{\n)/, `$1    readonly operations = new ${operationsClass}(this.client);\n`);
   }
-  if (service !== "state" && !index.includes('export * from "./operations.js";')) {
-    index = `${index.trimEnd()}\nexport * from "./operations.js";\nexport * from "./operations.types.js";\n`;
+  if (service !== "state") {
+    for (const exportLine of ['export * from "./operations.js";','export * from "./operations.types.js";']) {
+      if (!index.includes(exportLine)) index = index.trimEnd()+"\n"+exportLine+"\n";
+    }
   }
-  await writeFile(indexPath, index);
-  console.log(`${service}: generated ${endpoints.length} operations`);
+  await emitGenerated(indexPath, index);
+  console.log(service+": "+(checkGenerated?"compared":"generated")+" "+endpoints.length+" operations");
+}
+
+if (staleGenerated.length) {
+  throw new Error("Generated SDK outputs are stale; regenerate from the reviewed source lock:\n"+staleGenerated.join("\n"));
 }

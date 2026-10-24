@@ -6,6 +6,9 @@ export type CrmPipeline = CrmPipelineWithStages;
 export type CrmTeam = O.ApiTeamsGetResponseItem;
 export type CrmCompany = O.ApiCompanyGetResponseData;
 export type CrmContact = O.ApiContactGetResponseData;
+/** Bare lead returned by list, create, update, assignment and stage operations. */
+export type CrmLeadRecord = O.ApiCreateLeadPostResponseData;
+/** Lead detail enriches the bare record with a nullable remote profile. */
 export type CrmLead = O.ApiLeadGetResponseData;
 /** Backward-compatible name for the current production lead view. */
 export type Lead = CrmLead;
@@ -77,7 +80,7 @@ export interface CrmListData<T extends JsonObject> extends JsonObject {
 
 export type CrmCompanyListResponse = CrmApiResponse<CrmListData<CrmCompany>>;
 export type CrmContactListResponse = CrmApiResponse<CrmListData<CrmContact>>;
-export type CrmLeadListResponse = CrmApiResponse<CrmListData<CrmLead>>;
+export type CrmLeadListResponse = CrmApiResponse<CrmListData<CrmLeadRecord>>;
 export type CrmDealListResponse = CrmApiResponse<CrmListData<CrmDeal>>;
 export type CrmTaskListResponse = CrmApiResponse<CrmListData<CrmTask>>;
 export type CrmActivityListResponse = CrmApiResponse<CrmListData<CrmActivity>>;
@@ -97,7 +100,7 @@ export interface CrmPipelineStage extends JsonObject {
   actions: JsonValue;
 }
 
-export interface CrmPipelineWithStages extends JsonObject {
+export interface CrmPipelineRecord extends JsonObject {
   id: string;
   name: string;
   slug: string;
@@ -112,6 +115,9 @@ export interface CrmPipelineWithStages extends JsonObject {
   acquire_flags: JsonValue;
   actions: JsonValue;
   version: number;
+}
+
+export interface CrmPipelineWithStages extends CrmPipelineRecord {
   stages: CrmPipelineStage[];
 }
 
@@ -136,31 +142,31 @@ export interface CrmTeamDetail extends JsonObject {
 export type CrmTeamDetailResponse = CrmApiResponse<CrmTeamDetail>;
 
 export interface CrmBoardColumn<T extends JsonObject> extends JsonObject {
-  stage: JsonObject;
+  stage: CrmPipelineStage;
   records: T[];
   count: number;
   total_value: number;
 }
 
 export interface CrmBoard<T extends JsonObject> extends JsonObject {
-  pipeline: JsonObject;
+  pipeline: CrmPipelineRecord;
   columns: CrmBoardColumn<T>[];
 }
 
-export type CrmBoardResponse = CrmApiResponse<CrmBoard<CrmLead> | CrmBoard<CrmDeal>>;
+export type CrmBoardResponse = CrmApiResponse<CrmBoard<CrmLeadRecord> | CrmBoard<CrmDeal>>;
 
 export interface CrmReportCatalog extends JsonObject {
-  reports: JsonObject[];
-  metrics: JsonObject[];
+  reports: CrmReportDefinition[];
+  metrics: CrmMetricDefinition[];
 }
 
 export type CrmReportCatalogResponse = CrmApiResponse<CrmReportCatalog>;
 
 export interface CrmReportRefreshResult extends JsonObject {
   report_run_id: string;
-  status: string;
+  status: "ready";
   overview: CrmOverview;
-  agentic_started: boolean;
+  agentic_started: false;
 }
 
 export type CrmReportRefreshResponse = CrmApiResponse<CrmReportRefreshResult>;
@@ -168,7 +174,7 @@ export type CrmReportRefreshResponse = CrmApiResponse<CrmReportRefreshResult>;
 export interface CrmAgenticInsightResult extends JsonObject {
   job_id: string;
   report_run_id: string;
-  status: string;
+  status: "queued";
   charged_to_user_id: string;
 }
 
@@ -196,3 +202,48 @@ export interface CrmErrorBody extends JsonObject {
   message: string;
   details: JsonValue;
 }
+
+/** JSON returned when the legacy API not-found handler is reached. */
+export interface CrmApiRouteNotFound { error: { code: "api_route_not_found"; message: string } }
+
+/** HEAD has no body; the production CORS layer answers OPTIONS with an empty200. */
+export type CrmApiFallbackResponse = CrmApiRouteNotFound | void;
+
+/** Raw process liveness response; unlike modern CRM envelopes, it has status/message and no meta. */
+export interface CrmHealthData { version: string }
+export interface CrmHealthResponse { status: "success"; message: string; data: CrmHealthData }
+/** Dependency readiness uses HTTP 503 when either database or broker is unavailable. */
+export interface CrmReadinessData extends CrmHealthData { database: boolean; broker: boolean }
+export interface CrmReadinessResponse { status: "success" | "unavailable"; message: string; data: CrmReadinessData }
+export interface CrmReportDefinition extends JsonObject {
+  id: string; name: string; slug: string; report_type: string; metric_keys: string[]; schedule: string | null; is_active: boolean;
+}
+export interface CrmMetricDefinition extends JsonObject {
+  key: string; label_en: string; label_fa: string; description_en: string; description_fa: string;
+  unit: string; formula: string; source_of_truth: string; freshness: string; is_certified: boolean; version: number;
+}
+export interface CrmLeadReminderDeletion extends JsonObject { lead_id: string; deleted: number }
+export type CrmLeadReminderDeletionResponse = CrmApiResponse<CrmLeadReminderDeletion>;
+/** Office integration queries the legacy leads table, not crm_leads. JSON fields are stored extensible legacy values. */
+export interface CrmOfficeLead extends JsonObject {
+  id: string; profile_id: string | null; title: string | null; description: string | null;
+  creator_id: string; task_priority: number; workflow_id: string | null; workflow_node_id: string | null;
+  campaign_id: string | null; source_id: string | null; enrollment_id: number | null; enrollment_course_id: number | null;
+  installment_id: number | null; installment_enrollment_id: number | null; task_status: string; foreign_key: string | null;
+  flags: JsonValue; assignee_ids: JsonValue; meta: JsonValue; active_at: string | null; won_at: string | null;
+  deleted_at: string | null; created_at: string; updated_at: string;
+}
+export interface CrmOfficeLeadResponse { status: "success"; message: string; data: CrmOfficeLead | null }
+
+export interface CrmDailyWorkflowStats extends JsonObject {
+  id: string; name: string; slug: string; priority: number; hint: string | null; daily_tasks: number; leads_count: number; lead_count: number;
+}
+export interface CrmDailyStats extends JsonObject {
+  workflows: CrmDailyWorkflowStats[]; total_tasks: number; total_done_tasks: number; extra_tasks_done: number; all_tasks_done: boolean;
+}
+export type CrmDailyStatsResponse = CrmApiResponse<CrmDailyStats>;
+export interface CrmWorkflowLeadStats extends JsonObject {
+  id: string; name: string; slug: string; priority: number; total: number; active: number; inactive: number;
+}
+export interface CrmLeadStats extends JsonObject { total: number; active: number; inactive: number; workflows: CrmWorkflowLeadStats[] }
+export type CrmLeadStatsResponse = CrmApiResponse<CrmLeadStats>;

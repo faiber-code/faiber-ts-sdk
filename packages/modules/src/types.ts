@@ -1,371 +1,80 @@
-import type { ApiEnvelope, Identifier, JsonValue, PaginatedResult, QueryParams, ResourceListResponse, ResourceResponse, } from "@faiber/sdk-core";
-export interface Product {
-    id: string;
-    name: string;
-    description?: string | null;
-    image_url?: string | null;
-    sku?: JsonValue;
-    status?: number;
-    sort_order?: number;
-    created_at?: string;
-    updated_at?: string;
-}
-export interface CreateProductInput {
-    name: string;
-    description?: string;
-    image_url?: string;
-    sku?: JsonValue;
-    status?: number;
-    sort_order?: number;
-}
-export interface UpdateProductInput extends Partial<CreateProductInput> {
-}
-export interface ProductVariant {
-    id: string;
-    product_id: string;
-    name: string;
-    sku?: JsonValue;
-    price: string | number;
-    cost?: string | number;
-    weight?: string | number;
-    stock_priority?: number;
-    status?: number;
-    sort_order?: number;
-}
-export interface CreateProductVariantInput {
-    name: string;
-    sku?: JsonValue;
-    price: string | number;
-    cost?: string | number;
-    weight?: string | number;
-    stock_priority?: number;
-    status?: number;
-    sort_order?: number;
-}
-export interface UpdateProductVariantInput extends Partial<CreateProductVariantInput> {
-}
-export interface Order {
-    id: string;
-    user_id?: string;
-    status?: string | number;
-    total?: string | number;
-    items?: OrderItem[];
-    created_at?: string;
-    updated_at?: string;
-}
-export interface OrderItem {
-    id: string;
-    order_id: string;
-    variant_id: string;
-    quantity: number;
-    unit_price?: string | number;
-    total_price?: string | number;
-}
-export type CreateOrderItemInput = Pick<OrderItem, "variant_id" | "quantity"> & {
-    unit_price: string | number;
-};
-export interface CreateOrderInput {
-    user_id?: string;
-    status?: string | number;
-    items: CreateOrderItemInput[];
-}
-export interface UpdateOrderInput {
-    status?: string | number;
-}
-export interface BlogPost {
-    id: string;
-    title: string;
-    description?: string | null;
-    status?: number;
-    created_at?: string;
-    updated_at?: string;
-}
-export interface CreateBlogPostInput {
-    title: string;
-    description?: string;
-    status?: number;
-}
-export interface UpdateBlogPostInput extends Partial<CreateBlogPostInput> {
-}
-export interface Category {
-    id: string;
-    parent_id?: string | null;
-    name?: string | null;
-    description?: string | null;
-    status: number;
-    requires_confirmation?: boolean;
-}
-export interface CreateCategoryInput {
-    parent_id?: string;
-    name?: string;
-    description?: string;
-    status?: number;
-    requires_confirmation?: boolean;
-}
-export interface UpdateCategoryInput extends Partial<CreateCategoryInput> {
-}
-export interface Tag {
-    id: string;
-    name: string;
-    status: number;
-}
-export interface CreateTagInput {
-    name: string;
-    status?: number;
-}
-export interface UpdateTagInput extends Partial<CreateTagInput> {
-}
-export interface Author {
-    id: string;
-    user_id: string;
-    name: string;
-    bio?: string | null;
-    avatar_url?: string | null;
-    social_links?: JsonValue;
-    website?: string | null;
-}
-export interface CreateAuthorInput {
-    user_id: string;
-    name: string;
-    bio?: string;
-    avatar_url?: string;
-    social_links?: JsonValue;
-    website?: string;
-}
-export interface UpdateAuthorInput extends Partial<Omit<CreateAuthorInput, "user_id">> {
-}
-export interface Content {
-    id: string;
-    content?: string | null;
-    auto_saved_content?: string | null;
-    created_by_user_id?: string;
-    created_by_author_id?: string | null;
-}
-export interface CreateContentInput {
-    content?: string;
-    created_by_author_id?: string;
-}
-export interface UpdateContentInput {
-    content?: string;
-    auto_saved_content?: string;
-}
-export interface SeoContent {
-    id: string;
-    meta_url?: string | null;
-    meta_title?: string | null;
-    meta_description?: string | null;
-    meta_keyword?: string | null;
-    meta_ld?: JsonValue;
-}
-export interface CreateSeoContentInput {
-    meta_url?: string;
-    meta_title?: string;
-    meta_description?: string;
-    meta_keyword?: string;
-    meta_ld?: JsonValue;
-}
-export interface UpdateSeoContentInput extends Partial<CreateSeoContentInput> {
-}
-export interface Comment {
-    id: string;
-    content?: string;
-    author_id?: string | null;
-    status?: number;
-    created_at?: string;
-}
-export interface CreateCommentInput {
-    content: string;
-    author_id?: string;
-    status?: number;
-}
-export interface UpdateCommentInput extends Partial<CreateCommentInput> {
-}
-export interface ModuleRequest {
-    id: string;
-    user_id: string;
-    name: string;
-    description?: string | null;
-    status: number;
-    route_to_crm: boolean;
-    crm_flags: string[];
-    created_at: string;
-    updated_at: string;
-}
-export interface CreateModuleRequestInput {
-    user_id?: string;
-    name: string;
-    description?: string | null;
-    status?: number;
-    /** Publishes each submission to CRM's reusable lead-intake command. */
-    route_to_crm?: boolean;
-    /** Flags CRM uses to select the matching workflow acquire flags. */
-    crm_flags?: string[];
-}
-export interface UpdateModuleRequestInput extends Partial<CreateModuleRequestInput> {
-}
-export interface Warehouse {
-    id: string;
-    name: string;
-    location: string;
-    capacity: number;
-}
-export interface CreateWarehouseInput {
-    name: string;
-    location: string;
-    capacity: number;
-}
-export interface UpdateWarehouseInput extends Partial<CreateWarehouseInput> {
-}
-export interface Inventory {
-    id: string;
-    variant_id: string;
-    warehouse_id: string;
-    priority: number;
-    quantity: number;
-    reserved: number;
-    available: number;
-}
-export interface CreateInventoryInput {
-    variant_id: string;
-    warehouse_id: string;
-    priority?: number;
-    quantity: number;
-}
-export interface UpdateInventoryInput {
-    priority?: number;
-    quantity?: number;
-    reserved?: number;
-}
-export interface Pricing {
-    id: string;
-    service_name: string;
-    display_name?: string;
-    hourly_price?: number;
-    monthly_price?: number;
-    annual_price?: number;
-    currency?: string;
-}
-export interface CreatePricingInput extends Omit<Pricing, "id"> {
-}
-export interface UpdatePricingInput extends Partial<CreatePricingInput> {
-}
-export interface Sample {
-    id: string;
-    name?: string;
-    slug?: string;
-    content?: string;
-    variables?: JsonValue;
-}
-export interface CreateSampleInput {
-    name?: string;
-    slug?: string;
-    content?: string;
-    variables?: JsonValue;
-}
-export interface UpdateSampleInput extends Partial<CreateSampleInput> {
-}
-export interface CartItem {
-    variant_id: string;
-    quantity: number;
-}
-export interface Cart {
-    items: CartItem[];
-    subtotal?: string | number;
-    total?: string | number;
-}
-export interface ReplaceCartInput {
-    items: CartItem[];
-}
-export interface AttachCategoryInput {
-    category_id: string;
-    sort_order?: number;
-}
-export interface CategoryAttachment {
-    id: string;
-    category_id: string;
-    target_id: string;
-    sort_order: number;
-}
-export interface AttachTagInput {
-    tag_id: string;
-    sort_order?: number;
-}
-export interface TagAttachment {
-    id: string;
-    tag_id: string;
-    target_id: string;
-    sort_order: number;
-}
-export interface AuditLog {
-    id: string;
-    host?: string;
-    target_id?: string;
-    action?: string;
-    user_id?: string;
-    data?: JsonValue;
-    created_at?: string;
-}
-export interface StockMovement {
-    id: string;
-    inventory_id?: string;
-    quantity?: number;
-    movement_type?: string;
-    created_at?: string;
-}
-export interface ProductVariantQuery extends QueryParams {
-    product_id?: string;
-    page_number?: number;
-    page_size?: number;
-}
-export interface InventoryQuery extends QueryParams {
-    variant_id?: string;
-    warehouse_id?: string;
-    page_number?: number;
-    page_size?: number;
-}
-export interface ProductResponse extends ResourceResponse<Product> {
-}
-export interface ProductListResponse extends ApiEnvelope<{
-    products: Product[];
-    page_number: number;
-    page_size: number;
-    total_items: number;
-}> {
-}
-export interface ProductVariantResponse extends ResourceResponse<ProductVariant> {
-}
-export interface ProductVariantListResponse extends ApiEnvelope<{
-    variants: ProductVariant[];
-    page_number: number;
-    page_size: number;
-    total_items: number;
-}> {
-}
-export interface CartResponse extends ApiEnvelope<Cart> {
-}
-export interface CategoryAttachmentResponse extends ApiEnvelope<CategoryAttachment> {
-}
-export interface CategoryAttachmentListResponse extends ApiEnvelope<CategoryAttachment[]> {
-}
-export interface TagAttachmentResponse extends ApiEnvelope<TagAttachment> {
-}
-export interface TagAttachmentListResponse extends ApiEnvelope<TagAttachment[]> {
-}
-export interface ContentAttachmentListResponse extends ApiEnvelope<Content[]> {
-}
-export interface SeoAttachmentListResponse extends ApiEnvelope<SeoContent[]> {
-}
-export interface AuditLogListResponse extends ApiEnvelope<AuditLog[]> {
-}
-export interface StockMovementListResponse extends ApiEnvelope<PaginatedResult<StockMovement>> {
-}
+import type { Identifier, JsonValue, QueryParams } from "@faiber/sdk-core";
+import type * as O from "./operations.types.js";
+/** Concrete aliases share the audited handler wire contracts with operations. Arbitrary JSON fields (SKU, editor content, SEO, metadata, form data and agent context) are backend serde_json::Value, not placeholder models. */
+export type Product = O.ProductShowProductGetResponseData;
+export type ProductVariant = O.ProductShowVariantGetResponseData;
+export type Order = O.OrderShowOrderGetResponseData;
+export type OrderItem = O.OrderListOrderItemsGetResponseItem;
+export type BlogPost = O.BlogShowPostGetResponseData;
+export type Category = O.CategoryShowCategoryGetResponseData;
+export type Tag = O.TagShowTagGetResponseData;
+export type Author = O.AuthorShowAuthorGetResponseData;
+export type Content = O.ContentShowContentGetResponseData;
+export type SeoContent = O.SeoContentShowSeoContentGetResponseData;
+export type Comment = O.CommentShowCommentGetResponseData;
+export type ModuleRequest = O.RequestShowRequestGetResponseData;
+export type Warehouse = O.InventoryShowWarehouseGetResponseData;
+export type Inventory = O.InventoryShowInventoryGetResponseData;
+export type Pricing = O.ServicePricingShowPricingGetResponseData;
+export type Sample = O.UserSampleShowSampleGetResponseData;
+export type Cart = O.CartShowGetResponseData;
+export type CreateOrderItemInput = O.OrderAddOrderItemPostInput;
+export type ReplaceCartInput = O.CartReplacePutInput;
+export type AttachCategoryInput = O.CategoryAttachToTargetPostInput;
+export type AttachTagInput = O.TagAttachToTargetPostInput;
+export type CategoryAttachment = O.CategoryListOnTargetGetResponseItem;
+export type TagAttachment = O.TagListOnTargetGetResponseItem;
+export type AuditLog = O.AuditLogListOnTargetGetResponseItem;
+export type StockMovement = O.StockMovementCreateStockMovementPostResponseData;
+export type ProductVariantQuery = O.ProductListVariantsGetQuery;
+export type InventoryQuery = O.InventoryListInventoriesGetQuery;
+export type ProductResponse = O.ProductShowProductGetResponse;
+export type ProductListResponse = O.ProductListProductsGetResponse;
+export type ProductVariantResponse = O.ProductShowVariantGetResponse;
+export type ProductVariantListResponse = O.ProductListProductVariantsGetResponse;
+export type CartResponse = O.CartShowGetResponse;
+export type CategoryAttachmentResponse = O.CategoryAttachToTargetPostResponse;
+export type CategoryAttachmentListResponse = O.CategoryListOnTargetGetResponse;
+export type TagAttachmentResponse = O.TagAttachToTargetPostResponse;
+export type TagAttachmentListResponse = O.TagListOnTargetGetResponse;
+export type ContentAttachmentListResponse = O.ContentListOnTargetGetResponse;
+export type SeoAttachmentListResponse = O.SeoContentListOnTargetGetResponse;
+export type AuditLogListResponse = O.AuditLogListOnTargetGetResponse;
+export type StockMovementListResponse = O.StockMovementListStockMovementsGetResponse;
+export type CreateProductInput = O.ProductCreateProductPostInput;
+export type UpdateProductInput = O.ProductUpdateProductPatchInput;
+export type CreateProductVariantInput = O.ProductCreateVariantPostInput;
+export type UpdateProductVariantInput = O.ProductUpdateVariantPatchInput;
+export type CreateOrderInput = O.OrderCreateOrderPostInput;
+export type UpdateOrderInput = O.OrderUpdateOrderPatchInput;
+export type CreateBlogPostInput = O.BlogCreatePostPostInput;
+export type UpdateBlogPostInput = O.BlogUpdatePostPatchInput;
+export type CreateCategoryInput = O.CategoryCreateCategoryPostInput;
+export type UpdateCategoryInput = O.CategoryUpdateCategoryPatchInput;
+export type CreateTagInput = O.TagCreateTagPostInput;
+export type UpdateTagInput = O.TagUpdateTagPatchInput;
+export type CreateAuthorInput = O.AuthorCreateAuthorPostInput;
+export type UpdateAuthorInput = O.AuthorUpdateAuthorPatchInput;
+export type CreateContentInput = O.ContentCreateContentPostInput;
+export type UpdateContentInput = O.ContentUpdateContentPatchInput;
+export type CreateSeoContentInput = O.SeoContentCreateSeoContentPostInput;
+export type UpdateSeoContentInput = O.SeoContentUpdateSeoContentPatchInput;
+export type CreateCommentInput = O.CommentCreateCommentPostInput;
+export type UpdateCommentInput = O.CommentUpdateCommentPatchInput;
+export type CreateModuleRequestInput = O.RequestCreateRequestPostInput;
+export type UpdateModuleRequestInput = O.RequestUpdateRequestPatchInput;
+export type CreateWarehouseInput = O.InventoryCreateWarehousePostInput;
+export type UpdateWarehouseInput = O.InventoryUpdateWarehousePatchInput;
+export type CreateInventoryInput = O.InventoryCreateInventoryPostInput;
+export type UpdateInventoryInput = O.InventoryUpdateInventoryPatchInput;
+export type CreatePricingInput = O.ServicePricingCreatePricingPostInput;
+export type UpdatePricingInput = O.ServicePricingUpdatePricingPatchInput;
+export type CreateSampleInput = O.UserSampleCreateSamplePostInput;
+export type UpdateSampleInput = O.UserSampleUpdateSamplePatchInput;
+export type CartItem = JsonValue;
 export type TargetIdentifier = Identifier;
 
-export interface ModulesAuthSelf {
-    user_id: string;
-    roles: string[];
-    permissions: string[];
-}
+export type ModulesAuthSelf = O.SessionGetSelfGetResponse;
 
 export interface ModulesRouteContract {
     method: string;
@@ -375,23 +84,11 @@ export interface ModulesRouteContract {
     risk: "read" | "ordinary" | "risky";
 }
 
-export interface ModulesSettings {
-    id: number;
-    title: string;
-    locales: string[];
-    timezone: string;
-    currency: string;
-    contact: JsonValue;
-    seo_defaults: JsonValue;
-    checkout_rules: JsonValue;
-    delivery: JsonValue;
-    etag: string;
-    updated_at: string;
-}
+export type ModulesSettings = import("./contracts.types.js").ModulesSettingsWire;
 
 export interface UpdateModulesSettingsInput {
     title: string;
-    locales: string[];
+    locales: JsonValue;
     timezone: string;
     currency: string;
     contact?: JsonValue;
@@ -403,27 +100,7 @@ export interface UpdateModulesSettingsInput {
 export type ContentDocumentKind = "page" | "post" | "reusable" | "podcast" | "episode" | "student_project" | "parent_review";
 export type ContentDocumentStatus = "draft" | "review" | "scheduled" | "published" | "archived";
 
-export interface ContentDocument {
-    id: string;
-    kind: ContentDocumentKind;
-    legacy_host?: string;
-    legacy_id?: string;
-    slug: string;
-    locale: string;
-    title: string;
-    status: ContentDocumentStatus;
-    editor_json: JsonValue;
-    sanitized_html: string;
-    plain_text: string;
-    current_revision: number;
-    etag: string;
-    publish_at?: string;
-    published_at?: string;
-    created_by: string;
-    updated_by: string;
-    created_at: string;
-    updated_at: string;
-}
+export type ContentDocument = O.ManagementApiListContentGetResponseItem;
 
 export interface WriteContentDocumentInput {
     kind: ContentDocumentKind;
@@ -431,7 +108,7 @@ export interface WriteContentDocumentInput {
     locale?: string;
     title: string;
     editor_json?: JsonValue;
-    publish_at?: string;
+    publish_at?: string | null;
 }
 
 export interface ContentDocumentQuery extends QueryParams {
@@ -467,16 +144,7 @@ export interface AutocompleteQuery extends QueryParams {
 }
 
 /** One relevance-ranked public search suggestion. */
-export interface AutocompleteSuggestion {
-    id: string;
-    kind: "post" | "product";
-    title: string;
-    description?: string;
-    image_url?: string;
-    slug?: string;
-    locale?: string;
-    score: number;
-}
+export type AutocompleteSuggestion = O.SearchAutocompleteGetResponseDataItems;
 
 /** Response returned by the indexed public autocomplete endpoint. */
 export interface AutocompleteResponse {
@@ -486,33 +154,18 @@ export interface AutocompleteResponse {
 }
 
 /** Public category node. Use parent_id to reconstruct an arbitrary-depth tree. */
-export interface PublicContentCategory {
-    id: string;
-    parent_id?: string;
-    legacy_host?: string;
-    legacy_id?: string;
-    slug?: string;
-    locale: string;
-    name?: string;
-    description?: string;
-    image_url?: string;
-    scope: "post" | "product";
-    status: number;
-    seo: JsonValue;
-    created_at: string;
-    updated_at: string;
-}
+export type PublicContentCategory = O.ContentTransferListPublicCategoriesGetResponseItem;
 
 /** Deterministic category import used by trusted migration operators. Requires content:write. */
 export interface ImportContentCategoryInput {
-    parent_id?: string;
+    parent_id?: string | null;
     legacy_host: string;
     legacy_id: string;
     slug: string;
     locale?: string;
     name: string;
-    description?: string;
-    image_url?: string;
+    description?: string | null;
+    image_url?: string | null;
     scope?: "post" | "product";
     status?: number;
     seo?: JsonValue;
@@ -529,8 +182,8 @@ export interface ImportContentDocumentInput {
     source_checksum: string;
     editor_json?: JsonValue;
     status?: ContentDocumentStatus;
-    publish_at?: string;
-    published_at?: string;
+    publish_at?: string | null;
+    published_at?: string | null;
     category_ids?: string[];
 }
 
@@ -550,51 +203,39 @@ export interface ModulesMediaUploadResponse {
     size: number;
 }
 
-export interface ContentRevision {
-    id: string;
-    document_id: string;
-    revision: number;
-    title: string;
-    editor_json: JsonValue;
-    sanitized_html: string;
-    plain_text: string;
-    actor_user_id: string;
-    provenance: JsonValue;
-    created_at: string;
-}
+export type ContentRevision = O.ManagementApiListContentRevisionsGetResponseItem;
 
 export type ModulesAgentSpecialist = "content" | "seo" | "commerce" | "media" | "forms" | "manage";
 export type AgentProposalRisk = "read" | "ordinary" | "risky";
 
-export interface AgentProposal {
-    id: string;
-    agentic_run_id?: string;
-    actor_user_id: string;
-    specialist: ModulesAgentSpecialist;
-    operation: string;
-    target_type: string;
-    target_id?: string;
-    expected_etag?: string;
-    diff: JsonValue;
-    risk: AgentProposalRisk;
-    status: "running" | "pending" | "approved" | "applied" | "rejected" | "expired" | "failed";
-    idempotency_key: string;
-    expires_at: string;
-    approved_by?: string;
-    applied_at?: string;
-    created_at: string;
-    updated_at: string;
-}
+export type AgentProposal = O.ManagementApiGetProposalGetResponseData;
 
 export interface RunModulesAgentInput {
     operation: string;
     message: string;
     specialist: ModulesAgentSpecialist;
     target_type: string;
-    target_id?: string;
-    expected_etag?: string;
+    target_id?: string | null;
+    expected_etag?: string | null;
     resource_ids?: string[];
     context?: JsonValue;
-    model_ref?: string;
+    model_ref?: string | null;
     risk?: AgentProposalRisk;
 }
+
+/** Existing hosted catalog pagination. Page numbers start at 1; the server clamps
+ * page_size to 1..100 (default 10). Search is a case-insensitive literal substring,
+ * not a SQL pattern: raw input is limited to 128 Unicode characters and no NUL.
+ * The server trims whitespace; omitted/blank search preserves the unfiltered catalog.
+ * UUID ascending order stabilizes pages; deleted rows are excluded. */
+export interface HostedCatalogQuery extends QueryParams {
+    page_number?: number;
+    page_size?: number;
+    search?: string;
+}
+/** Category name matches; response data.search is the normalized string or null. */
+export type CategoryListResponse = import("./operations.types.js").CategoryListCategoriesGetResponse;
+/** Tag name matches; response data.search is the normalized string or null. */
+export type TagListResponse = import("./operations.types.js").TagListTagsGetResponse;
+/** SEO title or URL matches; response data.search is the normalized string or null. */
+export type SeoContentListResponse = import("./operations.types.js").SeoContentListSeoContentsGetResponse;

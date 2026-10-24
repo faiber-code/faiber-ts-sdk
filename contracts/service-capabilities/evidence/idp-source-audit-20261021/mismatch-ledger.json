@@ -1,0 +1,308 @@
+{
+  "status": "source_only",
+  "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+  "operation_review_count": 109,
+  "findings": [
+    {
+      "operations": [
+        "POST /api/v1/auth/login",
+        "POST /api/v1/auth/account-login",
+        "GET /api/v1/auth/refresh"
+      ],
+      "classification": "concrete_model_gap",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/auth/routes.rs:1241:login",
+        "infera-idp/src/auth/routes.rs:2581:login_account",
+        "infera-idp/src/auth/routes.rs:1915:refresh_token"
+      ],
+      "previous_sdk": "Generated success payload ApiEnvelope<JsonValue>.",
+      "native_behavior": "APIResponse<TokenResponse>, whose data has access_token,refresh_token,expires_in,scope.",
+      "correction": "Use named AuthTokensResponse aliases.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "POST /api/v1/auth/generate/one-time"
+      ],
+      "classification": "concrete_model_gap",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/auth/routes.rs:2500:generate_one_time_token_route"
+      ],
+      "previous_sdk": "Generated ApiEnvelope<JsonValue>.",
+      "native_behavior": "APIResponse<OneTimeTokenResponse> with data.token.",
+      "correction": "Use named OneTimeTokenResponse.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "POST /api/v1/auth/web-login",
+        "GET /api/v1/auth/logout"
+      ],
+      "classification": "wire_contract_defect",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/auth/routes.rs:1330:login_web",
+        "infera-idp/src/auth/routes.rs:2660:logout"
+      ],
+      "previous_sdk": "Generated ApiEnvelope<JsonValue>; handwritten webLogin promised AuthTokensResponse and logout promised OperationResponse (data.success).",
+      "native_behavior": "APIEmptyResponse has only status/message. web-login sets cookies; auth logout revokes current session and removes cookies.",
+      "correction": "Use closed IdpEmptyResponse and document cookie-only success.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "GET /api/v1/auth/token-login",
+        "GET /api/v1/auth/handoff"
+      ],
+      "classification": "wire_contract_defect",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/auth/routes.rs:1535:login_token",
+        "infera-idp/src/auth/routes.rs:1768:browser_handoff"
+      ],
+      "previous_sdk": "Generated ApiEnvelope<JsonValue>.",
+      "native_behavior": "Rust Redirect::to returns303+Location with no JSON success body.",
+      "correction": "Use void response aliases; document browser navigation/follow-redirect behavior.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "GET /api/v1/settings/login-page/assets/{asset_key}"
+      ],
+      "classification": "wire_contract_defect",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/settings/routes.rs:50:login_page_asset"
+      ],
+      "previous_sdk": "ApiEnvelope<JsonValue> and no Axios responseType.",
+      "native_behavior": "Raw object bytes with Content-Type and immutable public cache header.",
+      "correction": "Use LoginPageAssetBytes and force responseType=arraybuffer.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "GET /api/v1/settings/login-page",
+        "PUT /api/v1/settings/login-page",
+        "GET /api/v1/settings/login-page/public"
+      ],
+      "classification": "concrete_model_gap",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/settings/routes.rs:198:login_page_settings_show",
+        "infera-idp/src/settings/routes.rs:218:login_page_settings_update",
+        "infera-idp/src/settings/routes.rs:187:login_page_settings_public",
+        "infera-idp/src/settings/models.rs:45:LoginPageLocalization"
+      ],
+      "previous_sdk": "Localization values used BackendJson<LoginPageLocalization> despite a concrete source struct.",
+      "native_behavior": "Each localization contains nullable title/subtitle/trademark; update fields may be omitted.",
+      "correction": "Use exact named localization, settings input and settings response types.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "GET /integration/flow"
+      ],
+      "classification": "concrete_model_gap",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/integration/routes.rs:9:flow_integration_show",
+        "faiber-sdk@291c81a67bc302d667fb807da2af3240598bee52:crates/infera-flow-sdk/src/integration_meta.rs"
+      ],
+      "previous_sdk": "ApiEnvelope<BackendJson<infera_flow_sdk::FlowIntegrationResponse>>.",
+      "native_behavior": "APIResponse with data.queue:string and data.events[{event_name,payload_fields[{name,field_type,required,description}]}].",
+      "correction": "Use exact named IdpFlowIntegrationResponse from the selected lock dependency.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "DELETE /api/v1/auth/sessions/{session_id}"
+      ],
+      "classification": "wire_contract_defect",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/auth/routes.rs:2783:delete_session"
+      ],
+      "previous_sdk": "Handwritten revokeSession promised OperationResponse with data.success. Generated operation was already correct.",
+      "native_behavior": "APIEmptyResponse status/message; unowned session404 and current session409.",
+      "correction": "Use IdpEmptyResponse in revokeSession.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "GET /api/v1/auth/oauth/providers"
+      ],
+      "classification": "wire_contract_defect",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/auth/routes.rs:223:oauth_providers"
+      ],
+      "previous_sdk": "Handwritten providers() promised ApiEnvelope<OAuthProvider[]>; generated operation was already correct.",
+      "native_behavior": "APIResponse<OAuthProvidersPublicResponse> containing data.providers:string[].",
+      "correction": "Correct OAuthProviderListResponse to wrap the named provider-name list.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "POST /api/v1/users/register"
+      ],
+      "classification": "wire_contract_defect",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/user/routes.rs:248:register"
+      ],
+      "previous_sdk": "Handwritten register() promised UserResponse; generated operation was already correct.",
+      "native_behavior": "APIResponse<FindUserResponse> has data.user={user_id,created}.",
+      "correction": "Use named RegistrationResponse.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "PATCH /api/v1/users/{user_id}/change-password",
+        "PUT /api/v1/users/{user_id}/change-password",
+        "GET /api/v1/users/{user_id}/logout"
+      ],
+      "classification": "wire_contract_defect",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/user/routes.rs:759:change_password",
+        "infera-idp/src/user/routes.rs:759:change_password",
+        "infera-idp/src/user/routes.rs:948:user_logout"
+      ],
+      "previous_sdk": "Handwritten changePassword() and LogoutUserResponse promised OperationResponse; generated operations were already correct.",
+      "native_behavior": "APIResponse<UserResponse> contains data.user.",
+      "correction": "Use UserResponse for both convenience calls; keep auth/logout distinct.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "DELETE /api/v1/users/{user_id}",
+        "DELETE /api/v1/acl/roles/{role_id}"
+      ],
+      "classification": "wire_contract_defect",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/user/routes.rs:856:user_delete",
+        "infera-idp/src/acl/routes.rs:94:roles_delete"
+      ],
+      "previous_sdk": "Generic RestResource.delete promised DeleteResponse=data.deleted boolean. Generated operations were already correct.",
+      "native_behavior": "User deletion returns data.user; role deletion returns data.id/name.",
+      "correction": "Add IDP-specific resource wrappers delegating to typed complete operations.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "GET /api/v1/users"
+      ],
+      "classification": "wire_contract_defect",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/user/routes.rs:544:users_index"
+      ],
+      "previous_sdk": "Handwritten users.list used generic PageQuery exposing page_number/page_size.",
+      "native_behavior": "Native UsersQuery uses page/per_page plus search/status/role_id/role_name; unsupported pagination names are ignored.",
+      "correction": "IDP user resource list uses named native IdpUserListQuery.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "GET /oauth2/authorize",
+        "GET /api/v1/auth/native/authorize",
+        "GET /api/v1/auth/token-login",
+        "GET /api/v1/auth/handoff",
+        "GET /api/v1/users/directory"
+      ],
+      "classification": "input_contract_gap",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/oidc.rs:142:authorize",
+        "infera-idp/src/auth/native.rs:59:authorize",
+        "infera-idp/src/auth/routes.rs:1535:login_token",
+        "infera-idp/src/auth/routes.rs:1768:browser_handoff",
+        "infera-idp/src/user/routes.rs:87:users_directory"
+      ],
+      "previous_sdk": "Generated query argument was optional despite required Rust fields.",
+      "native_behavior": "Missing required query fields fail native Query extraction.",
+      "correction": "Mark these operation query arguments required.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "PATCH /api/v1/users/{user_id}",
+        "PUT /api/v1/users/{user_id}",
+        "PATCH /api/v1/users/{user_id}/change-password",
+        "PUT /api/v1/users/{user_id}/change-password",
+        "PUT /api/v1/users/self/password"
+      ],
+      "classification": "documentation_semantics",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/user/routes.rs:691:user_update",
+        "infera-idp/src/user/routes.rs:691:user_update",
+        "infera-idp/src/user/routes.rs:759:change_password",
+        "infera-idp/src/user/routes.rs:759:change_password",
+        "infera-idp/src/user/self_password.rs:66:save",
+        "infera-idp/src/user/methods.rs:743:update_user",
+        "infera-idp/src/user/methods.rs:784:create_password_identity",
+        "infera-idp/src/user/self_password.rs:92:replace_password"
+      ],
+      "previous_sdk": "Generic JSDoc failed to explain non-obvious native update/password semantics.",
+      "native_behavior": "Managed updates clear omitted identity fields; legacy admin password replaces all local identity rows; self/password preserves other rows and does not verify accepted current_password.",
+      "correction": "Document exact source behavior in operation/convenience JSDoc and README; no runtime changes.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    },
+    {
+      "operations": [
+        "PATCH /api/v1/users/{user_id}/change-roles",
+        "PUT /api/v1/users/{user_id}/change-roles"
+      ],
+      "classification": "documentation_semantics",
+      "source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+      "source_refs": [
+        "infera-idp/src/user/routes.rs:810:change_roles",
+        "infera-idp/src/user/routes.rs:810:change_roles",
+        "infera-idp/src/acl/methods.rs:314:update_user_roles"
+      ],
+      "previous_sdk": "Existing membership override claimed both ACL read and update for replacement.",
+      "native_behavior": "Replacement guard checks idp:acl:update only, including after target lock. Snapshot read requires read, and additive updates require both.",
+      "correction": "Correct operation auth and preserve existing required revision precondition.",
+      "native_execution_evidence": "not claimed; source-only review",
+      "fixed_files": []
+    }
+  ],
+  "not_defects": [
+    {
+      "item": "GET /api/v1/users/{user_id}/logout generated response",
+      "assessment": "Already correctly generated as APIResponse<UserResponse>; only the handwritten convenience alias was wrong. Do not confuse this with GET /api/v1/auth/logout."
+    },
+    {
+      "item": "OPTIONS /api/v1/auth/validate void response",
+      "assessment": "Already correct. Outer CorsLayer intercepts OPTIONS and returns empty200 before validate, despite its inner handler returning status/message. Not a JSON-response defect."
+    },
+    {
+      "item": "Custom-provider claim_mapping, role_mapping and extra_authorize_params",
+      "assessment": "Selected native model genuinely stores arbitrary serde_json::Value and returns it unchanged. Named CustomProviderMappingJson explains supported string-reader semantics and preserves legitimate arbitrary persisted JSON; this is not an invented concrete wire model."
+    },
+    {
+      "item": "Missing native per-operation proof",
+      "assessment": "Evidence gap, not proof of a broken endpoint. Source-only reviews never satisfy native release certification."
+    }
+  ],
+  "validation": "Implementation-first phase. No build, test, pack, Cargo or Docker run claimed."
+}

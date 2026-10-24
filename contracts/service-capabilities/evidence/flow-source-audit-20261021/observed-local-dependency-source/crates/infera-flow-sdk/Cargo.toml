@@ -1,0 +1,24 @@
+[package]
+name = "infera-flow-sdk"
+version = "0.1.0"
+edition = "2021"
+description = "Infera flow service HTTP client and RabbitMQ integration helpers"
+license = "MIT"
+repository = "https://hamgit.ir/faiber/faiber-sdk"
+documentation = "https://docs.rs/infera-flow-sdk"
+readme = "README.md"
+publish = false
+
+[dependencies]
+axum = { version = "0.8.4" }
+futures-lite = "2.6"
+lapin = "3.2.1"
+reqwest = { version = "0.12", features = ["json", "rustls-tls-native-roots"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.46.1", features = ["macros", "rt-multi-thread"] }
+tracing = "0.1"
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+http-body-util = "0.1"
+bytes = "1"

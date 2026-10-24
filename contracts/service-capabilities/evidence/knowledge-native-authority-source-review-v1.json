@@ -1,0 +1,57 @@
+{
+  "status": "source_review_current_native_authority_not_certified",
+  "knowledge_source_revision": "0e2fe686575dc2f59edfa150b2d4846eaed8988c",
+  "resolved_idp_sdk": {
+    "package_id": "git+https://hamgit.ir/faiber/faiber-sdk.git#infera-idp-sdk@0.1.0",
+    "source": "git+https://hamgit.ir/faiber/faiber-sdk.git#b8c83ebfc54cbc7ae4deba5237d8f63a916177d4",
+    "manifest_path": "/Users/mohammadralizadeh/.cargo/git/checkouts/faiber-sdk-5582fa80afda00ad/b8c83eb/crates/infera-idp-sdk/Cargo.toml"
+  },
+  "source_files": [
+    {
+      "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/knowledge-editor-atomicity-20261020/infera-knowledge/Cargo.toml",
+      "sha256": "799dd2694927f3ecf4406521752f138bc3bf0bc7f284d83d845df76a0dd52969"
+    },
+    {
+      "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/knowledge-editor-atomicity-20261020/infera-knowledge/src/main.rs",
+      "sha256": "14c53814300d2e3afdb1a5f70357ee5e863a7bd2721668bf965b283507787d0e"
+    },
+    {
+      "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/knowledge-editor-atomicity-20261020/infera-knowledge/src/context.rs",
+      "sha256": "e015d5ef0e82a786fcafc06d67dd4363ff6e83bd4d55655bdc9b09177bddadaf"
+    },
+    {
+      "path": "/Users/mohammadralizadeh/.cargo/git/checkouts/faiber-sdk-5582fa80afda00ad/b8c83eb/crates/infera-idp-sdk/Cargo.toml",
+      "sha256": "5550deffd91462a1d147ca6555834185af46974c831bf2fd6d67013a82226c5f"
+    },
+    {
+      "path": "/Users/mohammadralizadeh/.cargo/git/checkouts/faiber-sdk-5582fa80afda00ad/b8c83eb/crates/infera-idp-sdk/src/middleware.rs",
+      "sha256": "a00e0d14e4ee1d7bb0cbfddaf5fadf8299e8d97e41659fea8e012805d50d44b0"
+    },
+    {
+      "path": "/Users/mohammadralizadeh/.cargo/git/checkouts/faiber-sdk-5582fa80afda00ad/b8c83eb/crates/infera-idp-sdk/src/utils.rs",
+      "sha256": "8f5d6ba6762e8fca6e815941ca874ec729e7d2a7a54f055d2d4af6741541b723"
+    },
+    {
+      "path": "/Users/mohammadralizadeh/.cargo/git/checkouts/faiber-sdk-5582fa80afda00ad/b8c83eb/crates/infera-idp-sdk/src/client.rs",
+      "sha256": "d13053350e7bfd0ba2854cc6d7cde4ccaf8303026badbe4d408455a270f31eff"
+    }
+  ],
+  "observed": [
+    "Production management/runtime routers use auth_extractor_middleware",
+    "Exact resolved middleware parses x-user-id/roles/permissions and inserts AuthContext; it makes no IDP validation request",
+    "Knowledge enables dev-fallback; helper reads AUTH_ID/ROLES/PERMISSIONS without checking DEV",
+    "RequestContext accepts organization_id from caller header; no tenant membership proof is visible there",
+    "Configured service-token header grants knowledge:*; delegated organization/project/current-actor authorization remains a distinct boundary",
+    "IdpClient exposes validate(), but inspected Knowledge app does not call it for these routes"
+  ],
+  "limits": [
+    "No live ingress vulnerability claim: gateway auth/header sanitization and network isolation were not inspected by this source-only review",
+    "No user credentials, live requests, security configuration or runtime changes",
+    "Trusted header native41-operation tests do not certify this authority boundary"
+  ],
+  "required_verification": [
+    "Identify current trusted gateway or implement bounded current IDP validation without silently trusting caller headers",
+    "Bind tenant/project scope and delegated user authority to current source of truth",
+    "Prove denial for forged headers, revoked grants, disabled principals, foreign tenant/project and identity outage; preserve valid internal integrations"
+  ]
+}

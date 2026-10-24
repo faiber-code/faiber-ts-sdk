@@ -108,7 +108,7 @@ test("Manage SSE parser handles chunk boundaries, CRLF, multiline data, and type
   const encoder = new TextEncoder();
   const chunks = [
     "event: phase\r\ndata: planning\r\n\r\nevent: browser_",
-    "action\ndata: {\"action_id\":\"a1\",\"name\":\"manage_sdk\",\n",
+    "action\ndata: {\"action_id\":\"a1\",\"name\":\"browser_click\",\n",
     "data: \"arguments\":{\"service\":\"modules\",\"method\":\"GET\",\"path\":\"/api/v1/shop/products\"}}\n\n",
     "event: ask_user\ndata: {\"ask_id\":\"q1\",\"question\":\"Which warehouse?\"}\n\n",
     "event: complete\ndata: {\"message\":\"Done\"}\n\n",

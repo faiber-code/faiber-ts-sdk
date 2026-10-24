@@ -1,0 +1,18 @@
+[[package]]
+name = "infera-flow-sdk"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "bytes",
+ "chrono",
+ "futures-lite",
+ "http-body-util",
+ "lapin",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "tokio",
+ "tracing",
+ "uuid",
+]
+

@@ -1,6 +1,48 @@
+import { reservationReviewedOperationContracts } from "./reservation-reviewed-operation-contracts.mjs";
+import { paymentReviewedOperationContracts } from "./payment-reviewed-operation-contracts.mjs";
+import { flowReviewedOperationContracts } from "./flow-reviewed-operation-contracts.mjs";
+import { sessionReviewedOperationContracts } from "./session-reviewed-operation-contracts.mjs";
+import { messengerReviewedOperationContracts } from "./messenger-reviewed-operation-contracts.mjs";
+import { drmReviewedOperationContracts } from "./drm-reviewed-operation-contracts.mjs";
+import { socialReviewedOperationContracts } from "./social-reviewed-operation-contracts.mjs";
+import { taskReviewedOperationContracts } from "./task-reviewed-operation-contracts.mjs";
+import { stateReviewedOperationContracts } from "./state-reviewed-operation-contracts.mjs";
+import { modulesReviewedOperationContracts } from "./modules-reviewed-operation-contracts.mjs";
+import { crmReviewedOperationContracts } from "./crm-reviewed-operation-contracts.mjs";
+import { chatReviewedOperationContracts } from "./chat-reviewed-operation-contracts.mjs";
+import { assetReviewedOperationContracts } from "./asset-reviewed-operation-contracts.mjs";
+import { lmsReviewedOperationContracts } from "./lms-reviewed-operation-contracts.mjs";
+import { idpSourceContracts } from "./idp-source-contracts.mjs";
+import { knowledgeReviewedOperationContracts } from "./knowledge-reviewed-operation-contracts.mjs";
+import { profileWireContracts } from "./profile-wire-contracts.mjs";
+import { knowledgeMemoryManagementContracts } from "./knowledge-memory-management-contracts.mjs";
+import { idpMembershipContracts } from "./idp-membership-contracts.mjs";
+import { gisContracts } from "./gis-contracts.mjs";
+import { lmsBrandingContracts } from "./lms-branding-contracts.mjs";
+import { routerContracts } from "./router-contract-overrides.mjs";
+import { socialDiscoveryContracts } from "./social-discovery-contracts.mjs";
+import { socialAdminContracts } from "./social-admin-contracts.mjs";
+import { integrationContracts } from "./integration-contracts.mjs";
 import { profileSummaryContracts } from "./profile-summary-contracts.mjs";
 // Reviewed wire contracts; keyed by the mounted method and path, never ambiguous handler names.
 export const releaseContracts = {
+  "modules:GET /api/v1/categories": { purpose: "List non-deleted hosted catalogs by case-insensitive literal category name substring. Search: at most 128 raw Unicode characters, no NUL (400 on violation); server trims whitespace and echoes string or null in data.search. Omitted/blank search preserves unfiltered rows/count. page_number is 1-based; page_size clamps to 1..100, default 10. Stable UUID order. Existing authorization and tenancy unchanged; search does not filter lifecycle status." },
+  "modules:GET /api/v1/tags": { purpose: "List non-deleted hosted catalogs by case-insensitive literal tag name substring. Search: at most 128 raw Unicode characters, no NUL (400 on violation); server trims whitespace and echoes string or null in data.search. Omitted/blank search preserves unfiltered rows/count. page_number is 1-based; page_size clamps to 1..100, default 10. Stable UUID order. Existing authorization and tenancy unchanged; search does not filter lifecycle status." },
+  "modules:GET /api/v1/seo-contents": { purpose: "List non-deleted hosted catalogs by case-insensitive literal SEO title or URL substring. Search: at most 128 raw Unicode characters, no NUL (400 on violation); server trims whitespace and echoes string or null in data.search. Omitted/blank search preserves unfiltered rows/count. page_number is 1-based; page_size clamps to 1..100, default 10. Stable UUID order. Existing authorization and tenancy unchanged; search does not filter lifecycle status." },
+  ...idpMembershipContracts,
+  "idp:GET /api/v1/acl/users/{user_id}/effective-permissions": {
+    response: 'import("./authority.js").EffectivePermissionResponse',
+    query: 'import("./authority.js").EffectivePermissionQuery',
+    requiredQuery: true,
+    auth: 'BOTH current idp:user:read and idp:acl:read; current active local principal/client/session',
+    purpose: 'Read a bounded current local-IDP grant snapshot for one user/service. Never cache this as delegated authorization; equal revision does not extend authority. Unavailable or oversized snapshots fail closed.'
+  },
+  ...gisContracts,
+  ...routerContracts,
+  ...lmsBrandingContracts,
+  ...socialAdminContracts,
+  ...socialDiscoveryContracts,
+  ...integrationContracts,
   ...profileSummaryContracts,
   "idp:POST /api/v1/auth/secure/handoff/{user_id}": {
     "response": "import(\"./contracts.types.js\").HandoffTokenResponse",
@@ -36,6 +78,22 @@ export const releaseContracts = {
     "auth": "server-only x-website-otp-token",
     "purpose": "Check verified SMS OTP readiness without sending messages. Set x-website-otp-token in request headers; returns a raw object."
   },
+  "payment:GET /api/v1/gateways": {"query": "import(\"./types.js\").GatewayListQuery", "response": "import(\"./types.js\").GatewayListResponse"},
+  "payment:POST /api/v1/gateways": {"input": "import(\"./types.js\").CreateGatewayInput", "response": "import(\"./types.js\").GatewayResponse"},
+  "payment:GET /api/v1/gateways/{id}": {"response": "import(\"./types.js\").GatewayResponse", "pathTypes": {"id": "number"}},
+  "payment:PATCH /api/v1/gateways/{id}": {"input": "import(\"./types.js\").UpdateGatewayInput", "response": "import(\"./types.js\").GatewayResponse", "pathTypes": {"id": "number"}},
+  "payment:DELETE /api/v1/gateways/{id}": {"response": "import(\"./types.js\").GatewayResponse", "pathTypes": {"id": "number"}},
+  "payment:GET /api/v1/gateways/options": {"response": "import(\"./types.js\").GatewayOptionsResponse"},
+  "payment:GET /api/v1/transactions": {"query": "import(\"./types.js\").TransactionListQuery", "response": "import(\"./types.js\").TransactionListResponse"},
+  "payment:GET /api/v1/transactions/{uuid}": {"response": "import(\"./types.js\").TransactionResponse", "pathTypes": {"uuid": "string"}},
+  "payment:GET /api/v1/transactions/daily-income": {"query": "import(\"./types.js\").DailyIncomeQuery", "response": "import(\"./types.js\").DailyIncomeResponse"},
+  "payment:POST /api/v1/transactions/{uuid}/verify": {"response": "import(\"./types.js\").VerifyPaymentResponse", "pathTypes": {"uuid": "string"}},
+  "payment:POST /api/v1/transactions/{uuid}/reject": {"response": "import(\"./types.js\").VerifyPaymentResponse", "pathTypes": {"uuid": "string"}},
+  "payment:GET /api/v1/transactions/{uuid}/verifications": {"response": "import(\"./types.js\").PaymentVerificationLogsResponse", "pathTypes": {"uuid": "string"}},
+  "payment:POST /api/v1/payment": {"input": "import(\"./types.js\").CreatePaymentInput", "response": "import(\"./types.js\").CreatePaymentResponse"},
+  "payment:GET /payments/{uuid}/redirect": {"response": "import(\"./types.js\").PaymentHtmlResponse", "textResponse": true, "pathTypes": {"uuid": "string"}, "auth": "public payment navigation/provider callback; no user permission declared", "purpose": "Return payment HTML, or for callbacks303 Location when the configured HTTPS origin is allowed. Callback fields are query parameters for both GET and POST. This can verify a payment with its provider; HTTP200 alone does not prove successful payment. Node follows redirects by default; use maxRedirects:0 and validateStatus to inspect303."},
+  "payment:GET /payments/callbacks/{provider}": {"response": "import(\"./types.js\").PaymentHtmlResponse", "textResponse": true, "pathTypes": {"provider": "string"}, "auth": "public payment navigation/provider callback; no user permission declared", "purpose": "Return payment HTML, or for callbacks303 Location when the configured HTTPS origin is allowed. Callback fields are query parameters for both GET and POST. This can verify a payment with its provider; HTTP200 alone does not prove successful payment. Node follows redirects by default; use maxRedirects:0 and validateStatus to inspect303."},
+  "payment:POST /payments/callbacks/{provider}": {"response": "import(\"./types.js\").PaymentHtmlResponse", "textResponse": true, "pathTypes": {"provider": "string"}, "auth": "public payment navigation/provider callback; no user permission declared", "purpose": "Return payment HTML, or for callbacks303 Location when the configured HTTPS origin is allowed. Callback fields are query parameters for both GET and POST. This can verify a payment with its provider; HTTP200 alone does not prove successful payment. Node follows redirects by default; use maxRedirects:0 and validateStatus to inspect303."},
   "payment:POST /api/v1/gateways/setup-check": {
     "response": "import(\"./contracts.types.js\").PaymentSetupResponse",
     "auth": "admin:gateway:read",
@@ -172,6 +230,39 @@ export const releaseContracts = {
     "input": "import(\"./types.js\").TransferUserDataInput",
     "methodName": "transferUserDataPost",
     "idempotencyKey": true
+  },
+  "version:GET /health": {
+    "response": "import(\"./types.js\").HealthResponse",
+    "auth": "public at the service router; deployed gateway rules may add restrictions",
+    "purpose": "Read the Version service process health envelope. This does not verify database, broker or gateway readiness."
+  },
+  "version:GET /api/openapi.json": {
+    "response": "import(\"./types.js\").VersionOpenApiDocument",
+    "auth": "public at the service router; deployed gateway rules may add restrictions",
+    "purpose": "Read the raw generated OpenAPI document, without an API envelope. The current document describes health only and is not the complete mounted API inventory."
+  },
+  "version:GET /api/v1/services": {
+    "response": "import(\"./types.js\").ServicesResponse",
+    "auth": "no IDP permission enforced by the mounted service handler; deployed gateway policy is separate",
+    "purpose": "List active registered services without pagination or filters. last_version is null in this list; read a service by slug to resolve its newest active release."
+  },
+  "version:GET /api/v1/services/{service_slug}": {
+    "pathTypes": { "service_slug": "string" },
+    "response": "import(\"./types.js\").ServiceResponse",
+    "auth": "no IDP permission enforced by the mounted service handler; deployed gateway policy is separate",
+    "purpose": "Find an active service by its slug, not its UUID, and its highest-code active version. Missing or inactive services return 404."
+  },
+  "version:GET /api/v1/services/{service_slug}/all": {
+    "pathTypes": { "service_slug": "string" },
+    "response": "import(\"./types.js\").ServiceVersionsResponse",
+    "auth": "no IDP permission enforced by the mounted service handler; deployed gateway policy is separate",
+    "purpose": "Read all active versions for an active service slug. The service does not define history ordering or pagination; missing or inactive services return 404."
+  },
+  "version:GET /api/v1/versions/{version_id}": {
+    "pathTypes": { "version_id": "string" },
+    "response": "import(\"./types.js\").VersionResponse",
+    "auth": "no IDP permission enforced by the mounted service handler; deployed gateway policy is separate",
+    "purpose": "Read an active version by UUID. Malformed UUIDs return 400 and missing or inactive versions return 404. Scope is metadata, not an access filter in this handler."
   },
   "version:POST /api/v1/apk/releases": {
     "response": "import(\"./contracts.types.js\").ApkPublishReceipt",
@@ -610,3 +701,109 @@ export const releaseContracts = {
     "websocket": "room"
   }
 };
+
+// Source review: shared/infera-summary-sdk/src/native_access.rs and
+// native_policy.rs in the pinned Chat/Session trees. These are administrator
+// REST APIs; the separate signed-grant MCP transport is not a browser endpoint.
+for (const service of ['chat', 'session']) {
+  const auth = `Bearer token revalidated against current IDP ${service}:summary_access:manage; cookie-only sessions are not accepted`;
+  const response = 'import("@faiber/sdk-core").NativeSummaryAccessResponse';
+  for (const [operation, methodName, input, purpose] of [
+    ['GET /api/v1/summary-access', 'nativeSummaryAccessStatus', null,
+      'Read current configured observer binding, operator policy and reconciliation counts. Missing binding or unavailable IDP/database returns 503; denied current authority returns 401/403.'],
+    ['PUT /api/v1/summary-access', 'saveNativeSummaryAccessPolicy', 'NativeSummaryPolicyUpdate',
+      'Approve or disable source-owned read-only observation using the current policy revision. Stale revisions return 409; a blank or overlong reason returns 422. Saving does not clear object revocations or imply reconciliation has finished.'],
+    ['POST /api/v1/summary-access/revocations', 'revokeNativeSummaryObject', 'NativeSummaryAccessRevoke',
+      'Persist an object revocation under the current source scope. A non-nil object UUID and reason are required; objects outside the configured scope are forbidden. Re-enabling the policy preserves this revocation.'],
+    ['DELETE /api/v1/summary-access/revocations/{object}', 'restoreNativeSummaryObject', 'NativeSummaryAccessRestore',
+      'Remove an object revocation with a required JSON reason body and reconcile that object under the current source policy. This does not enable a disabled policy or bypass current scope checks.'],
+  ]) {
+    releaseContracts[`${service}:${operation}`] = {methodName, auth, response, purpose,
+      ...(input ? {input: `import("@faiber/sdk-core").${input}`} : {})};
+  }
+}
+
+// Session d7f8672 src/branding.rs: flattened input/output and public-only discovery.
+for (const [operation, typeBase, responseType, input] of [
+  ['GET /api/v1/config/branding','BrandingShowGet','SessionBranding',false],
+  ['PUT /api/v1/config/branding','BrandingUpdatePut','SessionBranding',true],
+  ['GET /api/v1/public/branding','BrandingPublicShowGet','SessionPublicBranding',false],
+]) {
+  releaseContracts[`session:${operation}`]={typeBase,
+    response:`import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").${responseType}>`,
+    dataAlias:`import("./branding.types.js").${responseType}`,
+    ...(input?{input:'import("./branding.types.js").SessionBrandingInput'}:{}),
+    auth:operation.includes('/public/')?'public runtime branding/discovery; no actor or administration permission':`session:config:${input?'update':'read'}`,
+    purpose:operation.includes('/public/')?'Read public branding and the validated configuration-derived feedback Task origin. Runtime discovery is not a writable branding field.':'Read or save native learner branding with localized text and asset references. Runtime feedback routing is configured separately.'};
+}
+
+Object.assign(releaseContracts,knowledgeMemoryManagementContracts);
+
+// Apply per-operation reviewed corrections without discarding existing transport metadata.
+for (const [key, correction] of Object.entries(profileWireContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(knowledgeReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(idpSourceContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(lmsReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(assetReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(chatReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(crmReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(modulesReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(stateReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(taskReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(socialReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(drmReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(messengerReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(sessionReviewedOperationContracts)) {
+  releaseContracts[key] = {...releaseContracts[key], ...correction};
+}
+
+for (const [key, correction] of Object.entries(flowReviewedOperationContracts)) {
+  releaseContracts[key] = { ...releaseContracts[key], ...correction };
+}
+
+for (const [key, correction] of Object.entries(paymentReviewedOperationContracts)) {
+  releaseContracts[key] = { ...releaseContracts[key], ...correction };
+}
+
+for (const [key, correction] of Object.entries(reservationReviewedOperationContracts)) {
+  releaseContracts[key] = { ...releaseContracts[key], ...correction };
+}

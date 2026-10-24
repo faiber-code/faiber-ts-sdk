@@ -22,24 +22,27 @@ const client = new FaiberClient("session", {
 });
 const api = new SessionApi(client);
 
-const rooms = await api.rooms.list({ "page[number]": 1 });
+const rooms = await api.rooms.list({ page_number: 1, page_size: 10 });
 const token = await api.livekitToken(roomId);
 ```
 
 ## Complete capability
 
-This package exposes 35 registered operations from the live sessions service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 45 source-mounted HTTP operations. Common workflows have concise methods on `api`; named operation types are exported from `operations.types`. A router's `ANY` filter is exposed as one operation taking an explicit HTTP method.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
+| `asset-economy` | 1 | `POST` |
 | `assistant-tools` | 3 | `GET` |
 | `branding` | 5 | `GET`, `POST`, `PUT` |
 | `configuration` | 2 | `GET`, `PUT` |
-| `integration` | 3 | `GET`, `POST` |
+| `integration` | 2 | `GET` |
+| `native-access` | 4 | `DELETE`, `GET`, `POST`, `PUT` |
+| `notification-state` | 1 | `GET` |
 | `recording` | 4 | `GET`, `POST` |
-| `room` | 16 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `room` | 19 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `room-state` | 1 | `POST` |
-| `router` | 1 | `GET` |
+| `router` | 3 | `ANY`, `GET` |
 
 Room start, stop, end, playback, recording, webhook, and state-response routes are separate operations so their unusual GET/POST verbs are preserved exactly.
 
@@ -58,7 +61,7 @@ Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `w
 
 ## Inputs, queries, responses, and transport
 
-All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Nested pagination uses keys such as `page[number]` and `page[size]` where required by the service. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
+All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Room and recording queries use `page_number` and `page_size`; recording pages include `meta`, while room lists contain `data.rooms` without pagination metadata. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
 
 Generic REST resources are capability-guarded. Calling a legacy method that the service does not register throws `UnsupportedOperationError` before sending a request instead of producing a backend `405`.
 
@@ -77,3 +80,99 @@ Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services 
 ### Presence and moderation
 
 `operations.roomRoomsPresenceEventsGet(roomId)` returns typed `joined`/`left` events with UTC timestamps. Access requires a room read permission and preview/participant authorization. `roomRoomsSelfModerationGet` reads the current participant's mute state; `roomRoomsParticipantMutePut(roomId, profileId, {muted:true})` requires `room:end` and authorized room ownership. Muted-until timestamps are nullable RFC 3339 strings. Standard authenticated Axios responses and cancellation options are retained.
+
+### Trusted LMS notification state
+
+`operations.notificationStateSnapshotGet(roomId, options)` requires a server-only
+`x-infera-lms-token` matching Session's `LMS_SERVICE_TOKEN`. Never expose it to a browser.
+The response includes nullable classroom-session and actual-start timestamps, current
+present user IDs, entry availability and ended state. Missing configuration or an
+unavailable media provider returns503; an invalid credential returns403.
+
+This observation can persist the first learning-start marker and an outbox event.
+Live rooms consult LiveKit with a five-second bound; composition rooms consult recent
+client activity. It is not proof of unique attendance or punctuality. The SDK preserves
+Session's room-client IDs; callers must verify their mapping to canonical IDP users.
+`flowIntegration()` calls the mounted root path `/integration/flow`.
+
+### Peer transport
+
+`operations.routerProxyViewServiceAny("chat", "conversations/owned/messages", "GET", undefined,
+{limit: 20})` uses Session's authenticated peer boundary. Supported peers are `chat`,
+`asset`, `profile`, `drm` and `lms`. Give raw nonempty path segments; embedded slashes
+are preserved, while dot traversal, percent escapes, query/fragment syntax and
+backslashes are rejected before sending. Supply queries separately.
+
+This is opaque transport: use the target service's named business types when preparing
+a JSON string, set the target Content-Type and keep requests under2MiB. This method
+returns buffered `ArrayBuffer`/`Uint8Array` bytes with full Axios status and headers.
+Use the shared client's explicit streaming transport for SSE or media streams.
+Session forwards its extracted actor rather than caller-supplied `x-user-*` headers.
+Chat receives no browser cookie; other peers receive the cookie when supplied.
+Room-scoped Chat grants check participation or preview access, then Chat membership.
+The `x-session-room-id` header scopes supported Chat reads/message writes; it does not
+grant arbitrary conversation administration. Session rewrites group members from its
+room roster and LMS staff and filters scoped collections to the requested room.
+
+DRM read grants are different: an authenticated actor receives path-based catalog,
+package and ClearKey read permissions without a room-membership lookup at this proxy.
+The target service must enforce resource access; this transport is not membership,
+license ownership or attendance proof. Do not treat it as a universal permission bypass.
+
+Missing Chat/DRM/LMS configuration and upstream transport failures return502. Asset
+and Profile retain system-namespace defaults when their URL variables are absent;
+set explicit project peer URLs before relying on sandbox isolation. Unknown peers
+return404 and requests over2MiB return413. Peer status codes are retained; response
+headers are an allowlisted subset, not all upstream headers. Session streams Chat
+events and DRM package files upstream, but this SDK helper buffers their bytes.
+Cross-origin `x-session-room-id` support and actual participating-service permission
+checks require separate verification; a successful proxy request alone proves neither.
+
+`CONNECT` requires an explicitly supplied tunnel-capable Axios adapter. The default
+Node Axios adapter does not consume CONNECT response events, and browsers restrict
+tunnel methods; the SDK rejects a default-adapter CONNECT call before transport.
+
+
+### Source summary observation policy
+
+Use the source-owned administration API with a Bearer token authorized for
+`session:summary_access:manage`. The service rechecks current IDP authority on
+every request; a cookie-only session or caller-supplied user headers do not grant
+access. Enabling also validates the configured collector's current
+`session:summary:read` permission. This policy does not grant model access or
+change the collector binding.
+
+```ts
+const observed = await sdk.session.operations.nativeSummaryAccessStatus();
+await sdk.session.operations.saveNativeSummaryAccessPolicy({
+  enabled: false,
+  expected_revision: observed.data.data.policy?.revision ?? 0,
+  reason: "Pause collection for review",
+});
+await sdk.session.operations.revokeNativeSummaryObject({
+  object_id: sourceObjectId,
+  reason: "Exclude this source object",
+});
+await sdk.session.operations.restoreNativeSummaryObject(sourceObjectId, {
+  reason: "Restore after review",
+});
+```
+
+A stale policy revision returns 409; reload and review before retrying. Reasons
+are required and limited to 1024 Unicode characters. Revocations survive policy
+disabling and re-enabling. The restore operation sends its reason as a JSON
+DELETE body. Successful saves return the current binding, policy and counts;
+pending objects can remain until background reconciliation finishes. Axios
+responses, errors, headers, timeouts and abort signals are preserved. The
+separate `/mcp` transport uses signed scoped grants and rejects browser origins;
+these REST methods do not provide an MCP session.
+
+After a transport error or 503, reload current status before retrying a mutation: the source can commit its policy/revocation before a later status read or reconciliation fails. Use the reloaded revision and review the resulting state.
+
+### Native room and configuration contracts
+
+Room creation requires `name`, numeric `capacity` and timezone-free `starts_at` (for example `2026-10-21T12:00:00`). Room status is numeric; room-state enum names use PascalCase such as `Question` and `ChargeLow`. PUT and PATCH both partially update; omitted or null optional update fields preserve stored values. `rooms.delete` returns the deleted room snapshot in `data.room`. Interactive start accepts no JSON body. Playback returns the room and its states, rather than a playback URL.
+
+Branding saves replace the document; omitted values reset to defaults. Use a FormData whose first field is `file` for a PNG/JPEG/WebP logo of at most 8 MiB. Upload returns `data.asset_key` and `data.url`; save the asset key separately. Public asset reads return bytes and Content-Type. Configuration reads expose secret-presence booleans; blank/omitted/null secrets on save preserve existing secrets. Omitted `audio_processing_enabled` defaults false. Assistant session list/detail access uses explicit own/all permission checks and participant membership; global detail access may include other participants' analyses.
+
+Stored model analysis, DRM snapshots, interaction content and Asset receipt extension fields are explicitly documented JSON boundaries; the SDK does not invent provider schemas. This package's source review covers 45 mounted HTTP operations. Compiled SDK checks, exact native acceptance and deployed gateway enforcement are separate release gates.

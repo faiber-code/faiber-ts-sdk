@@ -1,0 +1,48 @@
+
+> faiber-ts-sdk-monorepo@1.0.0 generate:check
+> npm run contracts:audit && node scripts/generate-service-operations.mjs service-contracts.json --check && node scripts/generate-manage-actions.mjs --check
+
+
+> faiber-ts-sdk-monorepo@1.0.0 contracts:audit
+> node scripts/audit-service-contracts.mjs
+
+asset: 110 routes verified
+chat: 69 routes verified
+crm: 92 routes verified
+drm: 96 routes verified
+flow: 18 routes verified
+idp: 109 routes verified
+knowledge: 84 routes verified
+lms: 181 routes verified
+messenger: 47 routes verified
+modules: 179 routes verified
+payment: 36 routes verified
+profile: 235 routes verified
+reservation: 30 routes verified
+session: 45 routes verified
+social: 112 routes verified
+state: 45 routes verified
+task: 128 routes verified
+version: 7 routes verified
+gis: 48 routes verified
+verified 1671 extracted contracts with exact generated operation coverage; semantic and mounted-router acceptance are separate gates
+asset: compared 110 operations
+chat: compared 69 operations
+crm: compared 92 operations
+drm: compared 96 operations
+flow: compared 18 operations
+idp: compared 109 operations
+knowledge: compared 84 operations
+lms: compared 181 operations
+messenger: compared 47 operations
+modules: compared 179 operations
+payment: compared 36 operations
+profile: compared 235 operations
+reservation: compared 30 operations
+session: compared 45 operations
+social: compared 112 operations
+state: compared 45 operations
+task: compared 128 operations
+version: compared 7 operations
+gis: compared 48 operations
+Manage durable actions: 5 reviewed operations compared

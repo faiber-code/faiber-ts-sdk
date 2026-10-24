@@ -1,6 +1,6 @@
 {
   "name": "@faiber/faiber-reservation",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -13,9 +13,10 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "provenance.json"
   ],
   "dependencies": {
-    "@faiber/sdk-core": "1.0.0"
+    "@faiber/sdk-core": "1.1.0"
   }
 }

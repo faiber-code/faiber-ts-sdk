@@ -1,0 +1,86 @@
+{
+  "recorded_at": "2026-10-19T14:25:27.723265+00:00",
+  "status": "local_implementation_and_frozen_acceptance_complete_live_blocked",
+  "sdk_release_owner": "Separate final SDK integration owner; this task has not edited that isolated release checkout or published anything.",
+  "original_integrated_sdk_revision": "dd52e5597f53d4a16c1c9d0e4b2bc43a6eaa5726",
+  "original_revision_scope": "Original SDK evidence remains valid only for its original recorded inputs. It does not include this CRM addition.",
+  "typescript_patch": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/crm/typescript-sdk-crm-only.patch",
+  "sdk_paths": [
+    {
+      "path": "/Users/mohammadralizadeh/Infera/faiber-ts-sdk/packages/profile/src/summaries.types.ts",
+      "sha256": "096e7ff84209e964e6740ff5e286dd5eb0ddecaf181161d000da3fd831f49b03"
+    },
+    {
+      "path": "/Users/mohammadralizadeh/Infera/faiber-ts-sdk/tests/profile-summaries.test.mjs",
+      "sha256": "2f7358d9660c4fa28052256caa0f8c430118f87a68f548b81d35e865094958c2"
+    },
+    {
+      "path": "/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-summary-sdk/src/config.rs",
+      "sha256": "63b94a830ac8c0af99fc86fc71953659bda67c83c5f52158cd74b5d31a1f0645"
+    },
+    {
+      "path": "/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-summary-sdk/src/catalog.rs",
+      "sha256": "28f3b4b57b2c2dd7bc1309af471c6514afe1ca8fe70e3727735afc257b18d2e1"
+    },
+    {
+      "path": "/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-profile-sdk/src/summaries_contracts.rs",
+      "sha256": "14cddce5656a55d2f5c9f26814d5eea968a52b58e27ba8dd2fde0ad5feea8f07"
+    },
+    {
+      "path": "/Users/mohammadralizadeh/Infera/Service/faiber-sdk/scripts/sync-summary-contracts.py",
+      "sha256": "ab0ca7eac42f947bf103305f24ec3ab6e62b4bfdbb61f722c39ae038cabeffde"
+    }
+  ],
+  "wire_changes": [
+    "Source / SummarySource adds crm; Rust Source::ALL has six entries and exhaustive matches must handle Source::Crm.",
+    "No Profile REST operation was added, removed or renamed; all twenty summary operations remain. CRM check uses the existing /sources/{source}/check route.",
+    "CRM capability categories: leads/tasks/activities/sos; subject and assigned scopes; four standard read-only MCP tools; no text categories.",
+    "Additional typed aggregates: task completed/overdue count; activity call/meeting/message count and exact numeric duration seconds.",
+    "Shared validation rejects text selection for sources with no supported text categories; configuration source count derives from Source::ALL.",
+    "Evidence envelope/grant protocol version remains 1; CRM is a coordinated capability addition."
+  ],
+  "service_changes": [
+    "CRM mounts /mcp, validates source grants and live matching service OAuth identity, reuses native read/read_own/read_all policies and explicit runtime workspace.",
+    "CRM body-free metadata queries use complete aggregates and stable bounded pagination; custom task type strings are not exposed.",
+    "CRM durable outbox invalidates old/new actors/owners and associated categories with RabbitMQ confirms.",
+    "IDP CRM ACL adds explicit crm:summary:read for transport context; native read grants are still independently required.",
+    "Profile source check verifies a real CRM subject-context call after discovery; panel adds localized source/categories and disables unsupported text controls.",
+    "Poulstar drafts: Student21, Teacher13, Support27 metrics; Support selects LMS/Session/CRM/Accounting, CRM subject scope."
+  ],
+  "final_fence": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/crm/frozen-verification.json",
+  "source_dependency_before": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/crm/source-dependency-before.json",
+  "source_dependency_after": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/crm/source-dependency-after.json",
+  "repository_revisions_and_dirty_fingerprints": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/crm/repository-state.json",
+  "executed_checks": {
+    "frozen": [
+      "Shared Rust contracts: 6 unit tests and one official MCP transport test over all six sources; three unrelated live/DB gates ignored and not claimed.",
+      "Profile role configuration Rust contract test:1 passed.",
+      "CRM actual migrations + PostgreSQL/RabbitMQ + official MCP + native permission/identity revocation/workspace/pagination/outbox acceptance:2 passed.",
+      "Root TypeScript SDK build,110 tests,22 private package pack checks passed. This is not the separate Version/Social release candidate.",
+      "Profile panel lint,9 tests,production build passed.",
+      "Role draft applicator6 tests passed."
+    ],
+    "earlier_scoped": [
+      "Agentic Profile summary6 tests passed before final metadata-only text validation change; no real provider/billing call.",
+      "IDP dedicated CRM ACL import test1 passed; actual live OAuth provisioning not verified."
+    ],
+    "browser": [
+      "English Support preset selected LMS/Session/Accounting/CRM and excluded Task/Chat.",
+      "Persian RTL CRM categories selected with text off and no horizontal overflow.",
+      "Final metadata-only source control disabled with localized explanation after rebuild.",
+      "Previously failed run-deep-link-reload case retained; separate positive final reload case covers content."
+    ]
+  },
+  "canonical_integration": "All changes remain uncommitted local working-tree changes. No canonical main integration, push, service image build, deployment or SDK publication performed. Preserve concurrent/pre-existing dirty work; do not commit all repository-state entries wholesale.",
+  "production_build_limit": "Cargo checks/tests used the shared Service/.cargo/config.toml local SDK patches. Production locked/container builds against the final canonical Rust SDK revision remain a release-owner gate; Docker context now copies the shared crate.",
+  "compatibility": "Existing breaking LMS summary removal/Profile SDK cutover remains unchanged. Older summary service binaries/SDKs do not understand crm; ship coordinated generic service images with separate per-project runtime/config/data boundaries before enabling CRM.",
+  "remaining_blocks": [
+    "Fresh authenticated Profile check still redirects both the summary page and roles API to dashboard, with no summary navigation or JSON role response; no live drafts saved.",
+    "CRM needs deployment-controlled URL/native workspace plus dedicated verified OAuth identity and native read permissions; no credentials/grants provisioned.",
+    "Financial-owner Qwen3 inventory, real tool-capable provider preview and billing attribution/charge remain unverified; no live charge initiated.",
+    "Accounting current/as-of balances and full historical debt/schedule/refund reconciliation require an explicit authoritative contract.",
+    "Teacher rank completion/authorship/grading turnaround/punctuality and legacy CRM worklog/reminder workspace mapping require explicit source facts."
+  ],
+  "generation_enabled": false,
+  "fresh_live_access_recheck": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/crm/live-access-recheck.json"
+}

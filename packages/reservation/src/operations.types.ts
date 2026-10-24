@@ -2,16 +2,13 @@ import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, Quer
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend response type: serde_json::Value. */
-export interface RouterHealthGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RouterHealthGetResponse = import("./contracts.types.js").ReservationProcessHealthResponse;
 
-/** Backend response type: api. */
-export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: utoipa::openapi::OpenApi. */
+export type RouterOpenapiJsonGetResponse = import("@faiber/sdk-core").ServiceOpenApiDocument;
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
-}
+export type IntegrationFlowIntegrationShowGetResponse = import("./contracts.types.js").ReservationFlowIntegrationResponse;
 
 /** Backend query type: PaginationQuery. */
 export interface ProviderIndexGetQuery extends QueryParams {
@@ -21,11 +18,12 @@ export interface ProviderIndexGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<ProviderResponse>. */
 export interface ProviderIndexGetResponseItem extends JsonObject {
   "id": number;
-  "user_id"?: string | null;
+  "user_id": string | null;
   "name": string;
-  "bio"?: string | null;
-  "avatar_url"?: string | null;
+  "bio": string | null;
+  "avatar_url": string | null;
   "is_active": boolean;
+  "capacity": number;
   "created_at": string;
 }
 export interface ProviderIndexGetResponsePageMeta extends JsonObject {
@@ -48,32 +46,34 @@ export interface ProviderStorePostInput extends JsonObject {
   "bio"?: string | null;
   "avatar_url"?: string | null;
   "is_active"?: boolean | null;
+  "capacity"?: number | null;
 }
 /** Backend response type: ProviderResponse. */
 export interface ProviderStorePostResponseData extends JsonObject {
   "id": number;
-  "user_id"?: string | null;
+  "user_id": string | null;
   "name": string;
-  "bio"?: string | null;
-  "avatar_url"?: string | null;
+  "bio": string | null;
+  "avatar_url": string | null;
   "is_active": boolean;
+  "capacity": number;
   "created_at": string;
 }
 export interface ProviderStorePostResponse extends ApiEnvelope<ProviderStorePostResponseData> {
 }
 
 /** Backend response type: (). */
-export interface ProviderDestroyDeleteResponse extends ApiEnvelope<JsonObject> {
-}
+export type ProviderDestroyDeleteResponse = import("./contracts.types.js").ReservationMutationReceipt;
 
 /** Backend response type: ProviderResponse. */
 export interface ProviderShowGetResponseData extends JsonObject {
   "id": number;
-  "user_id"?: string | null;
+  "user_id": string | null;
   "name": string;
-  "bio"?: string | null;
-  "avatar_url"?: string | null;
+  "bio": string | null;
+  "avatar_url": string | null;
   "is_active": boolean;
+  "capacity": number;
   "created_at": string;
 }
 export interface ProviderShowGetResponse extends ApiEnvelope<ProviderShowGetResponseData> {
@@ -86,26 +86,51 @@ export interface ProviderUpdatePatchInput extends JsonObject {
   "bio"?: string | null;
   "avatar_url"?: string | null;
   "is_active"?: boolean | null;
+  "capacity"?: number | null;
 }
 /** Backend response type: ProviderResponse. */
 export interface ProviderUpdatePatchResponseData extends JsonObject {
   "id": number;
-  "user_id"?: string | null;
+  "user_id": string | null;
   "name": string;
-  "bio"?: string | null;
-  "avatar_url"?: string | null;
+  "bio": string | null;
+  "avatar_url": string | null;
   "is_active": boolean;
+  "capacity": number;
   "created_at": string;
 }
 export interface ProviderUpdatePatchResponse extends ApiEnvelope<ProviderUpdatePatchResponseData> {
+}
+
+/** Backend query type: PaginationQuery. */
+export interface ProviderCapacityReportGetQuery extends QueryParams {
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
+}
+/** Backend response type: super::capacity::CapacityReport. */
+export interface ProviderCapacityReportGetResponseDataConflicts extends JsonObject {
+  "starts_at": string;
+  "ends_at": string;
+  "occupied": number;
+}
+export interface ProviderCapacityReportGetResponseData extends JsonObject {
+  "provider_id": number;
+  "capacity": number;
+  "peak_current_future": number;
+  "observed_at": string;
+  "conflicts": ProviderCapacityReportGetResponseDataConflicts[];
+  "conflict_count": number;
+  "has_more": boolean;
+}
+export interface ProviderCapacityReportGetResponse extends ApiEnvelope<ProviderCapacityReportGetResponseData> {
 }
 
 /** Backend response type: Vec<ServiceResponse>. */
 export interface ProviderListServicesGetResponseItem extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string | null;
-  "image_url"?: string | null;
+  "description": string | null;
+  "image_url": string | null;
   "duration_minutes": number;
   "buffer_minutes": number;
   "is_active": boolean;
@@ -119,12 +144,10 @@ export interface ProviderAssignServicePostInput extends JsonObject {
   "service_id": number;
 }
 /** Backend response type: (). */
-export interface ProviderAssignServicePostResponse extends ApiEnvelope<JsonObject> {
-}
+export type ProviderAssignServicePostResponse = import("./contracts.types.js").ReservationMutationReceipt;
 
 /** Backend response type: (). */
-export interface ProviderRemoveServiceDeleteResponse extends ApiEnvelope<JsonObject> {
-}
+export type ProviderRemoveServiceDeleteResponse = import("./contracts.types.js").ReservationMutationReceipt;
 
 /** Backend response type: Vec<WorkScheduleResponse>. */
 export interface WorkScheduleIndexGetResponseItem extends JsonObject {
@@ -177,8 +200,8 @@ export interface ReservationIndexGetResponseItem extends JsonObject {
   "service_id": number;
   "user_id": string;
   "status": string;
-  "notes"?: string | null;
-  "starts_at"?: string | null;
+  "notes": string | null;
+  "starts_at": string | null;
   "created_at": string;
 }
 export interface ReservationIndexGetResponsePageMeta extends JsonObject {
@@ -208,16 +231,15 @@ export interface ReservationStorePostResponseData extends JsonObject {
   "service_id": number;
   "user_id": string;
   "status": string;
-  "notes"?: string | null;
-  "starts_at"?: string | null;
+  "notes": string | null;
+  "starts_at": string | null;
   "created_at": string;
 }
 export interface ReservationStorePostResponse extends ApiEnvelope<ReservationStorePostResponseData> {
 }
 
 /** Backend response type: (). */
-export interface ReservationCancelDeleteResponse extends ApiEnvelope<JsonObject> {
-}
+export type ReservationCancelDeleteResponse = import("./contracts.types.js").ReservationMutationReceipt;
 
 /** Backend response type: ReservationResponse. */
 export interface ReservationShowGetResponseData extends JsonObject {
@@ -227,8 +249,8 @@ export interface ReservationShowGetResponseData extends JsonObject {
   "service_id": number;
   "user_id": string;
   "status": string;
-  "notes"?: string | null;
-  "starts_at"?: string | null;
+  "notes": string | null;
+  "starts_at": string | null;
   "created_at": string;
 }
 export interface ReservationShowGetResponse extends ApiEnvelope<ReservationShowGetResponseData> {
@@ -247,8 +269,8 @@ export interface ReservationUpdatePatchResponseData extends JsonObject {
   "service_id": number;
   "user_id": string;
   "status": string;
-  "notes"?: string | null;
-  "starts_at"?: string | null;
+  "notes": string | null;
+  "starts_at": string | null;
   "created_at": string;
 }
 export interface ReservationUpdatePatchResponse extends ApiEnvelope<ReservationUpdatePatchResponseData> {
@@ -263,8 +285,8 @@ export interface ReservationServiceIndexGetQuery extends QueryParams {
 export interface ReservationServiceIndexGetResponseItem extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string | null;
-  "image_url"?: string | null;
+  "description": string | null;
+  "image_url": string | null;
   "duration_minutes": number;
   "buffer_minutes": number;
   "is_active": boolean;
@@ -296,8 +318,8 @@ export interface ReservationServiceStorePostInput extends JsonObject {
 export interface ReservationServiceStorePostResponseData extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string | null;
-  "image_url"?: string | null;
+  "description": string | null;
+  "image_url": string | null;
   "duration_minutes": number;
   "buffer_minutes": number;
   "is_active": boolean;
@@ -307,15 +329,14 @@ export interface ReservationServiceStorePostResponse extends ApiEnvelope<Reserva
 }
 
 /** Backend response type: (). */
-export interface ReservationServiceDestroyDeleteResponse extends ApiEnvelope<JsonObject> {
-}
+export type ReservationServiceDestroyDeleteResponse = import("./contracts.types.js").ReservationMutationReceipt;
 
 /** Backend response type: ServiceResponse. */
 export interface ReservationServiceShowGetResponseData extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string | null;
-  "image_url"?: string | null;
+  "description": string | null;
+  "image_url": string | null;
   "duration_minutes": number;
   "buffer_minutes": number;
   "is_active": boolean;
@@ -337,8 +358,8 @@ export interface ReservationServiceUpdatePatchInput extends JsonObject {
 export interface ReservationServiceUpdatePatchResponseData extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string | null;
-  "image_url"?: string | null;
+  "description": string | null;
+  "image_url": string | null;
   "duration_minutes": number;
   "buffer_minutes": number;
   "is_active": boolean;
@@ -359,8 +380,7 @@ export interface TimeSlotGeneratePostResponse extends ApiEnvelope<number> {
 }
 
 /** Backend response type: (). */
-export interface TimeSlotDestroyDeleteResponse extends ApiEnvelope<JsonObject> {
-}
+export type TimeSlotDestroyDeleteResponse = import("./contracts.types.js").ReservationMutationReceipt;
 
 /** Backend response type: TimeSlotResponse. */
 export interface TimeSlotShowGetResponseData extends JsonObject {
@@ -370,7 +390,7 @@ export interface TimeSlotShowGetResponseData extends JsonObject {
   "starts_at": string;
   "ends_at": string;
   "is_reserved": boolean;
-  "reserved_by_user_id"?: string | null;
+  "reserved_by_user_id": string | null;
 }
 export interface TimeSlotShowGetResponse extends ApiEnvelope<TimeSlotShowGetResponseData> {
 }
@@ -391,7 +411,7 @@ export interface TimeSlotUpdatePatchResponseData extends JsonObject {
   "starts_at": string;
   "ends_at": string;
   "is_reserved": boolean;
-  "reserved_by_user_id"?: string | null;
+  "reserved_by_user_id": string | null;
 }
 export interface TimeSlotUpdatePatchResponse extends ApiEnvelope<TimeSlotUpdatePatchResponseData> {
 }
@@ -410,11 +430,10 @@ export interface TimeSlotAvailableGetResponseItem extends JsonObject {
   "starts_at": string;
   "ends_at": string;
   "is_reserved": boolean;
-  "reserved_by_user_id"?: string | null;
+  "reserved_by_user_id": string | null;
 }
 export interface TimeSlotAvailableGetResponse extends ApiEnvelope<TimeSlotAvailableGetResponseItem[]> {
 }
 
 /** Backend response type: serde_json::Value. */
-export interface RouterHealthGetHealthResponse extends ApiEnvelope<JsonValue> {
-}
+export type RouterHealthGetHealthResponse = import("./contracts.types.js").ReservationProcessHealthResponse;

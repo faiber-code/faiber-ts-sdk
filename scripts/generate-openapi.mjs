@@ -6,9 +6,16 @@ const root = resolve(import.meta.dirname, "..");
 const config = JSON.parse(await readFile(resolve(root, "openapi.config.json"), "utf8"));
 const check = process.argv.includes("--check");
 const failures = [];
+const selected = new Set((process.argv.find(arg=>arg.startsWith("--services="))?.slice("--services=".length)??"").split(",").filter(Boolean));
+for(const service of selected)if(!Object.hasOwn(config.services,service))throw new Error("Unknown configured OpenAPI service: "+service);
 
 for (const [service, source] of Object.entries(config.services)) {
-  const input = process.env[source.env] || source.fallback;
+  if(selected.size && !selected.has(service))continue;
+  const input = process.env[source.env];
+  if(!input) {
+    failures.push(service+": set "+source.env+" to an explicit OpenAPI URL; no service was probed");
+    continue;
+  }
   const output = resolve(root, "packages", service, "src", "openapi.generated.ts");
   try {
     const ast = await openapiTS(new URL(input), { alphabetize: true, exportType: true });

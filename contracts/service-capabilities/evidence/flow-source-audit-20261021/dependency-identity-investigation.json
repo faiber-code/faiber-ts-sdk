@@ -1,0 +1,167 @@
+{
+  "schema_version": "1.0",
+  "service_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+  "status": "observed_local_dependency_source_identity_confirmed_production_resolution_unrecorded",
+  "observed_local_dependency_revision": "291c81a67bc302d667fb807da2af3240598bee52",
+  "basis": [
+    "Selected immutable .cargo/config.toml patches Git dependencies to sibling faiber-sdk crate paths",
+    "Prior Oct19 dependency-blocked attempt records faiber-sdk revision291c81a and per-crate source hashes",
+    "Each recorded crate hash reproduced exactly from immutable291 Git blobs and current relevant clean source trees"
+  ],
+  "prior_evidence": {
+    "path": "contracts/service-capabilities/evidence/flow-contract-tests.json",
+    "sha256": "000206c8c8bd64c2e9241159c25f1696a1663c70ddbc0db005bcb1af72f05b9e",
+    "observed_at": "2026-10-19T10:44:03Z",
+    "status": "not_executed_dependency_blocked",
+    "tests_executed": 0,
+    "limitation": "Flow checkout contained recorded run-history modifications; this is provenance of dependency inputs, not a successful selected-source build"
+  },
+  "crates": [
+    {
+      "crate": "infera-idp-sdk",
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "files": [
+        {
+          "path": "Cargo.toml",
+          "sha256": "5550deffd91462a1d147ca6555834185af46974c831bf2fd6d67013a82226c5f"
+        },
+        {
+          "path": "src/client.rs",
+          "sha256": "cc3a47732a4f05e5298215956957f115e32272de4e5138dce8869fd0a17a5d3e"
+        },
+        {
+          "path": "src/docs.rs",
+          "sha256": "c5c1a54df7bd26d5134618cfacb0b0264c2ffa22249c6c26ef1f5956898f4379"
+        },
+        {
+          "path": "src/export.rs",
+          "sha256": "8ab2192e3fcf65e6444fb71c5cd5fd70c78eff0f78c6eb09bc686a691372ebac"
+        },
+        {
+          "path": "src/guard.rs",
+          "sha256": "29058b8def362038b9a4804f5296530b30a0013632fb523be613b15824bc4cae"
+        },
+        {
+          "path": "src/lib.rs",
+          "sha256": "c869cb43c96ccb4ca76d7a49dae4ecb00d94510eb5bfc664e139d6d8abf3776f"
+        },
+        {
+          "path": "src/middleware.rs",
+          "sha256": "484f1c57bbcd86c8ab68f8b41d110768dc364650c139bccec909540753b76104"
+        },
+        {
+          "path": "src/models.rs",
+          "sha256": "1c3e23a87989601bee1a859319175d97debdda40e5fead777ef858306cfc43f5"
+        },
+        {
+          "path": "src/utils.rs",
+          "sha256": "8f5d6ba6762e8fca6e815941ca874ec729e7d2a7a54f055d2d4af6741541b723"
+        }
+      ],
+      "hash_algorithm": "SHA256 of lexically sorted relative-path UTF8 + NUL + file bytes + NUL; src/entity/migration/tests/.cargo/Cargo.toml/Cargo.lock existing nonignored files, matching source_state in scripts/run-flow-contract-tests.py",
+      "prior_recorded_checkout_sha256": "c3fc7635f96b451dc4b4eaa78d7e1548f0af5c275c8052ca801a0efbef92fa9a",
+      "immutable_git_blob_tree_sha256": "c3fc7635f96b451dc4b4eaa78d7e1548f0af5c275c8052ca801a0efbef92fa9a",
+      "current_relevant_crate_tree_sha256": "c3fc7635f96b451dc4b4eaa78d7e1548f0af5c275c8052ca801a0efbef92fa9a",
+      "matches_prior_recorded_input": true,
+      "verification": "read-only Git blob/current byte comparison; no dependency resolution or native calls"
+    },
+    {
+      "crate": "infera-idp-macro",
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "files": [
+        {
+          "path": "Cargo.toml",
+          "sha256": "6e630dc9922898283c439cf815aad57181178f6116db63ebc7d9ae5d763923f7"
+        },
+        {
+          "path": "src/lib.rs",
+          "sha256": "f087ad6156ab0218c1dea9d4ba3499791a56252123ca98a69439718b9081818b"
+        }
+      ],
+      "hash_algorithm": "SHA256 of lexically sorted relative-path UTF8 + NUL + file bytes + NUL; src/entity/migration/tests/.cargo/Cargo.toml/Cargo.lock existing nonignored files, matching source_state in scripts/run-flow-contract-tests.py",
+      "prior_recorded_checkout_sha256": "802d0a79ca94bfbf7ab393eb7abd5d82fd20741c0ce6981708a97b0bf2519a80",
+      "immutable_git_blob_tree_sha256": "802d0a79ca94bfbf7ab393eb7abd5d82fd20741c0ce6981708a97b0bf2519a80",
+      "current_relevant_crate_tree_sha256": "802d0a79ca94bfbf7ab393eb7abd5d82fd20741c0ce6981708a97b0bf2519a80",
+      "matches_prior_recorded_input": true,
+      "verification": "read-only Git blob/current byte comparison; no dependency resolution or native calls"
+    },
+    {
+      "crate": "infera-flow-sdk",
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "files": [
+        {
+          "path": "Cargo.toml",
+          "sha256": "15e40ddbf46d464e43d462342072553df3ac379c4d95cd14c072d5731c80565c"
+        },
+        {
+          "path": "src/integration_meta.rs",
+          "sha256": "b8c16ae1c4c77fad0c48966830e7b3dbb8b44d5d43cba6068fa4dd12fc4c7f8f"
+        },
+        {
+          "path": "src/lib.rs",
+          "sha256": "675a81f0c7d2d7a647850fa7f02b3d1a1f1eb8c830c182377004bc051382de1e"
+        },
+        {
+          "path": "src/middleware.rs",
+          "sha256": "1776c3d4db0816321ed7042ad653b3038ca873323a479b245aa8bcf1cf56371a"
+        },
+        {
+          "path": "src/publisher.rs",
+          "sha256": "322b7b4d797121eaf44a300b38a3ccc3756a4a94492c35024f61d8426c0681c0"
+        },
+        {
+          "path": "src/registry.rs",
+          "sha256": "f5c0b719812e5e5a0cb73e3f3c18e3940f8f3ab2a614e09310a88f7e2edb64ca"
+        },
+        {
+          "path": "src/service.rs",
+          "sha256": "789f1f60e973515fac4edba3e09a11f254eec0b03c667ae626951a1cd66998be"
+        },
+        {
+          "path": "src/trigger.rs",
+          "sha256": "1489c3ce338f28791b4d4d3fd71895a1c26d1c050b4431902f87b8f2636e98d3"
+        }
+      ],
+      "hash_algorithm": "SHA256 of lexically sorted relative-path UTF8 + NUL + file bytes + NUL; src/entity/migration/tests/.cargo/Cargo.toml/Cargo.lock existing nonignored files, matching source_state in scripts/run-flow-contract-tests.py",
+      "prior_recorded_checkout_sha256": "01d480324a921a89db4a3f0f6adbce076201449f32c4cd27edae4bc15c014ff0",
+      "immutable_git_blob_tree_sha256": "01d480324a921a89db4a3f0f6adbce076201449f32c4cd27edae4bc15c014ff0",
+      "current_relevant_crate_tree_sha256": "01d480324a921a89db4a3f0f6adbce076201449f32c4cd27edae4bc15c014ff0",
+      "matches_prior_recorded_input": true,
+      "verification": "read-only Git blob/current byte comparison; no dependency resolution or native calls"
+    }
+  ],
+  "lock_investigation": {
+    "tracked_lock_at_selected_revision": false,
+    "committed_lock_history_all_available_refs": [],
+    "ignored_working_lock_sha256": "64fbd172f83c6b042f3d0d1e601190749c2ac22fdc212a7ca3230cb91c5ccc5c",
+    "prior_unresolved_lock_sha256": "64fbd172f83c6b042f3d0d1e601190749c2ac22fdc212a7ca3230cb91c5ccc5c",
+    "lock_bytes_match_prior": true,
+    "dependency_entries": [
+      {
+        "name": "infera-idp-sdk",
+        "version": "0.1.0",
+        "source": null,
+        "meaning": "path dependency under committed local patch; no Git revision encoded"
+      },
+      {
+        "name": "infera-idp-macro",
+        "version": "0.1.0",
+        "source": null,
+        "meaning": "path dependency under committed local patch; no Git revision encoded"
+      },
+      {
+        "name": "infera-flow-sdk",
+        "version": "0.1.0",
+        "source": null,
+        "meaning": "path dependency under committed local patch; no Git revision encoded"
+      }
+    ]
+  },
+  "production_resolution": {
+    "status": "not_recorded",
+    "reason": "No committed Cargo.lock/rev/tag or checked build manifest binds the production Git dependency graph at d560. Docker COPY excludes .cargo patch config, copies optional ignored Cargo.lock, and cargo build does not use --locked. Available source cannot identify which remote Git revision a historical Docker build resolved.",
+    "flow_target_present": false,
+    "shared_target_flow_fingerprints": []
+  },
+  "conclusion": "The SDK concrete integration metadata and inspected IDP behavior have exact, checksum-confirmed observed local source291c81a. This identity is sufficient to describe the reviewed local source graph explicitly; it is not an immutable production dependency lock. No backend/pin files changed and no native/provider commands executed."
+}

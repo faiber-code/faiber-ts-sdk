@@ -2,10 +2,14 @@ import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
+import { isDeepStrictEqual } from "node:util";
 
 const root = resolve(import.meta.dirname, "..");
 const committed = JSON.parse(await readFile(join(root, "service-contracts.json"), "utf8"));
 const selected = new Set((process.env.FAIBER_CONTRACT_SERVICES ?? "").split(",").filter(Boolean));
+for (const name of selected) {
+  if (!Object.hasOwn(committed, name)) throw new Error(`Unknown contract service: ${name}`);
+}
 const scoped = entries => Object.fromEntries(Object.entries(entries).filter(([name]) => !selected.size || selected.has(name)));
 const temporary = await mkdtemp(join(tmpdir(), "faiber-contract-audit-"));
 const extractedPath = join(temporary, "service-contracts.json");
@@ -18,14 +22,15 @@ try {
   });
   if (extraction.status !== 0) throw new Error(extraction.stderr || extraction.stdout || "contract extraction failed");
   const extracted = JSON.parse(await readFile(extractedPath, "utf8"));
-  if (JSON.stringify(scoped(extracted)) !== JSON.stringify(scoped(committed))) {
+  // Service insertion order is not a wire contract; endpoint arrays and every field remain exact.
+  if (!isDeepStrictEqual(scoped(extracted), scoped(committed))) {
     throw new Error("service-contracts.json is stale; run npm run contracts:extract and regenerate operations");
   }
 
   let total = 0;
   for (const [service, endpoints] of Object.entries(scoped(committed))) {
     const source = await readFile(join(root, "packages", service, "src", "operations.ts"), "utf8");
-    const generated = [...source.matchAll(/\* Calls `((?:GET|POST|PUT|PATCH|DELETE)) ([^`]+)`/g)]
+    const generated = [...source.matchAll(/\* Calls `((?:GET|POST|PUT|PATCH|DELETE|OPTIONS|HEAD|ANY)) ([^`]+)`/g)]
       .map(match => `${match[1]} ${match[2]}`);
     const expected = endpoints.map(endpoint => `${endpoint.method} ${endpoint.path}`);
     const generatedSet = new Set(generated);
@@ -46,7 +51,8 @@ try {
     total += endpoints.length;
     console.log(`${service}: ${endpoints.length} routes verified`);
   }
-  console.log(`verified ${total} mounted routes with exact generated operation coverage`);
+  if (!total) throw new Error("No service contracts were audited");
+  console.log(`verified ${total} extracted contracts with exact generated operation coverage; semantic and mounted-router acceptance are separate gates`);
 } finally {
   await rm(temporary, { recursive: true, force: true });
 }

@@ -5,45 +5,73 @@
       "id": "social-nested-administration",
       "owner": "sdk",
       "required": true,
-      "status": "discovered",
+      "status": "local_sdk_and_postgres_workflows_verified_canonical_integration_pending",
       "meaning": "The published SDK snapshot omitted the mounted Social administration router. Discovery now follows the nested mount; typed wire contracts and Manage workflows still require implementation and verification.",
       "source_refs": [
         "Service/infera-social/src/api/routes.rs:112",
         "Service/infera-social/src/admin.rs:23"
+      ],
+      "local_source_revision": "d2164984ff588811ce01baba5f8fbd7cb7091cd3",
+      "local_test_evidence": [
+        "social-admin-sdk-wire"
       ]
     },
     {
       "id": "version-health-path",
       "owner": "sdk",
       "required": true,
-      "status": "discovered",
+      "status": "resolved",
       "meaning": "The mounted health route is /health, while the stale annotation made the published SDK call /. Extracted contracts must follow mounted paths.",
       "source_refs": [
         "Service/infera_version/src/router.rs:118",
         "faiber-ts-sdk/packages/version/src/operations.ts:13"
-      ]
+      ],
+      "local_test_evidence": [
+        "version-sdk-wire"
+      ],
+      "historical_status": "local_sdk_and_http_workflows_verified_canonical_gateway_pending",
+      "test_evidence": [
+        "version-current-sdk-native-20261021"
+      ],
+      "resolution": "Verified on current compiled SDK against the exact selected mounted Version backend with real PostgreSQL: /health, slug lookup distinct from UUID, and serialized enum variants. This SDK wire correction is resolved; deployment/provisioning remain separate Version/Control gates."
     },
     {
       "id": "version-service-slug",
       "owner": "sdk",
       "required": true,
-      "status": "discovered",
+      "status": "resolved",
       "meaning": "Service detail/all routes consume a service slug string, but their annotations and published operation paths name service_id. Preserve slug semantics and avoid asking users for a UUID.",
       "source_refs": [
         "Service/infera_version/src/service/routes.rs:24",
         "Service/infera_version/src/service/routes.rs:59"
-      ]
+      ],
+      "local_test_evidence": [
+        "version-sdk-wire"
+      ],
+      "historical_status": "local_sdk_and_http_workflows_verified_canonical_gateway_pending",
+      "test_evidence": [
+        "version-current-sdk-native-20261021"
+      ],
+      "resolution": "Verified on current compiled SDK against the exact selected mounted Version backend with real PostgreSQL: /health, slug lookup distinct from UUID, and serialized enum variants. This SDK wire correction is resolved; deployment/provisioning remain separate Version/Control gates."
     },
     {
       "id": "version-sdk-wire-enums",
       "owner": "sdk",
       "required": true,
-      "status": "review_required",
+      "status": "resolved",
       "meaning": "Version Scope and Channel have separate database spellings and serialized Rust variant spellings. Confirm curated and generated methods expose the actual response values consistently; localized UI labels must not change wire values.",
       "source_refs": [
         "Service/infera_version/entity/src/version.rs:15",
         "Service/infera_version/src/version/transformers.rs:3"
-      ]
+      ],
+      "local_test_evidence": [
+        "version-sdk-wire"
+      ],
+      "historical_status": "local_sdk_and_http_workflows_verified_canonical_gateway_pending",
+      "test_evidence": [
+        "version-current-sdk-native-20261021"
+      ],
+      "resolution": "Verified on current compiled SDK against the exact selected mounted Version backend with real PostgreSQL: /health, slug lookup distinct from UUID, and serialized enum variants. This SDK wire correction is resolved; deployment/provisioning remain separate Version/Control gates."
     },
     {
       "id": "sdk-manage-source-version",
@@ -96,7 +124,17 @@
       "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
       "test_evidence": [
         "reservation-contract-integrity"
-      ]
+      ],
+      "current_source_assessment": {
+        "selected_source_revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+        "assessment": "Historical defect description; selected methods::list applies parsed status before pagination. Existing fixed_locally_pending_canonical_release status is a rollout requirement, not proof that the SDK-selected handler still lacks the filter.",
+        "source_refs": [
+          "infera-reservation/src/reservation/methods.rs:30"
+        ],
+        "evidence": [
+          "reservation-current-sdk-native-20261021"
+        ]
+      }
     },
     {
       "id": "reservation-invalid-status",
@@ -207,22 +245,44 @@
       "source_refs": [
         "Service/infera-knowledge/src/platform.rs:194",
         "Service/infera-knowledge/src/platform.rs:962"
-      ]
+      ],
+      "current_source_assessment": {
+        "id": "knowledge-project-memory-subject",
+        "assessment": "actual_source_gap",
+        "status": "source_review_requires_runtime_verification",
+        "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+        "meaning": "Memory subject identity remains organization_id, assistant_id, user_id. This pin does not add project-memory identity or current project membership checks. A project UUID must not be substituted for user_id.",
+        "source_refs": [
+          "Service/infera-knowledge/src/platform.rs:1321",
+          "Service/infera-knowledge/src/platform.rs:2676",
+          "Service/infera-knowledge/src/platform/memory_management.rs:35"
+        ],
+        "evidence_status": "source_only_not_resolution_evidence"
+      }
     },
     {
       "id": "knowledge-worker-crash-recovery",
       "owner": "knowledge",
       "required": true,
-      "status": "local_delivery_prerequisite_verified_canonical_producer_and_read_your_writes_pending",
+      "status": "source_review_requires_runtime_verification",
       "implementation_phase": "memory_after_sdk_manage",
       "meaning": "The memory worker selects only pending/retry records before setting processing; expired processing leases are not selected by the visible query. Verify process-crash recovery and fence receipt updates by lease owner before relying on durable delivery.",
       "source_refs": [
         "Service/infera-knowledge/src/platform.rs:2448"
       ],
-      "local_test_evidence": [
-        "knowledge-memory-delivery"
-      ],
-      "local_source_revision": "24eb78f08322a26f9424af4a9e43f84f0e4e8791"
+      "current_source_assessment": {
+        "id": "knowledge-worker-crash-recovery",
+        "assessment": "historical_prose_stale_native_pending",
+        "status": "source_review_requires_runtime_verification",
+        "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+        "meaning": "Current source reclaims expired processing memory leases and fences continuation with organization, owner, generation and live expiry. Exhausted claims retire transactionally. The earlier pending/retry-only observation is stale; current crash/recovery acceptance still requires execution.",
+        "source_refs": [
+          "Service/infera-knowledge/src/platform.rs:2989",
+          "Service/infera-knowledge/src/platform.rs:3025",
+          "Service/infera-knowledge/src/platform.rs:3032"
+        ],
+        "evidence_status": "source_only_not_resolution_evidence"
+      }
     },
     {
       "id": "knowledge-forget-ingestion-fence",
@@ -235,7 +295,20 @@
         "Service/infera-knowledge/src/platform.rs:2262",
         "Service/infera-knowledge/src/platform.rs:2573",
         "Service/infera-knowledge/src/platform.rs:2614"
-      ]
+      ],
+      "current_source_assessment": {
+        "id": "knowledge-forget-ingestion-fence",
+        "assessment": "historical_prose_partially_stale_native_pending",
+        "status": "source_review_requires_runtime_verification",
+        "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+        "meaning": "Canonical scope clear increments epoch fences transactionally, including accepted work before subject creation. Memory admission captures epochs and persist_memory_turn rejects changed/legacy epochs. This replaces the historical no-queue-invalidation observation for canonical scope clearing. Individual record forget does not by itself certify source-family tombstones, Chat correction delivery, import replay or global retained-copy erasure.",
+        "source_refs": [
+          "Service/infera-knowledge/src/platform/memory_management.rs:181",
+          "Service/infera-knowledge/src/platform.rs:2810",
+          "Service/infera-knowledge/src/platform.rs:3290"
+        ],
+        "evidence_status": "source_only_not_resolution_evidence"
+      }
     },
     {
       "id": "chat-memory-source-corrections",
@@ -376,7 +449,7 @@
       "id": "reservation-cross-service-capacity",
       "owner": "reservation",
       "required": true,
-      "status": "fixed_locally_pending_canonical_sdk_manage",
+      "status": "local_standalone_sdk_postgres_verified_canonical_manage_pending",
       "meaning": "Approved provider-wide capacity implemented locally: integer 1..1000 default 1, half-open stored booking intervals across every service; buffers space generation only. Generation fills single-claim pools; booking/limit changes serialize. Insufficient changed limits return 409 without cancelling bookings. Legacy conflicts remain reportable; rollback refuses nondefault limits. 40 real PostgreSQL/RabbitMQ regressions pass, including booking versus decrease race. Canonical/deployed, gateway/project isolation, SDK and readable Manage workflows remain unverified.",
       "source_refs": [
         "Service/infera-reservation/src/time_slot/methods.rs",
@@ -386,7 +459,7 @@
       ],
       "implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
       "test_evidence": [
-        "reservation-provider-capacity"
+        "reservation-standalone-sdk-capacity"
       ]
     },
     {
@@ -484,15 +557,14 @@
       "status": "source_review_requires_runtime_and_deployment_reconciliation",
       "implementation_phase": "memory_after_sdk_manage",
       "canonical_source_revision": "d495217f85d77270865a040c1328d70c620e6c9d",
-      "meaning": "Tracked canonical Chat inserts chat_outbox_events but repository-wide trace found no dispatcher/claimant/published_at update. Memory event insertion follows assistant-message commit and direct Knowledge request outside that transaction; crash windows can lose durable delivery. Startup memory_settlement handles quota receipts, not this event table. Reconcile any external CDC consumer and implement atomic source-event delivery, fenced reclaimable dispatch and receipt/replay/correction tests before migration. Dirty summary outbox changes are separate preserved work.",
+      "meaning": "The selected SDK Chat7de candidate includes a reclaimed outbox relay, so the older no-dispatcher observation does not describe this selected source. Memory-event insertion still occurs after assistant-message commit/directHTTP outside their transaction. It uses assistant-message.id as aggregate_id while the generic relay looks up conversation.id, then projects non-message payloads into read-receipt-like fields rather than the full memory envelope. Selected Knowledgebroker has no Chatmemoryevent binding/consumer. Prove atomic source events, correct full envelope/routing, fenced dispatch, durable admission receipts and replay/correction/forget handling before migration; actual deployed source is a separate gate.",
       "source_refs": [
-        "Service/infera-chat/src/service.rs:1216",
-        "Service/infera-chat/src/service.rs:1325",
-        "Service/infera-chat/src/service.rs:1948",
-        "Service/infera-chat/src/main.rs:31",
-        "Service/infera-chat/src/memory_settlement.rs",
-        "Service/infera-chat/entity/src/outbox_event.rs"
-      ]
+        "Service/infera-chat/src/service.rs:1985",
+        "Service/infera-chat/src/outbox_relay.rs",
+        "Service/infera-chat/src/agentic.rs::record_assistant_memory",
+        "Service/infera-knowledge/src/broker.rs"
+      ],
+      "source_revision": "7de27e4843cd7fb394a7590b49d4b78fdc0a0c9a"
     },
     {
       "id": "manage-production-signing-secret",
@@ -553,7 +625,7 @@
       "id": "sdk-working-lms-contract-drift",
       "owner": "sdk",
       "required": true,
-      "status": "concurrent_working_contract_reconciliation_required",
+      "status": "resolved",
       "meaning": "Fenced SDK build passed,104 tests ran:101 passed/3 failed. Current LMS operations contain174 documented operations versus182 in the contract manifest, and published aiSummaryJobsGet et al were removed. These are preserved unrelated working changes, not fixed by weakening compatibility/count tests. Later uncommitted1.0.0 version edits are not verified by that0.23.0 run. Complete source/SDK contract and breaking-version reconciliation before release.",
       "source_refs": [
         "faiber-ts-sdk/packages/lms/src/operations.ts",
@@ -562,7 +634,13 @@
         "faiber-ts-sdk/tests/facade-completeness.test.mjs",
         "faiber-ts-sdk/tests/release-contract-regressions.test.mjs"
       ],
-      "artifact_path": "evidence/sdk-tests.log"
+      "artifact_path": "evidence/sdk-tests.log",
+      "historical_status": "concurrent_working_contract_reconciliation_required",
+      "resolution": "The selected 1.0.0 candidate has exact mounted-source/generated-operation coverage, passing type/build/transport regressions, and explicit documented retirement of the eight LMS summary methods. The original 174/182 mismatch and 101/104 failing working snapshot no longer describe this source. This closes that historical SDK synchronization finding only; per-endpoint semantic/native/gateway/deployment checks remain separately open.",
+      "test_evidence": [
+        "sdk-current-lms-contract-reconciliation-20261021"
+      ],
+      "resolution_source_revision": "9a08305e95605d32c1596db7a65dda79f02dc622"
     },
     {
       "id": "manage-agent-project-thread-contract",
@@ -587,6 +665,337 @@
       "required": true,
       "status": "confirmed_requires_durable_idempotent_completion",
       "meaning": "Current browser/Ask pending review hubs are process-local; duplicate completion can replace state, and Ask ignores durable runtime-input completion errors. Project isolation is locally repaired but does not establish durable task receipts. Persist requests/results with project/actor/run scope, compare-and-set completion, idempotency and actual SDK execution receipts; verify restart/replay/denial without relying on browser reports as proof."
+    },
+    {
+      "id": "social-active-discovery-variant",
+      "owner": "social",
+      "required": true,
+      "status": "isolated_combined_source_sdk_postgres_object_store_verified_canonical_image_release_pending",
+      "meaning": "An active Rasht Social image contains four commits absent from canonical main: public/subject discovery, follows/blocks, notification preferences/outbox/place events, category publication entitlement and story expiry. Its SQL uses graph/notification tables not defined in the canonical service migrations. Generic main image and full SDK capability verification must reconcile this source/schema before release; canonical admin tests do not certify the variant. The active branch includes its own migrations5\u20139. They are now merged only into an isolated source integration; all fourteen extra SDK operations are exercised, including actual production S3 PUT and binary GET through a real loopback object store. Canonical main, image and deployed project authority acceptance remain open.",
+      "source_refs": [
+        "infera-social@5e6d6addd4088a839c636c2ba52a45db4ed3057f:src/discovery.rs",
+        "infera-social@5e6d6addd4088a839c636c2ba52a45db4ed3057f:src/repository.rs",
+        "ops/poulstar-integration/deployment-receipts/image-exception-source-ancestry.json"
+      ],
+      "local_source_revision": "f998eea7ca415038b9b3af903b4aba5c8fb302fc",
+      "local_test_evidence": [
+        "social-active-integration-sdk-wire-with-storage"
+      ]
+    },
+    {
+      "id": "idp-internal-one-time-host-only-guard",
+      "owner": "backend",
+      "required": true,
+      "status": "local_scoped_credential_and_real_manage_flow_verified_remote_and_runtime_reconciliation_pending",
+      "meaning": "Canonical IDP used a Host-only internal one-time guard. The isolated IDP/Manage/Control source candidates replace it with a dedicated platform-seeded identity-project credential; real receiver/Manage issue/exchange and spoofed/missing/invalid/other-project denials pass locally. Source publication, existing runtime credential reconciliation and deployed acceptance remain required.",
+      "source_refs": [
+        "Service/infera-idp/src/internal_service_auth.rs",
+        "Service/infera-manage/src/idp_service_credential.rs",
+        "Service/infera-manage/src/sso.rs",
+        "Service/infera-control/crates/faiber-core/src/idp_service_credential.rs",
+        "Service/infera-control/crates/faiber-core/src/ops/sandboxes.rs"
+      ],
+      "test_evidence": [],
+      "local_source_revisions": {
+        "idp": "360daa64429c966ed04a8081f700fde9c73d56ac",
+        "manage": "02ca8711d457f463727b1678a6b699894709c24b",
+        "control": "46d863d63b70a7c30f45fbd5a2c75472d03ecc38"
+      }
+    },
+    {
+      "id": "chat-personal-router-unmounted",
+      "owner": "backend",
+      "required": true,
+      "status": "local_actual_sdk_and_postgres_regression_verified_canonical_integration_pending",
+      "meaning": "Canonical d5b722e2 defined the five published personal Chat handlers but did not merge their router. A real mounted-router/compiled SDK test reproduced404; local source ab6ce74 mounts it within the existing authenticated cookie-origin boundary and passes unread/member/org/cursor/HMAC/permission cases. Current gateway and deployed integration remain unverified.",
+      "local_source_revision": "ab6ce74",
+      "source_refs": [
+        "Service/infera-chat/src/routes.rs",
+        "Service/infera-chat/src/human_chat.rs"
+      ],
+      "local_test_artifacts": [
+        "acceptance-results/sdk-source-semantic-20261019/chat-before-mount",
+        "acceptance-results/sdk-source-semantic-20261019/chat-after-mount"
+      ]
+    },
+    {
+      "id": "remaining-wildcard-and-inline-mounts",
+      "owner": "sdk",
+      "required": true,
+      "status": "local_crm_state_and_personal_chat_proxy_verified_other_peer_workflows_pending",
+      "meaning": "All18 SDK HTTP source inventories follow mounted graphs. CRM fallback/CORS and State health have scoped actual HTTP acceptance. Session repaired production6cd with actual Chatab6 now passes69 Session tests plus1 nested Chat test and26 current SDK assertions, including missing identity401, current forwarded permission denials, organization/member filtering, internal credential exclusion and body limits. Room-scoped group/AI, DRM/Asset/Profile/LMS success, current gateway and browser/streaming boundaries remain pending. Asset/Profile system-namespace fallbacks and path-based DRM grants must not be described as room-bound isolation.",
+      "source_refs": [
+        "Service/infera-session/src/router.rs",
+        "Service/infera-crm/src/router.rs",
+        "Service/infera-state/src/main.rs"
+      ],
+      "local_test_evidence": [
+        "crm-fallback-sdk-routing-guard",
+        "state-health-sdk-workspace",
+        "session-chat-peer-sdk-http"
+      ],
+      "source_review_artifact": "evidence/session-peer-source-review-v1.json"
+    },
+    {
+      "id": "reservation-legacy-user-held-availability",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_local_postgres_sdk_verified_pending_canonical",
+      "meaning": "A legacy reserved_by_user_id-only claim appeared in public availability when provider capacity exceeded one, although booking rejected it. A real PostgreSQL regression reproduced this; selected repair excludes held rows without rewriting claims/history. Actual SDK availability and lifecycle workflows pass. Canonical rollout/current gateway and cross-service identity binding remain unverified.",
+      "source_refs": [
+        "Service/infera-reservation/src/time_slot/methods.rs",
+        "Service/infera-reservation/tests/provider_capacity_test.rs"
+      ],
+      "test_evidence": [
+        "reservation-standalone-sdk-capacity"
+      ]
+    },
+    {
+      "id": "session-compiled-dev-identity-fallback",
+      "owner": "session",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_integration",
+      "meaning": "Canonical bb6 compiles dev-fallback, synthesizing a nil user even with DEV=false. Local production6cd disables default/dev fallback features; actual Session-to-Chat missing principal now returns401. Preserve current Pastil source and reconcile canonical deployment before certifying production identity.",
+      "source_refs": [
+        "Service/infera-session/Cargo.toml:13",
+        "Rust SDK291c81a crates/infera-idp-sdk/src/middleware.rs:21"
+      ],
+      "local_source_revision": "6cdedd4303f4612143ae6bae54edff464a7aa08d",
+      "local_test_evidence": [
+        "session-chat-peer-sdk-http"
+      ]
+    },
+    {
+      "id": "active-gis-service-discovery-sdk-manage",
+      "owner": "discovery",
+      "required": true,
+      "status": "all48_source_reviewed_typed_sdk_candidate_native_and_manage_pending",
+      "meaning": "GIS is active. Its48 operations have source-reviewed permission/filter/wire/lifecycle/relationship meaning and a candidate typed package selected at0bc8423, including binary tiles, revisioned publication, imports, moderation and private places. Compilation/type/transport unit tests are not native certification. Current IDP, PostGIS/Martin, durable import recovery, Social assertion, canonical/deployed source and readable Manage gates remain open.",
+      "source_refs": [
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/README.md",
+        "evidence/active-runtime-universe-review-v1.json"
+      ]
+    },
+    {
+      "id": "active-frontend-worker-runtime-classification",
+      "owner": "discovery",
+      "required": true,
+      "status": "source_ownership_reviewed_runtime_build_provenance_pending",
+      "meaning": "Inventory also contains infera-panel, infera-website, infera-worker and infera-android-app. Classify frontend/worker surfaces and any owned HTTP APIs from source/deployment provenance; do not silently exclude them or invent duplicate business services.",
+      "source_refs": [
+        "infera-panel/package.json",
+        "infera-website/package.json",
+        "infera-agentic/Dockerfile.worker",
+        "evidence/active-runtime-universe-review-v1.json",
+        "evidence/frontend-worker-source-classification-v1.json"
+      ]
+    },
+    {
+      "id": "catalog-release-alias-source-reconciliation",
+      "owner": "discovery",
+      "required": true,
+      "status": "source_ancestry_and_alias_ownership_reviewed_build_runtime_reconciliation_pending",
+      "meaning": "All six Fit8 release alias image prefixes resolve to commits included in selected SDK source ancestry; explicitly classified as aliases, not six new business services. Tags/ancestry do not certify build inputs or old deployment compatibility. Profile/Chat catalog URLs are absent; build context and current version/auth rollout remain unverified. Preserve unrelated catalog/runtime state.",
+      "source_refs": [
+        "evidence/active-runtime-catalog-deployments-v1.json",
+        "evidence/catalog-release-alias-ancestry-v1.json"
+      ]
+    },
+    {
+      "id": "gis-import-current-principal-and-durable-fencing",
+      "owner": "gis",
+      "required": true,
+      "status": "local_source_candidate_native_and_canonical_verification_pending",
+      "meaning": "Worker synthesizes dataset/global management permissions rather than validating current owner grants. Persistent claims lack lease tokens/heartbeats/fenced completion; create active-count/dataset/job writes and retry state transition are not atomic. Bound partial-write retry and explicit revocation behavior must be implemented and tested on real PostGIS before completion.",
+      "source_refs": [
+        "Service/infera-gis/src/imports/mod.rs",
+        "evidence/gis-maps-imports-places-source-review-v1.json"
+      ],
+      "test_evidence": [],
+      "local_source_revision": "0bc8423a51887450b928e7b372153014cd47e582",
+      "local_worktree": ".task-worktrees/gis-import-current-authority-20261020/infera-gis",
+      "local_candidate_changes": "Current per-organization issuer-bound owner grants; atomic quota/dataset/job creation and retry; UUID/expiry fenced claims; all geometry/history/outbox/map/completion in one transaction; final current-authority and lease checks; explicit legacy reconciliation. No current native proof: pinned crate downloads unavailable.",
+      "local_test_evidence": [],
+      "remaining_gates": [
+        "Locked native compilation and real PostGIS migration/rollback/revocation/stale-worker/quota regressions",
+        "Composed IDP confidential-client/current-grants positive and negative integration",
+        "Full48-operation typed packaged SDK and readable Manage workflows",
+        "Canonical/deployed source and old-worker quiescence/reconciliation/rollback"
+      ],
+      "current_source_assessment": {
+        "selected_source_revision": "0bc8423a51887450b928e7b372153014cd47e582",
+        "assessment": "Historical defect description. Selected source implements current issuer-bound owner grants, atomic dataset/job submission and batch completion, quota serialization, and lease fencing. Owned PostGIS and explicit IDP/provider fixtures passed. Real issuer/client deployment remains unverified; do not mark the whole gap resolved.",
+        "source_refs": [
+          "infera-gis/src/imports/mod.rs",
+          "infera-gis/src/imports/authority.rs"
+        ],
+        "evidence": [
+          "gis-current-import-native-20261021",
+          "gis-current-sdk-native-martin-20261021"
+        ]
+      }
+    },
+    {
+      "id": "profile-trusted-ingestion-canonical-identity",
+      "owner": "profile",
+      "required": true,
+      "status": "local_source_fix_and_regression_prepared_runtime_pending",
+      "meaning": "Known Office/LMS id means user UID, not Profile PK. Legacy PK-first resolution and reserved structured properties could redirect trusted projection across users. Local ae97bfa fix and144cf32 test include intentional PK/UID collision, explicit reference conflicts, pre-write rejection and deleted/unknown subjects. Runtime/canonical integration and actual historical Accounting producer reconciliation remain open.",
+      "source_refs": [
+        "Service/infera-profile/src/trusted_service/methods.rs",
+        "Service/infera-profile/src/broker/handlers.rs"
+      ],
+      "local_source_revision": "ae97bfa8b5085de1cfd78fcf2b2d548ccaf793a7",
+      "local_test_revision": "144cf32596a34942d2a5ac1ac52a03f860605992",
+      "test_evidence": []
+    },
+    {
+      "id": "summary-branding-candidate-contract-adoption",
+      "owner": "sdk",
+      "required": true,
+      "status": "candidate_types_implemented_frozen_source_and_native_sdk_http_adoption_pending",
+      "meaning": "Profile source capability metadata and persisted resolved-unit provenance, plus LMS PublicBranding required nullable runtime Task origin, now have named candidate SDK DTOs. The pinned service sources still predate those candidate changes. Do not infer source compatibility, certification or release readiness from TypeScript compilation; adopt exact composed native source only after full source/consumer gates.",
+      "source_refs": [
+        "Service/infera-profile/src/ai_summary/routes.rs",
+        "Service/infera-lms/src/branding.rs",
+        "packages/profile/src/summaries.types.ts",
+        "packages/lms/src/branding.types.ts",
+        "scripts/lms-branding-contracts.mjs"
+      ],
+      "local_source_revision": "470949b36bd2bdad24951b05683cf73e87d29bf1",
+      "local_test_evidence": []
+    },
+    {
+      "id": "idp-current-authority-sdk-candidate-adoption",
+      "owner": "sdk",
+      "required": true,
+      "status": "candidate_source_pin_and_generated_operation_adopted_remaining_native_and_canonical_gates_pending",
+      "meaning": "Freshly packed authority helper passed actual composed IDP. Candidate source lock now selects95fedbb, and105 generated operations include current grants with required service query plus exact role-name filtering. Existing operation names preserved, new response named. Remaining composed ignored/native Manage caller tests, refreshed packaged native proof, complete semantic review and canonical deployment remain required. This is candidate source adoption, not release or live certification.",
+      "local_backend_revision": "95fedbb63b85bbe4ed750ac7d5a8237cf4b55632",
+      "source_refs": [
+        "packages/idp/src/authority.ts",
+        "packages/idp/src/types.ts",
+        "packages/idp/src/index.ts",
+        "tests/idp-authority.test.mjs",
+        "tests/idp-authority.types.ts"
+      ],
+      "test_evidence": [],
+      "local_native_receipt": "acceptance-results/three-feature-completion-20261019/idp-packed-sdk-native-v1/receipt.json"
+    },
+    {
+      "id": "knowledge-independent-fact-identity",
+      "owner": "knowledge",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "implementation_phase": "memory_after_sdk_manage",
+      "meaning": "The selected4f source extracts unrelated preferences under preference.general and remembered facts under user.remembered, then contradicts every active long memory sharing that key. Define semantic fact identity distinct from extraction category, explicit correction/supersession and per-fact source provenance; prove two independent facts coexist and only an authorized correction supersedes its target. The37-operation editor/ingestion run does not cover these runtime memory paths.",
+      "source_revision": "4f77384d7cb9084fd78b269a53ed468feb7dbc40",
+      "source_refs": [
+        "Service/infera-knowledge/src/platform.rs::persist_memory_turn",
+        "Service/infera-knowledge/src/platform.rs::extract_long_term_fact"
+      ],
+      "current_source_assessment": {
+        "id": "knowledge-independent-fact-identity",
+        "assessment": "historical_prose_stale_native_pending",
+        "status": "source_review_requires_runtime_verification",
+        "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+        "meaning": "Opaque preferences and assertions now use value-hashed independent keys; exact response-language and identity-name slots are singleton identities. Explicit corrections use reviewed complete target sets and evidence provenance. The selected4f broad-key contradiction finding is stale for this pin; broader semantic identity completeness and current native acceptance remain pending.",
+        "source_refs": [
+          "Service/infera-knowledge/src/platform.rs:3166",
+          "Service/infera-knowledge/src/platform.rs:3230",
+          "Service/infera-knowledge/src/platform/memory_management.rs"
+        ],
+        "evidence_status": "source_only_not_resolution_evidence"
+      }
+    },
+    {
+      "id": "knowledge-runtime-subject-authority",
+      "owner": "knowledge",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "implementation_phase": "memory_after_sdk_manage",
+      "meaning": "Assistant query/record-turn accept body.user_id after knowledge:runtime; scoped current-principal versus delegated-service authorization and assistant ownership must be proved before Ask personal or project memory adoption. Organization scoping and trusted fixture headers alone do not establish current user/project access. Preserve valid service delegation with explicit current authorization, not caller-selected UUID authority.",
+      "source_revision": "4f77384d7cb9084fd78b269a53ed468feb7dbc40",
+      "source_refs": [
+        "Service/infera-knowledge/src/platform.rs::query_assistant",
+        "Service/infera-knowledge/src/platform.rs::record_turn",
+        "Service/infera-knowledge/src/context.rs"
+      ],
+      "current_source_assessment": {
+        "id": "knowledge-runtime-subject-authority",
+        "assessment": "actual_source_gap",
+        "status": "source_review_requires_runtime_verification",
+        "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+        "meaning": "Assistant query and record-turn still accept body.user_id after knowledge:runtime without comparing it with the current principal or validating explicit delegated scope in these handlers. Tenant predicates and trusted headers do not prove current user/project access; no deployed-ingress vulnerability is asserted.",
+        "source_refs": [
+          "Service/infera-knowledge/src/platform.rs:1366",
+          "Service/infera-knowledge/src/platform.rs:2676",
+          "Service/infera-knowledge/src/context.rs:24"
+        ],
+        "evidence_status": "source_only_not_resolution_evidence"
+      }
+    },
+    {
+      "id": "knowledge-processing-job-executor",
+      "owner": "knowledge",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "meaning": "Selected4f source queues source_sync and document_reprocess in knowledge_processing_jobs; inspected startup spawns only the sync broker consumer and memory-outbox worker. Identify/prove the actual durable processing-job executor or implement supported job execution, leases/crash recovery/cancellation/retry/dead-letter behavior. Valid202persisted job identity is not completion or embedding readiness.",
+      "source_revision": "4f77384d7cb9084fd78b269a53ed468feb7dbc40",
+      "source_refs": [
+        "Service/infera-knowledge/src/main.rs",
+        "Service/infera-knowledge/src/broker.rs",
+        "Service/infera-knowledge/src/platform.rs::sync_source",
+        "Service/infera-knowledge/src/platform.rs::reprocess_document",
+        "Service/infera-knowledge/src/platform.rs::spawn_memory_worker"
+      ],
+      "current_source_assessment": {
+        "id": "knowledge-processing-job-executor",
+        "assessment": "historical_prose_stale_native_pending",
+        "status": "source_review_requires_runtime_verification",
+        "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+        "meaning": "Production startup now owns both memory and processing workers via background::spawn. Processing claims and executes document_reprocess/source_sync with scoped lease tokens, bounded stored-text pages, cancellation and retry/dead-letter handling. The old no-executor observation is stale. Source adapters outside supported stored-text indexing still fail explicitly; current native execution and deployment reconciliation remain required.",
+        "source_refs": [
+          "Service/infera-knowledge/src/main.rs:43",
+          "Service/infera-knowledge/src/background.rs:16",
+          "Service/infera-knowledge/src/processing.rs:90",
+          "Service/infera-knowledge/src/processing.rs:304",
+          "Service/infera-knowledge/src/processing.rs:531"
+        ],
+        "evidence_status": "source_only_not_resolution_evidence"
+      }
+    },
+    {
+      "id": "knowledge-current-native-authority",
+      "owner": "knowledge",
+      "required": true,
+      "status": "source_review_requires_gateway_runtime_verification",
+      "source_revision": "4f77384d7cb9084fd78b269a53ed468feb7dbc40",
+      "reviewed_candidate_revision": "0e2fe686575dc2f59edfa150b2d4846eaed8988c",
+      "meaning": "Knowledge main uses the resolved b8c83eb IDP SDK header extractor, not a native validation request; organization is caller header and compiled dev fallback can read AUTH_* env independently of DEV. Control60b source does strip sandbox identity headers and apply IDPForwardAuth conditionally. Verify actual current gateway/header/network/tenant bindings and delegated service context or implement explicit bounded native current-authority checks. Trusted-header editor/ingestion tests and source-level gateway design do not certify current permissions or isolation; this review makes no deployed-ingress vulnerability claim.",
+      "source_refs": [
+        "Service/infera-knowledge/src/main.rs",
+        "Service/infera-knowledge/src/context.rs",
+        "Service/infera-knowledge/Cargo.toml",
+        "faiber-sdk@b8c83ebfc54cbc7ae4deba5237d8f63a916177d4/crates/infera-idp-sdk/src/middleware.rs",
+        "Service/infera-control/crates/faiber-core/src/ops/workloads.rs"
+      ],
+      "current_source_assessment": {
+        "id": "knowledge-current-native-authority",
+        "assessment": "current_gateway_native_verification_pending",
+        "status": "source_review_requires_runtime_verification",
+        "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+        "meaning": "Selected source still resolves IDP SDK b8c83eb with dev-fallback, mounts its auth extractor and accepts organization header/context fallback. Gateway stripping, native current authorization, tenant/header/network bindings and explicit delegated service scope still require execution/deployment evidence. Historical source revision references should be updated to this pin, not treated as runtime proof.",
+        "source_refs": [
+          "Service/infera-knowledge/Cargo.toml:20",
+          "Service/infera-knowledge/Cargo.lock:2024",
+          "Service/infera-knowledge/src/main.rs:46",
+          "Service/infera-knowledge/src/context.rs:24"
+        ],
+        "evidence_status": "source_only_not_resolution_evidence"
+      }
     }
   ]
 }

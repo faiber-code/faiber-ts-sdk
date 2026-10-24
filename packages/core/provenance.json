@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/sdk-core",
+  "version": "1.1.0",
+  "source_revisions": {
+    "asset": {
+      "directory": "infera-asset",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    "chat": {
+      "directory": "infera-chat",
+      "revision": "03dd17ad3a1f6a36f5b6ad42e8e11729b44ebc55"
+    },
+    "crm": {
+      "directory": "infera-crm",
+      "revision": "77e2e4a7660e007aefef81e27337476c6d748cac"
+    },
+    "drm": {
+      "directory": "infera-drm",
+      "revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2"
+    },
+    "flow": {
+      "directory": "infera-flow",
+      "revision": "a9a0f523379733ecbdec07d4ebf43dda67fee767"
+    },
+    "idp": {
+      "directory": "infera-idp",
+      "revision": "828799249ef714d333b03bded092a9d6af6ba7bb"
+    },
+    "knowledge": {
+      "directory": "infera-knowledge",
+      "revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1"
+    },
+    "lms": {
+      "directory": "infera-lms",
+      "revision": "39d5a0b80ef33c9f732dc00b0ee0e9e54047901a"
+    },
+    "messenger": {
+      "directory": "infera-messenger",
+      "revision": "0eb2143fae39dee3e0543abaac59ea1aaaed771c"
+    },
+    "modules": {
+      "directory": "infera-modules",
+      "revision": "2a1063315b85c4c222763b88a463b489b2e6d521"
+    },
+    "payment": {
+      "directory": "infera-payment",
+      "revision": "ca2f9bbd7ea9e43a78874a2d93bbbd68e5d257c8"
+    },
+    "profile": {
+      "directory": "infera-profile",
+      "revision": "ac1aa429598aa7e2578e3b41181a9913a4481025"
+    },
+    "reservation": {
+      "directory": "infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66"
+    },
+    "session": {
+      "directory": "infera-session",
+      "revision": "7a395d7149a2d4c03d3e1d4746b69919a52cbb05"
+    },
+    "social": {
+      "directory": "infera-social",
+      "revision": "d067ac956571abd73211b06d835caa658b1f09bc"
+    },
+    "state": {
+      "directory": "infera-state",
+      "revision": "b8d3bfa828878a979a8c8765285bfd3899965bd4"
+    },
+    "task": {
+      "directory": "infera-task",
+      "revision": "b8ed5921e4f6bd2d7f4ef675f0cb8b3fbbb1e23d"
+    },
+    "version": {
+      "directory": "infera_version",
+      "revision": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e"
+    },
+    "gis": {
+      "directory": "infera-gis",
+      "revision": "0bc8423a51887450b928e7b372153014cd47e582"
+    }
+  },
+  "package_source_sha256": {
+    "packages/core/src/auth.ts": "7c7f1d5e69fb194b4edbe21e3ee034f6bb1c642281f59aecc4a8c8864ba59b45",
+    "packages/core/src/client.ts": "b8ad8ed7200bd8a9f8b28b99f458700fb9adf16e51ae0701dae3dc55f00c2104",
+    "packages/core/src/env.ts": "0609abe7da88b6e9e4cd16120fb97de69cbe890494b83c17a20b0c652ac5744c",
+    "packages/core/src/index.ts": "fbb76e489b24bd45225372dec4fddbbc3e9fe4ea23d4da6015fb209e424db9de",
+    "packages/core/src/openapi.ts": "f17ce0aa3c617bbc42d9ec936b01fe5e298d3283925274c0b33de67392ad82fd",
+    "packages/core/src/realtime.ts": "f54a28dd5bb4db5bac1ab9eb8f8a1a031f2a85fc426bf480e70d601bd274fdd0",
+    "packages/core/src/resource.ts": "c4ab482ee37f98ac31b84f71da5c0b7216657ef1c551834b1cf0ea50d2ea4bbc",
+    "packages/core/src/short-id.ts": "6bce86a2b48ac2a7f473a23c29415c1222ebf7ac588e4fc4681368ff876e8741",
+    "packages/core/src/summary-access.ts": "c48003de880896c1b76772610ddb589e5fbd745e14732f83c4d5a42d34a0503c",
+    "packages/core/src/types.ts": "fee1c4b8f5ed4de92276be41d10a13ada5361c24ed80656029a4cf5e3e940afa"
+  },
+  "capability_review_sha256": null,
+  "source_pin_file_sha256": "bcfd980e1db1c6498d3769a33c70ac61c46dcbba09bf01eb97c857bebf8927d6",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
+  "public_contract": {
+    "kind": "shared-client-or-facade"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-profile",
+  "version": "1.1.0",
+  "source_revisions": {
+    "profile": {
+      "directory": "infera-profile",
+      "revision": "ac1aa429598aa7e2578e3b41181a9913a4481025"
+    }
+  },
+  "package_source_sha256": {
+    "packages/profile/src/contracts.types.ts": "3affd8fa185f1f9552f2e0f1b838fef071476c035f3a7d9479868983952caec5",
+    "packages/profile/src/index.ts": "54b81d4b2d40ea15e8eba09f26393ac61e0454823001ed6d95af60e01c8e5304",
+    "packages/profile/src/operations.ts": "99366e986213078d80a4e6470a51f3c06d60f3ea6c8bad1647103e1916fa80aa",
+    "packages/profile/src/operations.types.ts": "916feddc54910569e1ad4f887f170453938fbfb8e2acff95772191d1ae8c351f",
+    "packages/profile/src/summaries.ts": "5a9ef534ec724d10b0f4251591792a39e1e50adb5c2bfdd3fe45f5699dbd01fa",
+    "packages/profile/src/summaries.types.ts": "721a04a4e857881100372aa40c2a55f1395ed309e68dea33cfb697259e44facb",
+    "packages/profile/src/types.ts": "0c7196807a33d216d19f4dafa6f594385a3bc7eeb337078ba9a60d8402439ccb",
+    "packages/profile/src/wire.types.ts": "90a211007fdc4fcb290804e1f6537eb3fe621e4e0bce63b6f87d526aef4cef97"
+  },
+  "capability_review_sha256": "fb280ef8a146c670faf81da7f6733d1fc3328be67fecb55e03c43a631a059059",
+  "source_pin_file_sha256": "bcfd980e1db1c6498d3769a33c70ac61c46dcbba09bf01eb97c857bebf8927d6",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
+  "public_contract": {
+    "kind": "source-extracted-http",
+    "operation_count": 235,
+    "sha256": "0797aa4fb66bde88aa46a51a1dea4730e6374372fd81deb68272a31e1c61b66a"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

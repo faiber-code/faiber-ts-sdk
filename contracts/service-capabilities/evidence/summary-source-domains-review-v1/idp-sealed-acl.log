@@ -1,0 +1,9 @@
+
+running 2 tests
+test seeder::acl_seeder::tests::crm_summary_transport_has_a_separate_explicit_permission ... ok
+test seeder::acl_seeder::tests::summary_evidence_transports_have_explicit_source_permissions ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.12s
+
+   Compiling summary-acl-contract v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-idp/tests/summary-acl)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.96s

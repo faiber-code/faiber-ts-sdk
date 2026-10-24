@@ -1,0 +1,103 @@
+{
+  "status": "MOUNTED_IN_ISOLATED_CANDIDATES_NOT_DEPLOYED",
+  "namespace": "Canonical /api/v1 only; no parallel version API",
+  "public_api": "public-sdk-contract.ts",
+  "wire_shape": "Direct HTTP JSON. Adapt only through existing SDK transport response wrapper; no new backend envelope. UUIDs are strings; expires_at uses UTC Unix seconds. JSON snake_case is exact.",
+  "auth": [
+    "Existing signed Manage session cookie required, then current Agentic-signed project-authority proof and identity revision. Inactive project/activation-only session fail closed before dispatch.",
+    "Agentic current project.settings.manage plus agents.run; require_thread_scope verifies current project_id/slug/Manage agent and thread owner. No new role, ACL, permission, membership or grant is introduced.",
+    "Service target stays in current signed-session enabled-service intersection and deployed project declaration; target service ACL remains as existing Manage proxy authority.",
+    "No browser actor/project/service trust or arbitrary target origin. Project and identity binding are server-resolved."
+  ],
+  "sse": {
+    "event": "manage_action",
+    "body": {
+      "action_id": "UUID",
+      "thread_id": "UUID",
+      "protocol": "durable-manage-action-v1"
+    },
+    "rule": "Persist validated action before emitting this reference. No executable body/arguments in this new event; old browser_action listeners cannot run it. Other browser tools retain browser_action. Load durable GET before showing a decision. Missing/failed capability never falls back to executeServiceAction plus completeAgentAction."
+  },
+  "review_semantics": [
+    "Read the action and capture version+payload_hash. Use a fresh operation UUID for every distinct edit/decision/execute; retries of the exact same operation must preserve its UUID and entire body.",
+    "Edit only body against the server-stored target and supported schema. Editing approved data returns to proposed, increments version and changes payload hash. Endpoint/schema catalog drift conflicts; it does not silently adopt a different schema.",
+    "Approve/reject requires a non-empty description and exact current version/hash. Rejection is terminal. Approval grants no permission and executes nothing.",
+    "Execute sends only operation_id, expected_version and payload_hash; any browser body/target/unknown field is rejected. Server claims approved action, persists dispatch intent, rechecks current authority and dispatches its saved payload.",
+    "Every transition uses one Mongo conditional replacement of state/version/hash and audit+response receipt. One claim/dispatch writer wins. Original terminal outcomes cannot be overwritten.",
+    "Exact completed operation replay returns its original response snapshot with replayed=true, after current scope checks. Different body reused with same action-local operation UUID conflicts. Execution replay resolves current durable receipt and never dispatches again.",
+    "A 409 requires a fresh GET. Do not silently retry with new version/hash or a new operation UUID. Editing/approval state can change across tabs.",
+    "Maximum reviewed input/payload is32KiB. Transition history is bounded (commands stop once it exceeds32 prior entries; automatic expiry is retained too); use explicit saves rather than per-keystroke writes. List returns newest50 summaries with no payload/history."
+  ],
+  "expiry_and_unknown": [
+    "Review expires600 seconds from creation; expiry is server checked, independent of browser/SSE lifetime. Durable source key includes project/thread/user/run/tool identity. Missing durable project run refuses creation.",
+    "Claimed execution deadline60 seconds. Server target timeout20 seconds, no redirect following and no generic transport retry. Dispatch intent precedes the HTTP request.",
+    "Uncertain timeout/network/body-limit/non-2xx/202/207 returns outcome_unknown. A body-less2xx still has an authoritative HTTP status receipt, not independent database reconciliation.",
+    "After a lost/forged result reply, the client gets failure/unavailable and must query the durable action or retry the exact execute UUID. It must not submit the target again.",
+    "The current candidate does not auto-retry any target endpoint, including those that might support idempotency. Enabling retries later requires endpoint-specific evidence and a stable supported downstream key. No generic Idempotency-Key assertion is invented.",
+    "Unknown is terminal here; operator reconciliation is a separate future supported path, not a new generic retry control. Expired/unknown records and audit history are retained.",
+    "An HTTP cancellation or timeout does not cancel a claimed server action and is not proof of target failure. Reconcile by durable GET/identical execute operation; never create a new target request as a cancellation workaround."
+  ],
+  "schema_boundary": [
+    "Uses the existing server ApiEndpoint catalog controlled by existing API_SERVICES_WRITE administration; selected endpoint method+service+canonical path and entire metadata hash are bound to the proposal. No model form, example payload or SDK string type is schema authority.",
+    "Only closed supported JSON-schema subset is accepted: type/properties/required/additionalProperties=false/items/enum/minLength/maxLength/minimum/maximum with description/title. Type may be one concrete type or a two-element array containing exactly that concrete type and null, in either order. General unions remain unavailable. Every schema is checked before value validation, including nested optional schemas and null values.",
+    "Refs, external schemas, arbitrary/open objects, schema examples/type-name placeholders and unsupported keywords explicitly make the operation unavailable. Existing catalogs predominantly containing examples will not become executable mutations.",
+    "Registered GET/DELETE with no body schema accepts only null body. Query keys must be registered, nonduplicate and have supported string/integer/number/boolean types; required query values are enforced.",
+    "Strict /api/v1 relative target, registered method/template match, no path percent-encoding/traversal/backslash/fragment/external origin. Body edit cannot alter service/method/path.",
+    "Catalog rollout/import of authoritative structured schemas is not performed or implicitly authorized by this candidate. No claim that every deployed operation is currently available."
+  ],
+  "internal": {
+    "routes": [
+      "GET /api/v1/manage/actions/capabilities",
+      "GET /api/v1/projects/{project}/manage/threads/{thread}/actions",
+      "GET /api/v1/projects/{project}/manage/threads/{thread}/actions/{id}",
+      "POST /api/v1/projects/{project}/manage/threads/{thread}/actions/{id}/commands"
+    ],
+    "commands": "edit|approve|reject from public review bridge; claim|dispatch|finish only inside Manage execution. Internal command also carries result and execution_id, never accepted from public review. Legacy browser/actions/{id}/complete rejects durable manage_sdk and has no fallback.",
+    "request_proof": {
+      "header": "x-manage-action-proof",
+      "purpose": "manage-action-request-v1",
+      "fields": [
+        "fresh nonce UUID for each bridge call",
+        "HTTP method",
+        "canonical internal path",
+        "canonical entire body hash",
+        "current actor UUID",
+        "project slug",
+        "thread/action UUID",
+        "expected version",
+        "payload hash",
+        "action-local operation UUID",
+        "identity_project/revision",
+        "iat/exp UTC seconds"
+      ],
+      "lifetime": "Manage mints15 seconds; Agentic requires nonnil nonce/op, at most30 second lifetime, <=2 second future skew and nonexpired exact scope/body. Commands cross-check version/hash/op against signed body."
+    },
+    "response_proof": {
+      "header": "x-manage-action-response",
+      "purpose": "manage-action-response-v1",
+      "fields": [
+        "hash of the entire exact request proof including fresh nonce",
+        "hash of the returned canonical JSON",
+        "iat/exp UTC seconds"
+      ],
+      "lifetime": "15 seconds; Manage checks purpose, exact request hash, body hash, <=2 second future skew, max15 second age/lifetime, and no response before request. Missing/malformed/tampered/wrong-request/old replay is unavailable, never authority. All successful read/list/command receipts are signed. Error responses can only deny; they never authorize target execution.",
+      "exposure": "Internal headers/proofs are consumed by Manage and not forwarded to the browser."
+    },
+    "canonicalization": "SHA256 over recursive sorted JSON object keys; array order and exact string/query content preserved. This is a semantic source/payload hash, not a Git commit hash."
+  },
+  "precise_runtime_delta": [
+    "No new key/env is provisioned. Reuses existing per-project signing derivation exactly: SHA256 of <first nonblank WORKER_SHARED_SECRET else CLOUD_WORKER_SECRET>:<project>:manage, preserving configured seed bytes; HMAC-SHA256 over existing token format. Both backends must resolve the same configured seed; missing/incompatible keys fail closed. Synthetic local fixture seeds only in tests.",
+    "Trust expansion is explicit: the already trusted per-project Manage server signing identity can now request payload-bound action decisions/claims/results; purpose-separated request and response verification additionally binds every operation. No platform user/session or actor-label flag alone grants this.",
+    "AGENTIC_INTERNAL_URL remains the existing approved private Agentic origin. Keep existing service ingress trust isolation and current project-authority signing configuration. No live networking/CORS/security configuration changed.",
+    "New Mongo collection manage_agent_actions, unique default _id, plus manage_actions_scope compound index. Creation validates/persists before SSE. Existing Mongo account needs its established collection/index privileges. No SQL migration, preset, role seed or destructive rollback.",
+    "Rollback requires disabling durable UI/actions without fallback; retain action/audit records and matching server versions. Do not roll back one side into accepting unsigned replies or legacy completion.",
+    "Two backend candidates and actual sole-owner SDK/UI integration must be deployed together under controller approval; no SDK pack or shared panel/Docker/package/lock source changed here."
+  ],
+  "source_selection": {
+    "manage": "5ac22d1145c68693717ff4dedcaff74a74746197",
+    "agentic": "e6c2a00fc4418604a99bf84b365e0db13fc8f5e6",
+    "evidence": "../service-capabilities/evidence/manage-sdk-source-audit-20261021/audit.json",
+    "status": "source_only_native_execution_pending",
+    "delta": "Selected candidate adds concrete-plus-null schema types and validates schema before values; public routes/DTO/protocol/proofs unchanged from original handoff."
+  }
+}

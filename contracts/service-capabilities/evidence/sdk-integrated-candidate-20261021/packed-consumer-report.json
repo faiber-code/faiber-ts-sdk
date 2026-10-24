@@ -1,0 +1,602 @@
+{
+  "status": "passed",
+  "scope": "Actual package tarballs, installed exports and strict public type consumers. Not native service or deployed authorization acceptance. No publication.",
+  "version": "1.0.0",
+  "packages": [
+    {
+      "name": "@faiber/faiber-asset",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-asset-1.0.0.tgz",
+      "integrity": "sha512-R1SC1Fd6MHqLGrhKFd8pPxysihZnTap9kRu6RHKXvVgaAozb6iBgjoZcX0dGgQIYM73OVlM545BAMxDeQJNgXQ==",
+      "sha256": "2e495119efeff1bce2586328eb0ef8a79ea4c935991a20eac2a930a75ed29671",
+      "file_count": 28
+    },
+    {
+      "name": "@faiber/faiber-chat",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-chat-1.0.0.tgz",
+      "integrity": "sha512-NV3ERF4I1FPy17X9/4KixRqtLvRvwpS3Cm8e2+0A98H14MdywgCiRhPSEkzsJyz4nJBVsbIXpuX3S0gs4w+Pgg==",
+      "sha256": "4d6ac7080b62ceed9390334076f4ad07e68114b2afe3f577b5dc0c31a7a503b8",
+      "file_count": 52
+    },
+    {
+      "name": "@faiber/sdk-core",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-sdk-core-1.0.0.tgz",
+      "integrity": "sha512-qM/UfiPFhKLcllIaAvzEEv6ZNMipR8lcMLNmN6uLx4VrEWZ7qYXe/DEGx1b7nOywsL7pR9BEGLQcqlRFUO6PEw==",
+      "sha256": "88fc29e0d2fa4a63ff06a9ee7a25abaaf4fdc838240371e0ca25d732efdd9d40",
+      "file_count": 40
+    },
+    {
+      "name": "@faiber/faiber-crm",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-crm-1.0.0.tgz",
+      "integrity": "sha512-+AZFY/+s4Gn+h1A2oBPgsKxLJOyYA34OBDL1N5B0FEqi8br4aj4DQqILEknZtjAdss3Mm91+wo37HJHWOOW1Dg==",
+      "sha256": "0bee2a5d27f833e956910140c128cc98744ea5ff3247aa1f560c0cdcde101cea",
+      "file_count": 24
+    },
+    {
+      "name": "@faiber/faiber-drm",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-drm-1.0.0.tgz",
+      "integrity": "sha512-MK5mBCd5ttpfmB3R5cE07HmfYla9/zoQD2qeCzx9Tq/yJaB4910ZC3naizzaUrC3ht1FzwmHWuuIkS7cFQI51g==",
+      "sha256": "a3a77f2e170448f1f08a42b4810422117dffe85c8875c27c5bc908ab5bbfe958",
+      "file_count": 24
+    },
+    {
+      "name": "@faiber/faiber-flow",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-flow-1.0.0.tgz",
+      "integrity": "sha512-lTYsNzUo/1fHewyDKNEOcVOMC2Wy9TjQ5B/nCaWhoTMJ1vyFY5xXqILicyYEs/lUEFhLBpOIxzBLI136F+rncA==",
+      "sha256": "2145a374d234f7260e5447ec6b0263b1bb8c8db6975a05f08d3a580e88d75841",
+      "file_count": 20
+    },
+    {
+      "name": "@faiber/faiber-game-sdk",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-game-sdk-1.0.0.tgz",
+      "integrity": "sha512-oN7nTJUWPHHa4V3Lh7zYih2OGcCATqe2E+biqsdyORwl6LQl6Nk7ueBxFZKbw3+W+HnqR+5VI9m5mhnmgRm3qg==",
+      "sha256": "cabc9dd343bac1132d4a3b1fffa5229e894e936bbfb43465c39214f7cbdf8f27",
+      "file_count": 40
+    },
+    {
+      "name": "@faiber/faiber-gis",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-gis-1.0.0.tgz",
+      "integrity": "sha512-et6lFJs/iO3j+jPGeO/o23JXwBsZvd+FGEm0ZjjMi3OQ/MuiPRsdMenMX8rbm/pGH/st1O+MkCUWwBpZ9blcEw==",
+      "sha256": "17b0e167005bd686586483245ca1faf893fdc8502ea53063cebc8ef073ede5a6",
+      "file_count": 20
+    },
+    {
+      "name": "@faiber/faiber-idp",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-idp-1.0.0.tgz",
+      "integrity": "sha512-TZCzOhOz8I6NYOQWxAKKaGsLvBTnS0NAbiGjsT+Mc2l4/m2n+zOSaRTbAS+XLVkP+RIB92395Yc/AJkLKh41IQ==",
+      "sha256": "eba23d7e8909781de5bb10eda7a7320b52c1c1d7ccf20cd7a0b993fd6add63c7",
+      "file_count": 36
+    },
+    {
+      "name": "@faiber/faiber-knowledge",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-knowledge-1.0.0.tgz",
+      "integrity": "sha512-OCgBtsPDQISQxs6yYKHIeqxL/EmsDZUD+C0ENIjaCdbGxk6oGNrJK7FU6EExb0ip1mRnwPAYHoHoi2aW3Fjrtw==",
+      "sha256": "290b9afac2a51ee679be70595b71694be0e5eed5286ab041f247845328d1c682",
+      "file_count": 20
+    },
+    {
+      "name": "@faiber/faiber-lms",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-lms-1.0.0.tgz",
+      "integrity": "sha512-j5XcVJzxD6gTll/w9h7UA6EwMfIW9G9N5AlNbvSwOHEnIGMsHyGW3DdnW2R5P2nT+DtsGe3/K+r6CfmlanXiYg==",
+      "sha256": "31a68425db3b4816f801da382a73eedee0e473a4ae624c549af6b46700c83811",
+      "file_count": 44
+    },
+    {
+      "name": "@faiber/faiber-manage",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-manage-1.0.0.tgz",
+      "integrity": "sha512-rFZxDOPHSCi1sTuVRUYTjsiE/OFHJb9d+W0Wlx0NvPN5c8AOAZJt09wKRNt9fAmqoXLeCQ7wmv8mZBRP/fT5tA==",
+      "sha256": "2805390ef1e46fc5399cde5b2b03d50ba8e7e3a5ffb502c82b79f35f9746eb4c",
+      "file_count": 28
+    },
+    {
+      "name": "@faiber/faiber-messenger",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-messenger-1.0.0.tgz",
+      "integrity": "sha512-JRvaa90EqEdqO5f2vDMOlIYvxxySj0JSscat4euUrYMp7nZT0eLW0RMyAnAfx105Umy7IkwQCskKrMcQgvGtsw==",
+      "sha256": "6dca88decc892c2756d010ed28550052fc3b3d56ef645149f868b0b434c5e659",
+      "file_count": 28
+    },
+    {
+      "name": "@faiber/faiber-modules",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-modules-1.0.0.tgz",
+      "integrity": "sha512-DIHGzX+as2iQGgBE7a5p1KMjOYxq361HOZzbXl1tmiyap05isobs1RIfT78j7m35ItznU5OTsYUa0REzVGZmwg==",
+      "sha256": "425200a938fd3cdecc240877de5709b835abd39613dbed96b292a18a0ccb772c",
+      "file_count": 24
+    },
+    {
+      "name": "@faiber/faiber-payment",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-payment-1.0.0.tgz",
+      "integrity": "sha512-C6aVolr4unO1+kdtCPSG4WsV7Vw9hycg3uj0fff8MkuiCrwcoEcfbb0h2pGq+qBSDUXtwuzHES8XMJ6IQD4T9w==",
+      "sha256": "9a3abd519d077094d7b196383d3c3f613e3e06641cbe162d9f7ee9c7acbbb9ab",
+      "file_count": 24
+    },
+    {
+      "name": "@faiber/faiber-profile",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-profile-1.0.0.tgz",
+      "integrity": "sha512-4jNbyY4QxgeVqOgZCdQ0/KwZVINuMNciF2r6SKpk6+EAGyj0udJ286wdvPdSnSafJtFTOWusn6FR3B8sjCzrWQ==",
+      "sha256": "475e5342d6e9027c512fc77d4b83cb1a80d90e1b24f4fc3f4c13cd6bbd8c5b86",
+      "file_count": 36
+    },
+    {
+      "name": "@faiber/faiber-reservation",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-reservation-1.0.0.tgz",
+      "integrity": "sha512-k8twHGS1dt4wHaHAUmppubOShtU/T0WytC4Sw72a/8YBiUMDIYPDw4FHXuIjY0KC1mz6iJaAqiVrctzajmQ03w==",
+      "sha256": "7174ad91d27db3d1d105ba43fcefdcfa54734749d52e162d753d14569686a13e",
+      "file_count": 24
+    },
+    {
+      "name": "@faiber/faiber-ts-sdk",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-ts-sdk-1.0.0.tgz",
+      "integrity": "sha512-xUSOhyzugEBKKnHmroqDyRC6s27n+JghigIft/4j4ECdjLSJPU262TXTXAcxK0EiuU4w3qEsooNDa+wsQXpccw==",
+      "sha256": "77af48b7470042c26088a5db41a7ba51c3f516d112ba674ac5b4ba85e6b09d0b",
+      "file_count": 12
+    },
+    {
+      "name": "@faiber/faiber-session",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-session-1.0.0.tgz",
+      "integrity": "sha512-KfNjlKEnnpjHFLmHpnJ+OpFxTQz6R54VjuJ5K2gdu4vinOIMIhrskeW6ZSiHR6SZsWOeEzVSuboVDQOMragzBw==",
+      "sha256": "2e0fc636c56f535e9d0dbf2e84ac458b1d0bf9c90faebe727f6646106e254f6e",
+      "file_count": 32
+    },
+    {
+      "name": "@faiber/faiber-social",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-social-1.0.0.tgz",
+      "integrity": "sha512-+DetH0THlUuX+eJU18880mf16bl6Sv0gJ+oexlnfLDwk36MPaKjZ53fYDpICvFHEgLX9AmCCfOnUfqjRToJSIw==",
+      "sha256": "5bf2f8bdcc302bef551c3d4509c8cab09eba2c917a5504862ff25213bef83386",
+      "file_count": 32
+    },
+    {
+      "name": "@faiber/faiber-state-sdk",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-state-sdk-1.0.0.tgz",
+      "integrity": "sha512-tUSZv2smZxZ4V8osn0PTsgJKB4LKY4J0Hf8x7bDUYuWpwU1bAdxcatK0WTNfMCGMaNxcV+f0OwDAWnKJeGiE4A==",
+      "sha256": "c336188643f6a708065a1c7c09a92699f933eb09653dcbeb77cb82b213b4d0ff",
+      "file_count": 44
+    },
+    {
+      "name": "@faiber/faiber-task",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-task-1.0.0.tgz",
+      "integrity": "sha512-79fkRqmE1O9Tf5gsyWF1N+jREpSmyZPeM4+fRrvGVDCWaDzZnG8SNFtOjT/IJ7Je/gPrcagDA3Ae3ZJs4U0yQg==",
+      "sha256": "0bc1ce263653b811f4b0ff738f53126e933681b888c44f51e61af401a46b3f7c",
+      "file_count": 36
+    },
+    {
+      "name": "@faiber/faiber-version",
+      "version": "1.0.0",
+      "archive": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs/faiber-faiber-version-1.0.0.tgz",
+      "integrity": "sha512-Rt025tg7DZf4JfeJz7d/k6xHlkvRp/dNdG+DvgvsNXlBoGDGIxYjEiE3yYjHNyDvMBIfr6FvloJqMuIsvF+GMg==",
+      "sha256": "a9422cc63544aef6e5334032892bfe905827ad1ae77ea3fa56141cb0cc28d6a4",
+      "file_count": 24
+    }
+  ],
+  "commands": [
+    {
+      "name": "pack-asset",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/asset",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-asset.log",
+      "sha256": "8ec7f8a57f8b82c27a5cb77174acbf0810eb407dda8682528feb9c0a1ddae425"
+    },
+    {
+      "name": "pack-chat",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/chat",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-chat.log",
+      "sha256": "6eb8b24e4fde0686670c3d1f9424376284b1089360006670d98963539b91a509"
+    },
+    {
+      "name": "pack-core",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/core",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.17,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-core.log",
+      "sha256": "acc54486700ba9867b7b167cafe6fa5a896058cf90dfc250aaa78180be4c1270"
+    },
+    {
+      "name": "pack-crm",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/crm",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-crm.log",
+      "sha256": "68676b583c5806303d47d5ddef43a3e14994e9e7793a849cf17ca69c44872bba"
+    },
+    {
+      "name": "pack-drm",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/drm",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-drm.log",
+      "sha256": "a27d7c0509b21be71f45da0b2a62c8394e0366c84fc46eeafc72730f69297ca8"
+    },
+    {
+      "name": "pack-flow",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/flow",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-flow.log",
+      "sha256": "a86cb5ede21a4cb5a3cd7b5ab2d5263689d26c8fdefde37fd4562cdec271fcf6"
+    },
+    {
+      "name": "pack-game",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/game",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.19,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-game.log",
+      "sha256": "75bfb0a7f92e50eb0b78cbcfb7c4bcfcdefd67825ea0008d4bfa33d957232f0c"
+    },
+    {
+      "name": "pack-gis",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/gis",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.19,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-gis.log",
+      "sha256": "98e72dd69aa302c49b9496e2da25782945fc4d0a8662d1ab0c7cc5c0af9b1bfb"
+    },
+    {
+      "name": "pack-idp",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/idp",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.23,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-idp.log",
+      "sha256": "1bfc887ac8b446373883f030af223e91f87f44974eff28d23fe1fb4ce63a0b83"
+    },
+    {
+      "name": "pack-knowledge",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/knowledge",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.19,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-knowledge.log",
+      "sha256": "25972c3c3bd93f513f3c488b408c1cc361f3a29e9e6a81a7a2c8c41b9b9ef0a6"
+    },
+    {
+      "name": "pack-lms",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/lms",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.19,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-lms.log",
+      "sha256": "69ea437f6007ccf2aeb0200032400d4646bfdaf0ce26ee6c95ec4114efafb4d2"
+    },
+    {
+      "name": "pack-manage",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/manage",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-manage.log",
+      "sha256": "1cea466f3390626bdaedbf1aadcafa9072962854d8bd8e0b20f7c7ef3d8b9b00"
+    },
+    {
+      "name": "pack-messenger",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/messenger",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-messenger.log",
+      "sha256": "8cbe0d9d6620f5086f206af19f28f33c75dfe94b645fbda85304bd5a8e9febba"
+    },
+    {
+      "name": "pack-modules",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/modules",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-modules.log",
+      "sha256": "6ba6c5d3cb77e0eafc561314f6862226a120f30f6d9e575cabe0352ecb3aade5"
+    },
+    {
+      "name": "pack-payment",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/payment",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-payment.log",
+      "sha256": "fa155a9ddc5cfc34715a3bbdf7cec7dc1ff6b5c773a7f70c45d8414e396a89ce"
+    },
+    {
+      "name": "pack-profile",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/profile",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-profile.log",
+      "sha256": "97b763f3064d8e3f154bcdb89b79744d1bf64c767f2ed89b3b7d0335a05b1fe1"
+    },
+    {
+      "name": "pack-reservation",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/reservation",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-reservation.log",
+      "sha256": "d004572923394e5f128dc83fff641b24f3d043bf7363e25965d8c3fca6af5fd4"
+    },
+    {
+      "name": "pack-sdk",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/sdk",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-sdk.log",
+      "sha256": "0add313baf7a8f559a54c95a06ca1d193cd826f8f593dcb41f5f16743cb700c5"
+    },
+    {
+      "name": "pack-session",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/session",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-session.log",
+      "sha256": "a1f0b6997372c53eec5d4a26806d89e2bf703d69a3d6acc4e0ae01fb869b3724"
+    },
+    {
+      "name": "pack-social",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/social",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.19,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-social.log",
+      "sha256": "86a07f72b6fe158d8c26a33dd31a3751b9a11905de7ad1597c0b240b1ba97f5f"
+    },
+    {
+      "name": "pack-state",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/state",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-state.log",
+      "sha256": "834bc9c19496a9664b82b46fe0d9c1efd8a8b04b2d4add5bb778971003aa91f5"
+    },
+    {
+      "name": "pack-task",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/task",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-task.log",
+      "sha256": "86834347f79f57bf77cb59f169aebfd8f3db1422edf6f0d8f82192216e180bad"
+    },
+    {
+      "name": "pack-version",
+      "command": [
+        "npm",
+        "pack",
+        "./packages/version",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/tarballs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.18,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/pack-version.log",
+      "sha256": "afc86b35c14484d57cfd90526d3c980a0074d0e2361ab0138092974c91f0f82c"
+    },
+    {
+      "name": "consumer-install",
+      "command": [
+        "npm",
+        "install",
+        "--ignore-scripts",
+        "--prefer-offline",
+        "--fetch-timeout=30000",
+        "--fetch-retries=1"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 1.75,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/consumer-install.log",
+      "sha256": "203aa59ef1e31d9ad38269344bdfa59554242b99c6733f5c27ba613e52e356a1"
+    },
+    {
+      "name": "consumer-imports",
+      "command": [
+        "node",
+        "verify.mjs"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.13,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/consumer-imports.log",
+      "sha256": "67324537cb9770ec91b863b3f22b5e7d5acb15986698b40f825e06e24a9e6efa"
+    },
+    {
+      "name": "consumer-types",
+      "command": [
+        "node",
+        "/Users/mohammadralizadeh/Infera/.task-worktrees/sdk-final-publication-20261021/faiber-ts-sdk/node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.json",
+        "--pretty",
+        "false"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.89,
+      "log": "/Users/mohammadralizadeh/Infera/acceptance-results/deployment-finalization-20261021/sdk-packed-candidate-final-v2/consumer-types.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

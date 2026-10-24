@@ -3,425 +3,425 @@ import type * as T from "./operations.types.js";
 
 export class KnowledgeOperations extends ServiceApi {
   /**
-   * Performs the list actions operation for the routes capability.
+   * List current-organization customer actions, newest first. Only status and the clamped limit are applied; page and other shared ListQuery filters are ignored.
    * Calls `GET /api/v1/actions` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:actions.
    */
   workspaceAssistantContracts(params?: T.RoutesListActionsGetQuery, options?: RequestOptions) {
     return this.client.request<T.RoutesListActionsGetResponse>({ ...options, method: "GET", url: `/api/v1/actions`, params });
   }
   /**
-   * Performs the update action status operation for the routes capability.
+   * Update one organization-scoped action status and customer input. Completed stamps completed_at; a later status change retains that stamp.
    * Calls `PATCH /api/v1/actions/{id}/status` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:actions.
    */
   routesUpdateActionStatusPatch(id: Identifier, data: T.RoutesUpdateActionStatusPatchInput, options?: RequestOptions<T.RoutesUpdateActionStatusPatchInput>) {
     return this.client.request<T.RoutesUpdateActionStatusPatchResponse, T.RoutesUpdateActionStatusPatchInput>({ ...options, method: "PATCH", url: `/api/v1/actions/${encodeURIComponent(id)}/status`, data: data });
   }
   /**
-   * Performs the list audit operation for the routes capability.
+   * List editor audit rows for the current organization, newest first and limited to 1–200. Shared query fields other than limit are ignored.
    * Calls `GET /api/v1/audit` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:audit.
    */
   routesListAuditGet(params?: T.RoutesListAuditGetQuery, options?: RequestOptions) {
     return this.client.request<T.RoutesListAuditGetResponse>({ ...options, method: "GET", url: `/api/v1/audit`, params });
   }
   /**
-   * Performs the audit events operation for the platform capability.
+   * List up to 500 current-organization platform audit events. knowledge:memory:read additionally includes redacted memory events; knowledge:read alone excludes them.
    * Calls `GET /api/v1/audit-events` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read; knowledge:memory:read additionally includes redacted memory events.
    */
   platformAuditEventsGet(options?: RequestOptions) {
     return this.client.request<T.PlatformAuditEventsGetResponse>({ ...options, method: "GET", url: `/api/v1/audit-events` });
   }
   /**
-   * Performs the list bindings operation for the routes capability.
+   * List current-organization chat bindings ordered by chat slug. The result is not paginated.
    * Calls `GET /api/v1/chat-bindings` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   routesListBindingsGet(options?: RequestOptions) {
     return this.client.request<T.RoutesListBindingsGetResponse>({ ...options, method: "GET", url: `/api/v1/chat-bindings` });
   }
   /**
-   * Performs the create binding operation for the routes capability.
+   * Create a chat binding to an authorized base with group scope and tool policy; returns 201.
    * Calls `POST /api/v1/chat-bindings` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   routesCreateBindingPost(data: T.RoutesCreateBindingPostInput, options?: RequestOptions<T.RoutesCreateBindingPostInput>) {
     return this.client.request<T.RoutesCreateBindingPostResponse, T.RoutesCreateBindingPostInput>({ ...options, method: "POST", url: `/api/v1/chat-bindings`, data: data });
   }
   /**
-   * Performs the delete binding operation for the routes capability.
+   * Delete a tenant-owned chat binding and audit the change transactionally; returns 204.
    * Calls `DELETE /api/v1/chat-bindings/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:delete.
    */
   routesDeleteBindingDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesDeleteBindingDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/chat-bindings/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update binding operation for the routes capability.
+   * Update a tenant-owned chat binding under a base lock and optional expected_version; no implicit stale retry is performed.
    * Calls `PUT /api/v1/chat-bindings/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   routesUpdateBindingPut(id: Identifier, data: T.RoutesUpdateBindingPutInput, options?: RequestOptions<T.RoutesUpdateBindingPutInput>) {
     return this.client.request<T.RoutesUpdateBindingPutResponse, T.RoutesUpdateBindingPutInput>({ ...options, method: "PUT", url: `/api/v1/chat-bindings/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the list documents operation for the platform capability.
+   * List scoped nondeleted document summaries, excluding content and metadata. No client-side synthetic pagination is applied.
    * Calls `GET /api/v1/documents` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   platformListDocumentsGet(options?: RequestOptions) {
     return this.client.request<T.PlatformListDocumentsGetResponse>({ ...options, method: "GET", url: `/api/v1/documents` });
   }
   /**
-   * Performs the ingest document operation for the platform capability.
+   * Synchronously index governed text/chunks. Identical content returns 200 unchanged; changed content returns 201 with a completed job. Embedding readiness is separate.
    * Calls `POST /api/v1/documents` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   platformIngestDocumentPost(data: T.PlatformIngestDocumentPostInput, options?: RequestOptions<T.PlatformIngestDocumentPostInput>) {
     return this.client.request<T.PlatformIngestDocumentPostResponse, T.PlatformIngestDocumentPostInput>({ ...options, method: "POST", url: `/api/v1/documents`, data: data });
   }
   /**
-   * Performs the reprocess document operation for the platform capability.
+   * Persist or reuse a scoped document-reprocess job and return 202 with the actual job ID. Queued does not certify execution.
    * Calls `POST /api/v1/documents/{id}/reprocess` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   platformReprocessDocumentPost(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.PlatformReprocessDocumentPostResponse>({ ...options, method: "POST", url: `/api/v1/documents/${encodeURIComponent(id)}/reprocess` });
   }
   /**
-   * Performs the delete edge operation for the routes capability.
+   * Delete an organization-owned graph edge and record editor audit transactionally; returns 204.
    * Calls `DELETE /api/v1/edges/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:delete.
    */
   routesDeleteEdgeDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesDeleteEdgeDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/edges/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update edge operation for the routes capability.
+   * Update an organization-owned graph edge under an authorized base lock and optional expected_version; stale edits return 409.
    * Calls `PUT /api/v1/edges/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   routesUpdateEdgePut(id: Identifier, data: T.RoutesUpdateEdgePutInput, options?: RequestOptions<T.RoutesUpdateEdgePutInput>) {
     return this.client.request<T.RoutesUpdateEdgePutResponse, T.RoutesUpdateEdgePutInput>({ ...options, method: "PUT", url: `/api/v1/edges/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the list evaluation cases operation for the platform capability.
+   * Read up to 500 active current-organization evaluation cases ordered by latest update.
    * Calls `GET /api/v1/evaluation-cases` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   platformListEvaluationCasesGet(options?: RequestOptions) {
     return this.client.request<T.PlatformListEvaluationCasesGetResponse>({ ...options, method: "GET", url: `/api/v1/evaluation-cases` });
   }
   /**
-   * Performs the save evaluation case operation for the platform capability.
+   * Upsert a stable-key evaluation case in the current organization and return 201. Blank stable key/query and identity/secret-bearing context fail validation.
    * Calls `POST /api/v1/evaluation-cases` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   platformSaveEvaluationCasePost(data: T.PlatformSaveEvaluationCasePostInput, options?: RequestOptions<T.PlatformSaveEvaluationCasePostInput>) {
     return this.client.request<T.PlatformSaveEvaluationCasePostResponse, T.PlatformSaveEvaluationCasePostInput>({ ...options, method: "POST", url: `/api/v1/evaluation-cases`, data: data });
   }
   /**
-   * Performs the delete group operation for the routes capability.
+   * Soft-delete one authorized empty group. Child groups, active items or active rules block deletion with 409; success returns 204.
    * Calls `DELETE /api/v1/groups/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:delete.
    */
   routesDeleteGroupDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesDeleteGroupDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/groups/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update group operation for the routes capability.
+   * Update a group under a tenant-authorized locked base. Parent moves validate cycles and descendant levels; optional expected_version detects stale drafts.
    * Calls `PUT /api/v1/groups/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   routesUpdateGroupPut(id: Identifier, data: T.RoutesUpdateGroupPutInput, options?: RequestOptions<T.RoutesUpdateGroupPutInput>) {
     return this.client.request<T.RoutesUpdateGroupPutResponse, T.RoutesUpdateGroupPutInput>({ ...options, method: "PUT", url: `/api/v1/groups/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the delete item operation for the routes capability.
+   * Soft-delete one authorized item transactionally and record editor audit; returns 204.
    * Calls `DELETE /api/v1/items/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:delete.
    */
   routesDeleteItemDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesDeleteItemDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/items/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the get item operation for the routes capability.
+   * Read a nondeleted item through its organization-owned base; absent and foreign items return 404.
    * Calls `GET /api/v1/items/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   routesGetItemGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesGetItemGetResponse>({ ...options, method: "GET", url: `/api/v1/items/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update item operation for the routes capability.
+   * Update an item transactionally with optional expected_version. Omitted/null optional scalar fields preserve current values; empty link strings clear links.
    * Calls `PUT /api/v1/items/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   routesUpdateItemPut(id: Identifier, data: T.RoutesUpdateItemPutInput, options?: RequestOptions<T.RoutesUpdateItemPutInput>) {
     return this.client.request<T.RoutesUpdateItemPutResponse, T.RoutesUpdateItemPutInput>({ ...options, method: "PUT", url: `/api/v1/items/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the list bases operation for the routes capability.
+   * Search current-organization nondeleted bases by name/slug and optional status. Page defaults to 1 and limit to 50, clamped to 1–200.
    * Calls `GET /api/v1/knowledge-bases` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   routesListBasesGet(params?: T.RoutesListBasesGetQuery, options?: RequestOptions) {
     return this.client.request<T.RoutesListBasesGetResponse>({ ...options, method: "GET", url: `/api/v1/knowledge-bases`, params });
   }
   /**
-   * Performs the create base operation for the routes capability.
+   * Create a draft base for the current organization. Slug validation and organization slug uniqueness are enforced; returns 201.
    * Calls `POST /api/v1/knowledge-bases` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   routesCreateBasePost(data: T.RoutesCreateBasePostInput, options?: RequestOptions<T.RoutesCreateBasePostInput>) {
     return this.client.request<T.RoutesCreateBasePostResponse, T.RoutesCreateBasePostInput>({ ...options, method: "POST", url: `/api/v1/knowledge-bases`, data: data });
   }
   /**
-   * Performs the delete base operation for the routes capability.
+   * Soft-delete and archive a current-organization base transactionally; retained child rows remain inaccessible through the base. Returns 204.
    * Calls `DELETE /api/v1/knowledge-bases/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:delete.
    */
   routesDeleteBaseDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesDeleteBaseDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/knowledge-bases/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the get base operation for the routes capability.
+   * Read a nondeleted organization-owned base. Foreign and missing base IDs return 404.
    * Calls `GET /api/v1/knowledge-bases/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   routesGetBaseGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesGetBaseGetResponse>({ ...options, method: "GET", url: `/api/v1/knowledge-bases/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update base operation for the routes capability.
+   * Update an organization-owned base under optional expected_version. Null scalar fields behave as omitted; stale versions conflict with 409.
    * Calls `PUT /api/v1/knowledge-bases/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   routesUpdateBasePut(id: Identifier, data: T.RoutesUpdateBasePutInput, options?: RequestOptions<T.RoutesUpdateBasePutInput>) {
     return this.client.request<T.RoutesUpdateBasePutResponse, T.RoutesUpdateBasePutInput>({ ...options, method: "PUT", url: `/api/v1/knowledge-bases/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the list edges operation for the routes capability.
+   * Read graph edges after authorizing their base, ordered by latest update. This endpoint does not accept pagination.
    * Calls `GET /api/v1/knowledge-bases/{id}/edges` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   routesListEdgesGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesListEdgesGetResponse>({ ...options, method: "GET", url: `/api/v1/knowledge-bases/${encodeURIComponent(id)}/edges` });
   }
   /**
-   * Performs the create edge operation for the routes capability.
+   * Create an edge with both endpoint items in the authorized base. Invalid cross-base endpoints fail; returns 201.
    * Calls `POST /api/v1/knowledge-bases/{id}/edges` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   routesCreateEdgePost(id: Identifier, data: T.RoutesCreateEdgePostInput, options?: RequestOptions<T.RoutesCreateEdgePostInput>) {
     return this.client.request<T.RoutesCreateEdgePostResponse, T.RoutesCreateEdgePostInput>({ ...options, method: "POST", url: `/api/v1/knowledge-bases/${encodeURIComponent(id)}/edges`, data: data });
   }
   /**
-   * Performs the export base operation for the routes capability.
+   * Export the current mutable authoring base, groups, items, edges and rules with an export timestamp. This is not an immutable published release.
    * Calls `GET /api/v1/knowledge-bases/{id}/export` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   routesExportBaseGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesExportBaseGetResponse>({ ...options, method: "GET", url: `/api/v1/knowledge-bases/${encodeURIComponent(id)}/export` });
   }
   /**
-   * Performs the list groups operation for the routes capability.
+   * List nondeleted groups after authorizing their base; returns an unpaginated array ordered by level then sort order.
    * Calls `GET /api/v1/knowledge-bases/{id}/groups` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   routesListGroupsGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesListGroupsGetResponse>({ ...options, method: "GET", url: `/api/v1/knowledge-bases/${encodeURIComponent(id)}/groups` });
   }
   /**
-   * Performs the create group operation for the routes capability.
+   * Create a group under a tenant-authorized locked base. Parent relationships and slug uniqueness are validated; returns 201.
    * Calls `POST /api/v1/knowledge-bases/{id}/groups` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   routesCreateGroupPost(id: Identifier, data: T.RoutesCreateGroupPostInput, options?: RequestOptions<T.RoutesCreateGroupPostInput>) {
     return this.client.request<T.RoutesCreateGroupPostResponse, T.RoutesCreateGroupPostInput>({ ...options, method: "POST", url: `/api/v1/knowledge-bases/${encodeURIComponent(id)}/groups`, data: data });
   }
   /**
-   * Performs the list items operation for the routes capability.
+   * Page nondeleted items after authorizing their base. Status, kind, link identifiers and slug/kind search apply; shared group filter is ignored.
    * Calls `GET /api/v1/knowledge-bases/{id}/items` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   routesListItemsGet(id: Identifier, params?: T.RoutesListItemsGetQuery, options?: RequestOptions) {
     return this.client.request<T.RoutesListItemsGetResponse>({ ...options, method: "GET", url: `/api/v1/knowledge-bases/${encodeURIComponent(id)}/items`, params });
   }
   /**
-   * Performs the create item operation for the routes capability.
+   * Create a draft item in an authorized group. Importance, validity and linked service/entity fields are validated; returns 201.
    * Calls `POST /api/v1/knowledge-bases/{id}/items` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   routesCreateItemPost(id: Identifier, data: T.RoutesCreateItemPostInput, options?: RequestOptions<T.RoutesCreateItemPostInput>) {
     return this.client.request<T.RoutesCreateItemPostResponse, T.RoutesCreateItemPostInput>({ ...options, method: "POST", url: `/api/v1/knowledge-bases/${encodeURIComponent(id)}/items`, data: data });
   }
   /**
-   * Performs the publish operation for the routes capability.
+   * Publish an immutable release snapshot of complete authorized content and update the base release pointer transactionally. Invalid content fails with 400.
    * Calls `POST /api/v1/knowledge-bases/{id}/publish` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:publish.
    */
   routesPublishPost(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesPublishPostResponse>({ ...options, method: "POST", url: `/api/v1/knowledge-bases/${encodeURIComponent(id)}/publish` });
   }
   /**
-   * Performs the get release operation for the routes capability.
+   * Read an immutable release after authorizing its base. The base ownership check also rejects missing or deleted bases.
    * Calls `GET /api/v1/knowledge-releases/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   routesGetReleaseGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesGetReleaseGetResponse>({ ...options, method: "GET", url: `/api/v1/knowledge-releases/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the list rules operation for the routes capability.
+   * Search nondeleted rules across all owned active bases before stable priority/ID pagination. Base, group, enabled and localized name/slug filters apply.
    * Calls `GET /api/v1/match-rules` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   routesListRulesGet(params?: T.RoutesListRulesGetQuery, options?: RequestOptions) {
     return this.client.request<T.RoutesListRulesGetResponse>({ ...options, method: "GET", url: `/api/v1/match-rules`, params });
   }
   /**
-   * Performs the create rule operation for the routes capability.
+   * Create a rule with validated base/group relationship and conditions; outcomes retain their extensible JSON shape. Returns 201.
    * Calls `POST /api/v1/match-rules` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   routesCreateRulePost(data: T.RoutesCreateRulePostInput, options?: RequestOptions<T.RoutesCreateRulePostInput>) {
     return this.client.request<T.RoutesCreateRulePostResponse, T.RoutesCreateRulePostInput>({ ...options, method: "POST", url: `/api/v1/match-rules`, data: data });
   }
   /**
-   * Performs the delete rule operation for the routes capability.
+   * Soft-delete an authorized match rule and record editor audit transactionally; returns 204.
    * Calls `DELETE /api/v1/match-rules/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:delete.
    */
   routesDeleteRuleDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesDeleteRuleDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/match-rules/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the update rule operation for the routes capability.
+   * Update a rule after locked base ownership and group validation. Optional expected_version returns 409 for stale edits.
    * Calls `PUT /api/v1/match-rules/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   routesUpdateRulePut(id: Identifier, data: T.RoutesUpdateRulePutInput, options?: RequestOptions<T.RoutesUpdateRulePutInput>) {
@@ -432,417 +432,513 @@ export class KnowledgeOperations extends ServiceApi {
    * Calls `POST /api/v1/memory-outbox/{id}/replay` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:memory:write.
    */
   platformReplayMemoryOutboxPost(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.PlatformReplayMemoryOutboxPostResponse>({ ...options, method: "POST", url: `/api/v1/memory-outbox/${encodeURIComponent(id)}/replay` });
   }
   /**
-   * Performs the list memory subjects operation for the platform capability.
+   * List bounded current subjects with literal profile/identity search, type/status/enabled filters and stable pagination. Return separate nullable overrides, effective policy, actual counts, server capabilities and captured revision; only the bounded Profile identity allowlist is returned.
    * Calls `GET /api/v1/memory-subjects` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:memory:read.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:memory:read; current organization/subject predicates on every read.
    */
   platformListMemorySubjectsGet(params?: T.PlatformListMemorySubjectsGetQuery, options?: RequestOptions) {
     return this.client.request<T.PlatformListMemorySubjectsGetResponse>({ ...options, method: "GET", url: `/api/v1/memory-subjects`, params });
   }
   /**
-   * Performs the clear memory subject operation for the platform capability.
+   * Atomically fence selected short/long or full subject scope and update current records/counters/audit.204 confirms commit. Original Chat conversations and retained physical copies remain separate service-owned actions.
    * Calls `DELETE /api/v1/memory-subjects/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current authenticated subject owner OR scoped knowledge:memory:delete; common transactional scope fence/audit.
    */
   platformClearMemorySubjectDelete(id: Identifier, params?: T.PlatformClearMemorySubjectDeleteQuery, options?: RequestOptions) {
     return this.client.request<T.PlatformClearMemorySubjectDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/memory-subjects/${encodeURIComponent(id)}`, params });
   }
   /**
-   * Performs the set memory override operation for the platform capability.
+   * Read one currently authorized subject by ID. Foreign and absent tenant records return404; response separates raw nullable overrides from effective policy and provides the reviewed policy revision.
+   * Calls `GET /api/v1/memory-subjects/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:memory:read; current organization/subject predicates on every read.
+   */
+  platformMemorySubjectGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.PlatformMemorySubjectGetResponse>({ ...options, method: "GET", url: `/api/v1/memory-subjects/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Read paginated authorized audit identifiers/actions/actors/dates. Retained before/after payloads and free-text reasons are excluded to prevent forgotten content reappearing through audit.
+   * Calls `GET /api/v1/memory-subjects/{id}/audit-events` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:memory:read; current organization/subject predicates on every read.
+   */
+  platformMemoryAuditGet(id: Identifier, params?: T.PlatformMemoryAuditGetQuery, options?: RequestOptions) {
+    return this.client.request<T.PlatformMemoryAuditGetResponse>({ ...options, method: "GET", url: `/api/v1/memory-subjects/${encodeURIComponent(id)}/audit-events`, params });
+  }
+  /**
+   * Apply an explicit correction UUID with1–32 reviewed active target IDs, an8192-byte statement and500-byte reason. Complete conflict-set CAS, immutable replay receipt and evidence/audit share one transaction;409 must never be automatically rebased.
+   * Calls `POST /api/v1/memory-subjects/{id}/corrections` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:memory:write AND current authenticated subject owner; active permitted long memory policy.
+   */
+  platformCorrectMemoryPost(id: Identifier, data: T.PlatformCorrectMemoryPostInput, options?: RequestOptions<T.PlatformCorrectMemoryPostInput>) {
+    return this.client.request<T.PlatformCorrectMemoryPostResponse, T.PlatformCorrectMemoryPostInput>({ ...options, method: "POST", url: `/api/v1/memory-subjects/${encodeURIComponent(id)}/corrections`, data: data });
+  }
+  /**
+   * Read1–200 atomic records with allowlisted type/lifecycle filters and deterministic pages. Expired/forgotten content is redacted. Text, JSON fact values and provenance references are bounded; no embedding/raw metadata payload is exposed.
+   * Calls `GET /api/v1/memory-subjects/{id}/memories` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:memory:read; current organization/subject predicates on every read.
+   */
+  platformListMemoriesGet(id: Identifier, params?: T.PlatformListMemoriesGetQuery, options?: RequestOptions) {
+    return this.client.request<T.PlatformListMemoriesGetResponse>({ ...options, method: "GET", url: `/api/v1/memory-subjects/${encodeURIComponent(id)}/memories`, params });
+  }
+  /**
+   * Set nullable personal overrides using a captured revision. Null/missing values reset under PUT semantics. Policy/override/epoch change makes the revision stale;409 commits no state or audit. Response is a safe current subject projection. Assistant disabled lanes are hard ceilings even when the legacy widening flag is true.
    * Calls `PUT /api/v1/memory-subjects/{id}/policy` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current authenticated subject owner OR scoped knowledge:memory:write; captured expected_revision and current policy rules.
    */
   platformSetMemoryOverridePut(id: Identifier, data: T.PlatformSetMemoryOverridePutInput, options?: RequestOptions<T.PlatformSetMemoryOverridePutInput>) {
     return this.client.request<T.PlatformSetMemoryOverridePutResponse, T.PlatformSetMemoryOverridePutInput>({ ...options, method: "PUT", url: `/api/v1/memory-subjects/${encodeURIComponent(id)}/policy`, data: data });
   }
   /**
-   * Performs the forget memory operation for the platform capability.
+   * Forget one authorized retained memory row atomically with counters/audit. This does not certify source-family tombstones or erasure of associated conversation projections.
    * Calls `DELETE /api/v1/memory-subjects/{subject_id}/memories/{memory_id}` through the shared IDP-aware Faiber client.
    * @param subjectId Backend path identifier `subject_id`.
    * @param memoryId Backend path identifier `memory_id`.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current authenticated subject owner OR scoped knowledge:memory:delete.
    */
   platformForgetMemoryDelete(subjectId: Identifier, memoryId: Identifier, params?: T.PlatformForgetMemoryDeleteQuery, options?: RequestOptions) {
     return this.client.request<T.PlatformForgetMemoryDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/memory-subjects/${encodeURIComponent(subjectId)}/memories/${encodeURIComponent(memoryId)}`, params });
   }
   /**
-   * Performs the invalidate policy cache operation for the platform capability.
+   * Read one memory using organization AND subject AND memory predicates. Forgotten/expired record text, fact values, confidence and evidence are redacted, including a forgotten parent subject.
+   * Calls `GET /api/v1/memory-subjects/{subject_id}/memories/{memory_id}` through the shared IDP-aware Faiber client.
+   * @param subjectId Backend path identifier `subject_id`.
+   * @param memoryId Backend path identifier `memory_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:memory:read; current organization/subject predicates on every read.
+   */
+  platformMemoryRecordGet(subjectId: Identifier, memoryId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.PlatformMemoryRecordGetResponse>({ ...options, method: "GET", url: `/api/v1/memory-subjects/${encodeURIComponent(subjectId)}/memories/${encodeURIComponent(memoryId)}` });
+  }
+  /**
+   * Remove only current-organization assistant policy cache entries and return their count after audit.
    * Calls `POST /api/v1/platform/cache/invalidate` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   platformInvalidatePolicyCachePost(options?: RequestOptions) {
     return this.client.request<T.PlatformInvalidatePolicyCachePostResponse>({ ...options, method: "POST", url: `/api/v1/platform/cache/invalidate` });
   }
   /**
-   * Performs the catalog operation for the platform capability.
+   * Read scoped base/recommender summaries and full assistant policies with enabled binding IDs. This is an inventory, not an authorization grant.
    * Calls `GET /api/v1/platform/catalog` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   platformCatalogGet(options?: RequestOptions) {
     return this.client.request<T.PlatformCatalogGetResponse>({ ...options, method: "GET", url: `/api/v1/platform/catalog` });
   }
   /**
-   * Performs the converters operation for the platform capability.
+   * List converter registry capabilities, configuration requirements and reported health. Registry availability does not certify that a worker executed a job.
    * Calls `GET /api/v1/platform/converters` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   platformConvertersGet(options?: RequestOptions) {
     return this.client.request<T.PlatformConvertersGetResponse>({ ...options, method: "GET", url: `/api/v1/platform/converters` });
   }
   /**
-   * Performs the status operation for the platform capability.
+   * Read scoped inventories and last-24-hour retrieval aggregates. Metrics are null without traces; ready is not proof of every external dependency.
    * Calls `GET /api/v1/platform/status` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   platformStatusGet(options?: RequestOptions) {
     return this.client.request<T.PlatformStatusGetResponse>({ ...options, method: "GET", url: `/api/v1/platform/status` });
   }
   /**
-   * Performs the processing jobs operation for the platform capability.
+   * List up to 500 current-organization processing job rows by latest update; counters and queued status do not certify execution.
    * Calls `GET /api/v1/processing-jobs` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   platformProcessingJobsGet(options?: RequestOptions) {
     return this.client.request<T.PlatformProcessingJobsGetResponse>({ ...options, method: "GET", url: `/api/v1/processing-jobs` });
   }
   /**
-   * Performs the cancel processing job operation for the platform capability.
+   * Request cancellation of a scoped job. Queued/retry jobs become cancelled immediately; processing work retains status until worker acknowledgement.
    * Calls `POST /api/v1/processing-jobs/{id}/cancel` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   platformCancelProcessingJobPost(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.PlatformCancelProcessingJobPostResponse>({ ...options, method: "POST", url: `/api/v1/processing-jobs/${encodeURIComponent(id)}/cancel` });
   }
   /**
-   * Performs the retry processing job operation for the platform capability.
+   * Requeue a failed, dead-letter, retry or cancelled job with a new attempt lifecycle after scoped locks and duplicate-work checks. Ineligible jobs conflict.
    * Calls `POST /api/v1/processing-jobs/{id}/retry` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   platformRetryProcessingJobPost(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.PlatformRetryProcessingJobPostResponse>({ ...options, method: "POST", url: `/api/v1/processing-jobs/${encodeURIComponent(id)}/retry` });
   }
   /**
-   * Performs the list recommenders operation for the platform capability.
+   * List scoped recommender groups with their items ordered by sort order; this is an unpaginated nested inventory.
    * Calls `GET /api/v1/recommender-groups` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   platformListRecommendersGet(options?: RequestOptions) {
     return this.client.request<T.PlatformListRecommendersGetResponse>({ ...options, method: "GET", url: `/api/v1/recommender-groups` });
   }
   /**
-   * Performs the create recommender group operation for the platform capability.
+   * Create a current-organization recommender group with max_results clamped to 1–50; returns 201.
    * Calls `POST /api/v1/recommender-groups` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   platformCreateRecommenderGroupPost(data: T.PlatformCreateRecommenderGroupPostInput, options?: RequestOptions<T.PlatformCreateRecommenderGroupPostInput>) {
     return this.client.request<T.PlatformCreateRecommenderGroupPostResponse, T.PlatformCreateRecommenderGroupPostInput>({ ...options, method: "POST", url: `/api/v1/recommender-groups`, data: data });
   }
   /**
-   * Performs the create recommender item operation for the platform capability.
+   * Create an item only inside a current-organization recommender group; missing or foreign groups return 404 and success returns 201.
    * Calls `POST /api/v1/recommender-groups/{id}/items` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   platformCreateRecommenderItemPost(id: Identifier, data: T.PlatformCreateRecommenderItemPostInput, options?: RequestOptions<T.PlatformCreateRecommenderItemPostInput>) {
     return this.client.request<T.PlatformCreateRecommenderItemPostResponse, T.PlatformCreateRecommenderItemPostInput>({ ...options, method: "POST", url: `/api/v1/recommender-groups/${encodeURIComponent(id)}/items`, data: data });
   }
   /**
-   * Performs the configure assistant operation for the platform capability.
+   * Read authoritative applied/cancelled operation outcome after waiting for concurrent configuration writers. Absence is404, never inferred success.
+   * Calls `GET /api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}` through the shared IDP-aware Faiber client.
+   * @param assistantId Backend path identifier `assistant_id`.
+   * @param operationId Backend path identifier `operation_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write; current tenant and assistant.
+   */
+  platformAssistantConfigurationOperationGet(assistantId: Identifier, operationId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.PlatformAssistantConfigurationOperationGetResponse>({ ...options, method: "GET", url: `/api/v1/runtime/assistants/${encodeURIComponent(assistantId)}/configuration-operations/${encodeURIComponent(operationId)}` });
+  }
+  /**
+   * Write an immutable cancellation tombstone with a bounded reason before releasing a pending Chat fence. Delayed original delivery conflicts. Applied configurations require recovery and cannot be cancelled as absent.
+   * Calls `POST /api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}` through the shared IDP-aware Faiber client.
+   * @param assistantId Backend path identifier `assistant_id`.
+   * @param operationId Backend path identifier `operation_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write; current authorized administration.
+   */
+  platformCancelAssistantConfigurationOperationPost(assistantId: Identifier, operationId: Identifier, data: T.PlatformCancelAssistantConfigurationOperationPostInput, options?: RequestOptions<T.PlatformCancelAssistantConfigurationOperationPostInput>) {
+    return this.client.request<T.PlatformCancelAssistantConfigurationOperationPostResponse, T.PlatformCancelAssistantConfigurationOperationPostInput>({ ...options, method: "POST", url: `/api/v1/runtime/assistants/${encodeURIComponent(assistantId)}/configuration-operations/${encodeURIComponent(operationId)}`, data: data });
+  }
+  /**
+   * Capture the current assistant policy revision at edit time. Zero denotes absent policy. Never fetch a fresh revision to rebase a stale submission.
+   * Calls `GET /api/v1/runtime/assistants/{assistant_id}/configure` through the shared IDP-aware Faiber client.
+   * @param assistantId Backend path identifier `assistant_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write; current tenant.
+   */
+  platformAssistantConfigurationSnapshotGet(assistantId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.PlatformAssistantConfigurationSnapshotGetResponse>({ ...options, method: "GET", url: `/api/v1/runtime/assistants/${encodeURIComponent(assistantId)}/configure` });
+  }
+  /**
+   * Apply a non-nil configuration UUID with the captured policy revision. Policy, history, bindings, epochs, audit and exact operation outcome share one transaction. Identical original-actor replay returns the immutable result without duplicate epoch changes; cancelled or changed requests conflict.
    * Calls `PUT /api/v1/runtime/assistants/{assistant_id}/configure` through the shared IDP-aware Faiber client.
    * @param assistantId Backend path identifier `assistant_id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write; current tenant and immutable operation actor.
    */
   platformConfigureAssistantPut(assistantId: Identifier, data: T.PlatformConfigureAssistantPutInput, options?: RequestOptions<T.PlatformConfigureAssistantPutInput>) {
     return this.client.request<T.PlatformConfigureAssistantPutResponse, T.PlatformConfigureAssistantPutInput>({ ...options, method: "PUT", url: `/api/v1/runtime/assistants/${encodeURIComponent(assistantId)}/configure`, data: data });
   }
   /**
-   * Performs the get operation for the routes capability.
+   * Load complete assistant contract records from enabled bindings and immutable releases. Shared dependencies are pinned; absent/incomplete/ambiguous contracts fail.
    * Calls `GET /api/v1/runtime/assistants/{assistant_id}/contracts/{slug}` through the shared IDP-aware Faiber client.
    * @param assistantId Backend path identifier `assistant_id`.
    * @param slug Backend path identifier `slug`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:runtime.
    */
   routesGetGet(assistantId: Identifier, slug: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesGetGetResponse>({ ...options, method: "GET", url: `/api/v1/runtime/assistants/${encodeURIComponent(assistantId)}/contracts/${encodeURIComponent(slug)}` });
   }
   /**
-   * Performs the evaluate assistant operation for the platform capability.
+   * Run the canonical assistant retrieval pipeline with evaluation surface metadata under the same governance.
    * Calls `POST /api/v1/runtime/assistants/{assistant_id}/evaluations` through the shared IDP-aware Faiber client.
    * @param assistantId Backend path identifier `assistant_id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   platformEvaluateAssistantPost(assistantId: Identifier, data: T.PlatformEvaluateAssistantPostInput, options?: RequestOptions<T.PlatformEvaluateAssistantPostInput>) {
     return this.client.request<T.PlatformEvaluateAssistantPostResponse, T.PlatformEvaluateAssistantPostInput>({ ...options, method: "POST", url: `/api/v1/runtime/assistants/${encodeURIComponent(assistantId)}/evaluations`, data: data });
   }
   /**
-   * Performs the record turn operation for the platform capability.
+   * Admit an idempotent assistant turn into the memory outbox under current policy and scope epochs. HTTP 202 can return queued:false; it does not certify extraction.
    * Calls `POST /api/v1/runtime/assistants/{assistant_id}/memory/turn` through the shared IDP-aware Faiber client.
    * @param assistantId Backend path identifier `assistant_id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:runtime.
    */
   platformRecordTurnPost(assistantId: Identifier, data: T.PlatformRecordTurnPostInput, options?: RequestOptions<T.PlatformRecordTurnPostInput>) {
     return this.client.request<T.PlatformRecordTurnPostResponse, T.PlatformRecordTurnPostInput>({ ...options, method: "POST", url: `/api/v1/runtime/assistants/${encodeURIComponent(assistantId)}/memory/turn`, data: data });
   }
   /**
-   * Performs the preview assistant operation for the platform capability.
+   * Run the canonical assistant retrieval pipeline with preview surface metadata under the same governance.
    * Calls `POST /api/v1/runtime/assistants/{assistant_id}/preview` through the shared IDP-aware Faiber client.
    * @param assistantId Backend path identifier `assistant_id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   platformPreviewAssistantPost(assistantId: Identifier, data: T.PlatformPreviewAssistantPostInput, options?: RequestOptions<T.PlatformPreviewAssistantPostInput>) {
     return this.client.request<T.PlatformPreviewAssistantPostResponse, T.PlatformPreviewAssistantPostInput>({ ...options, method: "POST", url: `/api/v1/runtime/assistants/${encodeURIComponent(assistantId)}/preview`, data: data });
   }
   /**
-   * Performs the query assistant operation for the platform capability.
+   * Run governed assistant retrieval with policy ceilings, scoped provider evidence and context delivery tracking. A missing policy returns explicit empty context.
    * Calls `POST /api/v1/runtime/assistants/{assistant_id}/query` through the shared IDP-aware Faiber client.
    * @param assistantId Backend path identifier `assistant_id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:runtime.
    */
   platformQueryAssistantPost(assistantId: Identifier, data: T.PlatformQueryAssistantPostInput, options?: RequestOptions<T.PlatformQueryAssistantPostInput>) {
     return this.client.request<T.PlatformQueryAssistantPostResponse, T.PlatformQueryAssistantPostInput>({ ...options, method: "POST", url: `/api/v1/runtime/assistants/${encodeURIComponent(assistantId)}/query`, data: data });
   }
   /**
-   * Performs the runtime query operation for the routes capability.
+   * Resolve a chat binding through immutable published knowledge and evaluate profile rules. Binding scope, levels, conditions and context budgets apply.
    * Calls `POST /api/v1/runtime/chat/{chat_slug}/query` through the shared IDP-aware Faiber client.
    * @param chatSlug Backend path identifier `chat_slug`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:runtime.
    */
   routesRuntimeQueryPost(chatSlug: Identifier, data: T.RoutesRuntimeQueryPostInput, options?: RequestOptions<T.RoutesRuntimeQueryPostInput>) {
     return this.client.request<T.RoutesRuntimeQueryPostResponse, T.RoutesRuntimeQueryPostInput>({ ...options, method: "POST", url: `/api/v1/runtime/chat/${encodeURIComponent(chatSlug)}/query`, data: data });
   }
   /**
-   * Performs the document evidence operation for the platform capability.
+   * Read complete indexed nondeleted document evidence in the current organization; missing or unindexed documents return 404.
    * Calls `GET /api/v1/runtime/evidence/documents/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:runtime.
    */
   platformDocumentEvidenceGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.PlatformDocumentEvidenceGetResponse>({ ...options, method: "GET", url: `/api/v1/runtime/evidence/documents/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the session evidence operation for the platform capability.
+   * Read active session evidence for the authenticated owner or participant. A current user is required even with session:read:all; inaccessible evidence returns 404.
    * Calls `GET /api/v1/runtime/evidence/session/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:runtime.
    */
   platformSessionEvidenceGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.PlatformSessionEvidenceGetResponse>({ ...options, method: "GET", url: `/api/v1/runtime/evidence/session/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the mcp operation for the platform capability.
+   * Execute JSON-RPC initialize, tools/list or tools/call through the governed pipeline. JSON-RPC errors may use HTTP 200; inspect result/error before claiming success.
    * Calls `POST /api/v1/runtime/mcp` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:runtime.
    */
   platformMcpPost(data: T.PlatformMcpPostInput, options?: RequestOptions<T.PlatformMcpPostInput>) {
     return this.client.request<T.PlatformMcpPostResponse, T.PlatformMcpPostInput>({ ...options, method: "POST", url: `/api/v1/runtime/mcp`, data: data });
   }
   /**
-   * Performs the record retrieval usage operation for the platform capability.
+   * Attach nonnegative provider token usage and nullable cost to a scoped retrieval trace. Missing or foreign trace IDs return 404.
    * Calls `POST /api/v1/runtime/retrieval-traces/{id}/usage` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:runtime.
    */
   platformRecordRetrievalUsagePost(id: Identifier, data: T.PlatformRecordRetrievalUsagePostInput, options?: RequestOptions<T.PlatformRecordRetrievalUsagePostInput>) {
     return this.client.request<T.PlatformRecordRetrievalUsagePostResponse, T.PlatformRecordRetrievalUsagePostInput>({ ...options, method: "POST", url: `/api/v1/runtime/retrieval-traces/${encodeURIComponent(id)}/usage`, data: data });
   }
   /**
-   * Performs the tool schema operation for the routes capability.
+   * Read the query_knowledge JSON Schema. This descriptive route has no handler permission guard; transport still uses the configured shared client.
    * Calls `GET /api/v1/runtime/tool-schema` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   routesToolSchemaGet(options?: RequestOptions) {
     return this.client.request<T.RoutesToolSchemaGetResponse>({ ...options, method: "GET", url: `/api/v1/runtime/tool-schema` });
   }
   /**
-   * Performs the list sources operation for the platform capability.
+   * List current-organization governed sources by latest update, including source version and configuration.
    * Calls `GET /api/v1/sources` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:read.
    */
   platformListSourcesGet(options?: RequestOptions) {
     return this.client.request<T.PlatformListSourcesGetResponse>({ ...options, method: "GET", url: `/api/v1/sources` });
   }
   /**
-   * Performs the create source operation for the platform capability.
+   * Create a source under a locked owned base. Validate source kind, slug and secret references; returns 201 without executing synchronization.
    * Calls `POST /api/v1/sources` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   platformCreateSourcePost(data: T.PlatformCreateSourcePostInput, options?: RequestOptions<T.PlatformCreateSourcePostInput>) {
     return this.client.request<T.PlatformCreateSourcePostResponse, T.PlatformCreateSourcePostInput>({ ...options, method: "POST", url: `/api/v1/sources`, data: data });
   }
   /**
-   * Performs the pause source operation for the platform capability.
+   * Set active/paused desired source state under the captured expected_version. Stale intent conflicts; already-desired state is unchanged.
    * Calls `POST /api/v1/sources/{id}/pause` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
-  platformPauseSourcePost(id: Identifier, options?: RequestOptions) {
-    return this.client.request<T.PlatformPauseSourcePostResponse>({ ...options, method: "POST", url: `/api/v1/sources/${encodeURIComponent(id)}/pause` });
+  platformPauseSourcePost(id: Identifier, data: T.PlatformPauseSourcePostInput, options?: RequestOptions<T.PlatformPauseSourcePostInput>) {
+    return this.client.request<T.PlatformPauseSourcePostResponse, T.PlatformPauseSourcePostInput>({ ...options, method: "POST", url: `/api/v1/sources/${encodeURIComponent(id)}/pause`, data: data });
   }
   /**
-   * Performs the sync source operation for the platform capability.
+   * Persist or reuse a scoped source-sync job and return 202 with its real job ID. This receipt does not certify an available executor.
    * Calls `POST /api/v1/sources/{id}/sync` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
   platformSyncSourcePost(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.PlatformSyncSourcePostResponse>({ ...options, method: "POST", url: `/api/v1/sources/${encodeURIComponent(id)}/sync` });
   }
   /**
-   * Performs the readiness operation for the main capability.
+   * Read database readiness with commit/version. HTTP 503 returns the same success envelope with degraded status; Axios rejects by default.
    * Calls `GET /health` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   mainReadinessGetHealth(options?: RequestOptions) {
     return this.client.request<T.MainReadinessGetHealthResponse>({ ...options, method: "GET", url: `/health` });
   }
   /**
-   * Performs the liveness operation for the main capability.
+   * Read process liveness and package version. This does not check database or worker readiness.
    * Calls `GET /health/live` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   mainLivenessGet(options?: RequestOptions) {
     return this.client.request<T.MainLivenessGetResponse>({ ...options, method: "GET", url: `/health/live` });
   }
   /**
-   * Performs the readiness operation for the main capability.
+   * Read database readiness with commit/version. HTTP 503 returns the same success envelope with degraded status; Axios rejects by default.
    * Calls `GET /health/ready` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   mainReadinessGetHealthReady(options?: RequestOptions) {
     return this.client.request<T.MainReadinessGetHealthReadyResponse>({ ...options, method: "GET", url: `/health/ready` });
   }
   /**
-   * Performs the convert operation for the main capability.
+   * Convert a 1–25,000,000-byte source using trusted Task authority and x-organization-id. The body is binary, not JSON or multipart.
    * Calls `POST /internal/task-conversions` through the shared IDP-aware Faiber client.
    * @param data Typed binary byte stream.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted backend service credential and tenant scope; not a public browser endpoint.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted Task authority token in x-task-projection-token plus x-organization-id; server only.
    */
   mainConvertPost(data: T.MainConvertPostInput, options?: RequestOptions<T.MainConvertPostInput>) {
     return this.client.request<T.MainConvertPostResponse, T.MainConvertPostInput>({ ...options, method: "POST", url: `/internal/task-conversions`, data: data, headers: { "Content-Type": "application/octet-stream", ...options?.headers } });
   }
   /**
-   * Performs the candidates operation for the task projections capability.
+   * Find at most 100 projected Task note identities within 1–10 allowed project IDs and a query of at most 2000 characters. Requires trusted Task authority.
    * Calls `POST /internal/task-projections/candidates` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted backend service credential and tenant scope; not a public browser endpoint.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted Task authority token in x-task-projection-token plus x-organization-id; server only.
    */
   taskProjectionsCandidatesPost(data: T.TaskProjectionsCandidatesPostInput, options?: RequestOptions<T.TaskProjectionsCandidatesPostInput>) {
     return this.client.request<T.TaskProjectionsCandidatesPostResponse, T.TaskProjectionsCandidatesPostInput>({ ...options, method: "POST", url: `/internal/task-projections/candidates`, data: data });
   }
   /**
-   * Performs the passages operation for the task projections capability.
+   * Retrieve passages for an authorized note/version manifest with at most 100 sources. Requires trusted Task authority; stale/deleted versions are excluded.
    * Calls `POST /internal/task-projections/passages` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted backend service credential and tenant scope; not a public browser endpoint.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted Task authority token in x-task-projection-token plus x-organization-id; server only.
    */
   taskProjectionsPassagesPost(data: T.TaskProjectionsPassagesPostInput, options?: RequestOptions<T.TaskProjectionsPassagesPostInput>) {
     return this.client.request<T.TaskProjectionsPassagesPostResponse, T.TaskProjectionsPassagesPostInput>({ ...options, method: "POST", url: `/internal/task-projections/passages`, data: data });
   }
   /**
-   * Performs the sync operation for the task projections capability.
+   * Upsert a projected Task note under trusted Task authority. Lower or conflicting same versions return 409; exact replays are idempotent.
    * Calls `POST /internal/task-projections/sync` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted backend service credential and tenant scope; not a public browser endpoint.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted Task authority token in x-task-projection-token plus x-organization-id; server only.
    */
   taskProjectionsSyncPost(data: T.TaskProjectionsSyncPostInput, options?: RequestOptions<T.TaskProjectionsSyncPostInput>) {
     return this.client.request<T.TaskProjectionsSyncPostResponse, T.TaskProjectionsSyncPostInput>({ ...options, method: "POST", url: `/internal/task-projections/sync`, data: data });

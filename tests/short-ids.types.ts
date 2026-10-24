@@ -14,6 +14,12 @@ async function consumer(sdk: FaiberSDK, classroom: Classroom, profile: Profile) 
     const personCode: string = people.data.data.profiles[0]!.short_id;
     const results = await sdk.profile.operations.profileSearchSearchPost({ search: locallyDerived });
     const resultCode: string = results.data.data.results[0]!.short_id;
+    const directory = await sdk.profile.operations.profileSearchSearchPostApiV1ProfilePeopleSearch({ search: profileCode });
+    const directoryCode: string = directory.data.data.results[0]!.short_id;
+    const more: boolean = directory.data.data.has_more;
+    // @ts-expect-error The minimal directory response has no advanced-search metadata.
+    directory.data.data.meta;
+    void [directoryCode, more];
     // @ts-expect-error Search requires an explicit search string.
     sdk.lms.searchClassrooms({});
     // @ts-expect-error UUID-derived codes are strings.

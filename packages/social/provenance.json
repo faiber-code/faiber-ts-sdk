@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-social",
+  "version": "1.1.0",
+  "source_revisions": {
+    "social": {
+      "directory": "infera-social",
+      "revision": "d067ac956571abd73211b06d835caa658b1f09bc"
+    }
+  },
+  "package_source_sha256": {
+    "packages/social/src/admin.types.ts": "f7759044ddf7d708ac9826d01dd508f249b5598256b896bc3ce47f80555d7c46",
+    "packages/social/src/contracts.types.ts": "2ca85b932c7202502b4e50939f8421d4d5501e2f9e352dfcace80541e51ee4b3",
+    "packages/social/src/discovery.types.ts": "aa4fe6cad0618957a196cdba17a6ee7abdbbca26146803661af27c4d6c690cfd",
+    "packages/social/src/index.ts": "3d17ffdf4c3997809898219eabaedf0372979b9307117d9ac054ca29e3349bd9",
+    "packages/social/src/operations.ts": "1fbad0ec14daec823ddf6d1f3b9d0eb750c8ac80e920c227dddec1834487f93f",
+    "packages/social/src/operations.types.ts": "62bdd141c13e39b048dab35d788a7f14df8fb26755a43937819aee5a9be04a1e",
+    "packages/social/src/types.ts": "51cdc3cd25ded88f5e064fbf2dbd4a7a7a2339865a873cb84b10492e0cb837b0"
+  },
+  "capability_review_sha256": "49c52ee46b6d613494636eecd4740674ca23080a166882c40523fb2d08bd2d13",
+  "source_pin_file_sha256": "bcfd980e1db1c6498d3769a33c70ac61c46dcbba09bf01eb97c857bebf8927d6",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
+  "public_contract": {
+    "kind": "source-extracted-http",
+    "operation_count": 112,
+    "sha256": "a187e4f87985af37555da1a40a4c56b42d1560aa9ba03ee05e9f1bad5271e020"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

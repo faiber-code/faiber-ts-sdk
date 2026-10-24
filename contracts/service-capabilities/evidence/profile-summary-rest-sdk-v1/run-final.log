@@ -1,0 +1,560 @@
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:84:17
+   |
+84 |     pub fn name(&self) -> Name {
+   |                 ^^^^^     ^^^^ the same lifetime is hidden here
+   |                 |
+   |                 the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+   = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+   |
+84 |     pub fn name(&self) -> Name<'_> {
+   |                               ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:106:17
+    |
+106 |     pub fn name(&self) -> Name {
+    |                 ^^^^^     ^^^^ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+106 |     pub fn name(&self) -> Name<'_> {
+    |                               ++++
+
+warning: `schemars_derive` (lib) generated 2 warnings (run `cargo fix --lib -p schemars_derive` to apply 2 suggestions)
+warning: hiding a lifetime that's elided elsewhere is confusing
+ --> shared/infera-summary-sdk/vendor/schemars/src/encoding.rs:6:30
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<str> {
+  |                              ^^^^     ^^^^^^^^ the same lifetime is hidden here
+  |                              |
+  |                              the lifetime is elided here
+  |
+  = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+  = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<'_, str> {
+  |                                           +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> shared/infera-summary-sdk/vendor/schemars/src/encoding.rs:43:26
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<str>> {
+   |                          ^^^^            ^^^^^^^^ the same lifetime is hidden here
+   |                          |
+   |                          the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<'_, str>> {
+   |                                              +++
+
+warning: `schemars` (lib) generated 2 warnings (run `cargo fix --lib -p schemars` to apply 2 suggestions)
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:84:7
+   |
+84 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:87:7
+   |
+87 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:112:7
+    |
+112 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:115:7
+    |
+115 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_client.rs:53:11
+   |
+53 |     #[cfg(feature = "auth")]
+   |           ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common.rs:17:7
+   |
+17 | #[cfg(feature = "auth")]
+   |       ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:61:39
+   |
+61 |         let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+   |                                       ^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:136:47
+    |
+136 |                 let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+    |                                               ^^^^^^^^^^^^^^^^
+
+warning: `rmcp` (lib) generated 8 warnings
+warning: unused imports: `Datelike` and `Timelike`
+ --> src/ai_summary/worker.rs:4:24
+  |
+4 | use chrono::{DateTime, Datelike, Duration, Timelike, Utc};
+  |                        ^^^^^^^^            ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/city/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/country/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused import: `Entity`
+  --> src/log_action/routes.rs:12:39
+   |
+12 | use entity::log_action::{ActiveModel, Entity};
+   |                                       ^^^^^^
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/profile_property/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/province/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused import: `ColumnTrait`
+ --> src/setting/methods.rs:3:51
+  |
+3 | use sea_orm::{ActiveModelTrait, ActiveValue::Set, ColumnTrait, EntityTrait, QueryOrder};
+  |                                                   ^^^^^^^^^^^
+
+warning: unused import: `post`
+ --> src/setting/routes.rs:4:20
+  |
+4 |     routing::{get, post},
+  |                    ^^^^
+
+warning: unused import: `post`
+ --> src/survey/routes.rs:4:20
+  |
+4 |     routing::{get, post},
+  |                    ^^^^
+
+warning: unused imports: `delete`, `post`, and `put`
+ --> src/trusted_service/routes.rs:4:15
+  |
+4 |     routing::{delete, get, post, put},
+  |               ^^^^^^       ^^^^  ^^^
+
+warning: unused import: `TryGetable`
+ --> src/campaign/routes.rs:8:60
+  |
+8 | use sea_orm::{ConnectionTrait, DatabaseBackend, Statement, TryGetable, Value as DbValue};
+  |                                                            ^^^^^^^^^^
+
+warning: `infera_profile` (lib) generated 11 warnings (run `cargo fix --lib -p infera_profile` to apply 10 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.31s
+     Running tests/summary_rest_sdk.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/summary_rest_sdk-59161f3cd41ffdac)
+
+running 1 test
+{
+  "status": "passed",
+  "assertions": 348,
+  "operations": [
+    "checkSource",
+    "configuration",
+    "configurations",
+    "createConfiguration",
+    "jobs",
+    "latest",
+    "models",
+    "preview",
+    "publish",
+    "refresh",
+    "retry",
+    "roles",
+    "run",
+    "setStatus",
+    "settings",
+    "sources",
+    "summaries",
+    "updateConfiguration",
+    "updateSettings",
+    "validate"
+  ],
+  "wire": [
+    {
+      "name": "settings",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/settings",
+      "params": null
+    },
+    {
+      "name": "roles",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/roles",
+      "params": null
+    },
+    {
+      "name": "models",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/models",
+      "params": null
+    },
+    {
+      "name": "sources",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/sources",
+      "params": null
+    },
+    {
+      "name": "checkSource",
+      "status": 200,
+      "method": "post",
+      "url": "/api/v1/ai-summaries/sources/lms/check",
+      "params": null
+    },
+    {
+      "name": "createConfiguration",
+      "status": 201,
+      "method": "post",
+      "url": "/api/v1/ai-summaries/configurations",
+      "params": null
+    },
+    {
+      "name": "configurations",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/configurations",
+      "params": null
+    },
+    {
+      "name": "configuration",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/configurations/94bfe9aa-781f-44f6-8bb4-f4a0b6a7ae11",
+      "params": null
+    },
+    {
+      "name": "updateConfiguration",
+      "status": 200,
+      "method": "put",
+      "url": "/api/v1/ai-summaries/configurations/94bfe9aa-781f-44f6-8bb4-f4a0b6a7ae11",
+      "params": null
+    },
+    {
+      "name": "validate",
+      "status": 200,
+      "method": "post",
+      "url": "/api/v1/ai-summaries/configurations/94bfe9aa-781f-44f6-8bb4-f4a0b6a7ae11/validate",
+      "params": null
+    },
+    {
+      "name": "preview",
+      "status": 202,
+      "method": "post",
+      "url": "/api/v1/ai-summaries/configurations/94bfe9aa-781f-44f6-8bb4-f4a0b6a7ae11/preview",
+      "params": null
+    },
+    {
+      "name": "run",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/runs/5eb0079d-a786-41cf-b42e-d80c23f2ceea",
+      "params": null
+    },
+    {
+      "name": "run",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/runs/5eb0079d-a786-41cf-b42e-d80c23f2ceea",
+      "params": null
+    },
+    {
+      "name": "latest",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/latest",
+      "params": {
+        "role_id": "961220db-20f6-4136-b938-6b5edcef06ba"
+      }
+    },
+    {
+      "name": "publish",
+      "status": 200,
+      "method": "post",
+      "url": "/api/v1/ai-summaries/configurations/94bfe9aa-781f-44f6-8bb4-f4a0b6a7ae11/publish",
+      "params": null
+    },
+    {
+      "name": "updateSettings",
+      "status": 200,
+      "method": "put",
+      "url": "/api/v1/ai-summaries/settings",
+      "params": null
+    },
+    {
+      "name": "setStatus",
+      "status": 200,
+      "method": "patch",
+      "url": "/api/v1/ai-summaries/configurations/94bfe9aa-781f-44f6-8bb4-f4a0b6a7ae11/status",
+      "params": null
+    },
+    {
+      "name": "refresh",
+      "status": 202,
+      "method": "post",
+      "url": "/api/v1/ai-summaries/refresh",
+      "params": null
+    },
+    {
+      "name": "refresh",
+      "status": 202,
+      "method": "post",
+      "url": "/api/v1/ai-summaries/refresh",
+      "params": null
+    },
+    {
+      "name": "latest",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/latest",
+      "params": {
+        "role_id": "961220db-20f6-4136-b938-6b5edcef06ba"
+      }
+    },
+    {
+      "name": "summaries",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/summaries",
+      "params": {
+        "role_id": "f15aa41a-5dd8-4542-987c-aacd44dabf53"
+      }
+    },
+    {
+      "name": "summaries",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/summaries",
+      "params": {
+        "role_id": "961220db-20f6-4136-b938-6b5edcef06ba",
+        "user_id": "b2cefa53-27dc-4c67-9172-dffd8c198ad2",
+        "status": "failed",
+        "page": 1,
+        "per_page": 1
+      }
+    },
+    {
+      "name": "summaries",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/summaries",
+      "params": {
+        "role_id": "961220db-20f6-4136-b938-6b5edcef06ba",
+        "status": "failed",
+        "page": 2,
+        "per_page": 1
+      }
+    },
+    {
+      "name": "summaries",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/summaries",
+      "params": {
+        "user_id": "05555c58-1b9d-401d-bf12-af4c285d6bc1",
+        "role_id": "961220db-20f6-4136-b938-6b5edcef06ba",
+        "status": "completed"
+      }
+    },
+    {
+      "name": "summaries",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/summaries",
+      "params": null
+    },
+    {
+      "name": "run",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/runs/3b1937ab-cd51-4166-87e1-5ee46fd62847",
+      "params": null
+    },
+    {
+      "name": "jobs",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/jobs",
+      "params": {
+        "user_id": "b2cefa53-27dc-4c67-9172-dffd8c198ad2",
+        "role_id": "961220db-20f6-4136-b938-6b5edcef06ba",
+        "status": "failed",
+        "page": 1,
+        "per_page": 1
+      }
+    },
+    {
+      "name": "jobs",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/jobs",
+      "params": {
+        "status": "failed",
+        "page": 2,
+        "per_page": 1
+      }
+    },
+    {
+      "name": "retry",
+      "status": 202,
+      "method": "post",
+      "url": "/api/v1/ai-summaries/jobs/c327c39c-1569-4d6d-a16e-25ef0ee1533e/retry",
+      "params": null
+    },
+    {
+      "name": "jobs",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/jobs",
+      "params": {
+        "user_id": "b2cefa53-27dc-4c67-9172-dffd8c198ad2",
+        "status": "pending"
+      }
+    },
+    {
+      "name": "latest",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/latest",
+      "params": {
+        "role_id": "961220db-20f6-4136-b938-6b5edcef06ba"
+      }
+    },
+    {
+      "name": "run",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/runs/5573f032-7812-4b3e-a1f8-19ea981a0500",
+      "params": null
+    },
+    {
+      "name": "retry",
+      "status": 202,
+      "method": "post",
+      "url": "/api/v1/ai-summaries/jobs/5eb0079d-a786-41cf-b42e-d80c23f2ceea/retry",
+      "params": null
+    },
+    {
+      "name": "jobs",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/jobs",
+      "params": {
+        "user_id": "b2cefa53-27dc-4c67-9172-dffd8c198ad2",
+        "status": "completed"
+      }
+    },
+    {
+      "name": "run",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/runs/b397f004-d39d-4304-b143-d45de900d3a8",
+      "params": null
+    },
+    {
+      "name": "latest",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/latest",
+      "params": {
+        "role_id": "961220db-20f6-4136-b938-6b5edcef06ba"
+      }
+    },
+    {
+      "name": "setStatus",
+      "status": 200,
+      "method": "patch",
+      "url": "/api/v1/ai-summaries/configurations/94bfe9aa-781f-44f6-8bb4-f4a0b6a7ae11/status",
+      "params": null
+    },
+    {
+      "name": "latest",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/latest",
+      "params": {
+        "role_id": "961220db-20f6-4136-b938-6b5edcef06ba"
+      }
+    },
+    {
+      "name": "run",
+      "status": 200,
+      "method": "get",
+      "url": "/api/v1/ai-summaries/runs/5573f032-7812-4b3e-a1f8-19ea981a0500",
+      "params": null
+    }
+  ],
+  "scope": "actual compiled SDK + actual mounted Profile router + real PostgreSQL/RabbitMQ; deterministic IDP/Agentic/evidence fixtures; trusted gateway headers are test identities, not live authentication"
+}
+
+
+test mounted_profile_rest_with_compiled_typescript_sdk ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.81s
+

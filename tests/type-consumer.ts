@@ -33,7 +33,7 @@ const login: IdpService.LoginInput = {
 };
 const product: ModulesService.CreateProductInput = { name: "Camera", status: 1 };
 const order: ModulesService.CreateOrderInput = { status: 0, items: [{ variant_id: "variant-1", quantity: 2, unit_price: 3950000 }] };
-const notification: MessengerService.SendNotificationInput = { recipient: "user@example.test", body: "Hello" };
+const notification: MessengerService.SendNotificationInput = { recipient: "user@example.test", channel: "email", template_name: "welcome", params: { body: "Hello" } };
 const world: CreateWorldInput = { name: "Arena", slug: "arena", components: [], replication: { tick_rate: 60, snapshot_rate: 20, interest_radius: 128, history_ticks: 120 }, physics: { enabled: true, dimensions: 3, gravity: [0, -9.81, 0], deterministic: true } };
 const Position = component<{ x: number; y: number }>("position");
 const manageDomains = domainsFromManageProxy("https://manage.example.test");
@@ -125,10 +125,10 @@ async function provePublicContracts(): Promise<void> {
     consultant_user_id: "00000000-0000-0000-0000-000000000003",
     support_user_id: "00000000-0000-0000-0000-000000000004",
   });
-  await apis.lms.homeworkAssignments.create({ homework_id: "00000000-0000-0000-0000-000000000010", status: "unsolved" });
+  await apis.lms.homeworkAssignments.create({ user_id: "00000000-0000-0000-0000-000000000001", homework_id: "00000000-0000-0000-0000-000000000010", status: "unsolved" });
   const homeworkAssignment = await apis.lms.homeworkAssignments.show("00000000-0000-0000-0000-000000000011");
   const assignedHomeworkDescription: string | null | undefined = homeworkAssignment.data.data.homework?.description;
-  const assignedQuestionKind: LmsService.HomeworkItemKind | undefined = homeworkAssignment.data.data.homework_question?.kind;
+  const assignedQuestionKind: string | undefined = homeworkAssignment.data.data.homework_question?.kind;
   const assignedQuestionName: string | undefined = homeworkAssignment.data.data.homework_question?.name;
   const assignedQuestionId: string | null | undefined = homeworkAssignment.data.data.homework_question_id;
   const assignmentDescription: string | null | undefined = homeworkAssignment.data.data.description;
@@ -205,10 +205,10 @@ async function provePublicContracts(): Promise<void> {
   const dailyCosts: AssetService.DailyCostSummary[] = dailyCostsResponse.data.data.items;
   await apis.asset.topUpWallet({ amount: 500_000, ...(wallet.currency ? { currency: wallet.currency } : {}) });
   const projectPricing = await apis.asset.sandboxProjectPricing("fitapp");
-  const fixedMonthlyPrice: number | null | undefined = projectPricing.data.data.fixed_monthly_price;
+  const fixedMonthlyPrice: string | null | undefined = projectPricing.data.data.fixed_monthly_price;
   void fixedMonthlyPrice;
   const adminWallet = await apis.asset.adminUserWallet("00000000-0000-0000-0000-000000000001", { limit: 25 });
-  const adminBalance: number = adminWallet.data.data.wallet.balance;
+  const adminBalance: string = adminWallet.data.data.wallet.balance;
   void adminBalance;
   await apis.asset.adjustAdminUserWallet("00000000-0000-0000-0000-000000000001", {
     direction: "credit",
@@ -265,7 +265,7 @@ sdk.crm.updatePipeline("workflow-1", {
   actions: [{ key: "open_profile", label: "Open profile", url: "/profiles/{profile_id}" }],
 }, mutationOptions).then(response => response.data.data.priority);
 sdk.crm.getDailyStats().then(response => {
-  const stats: CrmService.ApiDailyStatsGetResponseData = response.data.data;
+  const stats: CrmService.CrmDailyStatsResponse["data"] = response.data.data;
   return stats.workflows[0]?.leads_count ?? stats.extra_tasks_done;
 });
 sdk.crm.getLeadStats().then(response => response.data.data.workflows[0]?.active);
@@ -314,6 +314,7 @@ sdk.crm.deleteWorkflowNode("node-1").then(response => response.data.data);
 sdk.crm.deleteWorkflowNode("workflow-1", "node-1").then(response => response.data.data.deleted);
 sdk.modules.requests.create({
   name: "Course registration",
+  key: "course-registration",
   route_to_crm: true,
   crm_flags: ["website", "next-course"],
 }).then(response => response.data.data.route_to_crm);
@@ -340,12 +341,12 @@ void assignSelectedHomework;
 // Nullable personal information and independent decimal course prices are public contracts.
 const jobUpdate: import('@faiber/faiber-profile').PersonalInformationInput = { job: 'Engineer' };
 const clearJob: import('@faiber/faiber-profile').ProfilePatchInput = { job: null };
-const deliveryPrices: import('@faiber/faiber-lms').CreateCourseInput = { name: 'Course', title: 'Course', in_person_price: '1200.50', online_price: '800.25' };
+const deliveryPrices: import('@faiber/faiber-lms').CreateCourseInput = { name: 'Course', title: 'Course', status: 'active', in_person_price: '1200.50', online_price: '800.25' };
 const clearOnlinePrice: import('@faiber/faiber-lms').UpdateCourseInput = { online_price: null };
 void [jobUpdate, clearJob, deliveryPrices, clearOnlinePrice];
 
 // Generic list clauses and backwards-compatible student query filters.
-import type { ProfileStudentIndexGetQuery, FilterProfilesInput } from '../packages/profile/src/index.js';
+import type { ProfileStudentIndexGetQuery, FilterProfilesInput } from '@faiber/faiber-profile';
 const dynamicStudentQuery: ProfileStudentIndexGetQuery = {
   'filter[account_balance]': -100, 'filter[double_debt]': true,
   'filter[created_at][]': ['2026-01-01', '2026-10-07'],

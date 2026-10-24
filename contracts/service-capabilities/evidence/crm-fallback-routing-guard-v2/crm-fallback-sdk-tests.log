@@ -1,0 +1,148 @@
+warning: variant `Id` is never constructed
+   --> migration/src/m20250617_000001_create_crm_tables.rs:449:5
+    |
+447 | enum WorkflowNodes {
+    |      ------------- variant in this enum
+448 |     Table,
+449 |     Id,
+    |     ^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: variant `Id` is never constructed
+   --> migration/src/m20250617_000001_create_crm_tables.rs:463:5
+    |
+461 | enum WorkflowMembers {
+    |      --------------- variant in this enum
+462 |     Table,
+463 |     Id,
+    |     ^^
+
+warning: variant `Id` is never constructed
+   --> migration/src/m20250617_000001_create_crm_tables.rs:479:5
+    |
+477 | enum TeamUsers {
+    |      --------- variant in this enum
+478 |     Table,
+479 |     Id,
+    |     ^^
+
+warning: variant `Id` is never constructed
+   --> migration/src/m20250617_000001_create_crm_tables.rs:487:5
+    |
+485 | enum LeadSources {
+    |      ----------- variant in this enum
+486 |     Table,
+487 |     Id,
+    |     ^^
+
+warning: variant `Id` is never constructed
+   --> migration/src/m20250617_000001_create_crm_tables.rs:495:5
+    |
+493 | enum LeadCampaigns {
+    |      ------------- variant in this enum
+494 |     Table,
+495 |     Id,
+    |     ^^
+
+warning: variant `Id` is never constructed
+   --> migration/src/m20250617_000001_create_crm_tables.rs:529:5
+    |
+527 | enum LeadLogs {
+    |      -------- variant in this enum
+528 |     Table,
+529 |     Id,
+    |     ^^
+
+warning: variant `Id` is never constructed
+   --> migration/src/m20250617_000001_create_crm_tables.rs:542:5
+    |
+540 | enum LeadTouches {
+    |      ----------- variant in this enum
+541 |     Table,
+542 |     Id,
+    |     ^^
+
+warning: variant `Id` is never constructed
+   --> migration/src/m20250617_000001_create_crm_tables.rs:560:5
+    |
+558 | enum SosLogs {
+    |      ------- variant in this enum
+559 |     Table,
+560 |     Id,
+    |     ^^
+
+warning: variant `Id` is never constructed
+   --> migration/src/m20250617_000001_create_crm_tables.rs:569:5
+    |
+567 | enum SosTouches {
+    |      ---------- variant in this enum
+568 |     Table,
+569 |     Id,
+    |     ^^
+
+warning: variant `Id` is never constructed
+   --> migration/src/m20250617_000001_create_crm_tables.rs:578:5
+    |
+576 | enum Reminders {
+    |      --------- variant in this enum
+577 |     Table,
+578 |     Id,
+    |     ^^
+
+warning: variant `Id` is never constructed
+   --> migration/src/m20250617_000001_create_crm_tables.rs:588:5
+    |
+586 | enum Worklogs {
+    |      -------- variant in this enum
+587 |     Table,
+588 |     Id,
+    |     ^^
+
+warning: variant `Id` is never constructed
+   --> migration/src/m20250617_000001_create_crm_tables.rs:600:5
+    |
+598 | enum Webhooks {
+    |      -------- variant in this enum
+599 |     Table,
+600 |     Id,
+    |     ^^
+
+warning: `migration` (lib) generated 12 warnings
+warning: unused import: `TransactionTrait`
+ --> src/api/agentic.rs:4:71
+  |
+4 | use sea_orm::{ConnectionTrait, DbBackend, FromQueryResult, Statement, TransactionTrait};
+  |                                                                       ^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `TransactionTrait`
+ --> src/api/writes.rs:8:82
+  |
+8 |     ConnectionTrait, DatabaseTransaction, DbBackend, FromQueryResult, Statement, TransactionTrait,
+  |                                                                                  ^^^^^^^^^^^^^^^^
+
+warning: `infera_crm` (lib test) generated 2 warnings
+    Finished `test` profile [unoptimized] target(s) in 0.19s
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_crm-4d92260675359aa8)
+
+running 12 tests
+test api::agentic::tests::extracts_complete_sse_event ... ok
+test api::dashboard::tests::daily_tasks_are_empty_when_there_is_no_actionable_backlog ... ok
+test api::dashboard::tests::daily_tasks_are_weighted_by_backlog_and_priority_at_request_time ... ok
+test api::dashboard::tests::daily_tasks_never_exceed_available_leads ... ok
+test api::types::pipeline_stage_tests::stage_response_includes_drag_permissions ... ok
+test api::types::tests::lead_profile_column_takes_precedence_over_custom_data ... ok
+test api::types::tests::lead_profile_id_falls_back_to_legacy_custom_data ... ok
+test api_fallback::sdk_tests::actual_fallback_and_production_cors_use_compiled_sdk ... {"status":"passed","assertions":59,"observations":[{"method":"GET","path":null,"status":404,"body":{"error":{"code":"api_route_not_found","message":"The requested API route does not exist."}}},{"method":"GET","path":"obsolete/items","status":404,"body":{"error":{"code":"api_route_not_found","message":"The requested API route does not exist."}}},{"method":"POST","path":null,"status":404,"body":{"error":{"code":"api_route_not_found","message":"The requested API route does not exist."}}},{"method":"POST","path":"obsolete/items","status":404,"body":{"error":{"code":"api_route_not_found","message":"The requested API route does not exist."}}},{"method":"PUT","path":null,"status":404,"body":{"error":{"code":"api_route_not_found","message":"The requested API route does not exist."}}},{"method":"PUT","path":"obsolete/items","status":404,"body":{"error":{"code":"api_route_not_found","message":"The requested API route does not exist."}}},{"method":"PATCH","path":null,"status":404,"body":{"error":{"code":"api_route_not_found","message":"The requested API route does not exist."}}},{"method":"PATCH","path":"obsolete/items","status":404,"body":{"error":{"code":"api_route_not_found","message":"The requested API route does not exist."}}},{"method":"DELETE","path":null,"status":404,"body":{"error":{"code":"api_route_not_found","message":"The requested API route does not exist."}}},{"method":"DELETE","path":"obsolete/items","status":404,"body":{"error":{"code":"api_route_not_found","message":"The requested API route does not exist."}}},{"method":"HEAD","path":null,"status":404,"body":""},{"method":"HEAD","path":"obsolete/items","status":404,"body":""},{"method":"OPTIONS","path":null,"status":200,"body":""},{"method":"OPTIONS","path":"obsolete/items","status":200,"body":""},{"method":"TRACE","path":null,"status":404,"body":{"error":{"code":"api_route_not_found","message":"The requested API route does not exist."}}},{"method":"TRACE","path":"obsolete/items","status":404,"body":{"error":{"code":"api_route_not_found","message":"The requested API route does not exist."}}},{"method":"CONNECT","path":null,"status":404,"body":{"error":{"code":"api_route_not_found","message":"The requested API route does not exist."}}},{"method":"CONNECT","path":"obsolete/items","status":404,"body":{"error":{"code":"api_route_not_found","message":"The requested API route does not exist."}}}],"scope":"actual production CRM legacy fallback subrouter and production CORS; CONNECT uses a test-only real Node HTTP tunnel-capable adapter, not a response mock; not native CRM data/permission or whole-main API normalization acceptance"}
+
+
+ok
+test integration::profile::tests::bulk_request_uses_user_ids ... ok
+test integration::profile::tests::normalizes_supported_profile_service_urls ... ok
+test integration::profile::tests::parses_the_profile_service_bulk_envelope ... ok
+test lead::methods::composite_key_tests::enrollment_actions_with_a_shared_flag_do_not_match ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+

@@ -1,9 +1,11 @@
 import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
-/** Backend response type: api. */
-export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: HealthResponse. */
+export type RouterRootStatusGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
+
+/** Backend response type: utoipa::openapi::OpenApi. */
+export type RouterOpenapiJsonGetResponse = import("@faiber/sdk-core").ServiceOpenApiDocument;
 
 /** Backend request type: SubmitExamRequest. */
 export type AcademySubmitExamPostInput = import("./types.js").AcademySubmitExamInput;
@@ -37,28 +39,20 @@ export type AcademyCompleteSessionPostInput = import("./types.js").AcademyComple
 /** Backend response type: Value. */
 export type AcademyCompleteSessionPostResponse = import("./types.js").AcademySessionCompletionResponse;
 
-
-
-
-
-
-
-
-
 /** Backend response type: SessionResponse. */
 export interface SessionGetSelfGetResponseDataProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface SessionGetSelfGetResponseData extends JsonObject {
   "user_id": string;
-  "profile"?: SessionGetSelfGetResponseDataProfile | null;
+  "profile": SessionGetSelfGetResponseDataProfile | null;
   "roles": string[];
   "permissions": string[];
 }
@@ -67,8 +61,8 @@ export interface SessionGetSelfGetResponse extends ApiEnvelope<SessionGetSelfGet
 
 /** Backend query type: PaginationQuery. */
 export interface CertificateIndexCertificateGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::CertificateResponse>. */
 export type CertificateIndexCertificateGetResponse = import("./types.js").CertificateListResponse;
@@ -88,8 +82,8 @@ export type CertificateUpdateCertificatePatchResponse = import("./types.js").Cer
 
 /** Backend query type: PaginationQuery. */
 export interface CertificateIndexTemplateGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::CertificateTemplateResponse>. */
 export type CertificateIndexTemplateGetResponse = import("./types.js").CertificateTemplateListResponse;
@@ -107,10 +101,15 @@ export type CertificateUpdateTemplatePatchInput = import("./types.js").UpdateCer
 /** Backend response type: models::CertificateTemplateResponse. */
 export type CertificateUpdateTemplatePatchResponse = import("./types.js").CertificateTemplateResponse;
 
+/** Backend query type: ContactsQuery. */
+export type ContactsContactsGetQuery = import("./notification-settings.js").EligibleContactQuery;
+/** Backend response type: ContactPage. */
+export type ContactsContactsGetResponse = import("./notification-settings.js").LmsNotificationResponse<import("./notification-settings.js").EligibleContactPage>;
+
 /** Backend query type: models::ClassroomListQuery. */
 export interface ClassroomIndexClassroomGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "search"?: string | null;
   "status"?: string | null;
   "course_id"?: string | null;
@@ -125,68 +124,66 @@ export interface ClassroomIndexClassroomGetQuery extends QueryParams {
 export interface ClassroomIndexClassroomGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomIndexClassroomGetResponseItemConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomIndexClassroomGetResponseItemSupportProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomIndexClassroomGetResponseItem extends JsonObject {
-  /** Six-character UUID-derived alias; search may return collisions. */
-  "short_id": string;
-  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
-  "student_count": number;
   "id": string;
+  "short_id": string;
   "course_id": string;
-  "course_name"?: string | null;
-  "course_category_id"?: string | null;
-  "course_sort_order"?: number | null;
-  "course_passing_mark"?: number | null;
-  "current_user_score"?: number | null;
-  "current_user_passed"?: boolean | null;
+  "course_name": string | null;
+  "course_category_id": string | null;
+  "course_sort_order": number | null;
+  "course_passing_mark": number | null;
+  "current_user_score": number | null;
+  "current_user_passed": boolean | null;
   "session_count": number;
   "completed_session_count": number;
   "progress_rate": number;
   "name": string;
-  "code"?: string | null;
-  "description"?: string | null;
-  "info"?: string | null;
-  "classroom_type_id"?: string | null;
-  "school_grade_id"?: string | null;
-  "grade_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: ClassroomIndexClassroomGetResponseItemTeacherProfile | null;
-  "consultant_user_id"?: string | null;
-  "consultant_profile"?: ClassroomIndexClassroomGetResponseItemConsultantProfile | null;
-  "support_user_id"?: string | null;
-  "support_profile"?: ClassroomIndexClassroomGetResponseItemSupportProfile | null;
-  "capacity"?: number | null;
+  "code": string | null;
+  "description": string | null;
+  "info": string | null;
+  "classroom_type_id": string | null;
+  "school_grade_id": string | null;
+  "grade_id": string | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": ClassroomIndexClassroomGetResponseItemTeacherProfile | null;
+  "consultant_user_id": string | null;
+  "consultant_profile": ClassroomIndexClassroomGetResponseItemConsultantProfile | null;
+  "support_user_id": string | null;
+  "support_profile": ClassroomIndexClassroomGetResponseItemSupportProfile | null;
+  "student_count": number;
+  "capacity": number | null;
   "notifications": JsonValue;
   "weekly_schedule": import("./types.js").ClassroomWeeklyScheduleRule[];
   "check_sessions": JsonValue;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -229,68 +226,66 @@ export interface ClassroomStoreClassroomPostInput extends JsonObject {
 export interface ClassroomStoreClassroomPostResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomStoreClassroomPostResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomStoreClassroomPostResponseDataSupportProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomStoreClassroomPostResponseData extends JsonObject {
-  /** Six-character UUID-derived alias; search may return collisions. */
-  "short_id": string;
-  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
-  "student_count": number;
   "id": string;
+  "short_id": string;
   "course_id": string;
-  "course_name"?: string | null;
-  "course_category_id"?: string | null;
-  "course_sort_order"?: number | null;
-  "course_passing_mark"?: number | null;
-  "current_user_score"?: number | null;
-  "current_user_passed"?: boolean | null;
+  "course_name": string | null;
+  "course_category_id": string | null;
+  "course_sort_order": number | null;
+  "course_passing_mark": number | null;
+  "current_user_score": number | null;
+  "current_user_passed": boolean | null;
   "session_count": number;
   "completed_session_count": number;
   "progress_rate": number;
   "name": string;
-  "code"?: string | null;
-  "description"?: string | null;
-  "info"?: string | null;
-  "classroom_type_id"?: string | null;
-  "school_grade_id"?: string | null;
-  "grade_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: ClassroomStoreClassroomPostResponseDataTeacherProfile | null;
-  "consultant_user_id"?: string | null;
-  "consultant_profile"?: ClassroomStoreClassroomPostResponseDataConsultantProfile | null;
-  "support_user_id"?: string | null;
-  "support_profile"?: ClassroomStoreClassroomPostResponseDataSupportProfile | null;
-  "capacity"?: number | null;
+  "code": string | null;
+  "description": string | null;
+  "info": string | null;
+  "classroom_type_id": string | null;
+  "school_grade_id": string | null;
+  "grade_id": string | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": ClassroomStoreClassroomPostResponseDataTeacherProfile | null;
+  "consultant_user_id": string | null;
+  "consultant_profile": ClassroomStoreClassroomPostResponseDataConsultantProfile | null;
+  "support_user_id": string | null;
+  "support_profile": ClassroomStoreClassroomPostResponseDataSupportProfile | null;
+  "student_count": number;
+  "capacity": number | null;
   "notifications": JsonValue;
   "weekly_schedule": import("./types.js").ClassroomWeeklyScheduleRule[];
   "check_sessions": JsonValue;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -299,75 +294,72 @@ export interface ClassroomStoreClassroomPostResponse extends ApiEnvelope<Classro
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ClassroomDestroyClassroomDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ClassroomDestroyClassroomDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::ClassroomResponse. */
 export interface ClassroomShowClassroomGetResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomShowClassroomGetResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomShowClassroomGetResponseDataSupportProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomShowClassroomGetResponseData extends JsonObject {
-  /** Six-character UUID-derived alias; search may return collisions. */
-  "short_id": string;
-  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
-  "student_count": number;
   "id": string;
+  "short_id": string;
   "course_id": string;
-  "course_name"?: string | null;
-  "course_category_id"?: string | null;
-  "course_sort_order"?: number | null;
-  "course_passing_mark"?: number | null;
-  "current_user_score"?: number | null;
-  "current_user_passed"?: boolean | null;
+  "course_name": string | null;
+  "course_category_id": string | null;
+  "course_sort_order": number | null;
+  "course_passing_mark": number | null;
+  "current_user_score": number | null;
+  "current_user_passed": boolean | null;
   "session_count": number;
   "completed_session_count": number;
   "progress_rate": number;
   "name": string;
-  "code"?: string | null;
-  "description"?: string | null;
-  "info"?: string | null;
-  "classroom_type_id"?: string | null;
-  "school_grade_id"?: string | null;
-  "grade_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: ClassroomShowClassroomGetResponseDataTeacherProfile | null;
-  "consultant_user_id"?: string | null;
-  "consultant_profile"?: ClassroomShowClassroomGetResponseDataConsultantProfile | null;
-  "support_user_id"?: string | null;
-  "support_profile"?: ClassroomShowClassroomGetResponseDataSupportProfile | null;
-  "capacity"?: number | null;
+  "code": string | null;
+  "description": string | null;
+  "info": string | null;
+  "classroom_type_id": string | null;
+  "school_grade_id": string | null;
+  "grade_id": string | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": ClassroomShowClassroomGetResponseDataTeacherProfile | null;
+  "consultant_user_id": string | null;
+  "consultant_profile": ClassroomShowClassroomGetResponseDataConsultantProfile | null;
+  "support_user_id": string | null;
+  "support_profile": ClassroomShowClassroomGetResponseDataSupportProfile | null;
+  "student_count": number;
+  "capacity": number | null;
   "notifications": JsonValue;
   "weekly_schedule": import("./types.js").ClassroomWeeklyScheduleRule[];
   "check_sessions": JsonValue;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -400,68 +392,66 @@ export interface ClassroomUpdateClassroomPatchInput extends JsonObject {
 export interface ClassroomUpdateClassroomPatchResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomUpdateClassroomPatchResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomUpdateClassroomPatchResponseDataSupportProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomUpdateClassroomPatchResponseData extends JsonObject {
-  /** Six-character UUID-derived alias; search may return collisions. */
-  "short_id": string;
-  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
-  "student_count": number;
   "id": string;
+  "short_id": string;
   "course_id": string;
-  "course_name"?: string | null;
-  "course_category_id"?: string | null;
-  "course_sort_order"?: number | null;
-  "course_passing_mark"?: number | null;
-  "current_user_score"?: number | null;
-  "current_user_passed"?: boolean | null;
+  "course_name": string | null;
+  "course_category_id": string | null;
+  "course_sort_order": number | null;
+  "course_passing_mark": number | null;
+  "current_user_score": number | null;
+  "current_user_passed": boolean | null;
   "session_count": number;
   "completed_session_count": number;
   "progress_rate": number;
   "name": string;
-  "code"?: string | null;
-  "description"?: string | null;
-  "info"?: string | null;
-  "classroom_type_id"?: string | null;
-  "school_grade_id"?: string | null;
-  "grade_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: ClassroomUpdateClassroomPatchResponseDataTeacherProfile | null;
-  "consultant_user_id"?: string | null;
-  "consultant_profile"?: ClassroomUpdateClassroomPatchResponseDataConsultantProfile | null;
-  "support_user_id"?: string | null;
-  "support_profile"?: ClassroomUpdateClassroomPatchResponseDataSupportProfile | null;
-  "capacity"?: number | null;
+  "code": string | null;
+  "description": string | null;
+  "info": string | null;
+  "classroom_type_id": string | null;
+  "school_grade_id": string | null;
+  "grade_id": string | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": ClassroomUpdateClassroomPatchResponseDataTeacherProfile | null;
+  "consultant_user_id": string | null;
+  "consultant_profile": ClassroomUpdateClassroomPatchResponseDataConsultantProfile | null;
+  "support_user_id": string | null;
+  "support_profile": ClassroomUpdateClassroomPatchResponseDataSupportProfile | null;
+  "student_count": number;
+  "capacity": number | null;
   "notifications": JsonValue;
   "weekly_schedule": import("./types.js").ClassroomWeeklyScheduleRule[];
   "check_sessions": JsonValue;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -482,27 +472,27 @@ export interface ClassroomShowCompletionGetResponseDataCertificateTemplates exte
 export interface ClassroomShowCompletionGetResponseDataStudentsProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomShowCompletionGetResponseDataStudentsExamScores extends JsonObject {
   "exam_session_id": string;
-  "score"?: number | null;
-  "teacher_score"?: number | null;
-  "effective_score"?: number | null;
+  "score": number | null;
+  "teacher_score": number | null;
+  "effective_score": number | null;
   "status": string;
 }
 export interface ClassroomShowCompletionGetResponseDataStudents extends JsonObject {
   "user_id": string;
-  "profile"?: ClassroomShowCompletionGetResponseDataStudentsProfile | null;
+  "profile": ClassroomShowCompletionGetResponseDataStudentsProfile | null;
   "exam_scores": ClassroomShowCompletionGetResponseDataStudentsExamScores[];
-  "suggested_final_score"?: number | null;
-  "final_score"?: number | null;
-  "passed"?: boolean | null;
+  "suggested_final_score": number | null;
+  "final_score": number | null;
+  "passed": boolean | null;
 }
 export interface ClassroomShowCompletionGetResponseData extends JsonObject {
   "classroom_id": string;
@@ -510,7 +500,7 @@ export interface ClassroomShowCompletionGetResponseData extends JsonObject {
   "classroom_status": string;
   "course_id": string;
   "course_name": string;
-  "passing_mark"?: number | null;
+  "passing_mark": number | null;
   "exams": ClassroomShowCompletionGetResponseDataExams[];
   "certificate_templates": ClassroomShowCompletionGetResponseDataCertificateTemplates[];
   "students": ClassroomShowCompletionGetResponseDataStudents[];
@@ -539,26 +529,26 @@ export interface ClassroomFinalizeClassroomPostResponse extends ApiEnvelope<Clas
 
 /** Backend query type: PaginationQuery. */
 export interface ClassroomIndexClassroomUsersGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::ClassroomUserResponse>. */
 export interface ClassroomIndexClassroomUsersGetResponseItemProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomIndexClassroomUsersGetResponseItem extends JsonObject {
   "id": string;
   "classroom_id": string;
   "user_id": string;
-  "profile"?: ClassroomIndexClassroomUsersGetResponseItemProfile | null;
-  "score"?: number | null;
+  "profile": ClassroomIndexClassroomUsersGetResponseItemProfile | null;
+  "score": number | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -586,19 +576,19 @@ export interface ClassroomEnrollClassroomUserPostInput extends JsonObject {
 export interface ClassroomEnrollClassroomUserPostResponseDataProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomEnrollClassroomUserPostResponseData extends JsonObject {
   "id": string;
   "classroom_id": string;
   "user_id": string;
-  "profile"?: ClassroomEnrollClassroomUserPostResponseDataProfile | null;
-  "score"?: number | null;
+  "profile": ClassroomEnrollClassroomUserPostResponseDataProfile | null;
+  "score": number | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -607,8 +597,7 @@ export interface ClassroomEnrollClassroomUserPostResponse extends ApiEnvelope<Cl
 }
 
 /** Backend response type: (). */
-export interface ClassroomRemoveClassroomUserDeleteResponse extends ApiEnvelope<JsonObject> {
-}
+export type ClassroomRemoveClassroomUserDeleteResponse = ApiEnvelope<null>;
 
 /** Backend request type: models::UpdateClassroomUserRequest. */
 export interface ClassroomUpdateClassroomUserPatchInput extends JsonObject {
@@ -619,19 +608,19 @@ export interface ClassroomUpdateClassroomUserPatchInput extends JsonObject {
 export interface ClassroomUpdateClassroomUserPatchResponseDataProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomUpdateClassroomUserPatchResponseData extends JsonObject {
   "id": string;
   "classroom_id": string;
   "user_id": string;
-  "profile"?: ClassroomUpdateClassroomUserPatchResponseDataProfile | null;
-  "score"?: number | null;
+  "profile": ClassroomUpdateClassroomUserPatchResponseDataProfile | null;
+  "score": number | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -644,15 +633,15 @@ export interface IntegrationBatchClassroomsPostInput extends JsonObject {
   "ids"?: string[];
 }
 /** Backend response type: Value. */
-export interface IntegrationBatchClassroomsPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type IntegrationBatchClassroomsPostResponseData = import("./wire.types.js").LmsBatchClassrooms;
+export type IntegrationBatchClassroomsPostResponse = ApiEnvelope<import("./wire.types.js").LmsBatchClassrooms>;
 
 /** Backend response type: Vec<models::ClassroomSessionTypeResponse>. */
 export interface ClassroomIndexSessionTypesGetResponseItem extends JsonObject {
   "id": string;
   "code": string;
   "name": string;
-  "name_fa"?: string | null;
+  "name_fa": string | null;
   "is_online": boolean;
   "status": string;
   "sort_order": number;
@@ -664,8 +653,8 @@ export interface ClassroomIndexSessionTypesGetResponse extends ApiEnvelope<Class
 
 /** Backend query type: models::SessionListQuery. */
 export interface ClassroomIndexSessionGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "status"?: string | null;
   "classroom_id"?: string | null;
   "user_id"?: string | null;
@@ -677,18 +666,18 @@ export interface ClassroomIndexSessionGetResponseItemCourseSession extends JsonO
   "id": string;
   "course_id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "sort_order": number;
   "session_type": string;
-  "session_type_id"?: string | null;
-  "duration_minutes"?: number | null;
+  "session_type_id": string | null;
+  "duration_minutes": number | null;
   "status": string;
 }
 export interface ClassroomIndexSessionGetResponseItemSessionType extends JsonObject {
   "id": string;
   "code": string;
   "name": string;
-  "name_fa"?: string | null;
+  "name_fa": string | null;
   "is_online": boolean;
   "status": string;
   "sort_order": number;
@@ -698,39 +687,38 @@ export interface ClassroomIndexSessionGetResponseItemSessionType extends JsonObj
 export interface ClassroomIndexSessionGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomIndexSessionGetResponseItem extends JsonObject {
   "id": string;
   "classroom_id": string;
-  "classroom_name"?: string | null;
-  "course_session_id"?: string | null;
-  "course_session"?: ClassroomIndexSessionGetResponseItemCourseSession | null;
-  "course_session_type_id"?: string | null;
-  "session_type"?: ClassroomIndexSessionGetResponseItemSessionType | null;
-  "name"?: string | null;
-  "session_number"?: number | null;
-  "duration_minutes"?: number | null;
-  "description"?: string | null;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: ClassroomIndexSessionGetResponseItemTeacherProfile | null;
+  "classroom_name": string | null;
+  "course_session_id": string | null;
+  "course_session": ClassroomIndexSessionGetResponseItemCourseSession | null;
+  "course_session_type_id": string | null;
+  "session_type": ClassroomIndexSessionGetResponseItemSessionType | null;
+  "name": string | null;
+  "session_number": number | null;
+  "duration_minutes": number | null;
+  "description": string | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": ClassroomIndexSessionGetResponseItemTeacherProfile | null;
   "locked": boolean;
   "auto_unlock": boolean;
   "auto_present": boolean;
   "invited": boolean;
-  "student_user_ids"?: string[] | null;
-  "session_room_id"?: string | null;
-  "session_lifecycle_status"?: string | null;
+  "student_user_ids": string[] | null;
+  "session_room_id": string | null;
+  "session_lifecycle_status": string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
-  "legacy_source_id"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -771,18 +759,18 @@ export interface ClassroomStoreSessionPostResponseDataCourseSession extends Json
   "id": string;
   "course_id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "sort_order": number;
   "session_type": string;
-  "session_type_id"?: string | null;
-  "duration_minutes"?: number | null;
+  "session_type_id": string | null;
+  "duration_minutes": number | null;
   "status": string;
 }
 export interface ClassroomStoreSessionPostResponseDataSessionType extends JsonObject {
   "id": string;
   "code": string;
   "name": string;
-  "name_fa"?: string | null;
+  "name_fa": string | null;
   "is_online": boolean;
   "status": string;
   "sort_order": number;
@@ -792,39 +780,38 @@ export interface ClassroomStoreSessionPostResponseDataSessionType extends JsonOb
 export interface ClassroomStoreSessionPostResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomStoreSessionPostResponseData extends JsonObject {
   "id": string;
   "classroom_id": string;
-  "classroom_name"?: string | null;
-  "course_session_id"?: string | null;
-  "course_session"?: ClassroomStoreSessionPostResponseDataCourseSession | null;
-  "course_session_type_id"?: string | null;
-  "session_type"?: ClassroomStoreSessionPostResponseDataSessionType | null;
-  "name"?: string | null;
-  "session_number"?: number | null;
-  "duration_minutes"?: number | null;
-  "description"?: string | null;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: ClassroomStoreSessionPostResponseDataTeacherProfile | null;
+  "classroom_name": string | null;
+  "course_session_id": string | null;
+  "course_session": ClassroomStoreSessionPostResponseDataCourseSession | null;
+  "course_session_type_id": string | null;
+  "session_type": ClassroomStoreSessionPostResponseDataSessionType | null;
+  "name": string | null;
+  "session_number": number | null;
+  "duration_minutes": number | null;
+  "description": string | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": ClassroomStoreSessionPostResponseDataTeacherProfile | null;
   "locked": boolean;
   "auto_unlock": boolean;
   "auto_present": boolean;
   "invited": boolean;
-  "student_user_ids"?: string[] | null;
-  "session_room_id"?: string | null;
-  "session_lifecycle_status"?: string | null;
+  "student_user_ids": string[] | null;
+  "session_room_id": string | null;
+  "session_lifecycle_status": string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
-  "legacy_source_id"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -837,18 +824,18 @@ export interface ClassroomShowSessionGetResponseDataCourseSession extends JsonOb
   "id": string;
   "course_id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "sort_order": number;
   "session_type": string;
-  "session_type_id"?: string | null;
-  "duration_minutes"?: number | null;
+  "session_type_id": string | null;
+  "duration_minutes": number | null;
   "status": string;
 }
 export interface ClassroomShowSessionGetResponseDataSessionType extends JsonObject {
   "id": string;
   "code": string;
   "name": string;
-  "name_fa"?: string | null;
+  "name_fa": string | null;
   "is_online": boolean;
   "status": string;
   "sort_order": number;
@@ -858,39 +845,38 @@ export interface ClassroomShowSessionGetResponseDataSessionType extends JsonObje
 export interface ClassroomShowSessionGetResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomShowSessionGetResponseData extends JsonObject {
   "id": string;
   "classroom_id": string;
-  "classroom_name"?: string | null;
-  "course_session_id"?: string | null;
-  "course_session"?: ClassroomShowSessionGetResponseDataCourseSession | null;
-  "course_session_type_id"?: string | null;
-  "session_type"?: ClassroomShowSessionGetResponseDataSessionType | null;
-  "name"?: string | null;
-  "session_number"?: number | null;
-  "duration_minutes"?: number | null;
-  "description"?: string | null;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: ClassroomShowSessionGetResponseDataTeacherProfile | null;
+  "classroom_name": string | null;
+  "course_session_id": string | null;
+  "course_session": ClassroomShowSessionGetResponseDataCourseSession | null;
+  "course_session_type_id": string | null;
+  "session_type": ClassroomShowSessionGetResponseDataSessionType | null;
+  "name": string | null;
+  "session_number": number | null;
+  "duration_minutes": number | null;
+  "description": string | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": ClassroomShowSessionGetResponseDataTeacherProfile | null;
   "locked": boolean;
   "auto_unlock": boolean;
   "auto_present": boolean;
   "invited": boolean;
-  "student_user_ids"?: string[] | null;
-  "session_room_id"?: string | null;
-  "session_lifecycle_status"?: string | null;
+  "student_user_ids": string[] | null;
+  "session_room_id": string | null;
+  "session_lifecycle_status": string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
-  "legacy_source_id"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -922,18 +908,18 @@ export interface ClassroomUpdateSessionPatchResponseDataCourseSession extends Js
   "id": string;
   "course_id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "sort_order": number;
   "session_type": string;
-  "session_type_id"?: string | null;
-  "duration_minutes"?: number | null;
+  "session_type_id": string | null;
+  "duration_minutes": number | null;
   "status": string;
 }
 export interface ClassroomUpdateSessionPatchResponseDataSessionType extends JsonObject {
   "id": string;
   "code": string;
   "name": string;
-  "name_fa"?: string | null;
+  "name_fa": string | null;
   "is_online": boolean;
   "status": string;
   "sort_order": number;
@@ -943,39 +929,38 @@ export interface ClassroomUpdateSessionPatchResponseDataSessionType extends Json
 export interface ClassroomUpdateSessionPatchResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomUpdateSessionPatchResponseData extends JsonObject {
   "id": string;
   "classroom_id": string;
-  "classroom_name"?: string | null;
-  "course_session_id"?: string | null;
-  "course_session"?: ClassroomUpdateSessionPatchResponseDataCourseSession | null;
-  "course_session_type_id"?: string | null;
-  "session_type"?: ClassroomUpdateSessionPatchResponseDataSessionType | null;
-  "name"?: string | null;
-  "session_number"?: number | null;
-  "duration_minutes"?: number | null;
-  "description"?: string | null;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: ClassroomUpdateSessionPatchResponseDataTeacherProfile | null;
+  "classroom_name": string | null;
+  "course_session_id": string | null;
+  "course_session": ClassroomUpdateSessionPatchResponseDataCourseSession | null;
+  "course_session_type_id": string | null;
+  "session_type": ClassroomUpdateSessionPatchResponseDataSessionType | null;
+  "name": string | null;
+  "session_number": number | null;
+  "duration_minutes": number | null;
+  "description": string | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": ClassroomUpdateSessionPatchResponseDataTeacherProfile | null;
   "locked": boolean;
   "auto_unlock": boolean;
   "auto_present": boolean;
   "invited": boolean;
-  "student_user_ids"?: string[] | null;
-  "session_room_id"?: string | null;
-  "session_lifecycle_status"?: string | null;
+  "student_user_ids": string[] | null;
+  "session_room_id": string | null;
+  "session_lifecycle_status": string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
-  "legacy_source_id"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -985,31 +970,31 @@ export interface ClassroomUpdateSessionPatchResponse extends ApiEnvelope<Classro
 
 /** Backend query type: PaginationQuery. */
 export interface ClassroomIndexAttendanceGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::AbsenceResponse>. */
 export interface ClassroomIndexAttendanceGetResponseItemProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomIndexAttendanceGetResponseItem extends JsonObject {
   "id": string;
   "classroom_session_id": string;
   "user_id": string;
-  "profile"?: ClassroomIndexAttendanceGetResponseItemProfile | null;
+  "profile": ClassroomIndexAttendanceGetResponseItemProfile | null;
   "status": string;
-  "absence_reason"?: string | null;
+  "absence_reason": string | null;
   "attendance_mode": "online" | "in_person";
   "online": boolean;
-  "attended_seconds"?: number | null;
-  "description"?: string | null;
+  "attended_seconds": number | null;
+  "description": string | null;
   "ratings": JsonValue;
   "created_at": string;
   "updated_at": string;
@@ -1051,8 +1036,8 @@ export interface ClassroomRecordAttendancePutResponse extends ApiEnvelope<Classr
 
 /** Backend query type: models::TodaySessionListQuery. */
 export interface ClassroomIndexTodaySessionsGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "date"?: string | null;
   "timezone_offset_minutes"?: number | null;
 }
@@ -1061,18 +1046,18 @@ export interface ClassroomIndexTodaySessionsGetResponseItemCourseSession extends
   "id": string;
   "course_id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "sort_order": number;
   "session_type": string;
-  "session_type_id"?: string | null;
-  "duration_minutes"?: number | null;
+  "session_type_id": string | null;
+  "duration_minutes": number | null;
   "status": string;
 }
 export interface ClassroomIndexTodaySessionsGetResponseItemSessionType extends JsonObject {
   "id": string;
   "code": string;
   "name": string;
-  "name_fa"?: string | null;
+  "name_fa": string | null;
   "is_online": boolean;
   "status": string;
   "sort_order": number;
@@ -1082,39 +1067,38 @@ export interface ClassroomIndexTodaySessionsGetResponseItemSessionType extends J
 export interface ClassroomIndexTodaySessionsGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomIndexTodaySessionsGetResponseItem extends JsonObject {
   "id": string;
   "classroom_id": string;
-  "classroom_name"?: string | null;
-  "course_session_id"?: string | null;
-  "course_session"?: ClassroomIndexTodaySessionsGetResponseItemCourseSession | null;
-  "course_session_type_id"?: string | null;
-  "session_type"?: ClassroomIndexTodaySessionsGetResponseItemSessionType | null;
-  "name"?: string | null;
-  "session_number"?: number | null;
-  "duration_minutes"?: number | null;
-  "description"?: string | null;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: ClassroomIndexTodaySessionsGetResponseItemTeacherProfile | null;
+  "classroom_name": string | null;
+  "course_session_id": string | null;
+  "course_session": ClassroomIndexTodaySessionsGetResponseItemCourseSession | null;
+  "course_session_type_id": string | null;
+  "session_type": ClassroomIndexTodaySessionsGetResponseItemSessionType | null;
+  "name": string | null;
+  "session_number": number | null;
+  "duration_minutes": number | null;
+  "description": string | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": ClassroomIndexTodaySessionsGetResponseItemTeacherProfile | null;
   "locked": boolean;
   "auto_unlock": boolean;
   "auto_present": boolean;
   "invited": boolean;
-  "student_user_ids"?: string[] | null;
-  "session_room_id"?: string | null;
-  "session_lifecycle_status"?: string | null;
+  "student_user_ids": string[] | null;
+  "session_room_id": string | null;
+  "session_lifecycle_status": string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
-  "legacy_source_id"?: number | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1133,44 +1117,44 @@ export interface ClassroomIndexTodaySessionsGetResponse extends ApiEnvelope<Clas
 }
 
 /** Backend response type: Value. */
-export interface IntegrationCurrentClassroomUsersGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type IntegrationCurrentClassroomUsersGetResponseData = import("./wire.types.js").LmsCurrentClassroomUsers;
+export type IntegrationCurrentClassroomUsersGetResponse = ApiEnvelope<import("./wire.types.js").LmsCurrentClassroomUsers>;
 
 /** Backend request type: UserIdBatch. */
 export interface IntegrationDropoutEligibilityPostInput extends JsonObject {
   "user_ids"?: string[];
 }
 /** Backend response type: Value. */
-export interface IntegrationDropoutEligibilityPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type IntegrationDropoutEligibilityPostResponseData = import("./wire.types.js").LmsDropoutEligibility;
+export type IntegrationDropoutEligibilityPostResponse = ApiEnvelope<import("./wire.types.js").LmsDropoutEligibility>;
 
 /** Backend query type: PaginationQuery. */
 export interface ClassroomIndexAbsencesGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::AbsenceResponse>. */
 export interface ClassroomIndexAbsencesGetResponseItemProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ClassroomIndexAbsencesGetResponseItem extends JsonObject {
   "id": string;
   "classroom_session_id": string;
   "user_id": string;
-  "profile"?: ClassroomIndexAbsencesGetResponseItemProfile | null;
+  "profile": ClassroomIndexAbsencesGetResponseItemProfile | null;
   "status": string;
-  "absence_reason"?: string | null;
+  "absence_reason": string | null;
   "attendance_mode": "online" | "in_person";
   "online": boolean;
-  "attended_seconds"?: number | null;
-  "description"?: string | null;
+  "attended_seconds": number | null;
+  "description": string | null;
   "ratings": JsonValue;
   "created_at": string;
   "updated_at": string;
@@ -1189,42 +1173,25 @@ export interface ClassroomIndexAbsencesGetResponse extends ApiEnvelope<Classroom
 }
 
 /** Backend response type: Branding. */
-export interface BrandingShowGetResponseData extends JsonObject {
-  "title"?: string | null;
-  "localizations": Record<string, BackendJson<"BrandText">>;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-}
-export interface BrandingShowGetResponse extends ApiEnvelope<BrandingShowGetResponseData> {
-}
+export type BrandingShowGetResponseData = import("./branding.types.js").LmsBranding;
+export type BrandingShowGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").LmsBranding>;
 
 /** Backend request type: Branding. */
-export interface BrandingUpdatePutInput extends JsonObject {
-  "title"?: string | null;
-  "localizations": Record<string, BackendJson<"BrandText">>;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-}
+export type BrandingUpdatePutInput = import("./branding.types.js").LmsBrandingInput;
 /** Backend response type: Branding. */
-export interface BrandingUpdatePutResponseData extends JsonObject {
-  "title"?: string | null;
-  "localizations": Record<string, BackendJson<"BrandText">>;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-}
-export interface BrandingUpdatePutResponse extends ApiEnvelope<BrandingUpdatePutResponseData> {
-}
+export type BrandingUpdatePutResponseData = import("./branding.types.js").LmsBranding;
+export type BrandingUpdatePutResponse = import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").LmsBranding>;
 
 /** Backend request type: multipart/form-data. */
 export type BrandingUploadPostInput = FormData;
 /** Backend response type: serde_json::Value. */
-export interface BrandingUploadPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type BrandingUploadPostResponseData = import("./wire.types.js").LmsBrandingUpload;
+export type BrandingUploadPostResponse = ApiEnvelope<import("./wire.types.js").LmsBrandingUpload>;
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexClassroomTypeGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::ClassroomTypeResponse>. */
 export interface ConfigIndexClassroomTypeGetResponseItem extends JsonObject {
@@ -1282,15 +1249,15 @@ export interface ConfigUpdateClassroomTypePatchResponse extends ApiEnvelope<Conf
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexEducationDayGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::EducationDayResponse>. */
 export interface ConfigIndexEducationDayGetResponseItem extends JsonObject {
   "id": string;
   "day_date": string;
   "is_holiday": boolean;
-  "label"?: string | null;
+  "label": string | null;
   "created_at": string;
 }
 export interface ConfigIndexEducationDayGetResponsePageMeta extends JsonObject {
@@ -1317,7 +1284,7 @@ export interface ConfigStoreEducationDayPostResponseData extends JsonObject {
   "id": string;
   "day_date": string;
   "is_holiday": boolean;
-  "label"?: string | null;
+  "label": string | null;
   "created_at": string;
 }
 export interface ConfigStoreEducationDayPostResponse extends ApiEnvelope<ConfigStoreEducationDayPostResponseData> {
@@ -1328,7 +1295,7 @@ export interface ConfigShowEducationDayGetResponseData extends JsonObject {
   "id": string;
   "day_date": string;
   "is_holiday": boolean;
-  "label"?: string | null;
+  "label": string | null;
   "created_at": string;
 }
 export interface ConfigShowEducationDayGetResponse extends ApiEnvelope<ConfigShowEducationDayGetResponseData> {
@@ -1345,7 +1312,7 @@ export interface ConfigUpdateEducationDayPatchResponseData extends JsonObject {
   "id": string;
   "day_date": string;
   "is_holiday": boolean;
-  "label"?: string | null;
+  "label": string | null;
   "created_at": string;
 }
 export interface ConfigUpdateEducationDayPatchResponse extends ApiEnvelope<ConfigUpdateEducationDayPatchResponseData> {
@@ -1353,8 +1320,8 @@ export interface ConfigUpdateEducationDayPatchResponse extends ApiEnvelope<Confi
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexGradeGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::GradeResponse>. */
 export interface ConfigIndexGradeGetResponseItem extends JsonObject {
@@ -1418,14 +1385,14 @@ export interface ConfigUpdateGradePatchResponse extends ApiEnvelope<ConfigUpdate
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexHolidayGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::HolidayResponse>. */
 export interface ConfigIndexHolidayGetResponseItem extends JsonObject {
   "id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "holiday_date": string;
   "sort_order": number;
   "status": string;
@@ -1457,7 +1424,7 @@ export interface ConfigStoreHolidayPostInput extends JsonObject {
 export interface ConfigStoreHolidayPostResponseData extends JsonObject {
   "id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "holiday_date": string;
   "sort_order": number;
   "status": string;
@@ -1471,7 +1438,7 @@ export interface ConfigStoreHolidayPostResponse extends ApiEnvelope<ConfigStoreH
 export interface ConfigShowHolidayGetResponseData extends JsonObject {
   "id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "holiday_date": string;
   "sort_order": number;
   "status": string;
@@ -1493,7 +1460,7 @@ export interface ConfigUpdateHolidayPatchInput extends JsonObject {
 export interface ConfigUpdateHolidayPatchResponseData extends JsonObject {
   "id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "holiday_date": string;
   "sort_order": number;
   "status": string;
@@ -1505,8 +1472,8 @@ export interface ConfigUpdateHolidayPatchResponse extends ApiEnvelope<ConfigUpda
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexWeekendGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::WeekendResponse>. */
 export interface ConfigIndexWeekendGetResponseItem extends JsonObject {
@@ -1564,25 +1531,26 @@ export interface ConfigUpdateWeekendPatchResponse extends ApiEnvelope<ConfigUpda
 
 /** Backend query type: CourseListQuery. */
 export interface CourseIndexCourseGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "category_ids"?: string | null;
+  "search"?: string | null;
 }
 /** Backend response type: crate::models::PagedResult<models::CourseResponse>. */
 export interface CourseIndexCourseGetResponseItem extends JsonObject {
   "id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "name": string;
-  "title"?: string | null;
-  "description"?: string | null;
-  "cover_url"?: string | null;
+  "title": string | null;
+  "description": string | null;
+  "cover_url": string | null;
   "sort_order": number;
-  "duration"?: string | null;
-  "passing_mark"?: number | null;
+  "duration": string | null;
+  "passing_mark": number | null;
   "certificate_template_ids": string[];
-  "price"?: string | null;
-  "in_person_price"?: string | null;
-  "online_price"?: string | null;
+  "price": string | null;
+  "in_person_price": string | null;
+  "online_price": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1619,18 +1587,18 @@ export interface CourseStoreCoursePostInput extends JsonObject {
 /** Backend response type: models::CourseResponse. */
 export interface CourseStoreCoursePostResponseData extends JsonObject {
   "id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "name": string;
-  "title"?: string | null;
-  "description"?: string | null;
-  "cover_url"?: string | null;
+  "title": string | null;
+  "description": string | null;
+  "cover_url": string | null;
   "sort_order": number;
-  "duration"?: string | null;
-  "passing_mark"?: number | null;
+  "duration": string | null;
+  "passing_mark": number | null;
   "certificate_template_ids": string[];
-  "price"?: string | null;
-  "in_person_price"?: string | null;
-  "online_price"?: string | null;
+  "price": string | null;
+  "in_person_price": string | null;
+  "online_price": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1640,25 +1608,25 @@ export interface CourseStoreCoursePostResponse extends ApiEnvelope<CourseStoreCo
 
 /** Backend query type: PaginationQuery. */
 export interface CourseIndexSessionGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::SessionResponse>. */
 export interface CourseIndexSessionGetResponseItem extends JsonObject {
   "id": string;
   "course_id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "sort_order": number;
   "session_type": string;
-  "session_type_id"?: string | null;
-  "exam_id"?: string | null;
-  "duration_minutes"?: number | null;
+  "session_type_id": string | null;
+  "exam_id": string | null;
+  "duration_minutes": number | null;
   "auto_unlock": boolean;
-  "info"?: string | null;
-  "video_type"?: string | null;
-  "external_url"?: string | null;
-  "drm_mixed_media_id"?: string | null;
+  "info": string | null;
+  "video_type": string | null;
+  "external_url": string | null;
+  "drm_mixed_media_id": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1698,17 +1666,17 @@ export interface CourseStoreSessionPostResponseData extends JsonObject {
   "id": string;
   "course_id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "sort_order": number;
   "session_type": string;
-  "session_type_id"?: string | null;
-  "exam_id"?: string | null;
-  "duration_minutes"?: number | null;
+  "session_type_id": string | null;
+  "exam_id": string | null;
+  "duration_minutes": number | null;
   "auto_unlock": boolean;
-  "info"?: string | null;
-  "video_type"?: string | null;
-  "external_url"?: string | null;
-  "drm_mixed_media_id"?: string | null;
+  "info": string | null;
+  "video_type": string | null;
+  "external_url": string | null;
+  "drm_mixed_media_id": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1717,25 +1685,24 @@ export interface CourseStoreSessionPostResponse extends ApiEnvelope<CourseStoreS
 }
 
 /** Backend response type: serde_json::Value. */
-export interface CourseDestroySessionDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type CourseDestroySessionDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::SessionResponse. */
 export interface CourseShowSessionGetResponseData extends JsonObject {
   "id": string;
   "course_id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "sort_order": number;
   "session_type": string;
-  "session_type_id"?: string | null;
-  "exam_id"?: string | null;
-  "duration_minutes"?: number | null;
+  "session_type_id": string | null;
+  "exam_id": string | null;
+  "duration_minutes": number | null;
   "auto_unlock": boolean;
-  "info"?: string | null;
-  "video_type"?: string | null;
-  "external_url"?: string | null;
-  "drm_mixed_media_id"?: string | null;
+  "info": string | null;
+  "video_type": string | null;
+  "external_url": string | null;
+  "drm_mixed_media_id": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1764,17 +1731,17 @@ export interface CourseUpdateSessionPatchResponseData extends JsonObject {
   "id": string;
   "course_id": string;
   "name": string;
-  "description"?: string | null;
+  "description": string | null;
   "sort_order": number;
   "session_type": string;
-  "session_type_id"?: string | null;
-  "exam_id"?: string | null;
-  "duration_minutes"?: number | null;
+  "session_type_id": string | null;
+  "exam_id": string | null;
+  "duration_minutes": number | null;
   "auto_unlock": boolean;
-  "info"?: string | null;
-  "video_type"?: string | null;
-  "external_url"?: string | null;
-  "drm_mixed_media_id"?: string | null;
+  "info": string | null;
+  "video_type": string | null;
+  "external_url": string | null;
+  "drm_mixed_media_id": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1783,24 +1750,23 @@ export interface CourseUpdateSessionPatchResponse extends ApiEnvelope<CourseUpda
 }
 
 /** Backend response type: serde_json::Value. */
-export interface CourseDestroyCourseDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type CourseDestroyCourseDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::CourseResponse. */
 export interface CourseShowCourseGetResponseData extends JsonObject {
   "id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "name": string;
-  "title"?: string | null;
-  "description"?: string | null;
-  "cover_url"?: string | null;
+  "title": string | null;
+  "description": string | null;
+  "cover_url": string | null;
   "sort_order": number;
-  "duration"?: string | null;
-  "passing_mark"?: number | null;
+  "duration": string | null;
+  "passing_mark": number | null;
   "certificate_template_ids": string[];
-  "price"?: string | null;
-  "in_person_price"?: string | null;
-  "online_price"?: string | null;
+  "price": string | null;
+  "in_person_price": string | null;
+  "online_price": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1827,18 +1793,18 @@ export interface CourseUpdateCoursePatchInput extends JsonObject {
 /** Backend response type: models::CourseResponse. */
 export interface CourseUpdateCoursePatchResponseData extends JsonObject {
   "id": string;
-  "category_id"?: string | null;
+  "category_id": string | null;
   "name": string;
-  "title"?: string | null;
-  "description"?: string | null;
-  "cover_url"?: string | null;
+  "title": string | null;
+  "description": string | null;
+  "cover_url": string | null;
   "sort_order": number;
-  "duration"?: string | null;
-  "passing_mark"?: number | null;
+  "duration": string | null;
+  "passing_mark": number | null;
   "certificate_template_ids": string[];
-  "price"?: string | null;
-  "in_person_price"?: string | null;
-  "online_price"?: string | null;
+  "price": string | null;
+  "in_person_price": string | null;
+  "online_price": string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1851,20 +1817,20 @@ export interface IntegrationBatchCoursesPostInput extends JsonObject {
   "ids"?: string[];
 }
 /** Backend response type: Value. */
-export interface IntegrationBatchCoursesPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type IntegrationBatchCoursesPostResponseData = import("./wire.types.js").LmsBatchCourses;
+export type IntegrationBatchCoursesPostResponse = ApiEnvelope<import("./wire.types.js").LmsBatchCourses>;
 
 /** Backend query type: PaginationQuery. */
 export interface CourseIndexCategoryGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::CategoryResponse>. */
 export interface CourseIndexCategoryGetResponseItem extends JsonObject {
   "id": string;
   "name": string;
-  "description"?: string | null;
-  "image_url"?: string | null;
+  "description": string | null;
+  "image_url": string | null;
   "sort_order": number;
   "status": string;
   "created_at": string;
@@ -1895,8 +1861,8 @@ export interface CourseStoreCategoryPostInput extends JsonObject {
 export interface CourseStoreCategoryPostResponseData extends JsonObject {
   "id": string;
   "name": string;
-  "description"?: string | null;
-  "image_url"?: string | null;
+  "description": string | null;
+  "image_url": string | null;
   "sort_order": number;
   "status": string;
   "created_at": string;
@@ -1906,15 +1872,14 @@ export interface CourseStoreCategoryPostResponse extends ApiEnvelope<CourseStore
 }
 
 /** Backend response type: serde_json::Value. */
-export interface CourseDestroyCategoryDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type CourseDestroyCategoryDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::CategoryResponse. */
 export interface CourseShowCategoryGetResponseData extends JsonObject {
   "id": string;
   "name": string;
-  "description"?: string | null;
-  "image_url"?: string | null;
+  "description": string | null;
+  "image_url": string | null;
   "sort_order": number;
   "status": string;
   "created_at": string;
@@ -1935,8 +1900,8 @@ export interface CourseUpdateCategoryPatchInput extends JsonObject {
 export interface CourseUpdateCategoryPatchResponseData extends JsonObject {
   "id": string;
   "name": string;
-  "description"?: string | null;
-  "image_url"?: string | null;
+  "description": string | null;
+  "image_url": string | null;
   "sort_order": number;
   "status": string;
   "created_at": string;
@@ -1951,8 +1916,7 @@ export interface CourseReorderCategoriesPatchInput extends JsonObject {
   "over_id": string;
 }
 /** Backend response type: serde_json::Value. */
-export interface CourseReorderCategoriesPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type CourseReorderCategoriesPatchResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend request type: models::ReorderRequest. */
 export interface CourseReorderCoursesPatchInput extends JsonObject {
@@ -1960,16 +1924,15 @@ export interface CourseReorderCoursesPatchInput extends JsonObject {
   "over_id": string;
 }
 /** Backend response type: serde_json::Value. */
-export interface CourseReorderCoursesPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type CourseReorderCoursesPatchResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend request type: IdBatch. */
 export interface IntegrationBatchCourseSuccessorsPostInput extends JsonObject {
   "ids"?: string[];
 }
 /** Backend response type: Value. */
-export interface IntegrationBatchCourseSuccessorsPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type IntegrationBatchCourseSuccessorsPostResponseData = import("./wire.types.js").LmsCourseSuccessors;
+export type IntegrationBatchCourseSuccessorsPostResponse = ApiEnvelope<import("./wire.types.js").LmsCourseSuccessors>;
 
 /** Backend query type: models::DashboardQuery. */
 export interface DashboardIndexGetQuery extends QueryParams {
@@ -2030,12 +1993,12 @@ export interface DrmRoutesIndexCompositionsGetResponse extends ApiEnvelope<DrmRo
 export interface EvaluationGetContextGetResponseDataTeacherRatingsTargetsProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface EvaluationGetContextGetResponseDataTeacherRatingsTargetsQuestions extends JsonObject {
   "stable_id": string;
@@ -2048,15 +2011,15 @@ export interface EvaluationGetContextGetResponseDataTeacherRatingsTargetsQuestio
   "description_fa": string;
   "allow_not_applicable": boolean;
   "enabled": boolean;
-  "archived"?: boolean;
+  "archived": boolean;
   "sort_order": number;
 }
 export interface EvaluationGetContextGetResponseDataTeacherRatingsTargets extends JsonObject {
   "user_id": string;
-  "profile"?: EvaluationGetContextGetResponseDataTeacherRatingsTargetsProfile | null;
+  "profile": EvaluationGetContextGetResponseDataTeacherRatingsTargetsProfile | null;
   "submitted": boolean;
-  "scores"?: JsonValue | null;
-  "description"?: string | null;
+  "scores": JsonValue | null;
+  "description": string | null;
   "questions": EvaluationGetContextGetResponseDataTeacherRatingsTargetsQuestions[];
 }
 export interface EvaluationGetContextGetResponseDataTeacherRatingsQuestions extends JsonObject {
@@ -2070,7 +2033,7 @@ export interface EvaluationGetContextGetResponseDataTeacherRatingsQuestions exte
   "description_fa": string;
   "allow_not_applicable": boolean;
   "enabled": boolean;
-  "archived"?: boolean;
+  "archived": boolean;
   "sort_order": number;
 }
 export interface EvaluationGetContextGetResponseDataTeacherRatings extends JsonObject {
@@ -2091,15 +2054,15 @@ export interface EvaluationGetContextGetResponseDataStudentFeedbackQuestions ext
   "description_fa": string;
   "allow_not_applicable": boolean;
   "enabled": boolean;
-  "archived"?: boolean;
+  "archived": boolean;
   "sort_order": number;
 }
 export interface EvaluationGetContextGetResponseDataStudentFeedback extends JsonObject {
   "enabled": boolean;
   "applicable": boolean;
   "submitted": boolean;
-  "scores"?: JsonValue | null;
-  "description"?: string | null;
+  "scores": JsonValue | null;
+  "description": string | null;
   "fields": string[];
   "questions": EvaluationGetContextGetResponseDataStudentFeedbackQuestions[];
 }
@@ -2113,12 +2076,7 @@ export interface EvaluationGetContextGetResponse extends ApiEnvelope<EvaluationG
 }
 
 /** Backend request type: models::SubmitEvaluation. */
-export interface EvaluationSubmitPostInput extends JsonObject {
-  "kind": string;
-  "target_user_id"?: string | null;
-  "scores": JsonValue;
-  "description"?: string | null;
-}
+export type EvaluationSubmitPostInput = import("./wire.types.js").LmsSubmitEvaluationInput;
 /** Backend response type: models::SubmitEvaluationResponse. */
 export interface EvaluationSubmitPostResponseData extends JsonObject {
   "id": string;
@@ -2139,7 +2097,7 @@ export interface EvaluationGetSettingsGetResponseDataQuestions extends JsonObjec
   "description_fa": string;
   "allow_not_applicable": boolean;
   "enabled": boolean;
-  "archived"?: boolean;
+  "archived": boolean;
   "sort_order": number;
 }
 export interface EvaluationGetSettingsGetResponseData extends JsonObject {
@@ -2181,7 +2139,7 @@ export interface EvaluationUpdateSettingsPutResponseDataQuestions extends JsonOb
   "description_fa": string;
   "allow_not_applicable": boolean;
   "enabled": boolean;
-  "archived"?: boolean;
+  "archived": boolean;
   "sort_order": number;
 }
 export interface EvaluationUpdateSettingsPutResponseData extends JsonObject {
@@ -2194,16 +2152,14 @@ export interface EvaluationUpdateSettingsPutResponse extends ApiEnvelope<Evaluat
 
 /** Backend query type: models::ExamListQuery. */
 export interface ExamIndexExamGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "search"?: string | null;
   "status"?: string | null;
   "course_id"?: string | null;
   "grade_id"?: string | null;
   "user_id"?: string | null;
-  /** Definitions delivered by this explicitly assigned teacher. */
   "teacher_user_id"?: string | null;
-  /** Definitions delivered by this explicitly assigned support user. */
   "support_user_id"?: string | null;
   "from"?: string | null;
   "to"?: string | null;
@@ -2211,18 +2167,18 @@ export interface ExamIndexExamGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<models::ExamResponse>. */
 export interface ExamIndexExamGetResponseItem extends JsonObject {
   "id": string;
-  "course_id"?: string | null;
-  "grade_id"?: string | null;
+  "course_id": string | null;
+  "grade_id": string | null;
   "name": string;
-  "description"?: string | null;
-  "info"?: string | null;
-  "cover_url"?: string | null;
-  "duration_minutes"?: number | null;
-  "passing_mark"?: number | null;
-  "questions_count"?: number | null;
-  "easy_count"?: number | null;
-  "medium_count"?: number | null;
-  "hard_count"?: number | null;
+  "description": string | null;
+  "info": string | null;
+  "cover_url": string | null;
+  "duration_minutes": number | null;
+  "passing_mark": number | null;
+  "questions_count": number | null;
+  "easy_count": number | null;
+  "medium_count": number | null;
+  "hard_count": number | null;
   "selection_mode": string;
   "status": string;
   "created_at": string;
@@ -2261,18 +2217,18 @@ export interface ExamStoreExamPostInput extends JsonObject {
 /** Backend response type: models::ExamResponse. */
 export interface ExamStoreExamPostResponseData extends JsonObject {
   "id": string;
-  "course_id"?: string | null;
-  "grade_id"?: string | null;
+  "course_id": string | null;
+  "grade_id": string | null;
   "name": string;
-  "description"?: string | null;
-  "info"?: string | null;
-  "cover_url"?: string | null;
-  "duration_minutes"?: number | null;
-  "passing_mark"?: number | null;
-  "questions_count"?: number | null;
-  "easy_count"?: number | null;
-  "medium_count"?: number | null;
-  "hard_count"?: number | null;
+  "description": string | null;
+  "info": string | null;
+  "cover_url": string | null;
+  "duration_minutes": number | null;
+  "passing_mark": number | null;
+  "questions_count": number | null;
+  "easy_count": number | null;
+  "medium_count": number | null;
+  "hard_count": number | null;
   "selection_mode": string;
   "status": string;
   "created_at": string;
@@ -2282,24 +2238,23 @@ export interface ExamStoreExamPostResponse extends ApiEnvelope<ExamStoreExamPost
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ExamDestroyExamDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ExamDestroyExamDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::ExamResponse. */
 export interface ExamShowExamGetResponseData extends JsonObject {
   "id": string;
-  "course_id"?: string | null;
-  "grade_id"?: string | null;
+  "course_id": string | null;
+  "grade_id": string | null;
   "name": string;
-  "description"?: string | null;
-  "info"?: string | null;
-  "cover_url"?: string | null;
-  "duration_minutes"?: number | null;
-  "passing_mark"?: number | null;
-  "questions_count"?: number | null;
-  "easy_count"?: number | null;
-  "medium_count"?: number | null;
-  "hard_count"?: number | null;
+  "description": string | null;
+  "info": string | null;
+  "cover_url": string | null;
+  "duration_minutes": number | null;
+  "passing_mark": number | null;
+  "questions_count": number | null;
+  "easy_count": number | null;
+  "medium_count": number | null;
+  "hard_count": number | null;
   "selection_mode": string;
   "status": string;
   "created_at": string;
@@ -2328,18 +2283,18 @@ export interface ExamUpdateExamPatchInput extends JsonObject {
 /** Backend response type: models::ExamResponse. */
 export interface ExamUpdateExamPatchResponseData extends JsonObject {
   "id": string;
-  "course_id"?: string | null;
-  "grade_id"?: string | null;
+  "course_id": string | null;
+  "grade_id": string | null;
   "name": string;
-  "description"?: string | null;
-  "info"?: string | null;
-  "cover_url"?: string | null;
-  "duration_minutes"?: number | null;
-  "passing_mark"?: number | null;
-  "questions_count"?: number | null;
-  "easy_count"?: number | null;
-  "medium_count"?: number | null;
-  "hard_count"?: number | null;
+  "description": string | null;
+  "info": string | null;
+  "cover_url": string | null;
+  "duration_minutes": number | null;
+  "passing_mark": number | null;
+  "questions_count": number | null;
+  "easy_count": number | null;
+  "medium_count": number | null;
+  "hard_count": number | null;
   "selection_mode": string;
   "status": string;
   "created_at": string;
@@ -2350,8 +2305,8 @@ export interface ExamUpdateExamPatchResponse extends ApiEnvelope<ExamUpdateExamP
 
 /** Backend query type: models::AttemptListQuery. */
 export interface ExamIndexAttemptGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "status"?: string | null;
   "exam_session_id"?: string | null;
   "user_id"?: string | null;
@@ -2362,32 +2317,32 @@ export interface ExamIndexAttemptGetQuery extends QueryParams {
 export interface ExamIndexAttemptGetResponseItemProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamIndexAttemptGetResponseItem extends JsonObject {
   "id": string;
   "exam_session_id": string;
-  "exam_id"?: string | null;
-  "exam_name"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
-  "course_id"?: string | null;
-  "course_name"?: string | null;
+  "exam_id": string | null;
+  "exam_name": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
+  "course_id": string | null;
+  "course_name": string | null;
   "user_id": string;
-  "profile"?: ExamIndexAttemptGetResponseItemProfile | null;
-  "score"?: number | null;
-  "teacher_score"?: number | null;
-  "description"?: string | null;
+  "profile": ExamIndexAttemptGetResponseItemProfile | null;
+  "score": number | null;
+  "teacher_score": number | null;
+  "description": string | null;
   "extend_time_minutes": number;
-  "deadline_at"?: string | null;
+  "deadline_at": string | null;
   "status": string;
-  "started_at"?: string | null;
-  "finished_at"?: string | null;
+  "started_at": string | null;
+  "finished_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -2408,32 +2363,32 @@ export interface ExamIndexAttemptGetResponse extends ApiEnvelope<ExamIndexAttemp
 export interface ExamShowAttemptGetResponseDataProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamShowAttemptGetResponseData extends JsonObject {
   "id": string;
   "exam_session_id": string;
-  "exam_id"?: string | null;
-  "exam_name"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
-  "course_id"?: string | null;
-  "course_name"?: string | null;
+  "exam_id": string | null;
+  "exam_name": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
+  "course_id": string | null;
+  "course_name": string | null;
   "user_id": string;
-  "profile"?: ExamShowAttemptGetResponseDataProfile | null;
-  "score"?: number | null;
-  "teacher_score"?: number | null;
-  "description"?: string | null;
+  "profile": ExamShowAttemptGetResponseDataProfile | null;
+  "score": number | null;
+  "teacher_score": number | null;
+  "description": string | null;
   "extend_time_minutes": number;
-  "deadline_at"?: string | null;
+  "deadline_at": string | null;
   "status": string;
-  "started_at"?: string | null;
-  "finished_at"?: string | null;
+  "started_at": string | null;
+  "finished_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -2453,32 +2408,32 @@ export interface ExamUpdateAttemptPatchInput extends JsonObject {
 export interface ExamUpdateAttemptPatchResponseDataProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamUpdateAttemptPatchResponseData extends JsonObject {
   "id": string;
   "exam_session_id": string;
-  "exam_id"?: string | null;
-  "exam_name"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
-  "course_id"?: string | null;
-  "course_name"?: string | null;
+  "exam_id": string | null;
+  "exam_name": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
+  "course_id": string | null;
+  "course_name": string | null;
   "user_id": string;
-  "profile"?: ExamUpdateAttemptPatchResponseDataProfile | null;
-  "score"?: number | null;
-  "teacher_score"?: number | null;
-  "description"?: string | null;
+  "profile": ExamUpdateAttemptPatchResponseDataProfile | null;
+  "score": number | null;
+  "teacher_score": number | null;
+  "description": string | null;
   "extend_time_minutes": number;
-  "deadline_at"?: string | null;
+  "deadline_at": string | null;
   "status": string;
-  "started_at"?: string | null;
-  "finished_at"?: string | null;
+  "started_at": string | null;
+  "finished_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -2502,12 +2457,12 @@ export interface ExamSaveAttemptAnswerPutResponse extends ApiEnvelope<ExamSaveAt
 export interface ExamShowAttemptDeliveryGetResponseDataProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamShowAttemptDeliveryGetResponseDataQuestions extends JsonObject {
   "position": number;
@@ -2517,37 +2472,37 @@ export interface ExamShowAttemptDeliveryGetResponseDataQuestions extends JsonObj
   "options": JsonValue;
   "points": number;
   "media": JsonValue;
-  "answer"?: JsonValue | null;
-  "answered_at"?: string | null;
-  "is_correct"?: boolean | null;
-  "awarded_score"?: number | null;
+  "answer": JsonValue | null;
+  "answered_at": string | null;
+  "is_correct": boolean | null;
+  "awarded_score": number | null;
   "correct_answer"?: string | null;
 }
 export interface ExamShowAttemptDeliveryGetResponseData extends JsonObject {
   "attempt_id": string;
   "exam_session_id": string;
   "user_id": string;
-  "profile"?: ExamShowAttemptDeliveryGetResponseDataProfile | null;
+  "profile": ExamShowAttemptDeliveryGetResponseDataProfile | null;
   "exam_id": string;
   "exam_name": string;
-  "exam_description"?: string | null;
-  "exam_info"?: string | null;
-  "cover_url"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
+  "exam_description": string | null;
+  "exam_info": string | null;
+  "cover_url": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
   "access": string;
   "state": string;
   "server_now": string;
-  "starts_at"?: string | null;
-  "closes_at"?: string | null;
-  "started_at"?: string | null;
-  "finished_at"?: string | null;
-  "duration_minutes"?: number | null;
+  "starts_at": string | null;
+  "closes_at": string | null;
+  "started_at": string | null;
+  "finished_at": string | null;
+  "duration_minutes": number | null;
   "remaining_seconds": number;
-  "score"?: number | null;
-  "teacher_score"?: number | null;
-  "passing_mark"?: number | null;
-  "passed"?: boolean | null;
+  "score": number | null;
+  "teacher_score": number | null;
+  "passing_mark": number | null;
+  "passed": boolean | null;
   "answered_count": number;
   "correct_count": number;
   "incorrect_count": number;
@@ -2564,12 +2519,12 @@ export interface ExamShowAttemptDeliveryGetResponse extends ApiEnvelope<ExamShow
 export interface ExamStartAttemptPostResponseDataProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamStartAttemptPostResponseDataQuestions extends JsonObject {
   "position": number;
@@ -2579,37 +2534,37 @@ export interface ExamStartAttemptPostResponseDataQuestions extends JsonObject {
   "options": JsonValue;
   "points": number;
   "media": JsonValue;
-  "answer"?: JsonValue | null;
-  "answered_at"?: string | null;
-  "is_correct"?: boolean | null;
-  "awarded_score"?: number | null;
+  "answer": JsonValue | null;
+  "answered_at": string | null;
+  "is_correct": boolean | null;
+  "awarded_score": number | null;
   "correct_answer"?: string | null;
 }
 export interface ExamStartAttemptPostResponseData extends JsonObject {
   "attempt_id": string;
   "exam_session_id": string;
   "user_id": string;
-  "profile"?: ExamStartAttemptPostResponseDataProfile | null;
+  "profile": ExamStartAttemptPostResponseDataProfile | null;
   "exam_id": string;
   "exam_name": string;
-  "exam_description"?: string | null;
-  "exam_info"?: string | null;
-  "cover_url"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
+  "exam_description": string | null;
+  "exam_info": string | null;
+  "cover_url": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
   "access": string;
   "state": string;
   "server_now": string;
-  "starts_at"?: string | null;
-  "closes_at"?: string | null;
-  "started_at"?: string | null;
-  "finished_at"?: string | null;
-  "duration_minutes"?: number | null;
+  "starts_at": string | null;
+  "closes_at": string | null;
+  "started_at": string | null;
+  "finished_at": string | null;
+  "duration_minutes": number | null;
   "remaining_seconds": number;
-  "score"?: number | null;
-  "teacher_score"?: number | null;
-  "passing_mark"?: number | null;
-  "passed"?: boolean | null;
+  "score": number | null;
+  "teacher_score": number | null;
+  "passing_mark": number | null;
+  "passed": boolean | null;
   "answered_count": number;
   "correct_count": number;
   "incorrect_count": number;
@@ -2626,12 +2581,12 @@ export interface ExamStartAttemptPostResponse extends ApiEnvelope<ExamStartAttem
 export interface ExamSubmitAttemptPostResponseDataProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamSubmitAttemptPostResponseDataQuestions extends JsonObject {
   "position": number;
@@ -2641,37 +2596,37 @@ export interface ExamSubmitAttemptPostResponseDataQuestions extends JsonObject {
   "options": JsonValue;
   "points": number;
   "media": JsonValue;
-  "answer"?: JsonValue | null;
-  "answered_at"?: string | null;
-  "is_correct"?: boolean | null;
-  "awarded_score"?: number | null;
+  "answer": JsonValue | null;
+  "answered_at": string | null;
+  "is_correct": boolean | null;
+  "awarded_score": number | null;
   "correct_answer"?: string | null;
 }
 export interface ExamSubmitAttemptPostResponseData extends JsonObject {
   "attempt_id": string;
   "exam_session_id": string;
   "user_id": string;
-  "profile"?: ExamSubmitAttemptPostResponseDataProfile | null;
+  "profile": ExamSubmitAttemptPostResponseDataProfile | null;
   "exam_id": string;
   "exam_name": string;
-  "exam_description"?: string | null;
-  "exam_info"?: string | null;
-  "cover_url"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
+  "exam_description": string | null;
+  "exam_info": string | null;
+  "cover_url": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
   "access": string;
   "state": string;
   "server_now": string;
-  "starts_at"?: string | null;
-  "closes_at"?: string | null;
-  "started_at"?: string | null;
-  "finished_at"?: string | null;
-  "duration_minutes"?: number | null;
+  "starts_at": string | null;
+  "closes_at": string | null;
+  "started_at": string | null;
+  "finished_at": string | null;
+  "duration_minutes": number | null;
   "remaining_seconds": number;
-  "score"?: number | null;
-  "teacher_score"?: number | null;
-  "passing_mark"?: number | null;
-  "passed"?: boolean | null;
+  "score": number | null;
+  "teacher_score": number | null;
+  "passing_mark": number | null;
+  "passed": boolean | null;
   "answered_count": number;
   "correct_count": number;
   "incorrect_count": number;
@@ -2686,22 +2641,22 @@ export interface ExamSubmitAttemptPostResponse extends ApiEnvelope<ExamSubmitAtt
 
 /** Backend query type: models::QuestionListQuery. */
 export interface ExamIndexQuestionGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "exam_id"?: string | null;
 }
 /** Backend response type: crate::models::PagedResult<models::QuestionResponse>. */
 export interface ExamIndexQuestionGetResponseItem extends JsonObject {
   "id": string;
-  "exam_id"?: string | null;
+  "exam_id": string | null;
   "question_text": string;
   "question_type": string;
-  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
-  "correct_answer"?: string | null;
+  "options": JsonValue | null;
+  "correct_answer": string | null;
   "sort_order": number;
   "difficulty": string;
   "points": number;
-  "media": BackendJson<"sea_orm::prelude::Json">;
+  "media": JsonValue;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -2724,26 +2679,26 @@ export interface ExamStoreQuestionPostInput extends JsonObject {
   "exam_id"?: string | null;
   "question_text": string;
   "question_type": string;
-  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
+  "options"?: JsonValue | null;
   "correct_answer"?: string | null;
   "sort_order": number;
   "difficulty"?: string | null;
   "points"?: number | null;
-  "media"?: BackendJson<"sea_orm::prelude::Json"> | null;
+  "media"?: JsonValue | null;
   "status"?: string | null;
 }
 /** Backend response type: models::QuestionResponse. */
 export interface ExamStoreQuestionPostResponseData extends JsonObject {
   "id": string;
-  "exam_id"?: string | null;
+  "exam_id": string | null;
   "question_text": string;
   "question_type": string;
-  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
-  "correct_answer"?: string | null;
+  "options": JsonValue | null;
+  "correct_answer": string | null;
   "sort_order": number;
   "difficulty": string;
   "points": number;
-  "media": BackendJson<"sea_orm::prelude::Json">;
+  "media": JsonValue;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -2752,21 +2707,20 @@ export interface ExamStoreQuestionPostResponse extends ApiEnvelope<ExamStoreQues
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ExamDestroyQuestionDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ExamDestroyQuestionDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::QuestionResponse. */
 export interface ExamShowQuestionGetResponseData extends JsonObject {
   "id": string;
-  "exam_id"?: string | null;
+  "exam_id": string | null;
   "question_text": string;
   "question_type": string;
-  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
-  "correct_answer"?: string | null;
+  "options": JsonValue | null;
+  "correct_answer": string | null;
   "sort_order": number;
   "difficulty": string;
   "points": number;
-  "media": BackendJson<"sea_orm::prelude::Json">;
+  "media": JsonValue;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -2779,26 +2733,26 @@ export interface ExamUpdateQuestionPatchInput extends JsonObject {
   "exam_id"?: string | null;
   "question_text"?: string | null;
   "question_type"?: string | null;
-  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
+  "options"?: JsonValue | null;
   "correct_answer"?: string | null;
   "sort_order"?: number | null;
   "difficulty"?: string | null;
   "points"?: number | null;
-  "media"?: BackendJson<"sea_orm::prelude::Json"> | null;
+  "media"?: JsonValue | null;
   "status"?: string | null;
 }
 /** Backend response type: models::QuestionResponse. */
 export interface ExamUpdateQuestionPatchResponseData extends JsonObject {
   "id": string;
-  "exam_id"?: string | null;
+  "exam_id": string | null;
   "question_text": string;
   "question_type": string;
-  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
-  "correct_answer"?: string | null;
+  "options": JsonValue | null;
+  "correct_answer": string | null;
   "sort_order": number;
   "difficulty": string;
   "points": number;
-  "media": BackendJson<"sea_orm::prelude::Json">;
+  "media": JsonValue;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -2808,8 +2762,8 @@ export interface ExamUpdateQuestionPatchResponse extends ApiEnvelope<ExamUpdateQ
 
 /** Backend query type: models::SessionListQuery. */
 export interface ExamIndexSessionGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "search"?: string | null;
   "status"?: string | null;
   "exam_id"?: string | null;
@@ -2826,62 +2780,62 @@ export interface ExamIndexSessionGetQuery extends QueryParams {
 export interface ExamIndexSessionGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamIndexSessionGetResponseItemConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamIndexSessionGetResponseItemSupportProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamIndexSessionGetResponseItem extends JsonObject {
   "id": string;
   "exam_id": string;
-  "exam_name"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
-  "classroom_session_id"?: string | null;
-  "name"?: string | null;
-  "description"?: string | null;
-  "info"?: string | null;
-  "duration_minutes"?: number | null;
-  "questions_count"?: number | null;
-  "easy_count"?: number | null;
-  "medium_count"?: number | null;
-  "hard_count"?: number | null;
+  "exam_name": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
+  "classroom_session_id": string | null;
+  "name": string | null;
+  "description": string | null;
+  "info": string | null;
+  "duration_minutes": number | null;
+  "questions_count": number | null;
+  "easy_count": number | null;
+  "medium_count": number | null;
+  "hard_count": number | null;
   "selection_mode": string;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: ExamIndexSessionGetResponseItemTeacherProfile | null;
-  "consultant_user_id"?: string | null;
-  "consultant_profile"?: ExamIndexSessionGetResponseItemConsultantProfile | null;
-  "support_user_id"?: string | null;
-  "support_profile"?: ExamIndexSessionGetResponseItemSupportProfile | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": ExamIndexSessionGetResponseItemTeacherProfile | null;
+  "consultant_user_id": string | null;
+  "consultant_profile": ExamIndexSessionGetResponseItemConsultantProfile | null;
+  "support_user_id": string | null;
+  "support_profile": ExamIndexSessionGetResponseItemSupportProfile | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
   "status": string;
   "attempts_total": number;
   "attempts_active": number;
   "attempts_completed": number;
-  "average_score"?: number | null;
+  "average_score": number | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -2923,62 +2877,62 @@ export interface ExamStoreSessionPostInput extends JsonObject {
 export interface ExamStoreSessionPostResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamStoreSessionPostResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamStoreSessionPostResponseDataSupportProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamStoreSessionPostResponseData extends JsonObject {
   "id": string;
   "exam_id": string;
-  "exam_name"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
-  "classroom_session_id"?: string | null;
-  "name"?: string | null;
-  "description"?: string | null;
-  "info"?: string | null;
-  "duration_minutes"?: number | null;
-  "questions_count"?: number | null;
-  "easy_count"?: number | null;
-  "medium_count"?: number | null;
-  "hard_count"?: number | null;
+  "exam_name": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
+  "classroom_session_id": string | null;
+  "name": string | null;
+  "description": string | null;
+  "info": string | null;
+  "duration_minutes": number | null;
+  "questions_count": number | null;
+  "easy_count": number | null;
+  "medium_count": number | null;
+  "hard_count": number | null;
   "selection_mode": string;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: ExamStoreSessionPostResponseDataTeacherProfile | null;
-  "consultant_user_id"?: string | null;
-  "consultant_profile"?: ExamStoreSessionPostResponseDataConsultantProfile | null;
-  "support_user_id"?: string | null;
-  "support_profile"?: ExamStoreSessionPostResponseDataSupportProfile | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": ExamStoreSessionPostResponseDataTeacherProfile | null;
+  "consultant_user_id": string | null;
+  "consultant_profile": ExamStoreSessionPostResponseDataConsultantProfile | null;
+  "support_user_id": string | null;
+  "support_profile": ExamStoreSessionPostResponseDataSupportProfile | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
   "status": string;
   "attempts_total": number;
   "attempts_active": number;
   "attempts_completed": number;
-  "average_score"?: number | null;
+  "average_score": number | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -2986,69 +2940,68 @@ export interface ExamStoreSessionPostResponse extends ApiEnvelope<ExamStoreSessi
 }
 
 /** Backend response type: serde_json::Value. */
-export interface ExamDestroySessionDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type ExamDestroySessionDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::SessionResponse. */
 export interface ExamShowSessionGetResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamShowSessionGetResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamShowSessionGetResponseDataSupportProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamShowSessionGetResponseData extends JsonObject {
   "id": string;
   "exam_id": string;
-  "exam_name"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
-  "classroom_session_id"?: string | null;
-  "name"?: string | null;
-  "description"?: string | null;
-  "info"?: string | null;
-  "duration_minutes"?: number | null;
-  "questions_count"?: number | null;
-  "easy_count"?: number | null;
-  "medium_count"?: number | null;
-  "hard_count"?: number | null;
+  "exam_name": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
+  "classroom_session_id": string | null;
+  "name": string | null;
+  "description": string | null;
+  "info": string | null;
+  "duration_minutes": number | null;
+  "questions_count": number | null;
+  "easy_count": number | null;
+  "medium_count": number | null;
+  "hard_count": number | null;
   "selection_mode": string;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: ExamShowSessionGetResponseDataTeacherProfile | null;
-  "consultant_user_id"?: string | null;
-  "consultant_profile"?: ExamShowSessionGetResponseDataConsultantProfile | null;
-  "support_user_id"?: string | null;
-  "support_profile"?: ExamShowSessionGetResponseDataSupportProfile | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": ExamShowSessionGetResponseDataTeacherProfile | null;
+  "consultant_user_id": string | null;
+  "consultant_profile": ExamShowSessionGetResponseDataConsultantProfile | null;
+  "support_user_id": string | null;
+  "support_profile": ExamShowSessionGetResponseDataSupportProfile | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
   "status": string;
   "attempts_total": number;
   "attempts_active": number;
   "attempts_completed": number;
-  "average_score"?: number | null;
+  "average_score": number | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -3056,86 +3009,67 @@ export interface ExamShowSessionGetResponse extends ApiEnvelope<ExamShowSessionG
 }
 
 /** Backend request type: models::UpdateSessionRequest. */
-export interface ExamUpdateSessionPatchInput extends JsonObject {
-  "exam_id"?: string | null;
-  "classroom_id"?: BackendJson<"PatchField<Uuid>">;
-  "classroom_session_id"?: BackendJson<"PatchField<Uuid>">;
-  "name"?: BackendJson<"PatchField<String>">;
-  "description"?: BackendJson<"PatchField<String>">;
-  "info"?: BackendJson<"PatchField<String>">;
-  "duration_minutes"?: BackendJson<"PatchField<i32>">;
-  "questions_count"?: BackendJson<"PatchField<i32>">;
-  "easy_count"?: BackendJson<"PatchField<i32>">;
-  "medium_count"?: BackendJson<"PatchField<i32>">;
-  "hard_count"?: BackendJson<"PatchField<i32>">;
-  "selection_mode"?: string | null;
-  "teacher_user_id"?: BackendJson<"PatchField<String>">;
-  "consultant_user_id"?: BackendJson<"PatchField<String>">;
-  "support_user_id"?: BackendJson<"PatchField<String>">;
-  "starts_at"?: BackendJson<"PatchField<String>">;
-  "ends_at"?: BackendJson<"PatchField<String>">;
-  "status"?: string | null;
-}
+export type ExamUpdateSessionPatchInput = import("./types.js").UpdateExamSessionInput;
 /** Backend response type: models::SessionResponse. */
 export interface ExamUpdateSessionPatchResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamUpdateSessionPatchResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamUpdateSessionPatchResponseDataSupportProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ExamUpdateSessionPatchResponseData extends JsonObject {
   "id": string;
   "exam_id": string;
-  "exam_name"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
-  "classroom_session_id"?: string | null;
-  "name"?: string | null;
-  "description"?: string | null;
-  "info"?: string | null;
-  "duration_minutes"?: number | null;
-  "questions_count"?: number | null;
-  "easy_count"?: number | null;
-  "medium_count"?: number | null;
-  "hard_count"?: number | null;
+  "exam_name": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
+  "classroom_session_id": string | null;
+  "name": string | null;
+  "description": string | null;
+  "info": string | null;
+  "duration_minutes": number | null;
+  "questions_count": number | null;
+  "easy_count": number | null;
+  "medium_count": number | null;
+  "hard_count": number | null;
   "selection_mode": string;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: ExamUpdateSessionPatchResponseDataTeacherProfile | null;
-  "consultant_user_id"?: string | null;
-  "consultant_profile"?: ExamUpdateSessionPatchResponseDataConsultantProfile | null;
-  "support_user_id"?: string | null;
-  "support_profile"?: ExamUpdateSessionPatchResponseDataSupportProfile | null;
-  "starts_at"?: string | null;
-  "ends_at"?: string | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": ExamUpdateSessionPatchResponseDataTeacherProfile | null;
+  "consultant_user_id": string | null;
+  "consultant_profile": ExamUpdateSessionPatchResponseDataConsultantProfile | null;
+  "support_user_id": string | null;
+  "support_profile": ExamUpdateSessionPatchResponseDataSupportProfile | null;
+  "starts_at": string | null;
+  "ends_at": string | null;
   "status": string;
   "attempts_total": number;
   "attempts_active": number;
   "attempts_completed": number;
-  "average_score"?: number | null;
+  "average_score": number | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -3144,8 +3078,8 @@ export interface ExamUpdateSessionPatchResponse extends ApiEnvelope<ExamUpdateSe
 
 /** Backend query type: models::HomeworkBankListQuery. */
 export interface HomeworkIndexBankGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "search"?: string | null;
   "status"?: string | null;
   "teacher_user_id"?: string | null;
@@ -3154,16 +3088,16 @@ export interface HomeworkIndexBankGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<models::HomeworkBankResponse>. */
 export interface HomeworkIndexBankGetResponseItem extends JsonObject {
   "id": string;
-  "course_id"?: string | null;
-  "course_name"?: string | null;
-  "grade_id"?: string | null;
-  "teacher_grade_id"?: string | null;
+  "course_id": string | null;
+  "course_name": string | null;
+  "grade_id": string | null;
+  "teacher_grade_id": string | null;
   "name": string;
-  "title"?: string | null;
-  "description"?: string | null;
+  "title": string | null;
+  "description": string | null;
   "status": string;
   "sort_order": number;
-  "difficulty"?: string | null;
+  "difficulty": string | null;
   "points": number;
   "created_at": string;
   "updated_at": string;
@@ -3197,16 +3131,16 @@ export interface HomeworkStoreBankPostInput extends JsonObject {
 /** Backend response type: models::HomeworkBankResponse. */
 export interface HomeworkStoreBankPostResponseData extends JsonObject {
   "id": string;
-  "course_id"?: string | null;
-  "course_name"?: string | null;
-  "grade_id"?: string | null;
-  "teacher_grade_id"?: string | null;
+  "course_id": string | null;
+  "course_name": string | null;
+  "grade_id": string | null;
+  "teacher_grade_id": string | null;
   "name": string;
-  "title"?: string | null;
-  "description"?: string | null;
+  "title": string | null;
+  "description": string | null;
   "status": string;
   "sort_order": number;
-  "difficulty"?: string | null;
+  "difficulty": string | null;
   "points": number;
   "created_at": string;
   "updated_at": string;
@@ -3216,8 +3150,8 @@ export interface HomeworkStoreBankPostResponse extends ApiEnvelope<HomeworkStore
 
 /** Backend query type: models::BankHomeworkListQuery. */
 export interface HomeworkIndexBankHomeworkGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "search"?: string | null;
   "status"?: string | null;
   "question_type"?: string | null;
@@ -3228,12 +3162,12 @@ export interface HomeworkIndexBankHomeworkGetResponseItem extends JsonObject {
   "id": string;
   "homework_id": string;
   "name": string;
-  "bank_name"?: string | null;
+  "bank_name": string | null;
   "assignable": boolean;
-  "assignment_block_reason"?: string | null;
+  "assignment_block_reason": string | null;
   "question_text": string;
-  "description"?: string | null;
-  "answer"?: string | null;
+  "description": string | null;
+  "answer": string | null;
   "question_type": string;
   "kind": string;
   "points": number;
@@ -3276,12 +3210,12 @@ export interface HomeworkStoreBankHomeworkPostResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
   "name": string;
-  "bank_name"?: string | null;
+  "bank_name": string | null;
   "assignable": boolean;
-  "assignment_block_reason"?: string | null;
+  "assignment_block_reason": string | null;
   "question_text": string;
-  "description"?: string | null;
-  "answer"?: string | null;
+  "description": string | null;
+  "answer": string | null;
   "question_type": string;
   "kind": string;
   "points": number;
@@ -3296,20 +3230,19 @@ export interface HomeworkStoreBankHomeworkPostResponse extends ApiEnvelope<Homew
 }
 
 /** Backend response type: serde_json::Value. */
-export interface HomeworkDestroyBankHomeworkDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type HomeworkDestroyBankHomeworkDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::QuestionResponse. */
 export interface HomeworkShowBankHomeworkGetResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
   "name": string;
-  "bank_name"?: string | null;
+  "bank_name": string | null;
   "assignable": boolean;
-  "assignment_block_reason"?: string | null;
+  "assignment_block_reason": string | null;
   "question_text": string;
-  "description"?: string | null;
-  "answer"?: string | null;
+  "description": string | null;
+  "answer": string | null;
   "question_type": string;
   "kind": string;
   "points": number;
@@ -3342,12 +3275,12 @@ export interface HomeworkUpdateBankHomeworkPatchResponseData extends JsonObject 
   "id": string;
   "homework_id": string;
   "name": string;
-  "bank_name"?: string | null;
+  "bank_name": string | null;
   "assignable": boolean;
-  "assignment_block_reason"?: string | null;
+  "assignment_block_reason": string | null;
   "question_text": string;
-  "description"?: string | null;
-  "answer"?: string | null;
+  "description": string | null;
+  "answer": string | null;
   "question_type": string;
   "kind": string;
   "points": number;
@@ -3362,22 +3295,21 @@ export interface HomeworkUpdateBankHomeworkPatchResponse extends ApiEnvelope<Hom
 }
 
 /** Backend response type: serde_json::Value. */
-export interface HomeworkDestroyBankDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type HomeworkDestroyBankDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::HomeworkBankResponse. */
 export interface HomeworkShowBankGetResponseData extends JsonObject {
   "id": string;
-  "course_id"?: string | null;
-  "course_name"?: string | null;
-  "grade_id"?: string | null;
-  "teacher_grade_id"?: string | null;
+  "course_id": string | null;
+  "course_name": string | null;
+  "grade_id": string | null;
+  "teacher_grade_id": string | null;
   "name": string;
-  "title"?: string | null;
-  "description"?: string | null;
+  "title": string | null;
+  "description": string | null;
   "status": string;
   "sort_order": number;
-  "difficulty"?: string | null;
+  "difficulty": string | null;
   "points": number;
   "created_at": string;
   "updated_at": string;
@@ -3401,16 +3333,16 @@ export interface HomeworkUpdateBankPatchInput extends JsonObject {
 /** Backend response type: models::HomeworkBankResponse. */
 export interface HomeworkUpdateBankPatchResponseData extends JsonObject {
   "id": string;
-  "course_id"?: string | null;
-  "course_name"?: string | null;
-  "grade_id"?: string | null;
-  "teacher_grade_id"?: string | null;
+  "course_id": string | null;
+  "course_name": string | null;
+  "grade_id": string | null;
+  "teacher_grade_id": string | null;
   "name": string;
-  "title"?: string | null;
-  "description"?: string | null;
+  "title": string | null;
+  "description": string | null;
   "status": string;
   "sort_order": number;
-  "difficulty"?: string | null;
+  "difficulty": string | null;
   "points": number;
   "created_at": string;
   "updated_at": string;
@@ -3420,17 +3352,15 @@ export interface HomeworkUpdateBankPatchResponse extends ApiEnvelope<HomeworkUpd
 
 /** Backend query type: models::HomeworkListQuery. */
 export interface HomeworkIndexHomeworkGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "search"?: string | null;
   "status"?: string | null;
   "homework_bank_id"?: string | null;
   "difficulty"?: string | null;
   "course_id"?: string | null;
   "user_id"?: string | null;
-  /** Definitions delivered by this explicitly assigned teacher. */
   "teacher_user_id"?: string | null;
-  /** Definitions delivered by this explicitly assigned support user. */
   "support_user_id"?: string | null;
   "from"?: string | null;
   "to"?: string | null;
@@ -3438,17 +3368,17 @@ export interface HomeworkIndexHomeworkGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<models::HomeworkResponse>. */
 export interface HomeworkIndexHomeworkGetResponseItem extends JsonObject {
   "id": string;
-  "homework_bank_id"?: string | null;
-  "course_id"?: string | null;
-  "course_name"?: string | null;
-  "grade_id"?: string | null;
-  "teacher_grade_id"?: string | null;
+  "homework_bank_id": string | null;
+  "course_id": string | null;
+  "course_name": string | null;
+  "grade_id": string | null;
+  "teacher_grade_id": string | null;
   "name": string;
-  "title"?: string | null;
-  "description"?: string | null;
+  "title": string | null;
+  "description": string | null;
   "status": string;
   "sort_order": number;
-  "difficulty"?: string | null;
+  "difficulty": string | null;
   "points": number;
   "created_at": string;
   "updated_at": string;
@@ -3483,17 +3413,17 @@ export interface HomeworkStoreHomeworkPostInput extends JsonObject {
 /** Backend response type: models::HomeworkResponse. */
 export interface HomeworkStoreHomeworkPostResponseData extends JsonObject {
   "id": string;
-  "homework_bank_id"?: string | null;
-  "course_id"?: string | null;
-  "course_name"?: string | null;
-  "grade_id"?: string | null;
-  "teacher_grade_id"?: string | null;
+  "homework_bank_id": string | null;
+  "course_id": string | null;
+  "course_name": string | null;
+  "grade_id": string | null;
+  "teacher_grade_id": string | null;
   "name": string;
-  "title"?: string | null;
-  "description"?: string | null;
+  "title": string | null;
+  "description": string | null;
   "status": string;
   "sort_order": number;
-  "difficulty"?: string | null;
+  "difficulty": string | null;
   "points": number;
   "created_at": string;
   "updated_at": string;
@@ -3502,23 +3432,22 @@ export interface HomeworkStoreHomeworkPostResponse extends ApiEnvelope<HomeworkS
 }
 
 /** Backend response type: serde_json::Value. */
-export interface HomeworkDestroyHomeworkDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type HomeworkDestroyHomeworkDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::HomeworkResponse. */
 export interface HomeworkShowHomeworkGetResponseData extends JsonObject {
   "id": string;
-  "homework_bank_id"?: string | null;
-  "course_id"?: string | null;
-  "course_name"?: string | null;
-  "grade_id"?: string | null;
-  "teacher_grade_id"?: string | null;
+  "homework_bank_id": string | null;
+  "course_id": string | null;
+  "course_name": string | null;
+  "grade_id": string | null;
+  "teacher_grade_id": string | null;
   "name": string;
-  "title"?: string | null;
-  "description"?: string | null;
+  "title": string | null;
+  "description": string | null;
   "status": string;
   "sort_order": number;
-  "difficulty"?: string | null;
+  "difficulty": string | null;
   "points": number;
   "created_at": string;
   "updated_at": string;
@@ -3543,17 +3472,17 @@ export interface HomeworkUpdateHomeworkPatchInput extends JsonObject {
 /** Backend response type: models::HomeworkResponse. */
 export interface HomeworkUpdateHomeworkPatchResponseData extends JsonObject {
   "id": string;
-  "homework_bank_id"?: string | null;
-  "course_id"?: string | null;
-  "course_name"?: string | null;
-  "grade_id"?: string | null;
-  "teacher_grade_id"?: string | null;
+  "homework_bank_id": string | null;
+  "course_id": string | null;
+  "course_name": string | null;
+  "grade_id": string | null;
+  "teacher_grade_id": string | null;
   "name": string;
-  "title"?: string | null;
-  "description"?: string | null;
+  "title": string | null;
+  "description": string | null;
   "status": string;
   "sort_order": number;
-  "difficulty"?: string | null;
+  "difficulty": string | null;
   "points": number;
   "created_at": string;
   "updated_at": string;
@@ -3563,8 +3492,8 @@ export interface HomeworkUpdateHomeworkPatchResponse extends ApiEnvelope<Homewor
 
 /** Backend query type: models::AssignmentListQuery. */
 export interface HomeworkIndexAssignmentGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "status"?: string | null;
   "homework_id"?: string | null;
   "course_id"?: string | null;
@@ -3581,69 +3510,69 @@ export interface HomeworkIndexAssignmentGetQuery extends QueryParams {
 export interface HomeworkIndexAssignmentGetResponseItemProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkIndexAssignmentGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkIndexAssignmentGetResponseItemConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkIndexAssignmentGetResponseItemSupportProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkIndexAssignmentGetResponseItem extends JsonObject {
   "id": string;
   "homework_id": string;
-  "homework_question_id"?: string | null;
-  "homework_name"?: string | null;
-  "homework"?: import("./types.js").Homework | null;
-  "homework_question"?: import("./types.js").HomeworkQuestion | null;
-  "course_id"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
-  "user_id"?: string | null;
-  "profile"?: HomeworkIndexAssignmentGetResponseItemProfile | null;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: HomeworkIndexAssignmentGetResponseItemTeacherProfile | null;
-  "consultant_user_id"?: string | null;
-  "consultant_profile"?: HomeworkIndexAssignmentGetResponseItemConsultantProfile | null;
-  "support_user_id"?: string | null;
-  "support_profile"?: HomeworkIndexAssignmentGetResponseItemSupportProfile | null;
-  "chat_conversation_id"?: string | null;
-  "due_at"?: string | null;
+  "homework_question_id": string | null;
+  "homework_name": string | null;
+  "homework": import("./types.js").Homework | null;
+  "homework_question": import("./types.js").HomeworkQuestion | null;
+  "course_id": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
+  "user_id": string | null;
+  "profile": HomeworkIndexAssignmentGetResponseItemProfile | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": HomeworkIndexAssignmentGetResponseItemTeacherProfile | null;
+  "consultant_user_id": string | null;
+  "consultant_profile": HomeworkIndexAssignmentGetResponseItemConsultantProfile | null;
+  "support_user_id": string | null;
+  "support_profile": HomeworkIndexAssignmentGetResponseItemSupportProfile | null;
+  "chat_conversation_id": string | null;
+  "due_at": string | null;
   "status": string;
-  "answer_text"?: string | null;
-  "description"?: string | null;
-  "score"?: number | null;
-  "active_until"?: string | null;
-  "resolved_at"?: string | null;
+  "answer_text": string | null;
+  "description": string | null;
+  "score": number | null;
+  "active_until": string | null;
+  "resolved_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -3661,85 +3590,74 @@ export interface HomeworkIndexAssignmentGetResponse extends ApiEnvelope<Homework
 }
 
 /** Backend request type: models::CreateAssignmentRequest. */
-export interface HomeworkStoreAssignmentPostInput extends JsonObject {
-  "homework_id": string;
-  "classroom_id"?: string | null;
-  "user_id"?: string | null;
-  "teacher_user_id"?: string | null;
-  "consultant_user_id"?: string | null;
-  "support_user_id"?: string | null;
-  "due_at"?: string | null;
-  "status": string;
-  "answer_text"?: string | null;
-  "score"?: number | null;
-}
+export type HomeworkStoreAssignmentPostInput = import("./wire.types.js").LmsCreateAssignmentInput;
 /** Backend response type: models::AssignmentResponse. */
 export interface HomeworkStoreAssignmentPostResponseDataProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkStoreAssignmentPostResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkStoreAssignmentPostResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkStoreAssignmentPostResponseDataSupportProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkStoreAssignmentPostResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
-  "homework_question_id"?: string | null;
-  "homework_name"?: string | null;
-  "homework"?: import("./types.js").Homework | null;
-  "homework_question"?: import("./types.js").HomeworkQuestion | null;
-  "course_id"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
-  "user_id"?: string | null;
-  "profile"?: HomeworkStoreAssignmentPostResponseDataProfile | null;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: HomeworkStoreAssignmentPostResponseDataTeacherProfile | null;
-  "consultant_user_id"?: string | null;
-  "consultant_profile"?: HomeworkStoreAssignmentPostResponseDataConsultantProfile | null;
-  "support_user_id"?: string | null;
-  "support_profile"?: HomeworkStoreAssignmentPostResponseDataSupportProfile | null;
-  "chat_conversation_id"?: string | null;
-  "due_at"?: string | null;
+  "homework_question_id": string | null;
+  "homework_name": string | null;
+  "homework": import("./types.js").Homework | null;
+  "homework_question": import("./types.js").HomeworkQuestion | null;
+  "course_id": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
+  "user_id": string | null;
+  "profile": HomeworkStoreAssignmentPostResponseDataProfile | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": HomeworkStoreAssignmentPostResponseDataTeacherProfile | null;
+  "consultant_user_id": string | null;
+  "consultant_profile": HomeworkStoreAssignmentPostResponseDataConsultantProfile | null;
+  "support_user_id": string | null;
+  "support_profile": HomeworkStoreAssignmentPostResponseDataSupportProfile | null;
+  "chat_conversation_id": string | null;
+  "due_at": string | null;
   "status": string;
-  "answer_text"?: string | null;
-  "description"?: string | null;
-  "score"?: number | null;
-  "active_until"?: string | null;
-  "resolved_at"?: string | null;
+  "answer_text": string | null;
+  "description": string | null;
+  "score": number | null;
+  "active_until": string | null;
+  "resolved_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -3747,76 +3665,75 @@ export interface HomeworkStoreAssignmentPostResponse extends ApiEnvelope<Homewor
 }
 
 /** Backend response type: serde_json::Value. */
-export interface HomeworkDestroyAssignmentDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type HomeworkDestroyAssignmentDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::AssignmentResponse. */
 export interface HomeworkShowAssignmentGetResponseDataProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkShowAssignmentGetResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkShowAssignmentGetResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkShowAssignmentGetResponseDataSupportProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkShowAssignmentGetResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
-  "homework_question_id"?: string | null;
-  "homework_name"?: string | null;
-  "homework"?: import("./types.js").Homework | null;
-  "homework_question"?: import("./types.js").HomeworkQuestion | null;
-  "course_id"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
-  "user_id"?: string | null;
-  "profile"?: HomeworkShowAssignmentGetResponseDataProfile | null;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: HomeworkShowAssignmentGetResponseDataTeacherProfile | null;
-  "consultant_user_id"?: string | null;
-  "consultant_profile"?: HomeworkShowAssignmentGetResponseDataConsultantProfile | null;
-  "support_user_id"?: string | null;
-  "support_profile"?: HomeworkShowAssignmentGetResponseDataSupportProfile | null;
-  "chat_conversation_id"?: string | null;
-  "due_at"?: string | null;
+  "homework_question_id": string | null;
+  "homework_name": string | null;
+  "homework": import("./types.js").Homework | null;
+  "homework_question": import("./types.js").HomeworkQuestion | null;
+  "course_id": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
+  "user_id": string | null;
+  "profile": HomeworkShowAssignmentGetResponseDataProfile | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": HomeworkShowAssignmentGetResponseDataTeacherProfile | null;
+  "consultant_user_id": string | null;
+  "consultant_profile": HomeworkShowAssignmentGetResponseDataConsultantProfile | null;
+  "support_user_id": string | null;
+  "support_profile": HomeworkShowAssignmentGetResponseDataSupportProfile | null;
+  "chat_conversation_id": string | null;
+  "due_at": string | null;
   "status": string;
-  "answer_text"?: string | null;
-  "description"?: string | null;
-  "score"?: number | null;
-  "active_until"?: string | null;
-  "resolved_at"?: string | null;
+  "answer_text": string | null;
+  "description": string | null;
+  "score": number | null;
+  "active_until": string | null;
+  "resolved_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -3843,69 +3760,69 @@ export interface HomeworkUpdateAssignmentPatchInput extends JsonObject {
 export interface HomeworkUpdateAssignmentPatchResponseDataProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkUpdateAssignmentPatchResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkUpdateAssignmentPatchResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkUpdateAssignmentPatchResponseDataSupportProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkUpdateAssignmentPatchResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
-  "homework_question_id"?: string | null;
-  "homework_name"?: string | null;
-  "homework"?: import("./types.js").Homework | null;
-  "homework_question"?: import("./types.js").HomeworkQuestion | null;
-  "course_id"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
-  "user_id"?: string | null;
-  "profile"?: HomeworkUpdateAssignmentPatchResponseDataProfile | null;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: HomeworkUpdateAssignmentPatchResponseDataTeacherProfile | null;
-  "consultant_user_id"?: string | null;
-  "consultant_profile"?: HomeworkUpdateAssignmentPatchResponseDataConsultantProfile | null;
-  "support_user_id"?: string | null;
-  "support_profile"?: HomeworkUpdateAssignmentPatchResponseDataSupportProfile | null;
-  "chat_conversation_id"?: string | null;
-  "due_at"?: string | null;
+  "homework_question_id": string | null;
+  "homework_name": string | null;
+  "homework": import("./types.js").Homework | null;
+  "homework_question": import("./types.js").HomeworkQuestion | null;
+  "course_id": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
+  "user_id": string | null;
+  "profile": HomeworkUpdateAssignmentPatchResponseDataProfile | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": HomeworkUpdateAssignmentPatchResponseDataTeacherProfile | null;
+  "consultant_user_id": string | null;
+  "consultant_profile": HomeworkUpdateAssignmentPatchResponseDataConsultantProfile | null;
+  "support_user_id": string | null;
+  "support_profile": HomeworkUpdateAssignmentPatchResponseDataSupportProfile | null;
+  "chat_conversation_id": string | null;
+  "due_at": string | null;
   "status": string;
-  "answer_text"?: string | null;
-  "description"?: string | null;
-  "score"?: number | null;
-  "active_until"?: string | null;
-  "resolved_at"?: string | null;
+  "answer_text": string | null;
+  "description": string | null;
+  "score": number | null;
+  "active_until": string | null;
+  "resolved_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -3914,8 +3831,8 @@ export interface HomeworkUpdateAssignmentPatchResponse extends ApiEnvelope<Homew
 
 /** Backend query type: models::AssignmentListQuery. */
 export interface HomeworkIndexCurrentTermAssignmentGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "status"?: string | null;
   "homework_id"?: string | null;
   "course_id"?: string | null;
@@ -3932,69 +3849,69 @@ export interface HomeworkIndexCurrentTermAssignmentGetQuery extends QueryParams 
 export interface HomeworkIndexCurrentTermAssignmentGetResponseItemProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkIndexCurrentTermAssignmentGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkIndexCurrentTermAssignmentGetResponseItemConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkIndexCurrentTermAssignmentGetResponseItemSupportProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface HomeworkIndexCurrentTermAssignmentGetResponseItem extends JsonObject {
   "id": string;
   "homework_id": string;
-  "homework_question_id"?: string | null;
-  "homework_name"?: string | null;
-  "homework"?: import("./types.js").Homework | null;
-  "homework_question"?: import("./types.js").HomeworkQuestion | null;
-  "course_id"?: string | null;
-  "classroom_id"?: string | null;
-  "classroom_name"?: string | null;
-  "user_id"?: string | null;
-  "profile"?: HomeworkIndexCurrentTermAssignmentGetResponseItemProfile | null;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: HomeworkIndexCurrentTermAssignmentGetResponseItemTeacherProfile | null;
-  "consultant_user_id"?: string | null;
-  "consultant_profile"?: HomeworkIndexCurrentTermAssignmentGetResponseItemConsultantProfile | null;
-  "support_user_id"?: string | null;
-  "support_profile"?: HomeworkIndexCurrentTermAssignmentGetResponseItemSupportProfile | null;
-  "chat_conversation_id"?: string | null;
-  "due_at"?: string | null;
+  "homework_question_id": string | null;
+  "homework_name": string | null;
+  "homework": import("./types.js").Homework | null;
+  "homework_question": import("./types.js").HomeworkQuestion | null;
+  "course_id": string | null;
+  "classroom_id": string | null;
+  "classroom_name": string | null;
+  "user_id": string | null;
+  "profile": HomeworkIndexCurrentTermAssignmentGetResponseItemProfile | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": HomeworkIndexCurrentTermAssignmentGetResponseItemTeacherProfile | null;
+  "consultant_user_id": string | null;
+  "consultant_profile": HomeworkIndexCurrentTermAssignmentGetResponseItemConsultantProfile | null;
+  "support_user_id": string | null;
+  "support_profile": HomeworkIndexCurrentTermAssignmentGetResponseItemSupportProfile | null;
+  "chat_conversation_id": string | null;
+  "due_at": string | null;
   "status": string;
-  "answer_text"?: string | null;
-  "description"?: string | null;
-  "score"?: number | null;
-  "active_until"?: string | null;
-  "resolved_at"?: string | null;
+  "answer_text": string | null;
+  "description": string | null;
+  "score": number | null;
+  "active_until": string | null;
+  "resolved_at": string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -4013,8 +3930,8 @@ export interface HomeworkIndexCurrentTermAssignmentGetResponse extends ApiEnvelo
 
 /** Backend query type: models::QuestionListQuery. */
 export interface HomeworkIndexQuestionGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "homework_id"?: string | null;
   "search"?: string | null;
   "status"?: string | null;
@@ -4026,12 +3943,12 @@ export interface HomeworkIndexQuestionGetResponseItem extends JsonObject {
   "id": string;
   "homework_id": string;
   "name": string;
-  "bank_name"?: string | null;
+  "bank_name": string | null;
   "assignable": boolean;
-  "assignment_block_reason"?: string | null;
+  "assignment_block_reason": string | null;
   "question_text": string;
-  "description"?: string | null;
-  "answer"?: string | null;
+  "description": string | null;
+  "answer": string | null;
   "question_type": string;
   "kind": string;
   "points": number;
@@ -4075,12 +3992,12 @@ export interface HomeworkStoreQuestionPostResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
   "name": string;
-  "bank_name"?: string | null;
+  "bank_name": string | null;
   "assignable": boolean;
-  "assignment_block_reason"?: string | null;
+  "assignment_block_reason": string | null;
   "question_text": string;
-  "description"?: string | null;
-  "answer"?: string | null;
+  "description": string | null;
+  "answer": string | null;
   "question_type": string;
   "kind": string;
   "points": number;
@@ -4099,12 +4016,12 @@ export interface HomeworkShowQuestionGetResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
   "name": string;
-  "bank_name"?: string | null;
+  "bank_name": string | null;
   "assignable": boolean;
-  "assignment_block_reason"?: string | null;
+  "assignment_block_reason": string | null;
   "question_text": string;
-  "description"?: string | null;
-  "answer"?: string | null;
+  "description": string | null;
+  "answer": string | null;
   "question_type": string;
   "kind": string;
   "points": number;
@@ -4138,12 +4055,12 @@ export interface HomeworkUpdateQuestionPatchResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
   "name": string;
-  "bank_name"?: string | null;
+  "bank_name": string | null;
   "assignable": boolean;
-  "assignment_block_reason"?: string | null;
+  "assignment_block_reason": string | null;
   "question_text": string;
-  "description"?: string | null;
-  "answer"?: string | null;
+  "description": string | null;
+  "answer": string | null;
   "question_type": string;
   "kind": string;
   "points": number;
@@ -4163,8 +4080,8 @@ export type TransferTransferUserDataPostInput = import("./types.js").TransferUse
 export type TransferTransferUserDataPostResponse = import("./types.js").TransferUserDataResponse;
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
-}
+export type IntegrationFlowIntegrationShowGetResponseData = import("./wire.types.js").LmsFlowIntegration;
+export type IntegrationFlowIntegrationShowGetResponse = ApiEnvelope<import("./wire.types.js").LmsFlowIntegration>;
 
 /** Backend request type: LegacyIdBatch. */
 export interface IntegrationResolveLegacyIdsPostInput extends JsonObject {
@@ -4172,7 +4089,19 @@ export interface IntegrationResolveLegacyIdsPostInput extends JsonObject {
   "classrooms"?: number[];
 }
 /** Backend response type: Value. */
-export interface IntegrationResolveLegacyIdsPostResponse extends ApiEnvelope<JsonValue> {
+export type IntegrationResolveLegacyIdsPostResponseData = import("./wire.types.js").LmsLegacyResolution;
+export type IntegrationResolveLegacyIdsPostResponse = ApiEnvelope<import("./wire.types.js").LmsLegacyResolution>;
+
+/** Backend request type: RelationshipRequest. */
+export interface NotificationsRelationshipPostInput extends JsonObject {
+  "first_user_id": string;
+  "second_user_id": string;
+}
+/** Backend response type: RelationshipResponse. */
+export interface NotificationsRelationshipPostResponseData extends JsonObject {
+  "allowed": boolean;
+}
+export interface NotificationsRelationshipPostResponse extends ApiEnvelope<NotificationsRelationshipPostResponseData> {
 }
 
 /** Backend response type: Value. */
@@ -4241,8 +4170,20 @@ export interface MediaUploadImagePostResponse extends ApiEnvelope<MediaUploadIma
 }
 
 /** Backend response type: raw-response. */
-export interface MediaDownloadImageGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type MediaDownloadImageGetResponse = ArrayBuffer | Uint8Array;
+
+/** Backend query type: RulesQuery. */
+export type ModIndexGetQuery = import("./notification-settings.js").NotificationRuleQuery;
+/** Backend response type: Vec<NotificationRule>. */
+export type ModIndexGetResponse = import("./notification-settings.js").LmsNotificationResponse<import("./notification-settings.js").StudentNotificationRule[]>;
+
+/** Backend request type: UpdateRule. */
+export type ModUpdatePutInput = import("./notification-settings.js").UpdateNotificationRule;
+/** Backend response type: NotificationRule. */
+export type ModUpdatePutResponse = import("./notification-settings.js").LmsNotificationResponse<import("./notification-settings.js").StudentNotificationRule>;
+
+/** Backend response type: RulePreview. */
+export type ModPreviewPostResponse = import("./notification-settings.js").LmsNotificationResponse<import("./notification-settings.js").NotificationRulePreview>;
 
 /** Backend query type: ProfileSearchQuery. */
 export interface ProfileRoutesIndexGetQuery extends QueryParams {
@@ -4254,12 +4195,12 @@ export interface ProfileRoutesIndexGetQuery extends QueryParams {
 export interface ProfileRoutesIndexGetResponseItem extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ProfileRoutesIndexGetResponsePageMeta extends JsonObject {
   "page": number;
@@ -4275,22 +4216,15 @@ export interface ProfileRoutesIndexGetResponse extends ApiEnvelope<ProfileRoutes
 }
 
 /** Backend response type: Option<ProfileSummary>. */
-export interface ProfileRoutesShowGetResponse extends ApiEnvelope<BackendJson<"ProfileSummary"> | null> {
-}
+export type ProfileRoutesShowGetResponseData = import("./wire.types.js").LmsProfileSummary | null;
+export type ProfileRoutesShowGetResponse = ApiEnvelope<import("./wire.types.js").LmsProfileSummary | null>;
 
-/** Backend response type: Branding. */
-export interface BrandingPublicShowGetResponseData extends JsonObject {
-  "title"?: string | null;
-  "localizations": Record<string, BackendJson<"BrandText">>;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-}
-export interface BrandingPublicShowGetResponse extends ApiEnvelope<BrandingPublicShowGetResponseData> {
-}
+/** Backend response type: PublicBranding. */
+export type BrandingPublicShowGetResponseData = import("./branding.types.js").LmsPublicBranding;
+export type BrandingPublicShowGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").LmsPublicBranding>;
 
 /** Backend response type: raw-response. */
-export interface BrandingAssetGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type BrandingAssetGetResponse = ArrayBuffer | Uint8Array;
 
 /** Backend response type: models::PublicCertificateResponse. */
 export type CertificateVerifyCertificateGetResponse = import("./types.js").PublicCertificateResponse;
@@ -4300,20 +4234,20 @@ export type CertificateRenderCertificateImageGetResponse = import("./types.js").
 
 /** Backend query type: models::AssignedStudentsQuery. */
 export interface ReportAssignedChatContactsGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "search"?: string | null;
 }
 /** Backend response type: crate::models::PagedResult<models::AssignedChatContact>. */
 export interface ReportAssignedChatContactsGetResponseItem extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
   "contact_role": string;
 }
 export interface ReportAssignedChatContactsGetResponsePageMeta extends JsonObject {
@@ -4331,20 +4265,20 @@ export interface ReportAssignedChatContactsGetResponse extends ApiEnvelope<Repor
 
 /** Backend query type: models::AssignedStudentsQuery. */
 export interface ReportAssignedStudentsGetQuery extends QueryParams {
-  "page_number"?: number | null;
-  "page_size"?: number | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
   "search"?: string | null;
 }
 /** Backend response type: crate::models::PagedResult<crate::profile::ProfileSummary>. */
 export interface ReportAssignedStudentsGetResponseItem extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ReportAssignedStudentsGetResponsePageMeta extends JsonObject {
   "page": number;
@@ -4369,32 +4303,32 @@ export interface ReportClassroomsGetQuery extends QueryParams {
 export interface ReportClassroomsGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ReportClassroomsGetResponseItemConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ReportClassroomsGetResponseItem extends JsonObject {
   "classroom_id": string;
   "course_id": string;
   "name": string;
   "status": string;
-  "teacher_user_id"?: string | null;
-  "teacher_profile"?: ReportClassroomsGetResponseItemTeacherProfile | null;
-  "consultant_user_id"?: string | null;
-  "consultant_profile"?: ReportClassroomsGetResponseItemConsultantProfile | null;
+  "teacher_user_id": string | null;
+  "teacher_profile": ReportClassroomsGetResponseItemTeacherProfile | null;
+  "consultant_user_id": string | null;
+  "consultant_profile": ReportClassroomsGetResponseItemConsultantProfile | null;
   "student_count": number;
   "session_count": number;
   "completed_session_count": number;
@@ -4415,16 +4349,16 @@ export interface ReportConsultantsGetQuery extends QueryParams {
 export interface ReportConsultantsGetResponseItemConsultantProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ReportConsultantsGetResponseItem extends JsonObject {
   "consultant_user_id": string;
-  "consultant_profile"?: ReportConsultantsGetResponseItemConsultantProfile | null;
+  "consultant_profile": ReportConsultantsGetResponseItemConsultantProfile | null;
   "classroom_count": number;
   "active_classroom_count": number;
   "student_count": number;
@@ -4444,18 +4378,19 @@ export interface ReportCoursesGetQuery extends QueryParams {
   "status"?: string | null;
 }
 /** Backend response type: Vec<models::CourseReport>. */
-export type ReportCoursesGetResponse = import("./types.js").AcademyCoursesResponse;
+export type ReportCoursesGetResponseData = import("./wire.types.js").LmsCourseReport[];
+export type ReportCoursesGetResponse = ApiEnvelope<import("./wire.types.js").LmsCourseReport[]>;
 
 /** Backend response type: Vec<crate::profile::ProfileSummary>. */
 export interface ReportMyStudentsGetResponseItem extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ReportMyStudentsGetResponse extends ApiEnvelope<ReportMyStudentsGetResponseItem[]> {
 }
@@ -4468,28 +4403,8 @@ export interface ReportStudentSummaryGetQuery extends QueryParams {
   "student_user_id"?: string | null;
 }
 /** Backend response type: models::StudentReport. */
-export interface ReportStudentSummaryGetResponseDataProfile extends JsonObject {
-  "user_id": string;
-  "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
-}
-export interface ReportStudentSummaryGetResponseData extends JsonObject {
-  "courses"?: JsonValue[] | null;
-  "user_id": string;
-  "profile"?: ReportStudentSummaryGetResponseDataProfile | null;
-  "classroom_count": number;
-  "session_count": number;
-  "attendance_count": number;
-  "absence_count": number;
-  "attendance_rate": number;
-}
-export interface ReportStudentSummaryGetResponse extends ApiEnvelope<ReportStudentSummaryGetResponseData> {
-}
+export type ReportStudentSummaryGetResponseData = import("./wire.types.js").LmsStudentReport;
+export type ReportStudentSummaryGetResponse = ApiEnvelope<import("./wire.types.js").LmsStudentReport>;
 
 /** Backend query type: models::ReportQuery. */
 export interface ReportStudentsGetQuery extends QueryParams {
@@ -4498,28 +4413,8 @@ export interface ReportStudentsGetQuery extends QueryParams {
   "status"?: string | null;
 }
 /** Backend response type: Vec<models::StudentReport>. */
-export interface ReportStudentsGetResponseItemProfile extends JsonObject {
-  "user_id": string;
-  "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
-}
-export interface ReportStudentsGetResponseItem extends JsonObject {
-  "courses"?: JsonValue[] | null;
-  "user_id": string;
-  "profile"?: ReportStudentsGetResponseItemProfile | null;
-  "classroom_count": number;
-  "session_count": number;
-  "attendance_count": number;
-  "absence_count": number;
-  "attendance_rate": number;
-}
-export interface ReportStudentsGetResponse extends ApiEnvelope<ReportStudentsGetResponseItem[]> {
-}
+export type ReportStudentsGetResponseData = import("./wire.types.js").LmsStudentReport[];
+export type ReportStudentsGetResponse = ApiEnvelope<import("./wire.types.js").LmsStudentReport[]>;
 
 /** Backend query type: models::ReportQuery. */
 export interface ReportTeachersGetQuery extends QueryParams {
@@ -4531,16 +4426,16 @@ export interface ReportTeachersGetQuery extends QueryParams {
 export interface ReportTeachersGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
   "short_id"?: string | null;
-  "first_name"?: JsonValue | null;
-  "last_name"?: JsonValue | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
-  "phone"?: string | null;
-  "gender"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
 }
 export interface ReportTeachersGetResponseItem extends JsonObject {
   "teacher_user_id": string;
-  "teacher_profile"?: ReportTeachersGetResponseItemTeacherProfile | null;
+  "teacher_profile": ReportTeachersGetResponseItemTeacherProfile | null;
   "classroom_count": number;
   "active_classroom_count": number;
   "student_count": number;
@@ -4565,6 +4460,8 @@ export interface ServiceCheckLicenceGetResponseData extends JsonObject {
 export interface ServiceCheckLicenceGetResponse extends ApiEnvelope<ServiceCheckLicenceGetResponseData> {
 }
 
-/** Backend response type: api. */
-export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: HealthResponse. */
+export type RouterStatusRouteGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
+
+/** Backend response type: HealthResponse. */
+export type RouterUpGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;

@@ -9,7 +9,7 @@ import {
 const manifest = JSON.parse(await readFile(new URL("../service-contracts.json", import.meta.url), "utf8"));
 
 test("the facade and AI catalog cover every sandbox service exactly once", () => {
-  const expected = ["idp", "profile", "modules", "asset", "payment", "messenger", "crm", "lms", "reservation", "session", "version", "flow", "knowledge", "chat", "social", "state", "drm", "task", "manage"];
+  const expected = ["idp", "profile", "modules", "asset", "payment", "messenger", "crm", "lms", "reservation", "session", "version", "flow", "knowledge", "chat", "social", "state", "drm", "task", "manage", "gis"];
   assert.deepEqual([...SERVICE_NAMES], expected);
   assert.deepEqual(FAIBER_SERVICE_CAPABILITIES.map(item => item.service), expected);
   for (const capability of FAIBER_SERVICE_CAPABILITIES) {
@@ -81,7 +81,8 @@ test("generated contracts have exact route coverage, named outputs, and complete
     }
     total += endpoints.length;
   }
-  assert.equal(total, 1502);
+  // Snapshot adds eight Knowledge management/policy and two Chat recovery routes.
+  assert.equal(total, 1671);
 });
 
 test("every published workspace package includes developer documentation", async () => {

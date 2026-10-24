@@ -1,0 +1,35 @@
+{
+  "task": {
+    "commit": "5039302f25bdecacb7b3d17bf53e232fe0489a92",
+    "parent": "63201e112a1e640cab8454b168bbefe52ebab7bc",
+    "worktree": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-task"
+  },
+  "session": {
+    "commit": "f05bbc459965efbebd1cfe6d3348b48ead8cee49",
+    "parent": "6cdedd4303f4612143ae6bae54edff464a7aa08d",
+    "worktree": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session"
+  },
+  "chat": {
+    "commit": "c42afad57281dbe92d8ef4c01d002a3f59704ddf",
+    "parent": "d919e296ba9f3591738272e5ab104bc901515415",
+    "worktree": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-chat",
+    "composition": {
+      "original_fix": "ab6ce7461d35414b719f3806df57549339002df5",
+      "cherry_pick": "d919e296ba9f3591738272e5ab104bc901515415",
+      "stable_patch_id": "4db2a33220a5b836ebba40e34e66da86e4a573d4",
+      "reason": "Original ab6ce746 has test-only parent0fd9ded36dd6eba1bcf60a668c47aec9177df639; production mount patch is identical on canonical d5b722e. That separate personal-router test parent is not imported.",
+      "remaining_merge_boundary": "When composing onto original ab6ce746 branch, retain its sdk_personal_router_tests cfg(test) module plus the new summary_evidence/summary_query modules in src/lib.rs."
+    }
+  },
+  "crm": {
+    "commit": "5f215256d275a909c39825f00f4c71909c2e4b58",
+    "parent": "178f5de3c68fab387abd5294aeceb8dd1843084f",
+    "worktree": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-crm",
+    "composition": "Exact SDK fallback/CORS repair ancestor; candidate source bytes unchanged"
+  },
+  "idp": {
+    "commit": "6d91708d22125f23d91e9e11ef3ffc801c0af5f2",
+    "parent": "1983731640c4542391eeed2599347b45ab6caf4b",
+    "worktree": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-idp"
+  }
+}

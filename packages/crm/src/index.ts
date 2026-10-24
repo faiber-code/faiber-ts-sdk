@@ -16,7 +16,7 @@ export class CrmApi extends ServiceApi {
   getDailyStats(options?: RequestOptions) { return this.operations.apiDailyStatsGet(options); }
   /** Returns server-calculated total, active, and inactive lead counts by workflow. */
   getLeadStats(options?: RequestOptions) { return this.operations.apiLeadStatsGet(options); }
-  /** Lists all active workflows ordered by priority. */
+  /** Lists all nondeleted workflows, including inactive entries, ordered by priority. */
   listWorkflows(params?: O.ApiListWorkflowsRouteGetApiV1WorkflowQuery, options?: RequestOptions) { return this.operations.apiListWorkflowsRouteGetApiV1Workflow(params, options); }
   /** Returns one workflow by ID. */
   getWorkflow(id: Identifier, options?: RequestOptions) { return this.operations.apiShowWorkflowRouteGetApiV1WorkflowId(id, options); }
@@ -26,9 +26,9 @@ export class CrmApi extends ServiceApi {
   updateWorkflow(id: Identifier, data: O.ApiUpdateWorkflowRoutePatchApiV1WorkflowIdInput, options?: RequestOptions<O.ApiUpdateWorkflowRoutePatchApiV1WorkflowIdInput>) { return this.operations.apiUpdateWorkflowRoutePatchApiV1WorkflowId(id, data, options); }
   /** Soft-deletes a workflow. Requires `workflow:delete`. */
   deleteWorkflow(id: Identifier, options?: RequestOptions) { return this.operations.apiDeleteWorkflowRouteDeleteApiV1WorkflowId(id, options); }
-  /** Lists every active workflow node through the CRM panel-compatible route. */
+  /** Lists every nondeleted workflow node through the CRM panel-compatible route. */
   listAllWorkflowNodes(params?: O.ApiListWorkflowNodesCompatRouteGetQuery, options?: RequestOptions) { return this.operations.apiListWorkflowNodesCompatRouteGet(params, options); }
-  /** Lists the active nodes belonging to a workflow. */
+  /** Lists the nondeleted nodes belonging to a workflow. */
   listWorkflowNodes(workflowId: Identifier, params?: O.ApiListWorkflowNodesRouteGetQuery, options?: RequestOptions) { return this.operations.apiListWorkflowNodesRouteGet(workflowId, params, options); }
   /** Returns one workflow node, scoped to its parent workflow. */
   getWorkflowNode(nodeId: Identifier, options?: RequestOptions): ReturnType<CrmOperations["apiShowWorkflowNodeCompatRouteGet"]>;
@@ -45,7 +45,7 @@ export class CrmApi extends ServiceApi {
   /** Updates every editable workflow-node field. Requires `workflow_node:update`. */
   updateWorkflowNode(nodeId: Identifier, data: O.ApiUpdateWorkflowNodeCompatRoutePatchInput, options?: RequestOptions<O.ApiUpdateWorkflowNodeCompatRoutePatchInput>): ReturnType<CrmOperations["apiUpdateWorkflowNodeCompatRoutePatch"]>;
   updateWorkflowNode(workflowId: Identifier, nodeId: Identifier, data: O.ApiUpdateWorkflowNodeRoutePatchInput, options?: RequestOptions<O.ApiUpdateWorkflowNodeRoutePatchInput>): ReturnType<CrmOperations["apiUpdateWorkflowNodeRoutePatch"]>;
-  updateWorkflowNode(workflowOrNodeId: Identifier, nodeIdOrData: Identifier | O.ApiUpdateWorkflowNodeCompatRoutePatchInput, dataOrOptions?: O.ApiUpdateWorkflowNodeRoutePatchInput | RequestOptions, options?: RequestOptions) {
+  updateWorkflowNode(workflowOrNodeId: Identifier, nodeIdOrData: Identifier | O.ApiUpdateWorkflowNodeCompatRoutePatchInput, dataOrOptions?: O.ApiUpdateWorkflowNodeRoutePatchInput | RequestOptions<O.ApiUpdateWorkflowNodeCompatRoutePatchInput>, options?: RequestOptions<O.ApiUpdateWorkflowNodeRoutePatchInput>) {
     return typeof nodeIdOrData === "string" || typeof nodeIdOrData === "number"
       ? this.operations.apiUpdateWorkflowNodeRoutePatch(workflowOrNodeId, nodeIdOrData, dataOrOptions as O.ApiUpdateWorkflowNodeRoutePatchInput, options)
       : this.operations.apiUpdateWorkflowNodeCompatRoutePatch(workflowOrNodeId, nodeIdOrData, dataOrOptions as RequestOptions<O.ApiUpdateWorkflowNodeCompatRoutePatchInput> | undefined);
@@ -58,6 +58,8 @@ export class CrmApi extends ServiceApi {
       ? this.operations.apiDeleteWorkflowNodeRouteDelete(workflowOrNodeId, nodeIdOrOptions, options)
       : this.operations.apiDeleteWorkflowNodeCompatRouteDelete(workflowOrNodeId, nodeIdOrOptions);
   }
+  /** Looks up a nullable legacy Office lead; the handler has no local permission guard. */
+  findOfficeLead(params: O.ApiFindOfficeLeadGetQuery, options?: RequestOptions) { return this.operations.apiFindOfficeLeadGet(params, options); }
   listTeams(options?: RequestOptions) { return this.operations.apiTeamsGet(options); }
   createTeam(data: O.ApiCreateTeamPostInput, options?: RequestOptions<O.ApiCreateTeamPostInput>) { return this.operations.apiCreateTeamPost(data, options); }
   getTeam(id: Identifier, options?: RequestOptions) { return this.operations.apiTeamGet(id, options); }
@@ -122,7 +124,7 @@ export class CrmApi extends ServiceApi {
   /** Lists worklogs visible to the current user. */
   listWorklogs(params?: O.ApiWorklogsGetQuery, options?: RequestOptions) { return this.operations.apiWorklogsGet(params, options); }
   createActivity(data: O.ApiCreateActivityPostInput, options?: RequestOptions<O.ApiCreateActivityPostInput>) { return this.operations.apiCreateActivityPost(data, options); }
-  /** Atomically creates an activity/worklog and its reminder task under one idempotency key. */
+  /** Atomically creates an activity and its reminder task under one idempotency key. */
   createActivityWithReminder(data: O.ApiCreateActivityWithReminderPostInput, options?: RequestOptions<O.ApiCreateActivityWithReminderPostInput>) { return this.operations.apiCreateActivityWithReminderPost(data, options); }
   listSources(options?: RequestOptions) { return this.operations.apiSourcesGet(options); }
   createSource(data: O.ApiCreateSourcePostInput, options?: RequestOptions<O.ApiCreateSourcePostInput>) { return this.operations.apiCreateSourcePost(data, options); }
@@ -143,3 +145,5 @@ export * from "./types.js";
 export * from "./operations.js";
 export * from "./operations.types.js";
 export * from "@faiber/sdk-core";
+
+export * from "./contracts.types.js";

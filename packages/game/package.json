@@ -1,6 +1,6 @@
 {
   "name": "@faiber/faiber-game-sdk",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -13,9 +13,10 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "provenance.json"
   ],
   "dependencies": {
-    "@faiber/faiber-state-sdk": "1.0.0"
+    "@faiber/faiber-state-sdk": "1.1.0"
   }
 }

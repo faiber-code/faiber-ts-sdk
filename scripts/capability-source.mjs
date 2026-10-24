@@ -16,7 +16,7 @@ export function splitRust(source) {
   let start = 0; const stack = [];
   for (let i = 0; i < code.length; i++) {
     if ('([{<'.includes(code[i])) stack.push(code[i]);
-    else if (')]}'.includes(code[i]) || (code[i] === '>' && code[i - 1] !== '-')) stack.pop();
+    else if (')]}'.includes(code[i]) || (code[i] === '>' && code[i - 1] !== '-' && code[i - 1] !== '=')) stack.pop();
     else if (code[i] === ',' && !stack.length) { result.push(source.slice(start, i)); start = i + 1; }
   }
   result.push(source.slice(start));

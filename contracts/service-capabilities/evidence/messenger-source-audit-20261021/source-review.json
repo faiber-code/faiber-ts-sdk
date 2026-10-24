@@ -1,0 +1,152 @@
+{
+  "service": "messenger",
+  "sdk_source_revision": "0eb2143fae39dee3e0543abaac59ea1aaaed771c",
+  "operation_count": 47,
+  "status": "completed_native_verification_pending",
+  "source_files": [
+    {
+      "path": "src/channel/methods.rs",
+      "sha256": "b49892f1271778f9e459206d666224bc9bbff244d0c0b4b2295d4eb9480da106"
+    },
+    {
+      "path": "src/channel/models.rs",
+      "sha256": "91c659edcc97b8e49d92d121bde76e5a83a6bc55dc70db5695d141c52fb2a505"
+    },
+    {
+      "path": "src/channel/routes.rs",
+      "sha256": "27d6674809f1a61f02c9898037276e9ee5fa09a907dc65031c1fd4ede3066093"
+    },
+    {
+      "path": "src/dashboard/methods.rs",
+      "sha256": "1fb5d96225266196ca2a5a5bb83ab22265293fae5eb983d6f3a7ba0708166091"
+    },
+    {
+      "path": "src/dashboard/models.rs",
+      "sha256": "ffd161582250b7a80e33be4e52117d7d3e616f6514a6484243bb132cadbe865b"
+    },
+    {
+      "path": "src/dashboard/routes.rs",
+      "sha256": "619e2dc01aff08983e78839bdb65fa5b8bbaf732ecc7519d3fb82d55352b61b9"
+    },
+    {
+      "path": "src/inbox_stream.rs",
+      "sha256": "8fe86e02d02a4fda6e262eed2ade2dc4b28864398e54bbeec38baca40f172c4d"
+    },
+    {
+      "path": "src/integration/flow.rs",
+      "sha256": "065fd3ef1718f1dee56d331fbf12dad0e2a370ff9084049ce35f4f6add18ab37"
+    },
+    {
+      "path": "src/integration/models.rs",
+      "sha256": "14ae2a7912de1de16961101f5d3068738389a459dc6ca8f2b9e05c69b6848b2e"
+    },
+    {
+      "path": "src/integration/routes.rs",
+      "sha256": "b0d9bc2059cb77f620b41ff4bc935783493b57e9615fc5b4323299f624f15ca7"
+    },
+    {
+      "path": "src/main.rs",
+      "sha256": "e7522be0e1a8480593d0055762a9dc91daf55c487f77afdd53f7712bd92b25dd"
+    },
+    {
+      "path": "src/mobile_push.rs",
+      "sha256": "7611473e8c8be033646c8b32312b6564f95a41f009a5810fbc8b595c63b8fe7e"
+    },
+    {
+      "path": "src/models.rs",
+      "sha256": "1f7a772e138760639aa053251ba69fd7588821d4999eaae4f51f12f4890bff99"
+    },
+    {
+      "path": "src/notification/methods.rs",
+      "sha256": "99b3c81329169fc407675a56c463ac81c918120d0d846d508bc514567de4cdcb"
+    },
+    {
+      "path": "src/notification/models.rs",
+      "sha256": "dd36d722df1355200148cde33b044abc19b4b30533e63e1394106f20b5115142"
+    },
+    {
+      "path": "src/notification/routes.rs",
+      "sha256": "f98026717b4ceb775cb7ba2d33d8930d3a4bdb70c431bc0822fa458c74d5d79d"
+    },
+    {
+      "path": "src/pagination.rs",
+      "sha256": "dc679685e74cbdd15dd4864b830c1e1ba704fda4dd6ecfcbe4c7d284552c118e"
+    },
+    {
+      "path": "src/push_applications.rs",
+      "sha256": "ff7465293080dee2e67096ad6f9ff85d134e939c04a79dedf789e6e1273b4e0f"
+    },
+    {
+      "path": "src/router.rs",
+      "sha256": "74a82f4f3a3d00ee309e62748d318d758a063a60b1d106d2fbe8ddd53913e35d"
+    },
+    {
+      "path": "src/service/methods.rs",
+      "sha256": "98dbbe5321242e3cc21d1afe61573356d73ff26fa09a27dc7a4ff392960860ae"
+    },
+    {
+      "path": "src/service/models.rs",
+      "sha256": "cc8c042cfa61794d75d129d1f0ee853b0a4846efbf5113e2bc8d886139e14b18"
+    },
+    {
+      "path": "src/service/routes.rs",
+      "sha256": "0e4dc42c20d263287ab59c8b8bc678e09fff2c46e544fe249660113b85e304d9"
+    },
+    {
+      "path": "src/service/setup.rs",
+      "sha256": "827e6a8628ec582ccb92b678e8a18d3161c5b4dd93e11f3f7f33d89c504e43a1"
+    },
+    {
+      "path": "src/service/website_otp.rs",
+      "sha256": "24b725f8729b2b155ffc59e9649f26f402b21d15b8969b50125335a17e5279dc"
+    },
+    {
+      "path": "src/template/methods.rs",
+      "sha256": "28eb4d5f7d80c196f17ec11dca8c851bbaa67358343a044a7e0e906abbe7520c"
+    },
+    {
+      "path": "src/template/models.rs",
+      "sha256": "e965f4675f99bb24170ff6c7ea24d6190a7c3ed72c3b18c927c095207b6f3e59"
+    },
+    {
+      "path": "src/template/routes.rs",
+      "sha256": "7d8d024c7e771faa72e60a021378e54743fb47bf67d59c9cb3451771452f5d9f"
+    },
+    {
+      "path": "src/web_push.rs",
+      "sha256": "69ec5c7aef813f926f64c8f4c8dd0efc06561dfbdd2d337f0ca04109f5facbbc"
+    },
+    {
+      "path": "Cargo.lock",
+      "sha256": "22a14a574f45687e72c467affd2a6bee621c3ba8249035258fa6c0718ac6b9cb"
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "56aa6ad6033d7a9232ee3c25e7483352ac07c83cd2427c43ebf16ee88aa5c7ba"
+    },
+    {
+      "path": "entity/src/enums/channel.rs",
+      "sha256": "3b2b53a5032da4c9dbe32bdf1bb4573a30a13cfc9eee73ef66fa9ce38f1ec2db"
+    },
+    {
+      "path": "entity/src/enums/channel_provider.rs",
+      "sha256": "0bfa844eb4d7c8112cbefddd5e5d2f25bbdafbf02f7718a1c4005f83d236f6bc"
+    },
+    {
+      "path": "entity/src/enums/notification_status.rs",
+      "sha256": "40bb07b2ca28b2cfe4b54e4bddbca976ab36a91e7d19c1123296b7881fc788ba"
+    }
+  ],
+  "locked_flow_sdk_revision": "291c81a67bc302d667fb807da2af3240598bee52",
+  "backend_checkout_preserved": true,
+  "verification": "Source-only inspection. No Cargo, Docker, provider inspection, sends, browser permission prompts or native delivery actions executed.",
+  "prepared_tests": [
+    "tests/messenger-reviewed-wire.test.mjs",
+    "tests/messenger-reviewed-wire.types.ts"
+  ],
+  "remaining_gates": [
+    "Combined SDK generation/build and adapter/type regressions",
+    "Exact selected-pin native fixture verification",
+    "Deployed gateway authority and source adoption"
+  ]
+}

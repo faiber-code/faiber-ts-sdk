@@ -8,3 +8,4 @@ export * from "./client.js";
 export * from "./resource.js";
 export * from "./openapi.js";
 export * from "./realtime.js";
+export * from "./summary-access.js";

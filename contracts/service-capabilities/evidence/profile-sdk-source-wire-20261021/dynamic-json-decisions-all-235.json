@@ -1,0 +1,3199 @@
+{
+  "revision": "5e45db008e503504033af3763b4487f00f5be2b4",
+  "operations": [
+    {
+      "operation": "GET /health",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/router.rs"
+      ]
+    },
+    {
+      "operation": "GET /up",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/router.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/openapi.json",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/router.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/fitness/products",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/fitness/trial/redeem",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/gifts.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/fitness/notifications",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/fitness/notifications/{id}/read",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/fitness/admin/provision",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/fitness/admin/catalog",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/fitness/team",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/fitness/team",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/fitness/tariffs",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/fitness/self",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/fitness/intake",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/fitness/intake",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/fitness/orders",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/fitness/orders",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/fitness/orders/{id}",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/fitness/orders/{id}/action",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/fitness/orders/{id}/plan",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/fitness/revisions/{id}",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/fitness/revisions/{id}/review",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/fitness/coaches",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/fitness/catalog",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/fitness/settings",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/fitness/settings",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/fitness/voice-settings",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/fitness/context",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/fitness/proposals",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "migration/src/m20260922_000017_fitness_coaching.sql",
+        "migration/src/m20260927_000019_fitness_trial_gifts.sql",
+        "src/fitness/domain.rs",
+        "src/fitness/mod.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/internal/fitness-chat/reserve",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/fitness/credits.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/internal/fitness-chat/settle",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/fitness/credits.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/internal/plans/gifts",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/fitness/gifts.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/internal/plans/gifts",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/fitness/gifts.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/internal/plans/gifts/{id}",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/fitness/gifts.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/internal/plans/gifts/{id}",
+      "dynamic_json": [
+        "catalog source is Knowledge-defined provenance JSON; validated plans/catalog items permit presentation extensions. Intake/meal nutrition/trial tariff/event receipts are concrete, not generic JSON placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/fitness/gifts.rs",
+        "src/fitness/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/settings",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/ai-summaries/settings",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/roles",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/models",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/sources",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/sources/{source}/check",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/configurations",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/configurations",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/configurations/{id}",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/ai-summaries/configurations/{id}",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/configurations/{id}/validate",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/configurations/{id}/publish",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/configurations/{id}/preview",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/ai-summaries/configurations/{id}/status",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/latest",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/summaries",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/runs/{id}",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/ai-summaries/jobs",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/refresh",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/ai-summaries/jobs/{id}/retry",
+      "dynamic_json": [
+        "tool inputSchema/outputSchema are arbitrary JSON Schema documents; run usage is schema-free runner telemetry; source check tools are a schema-free upstream passthrough without a local descriptor model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "entity/src/summary_configuration.rs",
+        "entity/src/summary_job.rs",
+        "entity/src/summary_run.rs",
+        "shared/infera-summary-sdk/src/config.rs",
+        "shared/infera-summary-sdk/src/metric.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "src/ai_summary/auth.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/models.rs",
+        "src/ai_summary/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/profile/get",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/profile/country/get",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/profile/province/get",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/profile/city/get",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/supports/pes",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/supports/pes/schema",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/students/pes",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/students/pes/schema",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/get-chat-list/{uuid}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}/avatar",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/manager",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/accountant",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/support",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/consultant",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/teacher",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/student",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/parent",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/other",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}/full",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}/admin",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/profile/{uuid}/avatar",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/profile/{uuid}/avatar",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/profile/{uuid}/images",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/{uuid}/media",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/profile/{uuid}/freemium-session-limit",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}/freemium-session-limit",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/profile/{uuid}/status",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}/status",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/profile/{uuid}/employee-type",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}/employee-type",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/profile/update/personal-information/{uuid}",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/profile/update/personal-information/{uuid}",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/get/parent/{uuid}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/profile/add/parent/{uuid}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/profile/add/parent/{uuid}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/profile/{student_uuid}/delete/parent/{parent_uuid}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/get/address/{uuid}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/profile/add/address/{uuid}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/profile/add/address/{uuid}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/profile/{uuid}/delete/address/{title}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/me/addresses",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/profile/me/addresses",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/profile/me/addresses",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/profile/me/addresses/{title}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/get/app/{uuid}",
+      "dynamic_json": [
+        "app/meta are intentionally schema-free serde_json::Value persisted without a fixed shape"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/profile/add/app/{uuid}",
+      "dynamic_json": [
+        "app/meta are intentionally schema-free serde_json::Value persisted without a fixed shape"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/profile/add/app/{uuid}",
+      "dynamic_json": [
+        "app/meta are intentionally schema-free serde_json::Value persisted without a fixed shape"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/profile/{uuid}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile/undo/{uuid}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/profile/force/{uuid}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/profile/update/{uuid}/meta",
+      "dynamic_json": [
+        "app/meta are intentionally schema-free serde_json::Value persisted without a fixed shape"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/profile/update/{uuid}/meta",
+      "dynamic_json": [
+        "app/meta are intentionally schema-free serde_json::Value persisted without a fixed shape"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/profile/{uuid}/properties",
+      "dynamic_json": [
+        "properties request values follow runtime property definitions; response is now concrete mutation metadata"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/profile/{uuid}/properties",
+      "dynamic_json": [
+        "properties request values follow runtime property definitions; response is now concrete mutation metadata"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/profile/update/education-information/{uuid}",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/education.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/profile/search",
+      "dynamic_json": [
+        "properties/services are dynamic snapshots; clause values are polymorphic according to path/operator; core is now concrete ProfileSearchCore"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile_search/methods.rs",
+        "src/profile_search/models.rs",
+        "src/profile_search/people.rs",
+        "src/profile_search/planner.rs",
+        "src/profile_search/rebuild.rs",
+        "src/profile_search/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/profile/people/search",
+      "dynamic_json": [
+        "properties/services are dynamic snapshots; clause values are polymorphic according to path/operator; core is now concrete ProfileSearchCore"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile_search/methods.rs",
+        "src/profile_search/models.rs",
+        "src/profile_search/people.rs",
+        "src/profile_search/planner.rs",
+        "src/profile_search/rebuild.rs",
+        "src/profile_search/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/profile/people/resolve",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile_search/methods.rs",
+        "src/profile_search/models.rs",
+        "src/profile_search/people.rs",
+        "src/profile_search/planner.rs",
+        "src/profile_search/rebuild.rs",
+        "src/profile_search/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile-media/{uuid}/avatar",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile-media/{uuid}/images",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/profile/dynamic.rs",
+        "src/profile/filters.rs",
+        "src/profile/methods.rs",
+        "src/profile/models.rs",
+        "src/profile/routes.rs",
+        "src/profile/transformers.rs",
+        "src/profile_property/methods.rs",
+        "src/profile_search/methods.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/country",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/country/methods.rs",
+        "src/country/models.rs",
+        "src/country/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/country",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/country/methods.rs",
+        "src/country/models.rs",
+        "src/country/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/country/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/country/methods.rs",
+        "src/country/models.rs",
+        "src/country/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/country/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/country/methods.rs",
+        "src/country/models.rs",
+        "src/country/routes.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/country/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/country/methods.rs",
+        "src/country/models.rs",
+        "src/country/routes.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/country/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/country/methods.rs",
+        "src/country/models.rs",
+        "src/country/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/country/undo/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/country/methods.rs",
+        "src/country/models.rs",
+        "src/country/routes.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/country/force/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/country/methods.rs",
+        "src/country/models.rs",
+        "src/country/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/custom-type",
+      "dynamic_json": [
+        "options is a JSON array whose elements are validated by selected value_type; object/array options and labels retain arbitrary JSON members"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/custom_type/methods.rs",
+        "src/custom_type/models.rs",
+        "src/custom_type/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/custom-type",
+      "dynamic_json": [
+        "options is a JSON array whose elements are validated by selected value_type; object/array options and labels retain arbitrary JSON members"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/custom_type/methods.rs",
+        "src/custom_type/models.rs",
+        "src/custom_type/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/custom-type/{id}",
+      "dynamic_json": [
+        "options is a JSON array whose elements are validated by selected value_type; object/array options and labels retain arbitrary JSON members"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/custom_type/methods.rs",
+        "src/custom_type/models.rs",
+        "src/custom_type/routes.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/custom-type/{id}",
+      "dynamic_json": [
+        "options is a JSON array whose elements are validated by selected value_type; object/array options and labels retain arbitrary JSON members"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/custom_type/methods.rs",
+        "src/custom_type/models.rs",
+        "src/custom_type/routes.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/custom-type/{id}",
+      "dynamic_json": [
+        "options is a JSON array whose elements are validated by selected value_type; object/array options and labels retain arbitrary JSON members"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/custom_type/methods.rs",
+        "src/custom_type/models.rs",
+        "src/custom_type/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/education",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/education.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/education",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/education.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/education/dependencies",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/education.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/relation-type",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/relation/methods.rs",
+        "src/relation/models.rs",
+        "src/relation/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/relation-type",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/relation/methods.rs",
+        "src/relation/models.rs",
+        "src/relation/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/relation-type/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/relation/methods.rs",
+        "src/relation/models.rs",
+        "src/relation/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/relation-type/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/relation/methods.rs",
+        "src/relation/models.rs",
+        "src/relation/routes.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/relation-type/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/relation/methods.rs",
+        "src/relation/models.rs",
+        "src/relation/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile-relation",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/relation/methods.rs",
+        "src/relation/models.rs",
+        "src/relation/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/profile-relation",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/relation/methods.rs",
+        "src/relation/models.rs",
+        "src/relation/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile-relation/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/relation/methods.rs",
+        "src/relation/models.rs",
+        "src/relation/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/profile-relation/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/relation/methods.rs",
+        "src/relation/models.rs",
+        "src/relation/routes.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/profile-relation/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/relation/methods.rs",
+        "src/relation/models.rs",
+        "src/relation/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/referral-source",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/referral/methods.rs",
+        "src/referral/models.rs",
+        "src/referral/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/referral-source",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/referral/methods.rs",
+        "src/referral/models.rs",
+        "src/referral/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/referral-source/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/referral/methods.rs",
+        "src/referral/models.rs",
+        "src/referral/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/referral-source/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/referral/methods.rs",
+        "src/referral/models.rs",
+        "src/referral/routes.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/referral-source/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/referral/methods.rs",
+        "src/referral/models.rs",
+        "src/referral/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile-referral/{profile_id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/referral/methods.rs",
+        "src/referral/models.rs",
+        "src/referral/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/profile-referral/{profile_id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/referral/methods.rs",
+        "src/referral/models.rs",
+        "src/referral/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/state-system",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/state-system",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/state-system/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/state-system/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/state-system/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/state-definition",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/state-definition",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/state-definition/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/state-definition/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/state-definition/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/state-action",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/state-action",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/state-action/dry-run",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/state-action/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/state-action/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/state-action/{id}",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/preview",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/validate-rule",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/evaluate",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/state-evaluation/transitions",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/state-evaluation/outbox",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/state-evaluation/action-attempts",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/outbox/{id}/retry",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/state-evaluation/outbox/process",
+      "dynamic_json": [
+        "labels/description/metadata/facts are object-only extension maps; rules, retry settings, relation constraints and action config have concrete named types where consumed"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/lifecycle/actions.rs",
+        "src/lifecycle/methods.rs",
+        "src/lifecycle/models.rs",
+        "src/lifecycle/routes.rs",
+        "src/lifecycle/rules.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/province",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/province/methods.rs",
+        "src/province/models.rs",
+        "src/province/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/province",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/province/methods.rs",
+        "src/province/models.rs",
+        "src/province/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/province/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/province/methods.rs",
+        "src/province/models.rs",
+        "src/province/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/province/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/province/methods.rs",
+        "src/province/models.rs",
+        "src/province/routes.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/province/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/province/methods.rs",
+        "src/province/models.rs",
+        "src/province/routes.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/province/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/province/methods.rs",
+        "src/province/models.rs",
+        "src/province/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/province/undo/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/province/methods.rs",
+        "src/province/models.rs",
+        "src/province/routes.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/province/force/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/province/methods.rs",
+        "src/province/models.rs",
+        "src/province/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/city",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/city/methods.rs",
+        "src/city/models.rs",
+        "src/city/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/city",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/city/methods.rs",
+        "src/city/models.rs",
+        "src/city/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/city/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/city/methods.rs",
+        "src/city/models.rs",
+        "src/city/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/city/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/city/methods.rs",
+        "src/city/models.rs",
+        "src/city/routes.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/city/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/city/methods.rs",
+        "src/city/models.rs",
+        "src/city/routes.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/city/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/city/methods.rs",
+        "src/city/models.rs",
+        "src/city/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/city/undo/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/city/methods.rs",
+        "src/city/models.rs",
+        "src/city/routes.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/city/force/{id}",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/city/methods.rs",
+        "src/city/models.rs",
+        "src/city/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/setting",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/setting/methods.rs",
+        "src/setting/models.rs",
+        "src/setting/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/setting",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/setting/methods.rs",
+        "src/setting/models.rs",
+        "src/setting/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile-property-definition",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile_property/methods.rs",
+        "src/profile_property/models.rs",
+        "src/profile_property/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/profile-property-definition",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile_property/methods.rs",
+        "src/profile_property/models.rs",
+        "src/profile_property/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile-property-definition/{id}",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile_property/methods.rs",
+        "src/profile_property/models.rs",
+        "src/profile_property/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/profile-property-definition/{id}",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile_property/methods.rs",
+        "src/profile_property/models.rs",
+        "src/profile_property/routes.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/profile-property-definition/{id}",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile_property/methods.rs",
+        "src/profile_property/models.rs",
+        "src/profile_property/routes.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/profile-property-definition/{id}",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile_property/methods.rs",
+        "src/profile_property/models.rs",
+        "src/profile_property/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/profile-property-definition/undo/{id}",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile_property/methods.rs",
+        "src/profile_property/models.rs",
+        "src/profile_property/routes.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/profile-property-definition/force/{id}",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/profile_property/methods.rs",
+        "src/profile_property/models.rs",
+        "src/profile_property/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/trusted-service",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/trusted_service/methods.rs",
+        "src/trusted_service/models.rs",
+        "src/trusted_service/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/trusted-service",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/trusted_service/methods.rs",
+        "src/trusted_service/models.rs",
+        "src/trusted_service/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/trusted-service/{id}",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/trusted_service/methods.rs",
+        "src/trusted_service/models.rs",
+        "src/trusted_service/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/trusted-service/{id}",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/trusted_service/methods.rs",
+        "src/trusted_service/models.rs",
+        "src/trusted_service/routes.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/trusted-service/{id}",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/trusted_service/methods.rs",
+        "src/trusted_service/models.rs",
+        "src/trusted_service/routes.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/trusted-service/{id}",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/trusted_service/methods.rs",
+        "src/trusted_service/models.rs",
+        "src/trusted_service/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/trusted-service/{id}/event",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/trusted_service/methods.rs",
+        "src/trusted_service/models.rs",
+        "src/trusted_service/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/trusted-service/{id}/event",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/trusted_service/methods.rs",
+        "src/trusted_service/models.rs",
+        "src/trusted_service/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/trusted-service/{id}/event/{event_id}",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/trusted_service/methods.rs",
+        "src/trusted_service/models.rs",
+        "src/trusted_service/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/trusted-service/{id}/event/{event_id}",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/trusted_service/methods.rs",
+        "src/trusted_service/models.rs",
+        "src/trusted_service/routes.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/trusted-service/{id}/event/{event_id}",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/trusted_service/methods.rs",
+        "src/trusted_service/models.rs",
+        "src/trusted_service/routes.rs"
+      ]
+    },
+    {
+      "operation": "DELETE /api/v1/trusted-service/{id}/event/{event_id}",
+      "dynamic_json": [
+        "validator_config/payload_schema are runtime schema documents stored as arbitrary JSON, not unreviewed entity placeholders"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/trusted_service/methods.rs",
+        "src/trusted_service/models.rs",
+        "src/trusted_service/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/survey",
+      "dynamic_json": [
+        "request/response/meta are arbitrary JSON audit/survey data stored without a fixed schema"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/survey/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/survey",
+      "dynamic_json": [
+        "request/response/meta are arbitrary JSON audit/survey data stored without a fixed schema"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/survey/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/log-action",
+      "dynamic_json": [
+        "request/response/meta are arbitrary JSON audit/survey data stored without a fixed schema"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/log_action/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/log-action/{slug}",
+      "dynamic_json": [
+        "request/response/meta are arbitrary JSON audit/survey data stored without a fixed schema"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/log_action/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/log-action/direct/{slug}",
+      "dynamic_json": [
+        "request/response/meta are arbitrary JSON audit/survey data stored without a fixed schema"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/log_action/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/logger",
+      "dynamic_json": [
+        "request/response/meta are arbitrary JSON audit/survey data stored without a fixed schema"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/logger/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/logger/{log}",
+      "dynamic_json": [
+        "request/response/meta are arbitrary JSON audit/survey data stored without a fixed schema"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/logger/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/auth/self",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/session/routes.rs"
+      ]
+    },
+    {
+      "operation": "PATCH /api/v1/auth/self",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/session/routes.rs"
+      ]
+    },
+    {
+      "operation": "PUT /api/v1/auth/self/onboarding",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/session/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/auth/chat-context",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/session/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/parent/get",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/option/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/parent/children/get",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/option/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /api/v1/address/get",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/option/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/dependency",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/option/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/identity",
+      "dynamic_json": [
+        "meta/app/assessment are arbitrary persisted JSON; properties are runtime-definition keys and values; services are runtime trusted-event payload maps"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/option/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/integration/docs",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/integration/models.rs",
+        "src/integration/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /api/v1/integration/flow",
+      "dynamic_json": [],
+      "decision": "no_dynamic_json_shape_required",
+      "source_refs": [
+        "src/integration/models.rs",
+        "src/integration/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /campaign",
+      "dynamic_json": [
+        "campaign contribution_methods/visibility/metadata are unconstrained SQL JSONB columns; contribution purpose_snapshot now has a concrete model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/campaign/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /campaign/{id}",
+      "dynamic_json": [
+        "campaign contribution_methods/visibility/metadata are unconstrained SQL JSONB columns; contribution purpose_snapshot now has a concrete model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/campaign/routes.rs"
+      ]
+    },
+    {
+      "operation": "POST /campaign/{id}/contributions",
+      "dynamic_json": [
+        "campaign contribution_methods/visibility/metadata are unconstrained SQL JSONB columns; contribution purpose_snapshot now has a concrete model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/campaign/routes.rs"
+      ]
+    },
+    {
+      "operation": "GET /campaign-profile/me/contributions",
+      "dynamic_json": [
+        "campaign contribution_methods/visibility/metadata are unconstrained SQL JSONB columns; contribution purpose_snapshot now has a concrete model"
+      ],
+      "decision": "legitimate_backend_open_ended_fields",
+      "source_refs": [
+        "src/campaign/routes.rs"
+      ]
+    }
+  ]
+}

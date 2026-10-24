@@ -1,0 +1,95 @@
+From 82b9ef8d6ad8077b3fb1154d99ded7d66d17b701 Mon Sep 17 00:00:00 2001
+From: Mohammadrasul Alizadeh <mohammad.alizadeh12@gmail.com>
+Date: Mon, 19 Oct 2026 22:06:21 +0330
+Subject: [PATCH] test: verify Session peer boundary against actual Chat router
+
+---
+ src/main.rs           |  3 ++
+ src/sdk_peer_tests.rs | 64 +++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 67 insertions(+)
+ create mode 100644 src/sdk_peer_tests.rs
+
+diff --git a/src/main.rs b/src/main.rs
+index e080e18..8f330cc 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -261,3 +261,6 @@ mod request_timeout_tests {
+         assert_eq!(request_timeout(&request), DEFAULT_REQUEST_TIMEOUT);
+     }
+ }
++
++#[cfg(test)]
++mod sdk_peer_tests;
+diff --git a/src/sdk_peer_tests.rs b/src/sdk_peer_tests.rs
+new file mode 100644
+index 0000000..adc3854
+--- /dev/null
++++ b/src/sdk_peer_tests.rs
+@@ -0,0 +1,64 @@
++//! Real Session router -> repaired Chat router; disposable dependencies only.
++use std::{sync::Arc, time::Duration};
++#[tokio::test(flavor = "multi_thread", worker_threads = 2)]
++#[ignore = "requires owned Session/Chat databases, broker and prebuilt Chat test binary"]
++async fn actual_session_to_chat_sdk_boundary() {
++    let url = std::env::var("INFERA_SESSION_PEER_DATABASE_URL").unwrap();
++    let parsed = reqwest::Url::parse(&url).unwrap();
++    assert_eq!(parsed.host_str(), Some("127.0.0.1"));
++    assert!(parsed.path().starts_with("/infera_session_sdk_"));
++    let broker_url = std::env::var("BROKER_URL").unwrap();
++    assert_eq!(reqwest::Url::parse(&broker_url).unwrap().host_str(), Some("127.0.0.1"));
++    let db = sea_orm::Database::connect(&url).await.unwrap();
++    use migration::MigratorTrait;
++    migration::Migrator::up(&db, None).await.unwrap();
++    let broker = lapin::Connection::connect(&broker_url, lapin::ConnectionProperties::default()).await.unwrap();
++    let channel = Arc::new(broker.create_channel().await.unwrap());
++    let flow = infera_flow_sdk::setup_flow_sdk(channel.clone(), "infera-session").await;
++    let (tx, _) = tokio::sync::broadcast::channel(100);
++    let state = crate::state::AppState {
++        db: Arc::new(db.clone()), recording_lock_db: Arc::new(db), broker: Arc::new(broker), broker_channel: channel,
++        livekit: Arc::new(tokio::sync::RwLock::new(crate::configuration::models::LiveKitSettings::from_env())),
++        http: reqwest::Client::builder().timeout(Duration::from_secs(10)).build().unwrap(),
++        dev: Arc::new(false), rooms: Arc::new(dashmap::DashMap::new()), broadcast: Arc::new(tx), flow_middleware: flow.middleware,
++    };
++    for key in ["CHAT_SERVICE_URL", "DRM_SERVICE_URL", "LMS_SERVICE_URL"] { std::env::remove_var(key); }
++    let app = crate::router::routes(&state)
++        .layer(axum::middleware::from_fn(infera_idp_sdk::auth_extractor_middleware)).with_state(state);
++    let listener = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
++    let address = listener.local_addr().unwrap();
++    let server = tokio::spawn(async move { axum::serve(listener, app).await.unwrap() });
++    let coordinate = std::env::temp_dir().join(format!("session-chat-sdk-{}", uuid::Uuid::new_v4()));
++    let stdout = std::fs::File::create(coordinate.with_extension("stdout")).unwrap();
++    let stderr = std::fs::File::create(coordinate.with_extension("stderr")).unwrap();
++    let mut child = std::process::Command::new(std::env::var("INFERA_CHAT_TEST_BINARY").unwrap())
++        .args(["sdk_personal_router_tests::actual_router_serves_all_personal_sdk_operations", "--ignored", "--test-threads=1", "--nocapture"])
++        .env("INFERA_CHAT_SDK_TEST_PROBE", std::env::var("INFERA_SESSION_PEER_SDK_PROBE").unwrap())
++        .env("INFERA_SESSION_PEER_BASE", format!("http://{address}"))
++        .env("INFERA_SESSION_PEER_COORDINATE", &coordinate)
++        .stdout(stdout).stderr(stderr).spawn().unwrap();
++    let started = std::time::Instant::now();
++    let mut configured = false;
++    let status = loop {
++        if !configured {
++            if let Ok(base) = std::fs::read_to_string(&coordinate) {
++                let parsed = reqwest::Url::parse(&base).unwrap();
++                assert_eq!(parsed.host_str(), Some("127.0.0.1"));
++                std::env::set_var("CHAT_SERVICE_URL", &base);
++                std::fs::write(coordinate.with_extension("ready"), "ready").unwrap();
++                configured = true;
++            }
++        }
++        if let Some(status) = child.try_wait().unwrap() { break status; }
++        if started.elapsed() > Duration::from_secs(90) { let _ = child.kill(); let _ = child.wait(); panic!("owned Chat peer timed out"); }
++        tokio::time::sleep(Duration::from_millis(25)).await;
++    };
++    server.abort();
++    let output = std::fs::read_to_string(coordinate.with_extension("stdout")).unwrap();
++    let errors = std::fs::read_to_string(coordinate.with_extension("stderr")).unwrap();
++    println!("{output}");
++    for p in [&coordinate, &coordinate.with_extension("ready"), &coordinate.with_extension("stdout"), &coordinate.with_extension("stderr")] { let _ = std::fs::remove_file(p); }
++    assert!(configured, "Chat never supplied its actual loopback listener");
++    assert!(status.success(), "Chat peer/SDK probe failed: {errors}");
++    assert!(output.contains("session-chat-actual-sdk"), "missing actual peer probe receipt");
++}
+-- 
+2.39.5 (Apple Git-154)
+

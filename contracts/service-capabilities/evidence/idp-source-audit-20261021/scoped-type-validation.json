@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "scope": "Scoped IDP TypeScript build and consumer type contracts; no native operation execution claimed",
+  "commands": [
+    {
+      "command": "npx tsc -b packages/idp --pretty false",
+      "exit_code": 0
+    },
+    {
+      "command": "npx tsc -p tests/idp-wire.tsconfig.json --pretty false",
+      "exit_code": 0
+    }
+  ],
+  "fix": "Handwritten CreateUserInput, UpdateUserInput, CreateRoleInput and UpdateRoleInput now alias the exact named generated input models. Rust nullable/default fields and RequestOptions request-data invariance share one wire model, without casts or type suppression.",
+  "files_sha256": {
+    "packages/idp/src/types.ts": "b1e400b1074bece1d7ace82b6c9d1cfe3a77bd2c10b48d269b84ecac6fff8474",
+    "packages/idp/src/resources.ts": "f43143979124466f6bd4c93e21fed8de3b44b11fd994e8a917a04d10bf78a7ed",
+    "packages/idp/src/operations.types.ts": "557b314a5e0cc5c2af16850769c0d6a83911aa86264c70ede8c669f162d9903c",
+    "scripts/idp-source-contracts.mjs": "24af95cb1d1102ae92aa397794e3532fbb3b63fa24ea1ec54d647db85d37a83e",
+    "tests/idp-wire.types.ts": "149cebba80759e957fd8a1b79f9ca0f4c2dff142936de897bc9c4ee7b07d1e58"
+  }
+}

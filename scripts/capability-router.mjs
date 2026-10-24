@@ -1,6 +1,7 @@
 import { balancedEnd, maskRust, splitRust, functionEvidence } from './capability-source.mjs';
 
-const moduleOf = path => path.replace(/^.*?\/src\//, '').replace(/\.rs$/, '').replace(/\/mod$/, '').replaceAll('/', '::');
+const crateRootOf = path => path.slice(0, path.lastIndexOf('/src/'));
+const moduleOf = path => path.slice(path.lastIndexOf('/src/') + 5).replace(/\.rs$/, '').replace(/\/mod$/, '').replaceAll('/', '::');
 
 function imports(source) {
   const aliases = new Map();
@@ -26,25 +27,41 @@ function functionFor(files, current, call, resolving=new Set()) {
   if(resolving.has(key))return null;
   resolving=new Set(resolving).add(key);
   const parts = call.split('::');
+  let crateRoot = crateRootOf(current.path);
   const localModule=parts.length>1&&new RegExp(`\\bmod\\s+${parts[0]}\\s*[;{]`).test(maskRust(current.source));
   const alias = localModule?undefined:imports(current.source).get(parts[0]);
   if (alias) parts.splice(0, 1, ...alias.split('::'));
   const fnName = parts.pop();
+  // Vendored path dependencies are separate Rust crates. Resolve their explicit
+  // crate qualifier without letting a same-named service module impersonate it.
+  const roots = [...new Set(files.map(file => crateRootOf(file.path)))];
+  const dependencyRoots = roots.filter(root => root.split('/').at(-1).replaceAll('-', '_') === parts[0]);
+  if (dependencyRoots.length > 1) return null;
+  if (dependencyRoots.length === 1 && dependencyRoots[0] !== crateRoot) {
+    crateRoot = dependencyRoots[0];
+    parts.splice(0, 1, 'crate');
+  }
+  const scopedFiles = files.filter(file => crateRootOf(file.path) === crateRoot);
   let qualifier = parts.join('::');
-  const ownCrate=current.path.split('/')[0].replaceAll('-','_');
+  const ownCrate=crateRoot.split('/').at(-1).replaceAll('-','_');
   if(qualifier===ownCrate)qualifier='crate';
   else if(qualifier.startsWith(`${ownCrate}::`))qualifier=`crate::${qualifier.slice(ownCrate.length+2)}`;
-  const absolute=qualifier==='crate'||qualifier.startsWith('crate::');
+  const absolute=qualifier==='crate'||qualifier.startsWith('crate::')||qualifier.startsWith('super::')||qualifier.startsWith('self::');
   if (qualifier.startsWith('crate::')) qualifier = qualifier.slice(7);
   else if (qualifier === 'crate') qualifier = '';
   else if (qualifier.startsWith('super::')) qualifier = `${moduleOf(current.path).split('::').slice(0,-1).join('::')}::${qualifier.slice(7)}`;
   else if (qualifier.startsWith('self::')) qualifier = `${moduleOf(current.path)}::${qualifier.slice(6)}`;
-  const qualifiers=qualifier?[...new Set([...(absolute?[]:[`${moduleOf(current.path)}::${qualifier}`]),qualifier])]:[];
+  // A qualified sibling imported by `use super::*` belongs to the parent
+  // module, not the crate root or the current routes module.
+  const parentGlob = !absolute && /\buse\s+super::\*\s*;/.test(maskRust(current.source));
+  const parentModule = moduleOf(current.path).split('::').slice(0,-1).join('::');
+  const qualifiers=qualifier?[...new Set([...(absolute?[]:[`${moduleOf(current.path)}::${qualifier}`]),
+    ...(parentGlob && parentModule ? [`${parentModule}::${qualifier}`] : [qualifier])])]:[];
   for(const module of qualifiers.length?qualifiers:[null]){
-    const matches = files.flatMap(file => file.functions.filter(fn => fn.name === fnName &&
+    const matches = scopedFiles.flatMap(file => file.functions.filter(fn => fn.name === fnName &&
       (module ? moduleOf(fn.path) === module : fn.path === current.path)).map(fn => ({file,fn})));
     if(matches.length===1)return matches[0];
-    const reexportFile=files.find(file=>moduleOf(file.path)===module);
+    const reexportFile=scopedFiles.find(file=>moduleOf(file.path)===module);
     const reexport=reexportFile&&imports(reexportFile.source).get(fnName);
     if(reexport){const result=functionFor(files,reexportFile,reexport,resolving);if(result)return result;}
   }
@@ -110,12 +127,13 @@ export function mountedRouterOperations(files, entry) {
   // Prefer the service entry over nested migration/auth crates with the same suffix.
   const root = candidates.sort((a,b)=>a.path.split('/').length-b.path.split('/').length)[0];
   if (!root) throw new Error(`Missing router source ${entry.path}`);
-  const operations = [], unresolved = [], visited = new Set();
+  const operations = [], unresolved = [], protocol_mounts = [], visited = new Set();
+  const conditions = [];
   // Match Axum's path_for_nested_route: nesting a root route under /items
   // produces /items, while an explicitly slash-terminated prefix stays so.
   const joinPath = (prefix,path) => !prefix?path:prefix.endsWith('/')?`${prefix}${path.replace(/^\//,'')}`:path==='/'?prefix:`${prefix}${path}`;
   function visit(file, fn, prefix, trail, selectedVariable) {
-    const key = `${file.path}:${fn.name}:${prefix}:${selectedVariable??''}`;
+    const key = `${file.path}:${fn.name}:${prefix}:${selectedVariable??''}:${JSON.stringify(conditions)}`;
     if (visited.has(key)) return;
     if (trail.length > 30) { unresolved.push({kind:'router_depth',path:file.path,function:fn.name}); return; }
     visited.add(key);
@@ -123,11 +141,26 @@ export function mountedRouterOperations(files, entry) {
     const expanding = new Set();
     function expression(raw, atPrefix) {
       const text = withoutLeadingTrivia(raw);
+      if (/^match\s/.test(text)) {
+        const masked=maskRust(text),open=masked.indexOf('{'),close=balancedEnd(masked,open);
+        if(open<0 || close<0 || text.slice(close+1).trim()) {
+          unresolved.push({kind:'match_router_expression',path:file.path,line:fn.line});return;
+        }
+        for(const arm of splitRust(text.slice(open+1,close)).filter(x=>maskRust(x).trim())) {
+          const arrow=maskRust(arm).indexOf('=>');
+          if(arrow<0){unresolved.push({kind:'match_router_arm',path:file.path,line:fn.line});continue;}
+          const pattern=withoutLeadingTrivia(arm.slice(0,arrow));
+          conditions.push({expression:text.slice(6,open).trim(),pattern,path:file.path,line:fn.line});
+          expression(arm.slice(arrow+2).trim(),atPrefix);
+          conditions.pop();
+        }
+        return;
+      }
       const base = text.match(/^((?:\w+::)*\w+)\s*(\(|\.|$)/);
       if (base && variables.has(base[1])) {
         if (expanding.has(base[1])) { unresolved.push({kind:'variable_cycle',name:base[1],path:file.path}); return; }
         expanding.add(base[1]); expression(variables.get(base[1]),atPrefix); expanding.delete(base[1]);
-      } else if (base && base[2] === '(' && !['Router::new'].includes(base[1])) {
+      } else if (base && base[2] === '(' && !['Router::new','axum::Router::new'].includes(base[1])) {
         const resolved=functionFor(files,file,base[1]);
         if (resolved && /\bRouter\b/.test(resolved.fn.signature)) visit(resolved.file,resolved.fn,atPrefix,[...trail,{path:file.path,line:fn.line,function:fn.name}]);
         else unresolved.push({kind:'router_call',call:base[1],path:file.path,line:fn.line});
@@ -141,6 +174,14 @@ export function mountedRouterOperations(files, entry) {
           try { childPrefix=JSON.parse(call.arguments[0].trim()); } catch { /* dynamic prefixes need explicit review */ }
           if (typeof childPrefix !== 'string') unresolved.push({kind:'dynamic_prefix',expression:call.arguments[0],path:file.path,line:fn.line});
           else expression(call.arguments[1],joinPath(atPrefix,childPrefix));
+        } else if (call.method === 'route_service') {
+          let localPath;
+          try { localPath=JSON.parse(call.arguments[0].trim()); } catch { /* recorded below */ }
+          if (typeof localPath !== 'string') unresolved.push({kind:'dynamic_service_path',path:file.path,line:fn.line});
+          else protocol_mounts.push({path:joinPath(atPrefix,localPath),source:file.path,
+            function:fn.name,service_expression:call.arguments[1],
+            ...(conditions.length?{conditions:[...conditions]}:{}),
+            mounted_via:[...trail,{path:file.path,line:fn.line,function:fn.name}]});
         } else if (call.method === 'route') {
           let localPath;try{localPath=JSON.parse(call.arguments[0].trim());}catch{}
           if (typeof localPath !== 'string') { unresolved.push({kind:'dynamic_path',path:file.path,line:fn.line});continue; }
@@ -159,6 +200,8 @@ export function mountedRouterOperations(files, entry) {
             operations.push({method:method[1].toUpperCase(),path:joinPath(atPrefix,localPath),module:moduleOf(file.path),
               handler:handler?.fn.name??method[2].split('::').at(-1),handlerModule:handler?moduleOf(handler.file.path):method[2].split('::').slice(0,-1).join('::'),
               source:file.path,permissions:evidence?.declared_permissions??[],
+              ...(conditions.length?{conditions:[...conditions]}:{}),
+              ...(handler?{handler_source:handler.file.path}:{}),
               ...(type?{body:type}:{}),...(generic(params,'Query')?{query:generic(params,'Query')}:{}),
               ...(generic(params,'Path')?{pathParam:generic(params,'Path')}:{}),
               ...(apiResponse?{response:apiResponse}:{}),
@@ -177,5 +220,5 @@ export function mountedRouterOperations(files, entry) {
   visit(root,fn,entry.prefix??'',[],entry.variable);
   const seen=new Set(),duplicates=[];
   for(const op of operations){const key=`${op.method} ${op.path}`;if(seen.has(key))duplicates.push(key);seen.add(key);}
-  return {operations,unresolved,duplicates};
+  return {operations,unresolved,duplicates,protocol_mounts};
 }

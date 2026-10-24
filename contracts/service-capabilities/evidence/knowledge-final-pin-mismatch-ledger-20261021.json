@@ -1,0 +1,119 @@
+{
+  "id": "knowledge-final-pin-mismatch-ledger-20261021",
+  "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+  "status": "fixed_source_reviewed_pending_checks",
+  "mismatches": [
+    {
+      "operations": "platform catalog/status/converters/evaluation/recommender routes",
+      "source": "Service/infera-knowledge/src/platform.rs:588",
+      "previous_sdk": "Generated ApiEnvelope<JsonValue> response placeholders",
+      "fix": "Concrete named SQL projections including nullable metrics, policy rows, nested recommender items and evaluation cases",
+      "native_verification": "pending",
+      "sdk_verification": "pending"
+    },
+    {
+      "operations": "GET /api/v1/runtime/assistants/{assistant_id}/contracts/{slug}",
+      "source": "Service/infera-knowledge/src/contracts.rs:59",
+      "previous_sdk": "Convenience response omitted status/meta and generated response was JsonValue",
+      "fix": "ApiEnvelope<AssistantContractsResult> in both surfaces",
+      "native_verification": "pending",
+      "sdk_verification": "pending"
+    },
+    {
+      "operations": "POST /api/v1/runtime/assistants/{assistant_id}/memory/turn",
+      "source": "Service/infera-knowledge/src/platform.rs:2676",
+      "previous_sdk": "Opaque receipt; convenience Option string fields disallowed null",
+      "fix": "Discriminated queued/skip receipt and nullable Option fields",
+      "native_verification": "pending",
+      "sdk_verification": "pending"
+    },
+    {
+      "operations": "POST /api/v1/runtime/retrieval-traces/{id}/usage",
+      "source": "Service/infera-knowledge/src/platform.rs:450",
+      "previous_sdk": "Opaque receipt and convenience optional cost/outcome disallowed null",
+      "fix": "Named persisted usage receipt with nullable cost/outcome input",
+      "native_verification": "pending",
+      "sdk_verification": "pending"
+    },
+    {
+      "operations": "POST /api/v1/documents",
+      "source": "Service/infera-knowledge/src/platform.rs:297",
+      "previous_sdk": "Convenience language disallowed null supported by Rust Option",
+      "fix": "Nullable language input",
+      "native_verification": "pending",
+      "sdk_verification": "pending"
+    },
+    {
+      "operations": "POST /api/v1/runtime/assistants/{assistant_id}/query and preview/evaluations",
+      "source": "Service/infera-knowledge/src/platform.rs:1382",
+      "previous_sdk": "RetrievalBudget.sections required although missing-policy success omits it; generated budget opaque",
+      "fix": "Optional sections; shared concrete AssistantRuntimeResult and named policy/memory containers",
+      "native_verification": "pending",
+      "sdk_verification": "pending"
+    },
+    {
+      "operations": "GET /api/v1/platform/converters",
+      "source": "Service/infera-knowledge/src/platform.rs:657",
+      "previous_sdk": "ConverterCapability omitted additive features field",
+      "fix": "Named features:string[] matches SQL alias",
+      "native_verification": "pending",
+      "sdk_verification": "pending"
+    },
+    {
+      "operations": "POST /internal/task-projections/passages",
+      "source": "Service/infera-knowledge/src/retrieval.rs:195",
+      "previous_sdk": "ScoreExplanation and DependencyState mapped to BackendJson despite concrete Rust declarations",
+      "fix": "Concrete score fields and DependencyState enum",
+      "native_verification": "pending",
+      "sdk_verification": "pending"
+    },
+    {
+      "operations": "GET /health and GET /health/ready",
+      "source": "Service/infera-knowledge/src/main.rs:92",
+      "previous_sdk": "Opaque response and generic status documentation",
+      "fix": "Named ready/degraded database readiness envelope and explicit HTTP503 Axios behavior",
+      "native_verification": "pending",
+      "sdk_verification": "pending"
+    },
+    {
+      "operations": "POST /api/v1/platform/cache/invalidate and POST /api/v1/memory-outbox/{id}/replay",
+      "source": "Service/infera-knowledge/src/platform.rs:917",
+      "previous_sdk": "Opaque mutation receipts",
+      "fix": "Named entries_removed and pending replay receipt",
+      "native_verification": "pending",
+      "sdk_verification": "pending"
+    },
+    {
+      "operations": "GET runtime document/session evidence",
+      "source": "Service/infera-knowledge/src/platform.rs:483",
+      "previous_sdk": "Opaque evidence responses and missing user/participant auth guidance",
+      "fix": "Named projection fields and explicit current user/participant/session:read:all semantics",
+      "native_verification": "pending",
+      "sdk_verification": "pending"
+    },
+    {
+      "operations": "POST /internal/task-projections/candidates and /sync",
+      "source": "Service/infera-knowledge/src/task_projections.rs:61",
+      "previous_sdk": "Opaque note identity/receipt outputs",
+      "fix": "Named note/project/version candidate and version receipt",
+      "native_verification": "pending",
+      "sdk_verification": "pending"
+    },
+    {
+      "operations": "All 84 operations documentation",
+      "source": "Service/infera-knowledge/src/routes.rs:20",
+      "previous_sdk": "Generic performs-operation purpose hid filtering/status/lifecycle restrictions",
+      "fix": "Handler/repository-aware operation purposes, conditional memory audit privilege, server-only Task authority, flat pagination docs",
+      "native_verification": "pending",
+      "sdk_verification": "pending"
+    },
+    {
+      "operations": "GET /api/v1/runtime/assistants/{assistant_id}/contracts/{slug}",
+      "source": "Service/infera-knowledge/src/contracts.rs:75",
+      "previous_sdk": "PublishedAssistantContract assumed localized string content and string contract_version, although the backend returns authored JSON unchanged",
+      "fix": "Documented authored JSON content and metadata values; consumers validate their selected contract schema/version",
+      "native_verification": "pending",
+      "sdk_verification": "pending"
+    }
+  ]
+}

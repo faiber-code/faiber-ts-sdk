@@ -1,0 +1,23 @@
+# Retain verbatim test output for checksum verification. Whitespace checks remain
+# enabled for source; terminal output may contain indentation-only lines.
+contracts/service-capabilities/evidence/*.log -whitespace
+contracts/service-capabilities/evidence/summary-crm-handoff/*.log -whitespace
+contracts/service-capabilities/evidence/summary-source-review-v1/*.log -whitespace
+contracts/service-capabilities/evidence/summary-source-review-v2-supplement/*.log -whitespace
+contracts/service-capabilities/evidence/chat-mounted-sdk-21/*.log -whitespace
+contracts/service-capabilities/evidence/profile-summary-rest-sdk-v1/*.log -whitespace
+contracts/service-capabilities/evidence/profile-summary-current-sdk/*.log -whitespace
+contracts/service-capabilities/evidence/state-health-full-workspace/*.log -whitespace
+contracts/service-capabilities/evidence/crm-fallback-full-lib/*.log -whitespace
+contracts/service-capabilities/evidence/version-sdk-wire-accepted-4bb3902f/*.log -whitespace
+contracts/service-capabilities/working-contract-extraction.stderr.log -whitespace
+contracts/service-capabilities/evidence/lms-retirement-http-v1/*.log -whitespace
+contracts/service-capabilities/evidence/crm-fallback-routing-guard-v2/*.log -whitespace
+contracts/service-capabilities/evidence/reservation-sdk-42-188/*.log -whitespace
+
+contracts/service-capabilities/evidence/session-chat-sdk-69-26/*.log -whitespace
+contracts/service-capabilities/evidence/version-nullable-sdk-12/*.log -whitespace
+contracts/service-capabilities/evidence/summary-source-domains-review-v1/*.log -whitespace
+contracts/service-capabilities/evidence/session-chat-sdk-69-26/*.patch -whitespace
+contracts/service-capabilities/evidence/summary-source-domains-review-v1/*.patch -whitespace
+contracts/service-capabilities/evidence/version-locked-nullable-sdk-12/*.log -whitespace

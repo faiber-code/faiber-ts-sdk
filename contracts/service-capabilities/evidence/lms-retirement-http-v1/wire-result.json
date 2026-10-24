@@ -1,0 +1,168 @@
+{
+  "status": "passed",
+  "assertions": 57,
+  "retired_operations": 8,
+  "observations": [
+    {
+      "phase": "index_present",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/settings",
+      "status": 200,
+      "classification": "spa_fallback",
+      "content_type": "text/html",
+      "allow": null,
+      "body": "<!doctype html><html><body>LMS_RETIREMENT_SPA_FIXTURE</body></html>"
+    },
+    {
+      "phase": "index_present",
+      "method": "PUT",
+      "path": "/api/v1/ai-summaries/settings",
+      "status": 405,
+      "classification": "method_not_allowed",
+      "content_type": null,
+      "allow": "GET,HEAD",
+      "body": ""
+    },
+    {
+      "phase": "index_present",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/models",
+      "status": 200,
+      "classification": "spa_fallback",
+      "content_type": "text/html",
+      "allow": null,
+      "body": "<!doctype html><html><body>LMS_RETIREMENT_SPA_FIXTURE</body></html>"
+    },
+    {
+      "phase": "index_present",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/latest",
+      "status": 200,
+      "classification": "spa_fallback",
+      "content_type": "text/html",
+      "allow": null,
+      "body": "<!doctype html><html><body>LMS_RETIREMENT_SPA_FIXTURE</body></html>"
+    },
+    {
+      "phase": "index_present",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/jobs",
+      "status": 200,
+      "classification": "spa_fallback",
+      "content_type": "text/html",
+      "allow": null,
+      "body": "<!doctype html><html><body>LMS_RETIREMENT_SPA_FIXTURE</body></html>"
+    },
+    {
+      "phase": "index_present",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/summaries",
+      "status": 200,
+      "classification": "spa_fallback",
+      "content_type": "text/html",
+      "allow": null,
+      "body": "<!doctype html><html><body>LMS_RETIREMENT_SPA_FIXTURE</body></html>"
+    },
+    {
+      "phase": "index_present",
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/refresh",
+      "status": 405,
+      "classification": "method_not_allowed",
+      "content_type": null,
+      "allow": "GET,HEAD",
+      "body": ""
+    },
+    {
+      "phase": "index_present",
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/users/bc84262a-7ac8-4e6a-95c9-fe88e6e5992a/student/refresh",
+      "status": 405,
+      "classification": "method_not_allowed",
+      "content_type": null,
+      "allow": "GET,HEAD",
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/settings",
+      "status": 404,
+      "classification": "not_found",
+      "content_type": null,
+      "allow": null,
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "PUT",
+      "path": "/api/v1/ai-summaries/settings",
+      "status": 405,
+      "classification": "method_not_allowed",
+      "content_type": null,
+      "allow": "GET,HEAD",
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/models",
+      "status": 404,
+      "classification": "not_found",
+      "content_type": null,
+      "allow": null,
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/latest",
+      "status": 404,
+      "classification": "not_found",
+      "content_type": null,
+      "allow": null,
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/jobs",
+      "status": 404,
+      "classification": "not_found",
+      "content_type": null,
+      "allow": null,
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/summaries",
+      "status": 404,
+      "classification": "not_found",
+      "content_type": null,
+      "allow": null,
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/refresh",
+      "status": 405,
+      "classification": "method_not_allowed",
+      "content_type": null,
+      "allow": "GET,HEAD",
+      "body": ""
+    },
+    {
+      "phase": "index_absent",
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/users/bc84262a-7ac8-4e6a-95c9-fe88e6e5992a/student/refresh",
+      "status": 405,
+      "classification": "method_not_allowed",
+      "content_type": null,
+      "allow": "GET,HEAD",
+      "body": ""
+    }
+  ],
+  "scope": "actual compiled SDK generic transport to mounted immutable LMS router; trusted gateway actor fixture; real PostgreSQL full historical migrations and RabbitMQ; synthetic SPA index and Profile name lookup only; no model/provider/billing"
+}

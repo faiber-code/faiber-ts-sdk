@@ -1,0 +1,41 @@
+{
+  "revision": "b8ed5921e4f6bd2d7f4ef675f0cb8b3fbbb1e23d",
+  "fixes": [
+    {
+      "issue": "Concrete JSON response envelopes generated as ApiEnvelope<JsonValue>",
+      "resolution": "Named response aliases for project/task mutations, governed proposals, notes, plans, gifts, reminders, reports and activity"
+    },
+    {
+      "issue": "Generated governed operation and reminder tagged enum payloads were string unions",
+      "resolution": "Use reviewed WorkspaceOperation and ReminderTrigger full discriminated payloads"
+    },
+    {
+      "issue": "Convenience WorkItem/Project omitted concrete fields and team assignment filters/updates",
+      "resolution": "Expose created_by, plan_access, team_id, progress/planning/folder fields and team input/query"
+    },
+    {
+      "issue": "Raw SSE, metrics, realtime signatures and feedback downloads had JSON envelope/encoding drift",
+      "resolution": "Raw stream/text/signature types, byte download mode and Blob MIME upload"
+    },
+    {
+      "issue": "Catalog query extractor missing in route export",
+      "resolution": "Reviewed catalog optional project_id query type"
+    },
+    {
+      "issue": "Convenience workspace query omitted structured fields and overrequired create checklist",
+      "resolution": "Add record_type/field_filters and preserve backend checklist default"
+    },
+    {
+      "issue": "Note import rows serialize null result/error and concrete actor/retry timestamps",
+      "resolution": "Match serialized SQL projection and nullable data"
+    },
+    {
+      "issue": "False native confidence risk",
+      "resolution": "Evidence source_only; native and deployed boundaries pending, owned transport tests are not backend proof"
+    }
+  ],
+  "unresolved": [
+    "Native selected-pin acceptance and deployed authority/isolation remain unverified",
+    "Shared summary MCP protocol mount is inventoried separately from Task HTTP operations; no HTTP wrapper claims MCP completion"
+  ]
+}

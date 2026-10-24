@@ -1,0 +1,108 @@
+{
+  "created_at": "2026-10-19T16:46:29.504108+00:00",
+  "status": "passed_bounded_local_mounted_rest_sdk_acceptance",
+  "profile_production_source": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+  "profile_test_source": "07279def6aeb91f806d0c32ab811a69ec2b05daf",
+  "profile_test_checkout": "/Users/mohammadralizadeh/Infera/.task-worktrees/profile-rest-sdk-20261019/infera-profile",
+  "production_source_changes": false,
+  "test_sources": [
+    {
+      "file": "tests/run-summary-rest-sdk.sh",
+      "commit": "07279def6aeb91f806d0c32ab811a69ec2b05daf",
+      "sha256": "b37a6f3e817836d95c8d3ebc9b1a4381e4c417000ac08d8eb9270e1959daf2ea",
+      "git_blob": "891fad57a828e9b87bf6ad6d9323c71402986763"
+    },
+    {
+      "file": "tests/summary-rest-sdk.mjs",
+      "commit": "07279def6aeb91f806d0c32ab811a69ec2b05daf",
+      "sha256": "2c77932d032c65be40c1a298821f58a035e42dc700c90348b2ba5575dfdb66ce",
+      "git_blob": "770983642811e711e21166be1e8d47b4917dbb06"
+    },
+    {
+      "file": "tests/summary_rest_sdk.rs",
+      "commit": "07279def6aeb91f806d0c32ab811a69ec2b05daf",
+      "sha256": "7b79d5fd94a813d1c952e09125fdb30d303f2d337555b991983e5167e49ae0cd",
+      "git_blob": "9404a66bbfdfe639de1a407aa2db38138b82cfca"
+    }
+  ],
+  "sdk": {
+    "source_commit": "7a477a0bcf6afc3a72a5aaca95b7cb1b62c4783b",
+    "source_capture": "git archive of immutable core/profile source and tsconfig.base.json; independently compiled in sdk-build; no SDK checkout edits/build writes",
+    "build_log": "sdk-snapshot-build.log",
+    "compiler": "TypeScript5.9.3",
+    "runtime": "Node22.13.1",
+    "http_client": "Axios1.20.0",
+    "package_entry": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/profile-rest-sdk-v1/consumer/node_modules/@faiber/faiber-profile/dist/index.js",
+    "compiled_and_runtime_dependency_fence": "consumer-source-sha256.json",
+    "source_and_emitted_build_fence": "sdk-build-source-sha256.json",
+    "owner_checkout_head_at_freeze": "40b58b73f1482f49925e34180cee8f7452fc0972",
+    "relevant_core_profile_source_equivalent_at_freeze": true,
+    "limit": "This proves the captured package sources/wire calls, not every package or final combined owner SDK revision."
+  },
+  "execution": {
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--offline",
+      "--test",
+      "summary_rest_sdk",
+      "--",
+      "--ignored",
+      "--nocapture"
+    ],
+    "environment": "CARGO_INCREMENTAL=0,CARGO_BUILD_JOBS=2; shared compiled target cache only. Dedicated local PostgreSQL/RabbitMQ ports from disposable Compose. Exact SDK snapshot entry/consumer script provided via test env. No Cargo dev [patch] used. Existing cached canonical-URL RustSDKd3a76ff sources were originally resolved with local Git transport mirror; remote reproducibility remains unproven.",
+    "raw_log": "run-final.log",
+    "result": "1Rust integration case passed;348JavaScript assertions;20distinct SDK methods",
+    "structured_result": "sdk-wire-result.json",
+    "fixtures": "Actual full Profile router::routes mounted on loopback. Real summary PostgreSQL migration and minimal Profile identity tables; real RabbitMQ. Synthetic test gateway x-user-id/roles/permissions enter actual AuthContext extraction. Deterministic IDP role/user HTTP, Agentic models/runs HTTP and official RMCP EvidenceReader; no real model/provider/inference/billing. Local-only __fixture actions advance worker ticks or seed history/failure state; these routes are test code and not production APIs."
+  },
+  "coverage": {
+    "twenty_methods": "Every wrapper called over actual Axios HTTP; exact method/normalized path/status/success envelope asserted. Create201;preview/refresh/retry202;others200. All20deny a parent-role subject lacking dedicated summary permission.",
+    "inputs_receipts": "Canonical arbitrary role UUIDs;configuration creation/read/list;optimistic draft version and stale/missing-version errors;validation/publication and duplicate409;bounded refresh422 and coalescing;persisted pending preview run before tick and completed metric after tick.",
+    "permissions": "read_own denies latest/list/run for another subject;configure/manage alone deny run;configure alone denies preview;configure+read_own denies other-subject preview;read_all permits another subject within deployment.",
+    "filters": "Real query serialization and DB subject/role/status/page/per_page history/jobs filtering, count/second page;own forced-subject;cross-deployment history omitted and direct run404;job private fields redacted.",
+    "retry": "Failed state injected into local job;actual retry endpoint202/reset/409;ordinary retry completes with new operation/run while previous run remains;preview retry new operation remains preview and does not replace latest.",
+    "disabled": "Default global off;preview works without published/enabled role;latest hidden;published role/settings enabled for normal refresh;disable hides latest while authorized history survives."
+  },
+  "raw_failure_history": [
+    {
+      "file": "run-first.log",
+      "meaning": "Isolated runtime dependency snapshot missed https-proxy-agent; fixed dependency-closure capture. No API request reached."
+    },
+    {
+      "file": "run-second.log",
+      "meaning": "Fixture metric lacked Persian translations; actual validation422 metric_translations_required. Fixture corrected; backend/SDK unchanged."
+    },
+    {
+      "file": "run-third.log",
+      "meaning": "First complete20operation pass,236assertions."
+    },
+    {
+      "file": "run-fourth.log",
+      "meaning": "Added preview-retry case exposed fixture fail_job overwriting preview configuration. Fixture corrected to preserve preview snapshots; not a production defect."
+    },
+    {
+      "file": "run-fifth.log",
+      "meaning": "Expanded348assertion pass before final test commit."
+    },
+    {
+      "file": "run-final.log",
+      "meaning": "Same348assertions rerun on immutable07279def test commit."
+    }
+  ],
+  "remaining_limits": [
+    "IDP gateway/JWT/ACL provisioning and managed namespace TokenReview are not live tested; gateway identity headers are deterministic test inputs.",
+    "Agentic/model/MCP evidence source is a deterministic fixture. No real financial-owner provider/billing or six domain adapter execution is certified.",
+    "Actual failure/retry transitions here inject local failed job state; provider failure/timeout/crash causality is separate coverage.",
+    "No new runtime verification of8retired LMS endpoints, deployed Profile UI/API, provider costs or billing recovery.",
+    "No npm authentication/publication, source push, live credential/grant/config/deployment/model selection or paid call."
+  ],
+  "original_handoffs": {
+    "source_review_v1_fenced_files_verified": 3247,
+    "all_match": true,
+    "source_review_v2_preserved": true,
+    "owner_sdk_checkout_not_edited": true
+  },
+  "delivery": "Shared source-bound bundle/patch and evidence; no direct thread reply."
+}

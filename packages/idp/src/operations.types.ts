@@ -1,16 +1,11 @@
 import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
-/** Backend response type: api. */
-export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend response type: api. */
-export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
-}
-
 /** Backend response type: Value. */
-export type OidcDiscoveryGetResponse = JsonValue;
+export type OidcDiscoveryGetResponse = import("./contracts.types.js").OidcDiscoveryDocument;
+
+/** Backend response type: utoipa::openapi::OpenApi. */
+export type RouterOpenapiJsonGetResponse = import("@faiber/sdk-core").ServiceOpenApiDocument;
 
 /** Backend response type: PermissionTemplateListResponse. */
 export type AclPermissionTemplatesIndexGetResponseDataTemplatesCategory = "quick" | "service";
@@ -23,7 +18,7 @@ export interface AclPermissionTemplatesIndexGetResponseDataTemplates extends Jso
   "name": string;
   "description": string;
   "category": AclPermissionTemplatesIndexGetResponseDataTemplatesCategory;
-  "service"?: string | null;
+  "service": string | null;
   "permissions": AclPermissionTemplatesIndexGetResponseDataTemplatesPermissions[];
 }
 export interface AclPermissionTemplatesIndexGetResponseData extends JsonObject {
@@ -140,29 +135,41 @@ export interface AclRolesUpdatePutResponseData extends JsonObject {
 export interface AclRolesUpdatePutResponse extends ApiEnvelope<AclRolesUpdatePutResponseData> {
 }
 
+/** Backend response type: RoleGrantSnapshot. */
+export type AclReadGetResponse = import("./authority.js").RoleGrantResponse;
+
+/** Backend request type: RoleGrantDelta. */
+export type AclChangePatchInput = import("./authority.js").RoleGrantDelta;
+/** Backend response type: RoleGrantSnapshot. */
+export type AclChangePatchResponse = import("./authority.js").RoleGrantResponse;
+
+/** Backend query type: EffectivePermissionQuery. */
+export type EffectivePermissionsReadGetQuery = import("./authority.js").EffectivePermissionQuery;
+/** Backend response type: EffectivePermissionSnapshot. */
+export type EffectivePermissionsReadGetResponse = import("./authority.js").EffectivePermissionResponse;
+
 /** Backend request type: AccountTokenRequest. */
 export interface AuthLoginAccountPostInput extends JsonObject {
   "account": string;
   "device_id"?: string | null;
 }
 /** Backend response type: api. */
-export interface AuthLoginAccountPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthLoginAccountPostResponse = import("./types.js").AuthTokensResponse;
 
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityPublicShowGetResponseData extends JsonObject {
   "mode": string;
-  "canonical_provider_id"?: string | null;
-  "canonical_provider_key"?: string | null;
-  "canonical_display_name"?: string | null;
-  "canonical_issuer"?: string | null;
+  "canonical_provider_id": string | null;
+  "canonical_provider_key": string | null;
+  "canonical_display_name": string | null;
+  "canonical_issuer": string | null;
   "subject_policy": string;
   "jit_provisioning": boolean;
-  "activated_at"?: string | null;
-  "last_discovery_at"?: string | null;
-  "last_login_at"?: string | null;
-  "last_logout_at"?: string | null;
-  "last_error"?: string | null;
+  "activated_at": string | null;
+  "last_discovery_at": string | null;
+  "last_login_at": string | null;
+  "last_logout_at": string | null;
+  "last_error": string | null;
   "federated_session_count": number;
   "rollout_enabled": boolean;
 }
@@ -207,14 +214,13 @@ export interface CustomOauthPublicProvidersGetResponseItem extends JsonObject {
   "id": string;
   "provider_key": string;
   "display_name": string;
-  "icon_url"?: string | null;
+  "icon_url": string | null;
 }
 export interface CustomOauthPublicProvidersGetResponse extends ApiEnvelope<CustomOauthPublicProvidersGetResponseItem[]> {
 }
 
 /** Backend response type: api. */
-export interface AuthGenerateOneTimeTokenRoutePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthGenerateOneTimeTokenRoutePostResponse = import("./contracts.types.js").OneTimeTokenResponse;
 
 /** Backend query type: BrowserHandoffQuery. */
 export interface AuthBrowserHandoffGetQuery extends QueryParams {
@@ -222,8 +228,7 @@ export interface AuthBrowserHandoffGetQuery extends QueryParams {
   "redirect": string;
 }
 /** Backend response type: api. */
-export interface AuthBrowserHandoffGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthBrowserHandoffGetResponse = void;
 
 /** Backend request type: HandoffExchangeRequest. */
 export interface AuthExchangeHandoffTokenPostInput extends JsonObject {
@@ -277,7 +282,7 @@ export interface AuthLinkedFaiberBillingGetResponseDataDailyCosts extends JsonOb
 export interface AuthLinkedFaiberBillingGetResponseDataProjectPricing extends JsonObject {
   "project": string;
   "currency": string;
-  "fixed_monthly_price"?: string | null;
+  "fixed_monthly_price": string | null;
   "hourly_price": string;
   "daily_estimate": string;
   "monthly_estimate": string;
@@ -286,7 +291,7 @@ export interface AuthLinkedFaiberBillingGetResponseData extends JsonObject {
   "provider_id": string;
   "wallet": AuthLinkedFaiberBillingGetResponseDataWallet;
   "daily_costs": AuthLinkedFaiberBillingGetResponseDataDailyCosts;
-  "project_pricing"?: AuthLinkedFaiberBillingGetResponseDataProjectPricing | null;
+  "project_pricing": AuthLinkedFaiberBillingGetResponseDataProjectPricing | null;
 }
 export interface AuthLinkedFaiberBillingGetResponse extends ApiEnvelope<AuthLinkedFaiberBillingGetResponseData> {
 }
@@ -314,12 +319,10 @@ export interface AuthLoginPostInput extends JsonObject {
   "device_id"?: string | null;
 }
 /** Backend response type: api. */
-export interface AuthLoginPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthLoginPostResponse = import("./types.js").AuthTokensResponse;
 
 /** Backend response type: api. */
-export interface AuthLogoutGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthLogoutGetResponse = import("./contracts.types.js").IdpEmptyResponse;
 
 /** Backend query type: AuthorizeQuery. */
 export interface AuthAuthorizeGetQuery extends QueryParams {
@@ -396,20 +399,17 @@ export interface AuthOtpLoginPostInput extends JsonObject {
 export type AuthOtpLoginPostResponse = import("./contracts.types.js").HandoffAccessTokenResponse;
 
 /** Backend response type: api. */
-export interface AuthRefreshTokenGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthRefreshTokenGetResponse = import("./types.js").AuthTokensResponse;
 
 /** Backend request type: OneTimeExchangeRequest. */
 export interface AuthExchangeOneTimeTokenPostInput extends JsonObject {
   "token": string;
 }
 /** Backend response type: api. */
-export interface AuthExchangeOneTimeTokenPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthExchangeOneTimeTokenPostResponse = import("./types.js").AuthTokensResponse;
 
 /** Backend response type: api. */
-export interface AuthGenerateSecureOneTimeTokenRoutePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthGenerateSecureOneTimeTokenRoutePostResponse = import("./contracts.types.js").OneTimeTokenResponse;
 
 /** Backend request type: HandoffIssueRequest. */
 export interface AuthIssueHandoffTokenPostInput extends JsonObject {
@@ -428,12 +428,12 @@ export interface AuthListSessionsGetResponseItem extends JsonObject {
   "client": AuthListSessionsGetResponseItemClient;
   "browser": string;
   "operating_system": string;
-  "device_id"?: string | null;
-  "user_agent"?: string | null;
-  "ip_address"?: string | null;
-  "ip_address_v6"?: string | null;
+  "device_id": string | null;
+  "user_agent": string | null;
+  "ip_address": string | null;
+  "ip_address_v6": string | null;
   "created_at": string;
-  "last_accessed"?: string | null;
+  "last_accessed": string | null;
   "is_current": boolean;
 }
 export interface AuthListSessionsGetResponse extends ApiEnvelope<AuthListSessionsGetResponseItem[]> {
@@ -452,12 +452,13 @@ export interface AuthLoginTokenGetQuery extends QueryParams {
   "redirect": string;
 }
 /** Backend response type: api. */
-export interface AuthLoginTokenGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthLoginTokenGetResponse = void;
 
 /** Backend response type: raw-response. */
-export interface AuthValidateGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthValidateGetResponse = import("./types.js").ValidateSessionResponse;
+
+/** Backend response type: raw-response. */
+export type AuthValidateOptionsResponse = void;
 
 /** Backend request type: PasswordTokenRequest. */
 export interface AuthLoginWebPostInput extends JsonObject {
@@ -469,8 +470,7 @@ export interface AuthLoginWebPostInput extends JsonObject {
   "device_id"?: string | null;
 }
 /** Backend response type: api. */
-export interface AuthLoginWebPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthLoginWebPostResponse = import("./contracts.types.js").IdpEmptyResponse;
 
 /** Backend request type: EnrollmentInput. */
 export interface IdentityAuthorityEnrollPostInput extends JsonObject {
@@ -487,159 +487,13 @@ export interface IdentityAuthorityEnrollPostResponseData extends JsonObject {
 export interface IdentityAuthorityEnrollPostResponse extends ApiEnvelope<IdentityAuthorityEnrollPostResponseData> {
 }
 
-/** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
-}
-
-/** Backend query type: AuthorizeQuery. */
-export interface OidcAuthorizeGetQuery extends QueryParams {
-  "response_type": string;
-  "client_id": string;
-  "redirect_uri": string;
-  "scope": string;
-  "state": string;
-  "nonce"?: string | null;
-  "ui_locales"?: string | null;
-  "code_challenge": string;
-  "code_challenge_method": string;
-}
-/** Backend response type: redirect. */
-export type OidcAuthorizeGetResponse = void;
-
-/** Backend request type: BackchannelLogoutForm. */
-export interface OidcBackchannelLogoutPostInput extends JsonObject {
-  "logout_token": string;
-}
-/** Backend response type: no-content. */
-export type OidcBackchannelLogoutPostResponse = void;
-
-/** Backend request type: TokenOnly. */
-export interface OidcIntrospectPostInput extends JsonObject {
-  "token": string;
-  "client_id"?: string | null;
-  "client_secret"?: string | null;
-}
-/** Backend response type: Value. */
-export type OidcIntrospectPostResponse = JsonValue;
-
-/** Backend response type: Value. */
-export type OidcJwksGetResponse = JsonValue;
-
-/** Backend response type: api. */
-export interface OidcLogoutGetResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend response type: api. */
-export interface OidcLogoutPostResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend request type: TokenOnly. */
-export interface OidcRevokePostInput extends JsonObject {
-  "token": string;
-  "client_id"?: string | null;
-  "client_secret"?: string | null;
-}
-/** Backend response type: no-content. */
-export type OidcRevokePostResponse = void;
-
-/** Backend request type: TokenForm. */
-export interface OidcTokenPostInput extends JsonObject {
-  "grant_type": string;
-  "code"?: string | null;
-  "redirect_uri"?: string | null;
-  "client_id"?: string | null;
-  "client_secret"?: string | null;
-  "code_verifier"?: string | null;
-  "refresh_token"?: string | null;
-  "device_id"?: string | null;
-  "subject_token"?: string | null;
-  "subject_token_type"?: string | null;
-  "scope"?: string | null;
-}
-/** Backend response type: TokenResponse. */
-export interface OidcTokenPostResponseData extends JsonObject {
-  "access_token": string;
-  "token_type": string;
-  "expires_in": number;
-  "scope": string;
-  "id_token": string;
-  "refresh_token"?: string | null;
-}
-export type OidcTokenPostResponse = OidcTokenPostResponseData;
-
-/** Backend response type: Value. */
-export type OidcUserinfoGetResponse = JsonValue;
-
-/** Backend response type: Value. */
-export type OidcUserinfoPostResponse = JsonValue;
-
 /** Backend response type: Vec<ProviderView>. */
-export interface CustomOauthListGetResponseItem extends JsonObject {
-  "id": string;
-  "provider_key": string;
-  "display_name": string;
-  "protocol": string;
-  "issuer_url"?: string | null;
-  "authorization_url": string;
-  "token_url": string;
-  "userinfo_url": string;
-  "client_id": string;
-  "has_secret": boolean;
-  "scopes": string[];
-  "claim_mapping": JsonValue;
-  "extra_authorize_params": JsonValue;
-  "role_mapping": JsonValue;
-  "default_role_id"?: string | null;
-  "icon_url"?: string | null;
-  "display_order": number;
-  "enabled": boolean;
-}
-export interface CustomOauthListGetResponse extends ApiEnvelope<CustomOauthListGetResponseItem[]> {
-}
+export type CustomOauthListGetResponse = import("./contracts.types.js").CustomProviderListResponse;
 
 /** Backend request type: ProviderInput. */
-export interface CustomOauthCreatePostInput extends JsonObject {
-  "provider_key": string;
-  "display_name": string;
-  "protocol": string;
-  "issuer_url"?: string | null;
-  "authorization_url": string;
-  "token_url": string;
-  "userinfo_url": string;
-  "client_id": string;
-  "client_secret"?: string | null;
-  "scopes"?: string[];
-  "claim_mapping"?: JsonValue;
-  "extra_authorize_params"?: JsonValue;
-  "role_mapping"?: JsonValue;
-  "default_role_id"?: string | null;
-  "icon_url"?: string | null;
-  "display_order"?: number;
-  "enabled"?: boolean;
-}
+export type CustomOauthCreatePostInput = import("./contracts.types.js").CustomProviderInput;
 /** Backend response type: ProviderView. */
-export interface CustomOauthCreatePostResponseData extends JsonObject {
-  "id": string;
-  "provider_key": string;
-  "display_name": string;
-  "protocol": string;
-  "issuer_url"?: string | null;
-  "authorization_url": string;
-  "token_url": string;
-  "userinfo_url": string;
-  "client_id": string;
-  "has_secret": boolean;
-  "scopes": string[];
-  "claim_mapping": JsonValue;
-  "extra_authorize_params": JsonValue;
-  "role_mapping": JsonValue;
-  "default_role_id"?: string | null;
-  "icon_url"?: string | null;
-  "display_order": number;
-  "enabled": boolean;
-}
-export interface CustomOauthCreatePostResponse extends ApiEnvelope<CustomOauthCreatePostResponseData> {
-}
+export type CustomOauthCreatePostResponse = import("./contracts.types.js").CustomProviderResponse;
 
 /** Backend response type: APIEmptyResponse. */
 export interface CustomOauthRemoveDeleteResponseData extends JsonObject {
@@ -649,63 +503,24 @@ export interface CustomOauthRemoveDeleteResponseData extends JsonObject {
 export type CustomOauthRemoveDeleteResponse = CustomOauthRemoveDeleteResponseData;
 
 /** Backend request type: ProviderInput. */
-export interface CustomOauthUpdatePutInput extends JsonObject {
-  "provider_key": string;
-  "display_name": string;
-  "protocol": string;
-  "issuer_url"?: string | null;
-  "authorization_url": string;
-  "token_url": string;
-  "userinfo_url": string;
-  "client_id": string;
-  "client_secret"?: string | null;
-  "scopes"?: string[];
-  "claim_mapping"?: JsonValue;
-  "extra_authorize_params"?: JsonValue;
-  "role_mapping"?: JsonValue;
-  "default_role_id"?: string | null;
-  "icon_url"?: string | null;
-  "display_order"?: number;
-  "enabled"?: boolean;
-}
+export type CustomOauthUpdatePutInput = import("./contracts.types.js").CustomProviderInput;
 /** Backend response type: ProviderView. */
-export interface CustomOauthUpdatePutResponseData extends JsonObject {
-  "id": string;
-  "provider_key": string;
-  "display_name": string;
-  "protocol": string;
-  "issuer_url"?: string | null;
-  "authorization_url": string;
-  "token_url": string;
-  "userinfo_url": string;
-  "client_id": string;
-  "has_secret": boolean;
-  "scopes": string[];
-  "claim_mapping": JsonValue;
-  "extra_authorize_params": JsonValue;
-  "role_mapping": JsonValue;
-  "default_role_id"?: string | null;
-  "icon_url"?: string | null;
-  "display_order": number;
-  "enabled": boolean;
-}
-export interface CustomOauthUpdatePutResponse extends ApiEnvelope<CustomOauthUpdatePutResponseData> {
-}
+export type CustomOauthUpdatePutResponse = import("./contracts.types.js").CustomProviderResponse;
 
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityAdminShowGetResponseData extends JsonObject {
   "mode": string;
-  "canonical_provider_id"?: string | null;
-  "canonical_provider_key"?: string | null;
-  "canonical_display_name"?: string | null;
-  "canonical_issuer"?: string | null;
+  "canonical_provider_id": string | null;
+  "canonical_provider_key": string | null;
+  "canonical_display_name": string | null;
+  "canonical_issuer": string | null;
   "subject_policy": string;
   "jit_provisioning": boolean;
-  "activated_at"?: string | null;
-  "last_discovery_at"?: string | null;
-  "last_login_at"?: string | null;
-  "last_logout_at"?: string | null;
-  "last_error"?: string | null;
+  "activated_at": string | null;
+  "last_discovery_at": string | null;
+  "last_login_at": string | null;
+  "last_logout_at": string | null;
+  "last_error": string | null;
   "federated_session_count": number;
   "rollout_enabled": boolean;
 }
@@ -721,17 +536,17 @@ export interface IdentityAuthorityUpdatePutInput extends JsonObject {
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityUpdatePutResponseData extends JsonObject {
   "mode": string;
-  "canonical_provider_id"?: string | null;
-  "canonical_provider_key"?: string | null;
-  "canonical_display_name"?: string | null;
-  "canonical_issuer"?: string | null;
+  "canonical_provider_id": string | null;
+  "canonical_provider_key": string | null;
+  "canonical_display_name": string | null;
+  "canonical_issuer": string | null;
   "subject_policy": string;
   "jit_provisioning": boolean;
-  "activated_at"?: string | null;
-  "last_discovery_at"?: string | null;
-  "last_login_at"?: string | null;
-  "last_logout_at"?: string | null;
-  "last_error"?: string | null;
+  "activated_at": string | null;
+  "last_discovery_at": string | null;
+  "last_login_at": string | null;
+  "last_logout_at": string | null;
+  "last_error": string | null;
   "federated_session_count": number;
   "rollout_enabled": boolean;
 }
@@ -741,17 +556,17 @@ export interface IdentityAuthorityUpdatePutResponse extends ApiEnvelope<Identity
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityActivateCanonicalPostResponseData extends JsonObject {
   "mode": string;
-  "canonical_provider_id"?: string | null;
-  "canonical_provider_key"?: string | null;
-  "canonical_display_name"?: string | null;
-  "canonical_issuer"?: string | null;
+  "canonical_provider_id": string | null;
+  "canonical_provider_key": string | null;
+  "canonical_display_name": string | null;
+  "canonical_issuer": string | null;
   "subject_policy": string;
   "jit_provisioning": boolean;
-  "activated_at"?: string | null;
-  "last_discovery_at"?: string | null;
-  "last_login_at"?: string | null;
-  "last_logout_at"?: string | null;
-  "last_error"?: string | null;
+  "activated_at": string | null;
+  "last_discovery_at": string | null;
+  "last_login_at": string | null;
+  "last_logout_at": string | null;
+  "last_error": string | null;
   "federated_session_count": number;
   "rollout_enabled": boolean;
 }
@@ -769,7 +584,7 @@ export interface IdentityAuthorityDiscoverPostResponseData extends JsonObject {
   "token_endpoint": string;
   "userinfo_endpoint": string;
   "jwks_uri": string;
-  "end_session_endpoint"?: string | null;
+  "end_session_endpoint": string | null;
   "backchannel_logout_supported": boolean;
 }
 export interface IdentityAuthorityDiscoverPostResponse extends ApiEnvelope<IdentityAuthorityDiscoverPostResponseData> {
@@ -783,17 +598,17 @@ export interface IdentityAuthorityPairCanonicalPostInput extends JsonObject {
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityPairCanonicalPostResponseData extends JsonObject {
   "mode": string;
-  "canonical_provider_id"?: string | null;
-  "canonical_provider_key"?: string | null;
-  "canonical_display_name"?: string | null;
-  "canonical_issuer"?: string | null;
+  "canonical_provider_id": string | null;
+  "canonical_provider_key": string | null;
+  "canonical_display_name": string | null;
+  "canonical_issuer": string | null;
   "subject_policy": string;
   "jit_provisioning": boolean;
-  "activated_at"?: string | null;
-  "last_discovery_at"?: string | null;
-  "last_login_at"?: string | null;
-  "last_logout_at"?: string | null;
-  "last_error"?: string | null;
+  "activated_at": string | null;
+  "last_discovery_at": string | null;
+  "last_login_at": string | null;
+  "last_logout_at": string | null;
+  "last_error": string | null;
   "federated_session_count": number;
   "rollout_enabled": boolean;
 }
@@ -808,17 +623,17 @@ export interface IdentityAuthorityPairFaiberPostInput extends JsonObject {
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityPairFaiberPostResponseData extends JsonObject {
   "mode": string;
-  "canonical_provider_id"?: string | null;
-  "canonical_provider_key"?: string | null;
-  "canonical_display_name"?: string | null;
-  "canonical_issuer"?: string | null;
+  "canonical_provider_id": string | null;
+  "canonical_provider_key": string | null;
+  "canonical_display_name": string | null;
+  "canonical_issuer": string | null;
   "subject_policy": string;
   "jit_provisioning": boolean;
-  "activated_at"?: string | null;
-  "last_discovery_at"?: string | null;
-  "last_login_at"?: string | null;
-  "last_logout_at"?: string | null;
-  "last_error"?: string | null;
+  "activated_at": string | null;
+  "last_discovery_at": string | null;
+  "last_login_at": string | null;
+  "last_logout_at": string | null;
+  "last_error": string | null;
   "federated_session_count": number;
   "rollout_enabled": boolean;
 }
@@ -840,17 +655,17 @@ export interface IdentityAuthorityCreatePairingInvitationPostResponse extends Ap
 /** Backend response type: AuthorityView. */
 export interface IdentityAuthorityRecoverCanonicalModePostResponseData extends JsonObject {
   "mode": string;
-  "canonical_provider_id"?: string | null;
-  "canonical_provider_key"?: string | null;
-  "canonical_display_name"?: string | null;
-  "canonical_issuer"?: string | null;
+  "canonical_provider_id": string | null;
+  "canonical_provider_key": string | null;
+  "canonical_display_name": string | null;
+  "canonical_issuer": string | null;
   "subject_policy": string;
   "jit_provisioning": boolean;
-  "activated_at"?: string | null;
-  "last_discovery_at"?: string | null;
-  "last_login_at"?: string | null;
-  "last_logout_at"?: string | null;
-  "last_error"?: string | null;
+  "activated_at": string | null;
+  "last_discovery_at": string | null;
+  "last_login_at": string | null;
+  "last_logout_at": string | null;
+  "last_error": string | null;
   "federated_session_count": number;
   "rollout_enabled": boolean;
 }
@@ -858,44 +673,12 @@ export interface IdentityAuthorityRecoverCanonicalModePostResponse extends ApiEn
 }
 
 /** Backend response type: LoginPageSettingsResponse. */
-export interface SettingsLoginPageSettingsShowGetResponseData extends JsonObject {
-  "title"?: string | null;
-  "subtitle"?: string | null;
-  "trademark"?: string | null;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-  "localizations": Record<string, BackendJson<"LoginPageLocalization">>;
-  "mockup_asset_keys": string[];
-  "mockup_image_urls": string[];
-  "faiber_enabled": boolean;
-}
-export interface SettingsLoginPageSettingsShowGetResponse extends ApiEnvelope<SettingsLoginPageSettingsShowGetResponseData> {
-}
+export type SettingsLoginPageSettingsShowGetResponse = import("./contracts.types.js").LoginPageSettingsResponse;
 
 /** Backend request type: UpdateLoginPageSettings. */
-export interface SettingsLoginPageSettingsUpdatePutInput extends JsonObject {
-  "title"?: string | null;
-  "subtitle"?: string | null;
-  "trademark"?: string | null;
-  "icon_asset_key"?: string | null;
-  "localizations"?: Record<string, BackendJson<"LoginPageLocalization">>;
-  "mockup_asset_keys"?: string[];
-  "faiber_enabled"?: boolean;
-}
+export type SettingsLoginPageSettingsUpdatePutInput = import("./contracts.types.js").LoginPageSettingsInput;
 /** Backend response type: LoginPageSettingsResponse. */
-export interface SettingsLoginPageSettingsUpdatePutResponseData extends JsonObject {
-  "title"?: string | null;
-  "subtitle"?: string | null;
-  "trademark"?: string | null;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-  "localizations": Record<string, BackendJson<"LoginPageLocalization">>;
-  "mockup_asset_keys": string[];
-  "mockup_image_urls": string[];
-  "faiber_enabled": boolean;
-}
-export interface SettingsLoginPageSettingsUpdatePutResponse extends ApiEnvelope<SettingsLoginPageSettingsUpdatePutResponseData> {
-}
+export type SettingsLoginPageSettingsUpdatePutResponse = import("./contracts.types.js").LoginPageSettingsResponse;
 
 /** Backend request type: multipart/form-data. */
 export type SettingsLoginPageAssetUploadPostInput = FormData;
@@ -908,34 +691,21 @@ export interface SettingsLoginPageAssetUploadPostResponse extends ApiEnvelope<Se
 }
 
 /** Backend response type: raw-response. */
-export interface SettingsLoginPageAssetGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type SettingsLoginPageAssetGetResponse = import("./contracts.types.js").LoginPageAssetBytes;
 
 /** Backend response type: LoginPageSettingsResponse. */
-export interface SettingsLoginPageSettingsPublicGetResponseData extends JsonObject {
-  "title"?: string | null;
-  "subtitle"?: string | null;
-  "trademark"?: string | null;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-  "localizations": Record<string, BackendJson<"LoginPageLocalization">>;
-  "mockup_asset_keys": string[];
-  "mockup_image_urls": string[];
-  "faiber_enabled": boolean;
-}
-export interface SettingsLoginPageSettingsPublicGetResponse extends ApiEnvelope<SettingsLoginPageSettingsPublicGetResponseData> {
-}
+export type SettingsLoginPageSettingsPublicGetResponse = import("./contracts.types.js").LoginPageSettingsResponse;
 
 /** Backend response type: OAuthSettingsResponse. */
 export interface SettingsOauthSettingsShowGetResponseDataGoogle extends JsonObject {
   "client_id": string;
   "has_secret": boolean;
-  "scope"?: string | null;
+  "scope": string | null;
 }
 export interface SettingsOauthSettingsShowGetResponseDataGithub extends JsonObject {
   "client_id": string;
   "has_secret": boolean;
-  "scope"?: string | null;
+  "scope": string | null;
 }
 export interface SettingsOauthSettingsShowGetResponseData extends JsonObject {
   "google": SettingsOauthSettingsShowGetResponseDataGoogle;
@@ -963,12 +733,12 @@ export interface SettingsOauthSettingsUpdatePutInput extends JsonObject {
 export interface SettingsOauthSettingsUpdatePutResponseDataGoogle extends JsonObject {
   "client_id": string;
   "has_secret": boolean;
-  "scope"?: string | null;
+  "scope": string | null;
 }
 export interface SettingsOauthSettingsUpdatePutResponseDataGithub extends JsonObject {
   "client_id": string;
   "has_secret": boolean;
-  "scope"?: string | null;
+  "scope": string | null;
 }
 export interface SettingsOauthSettingsUpdatePutResponseData extends JsonObject {
   "google": SettingsOauthSettingsUpdatePutResponseDataGoogle;
@@ -989,7 +759,7 @@ export interface OauthClientsListGetResponseItem extends JsonObject {
   "client_type": string;
   "token_endpoint_auth_method": string;
   "trusted": boolean;
-  "service_user_id"?: string | null;
+  "service_user_id": string | null;
   "status": number;
 }
 export interface OauthClientsListGetResponse extends ApiEnvelope<OauthClientsListGetResponseItem[]> {
@@ -1021,12 +791,12 @@ export interface OauthClientsCreatePostResponseDataClient extends JsonObject {
   "client_type": string;
   "token_endpoint_auth_method": string;
   "trusted": boolean;
-  "service_user_id"?: string | null;
+  "service_user_id": string | null;
   "status": number;
 }
 export interface OauthClientsCreatePostResponseData extends JsonObject {
   "client": OauthClientsCreatePostResponseDataClient;
-  "client_secret"?: string | null;
+  "client_secret": string | null;
 }
 export interface OauthClientsCreatePostResponse extends ApiEnvelope<OauthClientsCreatePostResponseData> {
 }
@@ -1064,7 +834,7 @@ export interface OauthClientsUpdatePutResponseData extends JsonObject {
   "client_type": string;
   "token_endpoint_auth_method": string;
   "trusted": boolean;
-  "service_user_id"?: string | null;
+  "service_user_id": string | null;
   "status": number;
 }
 export interface OauthClientsUpdatePutResponse extends ApiEnvelope<OauthClientsUpdatePutResponseData> {
@@ -1082,12 +852,12 @@ export interface OauthClientsRotatePostResponseDataClient extends JsonObject {
   "client_type": string;
   "token_endpoint_auth_method": string;
   "trusted": boolean;
-  "service_user_id"?: string | null;
+  "service_user_id": string | null;
   "status": number;
 }
 export interface OauthClientsRotatePostResponseData extends JsonObject {
   "client": OauthClientsRotatePostResponseDataClient;
-  "client_secret"?: string | null;
+  "client_secret": string | null;
 }
 export interface OauthClientsRotatePostResponse extends ApiEnvelope<OauthClientsRotatePostResponseData> {
 }
@@ -1108,7 +878,7 @@ export interface OauthClientsBootstrapWebsitePostResponseData extends JsonObject
   "client_type": string;
   "token_endpoint_auth_method": string;
   "trusted": boolean;
-  "service_user_id"?: string | null;
+  "service_user_id": string | null;
   "status": number;
 }
 export interface OauthClientsBootstrapWebsitePostResponse extends ApiEnvelope<OauthClientsBootstrapWebsitePostResponseData> {
@@ -1119,6 +889,7 @@ export interface UserUsersIndexGetQuery extends QueryParams {
   "search"?: string | null;
   "status"?: string | null;
   "role_id"?: string | null;
+  "role_name"?: string | null;
   "page"?: number | null;
   "per_page"?: number | null;
 }
@@ -1130,20 +901,28 @@ export interface UserUsersIndexGetResponseDataUsersRoles extends JsonObject {
 export interface UserUsersIndexGetResponseDataUsers extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUsersIndexGetResponseDataUsersRoles[];
   "linked_providers": string[];
+}
+export interface UserUsersIndexGetResponseDataRoleFilter extends JsonObject {
+  "version": number;
+  "role_id": string | null;
+  "role_name": string | null;
+  "active_membership": boolean;
+  "user_status": string | null;
 }
 export interface UserUsersIndexGetResponseData extends JsonObject {
   "users": UserUsersIndexGetResponseDataUsers[];
   "total": number;
   "page": number;
   "per_page": number;
+  "role_filter"?: UserUsersIndexGetResponseDataRoleFilter | null;
 }
 export interface UserUsersIndexGetResponse extends ApiEnvelope<UserUsersIndexGetResponseData> {
 }
@@ -1164,10 +943,10 @@ export interface UserUserCreatePostResponseDataUserRoles extends JsonObject {
 export interface UserUserCreatePostResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserCreatePostResponseDataUserRoles[];
@@ -1187,10 +966,10 @@ export interface UserUserDeleteDeleteResponseDataUserRoles extends JsonObject {
 export interface UserUserDeleteDeleteResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserDeleteDeleteResponseDataUserRoles[];
@@ -1210,10 +989,10 @@ export interface UserUserFindGetResponseDataUserRoles extends JsonObject {
 export interface UserUserFindGetResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserFindGetResponseDataUserRoles[];
@@ -1239,10 +1018,10 @@ export interface UserUserUpdatePatchResponseDataUserRoles extends JsonObject {
 export interface UserUserUpdatePatchResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserUpdatePatchResponseDataUserRoles[];
@@ -1268,10 +1047,10 @@ export interface UserUserUpdatePutResponseDataUserRoles extends JsonObject {
 export interface UserUserUpdatePutResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserUpdatePutResponseDataUserRoles[];
@@ -1295,10 +1074,10 @@ export interface UserChangePasswordPatchResponseDataUserRoles extends JsonObject
 export interface UserChangePasswordPatchResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserChangePasswordPatchResponseDataUserRoles[];
@@ -1322,10 +1101,10 @@ export interface UserChangePasswordPutResponseDataUserRoles extends JsonObject {
 export interface UserChangePasswordPutResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserChangePasswordPutResponseDataUserRoles[];
@@ -1349,10 +1128,10 @@ export interface UserChangeRolesPatchResponseDataUserRoles extends JsonObject {
 export interface UserChangeRolesPatchResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserChangeRolesPatchResponseDataUserRoles[];
@@ -1376,10 +1155,10 @@ export interface UserChangeRolesPutResponseDataUserRoles extends JsonObject {
 export interface UserChangeRolesPutResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserChangeRolesPutResponseDataUserRoles[];
@@ -1399,10 +1178,10 @@ export interface UserUserLogoutGetResponseDataUserRoles extends JsonObject {
 export interface UserUserLogoutGetResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserLogoutGetResponseDataUserRoles[];
@@ -1413,6 +1192,14 @@ export interface UserUserLogoutGetResponseData extends JsonObject {
 }
 export interface UserUserLogoutGetResponse extends ApiEnvelope<UserUserLogoutGetResponseData> {
 }
+
+/** Backend response type: UserRoleMembershipSnapshot. */
+export type UserRoleMembershipsGetResponse = import("./memberships.js").UserRoleMembershipSnapshotResponse;
+
+/** Backend request type: AddUserRoleMemberships. */
+export type UserRoleMembershipsPostInput = import("./memberships.js").AddUserRoleMemberships;
+/** Backend response type: AddUserRoleMembershipsResult. */
+export type UserRoleMembershipsPostResponse = import("./memberships.js").AddUserRoleMembershipsResponse;
 
 /** Backend request type: UpdateUserStatus. */
 export interface UserUserSetStatusPatchInput extends JsonObject {
@@ -1426,10 +1213,10 @@ export interface UserUserSetStatusPatchResponseDataUserRoles extends JsonObject 
 export interface UserUserSetStatusPatchResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserSetStatusPatchResponseDataUserRoles[];
@@ -1453,10 +1240,10 @@ export interface UserUserSetStatusPutResponseDataUserRoles extends JsonObject {
 export interface UserUserSetStatusPutResponseDataUser extends JsonObject {
   "id": string;
   "created_at": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "active_sessions": number;
   "roles": UserUserSetStatusPutResponseDataUserRoles[];
@@ -1475,9 +1262,9 @@ export interface UserUsersDirectoryGetQuery extends QueryParams {
 /** Backend response type: DirectoryUserListResponse. */
 export interface UserUsersDirectoryGetResponseDataUsers extends JsonObject {
   "id": string;
-  "display_name"?: string | null;
-  "phone"?: string | null;
-  "email"?: string | null;
+  "display_name": string | null;
+  "phone": string | null;
+  "email": string | null;
 }
 export interface UserUsersDirectoryGetResponseData extends JsonObject {
   "users": UserUsersDirectoryGetResponseDataUsers[];
@@ -1564,9 +1351,9 @@ export interface UserUserFindSelfGetResponseDataPermissions extends JsonObject {
 }
 export interface UserUserFindSelfGetResponseData extends JsonObject {
   "id": string;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "roles": UserUserFindSelfGetResponseDataRoles[];
   "permissions": UserUserFindSelfGetResponseDataPermissions[];
@@ -1591,9 +1378,9 @@ export interface UserUserUpdateSelfPatchResponseDataPermissions extends JsonObje
 }
 export interface UserUserUpdateSelfPatchResponseData extends JsonObject {
   "id": string;
-  "phone"?: string | null;
-  "email"?: string | null;
-  "national_code"?: string | null;
+  "phone": string | null;
+  "email": string | null;
+  "national_code": string | null;
   "status": number;
   "roles": UserUserUpdateSelfPatchResponseDataRoles[];
   "permissions": UserUserUpdateSelfPatchResponseDataPermissions[];
@@ -1624,3 +1411,89 @@ export interface UserUsersStatsGetResponse extends ApiEnvelope<UserUsersStatsGet
 /** Backend response type: bool. */
 export interface UserSyncUsersGetResponse extends ApiEnvelope<boolean> {
 }
+
+/** Backend response type: HealthResponse. */
+export type RouterStatusRouteGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
+
+/** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
+export type IntegrationFlowIntegrationShowGetResponse = import("./contracts.types.js").IdpFlowIntegrationResponse;
+
+/** Backend query type: AuthorizeQuery. */
+export interface OidcAuthorizeGetQuery extends QueryParams {
+  "response_type": string;
+  "client_id": string;
+  "redirect_uri": string;
+  "scope": string;
+  "state": string;
+  "nonce"?: string | null;
+  "ui_locales"?: string | null;
+  "code_challenge": string;
+  "code_challenge_method": string;
+}
+/** Backend response type: redirect. */
+export type OidcAuthorizeGetResponse = void;
+
+/** Backend request type: BackchannelLogoutForm. */
+export interface OidcBackchannelLogoutPostInput extends JsonObject {
+  "logout_token": string;
+}
+/** Backend response type: no-content. */
+export type OidcBackchannelLogoutPostResponse = void;
+
+/** Backend request type: TokenOnly. */
+export interface OidcIntrospectPostInput extends JsonObject {
+  "token": string;
+  "client_id"?: string | null;
+  "client_secret"?: string | null;
+}
+/** Backend response type: Value. */
+export type OidcIntrospectPostResponse = import("./contracts.types.js").OidcIntrospection;
+
+/** Backend response type: Value. */
+export type OidcJwksGetResponse = import("./contracts.types.js").OidcJwks;
+
+/** Backend response type: api. */
+export type OidcLogoutGetResponse = void;
+
+/** Backend response type: api. */
+export type OidcLogoutPostResponse = void;
+
+/** Backend request type: TokenOnly. */
+export interface OidcRevokePostInput extends JsonObject {
+  "token": string;
+  "client_id"?: string | null;
+  "client_secret"?: string | null;
+}
+/** Backend response type: no-content. */
+export type OidcRevokePostResponse = void;
+
+/** Backend request type: TokenForm. */
+export interface OidcTokenPostInput extends JsonObject {
+  "grant_type": string;
+  "code"?: string | null;
+  "redirect_uri"?: string | null;
+  "client_id"?: string | null;
+  "client_secret"?: string | null;
+  "code_verifier"?: string | null;
+  "refresh_token"?: string | null;
+  "device_id"?: string | null;
+  "subject_token"?: string | null;
+  "subject_token_type"?: string | null;
+  "scope"?: string | null;
+}
+/** Backend response type: TokenResponse. */
+export interface OidcTokenPostResponseData extends JsonObject {
+  "access_token": string;
+  "token_type": string;
+  "expires_in": number;
+  "scope": string;
+  "id_token": string;
+  "refresh_token"?: string | null;
+}
+export type OidcTokenPostResponse = OidcTokenPostResponseData;
+
+/** Backend response type: Value. */
+export type OidcUserinfoGetResponse = import("./contracts.types.js").OidcUserInfo;
+
+/** Backend response type: Value. */
+export type OidcUserinfoPostResponse = import("./contracts.types.js").OidcUserInfo;

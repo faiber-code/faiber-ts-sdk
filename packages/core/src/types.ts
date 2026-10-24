@@ -1,4 +1,4 @@
-import type { AxiosInstance, AxiosRequestConfig, CreateAxiosDefaults, } from "axios";
+import type { AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig, CreateAxiosDefaults, } from "axios";
 export const SERVICE_NAMES = [
     "idp",
     "profile",
@@ -19,11 +19,14 @@ export const SERVICE_NAMES = [
     "drm",
    "task",
     "manage",
+    "gis",
 ] as const;
 export type ServiceName = (typeof SERVICE_NAMES)[number];
 export type ServiceDomains = Partial<Record<ServiceName, string>>;
 export type MaybePromise<T> = T | Promise<T>;
 export type Identifier = string | number;
+/** Standard methods for source-reviewed Axum ANY handlers. */
+export type HttpRequestMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE" | "HEAD" | "OPTIONS" | "TRACE" | "CONNECT";
 export type JsonPrimitive = string | number | boolean | null;
 export type JsonValue = JsonPrimitive | JsonValue[] | JsonObject;
 export interface JsonObject {
@@ -148,4 +151,29 @@ export interface FaiberSdkConfig {
     onAuthFailure?: (error: unknown) => MaybePromise<void>;
     createAxios?: (config: CreateAxiosDefaults, service: ServiceName) => AxiosInstance;
 }
-export type RequestOptions<D = unknown> = Omit<AxiosRequestConfig<D>, "url" | "method" | "data" | "params">;
+/** Request metadata supplied to the XSRF predicate. Excludes the predicate itself
+ * to avoid recursively invariant request-body types in Axios1.20 and later.
+ * D describes the encoded wire body, not the pre-encoding service input.
+ */
+export type RequestOptionsContext<D = unknown> = Omit<InternalAxiosRequestConfig<D>, "withXSRFToken">;
+export type RequestOptions<D = unknown> = Omit<AxiosRequestConfig<D>, "url" | "method" | "data" | "params" | "withXSRFToken"> & {
+    withXSRFToken?: boolean | ((config: RequestOptionsContext<D>) => boolean | undefined);
+};
+
+/** Process-only health returned by the mounted Asset, IDP, Modules and Payment routers. */
+export interface ServiceHealth { version: string }
+export type ServiceHealthResponse = ApiEnvelope<ServiceHealth>;
+/** OpenAPI's extension and schema objects are dynamic JSON by specification. */
+export interface ServiceOpenApiInfo extends JsonObject { title: string; version: string; description?: string }
+export interface ServiceOpenApiServer extends JsonObject { url: string; description?: string }
+export interface ServiceOpenApiTag extends JsonObject { name: string; description?: string }
+/** Raw Utoipa OpenAPI document, not an ApiEnvelope. */
+export interface ServiceOpenApiDocument extends JsonObject {
+    openapi: string;
+    info: ServiceOpenApiInfo;
+    paths: Record<string, JsonObject>;
+    components?: JsonObject;
+    servers?: ServiceOpenApiServer[];
+    tags?: ServiceOpenApiTag[];
+    security?: Record<string, string[]>[];
+}

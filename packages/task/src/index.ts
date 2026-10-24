@@ -1,3 +1,4 @@
+import { FeedbackApi } from './feedback.js';
 import { TaskWorkspaceOperations } from "./workspace.js";
 import { TaskCollaborationOperations } from "./collaboration.js";
 import { ServiceApi, type Identifier, type RequestOptions } from "@faiber/sdk-core";
@@ -11,6 +12,7 @@ const versionOptions = <TData>(version: number, options?: RequestOptions<TData>)
 /** Typed client for every authenticated route mounted by Faiber Tasks. */
 import { TaskOperations } from "./operations.js";
 export class TaskApi extends ServiceApi {
+  readonly feedback = new FeedbackApi(this.client);
   readonly collaboration = new TaskCollaborationOperations(this.client);
   readonly workspaceAssistant = new TaskWorkspaceOperations(this.client);
     readonly operations = new TaskOperations(this.client);
@@ -173,7 +175,7 @@ export class TaskApi extends ServiceApi {
     return this.client.post<T.TaskResponse<T.AgentProposal>, T.AgentProposalInput>("/api/v1/agent-proposals", data, options);
   }
 
-  /** Applies a pending proposal after a distinct actor with `agent.approve` reviews it. */
+  /** Marks a pending agent proposal approved after a distinct actor with `agent.approve` reviews it. The stored payload is not executed. */
   approveAgentProposal(id: Identifier, options?: RequestOptions) {
     return this.client.post<T.TaskResponse<T.ApprovedAgentProposal>>(
       `/api/v1/agent-proposals/${encodeURIComponent(id)}/approve`,
@@ -195,9 +197,12 @@ export class TaskApi extends ServiceApi {
 }
 
 export * from "./types.js";
+export * from "./wire.types.js";
 export * from "./collaboration.js";
 export * from "@faiber/sdk-core";
 export * from "./operations.js";
 export * from "./operations.types.js";
 
 export * from "./workspace.js";
+
+export * from "./feedback.js";

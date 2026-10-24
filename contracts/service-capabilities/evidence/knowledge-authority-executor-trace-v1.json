@@ -1,0 +1,159 @@
+{
+  "at": "2026-10-20T10:04:06.259867+00:00",
+  "status": "bounded_source_contract_trace_not_runtime_certification",
+  "sources": [
+    {
+      "service": "knowledge",
+      "revision": "0e2fe686575dc2f59edfa150b2d4846eaed8988c",
+      "path": "Cargo.toml",
+      "sha256": "799dd2694927f3ecf4406521752f138bc3bf0bc7f284d83d845df76a0dd52969"
+    },
+    {
+      "service": "knowledge",
+      "revision": "0e2fe686575dc2f59edfa150b2d4846eaed8988c",
+      "path": "src/main.rs",
+      "sha256": "14c53814300d2e3afdb1a5f70357ee5e863a7bd2721668bf965b283507787d0e"
+    },
+    {
+      "service": "knowledge",
+      "revision": "0e2fe686575dc2f59edfa150b2d4846eaed8988c",
+      "path": "src/context.rs",
+      "sha256": "e015d5ef0e82a786fcafc06d67dd4363ff6e83bd4d55655bdc9b09177bddadaf"
+    },
+    {
+      "service": "knowledge",
+      "revision": "0e2fe686575dc2f59edfa150b2d4846eaed8988c",
+      "path": "src/platform.rs",
+      "sha256": "f950d33e5af6d6dfbe446a417c3282958f5e287cbd314ba2b62c1d1d7e582041"
+    },
+    {
+      "service": "knowledge",
+      "revision": "0e2fe686575dc2f59edfa150b2d4846eaed8988c",
+      "path": "src/broker.rs",
+      "sha256": "7945a5d519098e7dc22655772b4a5dfede32e79da3a9473fdfe4249f775f0edc"
+    },
+    {
+      "service": "control",
+      "revision": "60b2a772066b46d0dde00cf655a6457144016553",
+      "path": "crates/faiber-core/src/ops/workloads.rs",
+      "sha256": "1c1a86ac09a9112266b197a1b7623d913760afe21ad20e9ef9f7c10b82efc0e9"
+    },
+    {
+      "service": "control",
+      "revision": "60b2a772066b46d0dde00cf655a6457144016553",
+      "path": "crates/faiber-core/src/ops/sandboxes.rs",
+      "sha256": "22151b204a16c35fb9fa742e8b649d7588390bcaad5f21c0a17a21b98373111e"
+    },
+    {
+      "service": "manage",
+      "revision": "adaab7d68843c5fdd697b2098e9622da7a4f750b",
+      "path": "src/proxy.rs",
+      "sha256": "d7bea121562b76cf8a127d8488e0f4bc69375d9612d1b72bc36368f981d3d8ce"
+    },
+    {
+      "service": "manage",
+      "revision": "adaab7d68843c5fdd697b2098e9622da7a4f750b",
+      "path": "src/runtime.rs",
+      "sha256": "53eaf932f8b7b8b99d515f16ba99327a4bb4f681aeb5e7ba97641b96bd95ad6a"
+    },
+    {
+      "service": "chat",
+      "revision": "7de27e4843cd7fb394a7590b49d4b78fdc0a0c9a",
+      "path": "src/agentic.rs",
+      "sha256": "796cba95ca2e0365de0ed8830458c87b97d48d16e558df60858206f38651c9c7"
+    },
+    {
+      "service": "chat",
+      "revision": "7de27e4843cd7fb394a7590b49d4b78fdc0a0c9a",
+      "path": "src/service.rs",
+      "sha256": "8805a22cb033f812effd051b20bab394aa4bf15561f54c5d184ecfa78e44ad32"
+    },
+    {
+      "service": "chat",
+      "revision": "7de27e4843cd7fb394a7590b49d4b78fdc0a0c9a",
+      "path": "src/outbox_relay.rs",
+      "sha256": "e8fd9268bfa14a550977413253b799a60e53b916f711e15590efa9764b47a940"
+    },
+    {
+      "service": "chat",
+      "revision": "7de27e4843cd7fb394a7590b49d4b78fdc0a0c9a",
+      "path": "src/main.rs",
+      "sha256": "61e69188274b0415ed10a476dc6c5f42f926217a1d745bc278a54fa17908cf16"
+    },
+    {
+      "service": "chat",
+      "revision": "7de27e4843cd7fb394a7590b49d4b78fdc0a0c9a",
+      "path": "entity/src/outbox_event.rs",
+      "sha256": "afdc3ba29c43a0675e1e9b3273799e5a1e4d4781202fd0975a183c0e7bd2dd75"
+    },
+    {
+      "service": "agentic",
+      "revision": "ffc089bb0ea901ac53ffc81874835e6d0d4d5ea2",
+      "path": "src/agent_runtime/context.rs",
+      "sha256": "73f8e510aefaa2e594e5367eda34186bffd9ad25677cdc6a35eac36c9290cb78"
+    },
+    {
+      "service": "agentic",
+      "revision": "ffc089bb0ea901ac53ffc81874835e6d0d4d5ea2",
+      "path": "src/agent_runtime/tooling.rs",
+      "sha256": "a1a70e6ceaf24d88cbfb2196de18e66f8d02a24260e3e44107e34f63124848e5"
+    },
+    {
+      "service": "agentic",
+      "revision": "ffc089bb0ea901ac53ffc81874835e6d0d4d5ea2",
+      "path": "src/ide/summarize.rs",
+      "sha256": "9dd06fe36a3deeb8043ea08c8e86a1cd4e4a74c2d615007f48fbdb27f424e843"
+    },
+    {
+      "service": "agentic",
+      "revision": "ffc089bb0ea901ac53ffc81874835e6d0d4d5ea2",
+      "path": "src/ide/history_retention.rs",
+      "sha256": "ee6cc37c03bf694f80fbcc21163de951fbf03ed47c6e404c81b77ce245ce0684"
+    },
+    {
+      "service": "agentic",
+      "revision": "ffc089bb0ea901ac53ffc81874835e6d0d4d5ea2",
+      "path": "src/ide/mod.rs",
+      "sha256": "15f9345f10b370411bfbe03b8940c0eb5109ed479de70cc59fa1e7e49bfba1b9"
+    },
+    {
+      "service": "agentic",
+      "revision": "ffc089bb0ea901ac53ffc81874835e6d0d4d5ea2",
+      "path": "faiber-agent-core/src/context.rs",
+      "sha256": "c97a1be406f0b4aaf5be14f761511385862c46bf14cb5dfcd6c060aec4f025d6"
+    }
+  ],
+  "authority": {
+    "knowledge": "Selected app uses the resolved IDP SDK header extractor; RequestContext reads organization from caller header and service token grantsknowledge:*. Native current identity/tenant delegation is not certified.",
+    "control": "60b source strips caller x-user-id/roles/permissions and x-service on sandbox ingress, then conditionally attaches IDPForwardAuth copying verifiedidentityheaders. Knowledge qualifies by infera-prefix policy. Actual deployed chain/currentIDP receipts/networkisolation remain uninspected here. Core protection is configuration-dependent.",
+    "manage": "ada proxy removes caller authorization/identity/organization headers, derivesorganization from sessionclaims, and forwards configured service grantset+optionalbearer. Current projectauthority uses bounded5s Agentic authority receipt. This does not by itself certify Knowledge currenttenant/native enforcement.",
+    "service_credentials": "60b derives Knowledge token through a named Secret reference and core service-token provisioning, rather than a plaintext package constant. Service delegation/project binding still needs verification; no secret values were read."
+  },
+  "executor": {
+    "processing_jobs": "Inspected Knowledge startup spawns only DRM RabbitMQsyncconsumer and memory-outboxworker; no claimant/executor for source_sync/document_reprocess in inspected source. Candidate source lifecycle green proves durable admission identity/atomicity, not execution.",
+    "source_types": "Ten validation-recognized kinds are configuration kinds, not proof of ten functioning adapters. Source config schema,network rules and eachadapter need explicit semantic/execution evidence.",
+    "memory_worker": "Claim query accepts pending/retry, not expiredprocessing; final success/retry updates filter only jobid, notleaseowner. Memorywrites/receipt/audit are separate statements. Crash recovery/stale worker fencing and sourceforget/correction semantics remain unproved.",
+    "broker": "Knowledge binds only DRMcomposition request/result keys in this selectedbroker implementation; no durable Chatmemory eventconsumer is wired here."
+  },
+  "chat_conversation_authority": {
+    "positive": "Selected7de has a chat_outbox_events relay with reclaimable leases and attempts-based completion fencing, so the old statement that the selected source has no dispatcher is stale.",
+    "remaining": [
+      "Directrecord_assistant_memory logs transporterrors only; HTTPfailure/queuedreceipt are not validated.",
+      "Memoryevent insertion occurs after assistantmessage persistence and directHTTP request, outside their atomic transaction.",
+      "Memoryevent aggregate_id is assistantmessage.id; genericrelay queries chat_conversations using thataggregate asconversation.id.",
+      "Genericrelay transforms any non-message payload into read-receipt-like data, so it does not preserve fullmemoryturn envelope.",
+      "Even a published event lacks a corresponding selectedKnowledge Chatmemory binding/consumer; edits/deletes/revocation need source revision events andforgetfences."
+    ]
+  },
+  "agent_adoption": {
+    "current_agentic": "ffc search_faiber_knowledge still searches local dashboardcatalog; no Knowledgebrain migration performed by this task.",
+    "context_caps": "Current generic runtime declares history32000/project12000/summary6000/external14000/surface3000 caps; helper uses UTF8 byte-safe truncation, not measured modeltoken accounting. faiber-agent-core evidence selection has a tokenestimator; actual perrole budgets/adoption need endtoend proof.",
+    "pastil_preserved": "ffc rolling summarization uses history_retention capture/apply, authorizes project access and documents preservation of source records with transaction failure safety. Do not regress it to the original planning baseline destructive behavior.",
+    "required_scopes": "Ask personal peruser across authorizedAskchats; Code/Design/Manage stableprojectID. Tenant/currentmembership, deterministicinstructionrelease, boundedcontext/outage/migrationrollback still need implementation/verification."
+  },
+  "limits": [
+    "Source-only trace; no live requests/credentials/configuration/security changes, model/provider calls, migration, DDL or publication.",
+    "No test duration is a modelquality/latency benchmark.",
+    "SDKpin remains4f; newsource0e2 is locally verified candidate, not deployed or adopted."
+  ]
+}

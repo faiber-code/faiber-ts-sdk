@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-crm",
+  "version": "1.1.0",
+  "source_revisions": {
+    "crm": {
+      "directory": "infera-crm",
+      "revision": "77e2e4a7660e007aefef81e27337476c6d748cac"
+    }
+  },
+  "package_source_sha256": {
+    "packages/crm/src/contracts.types.ts": "a258fa87a503da5572b1078e544424d7b9aca6c773b25d771af0930a379be048",
+    "packages/crm/src/index.ts": "9954b6e10e3ffc8f4ac9db43cbc981590fcdf2e6100aeebd9c102d376e455562",
+    "packages/crm/src/operations.ts": "349903cc503064725a2be2a95201067e3830de1d9dacf7c319e377eb2bc82462",
+    "packages/crm/src/operations.types.ts": "7c0d659a28215f2fabdae45bc2cbaeca5dd3537ba37597f1ab3d0657d07f041c",
+    "packages/crm/src/types.ts": "0aa837b22f7711b0947beb9143fec81cb1ae74fe9f7445c5694c1accf9a35607"
+  },
+  "capability_review_sha256": "960e955229cfc2979d5035b9b7ff6fd25dfcec40e47ba6fe3a1157fa9583bc08",
+  "source_pin_file_sha256": "bcfd980e1db1c6498d3769a33c70ac61c46dcbba09bf01eb97c857bebf8927d6",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
+  "public_contract": {
+    "kind": "source-extracted-http",
+    "operation_count": 92,
+    "sha256": "fa6f320175813e43eb36f9c423eda738d5c0bef5d2026c48df9ef0afb7c1270f"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

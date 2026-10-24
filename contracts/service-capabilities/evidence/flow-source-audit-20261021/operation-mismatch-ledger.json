@@ -1,0 +1,282 @@
+{
+  "revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+  "operations": [
+    {
+      "operation": "GET /",
+      "methodName": "routerStatusRouteGet",
+      "method": "GET",
+      "path": "/",
+      "pathArgs": [],
+      "hasBody": false,
+      "hasQuery": false,
+      "responseType": "FlowHealthResponse",
+      "inputType": null,
+      "queryType": null,
+      "source_checksum": "dbc719e8f7bb6be1400fb60e3c83b977921b1df9c6599a8e49f68934afd4912c"
+    },
+    {
+      "operation": "GET /health",
+      "methodName": "routerStatusRouteGetHealth",
+      "method": "GET",
+      "path": "/health",
+      "pathArgs": [],
+      "hasBody": false,
+      "hasQuery": false,
+      "responseType": "FlowHealthResponse",
+      "inputType": null,
+      "queryType": null,
+      "source_checksum": "30d22585b17df9a4bef0ac4659e9b2da90c31826e6eea3d617a9886a4ee377a8"
+    },
+    {
+      "operation": "GET /up",
+      "methodName": "routerStatusRouteGetUp",
+      "method": "GET",
+      "path": "/up",
+      "pathArgs": [],
+      "hasBody": false,
+      "hasQuery": false,
+      "responseType": "FlowHealthResponse",
+      "inputType": null,
+      "queryType": null,
+      "source_checksum": "282b617ae7c550c2a68ec1657b195f9e539a45d00271382b4a04e7b5fcc1ff3a"
+    },
+    {
+      "operation": "GET /api/v1/integration/flow",
+      "methodName": "routerIntegrationFlowGet",
+      "method": "GET",
+      "path": "/api/v1/integration/flow",
+      "pathArgs": [],
+      "hasBody": false,
+      "hasQuery": false,
+      "responseType": "FlowIntegrationResponse",
+      "inputType": null,
+      "queryType": null,
+      "source_checksum": "7128b0c484c4d4b587822127e74ab6940da00dc5936b69d4ee913bd35b2b360d"
+    },
+    {
+      "operation": "GET /api/v1/flows",
+      "methodName": "flowIndexGet",
+      "method": "GET",
+      "path": "/api/v1/flows",
+      "pathArgs": [],
+      "hasBody": false,
+      "hasQuery": false,
+      "responseType": "FlowListResponse",
+      "inputType": null,
+      "queryType": null,
+      "source_checksum": "2a9dd2393c579476c014ed9742560fa4dcdd44f2176493605753c2819ca98fac"
+    },
+    {
+      "operation": "POST /api/v1/flows",
+      "methodName": "flowStorePost",
+      "method": "POST",
+      "path": "/api/v1/flows",
+      "pathArgs": [],
+      "hasBody": true,
+      "hasQuery": false,
+      "responseType": "FlowResponse",
+      "inputType": "CreateFlowInput",
+      "queryType": null,
+      "source_checksum": "3c92f2a50fc3757614918306d9a60b282d22ae89b0256d43a2735357e1dbe83e"
+    },
+    {
+      "operation": "GET /api/v1/flows/{id}",
+      "methodName": "flowShowGet",
+      "method": "GET",
+      "path": "/api/v1/flows/{id}",
+      "pathArgs": [
+        "id"
+      ],
+      "hasBody": false,
+      "hasQuery": false,
+      "responseType": "FlowResponse",
+      "inputType": null,
+      "queryType": null,
+      "source_checksum": "314250119372b4153860c3db3062ac29df81080e636a765c0f6f0432d43849ed"
+    },
+    {
+      "operation": "PUT /api/v1/flows/{id}",
+      "methodName": "flowUpdatePut",
+      "method": "PUT",
+      "path": "/api/v1/flows/{id}",
+      "pathArgs": [
+        "id"
+      ],
+      "hasBody": true,
+      "hasQuery": false,
+      "responseType": "FlowResponse",
+      "inputType": "UpdateFlowInput",
+      "queryType": null,
+      "source_checksum": "a187ef291fbbdd4167188a2f05189fa23fb3791dced55430252cd00baa4bce14"
+    },
+    {
+      "operation": "DELETE /api/v1/flows/{id}",
+      "methodName": "flowDestroyDelete",
+      "method": "DELETE",
+      "path": "/api/v1/flows/{id}",
+      "pathArgs": [
+        "id"
+      ],
+      "hasBody": false,
+      "hasQuery": false,
+      "responseType": "FlowDeleteResponse",
+      "inputType": null,
+      "queryType": null,
+      "source_checksum": "283658732bbbe3c9cfd6f09155a4a11db442e0e4336d3e73fe5ae9c6f199f506"
+    },
+    {
+      "operation": "POST /api/v1/flows/{id}/validate",
+      "methodName": "flowValidatePost",
+      "method": "POST",
+      "path": "/api/v1/flows/{id}/validate",
+      "pathArgs": [
+        "id"
+      ],
+      "hasBody": false,
+      "hasQuery": false,
+      "responseType": "FlowValidationResponse",
+      "inputType": null,
+      "queryType": null,
+      "source_checksum": "285ae6e0753cae72e713a933debd78506b19d337c1ca38eaa83742da4381f497"
+    },
+    {
+      "operation": "POST /api/v1/flows/import",
+      "methodName": "flowImportPost",
+      "method": "POST",
+      "path": "/api/v1/flows/import",
+      "pathArgs": [],
+      "hasBody": true,
+      "hasQuery": false,
+      "responseType": "ImportFlowsResponse",
+      "inputType": "ImportFlowsInput",
+      "queryType": null,
+      "source_checksum": "4df6c9b865ba3f463bb4bb539bd216d8c3357ca7444d092efcc6839fecc95909"
+    },
+    {
+      "operation": "POST /api/v1/events/{event_key}",
+      "methodName": "eventEmitPost",
+      "method": "POST",
+      "path": "/api/v1/events/{event_key}",
+      "pathArgs": [
+        "event_key"
+      ],
+      "hasBody": true,
+      "hasQuery": false,
+      "responseType": "EmitFlowEventResponse",
+      "inputType": "EmitFlowEventInput",
+      "queryType": null,
+      "source_checksum": "60a7ff97159c05952b9570d627e64ba4a73b73d20b458d11b8330166331be626"
+    },
+    {
+      "operation": "GET /api/v1/catalog/triggers",
+      "methodName": "catalogTriggersGet",
+      "method": "GET",
+      "path": "/api/v1/catalog/triggers",
+      "pathArgs": [],
+      "hasBody": false,
+      "hasQuery": false,
+      "responseType": "TriggerCatalogResponse",
+      "inputType": null,
+      "queryType": null,
+      "source_checksum": "eeaa727caf3d045c345fdebeb92973fcd9bc110d28aacf5d63e50b965a88baaa"
+    },
+    {
+      "operation": "GET /api/v1/catalog/actions",
+      "methodName": "catalogActionsGet",
+      "method": "GET",
+      "path": "/api/v1/catalog/actions",
+      "pathArgs": [],
+      "hasBody": false,
+      "hasQuery": false,
+      "responseType": "ActionCatalogResponse",
+      "inputType": null,
+      "queryType": null,
+      "source_checksum": "d6ad100686053ee0d01027b5fcc694c119489504be873c2122cb710eafa11a00"
+    },
+    {
+      "operation": "POST /api/v1/catalog/sync",
+      "methodName": "catalogSyncPost",
+      "method": "POST",
+      "path": "/api/v1/catalog/sync",
+      "pathArgs": [],
+      "hasBody": false,
+      "hasQuery": false,
+      "responseType": "CatalogSyncResponse",
+      "inputType": null,
+      "queryType": null,
+      "source_checksum": "69875f92c74d6cc74c8c7a35683df9f6b91e5b6271d80cea09b9edfcdbf71f4a"
+    },
+    {
+      "operation": "GET /api/v1/registry/active-triggers",
+      "methodName": "registryActiveTriggersGet",
+      "method": "GET",
+      "path": "/api/v1/registry/active-triggers",
+      "pathArgs": [],
+      "hasBody": false,
+      "hasQuery": true,
+      "responseType": "ActiveTriggersResponse",
+      "inputType": null,
+      "queryType": "ActiveTriggersQuery",
+      "source_checksum": "eb2130231ceb72014894d4a565a2154361070b1612fe24f6698e7418053879ae"
+    },
+    {
+      "operation": "GET /api/v1/runs",
+      "methodName": "runIndexGet",
+      "method": "GET",
+      "path": "/api/v1/runs",
+      "pathArgs": [],
+      "hasBody": false,
+      "hasQuery": true,
+      "responseType": "FlowRunListResponse",
+      "inputType": null,
+      "queryType": "FlowRunsQuery",
+      "source_checksum": "24664bdf3434c6d5494b9e7888c55236c8fef557a1fe23428c9e03092bb19234"
+    },
+    {
+      "operation": "GET /api/v1/runs/{id}",
+      "methodName": "runShowGet",
+      "method": "GET",
+      "path": "/api/v1/runs/{id}",
+      "pathArgs": [
+        "id"
+      ],
+      "hasBody": false,
+      "hasQuery": false,
+      "responseType": "FlowRunResponse",
+      "inputType": null,
+      "queryType": null,
+      "source_checksum": "91a484c5946d33c8f94d0b5ae59a1d4237e422ccd965b11cd6ba69855902fe53"
+    }
+  ],
+  "fixed_mismatches": [
+    "Convenience Flow/Create/Update now graph/slug/enabled/trigger_key source models instead of invented trigger/actions/status",
+    "Delete now typed success envelope, not generic core deleted result",
+    "Registry now version+triggers with service query, not ActiveTrigger array",
+    "Run show enabled and detail flattened/nullability preserved; run list limit query",
+    "Catalog sync now report/count/failure shapes, not synced boolean",
+    "Event accepted and graph-validation responses concrete instead of arbitrary JSON",
+    "Import mapping now concrete JsonObject; named nested imported bridge/group types",
+    "Integration metadata concrete candidate-source shape with unresolved exact dependency acceptance recorded",
+    "All18 operation contracts reviewed with local vs declared authorization and global scope distinguished",
+    "Event JSON scalar/null bodies explicitly use application/json through convenience transport and shared-generator jsonBody override"
+  ],
+  "execution_retry_findings": [
+    "New UUID for every HTTP event; no idempotency key or cross-run deduplication",
+    "Enabled flow match uses segment templates; per-flow execution errors swallowed after logging",
+    "LIFO graph traversal with visited node IDs; cycles do not revisit nodes; unknown types pass through",
+    "Step insert skipped if same run+node exists, including earlier edge record, so emitted payload may remain null",
+    "Queue publish uses delivery_mode1 and default exchange; action queue from override/catalog; no backend execution retry loop",
+    "Broker endpoint consumer ACKs process success, NACK requeue:false on process errors; swallowed per-flow failures still ACK",
+    "Mutations notify after persistence/commit;500 does not imply rollback; dry-run explicitly rolls back",
+    "Graph validation does not enforce acyclicity/reachability or trigger key equality"
+  ],
+  "limits": {
+    "external_dependency_revision": "Observed local patched dependency graph is checksum-confirmed faiber-sdk291c81a67bc302d667fb807da2af3240598bee52 from prior Oct19 input evidence; immutable production dependency resolution remains unrecorded. See dependency-identity-investigation.json.",
+    "native_or_deployed_execution": "not run",
+    "sdk_tests": "fixtures prepared, not run per orchestration"
+  },
+  "prepared_checks": [
+    "tests/flow-source-wire.test.mjs: all18 exact operation methods, encoded paths, bodies, queries, Bearer, cookie, cancellation, Axios status/headers",
+    "tests/flow-source-wire.types.ts: concrete graph/import/delete/run detail/registry/envelope compile assertions and negative fixtures"
+  ]
+}

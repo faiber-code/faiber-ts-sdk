@@ -20,7 +20,43 @@ export interface ManageProjectSummary extends JsonObject {
   domain?: string | null;
 }
 
+export interface ManageRuntimeStatus extends JsonObject {
+  /** Current Agentic project status, or unavailable when its authority cannot be read. */
+  status: string;
+  reauth_required: boolean;
+}
+
+/** Panel HTML after the default303 logout redirect; configure Node redirects to inspect its cookie. */
+export type ManageLogoutResponse = string;
+
+export interface ManageHealthResponse extends JsonObject {
+  status: "ok";
+  service: "infera-manage";
+}
+
+export interface ManageSetupStep extends JsonObject {
+  service: string;
+  connected: boolean;
+  configured: boolean;
+  providerVerified: boolean;
+  setupNeeded: boolean;
+  verificationError?: string;
+}
+
+export interface ManageSetupPrerequisites extends JsonObject {
+  [locale: string]: string[];
+}
+
+export interface ManageSetupResponse extends JsonObject {
+  project: string;
+  services: ManageSetupStep[];
+  /** Null when persistence returned a newer-report receipt without prerequisites. */
+  prerequisites: ManageSetupPrerequisites | null;
+  checkedAt: string;
+}
+
 export interface ManageMeResponse extends JsonObject {
+  runtime: ManageRuntimeStatus;
   userId: string;
   project: ManageProjectSummary;
   enabledServices: string[];
@@ -81,8 +117,8 @@ export interface ManageImageUploadResponse extends JsonObject {
 }
 
 export interface ManageAgentThreadInput extends JsonObject {
-  title?: string;
-  ide_mode?: "code";
+  title?: string | null;
+  ide_mode?: "code" | null;
 }
 
 /** Cursor ordering is updated_at then ID, both descending; cursors survive deletion. */
@@ -120,6 +156,17 @@ export interface ManageAgentThreadResponse extends JsonObject {
   updated_at: string;
 }
 
+/** BSON serde emits extended JSON for message timestamps (unlike RFC3339 thread views). */
+export interface ManageMessageTimestamp extends JsonObject {
+  $date: string | { $numberLong: string };
+}
+
+export interface ManageAgentMessageQuery extends QueryParams {
+  limit?: number;
+  /** Exclusive RFC3339 timestamp; messages are returned in chronological order. */
+  before?: string;
+}
+
 export interface ManageAgentMessage extends JsonObject {
   id: string;
   thread_id: string;
@@ -128,7 +175,7 @@ export interface ManageAgentMessage extends JsonObject {
   tool_calls?: JsonValue | null;
   snapshot_id?: string | null;
   changed_files?: string[];
-  created_at: string;
+  created_at: ManageMessageTimestamp;
 }
 
 export interface ManageAgentCancelInput extends JsonObject {
@@ -140,6 +187,13 @@ export interface ManageAgentCancelResponse extends JsonObject {
   status: string;
   run_id?: string;
   cancelled_jobs?: number;
+  message?: string;
+  message_id?: string;
+  snapshot_id?: string | null;
+  changed_files?: string[];
+  tool_calls?: JsonValue;
+  error?: string | null;
+  source_result_state?: "withheld";
 }
 
 export interface ManageAgentChatInput extends JsonObject {
@@ -150,7 +204,16 @@ export interface ManageAgentChatInput extends JsonObject {
   context?: ManageAgentPreferences;
   project_slug?: string;
   selected_node_ids?: string[];
-  model_ref?: string;
+  model_ref?: string | null;
+  model_strategy?: string | null;
+  images?: ManagePromptImageInput[];
+}
+
+/** Ephemeral prompt attachment; server validates MIME, size and model support. */
+export interface ManagePromptImageInput extends JsonObject {
+  mime_type: string;
+  data_base64: string;
+  name?: string | null;
 }
 
 export type ManageAgentFieldType =
@@ -213,8 +276,8 @@ export interface ManageAgentComplete extends JsonObject {
 
 export interface ManageAgentActionCompletionInput extends JsonObject {
   ok: boolean;
-  result: JsonValue;
-  error?: string;
+  result?: JsonValue;
+  error?: string | null;
 }
 
 export interface ManageAgentQuestionCompletionInput extends JsonObject {
@@ -251,4 +314,9 @@ export interface ManageAgentQuestionEvent extends ManageAgentEvent<ManageAgentQu
 
 export interface ManageAgentCompleteEvent extends ManageAgentEvent<ManageAgentComplete> {
   event: "complete";
+}
+
+/** Persisted server reference only; fetch its durable record before any review. */
+export interface ManageDurableActionSseEvent extends ManageAgentEvent<import('./durable.types.js').ManageDurableActionEvent & JsonObject> {
+  event: "manage_action";
 }

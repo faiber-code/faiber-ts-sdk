@@ -25,6 +25,7 @@ Typed, framework-neutral clients for the public Faiber service platform. Install
 | `@faiber/faiber-state-sdk` | Game worlds, rooms, authoritative state, realtime replication, prediction and server-side simulation |
 | `@faiber/faiber-drm` | Audio/video folders, tags, search, uploads, metadata and signed playback |
 | `@faiber/faiber-task` | Projects, work items, sprints, scoped grants, agent proposals and delivery reports |
+| `@faiber/faiber-gis` | Candidate typed datasets, geometry, maps, private places, imports and catalog moderation; native acceptance remains gated |
 | `@faiber/faiber-manage` | Project-scoped service proxy origins and governed Manage Agent interactions |
 | `@faiber/faiber-game-sdk` | Portable TypeScript/WebAssembly ECS, adaptive 2D/3D rendering and cross-platform game runtime |
 | `@faiber/faiber-ts-sdk` | One facade containing every package above |
@@ -35,12 +36,14 @@ Typed, framework-neutral clients for the public Faiber service platform. Install
 npm install @faiber/faiber-ts-sdk
 ```
 
+Server-side login with a registered confidential client:
+
 ```ts
 import { FaiberSDK, MemoryTokenProvider, domainsFromEnv } from "@faiber/faiber-ts-sdk";
 
 const tokenProvider = new MemoryTokenProvider();
 const sdk = new FaiberSDK({
-  domains: domainsFromEnv(import.meta.env),
+  domains: domainsFromEnv(process.env),
   authMode: "bearer",
   tokenProvider,
   axios: { withCredentials: true, timeout: 15_000 },
@@ -59,7 +62,7 @@ await tokenProvider.setTokens({
 });
 ```
 
-Login forms are sent as `application/x-www-form-urlencoded`. Cookie deployments set `authMode: "cookie"`, which enables credentialed requests and suppresses Bearer injection; Bearer deployments set `authMode: "bearer"` and provide a token provider. The backward-compatible `auto` mode sends a token when available and otherwise follows Axios cookie configuration. The SDK never reads global storage or embeds credentials.
+Keep confidential client secrets on the server. Browser applications can use the registered browser login flow or a server-managed session. Login forms are sent as `application/x-www-form-urlencoded`. Cookie deployments set `authMode: "cookie"`, which enables credentialed requests and suppresses Bearer injection; Bearer deployments set `authMode: "bearer"` and provide a token provider. The backward-compatible `auto` mode sends a token when available and otherwise follows Axios cookie configuration. The SDK never reads global storage or embeds credentials. Configure browser origins through the authenticated service gateway where a service trusts forwarded identity headers; supplying a token to a direct internal listener does not establish gateway authentication.
 
 For browser applications, prefer secure `HttpOnly`, `SameSite` cookies or an in-memory token provider. `StorageTokenProvider` is available only for applications that explicitly accept that Web Storage is readable by JavaScript and can expose tokens during an XSS incident. Server applications can implement `TokenProvider` against their request/session context.
 
@@ -67,9 +70,11 @@ Automatic refresh is opt-in through `refreshAuth`. Concurrent `401` responses sh
 
 ## Complete route coverage and AI guidance
 
+Each package includes a `provenance.json` identifying the backend revisions used for its contracts. Match your deployment to those revisions and consult the service README for supported workflows and authentication requirements.
+
 Every service exposes curated convenience APIs plus `sdk.<service>.operations`, generated from mounted Rust routes. Generated methods preserve the HTTP verb, path identifiers, query shape, body shape, response envelope, form/multipart transport, and declared permission. REST convenience resources are capability guarded, so an unsupported operation fails locally instead of producing a backend `405`.
 
-The facade is the single supported application entrypoint. It exports every public service API and type namespace, plus `FaiberSDK.capabilities` and `sdk.describe(service?)`. This machine-readable catalog tells developers and coding agents what each service does and which transport and authentication mode it needs. Manage is exposed as a project-scoped gateway and governed Agentic transport; it never grants arbitrary-host access. Concrete Rust types that cannot be expanded structurally retain a branded `BackendJson<"Rust::Type">` name rather than degrading to `any` or an unexplained placeholder.
+The facade is the single supported application entrypoint. It exports every public service API and type namespace, plus `FaiberSDK.capabilities` and `sdk.describe(service?)`. This machine-readable catalog tells developers and coding agents what each service does and which transport and authentication mode it needs. Manage is exposed as a project-scoped gateway and governed Agentic transport; it never grants arbitrary-host access. Named wire types describe concrete backend models. Fields intentionally carrying application-defined metadata, schema documents, or provider payloads use documented JSON types.
 
 ```ts
 await sdk.profile.updateProfileByUserId(userId, {
@@ -83,7 +88,7 @@ await sdk.profile.updateProfileByUserId(userId, {
 });
 ```
 
-The profile call above sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields remain unchanged and nullable fields can be cleared with `null`.
+The profile call above sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields remain unchanged. `job: null` clears the job title; most other optional core fields treat null like omission. Property updates follow the configured property schema.
 
 ## Pagination, filtering, and search
 
@@ -91,7 +96,7 @@ List methods preserve each backend's typed query contract, including page number
 
 ## Domains and environment configuration
 
-`domainsFromEnv` reads a plain object such as `import.meta.env` or `process.env`. Supported keys are `FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_SOCIAL_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, `FAIBER_FLOW_URL`, `FAIBER_KNOWLEDGE_URL`, `FAIBER_CHAT_URL`, `FAIBER_STATE_URL`, and `FAIBER_DRM_URL`. Applications may instead pass `domains` directly or a shared `defaultDomain` gateway. Absolute request URLs are rejected unless explicitly enabled.
+`domainsFromEnv` reads a plain object such as `import.meta.env` or `process.env`. Supported keys are `FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_SOCIAL_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, `FAIBER_FLOW_URL`, `FAIBER_KNOWLEDGE_URL`, `FAIBER_CHAT_URL`, `FAIBER_STATE_URL`, `FAIBER_DRM_URL`, `FAIBER_TASK_URL`, `FAIBER_GIS_URL`, and `FAIBER_MANAGE_URL`. Applications may instead pass `domains` directly or a shared `defaultDomain` gateway. Absolute request URLs are rejected unless explicitly enabled.
 
 ## Inputs, outputs, errors, and cancellation
 
@@ -155,12 +160,37 @@ sorting and pagination. See the [profile package guide](packages/profile/README.
 
 The service `operations` clients include typed storefront checkout, product trial gifts, paid fitness coaching, handoff/password flows, provider readiness, v2 games and matchmaking, room presence/moderation, and APK publishing. HTTP calls preserve the complete Axios response and configured authorization. Match and room realtime operations perform WebSocket upgrades using scoped tickets obtained from authenticated HTTP calls; they return the connected socket/client. Package READMEs describe the required permissions, dedicated server credentials, request casing and response envelopes.
 
+### Feedback, delivery and assigned-contact chat (0.24.1)
+
+Task feedback workflows are configured only in the instance's internal panel and database; no customer presets or role mappings ship with the SDK. The service packages expose typed feedback/capture contracts, self-scoped durable notification feeds and multi-device registration, per-user Chat summaries/read counts, and LMS notification settings and eligible contacts. See the Task, Messenger, Chat and LMS package guides for authenticated workflows, 35-second long-poll timeouts, concurrency errors and rollout requirements. Keep each client's service domains on the intended sandbox.
+
 ### Role summary migration (1.0.0)
+
+Session’s retired `integrationPerformanceContextPost` endpoint is also removed. Source evidence is collected through the signed, source-owned MCP transport.
 
 Use `sdk.profile.summaries` for configurable IDP role summaries. LMS summary APIs and fixed-role
 types were removed in this breaking release. Supply canonical role UUIDs, explicitly grant Profile
 summary permissions, and distinguish job status from persisted result availability/freshness.
 See the [Profile package guide](packages/profile/README.md#configurable-role-summaries).
+
+### Regenerating and checking the SDK
+
+The default contributor pipeline uses the immutable Rust revisions in
+service-source-revisions.json. With those service repositories available, run
+npm run generate to extract mounted contracts and regenerate typed operations.
+Run npm run generate:check to audit the pinned-source manifest and compare every
+generated operation, type declaration and index export byte-for-byte without
+writing files. Unknown service selections and stale output fail the check.
+
+OpenAPI import is optional and separate from the SDK's source authority. Use
+npm run openapi:generate or npm run openapi:check with an explicit
+FAIBER_PROFILE_OPENAPI URL and --services=profile, or the corresponding configured
+service variable. No default loopback server is probed. Some services do not
+expose OpenAPI; this optional tool never replaces source extraction, semantic
+review, actual transport tests or current-permission acceptance.
+
+A passing generation check certifies reproducibility only. It does not close the
+capability semantic gate or authorize npm publication, provider use or deployment.
 
 ### UUID-derived classroom and profile short IDs
 

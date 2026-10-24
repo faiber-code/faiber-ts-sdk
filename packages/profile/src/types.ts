@@ -37,12 +37,12 @@ export interface Profile extends JsonObject {
     email?: string | null;
     phone?: string | null;
     national_code?: string | null;
-    first_name?: LocalizedText | null;
-    last_name?: LocalizedText | null;
+    first_name: import("./wire.types.js").ProfileLocalizedName | null;
+    last_name: import("./wire.types.js").ProfileLocalizedName | null;
     gender: string | null;
     job: string | null;
     education_id: string | null;
-    attendance_mode: AttendanceMode | null;
+    attendance_mode: string | null;
     level: string | null;
     referral_source: string | null;
     referrer_uuid: string | null;
@@ -185,7 +185,7 @@ export interface ProfileAddress extends JsonObject {
 export type SaveProfileAddressInput = Pick<ProfileAddress, "title"> & Partial<Pick<ProfileAddress, "country" | "province" | "city" | "postal_code" | "plate" | "detail">>;
 export interface ProfileAddressListResponse extends ApiEnvelope<ProfileAddress[]> {
 }
-export interface ProfileAddressMutationResponse extends ApiEnvelope<JsonValue> {
+export interface ProfileAddressMutationResponse extends ApiEnvelope<import("./wire.types.js").EmptyMutationData> {
 }
 export interface ProfileProperties extends JsonObject {
     [key: string]: JsonValue | undefined;
@@ -359,7 +359,7 @@ export interface ReferralSourceOption { id: string; name: string }
 export interface EducationDependencies { attendance_mode: AttendanceModeOption[]; referral_source: ReferralSourceOption[]; level_max_length: number }
 export interface EducationDependenciesResponse extends ApiEnvelope<EducationDependencies> {}
 export type CustomTypeValueType = "select" | "string" | "integer" | "float" | "boolean" | "date" | "uuid" | "object" | "array";
-export interface CustomTypeOption { value: JsonValue; code: string; labels: LocalizedText }
+export interface CustomTypeOption { value: JsonValue; code: string; labels: JsonObject }
 export interface CustomType { id: string; name: string; value_type: CustomTypeValueType; options: (JsonValue | CustomTypeOption)[]; status: string; created_at: string; updated_at?: string | null }
 export interface CreateCustomTypeInput { name: string; value_type: CustomTypeValueType; options: (JsonValue | CustomTypeOption)[] }
 export interface UpdateCustomTypeInput { name?: string; value_type?: CustomTypeValueType; options?: (JsonValue | CustomTypeOption)[]; status?: string }
@@ -372,7 +372,7 @@ export interface ProfileMedia extends JsonObject {
 export interface ProfilePropertiesInput extends JsonObject {
     properties: ProfileProperties;
 }
-export interface ProfilePropertiesResponse extends ApiEnvelope<JsonObject> {
+export interface ProfilePropertiesResponse extends ApiEnvelope<import("./wire.types.js").ProfilePropertyMutation> {
 }
 export interface ProfileListData extends JsonObject {
     profiles: Profile[];

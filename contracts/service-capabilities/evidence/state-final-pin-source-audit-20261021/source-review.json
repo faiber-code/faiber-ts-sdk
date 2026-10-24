@@ -1,0 +1,92 @@
+{
+  "service": "state",
+  "revision": "b8d3bfa828878a979a8c8765285bfd3899965bd4",
+  "source_basis": "Immutable git archive; backend checkout preserved",
+  "source_review_status": "completed_native_verification_pending",
+  "mounted_operations": 45,
+  "http_request_response_operations": 43,
+  "websocket_upgrades": 2,
+  "native_execution": false,
+  "scope": "45 mounted operations:43 HTTP request/response plus2 WebSocket upgrades; UDP input gateway separately reviewed. Immutable source review only; native gameplay, deployed gateway identity/isolation and current dependency behavior remain unverified.",
+  "prepared_sdk_tests": [
+    "tests/state-reviewed-contracts.test.mjs",
+    "tests/state-reviewed-wire.types.ts"
+  ],
+  "dynamic_json_rationale": [
+    "World-authored property defaults/component/input JSON intentionally follow authored schemas.",
+    "Game answer/action/board/challenge/metrics/event payloads are ruleset JSON; stable SQL projections and declared multiplayer Board/Player DTOs are named.",
+    "Kheradgah commands, orders, heroes, players, questions, views, command-result and error frames have named concrete types."
+  ],
+  "source_limitations": [
+    "Historical native health evidence only covers the static advertisement and cannot certify gameplay.",
+    "SQL game runtime is configured-tenant scoped; v1 game-operations still require an organization header but repository tenant does not derive from it.",
+    "Room replication may broadcast duplicate input patches; sequences/entity revision must govern reconciliation.",
+    "Current gateway trust of x-user identity, deployed CORS/Origin configuration, persistence and dependency behavior need native verification."
+  ],
+  "files": [
+    {
+      "path": "src/auth.rs",
+      "sha256": "6db61063b576670e987ffa8556da794b1a3880aee2786616c7ec4eca6a62ca2f"
+    },
+    {
+      "path": "src/context.rs",
+      "sha256": "c46748a6f4617800b209aee0c442b4b6a178954ab17e27c24073f0e1c662d03b"
+    },
+    {
+      "path": "src/games.rs",
+      "sha256": "119d675ca55c2efcb6b8580420f3ce44cf9f4017ae39b90e9ade307b7c4519e3"
+    },
+    {
+      "path": "src/games_routes.rs",
+      "sha256": "ebcb13c6f76127dbcaa1c6d4d38f4496aab55946ee84ab76cfd8ce439e100c44"
+    },
+    {
+      "path": "src/games_v2.rs",
+      "sha256": "9e9abdc42ac939e53bd28e04dd1eae19f05e9e29ad449c608fa8f8cf2a0865ba"
+    },
+    {
+      "path": "src/games_v2_multi.rs",
+      "sha256": "82a2caae45b4ec02439132dcd27bb3734613c62b53278576fcaf6862b0e74416"
+    },
+    {
+      "path": "src/kheradgah.rs",
+      "sha256": "8586b3da206937671cb54f8e2cad975d0e8240f897d6b7c19d58e6cdb31c143b"
+    },
+    {
+      "path": "src/kheradgah_routes.rs",
+      "sha256": "df39a55b563f2cf963d313a5ac3dfcb587c2c8e1c26a98affc081b6365d811a0"
+    },
+    {
+      "path": "src/lib.rs",
+      "sha256": "4c96676ba24a6d4b4f00dc5c235ee384b7394d5a65ad0640cc86c60f61a8fabb"
+    },
+    {
+      "path": "src/main.rs",
+      "sha256": "0768c418b114fb2f1af0d6849fc39233b7855cd8a9ede7851fbf0063fc3b88ec"
+    },
+    {
+      "path": "src/models.rs",
+      "sha256": "fa7a368ff0ecd5156a82458f71db1a9e0a2a61dbfedf140a59888bfb2272d212"
+    },
+    {
+      "path": "src/process_health.rs",
+      "sha256": "cb936e73ed5aa34b4c82a3b001eb1b96310f0652b44561fa8567be02fed40eca"
+    },
+    {
+      "path": "src/routes.rs",
+      "sha256": "fd8f0ef322d6f84fabcd4009ca313d4462768f9aa751141b525d439395a0989c"
+    },
+    {
+      "path": "src/state.rs",
+      "sha256": "ad781df18b534940d929a49b434934fb504aacee857780e4bffc9c1403d216a5"
+    },
+    {
+      "path": "src/transport.rs",
+      "sha256": "04783c02365e19e7e98d0bf3462dfb2d659fba7d0172f08f4cb85070584691bc"
+    },
+    {
+      "path": "src/wasm.rs",
+      "sha256": "acff4ff41b39f091a0fe4ba91862fd16a81bce9f5ee8db0128cd190068051af5"
+    }
+  ]
+}

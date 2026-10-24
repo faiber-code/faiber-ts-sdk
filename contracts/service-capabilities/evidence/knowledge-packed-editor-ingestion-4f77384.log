@@ -1,0 +1,44 @@
+   Compiling infera_knowledge v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/knowledge-editor-atomicity-20261020/infera-knowledge)
+    Finished `test` profile [unoptimized] target(s) in 2.81s
+     Running tests/base_editor_atomicity.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/base_editor_atomicity-b1fea842a928170d)
+
+running 30 tests
+test binding_cas_single_winner ... ok
+test binding_crud_audit_faults_and_tenant_fences ... ok
+test committed_audit_matches_the_actual_before_and_after_snapshot ... ok
+test deleted_group_and_item_lifecycle_cannot_create_dangling_published_records ... ok
+test edge_cas_single_winner ... ok
+test edge_create_audit_fault_does_not_commit_an_edge ... ok
+test edge_crud_audit_faults_and_tenant_fences ... ok
+test editor_cannot_mutate_a_base_in_another_organization ... ok
+test editor_lock_timeout_is_bounded_and_does_not_mutate ... ok
+test editor_version_counter_cannot_wrap_or_repair_corrupt_state_silently ... ok
+test editor_version_is_an_atomic_single_winner_fence ... knowledge_editor_race_observed: {"conflicts":1,"stored_version":2,"successes":1}
+ok
+test failed_create_audit_does_not_leave_a_committed_base ... knowledge_editor_create_fault_observed: {"committed_after_error":0}
+ok
+test failed_delete_audit_preserves_the_active_base ... knowledge_editor_delete_fault_observed: {"deleted":false,"unchanged":true}
+ok
+test failed_publication_retains_previous_release_and_pointer ... ok
+test failed_update_audit_preserves_the_original_base ... knowledge_editor_update_fault_observed: {"stored_version":1,"unchanged":true}
+ok
+test group_create_and_its_late_audit_fault_are_atomic ... ok
+test group_moves_reject_cycles_and_keep_descendant_levels_consistent ... ok
+test group_parent_must_stay_inside_current_authorized_base ... ok
+test group_update_and_delete_audit_faults_preserve_the_record ... ok
+test group_version_is_an_atomic_single_winner_fence ... ok
+test item_create_and_delete_audit_faults_preserve_atomicity ... ok
+test item_update_and_its_late_audit_fault_are_atomic ... ok
+test legacy_edits_serialize_without_losing_fields_or_version_increments ... ok
+test packed_typescript_editor_workflow_over_production_http ... knowledge_packed_sdk_observed: {"status":"passed","assertions":114,"covered_exports":["platformAuditEventsGet","platformIngestDocumentPost","platformListDocumentsGet","platformProcessingJobsGet","platformReprocessDocumentPost","routesCreateBasePost","routesCreateBindingPost","routesCreateEdgePost","routesCreateGroupPost","routesCreateItemPost","routesCreateRulePost","routesDeleteBaseDelete","routesDeleteBindingDelete","routesDeleteEdgeDelete","routesDeleteGroupDelete","routesDeleteItemDelete","routesDeleteRuleDelete","routesExportBaseGet","routesGetBaseGet","routesGetItemGet","routesGetReleaseGet","routesListAuditGet","routesListBasesGet","routesListBindingsGet","routesListEdgesGet","routesListGroupsGet","routesListItemsGet","routesListRulesGet","routesPublishPost","routesUpdateActionStatusPatch","routesUpdateBasePut","routesUpdateBindingPut","routesUpdateEdgePut","routesUpdateGroupPut","routesUpdateItemPut","routesUpdateRulePut","workspaceAssistantContracts"],"boundary":"actual_packed_typescript_sdk_http_postgresql","identity_limit":"explicit trusted fixture headers, not current IDP/gateway authentication"}
+
+ok
+test production_editor_http_preserves_release_wire_and_permission_boundaries ... ok
+test publication_and_its_late_audit_fault_are_atomic ... ok
+test rule_cas_single_winner ... ok
+test rule_crud_audit_faults_and_tenant_fences ... ok
+test rule_filters_paginate_all_owned_bases_without_cross_tenant_leaks ... ok
+test rule_group_references_reject_foreign_and_deleted_groups ... ok
+
+test result: ok. 30 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.86s
+

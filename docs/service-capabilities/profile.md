@@ -9,7 +9,8 @@ Status: evidence inventory; semantic and wire verification remain required.
 The source snapshots below are intentionally distinct. Missing local routes are not automatically removed from a released SDK.
 
 - Canonical source revision: `96e944e6a43d0832a6485fc9ae10b9a3bd627bb0`
-- SDK source revision: `f5f3d63e02e5af915f40411bb829290089f30f39`
+- SDK source revision: `5e45db008e503504033af3763b4487f00f5be2b4`
+- Evidence inventory revision: `5e45db008e503504033af3763b4487f00f5be2b4` (sdk)
 - Working HEAD: `5b32bc1f9b8f762ddbaac2abc16b14dd3d34034b`
 - Source relationship: diverged
 
@@ -17,9 +18,9 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 
 | Method/path | Handler source | Declared permissions | Semantic review |
 |---|---|---|---|
-| `GET /health` | `infera-profile/src/router.rs:254` | inspect middleware/local scope | pending |
-| `GET /up` | `infera-profile/src/router.rs:254` | inspect middleware/local scope | pending |
-| `GET /api/openapi.json` | `infera-profile/src/router.rs:168` | inspect middleware/local scope | pending |
+| `GET /health` | `infera-profile/src/router.rs:277` | inspect middleware/local scope | pending |
+| `GET /up` | `infera-profile/src/router.rs:277` | inspect middleware/local scope | pending |
+| `GET /api/openapi.json` | `infera-profile/src/router.rs:188` | inspect middleware/local scope | pending |
 | `GET /api/v1/fitness/products` | `infera-profile/src/fitness/routes.rs:820` | inspect middleware/local scope | pending |
 | `POST /api/v1/fitness/trial/redeem` | `infera-profile/src/fitness/gifts.rs:235` | inspect middleware/local scope | pending |
 | `GET /api/v1/fitness/notifications` | `infera-profile/src/fitness/routes.rs:791` | inspect middleware/local scope | pending |
@@ -52,6 +53,26 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `POST /api/v1/internal/plans/gifts` | `infera-profile/src/fitness/gifts.rs:165` | inspect middleware/local scope | pending |
 | `GET /api/v1/internal/plans/gifts/{id}` | `infera-profile/src/fitness/gifts.rs:151` | inspect middleware/local scope | pending |
 | `PUT /api/v1/internal/plans/gifts/{id}` | `infera-profile/src/fitness/gifts.rs:197` | inspect middleware/local scope | pending |
+| `GET /api/v1/ai-summaries/settings` | `infera-profile/src/ai_summary/routes.rs:58` | profile:ai_summary:configure | pending |
+| `PUT /api/v1/ai-summaries/settings` | `infera-profile/src/ai_summary/routes.rs:72` | profile:ai_summary:configure | pending |
+| `GET /api/v1/ai-summaries/roles` | `infera-profile/src/ai_summary/routes.rs:87` | profile:ai_summary:configure | pending |
+| `GET /api/v1/ai-summaries/models` | `infera-profile/src/ai_summary/routes.rs:110` | profile:ai_summary:configure | pending |
+| `GET /api/v1/ai-summaries/sources` | `infera-profile/src/ai_summary/routes.rs:123` | profile:ai_summary:configure | pending |
+| `POST /api/v1/ai-summaries/sources/{source}/check` | `infera-profile/src/ai_summary/routes.rs:138` | profile:ai_summary:configure | pending |
+| `GET /api/v1/ai-summaries/configurations` | `infera-profile/src/ai_summary/routes.rs:154` | profile:ai_summary:configure | pending |
+| `POST /api/v1/ai-summaries/configurations` | `infera-profile/src/ai_summary/routes.rs:183` | profile:ai_summary:configure | pending |
+| `GET /api/v1/ai-summaries/configurations/{id}` | `infera-profile/src/ai_summary/routes.rs:168` | profile:ai_summary:configure | pending |
+| `PUT /api/v1/ai-summaries/configurations/{id}` | `infera-profile/src/ai_summary/routes.rs:198` | profile:ai_summary:configure | pending |
+| `POST /api/v1/ai-summaries/configurations/{id}/validate` | `infera-profile/src/ai_summary/routes.rs:214` | profile:ai_summary:configure | pending |
+| `POST /api/v1/ai-summaries/configurations/{id}/publish` | `infera-profile/src/ai_summary/routes.rs:230` | profile:ai_summary:configure | pending |
+| `POST /api/v1/ai-summaries/configurations/{id}/preview` | `infera-profile/src/ai_summary/routes.rs:261` | profile:ai_summary:configure | pending |
+| `PATCH /api/v1/ai-summaries/configurations/{id}/status` | `infera-profile/src/ai_summary/routes.rs:245` | profile:ai_summary:configure | pending |
+| `GET /api/v1/ai-summaries/latest` | `infera-profile/src/ai_summary/routes.rs:283` | profile:ai_summary:read_own | pending |
+| `GET /api/v1/ai-summaries/summaries` | `infera-profile/src/ai_summary/routes.rs:297` | profile:ai_summary:read_own | pending |
+| `GET /api/v1/ai-summaries/runs/{id}` | `infera-profile/src/ai_summary/routes.rs:311` | profile:ai_summary:read_own | pending |
+| `GET /api/v1/ai-summaries/jobs` | `infera-profile/src/ai_summary/routes.rs:325` | profile:ai_summary:manage | pending |
+| `POST /api/v1/ai-summaries/refresh` | `infera-profile/src/ai_summary/routes.rs:339` | profile:ai_summary:manage | pending |
+| `POST /api/v1/ai-summaries/jobs/{id}/retry` | `infera-profile/src/ai_summary/routes.rs:367` | profile:ai_summary:manage | pending |
 | `POST /api/v1/profile/get` | `infera-profile/src/profile/routes.rs:299` | inspect middleware/local scope | pending |
 | `POST /api/v1/profile/country/get` | `infera-profile/src/profile/routes.rs:322` | inspect middleware/local scope | pending |
 | `POST /api/v1/profile/province/get` | `infera-profile/src/profile/routes.rs:343` | inspect middleware/local scope | pending |

@@ -1,0 +1,108 @@
+{
+  "created_at": "2026-10-19T19:02:15.157985+00:00",
+  "state": "immutable local source/test handoff; not deployed or pushed",
+  "candidates": {
+    "task": {
+      "commit": "5039302f25bdecacb7b3d17bf53e232fe0489a92",
+      "parent": "63201e112a1e640cab8454b168bbefe52ebab7bc",
+      "worktree": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-task",
+      "canonical_base": "63201e112a1e640cab8454b168bbefe52ebab7bc",
+      "source_files": 364,
+      "manifest": "task-source-sha256.json"
+    },
+    "session": {
+      "commit": "f05bbc459965efbebd1cfe6d3348b48ead8cee49",
+      "parent": "6cdedd4303f4612143ae6bae54edff464a7aa08d",
+      "worktree": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session",
+      "canonical_base": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
+      "source_files": 564,
+      "manifest": "session-source-sha256.json"
+    },
+    "chat": {
+      "commit": "c42afad57281dbe92d8ef4c01d002a3f59704ddf",
+      "parent": "d919e296ba9f3591738272e5ab104bc901515415",
+      "worktree": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-chat",
+      "composition": {
+        "original_fix": "ab6ce7461d35414b719f3806df57549339002df5",
+        "cherry_pick": "d919e296ba9f3591738272e5ab104bc901515415",
+        "stable_patch_id": "4db2a33220a5b836ebba40e34e66da86e4a573d4",
+        "reason": "Original ab6ce746 has test-only parent0fd9ded36dd6eba1bcf60a668c47aec9177df639; production mount patch is identical on canonical d5b722e. That separate personal-router test parent is not imported.",
+        "remaining_merge_boundary": "When composing onto original ab6ce746 branch, retain its sdk_personal_router_tests cfg(test) module plus the new summary_evidence/summary_query modules in src/lib.rs."
+      },
+      "canonical_base": "d5b722e2fad3a0585cdc5a24742bfbc6f52118bf",
+      "source_files": 351,
+      "manifest": "chat-source-sha256.json"
+    },
+    "crm": {
+      "commit": "5f215256d275a909c39825f00f4c71909c2e4b58",
+      "parent": "178f5de3c68fab387abd5294aeceb8dd1843084f",
+      "worktree": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-crm",
+      "composition": "Exact SDK fallback/CORS repair ancestor; candidate source bytes unchanged",
+      "canonical_base": "1addec42a400ba980b6547060cdcb4d347a7bbd0",
+      "source_files": 562,
+      "manifest": "crm-source-sha256.json"
+    },
+    "idp": {
+      "commit": "6d91708d22125f23d91e9e11ef3ffc801c0af5f2",
+      "parent": "1983731640c4542391eeed2599347b45ab6caf4b",
+      "worktree": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-idp",
+      "canonical_base": "1983731640c4542391eeed2599347b45ab6caf4b",
+      "source_files": 356,
+      "manifest": "idp-source-sha256.json"
+    }
+  },
+  "shared_contract": {
+    "sdk_commit": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+    "files_per_source": 232,
+    "byte_matched_sources": [
+      "task",
+      "session",
+      "chat",
+      "crm"
+    ],
+    "official_rmcp": "0.8.5"
+  },
+  "validation": {
+    "production": [
+      "Task locked cargo check",
+      "Session locked cargo check with dev-fallback disabled",
+      "Chat locked cargo check",
+      "CRM locked cargo check preserving CrmDatabase command transactions"
+    ],
+    "native_tests": {
+      "task": 1,
+      "session": 1,
+      "chat": 1,
+      "crm": 2
+    },
+    "acl_importer_tests": 2,
+    "actual_evidence": "Real full source migrations/PostgreSQL, actual production EvidenceReader/SQL and official MCP client/server in every domain; CRM also real RabbitMQ confirmed outbox delivery. IDP tests run actual entity/seeder code with real ACL files in an isolated locked harness.",
+    "test_input_files": 2197,
+    "test_sources_unchanged": true,
+    "dirty_root_files_unchanged": 1004,
+    "formatting": "Owned source modules/fixtures pass rustfmt; diff whitespace checks exclude untouched upstream vendored SDK sources",
+    "dependencies": "Canonical native service SDK pins retained. Floating pins fixed to canonical lock identities. Shared SDK is an exact source snapshot. Offline validation outside Service/.cargo uses only exact Git object URL mirror, not Cargo patch overrides. Remote/private Git reproducibility not reverified.",
+    "toolchain": "Rust1.92.0; Chat dependency metadata has no resolved rust_version above Docker1.88, but no Docker build claimed"
+  },
+  "composition": {
+    "session": "Exact production auth fix6cdedd4303f4612143ae6bae54edff464a7aa08d is parent; canonical Pastil/reconnect fixes remain intact. Separate peer SDK test-only82b9ef8 is not included or claimed rerun on MCP candidate.",
+    "chat": {
+      "original_fix": "ab6ce7461d35414b719f3806df57549339002df5",
+      "cherry_pick": "d919e296ba9f3591738272e5ab104bc901515415",
+      "stable_patch_id": "4db2a33220a5b836ebba40e34e66da86e4a573d4",
+      "reason": "Original ab6ce746 has test-only parent0fd9ded36dd6eba1bcf60a668c47aec9177df639; production mount patch is identical on canonical d5b722e. That separate personal-router test parent is not imported.",
+      "remaining_merge_boundary": "When composing onto original ab6ce746 branch, retain its sdk_personal_router_tests cfg(test) module plus the new summary_evidence/summary_query modules in src/lib.rs."
+    },
+    "crm": "Exact178f5de3c68fab387abd5294aeceb8dd1843084f fallback/CORS repair is parent; canonical durable command delivery retained.",
+    "idp": "ACL-only descendant of1983731; cherry-pick onto the independent current IDP auth repair without replacing that repair."
+  },
+  "limits": [
+    "No running full application-process MCP HTTP mount acceptance beyond production compilation plus the actual production reader under official transport.",
+    "No live six-domain combined Agentic run; these are real domain MCP isolation contracts, not provider inference.",
+    "No npm/Rust SDK publication or remote push; release owner must integrate synchronized SDK versions and resolve independent npm audit/network gates.",
+    "No live IDP/service credential or native object-grant provisioning.",
+    "No deployment, live Profile draft save, Qwen3 callable model selection, live provider inference or billing charge.",
+    "Profile/Agentic reviewed deployment, authenticated owner catalog and explicit source scope/grants remain prerequisites for live Poulstar configuration.",
+    "Source facts have declared limits: Session timing is not unique attendance, Chat response timing is not SLA, Task updated snapshots are not all-time history, CRM task activity is not financial collection credit. Accounting remains financial authority."
+  ]
+}

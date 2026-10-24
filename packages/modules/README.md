@@ -23,15 +23,15 @@ const client = new FaiberClient("modules", {
 const api = new ModulesApi(client);
 
 const products = await api.products.list({
-  "page[number]": 1,
-  "page[size]": 24,
+  page_number: 1,
+  page_size: 24,
 });
 const posts = await api.posts.list();
 ```
 
 ## Complete capability
 
-This package exposes 171 registered operations from the content and commerce modules service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 179 registered operations from the content and commerce modules service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -48,12 +48,12 @@ This package exposes 171 registered operations from the content and commerce mod
 | `inventory` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `management-api` | 17 | `GET`, `POST`, `PUT` |
 | `media` | 3 | `GET`, `POST` |
-| `order` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `order` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `podcast` | 8 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `product` | 13 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `reaction` | 3 | `DELETE`, `GET`, `POST` |
-| `request` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
-| `router` | 3 | `GET` |
+| `request` | 13 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `router` | 6 | `GET`, `POST` |
 | `search` | 1 | `GET` |
 | `seo-content` | 9 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `service-pricing` | 6 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
@@ -70,7 +70,7 @@ Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `w
 
 ## Inputs, queries, responses, and transport
 
-All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Nested pagination uses keys such as `page[number]` and `page[size]` where required by the service. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
+All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Modules pagination uses `page_number` and `page_size`, normally defaulting to 1 and 10, with size clamped to 1–100. Collection envelopes retain names such as `products`, `orders`, `posts` and `stock_movements`. Serialized optional fields are nullable. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
 
 Generic REST resources are capability-guarded. Calling a legacy method that the service does not register throws `UnsupportedOperationError` before sending a request instead of producing a backend `405`.
 
@@ -100,3 +100,34 @@ await api.operations.orderPayPost(checkoutId, { max_total: quote.data.total }, {
 These owner-scoped operations use `/api/v1/shop/checkout/*` and return raw `ShopCheckout` records. Shipping uses camelCase; checkout amounts are integer IRR. Reuse the checkout UUID on retries and retain the configured website Origin for quote, pay and cancel. The server owns prices and rejects stale accepted totals.
 
 `operations.routerListGet({page:1})` lists published storefront products, 100 per page with `hasMore`. `requestSubmitPost` retains administrative request-log behavior; the separate public-form operation submits an idempotent `submission_id` to `website_contact`, `website_newsletter`, or `website_waitlist`. Public forms validate email and field bounds, reject honeypot content and return 429 when rate limited. Website defaults provisioning requires `modules:request:create`.
+
+Wildcard file paths use raw nonempty segments and preserve directory separators.
+Do not pre-encode paths or include dot traversal, percent escapes, query/fragment
+syntax or backslashes; invalid paths fail locally before transport.
+
+## Hosted catalog search
+
+```ts
+const categories = await api.categories.list({ search: "Hardware", page_number: 1, page_size: 20 });
+const tags = await api.tags.list({ search: "release" });
+const seo = await api.seo.list({ search: "/products/" });
+console.log(categories.data.data.search, categories.data.data.total_items);
+```
+
+The same query and response are available on `api.operations.categoryListCategoriesGet`,
+`tagListTagsGet`, and `seoContentListSeoContentsGet`. Categories and tags match their name;
+SEO matches title or URL. Matching is a case-insensitive literal substring: `%`, `_`, and
+backslash are ordinary characters. The server trims whitespace and echoes the normalized
+search, or `null` for blank/omitted search. Inputs over 128 Unicode characters or containing
+NUL return HTTP 400. Blank/omitted search keeps the existing catalog and count. Pages start
+at 1; page size is clamped to 1–100 (default 10), ordered by UUID ascending. Deleted rows
+are excluded; search adds no status, tenant, or permission semantics. Full Axios status,
+headers, errors, cancellation, and the existing configured authorization are retained.
+
+### Editorial management, media and agent proposals
+
+Published content lookup returns a raw `ContentDocument`. Management content/settings updates, publish and restore require `If-Match` with the current ETag; convenience methods accept the ETag explicitly. Missing preconditions return 428 and stale revisions 412. Content reads/writes require `content:read`/`content:write`, publishing requires `content:publish`, and settings use `settings:read`/`settings:write`.
+
+`runAgent` returns SSE text and accepts a stable idempotency key; the generated operation accepts the key in `options.headers`. Agent models/runs require `agent:run`, proposal reads `agent:audit`, and approvals/rejections `agent:apply` (risky approvals also require `agent:approve-risky`). Preserve error events as well as HTTP failures. Media downloads return bytes; uploads use multipart `kind` and `file`, with image/video limits enforced by the service.
+
+SKU, cart items, editor documents, SEO sections, audit metadata, request form data and agent context/diffs remain arbitrary JSON because the backend stores `serde_json::Value`. Their surrounding records and collection envelopes are concrete exported types. Orders require authenticated owners or an admin role; the service computes prices from active variants and enforces stock/payment transitions.

@@ -1,0 +1,133 @@
+Running compiled test request_permissions-e7f83ff0f1e8914b
+
+running 1 test
+test consultation_submission_exports_its_publicly_assignable_permission ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+Running compiled test shop-744d81e106657837
+
+running 1 test
+test product_variant_and_order_flow ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.34s
+
+Running compiled test agents-7b4e90d6e7377a7e
+
+running 5 tests
+test audit_log_records_post_mutations ... ok
+test comment_on_target_and_master_crud ... ok
+test content_seo_attach_to_post ... ok
+test reactions_on_post_and_access_on_category ... ok
+test tag_attach_detach_on_post ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.36s
+
+Running compiled test requests-c698a0a51e36c618
+
+running 2 tests
+test request_type_category_attachment_and_submission ... ok
+test request_type_master_crud ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+
+Running compiled test management_api-53d0f6cfdfd2f222
+
+running 5 tests
+test auth_self_is_local_and_manage_routes_fail_closed ... ok
+test content_workflow_enforces_draft_isolation_sanitization_and_etags ... ok
+test proposal_approval_separates_apply_audit_and_risky_permissions ... ok
+test retired_v2_routes_are_not_served_by_the_dashboard_fallback ... ok
+test settings_use_if_match_and_return_new_etags ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.29s
+
+Running compiled test inventory-33d43849085ce486
+
+running 1 test
+test warehouse_inventory_and_stock_movement ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+Running compiled test health-04b3f3c806dbc39a
+
+running 2 tests
+test health_alias_endpoint_works ... ok
+test health_endpoint_returns_service_version ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+Running compiled test blog-c64f6af50935c966
+
+running 1 test
+test blog_post_crud_lifecycle ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+Running compiled test full_journey-bb50b4d020b3a436
+
+running 1 test
+test publish_post_with_agents_and_shop_category_request ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+Running compiled test core-41fb87b52aa55d72
+
+running 2 tests
+test author_crud_lifecycle ... ok
+test category_crud_and_post_attachment ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+
+Running compiled test hosted_search-b50f3d04666d47f8
+
+running 1 test
+test hosted_catalog_literal_search_preserves_visibility_and_pagination ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.44s
+
+Running compiled test infera_modules-9a76dce80388e9c3
+
+running 20 tests
+test content_transfer::tests::editor_images_are_preserved_without_executable_attributes ... ok
+test content_transfer::tests::imported_slugs_are_route_safe ... ok
+test content_transfer::tests::public_showcase_content_kinds_are_supported ... ok
+test management_api::tests::agent_permissions_are_explicit ... ok
+test management_api::tests::content_validation_and_projections_reject_unsafe_input ... ok
+test management_api::tests::new_contracts_do_not_shadow_preserved_auth_self_route ... ok
+test management_api::tests::new_route_contracts_use_v1_exclusively ... ok
+test management_api::tests::permissions_keep_actor_identity_separate_from_capability ... ok
+test management_api::tests::route_contracts_are_unique_and_have_valid_metadata ... ok
+test management_api::tests::route_contracts_never_contain_project_or_site_identity ... ok
+test models::hosted_route_security_tests::search_keeps_the_selected_gateway_permission_contract ... ok
+test models::hosted_search_tests::search_patterns_are_literal_and_pagination_wire_is_unchanged ... ok
+test order::methods::postgres_tests::customer_orders_use_server_prices_ownership_and_atomic_stock ... ok
+test product::public::postgres_tests::storefront_catalog_hides_private_fields_and_unpublished_products ... ok
+test request::public::postgres_tests::website_forms_are_idempotent_bounded_and_respect_owner_settings ... ok
+test request::public::tests::administrative_keys_cannot_be_submitted_anonymously ... ok
+test request::public::tests::bounds_and_invalid_emails_are_rejected ... ok
+test request::public::tests::contact_requires_a_message ... ok
+test search::methods::tests::normalizes_persian_variants_and_whitespace ... ok
+test search::routes::tests::autocomplete_is_documented_as_a_public_route ... ok
+
+test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.26s
+
+Running compiled test infera_modules-9232cd01c7e5b5d7
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+Running compiled test storefront_checkout-ac5f762e8d7f26ad
+
+running 1 test
+test quotes_payment_resumption_ownership_and_stock_are_durable ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.52s
+
+Running compiled test search-8459f38444493623
+
+running 1 test
+test public_autocomplete_executes_ranked_post_and_mixed_queries ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s

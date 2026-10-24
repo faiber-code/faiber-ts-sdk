@@ -1,0 +1,143 @@
+{
+  "recorded_at": "2026-10-19T14:22:41.753613+00:00",
+  "status": "passed",
+  "inputs": 2396,
+  "before_sha256": "aa558faa6941af1f14e9e31972fbf04dffbb105a9f6ac29cb3185044de2b79e6",
+  "after_sha256": "aa558faa6941af1f14e9e31972fbf04dffbb105a9f6ac29cb3185044de2b79e6",
+  "changed_inputs": [],
+  "commands": [
+    {
+      "name": "shared-contracts",
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "infera-summary-sdk",
+        "--features",
+        "server",
+        "--offline"
+      ],
+      "cwd": "Service/faiber-sdk",
+      "exit_code": 0,
+      "log": "shared-contracts-frozen.log",
+      "sha256": "d141a7e6b6e209d38bfbb80a88695d3cc2058ca7662ee20cdc5bca02595e5b25"
+    },
+    {
+      "name": "role-configurations",
+      "command": [
+        "cargo",
+        "test",
+        "--test",
+        "poulstar_configurations",
+        "--offline"
+      ],
+      "cwd": "Service/infera-profile",
+      "exit_code": 0,
+      "log": "role-configurations-frozen.log",
+      "sha256": "49f54300748dacf90dab4b2e517acb99c8489412ee65e036723866d46759976d"
+    },
+    {
+      "name": "crm-scoped-integration",
+      "command": [
+        "bash",
+        "tests/run-summary-evidence.sh"
+      ],
+      "cwd": "Service/infera-crm",
+      "exit_code": 0,
+      "log": "crm-scoped-integration-frozen.log",
+      "sha256": "5b0c7e9e85de8892ec58ec9318f3b63370ae4516822955d15f0da3ff4a5d3bcf"
+    },
+    {
+      "name": "sdk-build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "faiber-ts-sdk",
+      "exit_code": 0,
+      "log": "sdk-build-frozen.log",
+      "sha256": "ba1d13e113ff487ce6af907c97d1f4cb18e8476ffc52b703f0757cf0fa9f200c"
+    },
+    {
+      "name": "sdk-tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "cwd": "faiber-ts-sdk",
+      "exit_code": 0,
+      "log": "sdk-tests-frozen.log",
+      "sha256": "71ae495ddf68d11452d722f8fd01bf9048c7a334479b7c85feeb6be86763b6af"
+    },
+    {
+      "name": "sdk-pack",
+      "command": [
+        "npm",
+        "run",
+        "pack:check"
+      ],
+      "cwd": "faiber-ts-sdk",
+      "exit_code": 0,
+      "log": "sdk-pack-frozen.log",
+      "sha256": "eef414cab179d0a6918bc51ab6d3f64c0c5cbe71d4cb8a1262f8963c8697afc8"
+    },
+    {
+      "name": "panel-lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "cwd": "Service/infera-profile/panel",
+      "exit_code": 0,
+      "log": "panel-lint-frozen.log",
+      "sha256": "84026745e537fdbdc49173341911beeca47b25eaed85862c0ec743e12bbe47ad"
+    },
+    {
+      "name": "panel-tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "cwd": "Service/infera-profile/panel",
+      "exit_code": 0,
+      "log": "panel-tests-frozen.log",
+      "sha256": "bf9ea91429eb48f1b820a134eadc6519519c8b56980ac4735d4120539b22800a"
+    },
+    {
+      "name": "panel-build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "Service/infera-profile/panel",
+      "exit_code": 0,
+      "log": "panel-build-frozen.log",
+      "sha256": "671f6b27f361c247fa1bb3e5dbd5995e7bb3edf75f287d512d5d035592e2e651"
+    },
+    {
+      "name": "role-applicator",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "deploy/poulstar/ai-summaries",
+        "-p",
+        "test_*.py"
+      ],
+      "cwd": "Service/infera-profile",
+      "exit_code": 0,
+      "log": "role-applicator-frozen.log",
+      "sha256": "b95b5805bef96b568b1b2424b637003cd6f306e6312d682e4f2e4e23f635b26a"
+    }
+  ],
+  "deployment": false,
+  "provider": false,
+  "billing": false,
+  "generation_enabled": false,
+  "scope": "Full listed local source/dependency files frozen across cached CRM PostgreSQL/RabbitMQ/MCP integration, current root TypeScript SDK build/test/private pack, Profile panel checks and role applicator tests. No installs or new dependency resolution."
+}

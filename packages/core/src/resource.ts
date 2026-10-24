@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig, AxiosResponse } from "axios";
 import type { FaiberClient } from "./client.js";
-import type { ApiEnvelope, DeleteResponse, Identifier, JsonObject, PageQuery, QueryParams, RequestOptions, ResourceListResponse, ResourceResponse, } from "./types.js";
+import type { DeleteResponse, Identifier, JsonObject, PageQuery, QueryParams, RequestOptions, ResourceListResponse, ResourceResponse, } from "./types.js";
 export type RestOperation = "list" | "show" | "create" | "update" | "replace" | "delete";
 export interface RestResourceOptions {
     supported?: readonly RestOperation[];
@@ -13,7 +13,7 @@ export class UnsupportedOperationError extends Error {
         this.name = "UnsupportedOperationError";
     }
 }
-export class RestResource<Entity extends object = JsonObject, CreateInput = Partial<Entity>, UpdateInput = Partial<Entity>, ListResponse = ResourceListResponse<Entity>, ShowResponse = ResourceResponse<Entity>, ListQuery extends QueryParams = PageQuery> {
+export class RestResource<Entity extends object = JsonObject, CreateInput = Partial<Entity>, UpdateInput = Partial<Entity>, ListResponse = ResourceListResponse<Entity>, ShowResponse = ResourceResponse<Entity>, ListQuery extends QueryParams = PageQuery, DeleteResult = DeleteResponse> {
     constructor(readonly client: FaiberClient, readonly path: string, readonly options: RestResourceOptions = {}) { }
     private assertSupported(operation: RestOperation): void {
         if (this.options.supported && !this.options.supported.includes(operation))
@@ -42,9 +42,9 @@ export class RestResource<Entity extends object = JsonObject, CreateInput = Part
         this.assertSupported("replace");
         return this.client.put<ShowResponse, UpdateInput>(`${this.path}/${encodeURIComponent(id)}`, data, options);
     }
-    delete(id: Identifier, options?: RequestOptions): Promise<AxiosResponse<DeleteResponse>> {
+    delete(id: Identifier, options?: RequestOptions): Promise<AxiosResponse<DeleteResult>> {
         this.assertSupported("delete");
-        return this.client.delete<DeleteResponse>(`${this.path}/${encodeURIComponent(id)}`, options);
+        return this.client.delete<DeleteResult>(`${this.path}/${encodeURIComponent(id)}`, options);
     }
 }
 export abstract class ServiceApi {

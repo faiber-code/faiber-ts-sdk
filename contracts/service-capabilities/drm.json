@@ -5,12 +5,24 @@
   "scope": "business",
   "purpose": {
     "en": "Media libraries, protected playback, processing jobs and versioned mixed-media compositions.",
-    "fa": "کتابخانه رسانه، پخش حفاظت‌شده، پردازش و ترکیب چندرسانه‌ای نسخه‌دار."
+    "fa": "\u06a9\u062a\u0627\u0628\u062e\u0627\u0646\u0647 \u0631\u0633\u0627\u0646\u0647\u060c \u067e\u062e\u0634 \u062d\u0641\u0627\u0638\u062a\u200c\u0634\u062f\u0647\u060c \u067e\u0631\u062f\u0627\u0632\u0634 \u0648 \u062a\u0631\u06a9\u06cc\u0628 \u0686\u0646\u062f\u0631\u0633\u0627\u0646\u0647\u200c\u0627\u06cc \u0646\u0633\u062e\u0647\u200c\u062f\u0627\u0631."
   },
   "sources": [
     "README.md",
     "src/router.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
+  "source_decision": {
+    "status": "verified",
+    "revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
+    "source_tree_checksum": "9fc8d9a23a9ed92945aa823dbe76f1def10050ee90487d6479f05092825ad1f9",
+    "basis": "immutable supported SDK source lock",
+    "reason": "All 63 inventoried compiler input files match selected Git objects. This records which backend source the SDK supports; operation semantics and consumer verification remain separately gated.",
+    "drift_resolution": "Use the explicitly pinned SDK candidate. Preserve working checkout and origin/main differences; deployment and main promotion require separate reconciliation.",
+    "deployment_status": "unverified"
+  },
+  "relationship_review": null,
   "canonical_revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
   "sdk_source_revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
   "working_revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
@@ -271,8 +283,9 @@
       "checksum": "cf500215543de67de9a5f81a3c8dac542763e00b68e86dd01e04986ab0c096c4"
     }
   ],
+  "protocol_mounts": [],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "9fc8d9a23a9ed92945aa823dbe76f1def10050ee90487d6479f05092825ad1f9",
@@ -545,6 +558,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -558,7 +572,7 @@
           }
         ]
       },
-      "source_checksum": "e9e3af280cdf65f50cc068959958ba79a3aa360e12f4da4e2869ac653db3e9d0",
+      "source_checksum": "8a717b613de33babaab5bfec848150f62f849910d8e438985061d7e97294f8db",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:23:status",
         "path": "infera-drm/src/handlers.rs",
@@ -606,6 +620,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -614,7 +629,7 @@
           }
         ]
       },
-      "source_checksum": "7ea2c9538b46c1f64fe89891fb81ee33a96d1a32b3fa8bb042f8d3cf46fdb553",
+      "source_checksum": "90700bc9ee4a3fe91690bddf75934e4d15d819fa9fbef3bfaca922662127c99a",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:27:list_folders",
         "path": "infera-drm/src/handlers.rs",
@@ -770,6 +785,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -778,7 +794,7 @@
           }
         ]
       },
-      "source_checksum": "315c75f0895d920a970d2986abffec784505d9c708af51b3c7f71523de4b67e6",
+      "source_checksum": "4a1e477a5a6661d25bdcd5d6b50da197ea9fb73aa4429a634c49a9bae7193cca",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:38:create_folder",
         "path": "infera-drm/src/handlers.rs",
@@ -859,6 +875,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -867,7 +884,7 @@
           }
         ]
       },
-      "source_checksum": "cc6761ec31d84d1f258c39ad9c9855a632a08b9787126a43c8d2fc8df4fbd1d5",
+      "source_checksum": "fb57c41d33b82b72d267ee3b31b6dbfc82c1947f578acbd5a0627470384b3df1",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:59:update_folder",
         "path": "infera-drm/src/handlers.rs",
@@ -950,6 +967,7 @@
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -958,7 +976,7 @@
           }
         ]
       },
-      "source_checksum": "907d0fefa40b8c8814955defbcf767504f7e0f4dd531622976ee41bee33af4c5",
+      "source_checksum": "c13280eb9dfd2f93e59df3e200407cb9d3f567d99f97b6ede3cc5c7e64a9327c",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:80:delete_folder",
         "path": "infera-drm/src/handlers.rs",
@@ -1006,6 +1024,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -1014,7 +1033,7 @@
           }
         ]
       },
-      "source_checksum": "061bf70f5de24f6ba9130e8cc4858ed54bb8225e206f2eb99570f9a2873fdc26",
+      "source_checksum": "356765abfac3f66db716fdff309058962aca51122fc963b5f4d7da78878cd544",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:88:list_tags",
         "path": "infera-drm/src/handlers.rs",
@@ -1170,6 +1189,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -1178,7 +1198,7 @@
           }
         ]
       },
-      "source_checksum": "0d1f33deb25601649cd6d9ef3a84680088084c728abd19ac24b2445d4b798818",
+      "source_checksum": "4791f4da9101a2c285fdf7219add07a9ace7dfe01d9056551b4cdfcc13506a53",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:97:create_tag",
         "path": "infera-drm/src/handlers.rs",
@@ -1244,6 +1264,7 @@
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -1252,7 +1273,7 @@
           }
         ]
       },
-      "source_checksum": "1959bc524e58349766681002a1a9a9e225ba6ed1fcfb9933f3447471c1bfe4c9",
+      "source_checksum": "209291b912437ddca1d4ed2235659b63d494fc00cfb2458f9f028e5ad34005d1",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:115:delete_tag",
         "path": "infera-drm/src/handlers.rs",
@@ -1301,6 +1322,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -1309,7 +1331,7 @@
           }
         ]
       },
-      "source_checksum": "63c749d7c0c3471bf78c70d6073c18f55739b39a19c1e2f063c116df1862647c",
+      "source_checksum": "4ce2aca373b5a9dee56f2d058abc2a69e5f63057d91544ed052a7e724abb33b8",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:158:list_media",
         "path": "infera-drm/src/handlers.rs",
@@ -1394,6 +1416,7 @@
         "responseEnvelope": "raw",
         "multipart": true,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -1402,7 +1425,7 @@
           }
         ]
       },
-      "source_checksum": "423cc65f09ec0e0a0e24d5cf468d998405d440ed6ce9ef405be7313fbcbdfe35",
+      "source_checksum": "77fa37cd92075ae9012a131d310b37b6b384232cd7e0e0839ffb265004cd8403",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:266:upload_media",
         "path": "infera-drm/src/handlers.rs",
@@ -1486,6 +1509,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/package_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -1494,7 +1518,7 @@
           }
         ]
       },
-      "source_checksum": "6c6a4557f77ea75b5431d7043db4bbdd7d8ed44dc3fd1c0b59eda8162e47bf72",
+      "source_checksum": "85e580f8f8ef2124cec55c8a40e112ee009cfaeb5003b022afc2a02d16eefe20",
       "handler": {
         "ref": "infera-drm/src/package_handlers.rs:169:drm_statuses",
         "path": "infera-drm/src/package_handlers.rs",
@@ -1568,6 +1592,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -1576,7 +1601,7 @@
           }
         ]
       },
-      "source_checksum": "8223c9271c465a1e878006ebac085549819250677684f06b746f5c2553e9d50b",
+      "source_checksum": "125b2f9ffcf82e6300c43890828f81efe16dd11025bcdb46b28e249472c7de65",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:237:batch_media",
         "path": "infera-drm/src/handlers.rs",
@@ -1643,6 +1668,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -1651,7 +1677,7 @@
           }
         ]
       },
-      "source_checksum": "74ab8b5f42a2583656350c85872e5166226c395bf6a8f0cbf6cc4ce7953b1e5a",
+      "source_checksum": "c018224e5181616ab37de948b1e61ea019a857622b21bd8ce7fb1443627d47b9",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:226:get_media",
         "path": "infera-drm/src/handlers.rs",
@@ -1712,6 +1738,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -1720,7 +1747,7 @@
           }
         ]
       },
-      "source_checksum": "eb5f1914ddafd8ef68aef7eb78610fbdd4fc557f45fe2035954d090614e08406",
+      "source_checksum": "537f728b9c70d71cadbb7c31dfb2070fd47f39635df393c6b80b3862059a7618",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:397:update_media",
         "path": "infera-drm/src/handlers.rs",
@@ -1803,6 +1830,7 @@
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -1811,7 +1839,7 @@
           }
         ]
       },
-      "source_checksum": "79435f6193b02b183ea5e79431365b47629d369822a6ffa00681cd24334c34d5",
+      "source_checksum": "793ecaa35f46daa5a63fc3cce778da873a3681f04399777b6499d8a9584873e0",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:430:delete_media",
         "path": "infera-drm/src/handlers.rs",
@@ -1860,6 +1888,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -1868,7 +1897,7 @@
           }
         ]
       },
-      "source_checksum": "1023ff28d83dc2939f3970cddff789c95f3cd51225fe249ff49b7d74bb175155",
+      "source_checksum": "94fe46dcb3ff4c19393312992a11a2a577e5a16823903f1564747af3b1e3f433",
       "handler": {
         "ref": "infera-drm/src/handlers.rs:454:playback",
         "path": "infera-drm/src/handlers.rs",
@@ -1934,6 +1963,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -1942,7 +1972,7 @@
           }
         ]
       },
-      "source_checksum": "bc882508126662224990a00429712d61fbb8399a5f25c16d3cabafa2c2c41915",
+      "source_checksum": "9b976c0d05463311573e27be18458b4c69cb91d8dc5be8f1f36745419c5610ad",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:42:list_mixed_media",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -2098,6 +2128,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -2106,7 +2137,7 @@
           }
         ]
       },
-      "source_checksum": "6b4611dfeafa89f49d70a81a2eb56674cbf1e13c50f66f07d59e73950928c4c5",
+      "source_checksum": "8cfadc7f52f479332bc068af38e3dfbade1dd674678dd2a8d8c425aba641cbb5",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:53:create_mixed_media",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -2198,6 +2229,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -2206,7 +2238,7 @@
           }
         ]
       },
-      "source_checksum": "4fa32d70dd1f98ca52a06422233db821a7a84d1043329f213bbfd187ca629857",
+      "source_checksum": "1b03f921705cf65fead3354725b3d36a43d530c9053edffeafdeaea38aea0f63",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:102:get_mixed_media",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -2280,6 +2312,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -2288,7 +2321,7 @@
           }
         ]
       },
-      "source_checksum": "a3a9598909ab964a71bb7998b6f0728ac21367d28a6ced51cb9388ac9bb0e2d5",
+      "source_checksum": "3763ce5955079055eff2bd669e48a71f4a081f0a549d43c9b95bdf5105c35530",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:109:update_mixed_media",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -2383,6 +2416,7 @@
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -2391,7 +2425,7 @@
           }
         ]
       },
-      "source_checksum": "7e2d9e839cee3b00d590c72f068e20e994386343ac3b0ba78a9aeafbd95fb671",
+      "source_checksum": "7a7c0b35bfbb9b12c7c7a57e4a46d3871e27d36b20f34664c92528bff1766249",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:154:delete_mixed_media",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -2440,6 +2474,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -2448,7 +2483,7 @@
           }
         ]
       },
-      "source_checksum": "fd72367f72d75c6f385977fdd2a2115ebacdbb7b8220c53a21b7f23d6c5bacfa",
+      "source_checksum": "ec11de64e17fd9c29841bfc09a14641709f2b996ea40ffa08986da22d9f1ad8f",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:163:resources",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -2509,6 +2544,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -2517,7 +2553,7 @@
           }
         ]
       },
-      "source_checksum": "28cdf11f15c7193d8c4950d7496c3f8c0efef7ca796485e8a7a384b0655b021b",
+      "source_checksum": "db82da4815e28e3cef3bbdc453bff973955f7b01491d4e143df521437f61dc99",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:202:create_category",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -2609,11 +2645,12 @@
         "source": "infera-drm/src/router.rs",
         "handlerModule": "editor_handlers",
         "body": "CategoryInput",
+        "pathParam": "(Uuid, Uuid)",
         "response": "content_category::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -2622,7 +2659,7 @@
           }
         ]
       },
-      "source_checksum": "5658137e99d78379a1c7fede01b805429380ce182f2ba814845d7a6ee9efba16",
+      "source_checksum": "efbb187c51a166308b7e9167f9eff9c20db5ed93f8814487ce8b8213b734e5a3",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:228:update_category",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -2713,10 +2750,11 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "editor_handlers",
+        "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -2725,7 +2763,7 @@
           }
         ]
       },
-      "source_checksum": "663248620c37d84f36d09117a2ad2e457a404869d3fe1bb52370ab22671b733a",
+      "source_checksum": "4ba4310bdc306063f2fe73db251fae67a970dd7397bf48ce2a69666056f18e8c",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:253:delete_category",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -2775,6 +2813,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -2783,7 +2822,7 @@
           }
         ]
       },
-      "source_checksum": "56b8bf6a49c7b96b9cee684c1fc3942126f3264f09b021690dd6e9ea9827a12e",
+      "source_checksum": "4e40cacdee8d3374a727a9ce5183ba75f273bb977831d94e323c49dbee436bb8",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:330:create_part",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -2910,11 +2949,12 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "editor_handlers",
+        "pathParam": "(Uuid, Uuid)",
         "response": "media_part::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -2923,7 +2963,7 @@
           }
         ]
       },
-      "source_checksum": "9c7db43fbe1725042f553b9ea275c371e0b02a48ad862c5658fbd50bdfca270f",
+      "source_checksum": "748ba0b0a828944866aa72a30bf5aa5c91beafb38f25afb2f99294782822ff05",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:349:get_part",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -3016,11 +3056,12 @@
         "source": "infera-drm/src/router.rs",
         "handlerModule": "editor_handlers",
         "body": "PartInput",
+        "pathParam": "(Uuid, Uuid)",
         "response": "media_part::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -3029,7 +3070,7 @@
           }
         ]
       },
-      "source_checksum": "c76fd52c0ab32b1be3c356c5cb65320e32c606636b426bf79a23e8dc6cff1747",
+      "source_checksum": "501e49633f5b990d490072b820e5fb7cfd408ad46d2e1a124ae71edcb99fafef",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:363:update_part",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -3156,10 +3197,11 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "editor_handlers",
+        "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -3168,7 +3210,7 @@
           }
         ]
       },
-      "source_checksum": "5b97cbe0b83a362a69b60f4fd194ccc9fc2218a670783cff818e50fa7f168626",
+      "source_checksum": "678426c2c8303561386e68b29037899a304a75afd4f6b8c6b4ab897cf184f3d7",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:388:delete_part",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -3217,6 +3259,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -3225,7 +3268,7 @@
           }
         ]
       },
-      "source_checksum": "c4dc847571fd18c00691057b71c0ca6a786430b16cd6977fbaa104021c199f28",
+      "source_checksum": "9b99e1061f4fbb8ab5ec85b8bfd31737629f638932932ff93e177542c536c6b6",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:403:get_workflow",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -3293,6 +3336,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -3301,7 +3345,7 @@
           }
         ]
       },
-      "source_checksum": "4752a98400341c18a7a4cdac9f840110f9108f6a1c64f7dd92e010d9c78fee81",
+      "source_checksum": "4c7bc6aa0993ef29bab48cca994fc9c86a63c2301404a298ca7192fce35c270c",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:415:save_workflow",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -3379,6 +3423,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -3387,7 +3432,7 @@
           }
         ]
       },
-      "source_checksum": "05b04e4748c43e114f9db263e3cc7de5aa0e601424b53997a6faf078a26f3751",
+      "source_checksum": "7d1d8ad3396d1e03f28ff3f591b35cf1e014a9814773177cfd9458e0b353a417",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:454:publish",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -3482,6 +3527,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -3490,7 +3536,7 @@
           }
         ]
       },
-      "source_checksum": "983714bcad68324ba35d8d98e51fcf76bc5e72e80608ae09a006bddcc911cc6d",
+      "source_checksum": "bb1d1be66983d85ccb45e1e4573e4ff3719acfda7f48a072b7b5ed15bc5075ad",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:601:get_manifest",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -3557,6 +3603,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -3565,7 +3612,7 @@
           }
         ]
       },
-      "source_checksum": "7a3459ac5f646e4501eb8ada1ad879950f825a5803ebdb02b9118d98ba46a254",
+      "source_checksum": "534959dee266eb040714c9f93d45ed9a842d4b2599d2c5d4d51e3f0330545ac1",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:615:list_manifests",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -3725,6 +3772,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/knowledge_sync.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -3733,7 +3781,7 @@
           }
         ]
       },
-      "source_checksum": "3f5a7fb814527040358bde4bd7b44069f3978bee67e95d3b14ce8fb176da2c91",
+      "source_checksum": "b764e3e60ebc7fcc144cdc30f94d9d8363c25d1aa4f2f4f1dbdcfeded7635870",
       "handler": {
         "ref": "infera-drm/src/knowledge_sync.rs:140:get_settings",
         "path": "infera-drm/src/knowledge_sync.rs",
@@ -3819,6 +3867,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/knowledge_sync.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -3827,7 +3876,7 @@
           }
         ]
       },
-      "source_checksum": "d2c5e392ba7a599be41981ae01e147bb262dbf7e658d90ce68e958c9a9123344",
+      "source_checksum": "7a457e4543b806ef78597944d0865e7e75008834291f8a6fdc126f38fb220bc5",
       "handler": {
         "ref": "infera-drm/src/knowledge_sync.rs:152:update_settings",
         "path": "infera-drm/src/knowledge_sync.rs",
@@ -3929,6 +3978,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/knowledge_sync.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -3937,7 +3987,7 @@
           }
         ]
       },
-      "source_checksum": "b656a6f149480fa4c3abf8c4cd38f15ab513be2f991f7a48ae7e1a31b741dc89",
+      "source_checksum": "07686fdb0960f003dbda284b26757fb33f27c852d7084340e91bf522115d803d",
       "handler": {
         "ref": "infera-drm/src/knowledge_sync.rs:171:sync_now",
         "path": "infera-drm/src/knowledge_sync.rs",
@@ -4022,6 +4072,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/composition_analysis.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -4030,7 +4081,7 @@
           }
         ]
       },
-      "source_checksum": "96d18b5a968065de6f3ccda8f02285d12c27e8fe60cfcf95af6176231869dc68",
+      "source_checksum": "35b0647565047e021381299f2c5dfda478b4c54124b947125e2f1ae1d9b9511e",
       "handler": {
         "ref": "infera-drm/src/composition_analysis.rs:256:get_analysis",
         "path": "infera-drm/src/composition_analysis.rs",
@@ -4098,6 +4149,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/composition_analysis.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -4106,7 +4158,7 @@
           }
         ]
       },
-      "source_checksum": "bdfd691d8c27ec046281f34e53bcedf2fe1f82887c68c2e4b04801fc7f56d7fc",
+      "source_checksum": "1e5a7f327abad56bd9f2f63d370d624cd3fd7ce4ac42612d516fdd46865e6740",
       "handler": {
         "ref": "infera-drm/src/composition_analysis.rs:267:start_analysis",
         "path": "infera-drm/src/composition_analysis.rs",
@@ -4184,6 +4236,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/composition_analysis.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -4192,7 +4245,7 @@
           }
         ]
       },
-      "source_checksum": "17eaed67f63c6a16707e8461d39eea155358986b2c8cc986f0e5f9c44c7d9888",
+      "source_checksum": "ffc6f261e7421df0cfce6605e4bf0391a87d54078ea9a47da4245f040932680e",
       "handler": {
         "ref": "infera-drm/src/composition_analysis.rs:299:list_analyses",
         "path": "infera-drm/src/composition_analysis.rs",
@@ -4272,6 +4325,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/drm_queue.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -4280,7 +4334,7 @@
           }
         ]
       },
-      "source_checksum": "4ca81cb8c39e99d324f611928de1db2fb92f4109d191fd0002372a1dddcf7e5f",
+      "source_checksum": "ecc0194edb74c911f46611d6344c191f47ce4d760107eec95ebeefbcb5e4b0bc",
       "handler": {
         "ref": "infera-drm/src/drm_queue.rs:186:list_jobs",
         "path": "infera-drm/src/drm_queue.rs",
@@ -4360,6 +4414,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/drm_queue.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -4368,7 +4423,7 @@
           }
         ]
       },
-      "source_checksum": "25b8689a6714a73a9d57a09cbefb6e9c47998f5d2b273b5d00612d57e8894d4b",
+      "source_checksum": "bb2ef8002cac6b881d75d7d44401b3a1d70df1ad7e48f815ceea5aa363d5c482",
       "handler": {
         "ref": "infera-drm/src/drm_queue.rs:224:create_job",
         "path": "infera-drm/src/drm_queue.rs",
@@ -4443,6 +4498,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/drm_queue.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -4451,7 +4507,7 @@
           }
         ]
       },
-      "source_checksum": "36aeeade3313cc217907b69c0a6168ccc2513d3a1d28418b0f000c66fe5d42ea",
+      "source_checksum": "4760bf22279b8d2726ad15500efce3afca81f1571dad4ad2dec211d7c56461a1",
       "handler": {
         "ref": "infera-drm/src/drm_queue.rs:232:retry_job",
         "path": "infera-drm/src/drm_queue.rs",
@@ -4521,6 +4577,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/drm_queue.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -4529,7 +4586,7 @@
           }
         ]
       },
-      "source_checksum": "ba75232b3f0b79a65c0403c2cfa249ff947939373fba7bf59048c3a47a5632fb",
+      "source_checksum": "810b4759c2274f6b168e22234150f3281c4e9dcb3d7a969191acf7e5b8ff962b",
       "handler": {
         "ref": "infera-drm/src/drm_queue.rs:253:retry_all_failed",
         "path": "infera-drm/src/drm_queue.rs",
@@ -4584,6 +4641,7 @@
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/drm_queue.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -4592,7 +4650,7 @@
           }
         ]
       },
-      "source_checksum": "93a23ac2411a105a2b4436dffa0d9085c5002bf8001fdb11bbc2bc50c154454f",
+      "source_checksum": "40afb9ad07cb8e8a79027a42f096d97f4aaabc055f6065e527ab769ddc92fc87",
       "handler": {
         "ref": "infera-drm/src/drm_queue.rs:284:cancel_job",
         "path": "infera-drm/src/drm_queue.rs",
@@ -4636,11 +4694,12 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "drm_queue",
+        "pathParam": "(String, Uuid)",
         "response": "serde_json::Value",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(String, Uuid)",
+        "handler_source": "infera-drm/src/drm_queue.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -4649,7 +4708,7 @@
           }
         ]
       },
-      "source_checksum": "208e61fa88f032762f10718c6a5edceae5157821a859d00c324bc3ee090dd7c0",
+      "source_checksum": "d87139c0d2960cdab11b2496479575991979b8904a1ea85fa87550f24eedbd09",
       "handler": {
         "ref": "infera-drm/src/drm_queue.rs:330:legacy_status",
         "path": "infera-drm/src/drm_queue.rs",
@@ -4702,6 +4761,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/drm_queue.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -4710,7 +4770,7 @@
           }
         ]
       },
-      "source_checksum": "51b448a3cba2c11401a16724809bc144db8ba460e69240a3b6a298b00b8372a1",
+      "source_checksum": "a0d316ff097fe750fca110926c149637836e12085b0db8bc770a9583cf478f59",
       "handler": {
         "ref": "infera-drm/src/drm_queue.rs:345:legacy_enqueue",
         "path": "infera-drm/src/drm_queue.rs",
@@ -4769,6 +4829,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -4777,7 +4838,7 @@
           }
         ]
       },
-      "source_checksum": "20f8e2c441865c329046ff55701992a1fc243646840edbe94ac388c7ae737f88",
+      "source_checksum": "1888298cab8f2af870caa9a7e67739739b38dabf355eecc4598724554bfaae19",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:44:list_libraries",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -4933,6 +4994,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -4941,7 +5003,7 @@
           }
         ]
       },
-      "source_checksum": "28dabe363bdb2ab75f7d1fdc2f70936a807a619f670726cb590caa82b2830b60",
+      "source_checksum": "dead39104f0731610e404b70b9a2ea436fb26bb834137f2d0f29d4fad094faa2",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:56:create_library",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -5008,6 +5070,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -5016,7 +5079,7 @@
           }
         ]
       },
-      "source_checksum": "2e5c94699e858c689616add1418525bf4050a9b88068fdfadd7bb18433385f08",
+      "source_checksum": "b3bc7c98b62ecce0da6603a639953aaaac8dc86ac4f9559ba5c0e447bb011d42",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:93:get_library",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -5077,6 +5140,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -5085,7 +5149,7 @@
           }
         ]
       },
-      "source_checksum": "f1256d0814a0593696f223700c24e59d5b988a392319a88363d6208fef28981c",
+      "source_checksum": "8a11476646102f335d595757c4c0e24b5a54291f95fc28b0534b9906aa868c6c",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:105:update_library",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -5155,6 +5219,7 @@
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -5163,7 +5228,7 @@
           }
         ]
       },
-      "source_checksum": "cf201be9a52bae813775063a74462712568554276c4608a6e5886b348196ef3e",
+      "source_checksum": "80fc09bc40d44610e962df9c586f1502553185ea9ba8d9debd60a1956a7739b8",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:134:delete_library",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -5212,6 +5277,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -5220,7 +5286,7 @@
           }
         ]
       },
-      "source_checksum": "2e696c085e7412057ce2ee47fa0557f3b89352e8b169fcb1692b742f25e625eb",
+      "source_checksum": "23690895ce54cd64b6a4ed59b12904d4f4f352114357aec6f73bca8b54d4a772",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:180:list_categories",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -5381,6 +5447,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -5389,7 +5456,7 @@
           }
         ]
       },
-      "source_checksum": "87b6b3b25990fa1b6d13ce31cd94b59944b4af45e8feef1e8f922333efd6d2f7",
+      "source_checksum": "f12098d5097534bc53897f149a3ba3610c2e725c1ba3a2082fa250904d64d8e2",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:194:create_category",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -5481,11 +5548,12 @@
         "source": "infera-drm/src/router.rs",
         "handlerModule": "generic_handlers",
         "body": "GenericCategoryInput",
+        "pathParam": "(Uuid, Uuid)",
         "response": "content_category::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -5494,7 +5562,7 @@
           }
         ]
       },
-      "source_checksum": "bc67622df243503ca7be045d2d5da3348e9f36255db30d2c1a60cfc82c95a3ef",
+      "source_checksum": "ad922b2f8e58f1dfea663946220d114173236772307faca3e59761a1e73bcf0b",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:238:update_category",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -5585,10 +5653,11 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "generic_handlers",
+        "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -5597,7 +5666,7 @@
           }
         ]
       },
-      "source_checksum": "bfac0fd57c40470f37ddca8fa88adf2a651ed1f5ee2c361e24014760294a4f84",
+      "source_checksum": "3b4dc7b98f9d429a6abba41727ec4fab20ca48646748980127c62dcd9c9059eb",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:262:archive_category",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -5646,6 +5715,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -5654,7 +5724,7 @@
           }
         ]
       },
-      "source_checksum": "a7c324e5eedd1d9026635602c2e5d41b2ba75b5a2b5b3bf20059c9d801afbfcd",
+      "source_checksum": "d7d2e1c4970007e5a0e4f2aa669cd2ac5d6134264d305ca28c80eed3d99a045f",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:315:list_items",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -5815,6 +5885,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -5823,7 +5894,7 @@
           }
         ]
       },
-      "source_checksum": "4bf94a8489b34843d474eb657da1d26626e8881d4c217739d8e3023cbd2d8080",
+      "source_checksum": "f96be26eb1f88ef0da7df47b37094a930a258edcbf80775c61b8ed28032ef76e",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:449:create_item",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -5943,6 +6014,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -5951,7 +6023,7 @@
           }
         ]
       },
-      "source_checksum": "f400497aa2cc31ee3a26f0f50ad227ebdde73c264968eee13a71b9d26d6552ef",
+      "source_checksum": "dbf6834287f17783080f4ad8bec2510ee3eb03da1d8796c2ea5f391fe46f8e03",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:329:library_stats",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -6012,6 +6084,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -6020,7 +6093,7 @@
           }
         ]
       },
-      "source_checksum": "b98db06894d0fec949916a5977aca2cc0d340a5557dc333e3181425681165eb0",
+      "source_checksum": "99d6d7ecfa215d1b65224f7a01107b6913a13addf48c108948cf6541026133ef",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:363:query_items",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -6199,11 +6272,12 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "generic_handlers",
+        "pathParam": "(Uuid, Uuid)",
         "response": "media_part::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -6212,7 +6286,7 @@
           }
         ]
       },
-      "source_checksum": "019006a27420d5cf5ab681a1861aa69c5dd1550020c67bcdca0ebbbf6fbb938f",
+      "source_checksum": "68c8378d7a03ee7a7c8c4c534847072ab4461f55b22b30ea6048862e87d2b79a",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:491:get_item",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -6305,11 +6379,12 @@
         "source": "infera-drm/src/router.rs",
         "handlerModule": "generic_handlers",
         "body": "ContentItemInput",
+        "pathParam": "(Uuid, Uuid)",
         "response": "media_part::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -6318,7 +6393,7 @@
           }
         ]
       },
-      "source_checksum": "f3529334810477ddde56043912b574c5553ac77b677c52c1cf13efa7b0f5d952",
+      "source_checksum": "60437493bf1e52b835a7aab748336d895e12d1f92a32e4ab0a952fe1d74c59c0",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:503:update_item",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -6433,10 +6508,11 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "generic_handlers",
+        "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -6445,7 +6521,7 @@
           }
         ]
       },
-      "source_checksum": "c77171a44892cd3b96e0ab16b1f81f5fc693f59bffd1e4ab3b11ef62eb65facd",
+      "source_checksum": "0ba0a72a869df3c2887f56f1cb928f95982333b9184e7dc81f4bc5495ecc3d30",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:529:archive_item",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -6489,11 +6565,12 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "generic_handlers",
+        "pathParam": "(Uuid, Uuid)",
         "response": "Vec<content_item_media::Model>",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -6502,7 +6579,7 @@
           }
         ]
       },
-      "source_checksum": "1c5a9b59d653893941e00593370384ab6ae95ca266ec80a5e4fd8a17b3e77e5a",
+      "source_checksum": "f506f7faf4a3d5adb8da02eeccf0ab644dfb77a5142baaa3b16ef1b2522e96a2",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:547:item_attachments",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -6658,11 +6735,12 @@
         "source": "infera-drm/src/router.rs",
         "handlerModule": "generic_handlers",
         "body": "AttachmentInput",
+        "pathParam": "(Uuid, Uuid)",
         "response": "content_item_media::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -6671,7 +6749,7 @@
           }
         ]
       },
-      "source_checksum": "9ce8c0d997d90c9ea6767a13652318819a388c02ff5478802b3c220d6c01d233",
+      "source_checksum": "7245d541371d6234857cdf8edd23c13bad4723eb7976dbb83080b358bfcd500c",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:568:attach_media",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -6761,6 +6839,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -6769,7 +6848,7 @@
           }
         ]
       },
-      "source_checksum": "ac8664cb63a903c1de9b7384b215abcf050f19210d330452d5d2d538c4902899",
+      "source_checksum": "9bc75af2936be207a43ed7b21b78624a399fce28d2cfa7097d98d83eead76a96",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:633:list_compositions",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -6949,6 +7028,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -6957,7 +7037,7 @@
           }
         ]
       },
-      "source_checksum": "b38e72a11dd45d2b3b89af0ec69e5c902be0578fbd87b9f6bc0defacbd250fc7",
+      "source_checksum": "21e05989f9eca52e7bc2bac268caa7ef625589ba015cb96a71e608a17b02d24f",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:683:create_composition",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -7048,6 +7128,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -7056,7 +7137,7 @@
           }
         ]
       },
-      "source_checksum": "148ca3edf058cdbf708710c6444138522b558b9794d048fd4666cf6f175c013c",
+      "source_checksum": "d984df2bbd2da8b9d3990a0ca5d8d4847d1043ee752bc4607016e0fd4ad41565",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:731:list_composition_categories",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -7212,6 +7293,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -7220,7 +7302,7 @@
           }
         ]
       },
-      "source_checksum": "28479acbb326309c9d39e8cfe6ec5386920f99c90968a5588bdebc3cb57d2627",
+      "source_checksum": "1d58ad5901821c6914182e27192ffa677bbf4d6f999940c63aea820156766285",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:742:create_composition_category",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -7301,6 +7383,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -7309,7 +7392,7 @@
           }
         ]
       },
-      "source_checksum": "f47cf65ec57059a221f803c3a56b4987dd2b105d2928fe20b031105223ae0ef7",
+      "source_checksum": "cd8d332f03e5d3b212b90e2174eabeac62b38963d1cc7bc55c7831a70db6edf4",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:769:update_composition_category",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -7392,6 +7475,7 @@
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -7400,7 +7484,7 @@
           }
         ]
       },
-      "source_checksum": "464a2fd5c24bb6c4b19177049f81a0b375fa904909b877a17c061716daf1d10c",
+      "source_checksum": "79362f149d14fde7cd967f45ef3730ecbd09df81095062c78252d43f5ebf23c2",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:809:delete_composition_category",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -7449,6 +7533,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -7457,7 +7542,7 @@
           }
         ]
       },
-      "source_checksum": "1bb04e513d6c213938f5ac0d1bc9a65d626f1158c10abfaade49ff26f8055633",
+      "source_checksum": "71035138f31c29aa8bc8e54ef60003cef30f37337d7ad45394e404f0a962a5dc",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:403:get_workflow",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -7525,6 +7610,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -7533,7 +7619,7 @@
           }
         ]
       },
-      "source_checksum": "6868281b1100e4490ba75562b8ec5dc3da691f5fc6e1593ba6ec604939a08c34",
+      "source_checksum": "ad46557126c8629c5256131dfbc5d4b0bb8a6c3b3e8cb74247b37e968a26e79a",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:415:save_workflow",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -7611,6 +7697,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -7619,7 +7706,7 @@
           }
         ]
       },
-      "source_checksum": "720983401a913da213a79c87373bb36a5437f2ab600fbc62b014b98d8930d5a3",
+      "source_checksum": "9af2a3980cc5fe5a5943a1f051709a43ae70eaaddd899710bb9e7da64d66c1bc",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:615:list_manifests",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -7780,6 +7867,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -7788,7 +7876,7 @@
           }
         ]
       },
-      "source_checksum": "9625f39aa55b3880aef1467e387f929122a869895eb4cea04cb6039a43e3454c",
+      "source_checksum": "5e1b08194a1e721a893ab448254c4e98f14a3eef6b50a4424a45ed3d7d03a81e",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:823:create_manifest_version",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -7866,6 +7954,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -7874,7 +7963,7 @@
           }
         ]
       },
-      "source_checksum": "bee204f354309c95dd9c30d7d88396ed249c2db9db82bfbd31473a85b5386cf6",
+      "source_checksum": "43dbe2a47e238e96bd88ddabeee4812669e77b05e902a101bd45516badcf6f7a",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:454:publish",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -7969,6 +8058,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -7977,7 +8067,7 @@
           }
         ]
       },
-      "source_checksum": "11e7c4e5f04bbbc26bfe3e7dc6cfeec638dd9fad9ff0345dff41f69624b29673",
+      "source_checksum": "f0067505b3e653b32ba44d91382c5c541cd01ee5e5907b746c9907693e0a0ad9",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:859:list_external_references",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -8151,6 +8241,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -8159,7 +8250,7 @@
           }
         ]
       },
-      "source_checksum": "65febce170bbb4c4613903a7106db927972603143907d0f935e7a1949e895ebd",
+      "source_checksum": "9fbf54dea9e64f97dd65e67c4a12e046e2bbbc48f772ed9b00fbdec5209466f6",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:873:upsert_external_reference",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -8251,6 +8342,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/upload_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -8259,7 +8351,7 @@
           }
         ]
       },
-      "source_checksum": "ac05a90621667844e466975efff9d733dc376e9f9c787533b0fb067ddebe11fd",
+      "source_checksum": "1b65c47cc6c4ed05e4f820af50bbfb3b6eda929bdee29fd4cabb4e13199a051b",
       "handler": {
         "ref": "infera-drm/src/upload_handlers.rs:76:create_upload_session",
         "path": "infera-drm/src/upload_handlers.rs",
@@ -8339,6 +8431,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/upload_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -8347,7 +8440,7 @@
           }
         ]
       },
-      "source_checksum": "b9715acc9005c12f504de6473ef69349f13dbd75c8b9e0d3b2ba855026ebf3a5",
+      "source_checksum": "b0f99cf0ce4213ce2c42bb3e7af683fcbd4664faf1684f381249a719af224d4a",
       "handler": {
         "ref": "infera-drm/src/upload_handlers.rs:130:get_upload_session",
         "path": "infera-drm/src/upload_handlers.rs",
@@ -8406,6 +8499,7 @@
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/upload_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -8414,7 +8508,7 @@
           }
         ]
       },
-      "source_checksum": "0262dd4e53fa84b7b021e1a7ea48121fe589cc943208fa0bad4a47b1edefdf17",
+      "source_checksum": "17fa9c20948f6d4674c9d573d6345525492aaf7cca9c53a16e52dd63370fa2fb",
       "handler": {
         "ref": "infera-drm/src/upload_handlers.rs:280:cancel_upload",
         "path": "infera-drm/src/upload_handlers.rs",
@@ -8458,12 +8552,13 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "upload_handlers",
+        "pathParam": "(Uuid, i32)",
         "response": "upload_part::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "binary": true,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, i32)",
+        "handler_source": "infera-drm/src/upload_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -8472,7 +8567,7 @@
           }
         ]
       },
-      "source_checksum": "dee82d83c289f078e35025dbc772019f5207dc0893d44758489933c1491404a4",
+      "source_checksum": "17cb6b8120c554584b9f31fd95d35620647ea20b0b62245d85c0bbe3b8feaac5",
       "handler": {
         "ref": "infera-drm/src/upload_handlers.rs:141:put_upload_part",
         "path": "infera-drm/src/upload_handlers.rs",
@@ -8540,6 +8635,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/upload_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -8548,7 +8644,7 @@
           }
         ]
       },
-      "source_checksum": "a4a016c89e3b0c90d2148e96e6a85925ece8bdd9d7bdc498a56dee6d7a1b7260",
+      "source_checksum": "327ac52f2e16d11c49b16c9354baa18694117f805d9024d7b24a747f1b590998",
       "handler": {
         "ref": "infera-drm/src/upload_handlers.rs:185:complete_upload",
         "path": "infera-drm/src/upload_handlers.rs",
@@ -8647,6 +8743,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/upload_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -8655,7 +8752,7 @@
           }
         ]
       },
-      "source_checksum": "9d0541a3b2d4a3058b863547572f65fcb4025b9f7beec2491be07eb3e7453e2f",
+      "source_checksum": "fb02668cfc07c650d92ee89ed827d5b70d1ee2d16b13a50712232311464bd142",
       "handler": {
         "ref": "infera-drm/src/upload_handlers.rs:298:register_existing_media",
         "path": "infera-drm/src/upload_handlers.rs",
@@ -8757,6 +8854,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/package_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -8765,7 +8863,7 @@
           }
         ]
       },
-      "source_checksum": "192c8b8c52b00da4d71408515be1727620cd84eec9540a21898904b81eaea40f",
+      "source_checksum": "ea3462608735eb8ffd7731e766e274a4354c382ac34e87beddf8dfc4ad99c6bd",
       "handler": {
         "ref": "infera-drm/src/package_handlers.rs:77:list_packages",
         "path": "infera-drm/src/package_handlers.rs",
@@ -8826,6 +8924,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/package_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -8834,7 +8933,7 @@
           }
         ]
       },
-      "source_checksum": "5f729cf2e82f3734df5a4f39fd7eeff8e1067a88702d0aa42f2b7871b437fbc3",
+      "source_checksum": "26322ee776428a720063d7351bd72c62b36d54c236c285a4f42af06f0a1d040a",
       "handler": {
         "ref": "infera-drm/src/package_handlers.rs:236:regenerate",
         "path": "infera-drm/src/package_handlers.rs",
@@ -8923,10 +9022,11 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "package_handlers",
+        "pathParam": "(Uuid, String)",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, String)",
+        "handler_source": "infera-drm/src/package_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -8935,7 +9035,7 @@
           }
         ]
       },
-      "source_checksum": "8a490546de1a2bbed27e954be8fe3b6edbf0fa1269a90026e5e1acb486315870",
+      "source_checksum": "f5b2100943df492540216c134c10110117861f8dccfd2a1dc7a48c6ccdd22c3d",
       "handler": {
         "ref": "infera-drm/src/package_handlers.rs:93:package_file",
         "path": "infera-drm/src/package_handlers.rs",
@@ -8983,6 +9083,7 @@
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/package_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -8991,7 +9092,7 @@
           }
         ]
       },
-      "source_checksum": "16ed63fbc289d673e8fecf03004fce8ba7905b17040be1ed5191990fcc32d623",
+      "source_checksum": "6e780bbd8b21201cdc2a1d8579c8cb431bd05664bd16533283cb5a15180193e2",
       "handler": {
         "ref": "infera-drm/src/package_handlers.rs:257:archive_package",
         "path": "infera-drm/src/package_handlers.rs",
@@ -9040,6 +9141,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/package_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -9048,7 +9150,7 @@
           }
         ]
       },
-      "source_checksum": "b1ee75bef1ff81a0b394267b380b5a86a1afa9da878dddeea30d2492fa76b9a7",
+      "source_checksum": "fee488ea312ee048a7dc0c3053028f95b9f9cec6d2c6a369262a17089740ffa5",
       "handler": {
         "ref": "infera-drm/src/package_handlers.rs:245:clear_key_license",
         "path": "infera-drm/src/package_handlers.rs",
@@ -9114,6 +9216,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/operations_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -9122,7 +9225,7 @@
           }
         ]
       },
-      "source_checksum": "9b1430dd8283e3f3f2562cf15613d4efb5888b9ce25d11bc42d5e96a28b78238",
+      "source_checksum": "8cbfa43d81f01ce2569bc221cef09703379e941d0982580b3d9abb57e9d36d10",
       "handler": {
         "ref": "infera-drm/src/operations_handlers.rs:65:dashboard",
         "path": "infera-drm/src/operations_handlers.rs",
@@ -9180,6 +9283,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/operations_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -9188,7 +9292,7 @@
           }
         ]
       },
-      "source_checksum": "782c1f9e8950d4998fded2eb488af1e53fdbbd63b7c8b48695a4ff55ec2e885d",
+      "source_checksum": "537950417d42f6a3cd04cc6be24ba4d0b3f714118c756ebe2a084c9868935d57",
       "handler": {
         "ref": "infera-drm/src/operations_handlers.rs:112:health",
         "path": "infera-drm/src/operations_handlers.rs",
@@ -9236,6 +9340,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/operations_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -9244,7 +9349,7 @@
           }
         ]
       },
-      "source_checksum": "d16fe178360f21ff0f6c5fcd9057a12f68f043f2e29b6cc3099783a2ab22d9a8",
+      "source_checksum": "0d36a678487496a482670525d91adab7a6489657d5748d771910a372b7b96cc6",
       "handler": {
         "ref": "infera-drm/src/operations_handlers.rs:230:transcription_models",
         "path": "infera-drm/src/operations_handlers.rs",
@@ -9299,6 +9404,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/knowledge_sync.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -9307,7 +9413,7 @@
           }
         ]
       },
-      "source_checksum": "1a045ee7740c7db1409b40f9746e2e20090c343462ea369050981db8c8117653",
+      "source_checksum": "ce244a4f2bf2754e65fa10ff91f5d8af8b1a7731cd9c3bfe0288914d9ff87737",
       "handler": {
         "ref": "infera-drm/src/knowledge_sync.rs:181:knowledge_catalog",
         "path": "infera-drm/src/knowledge_sync.rs",
@@ -9355,6 +9461,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/operations_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -9363,7 +9470,7 @@
           }
         ]
       },
-      "source_checksum": "10c14bdf09f531dadacd66e9ac885352777c79323e0c167a2394374ce83dff79",
+      "source_checksum": "818e2d097324b13ac4bb676b0cf86d2ed7d5219085a5ada05d623120a3d77974",
       "handler": {
         "ref": "infera-drm/src/operations_handlers.rs:123:get_settings",
         "path": "infera-drm/src/operations_handlers.rs",
@@ -9419,6 +9526,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/operations_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -9427,7 +9535,7 @@
           }
         ]
       },
-      "source_checksum": "a463632fce833dff5de2b49210eab990a2db65d278e213fdbe75b980f1209800",
+      "source_checksum": "d1bea6a49a758e5ee1446418f08af32438b0a44fa0f2cc1fec38287f6e872d4b",
       "handler": {
         "ref": "infera-drm/src/operations_handlers.rs:135:update_settings",
         "path": "infera-drm/src/operations_handlers.rs",
@@ -9494,6 +9602,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-drm/src/operations_handlers.rs",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -9502,7 +9611,7 @@
           }
         ]
       },
-      "source_checksum": "2db242bec326ef61e59273a4833aee91155f589ff533fa963601a42432eb8f28",
+      "source_checksum": "4407a84f71b016383e9536d1328117e51cf30d84e011639a366156f152a49438",
       "handler": {
         "ref": "infera-drm/src/operations_handlers.rs:333:audit_events",
         "path": "infera-drm/src/operations_handlers.rs",
@@ -9775,6 +9884,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -9797,6 +9907,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -9814,6 +9925,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "body": "FolderInput",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -9832,6 +9944,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "body": "FolderInput",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -9851,6 +9964,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -9869,6 +9983,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -9886,6 +10001,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "body": "TagInput",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -9904,6 +10020,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -9922,6 +10039,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "query": "ListQuery",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -9940,6 +10058,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -9957,6 +10076,7 @@
         "handlerModule": "package_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/package_handlers.rs",
         "query": "DrmStatusesQuery",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -9975,6 +10095,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "body": "BatchMediaInput",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -9993,6 +10114,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10011,6 +10133,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "body": "MediaUpdate",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -10030,6 +10153,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -10048,6 +10172,7 @@
         "handlerModule": "handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10066,6 +10191,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -10083,6 +10209,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "body": "MixedMediaInput",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10101,6 +10228,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10119,6 +10247,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "body": "MixedMediaUpdate",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -10138,6 +10267,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -10156,6 +10286,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10174,6 +10305,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "body": "CategoryInput",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -10193,6 +10325,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "body": "CategoryInput",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "raw",
@@ -10212,6 +10345,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -10230,6 +10364,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "body": "PartInput",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -10249,6 +10384,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10267,6 +10403,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "body": "PartInput",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "raw",
@@ -10286,6 +10423,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -10304,6 +10442,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10322,6 +10461,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "body": "WorkflowInput",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -10341,6 +10481,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10359,6 +10500,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10377,6 +10519,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10395,6 +10538,7 @@
         "handlerModule": "knowledge_sync",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/knowledge_sync.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10413,6 +10557,7 @@
         "handlerModule": "knowledge_sync",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/knowledge_sync.rs",
         "body": "UpdateKnowledgeSync",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -10432,6 +10577,7 @@
         "handlerModule": "knowledge_sync",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/knowledge_sync.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10450,6 +10596,7 @@
         "handlerModule": "composition_analysis",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/composition_analysis.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10468,6 +10615,7 @@
         "handlerModule": "composition_analysis",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/composition_analysis.rs",
         "body": "StartAnalysisInput",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -10487,6 +10635,7 @@
         "handlerModule": "composition_analysis",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/composition_analysis.rs",
         "query": "AnalysisQuery",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10505,6 +10654,7 @@
         "handlerModule": "drm_queue",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/drm_queue.rs",
         "query": "DrmJobQuery",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10523,6 +10673,7 @@
         "handlerModule": "drm_queue",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/drm_queue.rs",
         "body": "EnqueueDrmInput",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10541,6 +10692,7 @@
         "handlerModule": "drm_queue",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/drm_queue.rs",
         "body": "DrmConfig",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -10560,6 +10712,7 @@
         "handlerModule": "drm_queue",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/drm_queue.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -10577,6 +10730,7 @@
         "handlerModule": "drm_queue",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/drm_queue.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -10595,6 +10749,7 @@
         "handlerModule": "drm_queue",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/drm_queue.rs",
         "pathParam": "(String, Uuid)",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10613,6 +10768,7 @@
         "handlerModule": "drm_queue",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/drm_queue.rs",
         "body": "LegacyPackageInput",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10631,6 +10787,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -10648,6 +10805,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "body": "LibraryInput",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10666,6 +10824,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10684,6 +10843,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "body": "LibraryInput",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -10703,6 +10863,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -10721,6 +10882,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10739,6 +10901,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "body": "GenericCategoryInput",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -10758,6 +10921,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "body": "GenericCategoryInput",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "raw",
@@ -10777,6 +10941,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -10795,6 +10960,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10813,6 +10979,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "body": "ContentItemInput",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -10832,6 +10999,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10850,6 +11018,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "query": "ContentItemsQuery",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -10869,6 +11038,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10887,6 +11057,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "body": "ContentItemInput",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "raw",
@@ -10906,6 +11077,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -10924,6 +11096,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10942,6 +11115,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "body": "AttachmentInput",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "raw",
@@ -10961,6 +11135,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "query": "CompositionQuery",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10979,6 +11154,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "body": "CompositionInput",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -10997,6 +11173,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -11014,6 +11191,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "body": "CompositionCategoryInput",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -11032,6 +11210,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "body": "CompositionCategoryInput",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -11051,6 +11230,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -11069,6 +11249,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -11087,6 +11268,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "body": "WorkflowInput",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -11106,6 +11288,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -11124,6 +11307,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "body": "HistoricalManifestInput",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -11143,6 +11327,7 @@
         "handlerModule": "editor_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/editor_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -11161,6 +11346,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "query": "ExternalReferenceQuery",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -11179,6 +11365,7 @@
         "handlerModule": "generic_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/generic_handlers.rs",
         "body": "ExternalReferenceInput",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -11197,6 +11384,7 @@
         "handlerModule": "upload_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/upload_handlers.rs",
         "body": "UploadSessionInput",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -11215,6 +11403,7 @@
         "handlerModule": "upload_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/upload_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -11233,6 +11422,7 @@
         "handlerModule": "upload_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/upload_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -11251,6 +11441,7 @@
         "handlerModule": "upload_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/upload_handlers.rs",
         "pathParam": "(Uuid, i32)",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -11269,6 +11460,7 @@
         "handlerModule": "upload_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/upload_handlers.rs",
         "body": "CompleteUploadInput",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -11288,6 +11480,7 @@
         "handlerModule": "upload_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/upload_handlers.rs",
         "body": "RegisterMediaInput",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -11306,6 +11499,7 @@
         "handlerModule": "package_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/package_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -11324,6 +11518,7 @@
         "handlerModule": "package_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/package_handlers.rs",
         "body": "Option<DrmConfig>",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -11343,6 +11538,7 @@
         "handlerModule": "package_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/package_handlers.rs",
         "pathParam": "(Uuid, String)",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -11361,6 +11557,7 @@
         "handlerModule": "package_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/package_handlers.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -11379,6 +11576,7 @@
         "handlerModule": "package_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/package_handlers.rs",
         "query": "PackageQuery",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -11397,6 +11595,7 @@
         "handlerModule": "operations_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/operations_handlers.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -11414,6 +11613,7 @@
         "handlerModule": "operations_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/operations_handlers.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -11431,6 +11631,7 @@
         "handlerModule": "operations_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/operations_handlers.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -11448,6 +11649,7 @@
         "handlerModule": "knowledge_sync",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/knowledge_sync.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -11465,6 +11667,7 @@
         "handlerModule": "operations_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/operations_handlers.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -11482,6 +11685,7 @@
         "handlerModule": "operations_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/operations_handlers.rs",
         "body": "SettingsInput",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -11500,6 +11704,7 @@
         "handlerModule": "operations_handlers",
         "source": "infera-drm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-drm/src/operations_handlers.rs",
         "query": "AuditQuery",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -11614,7 +11819,8 @@
       "GET /api/v1/upload-sessions/{id}",
       "POST /api/v1/upload-sessions/{id}/complete",
       "PUT /api/v1/upload-sessions/{id}/parts/{part_number}"
-    ]
+    ],
+    "extraction_errors": []
   },
   "working_route_candidates": [
     {
@@ -12004,6 +12210,38 @@
     {
       "path": "infera-drm/migration/src/main.rs",
       "checksum": "e82b8af2c956160d64d9a693732eef324d063cd52cc3631fb8129a867c770e18"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-drm/src/auth.rs",
+      "checksum": "8a989296170488b762103379292cf2925b6cd3c26a2fd0e37fbcb0c4a1583ec1"
+    },
+    {
+      "path": "infera-drm/src/main.rs",
+      "checksum": "ab89fd1fd897937188c847675f76be670d057fd15f507c060ac295cece6b32aa"
+    },
+    {
+      "path": "infera-drm/src/router.rs",
+      "checksum": "b329925bac713a3600e11e3d67a907eb8b7e24d1d7dd9d6b0e24e56c76556bfb"
+    },
+    {
+      "path": "infera-drm/entity/src/upload_session.rs",
+      "checksum": "81648e43612fec7d96ecec6a27cf4a5681cb8d9b447abdd03daa31facb8f2742"
+    },
+    {
+      "path": "infera-drm/migration/src/main.rs",
+      "checksum": "e82b8af2c956160d64d9a693732eef324d063cd52cc3631fb8129a867c770e18"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-drm/README.md",
+      "checksum": "6a82beb0f664ff43e87dfacbbff0af0a0a5363d5f96a6ba362d18caa47aafb62"
+    },
+    {
+      "path": "Service/infera-drm/src/router.rs",
+      "checksum": "b329925bac713a3600e11e3d67a907eb8b7e24d1d7dd9d6b0e24e56c76556bfb"
     }
   ],
   "missing_meaning_sources": [],

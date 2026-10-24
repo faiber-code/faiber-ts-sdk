@@ -1,0 +1,430 @@
+     Locking 36 packages to latest compatible versions
+      Adding bitflags v1.3.2
+      Adding chrono-tz v0.10.4
+      Adding curve25519-dalek v4.1.3
+      Adding curve25519-dalek-derive v0.1.1
+      Adding defmt v1.1.1
+      Adding defmt-macros v1.1.1
+      Adding defmt-parser v1.0.0
+      Adding dyn-clone v1.0.20
+      Adding ed25519 v2.2.3
+      Adding ed25519-dalek v2.2.0
+      Adding fiat-crypto v0.2.9
+      Adding futures-macro v0.3.32 (available: v0.3.34)
+      Adding jiff v0.2.38
+      Adding jiff-core v0.1.1
+      Adding jiff-static v0.2.38
+    Updating js-sys v0.3.102 -> v0.3.106
+    Updating libredox v0.1.17 -> v0.1.25
+      Adding paste v1.0.15
+      Adding phf v0.12.1
+      Adding phf_shared v0.12.1
+      Adding portable-atomic v1.15.0
+      Adding portable-atomic-util v0.2.7
+    Updating redox_syscall v0.8.1 -> v0.9.5
+      Adding ref-cast v1.0.27
+      Adding ref-cast-impl v1.0.27
+      Adding serde_derive_internals v0.29.1
+      Adding siphasher v1.0.4
+      Adding smol_str v0.2.2 (available: v0.3.2)
+      Adding syn v3.0.9
+    Updating wasm-bindgen v0.2.125 -> v0.2.129
+    Updating wasm-bindgen-futures v0.4.75 -> v0.4.79
+    Updating wasm-bindgen-macro v0.2.125 -> v0.2.129
+    Updating wasm-bindgen-macro-support v0.2.125 -> v0.2.129
+    Updating wasm-bindgen-shared v0.2.125 -> v0.2.129
+      Adding wasm-streams v0.4.2
+    Updating web-sys v0.3.102 -> v0.3.106
+    Blocking waiting for file lock on build directory
+   Compiling quote v1.0.45
+    Checking syn v2.0.117
+   Compiling syn v3.0.9
+   Compiling syn v1.0.109
+   Compiling proc-macro-error-attr2 v2.0.0
+   Compiling ref-cast-impl v1.0.27
+    Checking darling_core v0.21.3 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/shared/infera-summary-sdk/vendor/darling/core)
+    Checking ref-cast v1.0.27
+   Compiling async-attributes v1.1.2
+    Checking serde_derive_internals v0.29.1
+    Checking schemars_derive v1.0.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/shared/infera-summary-sdk/vendor/schemars_derive)
+   Compiling synstructure v0.13.2
+   Compiling darling_core v0.20.11
+   Compiling proc-macro-error2 v2.0.1
+   Compiling proc-macro2-diagnostics v0.10.1
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:84:17
+   |
+84 |     pub fn name(&self) -> Name {
+   |                 ^^^^^     ^^^^ the same lifetime is hidden here
+   |                 |
+   |                 the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+   = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+   |
+84 |     pub fn name(&self) -> Name<'_> {
+   |                               ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:106:17
+    |
+106 |     pub fn name(&self) -> Name {
+    |                 ^^^^^     ^^^^ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+106 |     pub fn name(&self) -> Name<'_> {
+    |                               ++++
+
+warning: `schemars_derive` (lib) generated 2 warnings (run `cargo fix --lib -p schemars_derive` to apply 2 suggestions)
+    Checking darling_macro v0.21.3 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/shared/infera-summary-sdk/vendor/darling/macro)
+   Compiling serde_derive v1.0.228
+   Compiling tokio-macros v2.7.0
+   Compiling tracing-attributes v0.1.31
+   Compiling futures-macro v0.3.32
+   Compiling displaydoc v0.2.6
+   Compiling zerofrom-derive v0.1.7
+   Compiling yoke-derive v0.8.2
+   Compiling zerovec-derive v0.11.3
+   Compiling thiserror-impl v2.0.18
+   Compiling der_derive v0.7.3
+    Checking tokio v1.52.3
+   Compiling async-trait v0.1.89
+    Checking futures-util v0.3.32
+   Compiling aws-smithy-runtime-api-macros v1.0.0
+   Compiling asn1-rs-derive v0.6.0
+    Checking zerofrom v0.1.8
+    Checking tracing v0.1.44
+    Checking der v0.7.10
+    Checking thiserror v2.0.18
+   Compiling darling_macro v0.20.11
+   Compiling asn1-rs-impl v0.2.0
+   Compiling darling v0.20.11
+    Checking executor-trait v2.1.2
+   Compiling inherent v1.0.13
+   Compiling sea-bae v0.2.1
+    Checking serde v1.0.228
+   Compiling ouroboros_macro v0.18.5
+   Compiling async-stream-impl v0.3.6
+   Compiling derive_more-impl v2.1.1
+    Checking ouroboros v0.18.5
+    Checking yoke v0.8.3
+    Checking tokio-util v0.7.18
+    Checking tokio-rustls v0.26.4
+    Checking aws-smithy-async v1.2.14
+    Checking tokio-stream v0.1.18
+    Checking tokio-rustls v0.24.1
+    Checking futures-executor v0.3.32
+    Checking tokio-native-tls v0.3.1
+    Checking futures v0.3.32
+    Checking derive_more v2.1.1
+    Checking async-stream v0.3.6
+   Compiling sea-orm-macros v1.1.20
+    Checking h2 v0.4.14
+    Checking tower v0.5.3
+    Checking asn1-rs v0.7.2
+    Checking h2 v0.3.27
+    Checking axum-core v0.5.6
+    Checking spki v0.7.3
+    Checking pkcs8 v0.10.2
+    Checking sec1 v0.7.3
+   Compiling sea-query-derive v0.4.3
+    Checking elliptic-curve v0.13.8
+    Checking x509-cert v0.2.5
+    Checking ecdsa v0.16.9
+    Checking primeorder v0.13.6
+    Checking hyper v0.14.32
+    Checking pkcs5 v0.7.1
+    Checking p256 v0.13.2
+    Checking cms v0.2.3
+    Checking reactor-trait v3.1.1
+    Checking multer v3.1.0
+   Compiling clap_derive v4.6.1
+    Checking reactor-trait v2.8.0
+    Checking async-global-executor-trait v2.2.0
+    Checking executor-trait v3.1.0
+    Checking pkcs12 v0.1.0
+   Compiling sea-schema-derive v0.3.0
+    Checking async-global-executor-trait v3.1.0
+    Checking async-reactor-trait v3.1.1
+    Checking async-global-executor v2.4.1
+   Compiling darling v0.21.3 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/shared/infera-summary-sdk/vendor/darling)
+    Checking async-std v1.13.2
+    Checking smallvec v1.15.2
+    Checking either v1.16.0
+    Checking hyper v1.10.1
+    Checking bytes-utils v0.1.4
+    Checking chrono v0.4.45
+    Checking aws-smithy-types v1.5.0
+    Checking parking_lot_core v0.9.12
+    Checking hyper-util v0.1.20
+    Checking parking_lot v0.12.5
+    Checking aws-smithy-runtime-api v1.12.3
+    Checking rust_decimal v1.42.1
+    Checking bigdecimal v0.4.10
+warning: `schemars_derive` (lib) generated 2 warnings (2 duplicates)
+    Checking futures-intrusive v0.5.0
+    Checking aws-smithy-eventstream v0.60.21
+    Checking hyper-rustls v0.24.2
+    Checking zerovec v0.11.6
+    Checking zerotrie v0.2.4
+    Checking hyper-rustls v0.27.9
+    Checking sea-query v0.32.7
+    Checking serde_urlencoded v0.7.1
+    Checking hyper-tls v0.6.0
+    Checking amq-protocol-types v8.3.1
+    Checking axum v0.8.9
+    Checking clap v4.6.1
+    Checking tracing-subscriber v0.3.23
+    Checking schemars v1.0.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/shared/infera-summary-sdk/vendor/schemars)
+    Checking aws-smithy-query v0.60.15
+    Checking ed25519 v2.2.3
+    Checking sse-stream v0.2.6 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/shared/infera-summary-sdk/vendor/sse-stream)
+    Checking ed25519-dalek v2.2.0
+    Checking chrono-tz v0.10.4
+    Checking croner v2.2.0
+    Checking serde_yaml v0.9.34+deprecated
+   Compiling validator_derive v0.20.0
+   Compiling utoipa-gen v5.5.0
+   Compiling num-derive v0.4.2
+    Checking axum-extra v0.10.3
+   Compiling rmcp-macros v0.8.5 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/shared/infera-summary-sdk/vendor/rmcp-macros)
+    Checking dashmap v6.2.1
+    Checking tokio-cron-scheduler v0.14.0
+    Checking itertools v0.12.1
+   Compiling infera-idp-macro v0.1.0 (https://hamgit.ir/faiber/faiber-sdk.git#291c81a6)
+    Checking utoipa v5.5.0
+    Checking aws-smithy-http v0.63.6
+    Checking aws-smithy-schema v0.1.0
+    Checking aws-credential-types v1.2.14
+    Checking aws-smithy-observability v0.2.6
+    Checking aws-smithy-http-client v1.1.13
+    Checking aws-sigv4 v1.4.5
+    Checking aws-smithy-checksums v0.64.8
+    Checking aws-types v1.3.16
+    Checking aws-smithy-json v0.62.7
+    Checking aws-smithy-runtime v1.11.3
+    Checking tinystr v0.8.3
+    Checking potential_utf v0.1.5
+    Checking icu_locale_core v2.2.0
+    Checking icu_collections v2.2.0
+    Checking icu_provider v2.2.0
+    Checking icu_normalizer v2.2.0
+    Checking icu_properties v2.2.0
+    Checking aws-runtime v1.7.5
+    Checking idna_adapter v1.2.2
+    Checking idna v1.1.0
+    Checking url v2.5.8
+    Checking aws-sdk-ssooidc v1.104.0
+    Checking aws-sdk-sts v1.107.0
+    Checking aws-sdk-sso v1.102.0
+    Checking sqlx-core v0.8.6
+    Checking tower-http v0.6.11
+    Checking amq-protocol-uri v8.3.1
+    Checking sea-orm-cli v1.1.20
+    Checking aws-sdk-s3 v1.136.0
+    Checking validator v0.20.0
+warning: hiding a lifetime that's elided elsewhere is confusing
+ --> shared/infera-summary-sdk/vendor/schemars/src/encoding.rs:6:30
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<str> {
+  |                              ^^^^     ^^^^^^^^ the same lifetime is hidden here
+  |                              |
+  |                              the lifetime is elided here
+  |
+  = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+  = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<'_, str> {
+  |                                           +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> shared/infera-summary-sdk/vendor/schemars/src/encoding.rs:43:26
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<str>> {
+   |                          ^^^^            ^^^^^^^^ the same lifetime is hidden here
+   |                          |
+   |                          the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<'_, str>> {
+   |                                              +++
+
+warning: `schemars` (lib) generated 2 warnings (run `cargo fix --lib -p schemars` to apply 2 suggestions)
+    Checking reqwest v0.12.28
+    Checking aws-config v1.8.18
+    Checking rmcp v0.8.5 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/shared/infera-summary-sdk/vendor/rmcp)
+    Checking infera-profile-sdk v0.1.0 (https://hamgit.ir/faiber/faiber-sdk.git#291c81a6)
+    Checking infera-idp-sdk v0.1.0 (https://hamgit.ir/faiber/faiber-sdk.git#291c81a6)
+    Checking sqlx-postgres v0.8.6
+    Checking sqlx v0.8.6
+    Checking sea-query-binder v0.7.0
+    Checking sea-orm v1.1.20
+    Checking sea-schema v0.16.2
+    Checking der-parser v10.0.0
+    Checking oid-registry v0.8.1
+    Checking x509-parser v0.18.1
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:84:7
+   |
+84 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:87:7
+   |
+87 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:112:7
+    |
+112 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:115:7
+    |
+115 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_client.rs:53:11
+   |
+53 |     #[cfg(feature = "auth")]
+   |           ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common.rs:17:7
+   |
+17 | #[cfg(feature = "auth")]
+   |       ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+    Checking p12-keystore v0.2.1
+    Checking tcp-stream v0.30.9
+    Checking amq-protocol-tcp v8.3.1
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:61:39
+   |
+61 |         let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+   |                                       ^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:136:47
+    |
+136 |                 let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+    |                                               ^^^^^^^^^^^^^^^^
+
+    Checking amq-protocol v8.3.1
+    Checking lapin v3.7.2
+    Checking infera-flow-sdk v0.1.0 (https://hamgit.ir/faiber/faiber-sdk.git?rev=e307c93c37b9c9ecf4d2f9a6f780bb2bb7143f8b#e307c93c)
+    Checking sea-orm-migration v1.1.20
+    Checking entity v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/entity)
+warning: `rmcp` (lib) generated 8 warnings
+    Checking infera-summary-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/shared/infera-summary-sdk)
+    Checking migration v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/migration)
+    Checking infera_profile v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile)
+warning: unused imports: `Datelike` and `Timelike`
+ --> src/ai_summary/worker.rs:4:24
+  |
+4 | use chrono::{DateTime, Datelike, Duration, Timelike, Utc};
+  |                        ^^^^^^^^            ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/city/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/country/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused import: `Entity`
+  --> src/log_action/routes.rs:12:39
+   |
+12 | use entity::log_action::{ActiveModel, Entity};
+   |                                       ^^^^^^
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/profile_property/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/province/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused import: `ColumnTrait`
+ --> src/setting/methods.rs:3:51
+  |
+3 | use sea_orm::{ActiveModelTrait, ActiveValue::Set, ColumnTrait, EntityTrait, QueryOrder};
+  |                                                   ^^^^^^^^^^^
+
+warning: unused import: `post`
+ --> src/setting/routes.rs:4:20
+  |
+4 |     routing::{get, post},
+  |                    ^^^^
+
+warning: unused import: `post`
+ --> src/survey/routes.rs:4:20
+  |
+4 |     routing::{get, post},
+  |                    ^^^^
+
+warning: unused imports: `delete`, `post`, and `put`
+ --> src/trusted_service/routes.rs:4:15
+  |
+4 |     routing::{delete, get, post, put},
+  |               ^^^^^^       ^^^^  ^^^
+
+warning: unused import: `TryGetable`
+ --> src/campaign/routes.rs:8:60
+  |
+8 | use sea_orm::{ConnectionTrait, DatabaseBackend, Statement, TryGetable, Value as DbValue};
+  |                                                            ^^^^^^^^^^
+
+warning: `infera_profile` (lib) generated 11 warnings (run `cargo fix --lib -p infera_profile` to apply 10 suggestions)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 49.65s

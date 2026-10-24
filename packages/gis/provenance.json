@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-gis",
+  "version": "1.1.0",
+  "source_revisions": {
+    "gis": {
+      "directory": "infera-gis",
+      "revision": "0bc8423a51887450b928e7b372153014cd47e582"
+    }
+  },
+  "package_source_sha256": {
+    "packages/gis/src/index.ts": "665fbe37b33d5380cfa48de0dc4fb071e96ef8a367b0e18f87f2e2abf6284030",
+    "packages/gis/src/operations.ts": "24d8475e6bc8f77b71c9ba84ab1baf36077716e60f64882fcfe52804d33b6215",
+    "packages/gis/src/operations.types.ts": "d81a044d01da2eb96851240e5641deed7c824ce5e903448631162c4f73b74f3b",
+    "packages/gis/src/types.ts": "a54f4909ced50333c2af1709384f7bb594842c154a48c3e09585ff616407d117"
+  },
+  "capability_review_sha256": "c135fd48dd61199d6524cdb887619aa0b210283162b560d806cd52ce0d209044",
+  "source_pin_file_sha256": "bcfd980e1db1c6498d3769a33c70ac61c46dcbba09bf01eb97c857bebf8927d6",
+  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
+  "public_contract": {
+    "kind": "source-extracted-http",
+    "operation_count": 48,
+    "sha256": "ac538aced59643d600bcf3d5370312f3e6f9fc21a0b55a42941fba6b8cd2f472"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

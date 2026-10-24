@@ -1,0 +1,7 @@
+{
+  "docker_rust": "1.88",
+  "resolved_packages": 499,
+  "packages_requiring_newer_rust": [],
+  "actual_production_check_toolchain": "1.92.0",
+  "limit": "Metadata requirement check; no claim of an actual Rust1.88 container build"
+}

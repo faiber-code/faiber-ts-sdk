@@ -1,0 +1,84 @@
+{
+  "status": "prepared_not_executed",
+  "owner": "Agentic closed-schema validation; SDK body remains JsonValue",
+  "candidate_revision": "e6c2a00fc4418604a99bf84b365e0db13fc8f5e6",
+  "cases": [
+    {
+      "name": "nullable string accepts null",
+      "schema": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 10
+      },
+      "value": null,
+      "expected": "accepted"
+    },
+    {
+      "name": "nullable reversed order",
+      "schema": {
+        "type": [
+          "null",
+          "integer"
+        ],
+        "minimum": 0
+      },
+      "value": 4,
+      "expected": "accepted"
+    },
+    {
+      "name": "general union unavailable",
+      "schema": {
+        "type": [
+          "string",
+          "number"
+        ]
+      },
+      "value": "x",
+      "expected": "unavailable"
+    },
+    {
+      "name": "duplicate null unavailable",
+      "schema": {
+        "type": [
+          "null",
+          "null"
+        ]
+      },
+      "value": null,
+      "expected": "unavailable"
+    },
+    {
+      "name": "nullable invalid nested schema unavailable even for null",
+      "schema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "x": {
+            "$ref": "external"
+          }
+        }
+      },
+      "value": null,
+      "expected": "unavailable"
+    },
+    {
+      "name": "nullable enum retains enum restriction",
+      "schema": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "enum": [
+          "a"
+        ]
+      },
+      "value": null,
+      "expected": "invalid"
+    }
+  ]
+}

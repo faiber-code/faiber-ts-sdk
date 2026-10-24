@@ -1,0 +1,13 @@
+{
+  "dependency_revision": "e307c93c37b9c9ecf4d2f9a6f780bb2bb7143f8b",
+  "source_path": "crates/infera-flow-sdk/src/integration_meta.rs",
+  "sha256": "147a5665d5571e0e67579b2a54b60d10daa5a2bd0cc411b115b5084db414f7c7",
+  "cached_file_matches_git_blob": true,
+  "production_pin": "Profile Cargo.toml and Cargo.lock at 5e45db008e503504033af3763b4487f00f5be2b4",
+  "models": [
+    "IntegrationField",
+    "IntegrationEventMeta",
+    "FlowIntegrationResponse"
+  ],
+  "verification": "source_only"
+}

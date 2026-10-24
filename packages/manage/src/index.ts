@@ -1,3 +1,5 @@
+import {ManageActionOperations} from "./operations.js";
+import type * as D from "./durable.types.js";
 import {
   SERVICE_NAMES,
   ServiceApi,
@@ -15,11 +17,21 @@ function encode(value: string): string {
 function safeServicePath(path: string): string {
   const trimmed = path.trim();
   const pathname = trimmed.split("?", 1)[0] ?? "";
-  const segments = pathname.split("/");
+  // Validate decoded path segments too: URL adapters normalize encoded dot segments
+  // before dispatch, which could otherwise escape the authenticated proxy prefix.
+  let decoded: string;
+  try { decoded = decodeURIComponent(pathname); }
+  catch { throw new Error("Manage service paths require valid percent encoding"); }
+  const segments = decoded.split("/");
   if (
     !trimmed.startsWith("/")
     || trimmed.startsWith("//")
-    || trimmed.includes("://")
+    || pathname.includes("://")
+    || trimmed.includes("#")
+    || /[\u0000-\u001f\u007f]/.test(trimmed)
+    || pathname.includes(" ")
+    || decoded.startsWith("//")
+    || decoded.includes(String.fromCharCode(92))
     || trimmed.includes(String.fromCharCode(92))
     || segments.includes(".")
     || segments.includes("..")
@@ -27,6 +39,13 @@ function safeServicePath(path: string): string {
     throw new Error("Manage service actions require an absolute service path, not a URL");
   }
   return trimmed;
+}
+
+function proxyService(value: T.ManageProxyService): string {
+  if (!SERVICE_NAMES.some(service => service !== "manage" && service === value)) {
+    throw new Error("Manage proxy requires a supported owning service");
+  }
+  return encode(value);
 }
 
 function rootWithoutTrailingSlash(root: string): string {
@@ -57,7 +76,39 @@ export function managedImageUrl(response: T.ManageImageUploadResponse): string {
 
 /** Typed client for project-scoped Manage APIs and its governed Agentic bridge. */
 export class ManageApi extends ServiceApi {
-  /** Gets the active user, project, service catalog, and Agentic origin. */
+  readonly operations = new ManageActionOperations(this.client);
+  /** Required protocol check. Unavailable capability never enables legacy action execution. */
+  getAgentActionCapabilities(options?: RequestOptions) { return this.operations.getAgentActionCapabilities(options); }
+  /** Latest50 durable summaries for this thread; no invented cursor or payload history. */
+  listAgentActions(threadId: string, options?: RequestOptions) { return this.operations.listAgentActions(threadId,options); }
+  /** Loads the persisted record before review; see operations.getAgentAction for authority/errors. */
+  getAgentAction(threadId: string, actionId: string, options?: RequestOptions) { return this.operations.getAgentAction(threadId,actionId,options); }
+  /** Send the reviewed version/hash and caller-owned UUID.409 requires fresh review, never rebase. */
+  reviewAgentAction(threadId: string, actionId: string, input: D.ManageAgentActionReviewInput, options?: RequestOptions<D.ManageAgentActionReviewInput>) { return this.operations.reviewAgentAction(threadId,actionId,input,options); }
+  /** Server executes its saved payload. Preserve exact UUID/body after unknown outcome; never target retry. */
+  executeAgentAction(threadId: string, actionId: string, input: D.ManageAgentActionExecuteInput, options?: RequestOptions<D.ManageAgentActionExecuteInput>) { return this.operations.executeAgentAction(threadId,actionId,input,options); }
+
+  /** Public liveness only; does not attest service or project readiness. Returns HTTP200 JSON. */
+  health(options?: RequestOptions) {
+    return this.client.get<T.ManageHealthResponse>("/health", undefined, options);
+  }
+
+  /** Inspects enabled service setup and persists the signed report; sends no payment or message.
+   * Requires the current signed Manage session and project.settings.manage. Returns HTTP200
+   * with per-service results;401/403 deny scope and502 means report persistence unavailable.
+   */
+  checkSetup(options?: RequestOptions) {
+    return this.client.post<T.ManageSetupResponse>("/api/v1/setup/check", undefined, options);
+  }
+
+  /** Clears the HttpOnly session cookie and redirects to the panel. Axios normally follows
+   * the303 redirect and returns panel HTML; server clients must retain the Set-Cookie header.
+   */
+  logout(options?: RequestOptions) {
+    return this.client.post<T.ManageLogoutResponse>("/logout", undefined, { ...options, responseType: "text" });
+  }
+
+  /** Gets the active user, project, service catalog, runtime status, and Agentic origin. */
   me(options?: RequestOptions) {
     return this.client.get<T.ManageMeResponse>("/api/v1/me", undefined, options);
   }
@@ -120,6 +171,15 @@ export class ManageApi extends ServiceApi {
     );
   }
 
+  /** Loads a message page under the current project and owner. before is RFC3339;
+   * the server clamps limit to1..100, default10. No cursor headers are returned.
+   */
+  getAgentMessagesPage(threadId: string, query: T.ManageAgentMessageQuery = {}, options?: RequestOptions) {
+    return this.client.get<T.ManageAgentMessage[]>(
+      `/api/v1/agent/ide/threads/${encode(threadId)}/messages`, query, options,
+    );
+  }
+
   /** Opens a POST SSE response while preserving the complete Axios response and headers. */
   openAgentChatStream(
     threadId: string,
@@ -157,7 +217,7 @@ export class ManageApi extends ServiceApi {
     );
   }
 
-  /** Reports the reviewed execution result of an Agentic browser action. */
+  /** Legacy browser tools only. Never completes or substitutes for a durable Manage action. */
   completeAgentAction(
     actionId: string,
     data: T.ManageAgentActionCompletionInput,
@@ -183,7 +243,11 @@ export class ManageApi extends ServiceApi {
     );
   }
 
-  /** Executes a reviewed runtime service operation through the project-scoped proxy. */
+  /** Calls a manual service operation through the authenticated project proxy.
+   * The owning service defines response/status and permission requirements. Never use
+   * this method to execute or retry a durable manage_action; use executeAgentAction.
+   * Paths must be absolute service paths; query strings are preserved, fragments rejected.
+   */
   executeServiceAction<TResponse extends JsonValue = JsonValue, TData extends JsonValue = JsonObject>(
     action: T.ManageServiceAction<TData>,
     options?: RequestOptions<TData>,
@@ -192,7 +256,7 @@ export class ManageApi extends ServiceApi {
     return this.client.request<TResponse, TData>({
       ...options,
       method: action.method,
-      url: `/api/v1/proxy/${encode(action.service)}${path}`,
+      url: `/api/v1/proxy/${proxyService(action.service)}${path}`,
       ...(action.body === undefined ? {} : { data: action.body }),
     });
   }
@@ -201,3 +265,6 @@ export class ManageApi extends ServiceApi {
 export * from "./types.js";
 export * from "./stream.js";
 export * from "@faiber/sdk-core";
+
+export * from "./durable.types.js";
+export {ManageActionOperations} from "./operations.js";

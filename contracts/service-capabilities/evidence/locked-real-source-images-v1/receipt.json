@@ -1,0 +1,95 @@
+{
+  "at": "2026-10-20T06:28:59.141643+00:00",
+  "status": "actual_git_objects_and_advertised_refs_verified",
+  "services": [
+    {
+      "service": "lms",
+      "parent": "ae00cad8d3595c0df68c3b1b3d062762ca1d80d7",
+      "child": "0276d4a534979e131d07b02b79fd0ef18e1e1bab",
+      "branch": "work/profile-summary-lms-locked-build-20261020",
+      "advertised_ref_verified": true,
+      "only_changed_path": "Dockerfile",
+      "non_docker_blobs_equal": true,
+      "real_lock_sha256": "a8d212daa9de3732c4a5df7626565627f4f6aeecd8db055ea4596d1f0e994032",
+      "diff_sha256": "6e2aa5da5e0316c44e4a286ba6fe4402ade9f2376ae16ed41fbeed8de6189282"
+    },
+    {
+      "service": "profile",
+      "parent": "98279e8b9d1ce1eb7a89414277347c143b43b3e6",
+      "child": "2684cd83fd99b2ca7d6532651ae3210dcb2d7fa1",
+      "branch": "work/profile-summary-locked-images-20261020",
+      "advertised_ref_verified": true,
+      "only_changed_path": "Dockerfile",
+      "non_docker_blobs_equal": true,
+      "real_lock_sha256": "d101351677ba7b0e7c8cb93b172ae42b0cf9282df364a027be86573d4e7d587b",
+      "diff_sha256": "d2f1527621453d02d77cf20827d78ee68c2d5ced5dc97520f05c08c467f080ef"
+    },
+    {
+      "service": "agentic",
+      "parent": "7139868a31a6cd19d17a86e77212738a7cb9a8ec",
+      "child": "ffc089bb0ea901ac53ffc81874835e6d0d4d5ea2",
+      "branch": "work/profile-summary-locked-images-20261020",
+      "advertised_ref_verified": true,
+      "only_changed_path": "Dockerfile",
+      "non_docker_blobs_equal": true,
+      "real_lock_sha256": "b28d014de5951706f2afc04a6e2dae990feb63f3ff092dccf6ff2d4fecfa6347",
+      "diff_sha256": "51ab2caae35a7030934cabb0436ac713a85d3345a6953f11ae264dbffc4cbc5f"
+    },
+    {
+      "service": "session",
+      "parent": "a91a5bea44ecfaf946e13dc7c662ccb74c468800",
+      "child": "815652f36cda3bb5c1c7ac6d4c0b8dafd58640c5",
+      "branch": "work/profile-summary-locked-images-20261020",
+      "advertised_ref_verified": true,
+      "only_changed_path": "Dockerfile",
+      "non_docker_blobs_equal": true,
+      "real_lock_sha256": "910bebcfbdf658fb3831574ce7e9ca65ef1c44095517b67e38da9028701ae5ef",
+      "diff_sha256": "d355736cab9984696f1bce741315d0ebe01b94452e0bb96a04cfed42544660e5"
+    },
+    {
+      "service": "chat",
+      "parent": "1768097fc7c843f1f7e46ea4fcf7a0f776f0792d",
+      "child": "7de27e4843cd7fb394a7590b49d4b78fdc0a0c9a",
+      "branch": "work/profile-summary-locked-images-20261020",
+      "advertised_ref_verified": true,
+      "only_changed_path": "Dockerfile",
+      "non_docker_blobs_equal": true,
+      "real_lock_sha256": "2f6a01e57d636d064f6c77d5e8dc6e7ce1382c902d69fa64ce4c8ccf9174f08e",
+      "diff_sha256": "09d3b39dd80f5d2e0529c4060a45cf22d7a6b6e07ab3e20060d4aa090966316c"
+    },
+    {
+      "service": "crm",
+      "parent": "e5772f8bdeb9df8d17d004aa54b0bc8f5d37dcb4",
+      "child": "71e24f98cb37a32dc994200f9125d24a162bc8c1",
+      "branch": "work/profile-summary-locked-images-20261020",
+      "advertised_ref_verified": true,
+      "only_changed_path": "Dockerfile",
+      "non_docker_blobs_equal": true,
+      "real_lock_sha256": "5df9ec4f45f03fd708d5edde28d3ebe0371b7475586810ab544bce7f6d527edb",
+      "diff_sha256": "3e4742d876dcf7feb53f8a09205d6cb930aa223bc02fa48f43b26312c29eb5f1"
+    },
+    {
+      "service": "task",
+      "parent": "2f21a6fa5012d17e4b355369969b30d002bf3b6c",
+      "child": "9ae25618d5670275fe273dc867ea99c3965d9b70",
+      "branch": "work/profile-summary-locked-images-20261020",
+      "advertised_ref_verified": true,
+      "only_changed_path": "Dockerfile",
+      "non_docker_blobs_equal": true,
+      "real_lock_sha256": "b4de8f9b36fd49c0e79c1c41a596ec6552952a7705cea65ffd1835bf3402fa3b",
+      "diff_sha256": "661da5b595245a4045c88442e558f814afe7df515ae42cfec6b4085f30f31d20"
+    },
+    {
+      "service": "manage",
+      "parent": "02ca8711d457f463727b1678a6b699894709c24b",
+      "child": "adaab7d68843c5fdd697b2098e9622da7a4f750b",
+      "branch": "work/profile-summary-locked-images-20261020",
+      "advertised_ref_verified": true,
+      "only_changed_path": "Dockerfile",
+      "non_docker_blobs_equal": true,
+      "real_lock_sha256": "53f61dfeb4931fae462c0c89b17c5ffc9ae9e0073bb55f35d58d2294d400816a",
+      "diff_sha256": "e94ac7ce29105c37f7f5bbbe7690c36fd05d83773a064d19e597a3ebe7abd78e"
+    }
+  ],
+  "scope": "Independent full non-Docker tree equality, actual lock hashes and advertised refs. Native proofs belong to parent production inputs; no child Linux build or runtime claim."
+}

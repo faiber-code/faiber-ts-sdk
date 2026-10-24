@@ -1,0 +1,57 @@
+{
+  "status": "source-reviewed-types-corrected-runtime-gates-open",
+  "service": "payment",
+  "revision": "ddc661f4a7e6f2ffdcbbd0d137ddf3831daa4eb2",
+  "source_files_sha256": {
+    "src/router.rs": "33c0963884284be02cc9754d64a6279471b5d30df033c70da2a8f364927897be",
+    "src/models.rs": "93418f65846c5658c6f24c1e637380042ae0191fc26761b05d9d487cb8e68272",
+    "src/gateway/routes.rs": "1421a02a7477aa58ad27cf922b645f3867d7fbde8f93ad1e3758ce9bbdf7cb0c",
+    "src/gateway/models.rs": "960e5fbac2269fce32bf8b4b9ca56a07c5e2e3b3446a4f45cdbe4177d80b3f78",
+    "src/gateway/methods.rs": "6360389288eb03d066ca7ab73979630736634614e4cb57680f9ddcfd200a689b",
+    "src/transaction/routes.rs": "ed87669da600d863f9dc7a1ee6e438d345aa948b409c896de6f2dd0fb91fe6f0",
+    "src/transaction/models.rs": "553ea656b2f08667de79f69a6ebb1750a7860d28b6e8d426f679030baa3e3ee5",
+    "src/transaction/methods.rs": "227d47e7209503f59a7e89fb4cc03bfda3332f79afd07b7eabad5d701d7a0936",
+    "src/payment/models.rs": "9f25c0a42663fe30a43542ccf8da051cbb0f36e1c2b8d03b8bde3df3ddbff902",
+    "src/payment/routes.rs": "04cef141f70d77d7abf9c1f6a2952d4c562cec8d51a55fd72eb08b304f1427fc",
+    "entity/src/enums.rs": "265df77460737150aea6389067f653b04a19d8659dec5a8f0b22fb3918ac3416",
+    "src/payment_web/routes.rs": "408710dac8a276b993aa8945fc8b4da98d190b98c9d7d95cc6deaa91b51d9f22"
+  },
+  "corrected": [
+    "Integer gateway identifiers and exact UUID string operation identifiers",
+    "Required nullable response keys and required status/message/data envelope",
+    "Nested transaction page/summaries/options rather than generic backend JSON",
+    "Transaction status endpoint is not transaction detail",
+    "Provider/status label-value options object rather than gateway array",
+    "Gateway DELETE returns the deleted record rather than a boolean result",
+    "Day-window query and date/amount points without invented count/currency fields",
+    "Optional idempotency_key and sandbox inputs",
+    "Payment navigation/provider callback text bodies and optional303 Location; query inputs for GET and POST"
+  ],
+  "permissions": {
+    "gateway_list_show_options": "admin:gateway:read",
+    "gateway_create": "admin:gateway:create",
+    "gateway_update": "admin:gateway:update",
+    "gateway_delete": "admin:gateway:delete",
+    "transaction_list_income_audit": "admin:transaction:read",
+    "transaction_verify_reject": "admin:transaction:verify plus authenticated verifier UUID",
+    "generic_create_and_status": "No declared user permission in selected source macro; dedicated trusted checkout enforcement still applies"
+  },
+  "semantics": {
+    "gateway_options": "Stored opaque encrypted provider JSON, not editable cleartext credentials. Non-Zarinpal sandbox returnsnull.",
+    "gateway_patch": "None/null fields are ignored; provider invalid422, unknown status ignored, create unknown status defaults inactive.",
+    "transaction_list": "Nested transactions page, filtered aggregate summaries, unfiltered service_names and gateway picklists.",
+    "daily_income": "Accepted payments by UTC created_at date, defaults30, clamps1\u201390, zero-filled.",
+    "verification": "HTTP200 does not assert provider success; read verification.successful.",
+    "checkout": "Generic payment route denies reserved product/fitness/storefront paths and enforces Asset trusted proof.",
+    "payment_web": "Public provider navigation; HTML200 can report failure, callback can303 only for configured allowed HTTPS origin. Provider verification has side effects. Node redirects follow by default."
+  },
+  "verification_scope": "SDK build/strict positive and negative types/generator regeneration and package-content checks only; no new Payment business handler/DB/provider or live permission runtime verification in this patch.",
+  "remaining": [
+    "Actual production mounted-router and DB SDK workflow checks for corrected operations",
+    "Gateway encryption, pagination filters and current permissions on real service",
+    "Provider verification/outbox and cross-service checkout acceptance",
+    "All remaining Payment endpoint semantic reviews and canonical/deployed reconciliation",
+    "Readable Manage workflows",
+    "Payment navigation/callback integration against actual provider-backed handler; no live callbacks run"
+  ]
+}

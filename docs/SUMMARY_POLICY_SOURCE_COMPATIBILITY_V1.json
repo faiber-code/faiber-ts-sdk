@@ -1,0 +1,192 @@
+{
+  "status": "source_reviewed_local_native_acceptance_only",
+  "summary_handoff_sha256": "1452e927e293445a524d1bad49310907f98abb7c1876d425cc76bd50e85879f4",
+  "components": [
+    {
+      "service": "task",
+      "previous": "9ae25618d5670275fe273dc867ea99c3965d9b70",
+      "selected": "b8ed5921e4f6bd2d7f4ef675f0cb8b3fbbb1e23d",
+      "previous_is_ancestor": true,
+      "changed_files": [
+        "docs/summary-source-auth.md",
+        "shared/infera-summary-sdk/docs/runner-contract.md",
+        "shared/infera-summary-sdk/src/lib.rs",
+        "shared/infera-summary-sdk/src/native_identity.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "shared/infera-summary-sdk/src/runner.rs",
+        "shared/infera-summary-sdk/src/runner_crypto.rs",
+        "shared/infera-summary-sdk/src/runner_identity.rs",
+        "shared/infera-summary-sdk/src/runner_transport.rs",
+        "shared/infera-summary-sdk/src/server.rs",
+        "shared/infera-summary-sdk/tests/accounting_transport.rs",
+        "shared/infera-summary-sdk/tests/fixtures/runner/claims.json",
+        "shared/infera-summary-sdk/tests/fixtures/runner/primitive-check.mjs",
+        "shared/infera-summary-sdk/tests/fixtures/runner/primitive-check.php",
+        "shared/infera-summary-sdk/tests/fixtures/runner/primitive.json",
+        "shared/infera-summary-sdk/tests/runner_contract.rs",
+        "shared/infera-summary-sdk/tests/runner_transport.rs",
+        "src/summary_query.rs",
+        "tests/summary-native/src/lib.rs",
+        "tests/summary_mount_http.rs",
+        "tests/support/runner_authority.rs"
+      ]
+    },
+    {
+      "service": "profile",
+      "previous": "2684cd83fd99b2ca7d6532651ae3210dcb2d7fa1",
+      "selected": "5e45db008e503504033af3763b4487f00f5be2b4",
+      "previous_is_ancestor": true,
+      "changed_files": [
+        "deploy/poulstar/ai-summaries/README.md",
+        "deploy/poulstar/ai-summaries/support.json",
+        "panel/node_modules",
+        "panel/src/features/ai-summaries/presets.test.ts",
+        "panel/src/features/ai-summaries/presets.ts",
+        "shared/infera-summary-sdk/src/lib.rs",
+        "shared/infera-summary-sdk/src/native_identity.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "shared/infera-summary-sdk/src/runner.rs",
+        "shared/infera-summary-sdk/src/runner_crypto.rs",
+        "shared/infera-summary-sdk/src/runner_identity.rs",
+        "shared/infera-summary-sdk/src/runner_transport.rs",
+        "shared/infera-summary-sdk/src/server.rs",
+        "shared/infera-summary-sdk/src/tool_contract.rs",
+        "src/ai_summary/identity.rs",
+        "src/ai_summary/idp_auth.rs",
+        "src/ai_summary/idp_auth/tests.rs",
+        "src/ai_summary/methods.rs",
+        "src/ai_summary/mod.rs",
+        "src/ai_summary/routes.rs",
+        "src/ai_summary/worker.rs",
+        "tests/poulstar_configurations.rs",
+        "tests/role_summaries.rs",
+        "tests/summary-browser-fixture.mjs",
+        "tests/summary_rest_sdk.rs",
+        "tests/support/runner_fixture.rs"
+      ]
+    },
+    {
+      "service": "lms",
+      "previous": "0276d4a534979e131d07b02b79fd0ef18e1e1bab",
+      "selected": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+      "previous_is_ancestor": true,
+      "changed_files": [
+        "docs/summary-source-auth.md",
+        "shared/infera-summary-sdk/src/lib.rs",
+        "shared/infera-summary-sdk/src/native_identity.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "shared/infera-summary-sdk/src/runner.rs",
+        "shared/infera-summary-sdk/src/runner_crypto.rs",
+        "shared/infera-summary-sdk/src/runner_identity.rs",
+        "shared/infera-summary-sdk/src/runner_transport.rs",
+        "shared/infera-summary-sdk/src/server.rs",
+        "src/router.rs",
+        "src/summary_evidence.rs",
+        "tests/summary-retirement-http.mjs"
+      ]
+    },
+    {
+      "service": "session",
+      "previous": "815652f36cda3bb5c1c7ac6d4c0b8dafd58640c5",
+      "selected": "7a395d7149a2d4c03d3e1d4746b69919a52cbb05",
+      "previous_is_ancestor": true,
+      "changed_files": [
+        "docs/summary-source-auth.md",
+        "shared/infera-summary-sdk/src/lib.rs",
+        "shared/infera-summary-sdk/src/native_access.rs",
+        "shared/infera-summary-sdk/src/native_identity.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "shared/infera-summary-sdk/src/runner.rs",
+        "shared/infera-summary-sdk/src/runner_crypto.rs",
+        "shared/infera-summary-sdk/src/runner_identity.rs",
+        "shared/infera-summary-sdk/src/runner_transport.rs",
+        "shared/infera-summary-sdk/src/server.rs",
+        "src/summary_mount_http.rs",
+        "src/summary_query.rs",
+        "tests/summary-native/src/lib.rs",
+        "tests/support/runner_authority.rs"
+      ]
+    },
+    {
+      "service": "chat",
+      "previous": "7de27e4843cd7fb394a7590b49d4b78fdc0a0c9a",
+      "selected": "2044823680d30bc5deb9417d0dc24e40b27c8184",
+      "previous_is_ancestor": true,
+      "changed_files": [
+        "docs/KNOWLEDGE_POLICY_REVISION_V1.md",
+        "docs/summary-source-auth.md",
+        "migration/src/lib.rs",
+        "migration/src/m20261020_000052_assistant_configuration_intents.rs",
+        "shared/infera-summary-sdk/src/lib.rs",
+        "shared/infera-summary-sdk/src/native_access.rs",
+        "shared/infera-summary-sdk/src/native_identity.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "shared/infera-summary-sdk/src/runner.rs",
+        "shared/infera-summary-sdk/src/runner_crypto.rs",
+        "shared/infera-summary-sdk/src/runner_identity.rs",
+        "shared/infera-summary-sdk/src/runner_transport.rs",
+        "shared/infera-summary-sdk/src/server.rs",
+        "src/agentic.rs",
+        "src/assistant_configuration.rs",
+        "src/lib.rs",
+        "src/models.rs",
+        "src/routes.rs",
+        "src/service.rs",
+        "src/summary_mount_http.rs",
+        "src/summary_query.rs",
+        "tests/assistant_policy_cas.rs",
+        "tests/summary-native/src/lib.rs",
+        "tests/support/runner_authority.rs"
+      ]
+    },
+    {
+      "service": "crm",
+      "previous": "71e24f98cb37a32dc994200f9125d24a162bc8c1",
+      "selected": "77e2e4a7660e007aefef81e27337476c6d748cac",
+      "previous_is_ancestor": true,
+      "changed_files": [
+        "docs/summary-source-auth.md",
+        "shared/infera-summary-sdk/src/lib.rs",
+        "shared/infera-summary-sdk/src/native_identity.rs",
+        "shared/infera-summary-sdk/src/result.rs",
+        "shared/infera-summary-sdk/src/runner.rs",
+        "shared/infera-summary-sdk/src/runner_crypto.rs",
+        "shared/infera-summary-sdk/src/runner_identity.rs",
+        "shared/infera-summary-sdk/src/runner_transport.rs",
+        "shared/infera-summary-sdk/src/server.rs",
+        "src/summary_evidence.rs",
+        "tests/summary_evidence.rs",
+        "tests/support/runner_authority.rs"
+      ]
+    }
+  ],
+  "public_profile_contract": "Existing twenty canonicalv1 Profile methods/configuration/result schemas unchanged; no extra actor/credentials/URL authority accepted from browser. Source configured now comes from protected Agentic context.",
+  "private_runner_contract": "Only binding,configuration,preview. Binding contains deployment_id,project_id,operation_id,run_id,subject_user_id,subject_role_id,configuration_revision,configuration_sha256,window_start,cutoff. No SourceBinding browser export or credential helper. ToolAudit optional authority is backward-readable; it is not a browser-supplied grant.",
+  "source_check": "available=true means authenticated schema discovery; evidence_ready=false and preview_required=true. Never invokes activity automatically or certifies evidence readiness.",
+  "source_specific_review": {
+    "task": "Only native Summary reader/authority changes; REST DTOs unchanged.",
+    "profile": "Route inputs/results and model selection unchanged; source_availability now uses protected Agentic context, current IDP synchronization and private worker authority updated.",
+    "lms": "Legacy /api/v1/ai-summaries wildcard explicitly410; keep it classified as retirement, not supported facade methods. Native evidence reader uses current authenticated identity.",
+    "session": "Native Summary query/mount authority only; REST DTOs unchanged.",
+    "crm": "Native Summary evidence authority only; REST DTOs unchanged.",
+    "chat": "Verified composed Summary+durable Knowledge policy protocol. New required UUID and captured revisions, current permissions and explicit operation recovery/cancellation."
+  },
+  "native_receipt": "knowledge-chat-policy-final-native-v1/serial-execution.json",
+  "unchanged_service_pins": "All services outside the reviewed six plus Knowledge remain unchanged. Agentic/Accounting have no public TypeScript package in this source lock; private protocol source references remain in Summary frozen handoff.",
+  "scope_limits": [
+    "Not npm publication or live service promotion",
+    "Not all-service semantic gate completion",
+    "Not deployed IDP/grant/provider spending acceptance",
+    "SDK pack and Manage workflow gates still required"
+  ],
+  "external_evidence_successors": {
+    "accounting": {
+      "revision": "48dcb330b9ddb8cc180aab49c3eeacfe378ef828",
+      "supersedes": "af7bfe5baeebf9e323ab4cc71ea1b3efc458350e",
+      "public_typescript_dto_or_method_change": false,
+      "meaning": "Private runner identity now reuses current authenticated runner and exact Profile operation/current-role/hash/expiry/binding checks; no static Profile identity bearer. No general profile:profile:read grant is implied.",
+      "packet": "acceptance-results/role-summaries-2026-10-19/accounting-profile-runner-identity-v1/candidate.json",
+      "remaining": "PHP8.3/Franken serving-image certification and any missing persistent grant require their separate gates."
+    }
+  }
+}

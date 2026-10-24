@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "id": "knowledge-final-pin-source-review-20261021",
+  "source_revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+  "basis": "git archive of immutable commit; no dirty checkout source",
+  "operation_count": 84,
+  "status": "source_review_only_native_pending",
+  "native_commands_executed": [],
+  "sdk_checks_executed": [],
+  "files": [
+    {
+      "path": "Service/infera-knowledge/src/main.rs",
+      "sha256": "2ea42b46f4238ac62690ce671210442e04e83ae87a8b09d0c5d83193ce5a1383"
+    },
+    {
+      "path": "Service/infera-knowledge/src/routes.rs",
+      "sha256": "2b36bb004888c4d6328a520399fc2afca208904cff941ee094b7d0cf10f6c3b1"
+    },
+    {
+      "path": "Service/infera-knowledge/src/context.rs",
+      "sha256": "e015d5ef0e82a786fcafc06d67dd4363ff6e83bd4d55655bdc9b09177bddadaf"
+    },
+    {
+      "path": "Service/infera-knowledge/src/models.rs",
+      "sha256": "07d18b263c911ced5c01aa18ff8b84b7a51b11ee73d748a93eb9042f5d6ba818"
+    },
+    {
+      "path": "Service/infera-knowledge/src/contracts.rs",
+      "sha256": "4543ff75f2906a9537d3c0bf25a74390ab0b85b4080c7fd690f5bc2f7f7ab3a5"
+    },
+    {
+      "path": "Service/infera-knowledge/src/repository.rs",
+      "sha256": "08d561e0441762517246bea0b4279eafedfd2391e0dd96659b8647e2511e27f3"
+    },
+    {
+      "path": "Service/infera-knowledge/src/platform.rs",
+      "sha256": "ecb98921d17b2db881163ab28974605ae99b47b554aec397028454dc80634f10"
+    },
+    {
+      "path": "Service/infera-knowledge/src/platform/memory_management.rs",
+      "sha256": "670560e128efea810d9da58e7216acc35cebc41885da529c11f8ce5c6c2918d5"
+    },
+    {
+      "path": "Service/infera-knowledge/src/platform/memory_management_tests.rs",
+      "sha256": "af2900533b5b402a2d6f83a981a63fac0bb859547af56ff4ba08bbce832c4019"
+    },
+    {
+      "path": "Service/infera-knowledge/src/processing.rs",
+      "sha256": "6e0424ef0a49b7a91d2a1ba3db798904ff1ce9c4ce28b1a62866dba591666028"
+    },
+    {
+      "path": "Service/infera-knowledge/src/background.rs",
+      "sha256": "eab3d6f8c1053f7fdb663cb3c7aeb633ca9f98a0dcd6b6193959db4274499f91"
+    },
+    {
+      "path": "Service/infera-knowledge/src/task_projections.rs",
+      "sha256": "5fd8e71659776484479c30b4107c2bdf9b356b70c8e4d34f4cc7b691b73adc36"
+    },
+    {
+      "path": "Service/infera-knowledge/src/task_conversion.rs",
+      "sha256": "a8ee387606b4e19a239fd1980e999bbebf7d96db7c553ecc05f4d7322ad4f197"
+    },
+    {
+      "path": "Service/infera-knowledge/src/retrieval.rs",
+      "sha256": "f8bac24667ed64e232a754668a6a56411e4689a8e506c7bab7d76fe9a37df92a"
+    },
+    {
+      "path": "Service/infera-knowledge/src/broker.rs",
+      "sha256": "7945a5d519098e7dc22655772b4a5dfede32e79da3a9473fdfe4249f775f0edc"
+    }
+  ],
+  "verification_limit": "Source assertions and source test inspection are not execution evidence. Do not use this record to pass native/packed/deployed acceptance."
+}

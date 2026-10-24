@@ -1,0 +1,151 @@
+[
+  {
+    "log": "task-sealed-production.log",
+    "command": [
+      "cargo",
+      "check",
+      "--manifest-path",
+      "infera-task/Cargo.toml",
+      "--locked",
+      "--offline"
+    ],
+    "exit_code": 0,
+    "seconds": 4.573
+  },
+  {
+    "log": "task-sealed-native.log",
+    "command": [
+      "bash",
+      "infera-task/tests/run-summary-native.sh"
+    ],
+    "exit_code": 0,
+    "seconds": 6.621
+  },
+  {
+    "log": "task-own-test-binary-cleanup.log",
+    "command": [
+      "cargo",
+      "clean",
+      "--manifest-path",
+      "infera-task/tests/summary-native/Cargo.toml",
+      "-p",
+      "task-summary-native-contract"
+    ],
+    "exit_code": 0,
+    "seconds": 1.024
+  },
+  {
+    "log": "session-sealed-production.log",
+    "command": [
+      "cargo",
+      "check",
+      "--manifest-path",
+      "infera-session/Cargo.toml",
+      "--locked",
+      "--offline"
+    ],
+    "exit_code": 0,
+    "seconds": 4.072
+  },
+  {
+    "log": "session-sealed-native.log",
+    "command": [
+      "bash",
+      "infera-session/tests/run-summary-native.sh"
+    ],
+    "exit_code": 0,
+    "seconds": 7.123
+  },
+  {
+    "log": "session-own-test-binary-cleanup.log",
+    "command": [
+      "cargo",
+      "clean",
+      "--manifest-path",
+      "infera-session/tests/summary-native/Cargo.toml",
+      "-p",
+      "session-summary-native-contract"
+    ],
+    "exit_code": 0,
+    "seconds": 1.018
+  },
+  {
+    "log": "chat-sealed-production.log",
+    "command": [
+      "cargo",
+      "check",
+      "--manifest-path",
+      "infera-chat/Cargo.toml",
+      "--locked",
+      "--offline"
+    ],
+    "exit_code": 0,
+    "seconds": 3.057
+  },
+  {
+    "log": "chat-sealed-native.log",
+    "command": [
+      "bash",
+      "infera-chat/tests/run-summary-native.sh"
+    ],
+    "exit_code": 0,
+    "seconds": 6.597
+  },
+  {
+    "log": "chat-own-test-binary-cleanup.log",
+    "command": [
+      "cargo",
+      "clean",
+      "--manifest-path",
+      "infera-chat/tests/summary-native/Cargo.toml",
+      "-p",
+      "chat-summary-native-contract"
+    ],
+    "exit_code": 0,
+    "seconds": 1.02
+  },
+  {
+    "log": "crm-sealed-production.log",
+    "command": [
+      "cargo",
+      "check",
+      "--manifest-path",
+      "infera-crm/Cargo.toml",
+      "--locked",
+      "--offline"
+    ],
+    "exit_code": 0,
+    "seconds": 4.053
+  },
+  {
+    "log": "crm-sealed-native.log",
+    "command": [
+      "bash",
+      "infera-crm/tests/run-summary-native.sh"
+    ],
+    "exit_code": 0,
+    "seconds": 9.597
+  },
+  {
+    "log": "crm-own-test-binary-cleanup.log",
+    "command": [
+      "cargo",
+      "clean",
+      "--manifest-path",
+      "infera-crm/tests/summary-native/Cargo.toml",
+      "-p",
+      "crm-summary-native-contract"
+    ],
+    "exit_code": 0,
+    "seconds": 1.03
+  },
+  {
+    "log": "idp-sealed-acl.log",
+    "command": [
+      "python3",
+      "infera-idp/tests/run-summary-acl.py"
+    ],
+    "exit_code": 0,
+    "seconds": 3.055
+  }
+]

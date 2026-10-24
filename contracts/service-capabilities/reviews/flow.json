@@ -1,0 +1,2216 @@
+{
+  "GET /": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "dbc719e8f7bb6be1400fb60e3c83b977921b1df9c6599a8e49f68934afd4912c",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Read package version liveness; no dependency checks."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read package version liveness; no dependency checks. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response FlowHealthResponse; input none. Read package version liveness; no dependency checks."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read package version liveness; no dependency checks."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Read package version liveness; no dependency checks."
+    }
+  },
+  "GET /health": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "30d22585b17df9a4bef0ac4659e9b2da90c31826e6eea3d617a9886a4ee377a8",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Read package version liveness; no dependency checks."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read package version liveness; no dependency checks. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response FlowHealthResponse; input none. Read package version liveness; no dependency checks."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read package version liveness; no dependency checks."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Read package version liveness; no dependency checks."
+    }
+  },
+  "GET /up": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "282b617ae7c550c2a68ec1657b195f9e539a45d00271382b4a04e7b5fcc1ff3a",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Read package version liveness; no dependency checks."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read package version liveness; no dependency checks. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response FlowHealthResponse; input none. Read package version liveness; no dependency checks."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read package version liveness; no dependency checks."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Read package version liveness; no dependency checks."
+    }
+  },
+  "GET /api/v1/integration/flow": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "7128b0c484c4d4b587822127e74ab6940da00dc5936b69d4ee913bd35b2b360d",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Read integration metadata; queue flow_queue and empty events. Concrete shared metadata inspected in candidate dependency source; exact dependency revision remains unresolved."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read integration metadata; queue flow_queue and empty events. Concrete shared metadata inspected in candidate dependency source; exact dependency revision remains unresolved. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response FlowIntegrationResponse; input none. Read integration metadata; queue flow_queue and empty events. Concrete shared metadata inspected in candidate dependency source; exact dependency revision remains unresolved."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read integration metadata; queue flow_queue and empty events. Concrete shared metadata inspected in candidate dependency source; exact dependency revision remains unresolved."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Read integration metadata; queue flow_queue and empty events. Concrete shared metadata inspected in candidate dependency source; exact dependency revision remains unresolved."
+    }
+  },
+  "GET /api/v1/flows": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "2a9dd2393c579476c014ed9742560fa4dcdd44f2176493605753c2819ca98fac",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "List all flows descending updated_at without pagination or tenant filter."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Declared IDP metadata: flow:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "List all flows descending updated_at without pagination or tenant filter. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response FlowListResponse; input none. List all flows descending updated_at without pagination or tenant filter."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "List all flows descending updated_at without pagination or tenant filter."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. List all flows descending updated_at without pagination or tenant filter."
+    }
+  },
+  "POST /api/v1/flows": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "3c92f2a50fc3757614918306d9a60b282d22ae89b0256d43a2735357e1dbe83e",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Create flow: name1..200, nonempty trigger_key; normalized nonempty unique slug (409), enabled defaults false, graph defaults trigger node. Validate graph400. Insert before enabled-registry notification; notification500 may follow persisted mutation."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Declared IDP metadata: flow:create. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Create flow: name1..200, nonempty trigger_key; normalized nonempty unique slug (409), enabled defaults false, graph defaults trigger node. Validate graph400. Insert before enabled-registry notification; notification500 may follow persisted mutation. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response FlowResponse; input CreateFlowInput. Create flow: name1..200, nonempty trigger_key; normalized nonempty unique slug (409), enabled defaults false, graph defaults trigger node. Validate graph400. Insert before enabled-registry notification; notification500 may follow persisted mutation."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Create flow: name1..200, nonempty trigger_key; normalized nonempty unique slug (409), enabled defaults false, graph defaults trigger node. Validate graph400. Insert before enabled-registry notification; notification500 may follow persisted mutation."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Create flow: name1..200, nonempty trigger_key; normalized nonempty unique slug (409), enabled defaults false, graph defaults trigger node. Validate graph400. Insert before enabled-registry notification; notification500 may follow persisted mutation."
+    }
+  },
+  "GET /api/v1/flows/{id}": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "314250119372b4153860c3db3062ac29df81080e636a765c0f6f0432d43849ed",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Read UUID flow; missing404. No tenant/owner predicate."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Declared IDP metadata: flow:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read UUID flow; missing404. No tenant/owner predicate. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response FlowResponse; input none. Read UUID flow; missing404. No tenant/owner predicate."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read UUID flow; missing404. No tenant/owner predicate."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Read UUID flow; missing404. No tenant/owner predicate."
+    }
+  },
+  "PUT /api/v1/flows/{id}": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "a187ef291fbbdd4167188a2f05189fa23fb3791dced55430252cd00baa4bce14",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Partially update UUID flow; null/omitted fields preserve existing values. Graph or trigger_key increments version and updates trigger node data. Slug normalization/conflict409; existing graph revalidated400 even on metadata update. Update before registry notification; notification500 may follow persisted mutation."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Declared IDP metadata: flow:update. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Partially update UUID flow; null/omitted fields preserve existing values. Graph or trigger_key increments version and updates trigger node data. Slug normalization/conflict409; existing graph revalidated400 even on metadata update. Update before registry notification; notification500 may follow persisted mutation. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response FlowResponse; input UpdateFlowInput. Partially update UUID flow; null/omitted fields preserve existing values. Graph or trigger_key increments version and updates trigger node data. Slug normalization/conflict409; existing graph revalidated400 even on metadata update. Update before registry notification; notification500 may follow persisted mutation."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Partially update UUID flow; null/omitted fields preserve existing values. Graph or trigger_key increments version and updates trigger node data. Slug normalization/conflict409; existing graph revalidated400 even on metadata update. Update before registry notification; notification500 may follow persisted mutation."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Partially update UUID flow; null/omitted fields preserve existing values. Graph or trigger_key increments version and updates trigger node data. Slug normalization/conflict409; existing graph revalidated400 even on metadata update. Update before registry notification; notification500 may follow persisted mutation."
+    }
+  },
+  "DELETE /api/v1/flows/{id}": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "283658732bbbe3c9cfd6f09155a4a11db442e0e4336d3e73fe5ae9c6f199f506",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Delete UUID flow (missing404), then notify registry; returns200 {deleted:true}. Notification500 can follow committed deletion; repeated deletion404."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Declared IDP metadata: flow:delete. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Delete UUID flow (missing404), then notify registry; returns200 {deleted:true}. Notification500 can follow committed deletion; repeated deletion404. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response FlowDeleteResponse; input none. Delete UUID flow (missing404), then notify registry; returns200 {deleted:true}. Notification500 can follow committed deletion; repeated deletion404."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Delete UUID flow (missing404), then notify registry; returns200 {deleted:true}. Notification500 can follow committed deletion; repeated deletion404."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Delete UUID flow (missing404), then notify registry; returns200 {deleted:true}. Notification500 can follow committed deletion; repeated deletion404."
+    }
+  },
+  "POST /api/v1/flows/{id}/validate": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "285ae6e0753cae72e713a933debd78506b19d337c1ca38eaa83742da4381f497",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Validate persisted UUID graph; missing404. Invalid graph returns200 {valid:false,errors:[...]}; no mutation. Checks one trigger, edges endpoints, unique nonempty node IDs, emit service/event/object payload and supported condition structure; does not reject cycles or unknown node types."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Declared IDP metadata: flow:update. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Validate persisted UUID graph; missing404. Invalid graph returns200 {valid:false,errors:[...]}; no mutation. Checks one trigger, edges endpoints, unique nonempty node IDs, emit service/event/object payload and supported condition structure; does not reject cycles or unknown node types. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response FlowValidationResponse; input none. Validate persisted UUID graph; missing404. Invalid graph returns200 {valid:false,errors:[...]}; no mutation. Checks one trigger, edges endpoints, unique nonempty node IDs, emit service/event/object payload and supported condition structure; does not reject cycles or unknown node types."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Validate persisted UUID graph; missing404. Invalid graph returns200 {valid:false,errors:[...]}; no mutation. Checks one trigger, edges endpoints, unique nonempty node IDs, emit service/event/object payload and supported condition structure; does not reject cycles or unknown node types."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Validate persisted UUID graph; missing404. Invalid graph returns200 {valid:false,errors:[...]}; no mutation. Checks one trigger, edges endpoints, unique nonempty node IDs, emit service/event/object payload and supported condition structure; does not reject cycles or unknown node types."
+    }
+  },
+  "POST /api/v1/flows/import": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "4df6c9b865ba3f463bb4bb539bd216d8c3357ca7444d092efcc6839fecc95909",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Expand bridges/groups then validate nonempty manifest, normalized unique slugs and graph400. Arrays default empty, bridge enabled defaults true; version/source ignored. Transactional upsert by slug; dry_run rolls back and reports proposed counts. Normal import commits before registry notify, so500 can follow durable effects; identical retry reports unchanged."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Declared IDP metadata: flow:create, flow:update. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Expand bridges/groups then validate nonempty manifest, normalized unique slugs and graph400. Arrays default empty, bridge enabled defaults true; version/source ignored. Transactional upsert by slug; dry_run rolls back and reports proposed counts. Normal import commits before registry notify, so500 can follow durable effects; identical retry reports unchanged. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response ImportFlowsResponse; input ImportFlowsInput. Expand bridges/groups then validate nonempty manifest, normalized unique slugs and graph400. Arrays default empty, bridge enabled defaults true; version/source ignored. Transactional upsert by slug; dry_run rolls back and reports proposed counts. Normal import commits before registry notify, so500 can follow durable effects; identical retry reports unchanged."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Expand bridges/groups then validate nonempty manifest, normalized unique slugs and graph400. Arrays default empty, bridge enabled defaults true; version/source ignored. Transactional upsert by slug; dry_run rolls back and reports proposed counts. Normal import commits before registry notify, so500 can follow durable effects; identical retry reports unchanged."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/flow/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Expand bridges/groups then validate nonempty manifest, normalized unique slugs and graph400. Arrays default empty, bridge enabled defaults true; version/source ignored. Transactional upsert by slug; dry_run rolls back and reports proposed counts. Normal import commits before registry notify, so500 can follow durable effects; identical retry reports unchanged."
+    }
+  },
+  "POST /api/v1/events/{event_key}": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "60a7ff97159c05952b9570d627e64ba4a73b73d20b458d11b8330166331be626",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Emit arbitrary JSON including null; require nonempty1..200 ASCII alphanumeric/dot/underscore/hyphen key without leading/trailing/double dots400. Explicit flow:execute or * local check403. New event UUID per call; awaits matching enabled flows; individual execution failures logged/swallowed. HTTP200 accepted does not guarantee completed runs; repeated calls can emit duplicates."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/event/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Declared IDP metadata: flow:execute. Handler explicitly checks AuthContext flow:execute or *; roles alone are insufficient. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/event/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Emit arbitrary JSON including null; require nonempty1..200 ASCII alphanumeric/dot/underscore/hyphen key without leading/trailing/double dots400. Explicit flow:execute or * local check403. New event UUID per call; awaits matching enabled flows; individual execution failures logged/swallowed. HTTP200 accepted does not guarantee completed runs; repeated calls can emit duplicates. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/event/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response EmitFlowEventResponse; input EmitFlowEventInput. Emit arbitrary JSON including null; require nonempty1..200 ASCII alphanumeric/dot/underscore/hyphen key without leading/trailing/double dots400. Explicit flow:execute or * local check403. New event UUID per call; awaits matching enabled flows; individual execution failures logged/swallowed. HTTP200 accepted does not guarantee completed runs; repeated calls can emit duplicates."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/event/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Emit arbitrary JSON including null; require nonempty1..200 ASCII alphanumeric/dot/underscore/hyphen key without leading/trailing/double dots400. Explicit flow:execute or * local check403. New event UUID per call; awaits matching enabled flows; individual execution failures logged/swallowed. HTTP200 accepted does not guarantee completed runs; repeated calls can emit duplicates."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/event/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Emit arbitrary JSON including null; require nonempty1..200 ASCII alphanumeric/dot/underscore/hyphen key without leading/trailing/double dots400. Explicit flow:execute or * local check403. New event UUID per call; awaits matching enabled flows; individual execution failures logged/swallowed. HTTP200 accepted does not guarantee completed runs; repeated calls can emit duplicates."
+    }
+  },
+  "GET /api/v1/catalog/triggers": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "eeaa727caf3d045c345fdebeb92973fcd9bc110d28aacf5d63e50b965a88baaa",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Read all cached trigger catalog entries with service/method/path/trigger_key; no pagination or tenant filter."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Declared IDP metadata: flow:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read all cached trigger catalog entries with service/method/path/trigger_key; no pagination or tenant filter. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response TriggerCatalogResponse; input none. Read all cached trigger catalog entries with service/method/path/trigger_key; no pagination or tenant filter."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read all cached trigger catalog entries with service/method/path/trigger_key; no pagination or tenant filter."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Read all cached trigger catalog entries with service/method/path/trigger_key; no pagination or tenant filter."
+    }
+  },
+  "GET /api/v1/catalog/actions": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "d6ad100686053ee0d01027b5fcc694c119489504be873c2122cb710eafa11a00",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Read all cached action catalog entries including verbatim external payload_fields JSON; no pagination or tenant filter."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Declared IDP metadata: flow:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read all cached action catalog entries including verbatim external payload_fields JSON; no pagination or tenant filter. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response ActionCatalogResponse; input none. Read all cached action catalog entries including verbatim external payload_fields JSON; no pagination or tenant filter."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read all cached action catalog entries including verbatim external payload_fields JSON; no pagination or tenant filter."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Read all cached action catalog entries including verbatim external payload_fields JSON; no pagination or tenant filter."
+    }
+  },
+  "POST /api/v1/catalog/sync": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "69875f92c74d6cc74c8c7a35683df9f6b91e5b6271d80cea09b9edfcdbf71f4a",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Fetch configured services OpenAPI and Flow integration metadata; replace matching triggers/actions; return200 report with per-service openapi/actions failures, not {synced:true}. Does not remove stale absent metadata. Partial persistence and insert errors may occur; retry fetches and replaces again."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Declared IDP metadata: catalog:sync. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Fetch configured services OpenAPI and Flow integration metadata; replace matching triggers/actions; return200 report with per-service openapi/actions failures, not {synced:true}. Does not remove stale absent metadata. Partial persistence and insert errors may occur; retry fetches and replaces again. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response CatalogSyncResponse; input none. Fetch configured services OpenAPI and Flow integration metadata; replace matching triggers/actions; return200 report with per-service openapi/actions failures, not {synced:true}. Does not remove stale absent metadata. Partial persistence and insert errors may occur; retry fetches and replaces again."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Fetch configured services OpenAPI and Flow integration metadata; replace matching triggers/actions; return200 report with per-service openapi/actions failures, not {synced:true}. Does not remove stale absent metadata. Partial persistence and insert errors may occur; retry fetches and replaces again."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/catalog/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Fetch configured services OpenAPI and Flow integration metadata; replace matching triggers/actions; return200 report with per-service openapi/actions failures, not {synced:true}. Does not remove stale absent metadata. Partial persistence and insert errors may occur; retry fetches and replaces again."
+    }
+  },
+  "GET /api/v1/registry/active-triggers": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "eb2130231ceb72014894d4a565a2154361070b1612fe24f6698e7418053879ae",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Read {version,triggers}; enabled flows grouped by trigger key and unioned capture_fields, unordered. Optional service matches endpoint.{service}. prefix; generic event triggers excluded with service filter. No handler-local permission or tenant check."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/registry/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/registry/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read {version,triggers}; enabled flows grouped by trigger key and unioned capture_fields, unordered. Optional service matches endpoint.{service}. prefix; generic event triggers excluded with service filter. No handler-local permission or tenant check. Query: ActiveTriggersQuery"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/registry/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response ActiveTriggersResponse; input none. Read {version,triggers}; enabled flows grouped by trigger key and unioned capture_fields, unordered. Optional service matches endpoint.{service}. prefix; generic event triggers excluded with service filter. No handler-local permission or tenant check."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/registry/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read {version,triggers}; enabled flows grouped by trigger key and unioned capture_fields, unordered. Optional service matches endpoint.{service}. prefix; generic event triggers excluded with service filter. No handler-local permission or tenant check."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/registry/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Read {version,triggers}; enabled flows grouped by trigger key and unioned capture_fields, unordered. Optional service matches endpoint.{service}. prefix; generic event triggers excluded with service filter. No handler-local permission or tenant check."
+    }
+  },
+  "GET /api/v1/runs": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "24664bdf3434c6d5494b9e7888c55236c8fef557a1fe23428c9e03092bb19234",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "List global runs descending started_at; limit optional nonnegative u64, default50, no clamp. No pagination envelope or flow/owner filter. Integer values must fit JavaScript safe range for precise requests."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/run/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Declared IDP metadata: flow_run:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/run/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "List global runs descending started_at; limit optional nonnegative u64, default50, no clamp. No pagination envelope or flow/owner filter. Integer values must fit JavaScript safe range for precise requests. Query: FlowRunsQuery"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/run/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response FlowRunListResponse; input none. List global runs descending started_at; limit optional nonnegative u64, default50, no clamp. No pagination envelope or flow/owner filter. Integer values must fit JavaScript safe range for precise requests."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/run/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "List global runs descending started_at; limit optional nonnegative u64, default50, no clamp. No pagination envelope or flow/owner filter. Integer values must fit JavaScript safe range for precise requests."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/run/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. List global runs descending started_at; limit optional nonnegative u64, default50, no clamp. No pagination envelope or flow/owner filter. Integer values must fit JavaScript safe range for precise requests."
+    }
+  },
+  "GET /api/v1/runs/{id}": {
+    "status": "pending",
+    "source_review_status": "completed_native_verification_pending",
+    "source_checksum": "91a484c5946d33c8f94d0b5ae59a1d4237e422ccd965b11cd6ba69855902fe53",
+    "canonical_source_basis": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "meaning": {
+      "en": "Read UUID run404; flatten run fields alongside nullable JSON context and steps ordered created_at ascending. Payload/context may be null; no tenant/owner filter."
+    },
+    "scope": "Configured Flow database; no tenant or owner predicates. Global auth extraction imported from unresolved external dependency; exact native/gateway authority pending.",
+    "classification": "source_reviewed_operation",
+    "verification_scope": "Direct immutable mounted router, handlers, models, validation, SeaORM repositories/entities, execution/queue lifecycle and source tests; external dependency candidate inspected separately, not claimed locked. No compiled SDK/native/deployed acceptance claimed.",
+    "source_evidence": [
+      "flow-source-audit-20261021"
+    ],
+    "test_evidence": [],
+    "remaining_gates": [
+      "Post-integration compiled SDK wire/type checks",
+      "Resolve and validate exact external IDP/Flow dependency revision",
+      "Exact pinned native database/broker acceptance",
+      "Deployed enforcing gateway identity/permission/tenant acceptance"
+    ],
+    "permissions": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/run/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Declared IDP metadata: flow_run:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials."
+    },
+    "filters": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/run/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read UUID run404; flatten run fields alongside nullable JSON context and steps ordered created_at ascending. Payload/context may be null; no tenant/owner filter. Query: none"
+    },
+    "inputs_outputs": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/run/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Named response FlowRunResponse; input none. Read UUID run404; flatten run fields alongside nullable JSON context and steps ordered created_at ascending. Payload/context may be null; no tenant/owner filter."
+    },
+    "lifecycle": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/run/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Read UUID run404; flatten run fields alongside nullable JSON context and steps ordered created_at ascending. Payload/context may be null; no tenant/owner filter."
+    },
+    "relationships": {
+      "status": "pending",
+      "source_review_status": "completed_native_verification_pending",
+      "source_refs": [
+        "Service/infera-flow/src/router.rs",
+        "Service/infera-flow/src/main.rs",
+        "Service/infera-flow/src/run/routes.rs",
+        "Service/infera-flow/src/models.rs",
+        "Service/infera-flow/src/flow/models.rs",
+        "Service/infera-flow/src/flow/methods.rs",
+        "Service/infera-flow/src/registry/methods.rs",
+        "Service/infera-flow/src/run/methods.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs",
+        "Service/infera-flow/src/engine/conditions.rs",
+        "Service/infera-flow/src/catalog/methods.rs",
+        "Service/infera-flow/src/handler.rs"
+      ],
+      "meaning": "Database-local UUIDs and configured catalog/queue targets; no local tenant predicate. Read UUID run404; flatten run fields alongside nullable JSON context and steps ordered created_at ascending. Payload/context may be null; no tenant/owner filter."
+    }
+  }
+}

@@ -1,0 +1,1 @@
+Superseded by ../gis-finalization-v2-20261021. The original tests passed but its SDK fingerprint root was incorrect and yielded empty manifests. Do not use this directory to certify frozen SDK inputs. The v2 run fixes the root, refuses empty fingerprints, and refuses overwriting an existing receipt. Original evidence is retained unchanged.

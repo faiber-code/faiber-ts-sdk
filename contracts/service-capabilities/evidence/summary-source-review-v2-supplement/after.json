@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-19T15:39:17.977508+00:00",
+  "sources": [
+    {
+      "repository": "faiber-sdk",
+      "head": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+      "tree": "906a60a5ae8f373ba7d841cccd9028a0b33bf56e",
+      "source_files_verified": 303,
+      "tracked_clean": true
+    },
+    {
+      "repository": "infera-profile",
+      "head": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+      "tree": "b05d1705b4b9ea4c982d82c4f58c003821aec502",
+      "source_files_verified": 626,
+      "tracked_clean": true
+    },
+    {
+      "repository": "infera-lms",
+      "head": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+      "tree": "35a230592c3072bf3e28890fcaa50293fc83b6e2",
+      "source_files_verified": 688,
+      "tracked_clean": true
+    },
+    {
+      "repository": "poulstar-accounting-backend",
+      "head": "97ba4b6ff6a9f03c9504fffa8b4d1d6aa9844e8b",
+      "tree": "2dbeebc4e1d84cc3f691fc2400d6d5c9851ddf09",
+      "source_files_verified": 1277,
+      "tracked_clean": true
+    },
+    {
+      "repository": "infera-idp",
+      "head": "1983731640c4542391eeed2599347b45ab6caf4b",
+      "tree": "e615d06fa2ff2896599d66460ed04efa1e0ce685",
+      "source_files_verified": 353,
+      "tracked_clean": true
+    }
+  ],
+  "all_v1_sources_and_logs_unchanged": true,
+  "v1_handoff_sha256": "f4e206e5833797dfcfbe4f4bae479557d29f51e01e8e13bab11e038b64655308"
+}

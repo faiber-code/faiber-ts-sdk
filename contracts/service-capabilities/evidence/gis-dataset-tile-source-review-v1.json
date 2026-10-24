@@ -1,0 +1,31 @@
+{
+  "status": "source-reviewed-only-not-certified",
+  "revision": "d07b4facd1f73d40a20291dde479365845ec4023",
+  "reviewed_operations": [
+    "GET /api/v1/datasets",
+    "POST /api/v1/datasets",
+    "GET /api/v1/datasets/{id}",
+    "PATCH /api/v1/datasets/{id}",
+    "GET /api/v1/datasets/{id}/features",
+    "GET /api/v1/public/datasets/{id}/geojson",
+    "PUT /api/v1/datasets/{id}/features",
+    "PUT /api/v1/datasets/{id}/features/{feature}",
+    "GET /api/v1/datasets/{id}/history",
+    "GET /api/v1/public/datasets/{id}/tilejson",
+    "GET /api/v1/public/datasets/{id}/tiles/{z}/{x}/{y}",
+    "GET /api/v1/datasets/{id}/tiles/{z}/{x}/{y}"
+  ],
+  "source_hashes": {
+    "Service/infera-gis/src/auth.rs": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10",
+    "Service/infera-gis/src/geometry/routes.rs": "25acc361a7c38ede76bdf016e8813d281ae281dabd34e947b1896b42b50dc27d",
+    "Service/infera-gis/src/geometry/methods.rs": "67b3c533f025114fd67bbae8bbdd2965976d5679da793f8343640de87f5ccbba",
+    "Service/infera-gis/src/geometry/models.rs": "eaf4f045b9a8450dcf940daf1de3696c72b3908c5abf888d6bcfb79cf57249ef",
+    "Service/infera-gis/src/tiles/routes.rs": "36ad7840b76f2ffa65c5913fe5131f7bf5966accf4095006c2873f5800cb7299",
+    "Service/infera-gis/src/error.rs": "2cae736f35db68b57783ba2749120aa8ed49fafc403be9506db8af75c810e7b2",
+    "Service/infera-gis/migration/schema.sql": "2ca2e35b6789c7d92c6bfc2004dc4bef1e5209bcaa617e7070dd934f4ae3e2fb",
+    "Service/infera-gis/migration/private-tiles.sql": "ae52aeec38eab87a2cd13241091b9f0b1a861ba888606766cf34086b869f823d"
+  },
+  "source_review_total": 19,
+  "remaining_operations": 29,
+  "limits": "Manual source/SQL/bounds/authorization classification only. No native/PostGIS/renderer or SDK tests executed by this artifact. Exact scopes and public formats must be confirmed in runtime."
+}

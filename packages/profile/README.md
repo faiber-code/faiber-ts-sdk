@@ -32,34 +32,35 @@ console.log(updated.data.data.profile);
 
 ## Complete capability
 
-This package exposes 233 registered operations from the profiles service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 235 registered operations from the profiles service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
-| `ai_summary` | 20 | `GET`, `POST`, `PUT`, `PATCH` |
+| `ai-summary` | 20 | `GET`, `PATCH`, `POST`, `PUT` |
 | `campaign` | 4 | `GET`, `POST` |
 | `city` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `country` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `custom-type` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `education` | 4 | `GET`, `POST`, `PUT` |
+| `fitness` | 32 | `GET`, `POST`, `PUT` |
 | `integration` | 2 | `GET` |
 | `lifecycle` | 24 | `DELETE`, `GET`, `POST`, `PUT` |
 | `log-action` | 3 | `POST` |
 | `logger` | 2 | `GET` |
 | `option` | 5 | `GET`, `POST` |
-| `profile` | 57 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `profile` | 59 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `profile-property` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
-| `profile-search` | 1 | `POST` |
+| `profile-search` | 3 | `POST` |
 | `province` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `referral` | 7 | `DELETE`, `GET`, `POST`, `PUT` |
 | `relation` | 10 | `DELETE`, `GET`, `POST`, `PUT` |
 | `router` | 3 | `GET` |
-| `session` | 2 | `GET` |
+| `session` | 4 | `GET`, `PATCH`, `PUT` |
 | `setting` | 2 | `GET`, `POST` |
 | `survey` | 2 | `GET`, `POST` |
 | `trusted-service` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
-`updateProfile` sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields stay unchanged; `null` clears nullable fields. System-managed balances, gems, enrollment state, roles, IDs, and avatar objects are not mass-assignable. Use `uploadAvatar` and IDP role operations for those concerns.
+`updateProfile` sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields stay unchanged. In the pinned general patch handler, `job: null` clears the job; other nullable scalar fields deserialize explicit `null` as omission. Use `educationInformation` for explicit clearing of its education/referral/attendance fields. Balances, enrollment state, roles, IDs, and avatar objects are not mass-assignable. The patch model does accept `status`, `employee_type`, and `freemium_session_limit` under `profile:update`. Use `uploadAvatar` and IDP role operations for those concerns.
 
 ## Learner balances and education
 
@@ -85,13 +86,34 @@ await api.customTypes.create({ name: "job", value_type: "select", options: ["Ø¨Û
 
 ## Authentication and authorization
 
-Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Permission requirements copied from service route guards are included in each operation's JSDoc. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.
+Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Declared IDP permissions are included in each operation's JSDoc. Most CRUD routes consume identity headers supplied by a trusted IDP gateway; the permission annotations export metadata and do not enforce permissions inside the handler. Summary routes additionally validate Bearer/cookie credentials with IDP on each call. Internal fitness credit/gift operations require their separately configured service Bearer tokens. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.
 
 ## Inputs, queries, responses, and transport
 
-All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Nested pagination uses keys such as `page[number]` and `page[size]` where required by the service. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
+All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Profile list pagination uses `page` and `per_page`; filters use names such as `filter[role]` and `filter[status]`. Summary pages also use their exported query types. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
 
 Generic REST resources are capability-guarded. Calling a legacy method that the service does not register throws `UnsupportedOperationError` before sending a request instead of producing a backend `405`.
+
+## Media and command responses
+
+`api.operations.profileAvatarShowGetApiV1ProfileMediaUuidAvatar(ownerUuid, {key})`,
+`profileAvatarShowGetApiV1ProfileUuidAvatar`, `profileImageShowGet`, and
+`profileMediaShowGet` return raw binary bytes (`ArrayBuffer | Uint8Array`), with the
+service content type and cache policy in Axios response headers. Their `key` query
+is required. Avatar and content image reads are public; private media requires IDP
+authentication. Invalid owner prefixes or traversal return 403; missing objects
+return 404.
+
+Uploads accept a multipart `file` field containing JPEG, PNG or WebP up to 5 MiB.
+The caller must own the target user UUID or have `profile:update`. Successful uploads
+return `{url, key}`; unsupported types return 415, missing/empty files 422, oversize
+files 413, and unconfigured storage 503.
+
+Property updates return `updated_keys` and `array_item_changes` (added/removed IDs
+and counts), rather than the complete profile. Address, parent-link, delete and
+restore commands generally acknowledge success with an empty object. Bulk parent
+lookups return stored link rows with both IDP user UUIDs; bulk addresses resolve
+IDP UUIDs to rows whose `profile_id` is a separate Profile UUID.
 
 ## Errors and cancellation
 
@@ -195,7 +217,9 @@ console.log(response.status, response.data.data.freshness, response.data.data.su
 
 Read the canonical role catalog with `api.summaries.roles()`, then create/edit a structured draft,
 validate it, preview an eligible subject, publish it, and enable it with `setStatus(id, { enabled: true })`.
-GET requests only read stored data. Refresh and preview return HTTP 202; poll run/job state separately.
+Global generation must be enabled before previewing; the global kill switch also blocks explicit previews with HTTP 409.
+A role can remain disabled while previewing its draft. Preview results remain distinct from published results and never publish the configuration.
+GET requests only read stored data. Accepted refresh and preview requests return HTTP 202; poll run/job state separately.
 A failed refresh can leave an older result available and stale. Disabled configurations hide latest
 content while explicitly authorized history reads remain available. Decimal metric values may be
 strings to preserve financial precision. Standard Axios errors, response headers and cancellation

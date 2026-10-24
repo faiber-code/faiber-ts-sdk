@@ -5,11 +5,11 @@
   },
   "chat": {
     "directory": "infera-chat",
-    "revision": "d495217f85d77270865a040c1328d70c620e6c9d"
+    "revision": "03dd17ad3a1f6a36f5b6ad42e8e11729b44ebc55"
   },
   "crm": {
     "directory": "infera-crm",
-    "revision": "6c763c989216fbecd6cfdb4c98f1067c09d17507"
+    "revision": "77e2e4a7660e007aefef81e27337476c6d748cac"
   },
   "drm": {
     "directory": "infera-drm",
@@ -17,58 +17,62 @@
   },
   "flow": {
     "directory": "infera-flow",
-    "revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98"
+    "revision": "a9a0f523379733ecbdec07d4ebf43dda67fee767"
   },
   "idp": {
     "directory": "infera-idp",
-    "revision": "9965e90a81fa3c4844a00e710d8d31b20527fede"
+    "revision": "828799249ef714d333b03bded092a9d6af6ba7bb"
   },
   "knowledge": {
     "directory": "infera-knowledge",
-    "revision": "70b8a21721dd34125b8f0e167e06da9ad3287223"
+    "revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1"
   },
   "lms": {
     "directory": "infera-lms",
-    "revision": "f5030658459f456bb5310f3f460cd348f126930c"
+    "revision": "39d5a0b80ef33c9f732dc00b0ee0e9e54047901a"
   },
   "messenger": {
     "directory": "infera-messenger",
-    "revision": "0038f19eb1d78b744b3d9829c1a05331657a9fa4"
+    "revision": "0eb2143fae39dee3e0543abaac59ea1aaaed771c"
   },
   "modules": {
     "directory": "infera-modules",
-    "revision": "58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9"
+    "revision": "2a1063315b85c4c222763b88a463b489b2e6d521"
   },
   "payment": {
     "directory": "infera-payment",
-    "revision": "ddc661f4a7e6f2ffdcbbd0d137ddf3831daa4eb2"
+    "revision": "ca2f9bbd7ea9e43a78874a2d93bbbd68e5d257c8"
   },
   "profile": {
     "directory": "infera-profile",
-    "revision": "f5f3d63e02e5af915f40411bb829290089f30f39"
+    "revision": "ac1aa429598aa7e2578e3b41181a9913a4481025"
   },
   "reservation": {
     "directory": "infera-reservation",
-    "revision": "f7cd709510458083d10a1b79a5ad3d7cd29196bd"
+    "revision": "80aef6037cec20bb808903f15737160cef5f6a66"
   },
   "session": {
     "directory": "infera-session",
-    "revision": "831dde454084a05920441091a8305a7a972d9804"
+    "revision": "7a395d7149a2d4c03d3e1d4746b69919a52cbb05"
   },
   "social": {
     "directory": "infera-social",
-    "revision": "79462976a1c07e7ef8eb913d7cc7015dd50f936e"
+    "revision": "d067ac956571abd73211b06d835caa658b1f09bc"
   },
   "state": {
     "directory": "infera-state",
-    "revision": "6be433e043caddb2d1a5761562cfc42bd0c67190"
+    "revision": "b8d3bfa828878a979a8c8765285bfd3899965bd4"
   },
   "task": {
     "directory": "infera-task",
-    "revision": "badfa399a8db6f19d68f63f14b1c67485c4d4903"
+    "revision": "b8ed5921e4f6bd2d7f4ef675f0cb8b3fbbb1e23d"
   },
   "version": {
     "directory": "infera_version",
-    "revision": "88071d0dd49309e0c93aba6238516e95b57e1df5"
+    "revision": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e"
+  },
+  "gis": {
+    "directory": "infera-gis",
+    "revision": "0bc8423a51887450b928e7b372153014cd47e582"
   }
 }

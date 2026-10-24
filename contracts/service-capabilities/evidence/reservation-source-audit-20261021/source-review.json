@@ -1,0 +1,204 @@
+{
+  "service": "reservation",
+  "source_revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+  "status": "source-reviewed; integrated generation/build/type/runtime verification delegated to publication parent",
+  "source_basis": "git show at immutable manifest pin; dirty working-tree source not used",
+  "mounted_operations": 30,
+  "source_refs": [
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/router.rs",
+      "sha256": "e3cb24728e9ec8d113c568f45e655842f7dd89861c260e0fdafcfa89b008bf4d"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/auth.rs",
+      "sha256": "f24274d0ea4c61d27cf81c3539dd4a9c63ca4bf7b5d96d264a82ce15d9553459"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/models.rs",
+      "sha256": "3053f8f15748621a236108c97220ff89f16c6ad4e1ae031a853d0975bca0877f"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/pagination.rs",
+      "sha256": "02c16152141908f4da4d0d122b4e91dfb86844b525a50734a193cf2d859a2f85"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/main.rs",
+      "sha256": "ff0f4e1b85ee7de0c5537af567906439ae294c6eeabbff295dcb000d445ee6c8"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/provider/routes.rs",
+      "sha256": "07071a2428d2e5ce24323ef32343b02310a0ddaaf611bcf6ba4c8ad1dc699876"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/provider/models.rs",
+      "sha256": "1506655df9897f53226d9678614357a7d242c8aae9e244d3418ed894370c38e7"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/provider/methods.rs",
+      "sha256": "c7f8964e5dfddd9aff4aacc2f6bf49fa13c9ed3588750f514da7e77591662e3c"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/provider/capacity.rs",
+      "sha256": "49eb32055d071a354f575e84f791e86d3338ca31aa6179e19017009b5a5c5269"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/reservation_service/routes.rs",
+      "sha256": "f4efe2095a3c296cbafd417650bdc44f78fa181af976f5bcbdc2198968b02c0b"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/reservation_service/models.rs",
+      "sha256": "8332f30e9c4b95ee8f5a5af578ef39e91534d1cbbd5d5b5283029f4b36aea359"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/reservation_service/methods.rs",
+      "sha256": "5c3e640e03dfbc11d0b2f408da094703f560ba58f3f9f51bfa3102932ef958d7"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/time_slot/routes.rs",
+      "sha256": "9d977dfc116291ae293e2985b522d1fc6b1c4b6be76e6850b32c5642f993ecf4"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/time_slot/models.rs",
+      "sha256": "d07ea21ecbc52098b267596406e4e11fd2e7d8719f8667703f3b68cadbafa7a3"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/time_slot/methods.rs",
+      "sha256": "ba7a7bc143d2095af7297ba085f0fa8f60bcb84bf6f2f73a210518c337c42091"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/reservation/routes.rs",
+      "sha256": "555ac6f6c64d911ae0de38f2f1d0827902a5c4f7752c413bc56f44380590a7ee"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/reservation/models.rs",
+      "sha256": "47b977054851a07f1be786a10f41e8b1b52fd8fe6d5e200ce64499f95027a15f"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/reservation/methods.rs",
+      "sha256": "a4e0420cb2b735864e70a210b02d69fa3fc046c3a72ec8317c181d1960721330"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/work_schedule/routes.rs",
+      "sha256": "fab94a3f185bcf872a74c8164c727c21d6ff9196c6f3288981f344c8da8e6bca"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/work_schedule/models.rs",
+      "sha256": "a94a8a160cbb7caeb1efd1cb6372ff84b9d6c9aa71fcba32a248431fa3fe9a31"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/work_schedule/methods.rs",
+      "sha256": "c1c4ffeff5cad63edc93c6ff69ed71bdb3f6bf19756b7cc506680b617d31de91"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/integration/routes.rs",
+      "sha256": "60bd65974d5edf9f6b376baf16dd21009b4d954a577e723a7bf64cb0e892ffe3"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "src/integration/flow.rs",
+      "sha256": "46d88e7c0978e67b9b156954c2e0ed83808030494764255082c605e4514adf02"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "entity/src/enums.rs",
+      "sha256": "f6704f5db48fab772ba69caf68f8c2279ac09214c35eb31b7171631b75a0616a"
+    },
+    {
+      "repository": "Service/infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+      "path": "Cargo.lock",
+      "sha256": "8b36bd28032c388760780bccb82d04d0dab88c2d6003eedcfe84b40637913961"
+    },
+    {
+      "repository": "Service/faiber-sdk",
+      "revision": "c9fbf8dde6f9a843b55f7a05c3ae37eff40b20d1",
+      "path": "crates/infera-flow-sdk/src/integration_meta.rs",
+      "sha256": "147a5665d5571e0e67579b2a54b60d10daa5a2bd0cc411b115b5084db414f7c7",
+      "basis": "Exact immutable Reservation Cargo.lock dependency source"
+    }
+  ],
+  "mismatches_corrected": [
+    {
+      "surface": "handwritten resource inputs and records",
+      "before": "String numeric IDs, unsupported price/active/metadata/customer_id, missing required time_slot_id/user_id",
+      "after": "Aliases project exact exported generated request/response models from immutable source; numeric local IDs and customer UUID are distinct."
+    },
+    {
+      "surface": "handwritten slot and schedule inputs",
+      "before": "Optional service ID for generation; numeric weekday, starts_at/ends_at schedule fields; missing structural provider/service slot patch members",
+      "after": "Required numeric provider/service generation, weekday/start_time/end_time schedules and exact structural patch model."
+    },
+    {
+      "surface": "handwritten response envelopes",
+      "before": "Wrong page shape, generation claimed slot array, providerServices claimed page, unit mutations claimed objects",
+      "after": "Generated typed page envelope, numeric generation count, unpaged assigned services, null mutation receipts including generic resources."
+    },
+    {
+      "surface": "generated integration metadata",
+      "before": "BackendJson placeholder despite locked dependency exposing concrete serializable model",
+      "after": "Concrete queue/events/payload_fields metadata using exact locked dependency c9fbf8d."
+    },
+    {
+      "surface": "all 30 generated operation docs",
+      "before": "Most management routes said session-derived or public bootstrap and lacked endpoint-specific behavior",
+      "after": "Persistent per-operation source corrections document accepted resource grants, query/input validation, lifecycle and response behavior."
+    }
+  ],
+  "existing_evidence": "Existing reservation-current-sdk-native-20261021 and other native/SDK evidence and verified per-operation review statuses preserved unchanged. These historical results do not certify new convenience transport patches until integrated checks.",
+  "validation_files": [
+    "tests/reservation-source-wire.test.mjs",
+    "tests/reservation-source-wire.types.ts"
+  ],
+  "remaining_limits": [
+    "Live gateway JWT verification and project routing isolation are outside local SDK transport proof.",
+    "Customer IDP existence and project membership are not checked by this local Reservation implementation.",
+    "Integration metadata does not establish event publication or durable cross-service delivery."
+  ],
+  "checks_run_this_task": []
+}

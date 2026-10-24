@@ -9,15 +9,16 @@ Status: evidence inventory; semantic and wire verification remain required.
 The source snapshots below are intentionally distinct. Missing local routes are not automatically removed from a released SDK.
 
 - Canonical source revision: `6be433e043caddb2d1a5761562cfc42bd0c67190`
-- SDK source revision: `6be433e043caddb2d1a5761562cfc42bd0c67190`
+- SDK source revision: `b8d3bfa828878a979a8c8765285bfd3899965bd4`
+- Evidence inventory revision: `b8d3bfa828878a979a8c8765285bfd3899965bd4` (sdk)
 - Working HEAD: `6be433e043caddb2d1a5761562cfc42bd0c67190`
-- Source relationship: same
+- Source relationship: working_behind_sdk
 
 ## Operation review matrix
 
 | Method/path | Handler source | Declared permissions | Semantic review |
 |---|---|---|---|
-| `GET /health` | `infera-state/src/main.rs:43` | inspect middleware/local scope | pending |
+| `GET /health` | `infera-state/src/process_health.rs:26` | inspect middleware/local scope | pending |
 | `GET /api/v1/worlds` | `infera-state/src/routes.rs:64` | state:read | pending |
 | `POST /api/v1/worlds` | `infera-state/src/routes.rs:90` | state:write | pending |
 | `GET /api/v1/worlds/{world_id}` | `infera-state/src/routes.rs:102` | state:read | pending |

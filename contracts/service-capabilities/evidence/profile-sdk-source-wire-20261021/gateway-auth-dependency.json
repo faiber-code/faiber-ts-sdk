@@ -1,0 +1,17 @@
+{
+  "revision": "e307c93c37b9c9ecf4d2f9a6f780bb2bb7143f8b",
+  "source_files": [
+    {
+      "path": "crates/infera-idp-sdk/src/middleware.rs",
+      "sha256": "a00e0d14e4ee1d7bb0cbfddaf5fadf8299e8d97e41659fea8e012805d50d44b0",
+      "cached_file_matches_git_blob": true
+    },
+    {
+      "path": "crates/infera-idp-macro/src/lib.rs",
+      "sha256": "f087ad6156ab0218c1dea9d4ba3499791a56252123ca98a69439718b9081818b",
+      "cached_file_matches_git_blob": true
+    }
+  ],
+  "meaning": "Permission macro registers metadata only; auth middleware extracts gateway headers. Summary current_actor and fitness service guards are distinct explicit checks.",
+  "verification": "source_only"
+}

@@ -25,23 +25,32 @@ const api = new PaymentApi(client);
 const gateways = await api.gateways.list();
 const payment = await api.createPayment({
   amount: 4900,
-  gateway_id: gatewayId,
+  service_name: "my-service",
+  service_model: "order",
+  service_id: "order-42",
+  queue_name: "my_service_queue",
+  callback_url: "https://merchant.example/payment-result",
+  idempotency_key: "my-service:order-42",
 });
 ```
 
 ## Complete capability
 
-This package exposes 23 registered operations from the payments service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 36 registered operations from the payments service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
-| `gateway` | 6 | `DELETE`, `GET`, `PATCH`, `POST` |
+| `asset-checkout` | 1 | `GET` |
+| `fitness` | 3 | `GET`, `POST` |
+| `gateway` | 7 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `integration` | 2 | `GET` |
 | `payment` | 1 | `POST` |
 | `payment-web` | 3 | `GET`, `POST` |
-| `router` | 3 | `GET` |
+| `product-plans` | 3 | `GET`, `POST` |
+| `router` | 5 | `GET` |
 | `session` | 1 | `GET` |
 | `settings` | 2 | `GET`, `PATCH` |
+| `shop-checkout` | 3 | `GET`, `POST` |
 | `transaction` | 5 | `GET`, `POST` |
 
 Browser callback and verification routes are exposed in `api.operations`; callers should preserve the provider query parameters returned by the payment service.
@@ -73,3 +82,13 @@ Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services 
 `operations.gatewaySetupCheckPost()` performs a read-only live-provider check with `admin:gateway:read`. Product-specific payment operations cover 2done, fitness and storefront checkout. Internal endpoints require their product's trusted server credential; an end-user token alone does not grant access.
 
 `operations.assetCheckoutReceiptGet(purchaseId, options)` accepts `x-asset-payment-token` through `options.headers` and returns a **raw** verified receipt with `purchaseId`, `transaction`, integer IRR `amount`, `providerVerified` and `status` (`pending`, `accepted`, or `rejected`). Other product receipt operations retain their service envelopes. Payment creation uses stable product-specific idempotency keys; retry fitness checkout through `fitnessRetryPost` rather than creating an unrelated transaction.
+
+### Gateway and transaction administration
+
+Gateway identifiers are integers. `gateways.list({ status: "active", "page[number]": 1, "page[size]": 20 })` returns `data.data` and `data.meta`. Gateway create/update supports `sandbox`; nullable response fields are always present. The `options` response is opaque stored provider configuration and may contain encrypted values: do not populate editable credential fields from it or log it. Delete returns the removed gateway record, not a boolean result. Gateway calls require the corresponding `admin:gateway:read`, `create`, `update`, or `delete` permission.
+
+`transactions.list()` returns a nested `data.transactions` page, filtered aggregate summaries, service names and gateway options. Transaction records use `uuid`; they declare no `currency` field. `transactions.show(uuid)` and `transactionStatus(uuid)` return status only. Administration requires `admin:transaction:read`, and verify/reject requires `admin:transaction:verify` plus an authenticated verifier. Verification may contact a payment provider; inspect its `successful` result rather than equating HTTP200 with a successful payment.
+
+`gatewayOptions()` returns `{ providers, statuses }` label/value arrays. `dailyIncomeFor({ days: 7 })` returns UTC date/amount points, including zero dates; the backend clamps the day window to1–90. No count field is returned. `createPayment()` accepts an optional `idempotency_key`; trusted product, fitness, Asset and storefront purchases must use their dedicated server-authorized checkout contracts. Generic creation is not an authorization bypass for those purchases.
+
+Payment navigation operations return text/HTML, not JSON envelopes. Provider callbacks accept `Authority`, `transid` or `paymentNumber` in the query for both GET and POST. A callback may return303 with a `Location` header for a configured allowed HTTPS origin; otherwise it returns the payment result page. In Node, pass `maxRedirects: 0` and a `validateStatus` that accepts303 to inspect that response. A result page with HTTP200 can describe a failed payment. These routes may contact the real provider and are not read-only health checks.

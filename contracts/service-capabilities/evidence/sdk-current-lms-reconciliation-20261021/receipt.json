@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "observed_at": "2026-10-21T10:39:39.577105+00:00",
+  "sdk_revision": "9a08305e95605d32c1596db7a65dda79f02dc622",
+  "source_revisions": {
+    "asset": "b3d71e6139fc585e491372ebfa645ac90dc883cf",
+    "chat": "03dd17ad3a1f6a36f5b6ad42e8e11729b44ebc55",
+    "crm": "77e2e4a7660e007aefef81e27337476c6d748cac",
+    "drm": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
+    "flow": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "idp": "828799249ef714d333b03bded092a9d6af6ba7bb",
+    "knowledge": "1e6b40ca89500a122afe11a0d03c3395502c18e1",
+    "lms": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6",
+    "messenger": "0eb2143fae39dee3e0543abaac59ea1aaaed771c",
+    "modules": "85e42a5f1440b78564f23b4bbf7723a0797d3470",
+    "payment": "ca2f9bbd7ea9e43a78874a2d93bbbd68e5d257c8",
+    "profile": "5e45db008e503504033af3763b4487f00f5be2b4",
+    "reservation": "80aef6037cec20bb808903f15737160cef5f6a66",
+    "session": "7a395d7149a2d4c03d3e1d4746b69919a52cbb05",
+    "social": "d067ac956571abd73211b06d835caa658b1f09bc",
+    "state": "b8d3bfa828878a979a8c8765285bfd3899965bd4",
+    "task": "b8ed5921e4f6bd2d7f4ef675f0cb8b3fbbb1e23d",
+    "version": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e",
+    "gis": "0bc8423a51887450b928e7b372153014cd47e582"
+  },
+  "source_unchanged_during_run": true,
+  "tracked_source_before_sha256": "cf4ebea36babc23253d0bf7303abbf46fc3aea173d2975e9b2d6104c34553ce7",
+  "tracked_source_after_sha256": "cf4ebea36babc23253d0bf7303abbf46fc3aea173d2975e9b2d6104c34553ce7",
+  "tests_executed": 215,
+  "tests_passed": 215,
+  "checks": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "artifact_path": "evidence/sdk-current-lms-reconciliation-20261021/build.log",
+      "sha256": "ba1d13e113ff487ce6af907c97d1f4cb18e8476ffc52b703f0757cf0fa9f200c"
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit_code": 0,
+      "artifact_path": "evidence/sdk-current-lms-reconciliation-20261021/tests.log",
+      "sha256": "9b749766d09eab93b8fb861211856b8d3b2e653ea8756bb280b10a21bd993f20"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "generate:check"
+      ],
+      "exit_code": 0,
+      "artifact_path": "evidence/sdk-current-lms-reconciliation-20261021/generate.log",
+      "sha256": "d2c4be26201317c24180a49c09ec3727207eff9389f63ec8bc1929d998e9cfdd"
+    }
+  ],
+  "scope": "Current SDK build/type/transport/regression/generation checks. Resolves the historical LMS generated-operation mismatch and documented 1.0.0 summary operation retirement compatibility accounting only. Does not certify all LMS endpoint semantics, native lifecycle, gateway permissions or deployment."
+}

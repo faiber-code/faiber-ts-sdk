@@ -1,0 +1,16 @@
+{
+  "created_at": "2026-10-19T16:30:51.253229+00:00",
+  "scope": "bounded source semantic review; no new runtime tests",
+  "profile_operations": 20,
+  "retired_lms_operations": 8,
+  "source_count": 37,
+  "source_pins": {
+    "infera-profile": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+    "infera-lms": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+    "faiber-sdk": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+    "poulstar-accounting-backend": "97ba4b6ff6a9f03c9504fffa8b4d1d6aa9844e8b"
+  },
+  "public_profile_http_sdk_wire_verified": false,
+  "deployed_provider_billing_verified": false,
+  "review_notes": "Actual operation behavior/coverage in operations.json; six-source relationships and explicit acceptance gaps in README.md. Immutable v1/v2 handoffs preserved. No live action or thread reply."
+}

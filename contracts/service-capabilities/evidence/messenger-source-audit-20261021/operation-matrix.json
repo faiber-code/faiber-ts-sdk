@@ -1,0 +1,911 @@
+[
+  {
+    "operation": "GET /health",
+    "handler": "infera-messenger/src/router.rs:187:status_route",
+    "permission": "Public handler (global IDP context extraction still applies)",
+    "contract": {
+      "response": "import(\"./types.js\").MessengerHealthResponse",
+      "purpose": "Read process version in status/message/data (HTTP 200); this does not check database or broker readiness.",
+      "auth": "Public handler (global IDP context extraction still applies)"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/router.rs:187",
+      "Service/infera-messenger/src/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /up",
+    "handler": "infera-messenger/src/router.rs:187:status_route",
+    "permission": "Public handler (global IDP context extraction still applies)",
+    "contract": {
+      "response": "import(\"./types.js\").MessengerHealthResponse",
+      "purpose": "Read process version in status/message/data (HTTP 200); this does not check database or broker readiness.",
+      "auth": "Public handler (global IDP context extraction still applies)"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/router.rs:187",
+      "Service/infera-messenger/src/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/openapi.json",
+    "handler": "infera-messenger/src/router.rs:70:openapi_json",
+    "permission": "Public handler (global IDP context extraction still applies)",
+    "contract": {
+      "response": "import(\"@faiber/sdk-core\").ServiceOpenApiDocument",
+      "purpose": "Read the raw Utoipa OpenAPI object (HTTP 200, no API envelope). The annotation list omits mounted operations; use the SDK operation inventory for complete coverage.",
+      "auth": "Public handler (global IDP context extraction still applies)"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/router.rs:70",
+      "Service/infera-messenger/src/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/templates",
+    "handler": "infera-messenger/src/template/routes.rs:47:templates_index",
+    "permission": "Authenticated IDP context; admin:template:read",
+    "contract": {
+      "response": "import(\"./types.js\").TemplateListResponse",
+      "purpose": "List non-deleted templates without pagination; params is persisted dynamic JSON and channel_id is nullable.",
+      "auth": "Authenticated IDP context; admin:template:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/template/routes.rs:47",
+      "Service/infera-messenger/src/template/models.rs",
+      "Service/infera-messenger/src/template/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "POST /api/v1/templates",
+    "handler": "infera-messenger/src/template/routes.rs:89:templates_create",
+    "permission": "Authenticated IDP context; admin:template:create",
+    "contract": {
+      "response": "import(\"./types.js\").TemplateResponse",
+      "purpose": "Create template name/fa_name with optional parameter names (default []) and nullable numeric grouping channel_id; returns HTTP 200.",
+      "input": "import(\"./types.js\").CreateMessageTemplateInput",
+      "auth": "Authenticated IDP context; admin:template:create"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/template/routes.rs:89",
+      "Service/infera-messenger/src/template/models.rs",
+      "Service/infera-messenger/src/template/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/templates/{id}",
+    "handler": "infera-messenger/src/template/routes.rs:65:templates_show",
+    "permission": "Authenticated IDP context; admin:template:read",
+    "contract": {
+      "response": "import(\"./types.js\").TemplateResponse",
+      "purpose": "Read a non-deleted numeric template; missing/deleted IDs are 404.",
+      "auth": "Authenticated IDP context; admin:template:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/template/routes.rs:65",
+      "Service/infera-messenger/src/template/models.rs",
+      "Service/infera-messenger/src/template/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "PATCH /api/v1/templates/{id}",
+    "handler": "infera-messenger/src/template/routes.rs:108:templates_update",
+    "permission": "Authenticated IDP context; admin:template:update",
+    "contract": {
+      "response": "import(\"./types.js\").TemplateResponse",
+      "purpose": "Patch template; omitted/null name/fa_name/params preserves, while explicit channel_id null clears and omission preserves. Missing/deleted ID is 404; HTTP 200.",
+      "input": "import(\"./types.js\").UpdateMessageTemplateInput",
+      "auth": "Authenticated IDP context; admin:template:update"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/template/routes.rs:108",
+      "Service/infera-messenger/src/template/models.rs",
+      "Service/infera-messenger/src/template/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "DELETE /api/v1/templates/{id}",
+    "handler": "infera-messenger/src/template/routes.rs:128:templates_delete",
+    "permission": "Authenticated IDP context; admin:template:delete",
+    "contract": {
+      "response": "import(\"./types.js\").MessengerEmptyResponse",
+      "purpose": "Soft-delete a template; missing/deleted IDs are 404. Returns HTTP 200 with data {}.",
+      "auth": "Authenticated IDP context; admin:template:delete"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/template/routes.rs:128",
+      "Service/infera-messenger/src/template/models.rs",
+      "Service/infera-messenger/src/template/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/templates/{id}/contents",
+    "handler": "infera-messenger/src/template/routes.rs:147:template_contents_index",
+    "permission": "Authenticated IDP context; admin:template:read",
+    "contract": {
+      "response": "import(\"./types.js\").TemplateContentsResponse",
+      "purpose": "List non-deleted template contents for numeric template ID without pagination; absent parent may return an empty array.",
+      "auth": "Authenticated IDP context; admin:template:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/template/routes.rs:147",
+      "Service/infera-messenger/src/template/models.rs",
+      "Service/infera-messenger/src/template/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "POST /api/v1/templates/{id}/contents",
+    "handler": "infera-messenger/src/template/routes.rs:169:template_contents_create",
+    "permission": "Authenticated IDP context; admin:template:create_content",
+    "contract": {
+      "response": "import(\"./types.js\").TemplateContentResponse",
+      "purpose": "Create channel-specific text/options for numeric template ID; invalid native channel is 400. Returns HTTP 200; foreign-key violations surface as insert errors.",
+      "input": "import(\"./types.js\").CreateTemplateContentInput",
+      "auth": "Authenticated IDP context; admin:template:create_content"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/template/routes.rs:169",
+      "Service/infera-messenger/src/template/models.rs",
+      "Service/infera-messenger/src/template/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "PATCH /api/v1/templates/contents/{content_id}",
+    "handler": "infera-messenger/src/template/routes.rs:189:template_contents_update",
+    "permission": "Authenticated IDP context; admin:template:update_content",
+    "contract": {
+      "response": "import(\"./types.js\").TemplateContentResponse",
+      "purpose": "Patch text/options for numeric content_id. Null/omission preserves; channel cannot change. Missing/deleted content is 404; returns HTTP 200.",
+      "input": "import(\"./types.js\").UpdateTemplateContentInput",
+      "auth": "Authenticated IDP context; admin:template:update_content"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/template/routes.rs:189",
+      "Service/infera-messenger/src/template/models.rs",
+      "Service/infera-messenger/src/template/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/channels",
+    "handler": "infera-messenger/src/channel/routes.rs:40:channels_index",
+    "permission": "Authenticated IDP context; admin:channel:read",
+    "contract": {
+      "response": "import(\"./types.js\").ChannelListResponse",
+      "purpose": "List non-deleted numeric channel groupings without pagination; each item has id and name.",
+      "auth": "Authenticated IDP context; admin:channel:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/channel/routes.rs:40",
+      "Service/infera-messenger/src/channel/models.rs",
+      "Service/infera-messenger/src/channel/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "POST /api/v1/channels",
+    "handler": "infera-messenger/src/channel/routes.rs:82:channels_create",
+    "permission": "Authenticated IDP context; admin:channel:create",
+    "contract": {
+      "input": "import(\"./types.js\").CreateChannelInput",
+      "response": "import(\"./types.js\").ChannelResponse",
+      "purpose": "Create a channel grouping using trimmed nonempty name; blank names return 400. Returns HTTP 200.",
+      "auth": "Authenticated IDP context; admin:channel:create"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/channel/routes.rs:82",
+      "Service/infera-messenger/src/channel/models.rs",
+      "Service/infera-messenger/src/channel/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/channels/{id}",
+    "handler": "infera-messenger/src/channel/routes.rs:58:channels_show",
+    "permission": "Authenticated IDP context; admin:channel:read",
+    "contract": {
+      "response": "import(\"./types.js\").ChannelResponse",
+      "purpose": "Read a non-deleted numeric channel grouping; missing IDs return 404.",
+      "auth": "Authenticated IDP context; admin:channel:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/channel/routes.rs:58",
+      "Service/infera-messenger/src/channel/models.rs",
+      "Service/infera-messenger/src/channel/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "PATCH /api/v1/channels/{id}",
+    "handler": "infera-messenger/src/channel/routes.rs:101:channels_update",
+    "permission": "Authenticated IDP context; admin:channel:update",
+    "contract": {
+      "input": "import(\"./types.js\").UpdateChannelInput",
+      "response": "import(\"./types.js\").ChannelResponse",
+      "purpose": "Replace the required trimmed channel name; blank names return 400 and missing/deleted IDs return 404. Returns HTTP 200.",
+      "auth": "Authenticated IDP context; admin:channel:update"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/channel/routes.rs:101",
+      "Service/infera-messenger/src/channel/models.rs",
+      "Service/infera-messenger/src/channel/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "DELETE /api/v1/channels/{id}",
+    "handler": "infera-messenger/src/channel/routes.rs:121:channels_delete",
+    "permission": "Authenticated IDP context; admin:channel:delete",
+    "contract": {
+      "response": "import(\"./types.js\").MessengerEmptyResponse",
+      "purpose": "Soft-delete a channel grouping; missing/already-deleted IDs return 404. Returns HTTP 200 with data {}.",
+      "auth": "Authenticated IDP context; admin:channel:delete"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/channel/routes.rs:121",
+      "Service/infera-messenger/src/channel/models.rs",
+      "Service/infera-messenger/src/channel/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/services",
+    "handler": "infera-messenger/src/service/routes.rs:38:services_index",
+    "permission": "Authenticated IDP context; admin:service:read",
+    "contract": {
+      "response": "import(\"./types.js\").ProviderListResponse",
+      "purpose": "List provider services without pagination. options is always null; encrypted credentials are never read back. Does not invoke provider network calls.",
+      "auth": "Authenticated IDP context; admin:service:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/service/routes.rs:38",
+      "Service/infera-messenger/src/service/models.rs",
+      "Service/infera-messenger/src/service/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "POST /api/v1/services",
+    "handler": "infera-messenger/src/service/routes.rs:80:services_create",
+    "permission": "Authenticated IDP context; admin:service:create",
+    "contract": {
+      "input": "import(\"./types.js\").CreateDeliveryProviderInput",
+      "response": "import(\"./types.js\").ProviderResponse",
+      "purpose": "Create provider service with encrypted dynamic JSON options and default i16 priority 0. Invalid native channel/provider is 400. Returns HTTP 200 with options null.",
+      "auth": "Authenticated IDP context; admin:service:create"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/service/routes.rs:80",
+      "Service/infera-messenger/src/service/models.rs",
+      "Service/infera-messenger/src/service/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "POST /api/v1/services/setup-check",
+    "handler": "infera-messenger/src/service/routes.rs:133:setup_check",
+    "permission": "Authenticated IDP context; admin:service:read",
+    "contract": {
+      "response": "import(\"./contracts.types.js\").MessengerSetupResponse",
+      "purpose": "Inspect provider setup and return configured/providerVerified per channel/provider with checkedAt. May contact SMTP and Ghasedak account/template APIs, without sending notifications. Provider enum labels in this report use Rust variant casing; HTTP 200 is not evidence every provider is verified.",
+      "auth": "Authenticated IDP context; admin:service:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/service/routes.rs:133",
+      "Service/infera-messenger/src/service/models.rs",
+      "Service/infera-messenger/src/service/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "POST /api/v1/services/website-otp-readiness",
+    "handler": "infera-messenger/src/service/website_otp.rs:6:readiness",
+    "permission": "Server-only x-website-otp-token header; empty IDP permission macro",
+    "contract": {
+      "response": "import(\"./contracts.types.js\").WebsiteOtpReadiness",
+      "purpose": "Server-only OTP readiness using x-website-otp-token header; token must be configured with >=32 characters. Missing configuration is 503, wrong token 401. May contact Ghasedak read APIs; sends no messages. Returns raw {ready}, no envelope.",
+      "auth": "Server-only x-website-otp-token header; empty IDP permission macro"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/service/website_otp.rs:6",
+      "Service/infera-messenger/src/service/models.rs",
+      "Service/infera-messenger/src/service/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/services/{id}",
+    "handler": "infera-messenger/src/service/routes.rs:56:services_show",
+    "permission": "Authenticated IDP context; admin:service:read",
+    "contract": {
+      "response": "import(\"./types.js\").ProviderResponse",
+      "purpose": "Read numeric provider service with options always null; missing ID is 404. Does not invoke provider network calls.",
+      "auth": "Authenticated IDP context; admin:service:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/service/routes.rs:56",
+      "Service/infera-messenger/src/service/models.rs",
+      "Service/infera-messenger/src/service/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "PATCH /api/v1/services/{id}",
+    "handler": "infera-messenger/src/service/routes.rs:99:services_update",
+    "permission": "Authenticated IDP context; admin:service:update",
+    "contract": {
+      "input": "import(\"./types.js\").UpdateDeliveryProviderInput",
+      "response": "import(\"./types.js\").ProviderResponse",
+      "purpose": "Patch provider service. Omitted/null fields preserve; options is encrypted when non-null, and readback is always null. Invalid provider is 400; invalid channel falls back to existing. Missing ID is 404. Returns HTTP 200.",
+      "auth": "Authenticated IDP context; admin:service:update"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/service/routes.rs:99",
+      "Service/infera-messenger/src/service/models.rs",
+      "Service/infera-messenger/src/service/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "DELETE /api/v1/services/{id}",
+    "handler": "infera-messenger/src/service/routes.rs:119:services_delete",
+    "permission": "Authenticated IDP context; admin:service:delete",
+    "contract": {
+      "response": "import(\"./types.js\").MessengerEmptyResponse",
+      "purpose": "Hard-delete a provider service by numeric ID. Missing IDs succeed; returns HTTP 200 with data {}.",
+      "auth": "Authenticated IDP context; admin:service:delete"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/service/routes.rs:119",
+      "Service/infera-messenger/src/service/models.rs",
+      "Service/infera-messenger/src/service/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/notifications/me",
+    "handler": "infera-messenger/src/notification/routes.rs:231:notifications_my_inbox",
+    "permission": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)",
+    "contract": {
+      "query": "import(\"./types.js\").MessengerPageQuery",
+      "response": "import(\"./types.js\").InboxResponse",
+      "purpose": "Page current non-nil actor recipient records using literal page[number]/page[size], default 1/20 and size clamp 1..100; ordered updated_at/id descending. Recipient DTO excludes routing/provider diagnostics; description is body copy. Unauthenticated actor is 401, missing self-read permission is 403.",
+      "auth": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/notification/routes.rs:231",
+      "Service/infera-messenger/src/pagination.rs",
+      "Service/infera-messenger/src/notification/methods.rs",
+      "Service/infera-messenger/src/notification/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "PATCH /api/v1/notifications/me/read-all",
+    "handler": "infera-messenger/src/notification/routes.rs:254:notifications_my_mark_all_read",
+    "permission": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)",
+    "contract": {
+      "response": "import(\"./types.js\").InboxReadAllResponse",
+      "purpose": "Mark current non-nil actor unread/non-deleted inbox records read and return updated count; recipient is derived from auth, never a query argument.",
+      "auth": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/notification/routes.rs:254",
+      "Service/infera-messenger/src/pagination.rs",
+      "Service/infera-messenger/src/notification/methods.rs",
+      "Service/infera-messenger/src/notification/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "PATCH /api/v1/notifications/me/{id}/read",
+    "handler": "infera-messenger/src/notification/routes.rs:272:notifications_my_mark_read",
+    "permission": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)",
+    "contract": {
+      "response": "import(\"./types.js\").InboxItemResponse",
+      "purpose": "Mark one current actor notification read and return recipient-safe copy. Requires non-nil actor and self-read permission; missing/other-recipient/deleted record is 404.",
+      "auth": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/notification/routes.rs:272",
+      "Service/infera-messenger/src/pagination.rs",
+      "Service/infera-messenger/src/notification/methods.rs",
+      "Service/infera-messenger/src/notification/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/notifications",
+    "handler": "infera-messenger/src/notification/routes.rs:376:notifications_index",
+    "permission": "Authenticated IDP context; admin:notification:read",
+    "contract": {
+      "query": "import(\"./types.js\").MessengerNotificationQuery",
+      "response": "import(\"./types.js\").NotificationListResponse",
+      "purpose": "Page non-deleted administrative records including provider diagnostics, ordered updated_at then id descending. Optional trimmed recipient filters exactly; blank recipient is ignored. Literal page[number]/page[size] default to 1/20 and clamp size to 1..100.",
+      "auth": "Authenticated IDP context; admin:notification:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/notification/routes.rs:376",
+      "Service/infera-messenger/src/pagination.rs",
+      "Service/infera-messenger/src/notification/methods.rs",
+      "Service/infera-messenger/src/notification/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "PATCH /api/v1/notifications/read-all",
+    "handler": "infera-messenger/src/notification/routes.rs:449:notifications_mark_all_read",
+    "permission": "Authenticated IDP context; admin:notification:read",
+    "contract": {
+      "query": "import(\"./types.js\").MessengerRequiredRecipientQuery",
+      "requiredQuery": true,
+      "response": "import(\"./types.js\").InboxReadAllResponse",
+      "purpose": "Mark all unread non-deleted records for required trimmed recipient read and return updated count (HTTP 200). Missing query rejects with 400; blank recipient returns 400.",
+      "auth": "Authenticated IDP context; admin:notification:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/notification/routes.rs:449",
+      "Service/infera-messenger/src/pagination.rs",
+      "Service/infera-messenger/src/notification/methods.rs",
+      "Service/infera-messenger/src/notification/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/notifications/realtime/config",
+    "handler": "infera-messenger/src/notification/routes.rs:313:notifications_realtime_config",
+    "permission": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)",
+    "contract": {
+      "response": "import(\"./types.js\").MessengerRealtimeConfigResponse",
+      "purpose": "Read current non-nil actor websocket URL, app key, private channel and PrivateMessageEvent name. Missing realtime configuration is 503. Reload persisted inbox records after reconnect.",
+      "auth": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/notification/routes.rs:313",
+      "Service/infera-messenger/src/pagination.rs",
+      "Service/infera-messenger/src/notification/methods.rs",
+      "Service/infera-messenger/src/notification/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "POST /api/v1/notifications/realtime/auth",
+    "handler": "infera-messenger/src/notification/routes.rs:342:notifications_realtime_auth",
+    "permission": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)",
+    "contract": {
+      "input": "import(\"./types.js\").MessengerRealtimeAuthInput",
+      "response": "import(\"./types.js\").MessengerRealtimeAuthResponse",
+      "purpose": "Sign only the current non-nil actor private channel using socket_id and channel_name; wrong channel is 403 and unavailable broker configuration is 503. Returns raw {auth} (HTTP 200), no API envelope.",
+      "auth": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/notification/routes.rs:342",
+      "Service/infera-messenger/src/pagination.rs",
+      "Service/infera-messenger/src/notification/methods.rs",
+      "Service/infera-messenger/src/notification/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/notifications/{id}",
+    "handler": "infera-messenger/src/notification/routes.rs:410:notifications_show",
+    "permission": "Authenticated IDP context; admin:notification:read",
+    "contract": {
+      "response": "import(\"./types.js\").NotificationResponse",
+      "purpose": "Read an administrative notification including provider diagnostics; missing/deleted notification or missing template returns 404.",
+      "auth": "Authenticated IDP context; admin:notification:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/notification/routes.rs:410",
+      "Service/infera-messenger/src/pagination.rs",
+      "Service/infera-messenger/src/notification/methods.rs",
+      "Service/infera-messenger/src/notification/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "PATCH /api/v1/notifications/{id}/read",
+    "handler": "infera-messenger/src/notification/routes.rs:468:notifications_mark_read",
+    "permission": "Authenticated IDP context; admin:notification:read",
+    "contract": {
+      "query": "import(\"./types.js\").MessengerRecipientQuery",
+      "response": "import(\"./types.js\").NotificationResponse",
+      "purpose": "Mark a non-deleted administrative record read; optional nonblank trimmed recipient constrains ownership. Missing/constrained IDs return 404. HTTP 200 includes the administrative record.",
+      "auth": "Authenticated IDP context; admin:notification:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/notification/routes.rs:468",
+      "Service/infera-messenger/src/pagination.rs",
+      "Service/infera-messenger/src/notification/methods.rs",
+      "Service/infera-messenger/src/notification/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/dashboard",
+    "handler": "infera-messenger/src/dashboard/routes.rs:21:dashboard_show",
+    "permission": "Authenticated IDP context; admin:dashboard:read",
+    "contract": {
+      "response": "import(\"./types.js\").DashboardResponse",
+      "purpose": "Read inventory counts named templates, notifications, channels, services and providers; not delivery success metrics.",
+      "auth": "Authenticated IDP context; admin:dashboard:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/dashboard/routes.rs:21",
+      "Service/infera-messenger/src/dashboard/models.rs",
+      "Service/infera-messenger/src/dashboard/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/integration/rabbitmq",
+    "handler": "infera-messenger/src/integration/routes.rs:20:rabbitmq_integration_show",
+    "permission": "Authenticated IDP context; admin:integration:read",
+    "contract": {
+      "purpose": "Read RabbitMQ queue/event metadata in an API envelope; sample profile ID is illustrative and broker_url_hint is not a configured credential.",
+      "auth": "Authenticated IDP context; admin:integration:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/integration/routes.rs:20",
+      "Service/infera-messenger/src/integration/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/integration/docs",
+    "handler": "infera-messenger/src/integration/routes.rs:35:integration_docs_show",
+    "permission": "Authenticated IDP context; admin:integration:read",
+    "contract": {
+      "purpose": "Read direct integration fields and SDK language snippets in an API envelope. Optional direct fields are omitted when absent.",
+      "auth": "Authenticated IDP context; admin:integration:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/integration/routes.rs:35",
+      "Service/infera-messenger/src/integration/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/integration/flow",
+    "handler": "infera-messenger/src/integration/routes.rs:44:flow_integration_show",
+    "permission": "No handler permission macro; ingress authentication/authorization remains deployment-defined",
+    "contract": {
+      "response": "import(\"./types.js\").MessengerFlowIntegrationResponse",
+      "purpose": "Read queue/events Flow integration metadata in an API envelope; handler has no permission macro. Concrete response comes from the selected Cargo.lock Flow SDK revision.",
+      "auth": "No handler permission macro; ingress authentication/authorization remains deployment-defined"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/integration/routes.rs:44",
+      "Service/infera-messenger/src/integration/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/notifications/me/events",
+    "handler": "infera-messenger/src/inbox_stream.rs:69:events",
+    "permission": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)",
+    "contract": {
+      "query": "import(\"./delivery.js\").InboxStreamQuery",
+      "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./delivery.js\").InboxStreamPage>",
+      "purpose": "Poll current non-nil actor durable recipient events, up to 100 per page. Omit cursor to capture current head before inbox snapshot; negative cursor is 400 and expired/future cursor is 410 requiring resync. wait_seconds defaults/maxes at 25. Payloads are recipient-safe and include cursor/event_id; provider acceptance is not delivery proof.",
+      "auth": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/inbox_stream.rs:69",
+      "Service/infera-messenger/src/pagination.rs",
+      "Service/infera-messenger/src/notification/methods.rs",
+      "Service/infera-messenger/src/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/notifications/me/unread-count",
+    "handler": "infera-messenger/src/inbox_stream.rs:155:unread",
+    "permission": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)",
+    "contract": {
+      "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./delivery.js\").NotificationUnreadCount>",
+      "purpose": "Count current non-nil actor unread non-deleted notifications; independent from chat unread count. Returns HTTP 200; storage unavailable is 503.",
+      "auth": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/inbox_stream.rs:155",
+      "Service/infera-messenger/src/pagination.rs",
+      "Service/infera-messenger/src/notification/methods.rs",
+      "Service/infera-messenger/src/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "POST /api/v1/push/devices",
+    "handler": "infera-messenger/src/mobile_push.rs:45:register",
+    "permission": "Authenticated IDP context; notification:self:read",
+    "contract": {
+      "input": "import(\"./delivery.js\").PushDeviceInput",
+      "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./delivery.js\").PushDevice>",
+      "purpose": "Register an authenticated mobile installation UUID for an approved application; platform android/ios, token length 20..4096, locale length <=32. Unknown fields reject; invalid values are 400, per-user/application limit 10 or conflict is 409. Reusing a token/installation can transfer registration after account switch. Returns HTTP 200 id.",
+      "auth": "Authenticated IDP context; notification:self:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/mobile_push.rs:45",
+      "Service/infera-messenger/src/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "DELETE /api/v1/push/devices/{id}",
+    "handler": "infera-messenger/src/mobile_push.rs:107:revoke",
+    "permission": "Authenticated IDP context; notification:self:read",
+    "contract": {
+      "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./delivery.js\").PushDeviceRevocation>",
+      "purpose": "Delete an owned mobile installation UUID. Idempotently returns HTTP 200 data.revoked=true even if ID is missing or belongs to another user; storage unavailable is 503.",
+      "auth": "Authenticated IDP context; notification:self:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/mobile_push.rs:107",
+      "Service/infera-messenger/src/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/web-push/config",
+    "handler": "infera-messenger/src/web_push.rs:114:config",
+    "permission": "Authenticated IDP context; notification:self:read",
+    "contract": {
+      "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./delivery.js\").WebPushConfig>",
+      "purpose": "Read authenticated Web Push availability and public key. Missing/invalid VAPID configuration returns enabled=false/public_key=null (HTTP 200).",
+      "auth": "Authenticated IDP context; notification:self:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/web_push.rs:114",
+      "Service/infera-messenger/src/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "POST /api/v1/web-push/subscriptions",
+    "handler": "infera-messenger/src/web_push.rs:129:subscribe",
+    "permission": "Authenticated IDP context; notification:self:read",
+    "contract": {
+      "input": "import(\"./delivery.js\").WebPushRegistration",
+      "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./delivery.js\").PushDevice>",
+      "purpose": "Register an authenticated browser subscription; application_id defaults to default, locale defaults to fa unless exactly en. Endpoint must be an approved HTTPS 443 FCM/Mozilla/Apple host and keys valid URL-safe unpadded base64. Invalid subscription is 400, limit10 or endpoint owned by another actor is 409, unavailable VAPID/storage is 503. Returns HTTP 200 id.",
+      "auth": "Authenticated IDP context; notification:self:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/web_push.rs:129",
+      "Service/infera-messenger/src/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "DELETE /api/v1/web-push/subscriptions/{id}",
+    "handler": "infera-messenger/src/web_push.rs:169:unsubscribe",
+    "permission": "Authenticated IDP context; notification:self:read",
+    "contract": {
+      "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./delivery.js\").WebPushRemoval>",
+      "purpose": "Remove an owned browser subscription UUID. Idempotently returns HTTP 200 data.removed=true even for missing/other-user IDs; storage unavailable is 503.",
+      "auth": "Authenticated IDP context; notification:self:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/web_push.rs:169",
+      "Service/infera-messenger/src/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "POST /api/v1/web-push/subscriptions/{id}/test",
+    "handler": "infera-messenger/src/web_push.rs:189:test_push",
+    "permission": "Authenticated IDP context; notification:self:read",
+    "contract": {
+      "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./delivery.js\").WebPushTestDelivery>",
+      "purpose": "Queue an actual test push to the current actor subscription UUID (HTTP 200 pending). Missing/other-user ID is 404, repeat within one minute is 429, missing configuration/storage is 503. Provider acceptance does not prove browser display.",
+      "auth": "Authenticated IDP context; notification:self:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/web_push.rs:189",
+      "Service/infera-messenger/src/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "GET /api/v1/web-push/deliveries/{id}",
+    "handler": "infera-messenger/src/web_push.rs:231:delivery",
+    "permission": "Authenticated IDP context; notification:self:read",
+    "contract": {
+      "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./delivery.js\").WebPushDelivery>",
+      "purpose": "Read an owned Web Push delivery UUID status and nullable provider_status. Missing/other-user ID is 404; storage unavailable is 503. Provider status does not prove display or reading.",
+      "auth": "Authenticated IDP context; notification:self:read"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/web_push.rs:231",
+      "Service/infera-messenger/src/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "POST /api/v1/notifications",
+    "handler": "infera-messenger/src/notification/routes.rs:488:notifications_send",
+    "permission": "No handler permission macro; ingress authentication/authorization remains deployment-defined",
+    "contract": {
+      "input": "import(\"./types.js\").SendNotificationInput",
+      "response": "import(\"./types.js\").SendNotificationResponse",
+      "purpose": "Queue by template_id or template_name and validated native channel; nonempty recipients supersedes recipient and empty recipients is 400. Returns HTTP 200 data.notification_ids. options.correlation_id enables update/reuse; scheduled_at schedules dispatch. This service route has no IDP permission macro or actor-ownership check; gateway authority must restrict callers.",
+      "auth": "No handler permission macro; ingress authentication/authorization remains deployment-defined"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/notification/routes.rs:488",
+      "Service/infera-messenger/src/pagination.rs",
+      "Service/infera-messenger/src/notification/methods.rs",
+      "Service/infera-messenger/src/notification/models.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  },
+  {
+    "operation": "POST /api/v1/channels/subscribe",
+    "handler": "infera-messenger/src/channel/routes.rs:134:channels_subscribe",
+    "permission": "No handler permission macro; ingress authentication/authorization remains deployment-defined",
+    "contract": {
+      "input": "import(\"./types.js\").SubscribeChannelInput",
+      "response": "import(\"./types.js\").SubscribeChannelResponse",
+      "purpose": "Insert or update subscribed for the explicit numeric channel_id and user_id. This service route has no IDP permission macro or actor-ownership check; gateway authority must restrict callers. Returns data {} (HTTP 200).",
+      "auth": "No handler permission macro; ingress authentication/authorization remains deployment-defined"
+    },
+    "source_refs": [
+      "Service/infera-messenger/src/router.rs",
+      "Service/infera-messenger/src/main.rs",
+      "Service/infera-messenger/src/channel/routes.rs:134",
+      "Service/infera-messenger/src/channel/models.rs",
+      "Service/infera-messenger/src/channel/methods.rs"
+    ],
+    "native_status": "pending",
+    "sdk_execution_status": "pending"
+  }
+]

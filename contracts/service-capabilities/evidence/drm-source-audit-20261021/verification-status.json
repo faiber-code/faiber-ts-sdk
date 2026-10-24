@@ -1,0 +1,24 @@
+{
+  "source_revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
+  "mounted_operations": 96,
+  "source_review": "completed",
+  "prepared_checks": [
+    "tests/drm-source-wire.test.mjs",
+    "tests/drm-source-wire.types.ts"
+  ],
+  "compiled_sdk_checks": "pending_combined_parent_run",
+  "native_backend_acceptance": "pending",
+  "deployed_gateway_authority": "unverified",
+  "idp_middleware_revision": "291c81a67bc302d667fb807da2af3240598bee52",
+  "idp_middleware_sha256": "484f1c57bbcd86c8ab68f8b41d110768dc364650c139bccec909540753b76104",
+  "scoped_sdk_checks": {
+    "status": "passed",
+    "commands": [
+      "npx tsc -b packages/drm --pretty false",
+      "node --test tests/drm-source-wire.test.mjs",
+      "npx tsc --noEmit --strict --target ES2022 --module NodeNext --moduleResolution NodeNext --lib ES2022,DOM,DOM.Iterable --skipLibCheck tests/drm-source-wire.types.ts"
+    ],
+    "transport_tests": 4,
+    "mounted_operation_matrix": 96
+  }
+}

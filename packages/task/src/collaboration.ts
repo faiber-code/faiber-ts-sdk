@@ -18,13 +18,13 @@ export interface NoteMediaItem { attachment: TaskAttachment; role: 'cover' | 'in
 export interface NoteMedia { note_id: string; version: number; items: NoteMediaItem[] }
 export interface SetNoteCover { version: number; attachment_id: string | null; description?: string; focus_x?: number; focus_y?: number }
 export interface AddNoteMedia { version: number; attachment_id: string; role: 'inline' | 'attachment' | 'source'; description?: string }
-export interface CollaborationConfig { media: boolean; boards: boolean; knowledge?: boolean; imports?: boolean; web_imports?: boolean; max_web_bytes?: number; media_imports?:boolean; max_import_image_bytes?:number; max_import_audio_bytes?:number; max_import_audio_seconds?:number; research?: boolean; voice?:boolean; max_file_bytes: number; max_audio_bytes: number }
+export interface CollaborationConfig { media: boolean; boards: boolean; knowledge: boolean; imports: boolean; web_imports: boolean; max_web_bytes: number; media_imports:boolean; max_import_image_bytes:number; max_import_audio_bytes:number; max_import_audio_seconds:number; research: boolean; voice:boolean; max_file_bytes: number; max_audio_bytes: number }
 export interface PlanMemoryLimit {plan:'none'|'trial'|'personal'|'planner'|'business'|'legend';storage_bytes:number;imports:number;research:number;audio_seconds:number;version:number}
 export interface PlanMemoryLimits {items:PlanMemoryLimit[]}
 export interface RemoveNoteMedia { version:number }
 export type AttachmentDownload = ArrayBuffer | Uint8Array;
 
-export interface NoteImportJob { project_id:string; id:string; note_id:string; attachment_id:string|null; source_url?:string|null; index_only?:boolean; media_kind?:'document'|'image'|'audio';language?:'auto'|'fa'|'en'; note_version:number; version:number; status:'queued'|'processing'|'preview'|'applied'|'failed'|'cancelled'; error_code?:string; result?:DocumentExtraction }
+export interface NoteImportJob { project_id:string; id:string; note_id:string; attachment_id:string|null; source_url:string|null; index_only:boolean; media_kind:'document'|'image'|'audio';language:'auto'|'fa'|'en'; note_version:number; version:number; status:'queued'|'processing'|'preview'|'applied'|'failed'|'cancelled'; actor_id:string;attempts:number;next_attempt:string;created_at:string;updated_at:string;error_code:string|null; result:DocumentExtraction|null }
 export interface DocumentExtraction { provenance?:{url:string;original_url:string;title:string;retrieved_at:string;content_type:string}; text:string; tables?:ExtractedTable[]; pages?:number; duration_ms?:number; warnings?:string[]; converter_version?:string }
 export interface ExtractedTable { title:string; rows:string[][] }
 export interface StartSourceImport { id:string; url:string; version:number }

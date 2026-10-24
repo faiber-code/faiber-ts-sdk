@@ -13,10 +13,16 @@
     "src/proxy.rs",
     "src/agent.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
   "sdk_source_revision": null,
-  "working_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
-  "working_changes": [],
+  "working_revision": "bfb5096432bd72bb5d8b920c304309bab9c2928b",
+  "working_changes": [
+    "M Cargo.lock"
+  ],
   "source_relationship": "not_in_sdk_lock",
   "source_tree_checksum": "a1e15593d6e60b305cc7eefde999df2acb689406736636475dbfbb200ca13b70",
   "source_files": [
@@ -81,15 +87,16 @@
       "checksum": "53f61dfeb4931fae462c0c89b17c5ffc9ae9e0073bb55f35d58d2294d400816a"
     }
   ],
+  "protocol_mounts": [],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
-  "working_source_tree_checksum": "0293379c2135e98de3fdbc52526624924668360aee09d9fc18e41591a37b8b78",
+  "working_source_tree_checksum": "8d6c30d34ba5bc46beca8dc0a94e136acc0793cf8614fc5f1d463633fbe2662a",
   "working_source_files": [
     {
       "path": "infera-manage/src/agent.rs",
-      "checksum": "84aacdf6cfca09a3f318a42fe68bba90d8cf710a547c198e87d5f13aad9c9988"
+      "checksum": "f0d99422f76e55cbd1621f8a5552f32dc0a4d25c1b0a14b69b7eefea6d10da3b"
     },
     {
       "path": "infera-manage/src/authority_tests.rs",
@@ -163,6 +170,7 @@
         "handlerModule": "router",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/router.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -172,7 +180,7 @@
           }
         ]
       },
-      "source_checksum": "75a222b565043d7e30f2e5869144002e98933d5429de931b8ae491150873480e",
+      "source_checksum": "0221494361a57e9a81000d100f6a67b205ca7ebe76939a7ec854193ff279fb90",
       "handler": {
         "ref": "infera-manage/src/router.rs:139:health_route",
         "path": "infera-manage/src/router.rs",
@@ -183,113 +191,16 @@
       "schemas": {},
       "relation_candidates": [],
       "review": {
-        "status": "locally_tested_requires_canonical_and_operation_verification",
-        "source_checksum": "75a222b565043d7e30f2e5869144002e98933d5429de931b8ae491150873480e",
-        "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
-        "meaning": {
-          "en": "Read Manage process health.",
-          "fa": "خواندن سلامت فرایند مدیریت."
-        },
-        "scope": "One signed project administration session; service sandbox and possibly separate identity project. Effective organization is signed UUID or deterministic project UUIDv5. No memory authority is assigned to Manage.",
-        "classification": "public_session_entry",
-        "permissions": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Authenticated routes use signed cookie, live Agentic project admin status/settings-manage preflight except /me, activation guard, process-local identity revision check and sandbox token refresh. Service proxy injects static catalogue permissions; agent proxy uses narrow method/path allowlist. Missing secret fallback, current enabled services/revisions, trusted internal identity and actual service ACLs require gates. No auth or filters; raw {status:\"ok\",service:\"infera-manage\"}; not upstream readiness."
-        },
-        "filters": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "No generic pagination or filters on Manage-owned endpoints. Only service/agent proxies preserve query parameters; owning service defines their exact semantics. No auth or filters; raw {status:\"ok\",service:\"infera-manage\"}; not upstream readiness."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "No auth or filters; raw {status:\"ok\",service:\"infera-manage\"}; not upstream readiness."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "No auth or filters; raw {status:\"ok\",service:\"infera-manage\"}; not upstream readiness. Sessions last12hours; handoffs60seconds by minting helpers. Refresh replaces cookie; logout clears local cookie. Project inactive/outage blocks administration. Revision observations are not durable current configuration."
-        },
-        "relationships": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Manage project slug -> Agentic live status/settings-manage authority, service sandbox namespace and signed handoff. Identity project may differ. Organization signed UUID/derived fallback must be mapped explicitly to owning-service org. Agentic thread/action IDs are UUIDs and remain Agentic execution/review authority. Payment/Messenger setup-check and Agentic setup report require actual cross-service verification."
-        },
-        "test_evidence": [],
-        "remaining_gates": [
-          "canonical signing provisioning, entropy and rotation reconciliation",
-          "live project membership/settings-manage revocation",
-          "current identity revision/service enablement across restart",
-          "IDP refresh and identity mapping",
-          "real SDK-backed service and human-review workflows",
-          "readable localized accessible UI and negative permissions acceptance"
-        ],
-        "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
-        "local_boundary_evidence": [
-          "manage-current-authority"
-        ],
-        "local_contract_overrides": {
-          "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
-          "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
-          "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
-        }
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -308,6 +219,7 @@
         "handlerModule": "sso",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/sso.rs",
         "query": "SsoQuery",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -318,7 +230,7 @@
           }
         ]
       },
-      "source_checksum": "543fe5754a71a4322233df5951036af82d0696d7533db89a072018b023ee2014",
+      "source_checksum": "ec2c16d1f7665ee65812acdbead0829f10986d8718287b8e62d56f0865c54c0c",
       "handler": {
         "ref": "infera-manage/src/sso.rs:299:sso_handler",
         "path": "infera-manage/src/sso.rs",
@@ -369,113 +281,16 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_tested_requires_canonical_and_operation_verification",
-        "source_checksum": "543fe5754a71a4322233df5951036af82d0696d7533db89a072018b023ee2014",
-        "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
-        "meaning": {
-          "en": "Exchange a project handoff for an administration session.",
-          "fa": "تبدیل مجوز ورود پروژه به نشست مدیریت."
-        },
-        "scope": "One signed project administration session; service sandbox and possibly separate identity project. Effective organization is signed UUID or deterministic project UUIDv5. No memory authority is assigned to Manage.",
-        "classification": "public_session_entry",
-        "permissions": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Authenticated routes use signed cookie, live Agentic project admin status/settings-manage preflight except /me, activation guard, process-local identity revision check and sandbox token refresh. Service proxy injects static catalogue permissions; agent proxy uses narrow method/path allowlist. Missing secret fallback, current enabled services/revisions, trusted internal identity and actual service ACLs require gates. Required query token is project-signed expiring handoff. Verify then current Agentic admin status. Optional signed safe next_path, identity project/revision and organization; sandbox IDP exchange unless activation-only or signed use_sandbox_identity=false. Returns cookie and temporary redirect, no raw bearer to frontend. Handoff replay consumption is not visible in this handler."
-        },
-        "filters": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "No generic pagination or filters on Manage-owned endpoints. Only service/agent proxies preserve query parameters; owning service defines their exact semantics. Required query token is project-signed expiring handoff. Verify then current Agentic admin status. Optional signed safe next_path, identity project/revision and organization; sandbox IDP exchange unless activation-only or signed use_sandbox_identity=false. Returns cookie and temporary redirect, no raw bearer to frontend. Handoff replay consumption is not visible in this handler."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Required query token is project-signed expiring handoff. Verify then current Agentic admin status. Optional signed safe next_path, identity project/revision and organization; sandbox IDP exchange unless activation-only or signed use_sandbox_identity=false. Returns cookie and temporary redirect, no raw bearer to frontend. Handoff replay consumption is not visible in this handler."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Required query token is project-signed expiring handoff. Verify then current Agentic admin status. Optional signed safe next_path, identity project/revision and organization; sandbox IDP exchange unless activation-only or signed use_sandbox_identity=false. Returns cookie and temporary redirect, no raw bearer to frontend. Handoff replay consumption is not visible in this handler. Sessions last12hours; handoffs60seconds by minting helpers. Refresh replaces cookie; logout clears local cookie. Project inactive/outage blocks administration. Revision observations are not durable current configuration."
-        },
-        "relationships": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Manage project slug -> Agentic live status/settings-manage authority, service sandbox namespace and signed handoff. Identity project may differ. Organization signed UUID/derived fallback must be mapped explicitly to owning-service org. Agentic thread/action IDs are UUIDs and remain Agentic execution/review authority. Payment/Messenger setup-check and Agentic setup report require actual cross-service verification."
-        },
-        "test_evidence": [],
-        "remaining_gates": [
-          "canonical signing provisioning, entropy and rotation reconciliation",
-          "live project membership/settings-manage revocation",
-          "current identity revision/service enablement across restart",
-          "IDP refresh and identity mapping",
-          "real SDK-backed service and human-review workflows",
-          "readable localized accessible UI and negative permissions acceptance"
-        ],
-        "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
-        "local_boundary_evidence": [
-          "manage-current-authority"
-        ],
-        "local_contract_overrides": {
-          "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
-          "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
-          "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
-        }
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -494,6 +309,7 @@
         "handlerModule": "sso",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/sso.rs",
         "body": "DevLoginRequest",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -504,7 +320,7 @@
           }
         ]
       },
-      "source_checksum": "869694e792e10864be10f5b780ba4526d38abe39284467851a54368a8b4420a5",
+      "source_checksum": "1453fd87b6360a6aee715e9a37f76af4f07f2e278a38f735697261d1d0798f64",
       "handler": {
         "ref": "infera-manage/src/sso.rs:74:dev_login_handler",
         "path": "infera-manage/src/sso.rs",
@@ -537,113 +353,16 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_tested_requires_canonical_and_operation_verification",
-        "source_checksum": "869694e792e10864be10f5b780ba4526d38abe39284467851a54368a8b4420a5",
-        "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
-        "meaning": {
-          "en": "Sign into the explicitly enabled development environment.",
-          "fa": "ورود به محیط توسعه فعال‌شده."
-        },
-        "scope": "One signed project administration session; service sandbox and possibly separate identity project. Effective organization is signed UUID or deterministic project UUIDv5. No memory authority is assigned to Manage.",
-        "classification": "public_session_entry",
-        "permissions": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Authenticated routes use signed cookie, live Agentic project admin status/settings-manage preflight except /me, activation guard, process-local identity revision check and sandbox token refresh. Service proxy injects static catalogue permissions; agent proxy uses narrow method/path allowlist. Missing secret fallback, current enabled services/revisions, trusted internal identity and actual service ACLs require gates. Only config.dev; otherwise404. JSON username/password nonempty; needs configured OAuth secret; password exchange with development sandbox IDP then users/self. DEV_PROJECT defaultsezarapp, enables catalogue services, sets HttpOnly Lax cookie and raw {ok:true}. Production cookie_secure handling differs from normal SSO and must be verified; never remember credentials."
-        },
-        "filters": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "No generic pagination or filters on Manage-owned endpoints. Only service/agent proxies preserve query parameters; owning service defines their exact semantics. Only config.dev; otherwise404. JSON username/password nonempty; needs configured OAuth secret; password exchange with development sandbox IDP then users/self. DEV_PROJECT defaultsezarapp, enables catalogue services, sets HttpOnly Lax cookie and raw {ok:true}. Production cookie_secure handling differs from normal SSO and must be verified; never remember credentials."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Only config.dev; otherwise404. JSON username/password nonempty; needs configured OAuth secret; password exchange with development sandbox IDP then users/self. DEV_PROJECT defaultsezarapp, enables catalogue services, sets HttpOnly Lax cookie and raw {ok:true}. Production cookie_secure handling differs from normal SSO and must be verified; never remember credentials."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Only config.dev; otherwise404. JSON username/password nonempty; needs configured OAuth secret; password exchange with development sandbox IDP then users/self. DEV_PROJECT defaultsezarapp, enables catalogue services, sets HttpOnly Lax cookie and raw {ok:true}. Production cookie_secure handling differs from normal SSO and must be verified; never remember credentials. Sessions last12hours; handoffs60seconds by minting helpers. Refresh replaces cookie; logout clears local cookie. Project inactive/outage blocks administration. Revision observations are not durable current configuration."
-        },
-        "relationships": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Manage project slug -> Agentic live status/settings-manage authority, service sandbox namespace and signed handoff. Identity project may differ. Organization signed UUID/derived fallback must be mapped explicitly to owning-service org. Agentic thread/action IDs are UUIDs and remain Agentic execution/review authority. Payment/Messenger setup-check and Agentic setup report require actual cross-service verification."
-        },
-        "test_evidence": [],
-        "remaining_gates": [
-          "canonical signing provisioning, entropy and rotation reconciliation",
-          "live project membership/settings-manage revocation",
-          "current identity revision/service enablement across restart",
-          "IDP refresh and identity mapping",
-          "real SDK-backed service and human-review workflows",
-          "readable localized accessible UI and negative permissions acceptance"
-        ],
-        "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
-        "local_boundary_evidence": [
-          "manage-current-authority"
-        ],
-        "local_contract_overrides": {
-          "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
-          "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
-          "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
-        }
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -662,6 +381,7 @@
         "handlerModule": "sso",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/sso.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -671,7 +391,7 @@
           }
         ]
       },
-      "source_checksum": "a822ec172769033e26aaf9f8c79ed2275a1c735d6c4e9ffe04a1d97a10db5a16",
+      "source_checksum": "d1e63d8688625c7a5690da8f93848c02cebc6f1516d112341319c880a0d52dfa",
       "handler": {
         "ref": "infera-manage/src/sso.rs:420:logout_handler",
         "path": "infera-manage/src/sso.rs",
@@ -682,113 +402,16 @@
       "schemas": {},
       "relation_candidates": [],
       "review": {
-        "status": "locally_tested_requires_canonical_and_operation_verification",
-        "source_checksum": "a822ec172769033e26aaf9f8c79ed2275a1c735d6c4e9ffe04a1d97a10db5a16",
-        "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
-        "meaning": {
-          "en": "Clear the browser administration session.",
-          "fa": "خروج از نشست مدیریت مرورگر."
-        },
-        "scope": "One signed project administration session; service sandbox and possibly separate identity project. Effective organization is signed UUID or deterministic project UUIDv5. No memory authority is assigned to Manage.",
-        "classification": "public_session_entry",
-        "permissions": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Authenticated routes use signed cookie, live Agentic project admin status/settings-manage preflight except /me, activation guard, process-local identity revision check and sandbox token refresh. Service proxy injects static catalogue permissions; agent proxy uses narrow method/path allowlist. Missing secret fallback, current enabled services/revisions, trusted internal identity and actual service ACLs require gates. No session required; replaces cookie with max-age0 and redirects root. Does not revoke upstream IDP refresh tokens or other signed cookies; server revocation is not established."
-        },
-        "filters": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "No generic pagination or filters on Manage-owned endpoints. Only service/agent proxies preserve query parameters; owning service defines their exact semantics. No session required; replaces cookie with max-age0 and redirects root. Does not revoke upstream IDP refresh tokens or other signed cookies; server revocation is not established."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "No session required; replaces cookie with max-age0 and redirects root. Does not revoke upstream IDP refresh tokens or other signed cookies; server revocation is not established."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "No session required; replaces cookie with max-age0 and redirects root. Does not revoke upstream IDP refresh tokens or other signed cookies; server revocation is not established. Sessions last12hours; handoffs60seconds by minting helpers. Refresh replaces cookie; logout clears local cookie. Project inactive/outage blocks administration. Revision observations are not durable current configuration."
-        },
-        "relationships": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Manage project slug -> Agentic live status/settings-manage authority, service sandbox namespace and signed handoff. Identity project may differ. Organization signed UUID/derived fallback must be mapped explicitly to owning-service org. Agentic thread/action IDs are UUIDs and remain Agentic execution/review authority. Payment/Messenger setup-check and Agentic setup report require actual cross-service verification."
-        },
-        "test_evidence": [],
-        "remaining_gates": [
-          "canonical signing provisioning, entropy and rotation reconciliation",
-          "live project membership/settings-manage revocation",
-          "current identity revision/service enablement across restart",
-          "IDP refresh and identity mapping",
-          "real SDK-backed service and human-review workflows",
-          "readable localized accessible UI and negative permissions acceptance"
-        ],
-        "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
-        "local_boundary_evidence": [
-          "manage-current-authority"
-        ],
-        "local_contract_overrides": {
-          "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
-          "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
-          "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
-        }
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -807,6 +430,7 @@
         "handlerModule": "router",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/router.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -816,7 +440,7 @@
           }
         ]
       },
-      "source_checksum": "ba1d4cc23dbfd2d757434c5a521b8c8949398c2d9f09fdeb7c81269846db551b",
+      "source_checksum": "aea7986947e22cf6189b2d2b1631467235767bd4f271d75a42a048e4f2b49cc7",
       "handler": {
         "ref": "infera-manage/src/router.rs:121:me_handler",
         "path": "infera-manage/src/router.rs",
@@ -837,113 +461,16 @@
       "schemas": {},
       "relation_candidates": [],
       "review": {
-        "status": "locally_tested_requires_canonical_and_operation_verification",
-        "source_checksum": "ba1d4cc23dbfd2d757434c5a521b8c8949398c2d9f09fdeb7c81269846db551b",
-        "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
-        "meaning": {
-          "en": "Read current session context and project runtime status.",
-          "fa": "خواندن زمینه نشست و وضعیت اجرای پروژه."
-        },
-        "scope": "One signed project administration session; service sandbox and possibly separate identity project. Effective organization is signed UUID or deterministic project UUIDv5. No memory authority is assigned to Manage.",
-        "classification": "project_administration",
-        "permissions": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Authenticated routes use signed cookie, live Agentic project admin status/settings-manage preflight except /me, activation guard, process-local identity revision check and sandbox token refresh. Service proxy injects static catalogue permissions; agent proxy uses narrow method/path allowlist. Missing secret fallback, current enabled services/revisions, trusted internal identity and actual service ACLs require gates. Signed cookie required, identity revision check and possible refresh. Skips blocking project status preflight, then queries status with unavailable fallback. Raw runtime,userId,project.slug,enabledServices,modules,otherProjects,agenticUrl. Lists are session snapshots; no tokens returned."
-        },
-        "filters": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "No generic pagination or filters on Manage-owned endpoints. Only service/agent proxies preserve query parameters; owning service defines their exact semantics. Signed cookie required, identity revision check and possible refresh. Skips blocking project status preflight, then queries status with unavailable fallback. Raw runtime,userId,project.slug,enabledServices,modules,otherProjects,agenticUrl. Lists are session snapshots; no tokens returned."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Signed cookie required, identity revision check and possible refresh. Skips blocking project status preflight, then queries status with unavailable fallback. Raw runtime,userId,project.slug,enabledServices,modules,otherProjects,agenticUrl. Lists are session snapshots; no tokens returned."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Signed cookie required, identity revision check and possible refresh. Skips blocking project status preflight, then queries status with unavailable fallback. Raw runtime,userId,project.slug,enabledServices,modules,otherProjects,agenticUrl. Lists are session snapshots; no tokens returned. Sessions last12hours; handoffs60seconds by minting helpers. Refresh replaces cookie; logout clears local cookie. Project inactive/outage blocks administration. Revision observations are not durable current configuration."
-        },
-        "relationships": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Manage project slug -> Agentic live status/settings-manage authority, service sandbox namespace and signed handoff. Identity project may differ. Organization signed UUID/derived fallback must be mapped explicitly to owning-service org. Agentic thread/action IDs are UUIDs and remain Agentic execution/review authority. Payment/Messenger setup-check and Agentic setup report require actual cross-service verification."
-        },
-        "test_evidence": [],
-        "remaining_gates": [
-          "canonical signing provisioning, entropy and rotation reconciliation",
-          "live project membership/settings-manage revocation",
-          "current identity revision/service enablement across restart",
-          "IDP refresh and identity mapping",
-          "real SDK-backed service and human-review workflows",
-          "readable localized accessible UI and negative permissions acceptance"
-        ],
-        "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
-        "local_boundary_evidence": [
-          "manage-current-authority"
-        ],
-        "local_contract_overrides": {
-          "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
-          "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
-          "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
-        }
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -962,6 +489,7 @@
         "handlerModule": "setup",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/setup.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -971,7 +499,7 @@
           }
         ]
       },
-      "source_checksum": "9db3d9108dd111b845cc381bdc84c8b651f8136bdf50ab0535790f2d75640bd0",
+      "source_checksum": "cec21f2c15af1e1ce8462b28c1b7d11ab2f185e1838e559526687ee8c278f5c0",
       "handler": {
         "ref": "infera-manage/src/setup.rs:158:check",
         "path": "infera-manage/src/setup.rs",
@@ -1001,113 +529,16 @@
       "schemas": {},
       "relation_candidates": [],
       "review": {
-        "status": "locally_tested_requires_canonical_and_operation_verification",
-        "source_checksum": "9db3d9108dd111b845cc381bdc84c8b651f8136bdf50ab0535790f2d75640bd0",
-        "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
-        "meaning": {
-          "en": "Inspect and persist project service prerequisites.",
-          "fa": "بررسی و ذخیره پیش‌نیازهای خدمات پروژه."
-        },
-        "scope": "One signed project administration session; service sandbox and possibly separate identity project. Effective organization is signed UUID or deterministic project UUIDv5. No memory authority is assigned to Manage.",
-        "classification": "project_administration",
-        "permissions": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Authenticated routes use signed cookie, live Agentic project admin status/settings-manage preflight except /me, activation guard, process-local identity revision check and sandbox token refresh. Service proxy injects static catalogue permissions; agent proxy uses narrow method/path allowlist. Missing secret fallback, current enabled services/revisions, trusted internal identity and actual service ACLs require gates. Authenticated active project session; no client service list or arbitrary provider payload. Sequential enabled-service health; Payment/Messenger provider setup-check, SMS-OTP when IDP enabled. Signs60second report, persists internally to Agentic, returns project/services/prerequisites/checkedAt. No payment/message sent; actual credentials/runtime workflows unverified."
-        },
-        "filters": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "No generic pagination or filters on Manage-owned endpoints. Only service/agent proxies preserve query parameters; owning service defines their exact semantics. Authenticated active project session; no client service list or arbitrary provider payload. Sequential enabled-service health; Payment/Messenger provider setup-check, SMS-OTP when IDP enabled. Signs60second report, persists internally to Agentic, returns project/services/prerequisites/checkedAt. No payment/message sent; actual credentials/runtime workflows unverified."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Authenticated active project session; no client service list or arbitrary provider payload. Sequential enabled-service health; Payment/Messenger provider setup-check, SMS-OTP when IDP enabled. Signs60second report, persists internally to Agentic, returns project/services/prerequisites/checkedAt. No payment/message sent; actual credentials/runtime workflows unverified."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Authenticated active project session; no client service list or arbitrary provider payload. Sequential enabled-service health; Payment/Messenger provider setup-check, SMS-OTP when IDP enabled. Signs60second report, persists internally to Agentic, returns project/services/prerequisites/checkedAt. No payment/message sent; actual credentials/runtime workflows unverified. Sessions last12hours; handoffs60seconds by minting helpers. Refresh replaces cookie; logout clears local cookie. Project inactive/outage blocks administration. Revision observations are not durable current configuration."
-        },
-        "relationships": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Manage project slug -> Agentic live status/settings-manage authority, service sandbox namespace and signed handoff. Identity project may differ. Organization signed UUID/derived fallback must be mapped explicitly to owning-service org. Agentic thread/action IDs are UUIDs and remain Agentic execution/review authority. Payment/Messenger setup-check and Agentic setup report require actual cross-service verification."
-        },
-        "test_evidence": [],
-        "remaining_gates": [
-          "canonical signing provisioning, entropy and rotation reconciliation",
-          "live project membership/settings-manage revocation",
-          "current identity revision/service enablement across restart",
-          "IDP refresh and identity mapping",
-          "real SDK-backed service and human-review workflows",
-          "readable localized accessible UI and negative permissions acceptance"
-        ],
-        "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
-        "local_boundary_evidence": [
-          "manage-current-authority"
-        ],
-        "local_contract_overrides": {
-          "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
-          "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
-          "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
-        }
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -1126,6 +557,7 @@
         "handlerModule": "proxy",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/proxy.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -1135,7 +567,7 @@
           }
         ]
       },
-      "source_checksum": "fd4f8c4ed678c6fc2790fa7455056d2212a651bfd63d064a83b0cd3aed0f6776",
+      "source_checksum": "4aca18e7be66c2be5351847af4bca0edb44c7176cd018709c021476f43bfa910",
       "handler": {
         "ref": "infera-manage/src/proxy.rs:132:health_check",
         "path": "infera-manage/src/proxy.rs",
@@ -1146,113 +578,16 @@
       "schemas": {},
       "relation_candidates": [],
       "review": {
-        "status": "locally_tested_requires_canonical_and_operation_verification",
-        "source_checksum": "fd4f8c4ed678c6fc2790fa7455056d2212a651bfd63d064a83b0cd3aed0f6776",
-        "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
-        "meaning": {
-          "en": "Inspect HTTP health of enabled project services.",
-          "fa": "بررسی سلامت HTTP خدمات فعال پروژه."
-        },
-        "scope": "One signed project administration session; service sandbox and possibly separate identity project. Effective organization is signed UUID or deterministic project UUIDv5. No memory authority is assigned to Manage.",
-        "classification": "project_administration",
-        "permissions": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Authenticated routes use signed cookie, live Agentic project admin status/settings-manage preflight except /me, activation guard, process-local identity revision check and sandbox token refresh. Service proxy injects static catalogue permissions; agent proxy uses narrow method/path allowlist. Missing secret fallback, current enabled services/revisions, trusted internal identity and actual service ACLs require gates. Authenticated active project session. No query filters; sequential health checks, unknown catalogue services skipped. Raw slug->boolean object from HTTP status only, not schema/provider readiness; IDP may use identity project."
-        },
-        "filters": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "No generic pagination or filters on Manage-owned endpoints. Only service/agent proxies preserve query parameters; owning service defines their exact semantics. Authenticated active project session. No query filters; sequential health checks, unknown catalogue services skipped. Raw slug->boolean object from HTTP status only, not schema/provider readiness; IDP may use identity project."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Authenticated active project session. No query filters; sequential health checks, unknown catalogue services skipped. Raw slug->boolean object from HTTP status only, not schema/provider readiness; IDP may use identity project."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Authenticated active project session. No query filters; sequential health checks, unknown catalogue services skipped. Raw slug->boolean object from HTTP status only, not schema/provider readiness; IDP may use identity project. Sessions last12hours; handoffs60seconds by minting helpers. Refresh replaces cookie; logout clears local cookie. Project inactive/outage blocks administration. Revision observations are not durable current configuration."
-        },
-        "relationships": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Manage project slug -> Agentic live status/settings-manage authority, service sandbox namespace and signed handoff. Identity project may differ. Organization signed UUID/derived fallback must be mapped explicitly to owning-service org. Agentic thread/action IDs are UUIDs and remain Agentic execution/review authority. Payment/Messenger setup-check and Agentic setup report require actual cross-service verification."
-        },
-        "test_evidence": [],
-        "remaining_gates": [
-          "canonical signing provisioning, entropy and rotation reconciliation",
-          "live project membership/settings-manage revocation",
-          "current identity revision/service enablement across restart",
-          "IDP refresh and identity mapping",
-          "real SDK-backed service and human-review workflows",
-          "readable localized accessible UI and negative permissions acceptance"
-        ],
-        "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
-        "local_boundary_evidence": [
-          "manage-current-authority"
-        ],
-        "local_contract_overrides": {
-          "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
-          "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
-          "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
-        }
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -1271,6 +606,7 @@
         "handlerModule": "proxy",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/proxy.rs",
         "pathParam": "String",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -1281,7 +617,7 @@
           }
         ]
       },
-      "source_checksum": "1908491fadc753741d408a6e40fc8ec2bd6626cce9f04d9e0fc31b0726f195a9",
+      "source_checksum": "81ebbbdce944fea43b0add45c0f5edc9d5fe126a3ac2a84b46339b29e2a6d73c",
       "handler": {
         "ref": "infera-manage/src/proxy.rs:173:proxy_any",
         "path": "infera-manage/src/proxy.rs",
@@ -1297,113 +633,16 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_tested_requires_canonical_and_operation_verification",
-        "source_checksum": "1908491fadc753741d408a6e40fc8ec2bd6626cce9f04d9e0fc31b0726f195a9",
-        "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
-        "meaning": {
-          "en": "Proxy project administration to an enabled owning service.",
-          "fa": "ارسال درخواست مدیریت پروژه به خدمت فعال."
-        },
-        "scope": "One signed project administration session; service sandbox and possibly separate identity project. Effective organization is signed UUID or deterministic project UUIDv5. No memory authority is assigned to Manage.",
-        "classification": "project_administration",
-        "permissions": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Authenticated routes use signed cookie, live Agentic project admin status/settings-manage preflight except /me, activation guard, process-local identity revision check and sandbox token refresh. Service proxy injects static catalogue permissions; agent proxy uses narrow method/path allowlist. Missing secret fallback, current enabled services/revisions, trusted internal identity and actual service ACLs require gates. rest=service/path, optional infera- prefix; exact method, query and body pass through. Require enabled catalogue service. Strip browser identity/credential/scope headers; inject signed session user/org, static catalogue admin permissions and captured bearer. Body16MiB; response buffered and status/most headers passed through. No per-operation allowlist; authorization depends on current project preflight and owning service. API response schemas belong to owner."
-        },
-        "filters": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "No generic pagination or filters on Manage-owned endpoints. Only service/agent proxies preserve query parameters; owning service defines their exact semantics. rest=service/path, optional infera- prefix; exact method, query and body pass through. Require enabled catalogue service. Strip browser identity/credential/scope headers; inject signed session user/org, static catalogue admin permissions and captured bearer. Body16MiB; response buffered and status/most headers passed through. No per-operation allowlist; authorization depends on current project preflight and owning service. API response schemas belong to owner."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "rest=service/path, optional infera- prefix; exact method, query and body pass through. Require enabled catalogue service. Strip browser identity/credential/scope headers; inject signed session user/org, static catalogue admin permissions and captured bearer. Body16MiB; response buffered and status/most headers passed through. No per-operation allowlist; authorization depends on current project preflight and owning service. API response schemas belong to owner."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "rest=service/path, optional infera- prefix; exact method, query and body pass through. Require enabled catalogue service. Strip browser identity/credential/scope headers; inject signed session user/org, static catalogue admin permissions and captured bearer. Body16MiB; response buffered and status/most headers passed through. No per-operation allowlist; authorization depends on current project preflight and owning service. API response schemas belong to owner. Sessions last12hours; handoffs60seconds by minting helpers. Refresh replaces cookie; logout clears local cookie. Project inactive/outage blocks administration. Revision observations are not durable current configuration."
-        },
-        "relationships": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Manage project slug -> Agentic live status/settings-manage authority, service sandbox namespace and signed handoff. Identity project may differ. Organization signed UUID/derived fallback must be mapped explicitly to owning-service org. Agentic thread/action IDs are UUIDs and remain Agentic execution/review authority. Payment/Messenger setup-check and Agentic setup report require actual cross-service verification."
-        },
-        "test_evidence": [],
-        "remaining_gates": [
-          "canonical signing provisioning, entropy and rotation reconciliation",
-          "live project membership/settings-manage revocation",
-          "current identity revision/service enablement across restart",
-          "IDP refresh and identity mapping",
-          "real SDK-backed service and human-review workflows",
-          "readable localized accessible UI and negative permissions acceptance"
-        ],
-        "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
-        "local_boundary_evidence": [
-          "manage-current-authority"
-        ],
-        "local_contract_overrides": {
-          "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
-          "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
-          "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
-        }
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -1422,6 +661,7 @@
         "handlerModule": "agent",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/agent.rs",
         "pathParam": "String",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -1432,7 +672,7 @@
           }
         ]
       },
-      "source_checksum": "bbcecc8809d66fe62ce52b03f059aae492349793ba65798b5ba2109a7857db46",
+      "source_checksum": "49491efd81101e32cdc03a29b141dd6d6b1ab3e6bc26b81e79c4d4cc253384df",
       "handler": {
         "ref": "infera-manage/src/agent.rs:43:proxy_agent",
         "path": "infera-manage/src/agent.rs",
@@ -1448,113 +688,16 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_tested_requires_canonical_and_operation_verification",
-        "source_checksum": "bbcecc8809d66fe62ce52b03f059aae492349793ba65798b5ba2109a7857db46",
-        "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
-        "meaning": {
-          "en": "Bridge durable agent chat and human review within the project.",
-          "fa": "اتصال گفتگوی پایدار عامل و بازبینی انسانی در پروژه."
-        },
-        "scope": "One signed project administration session; service sandbox and possibly separate identity project. Effective organization is signed UUID or deterministic project UUIDv5. No memory authority is assigned to Manage.",
-        "classification": "project_administration",
-        "permissions": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Authenticated routes use signed cookie, live Agentic project admin status/settings-manage preflight except /me, activation guard, process-local identity revision check and sandbox token refresh. Service proxy injects static catalogue permissions; agent proxy uses narrow method/path allowlist. Missing secret fallback, current enabled services/revisions, trusted internal identity and actual service ACLs require gates. Exact allowlist: GET models; GET/POST chat/threads; GET thread messages; DELETE thread; POST thread chat stream/cancel; POST ask or browser action complete. UUID path segments; reject unknown/traversal/double-slash operations. Body2MiB; streams upstream body/status/content-type. Inject signed user/project and captured bearer, not browser identity; Agentic must enforce current thread/action ownership and review lifecycle."
-        },
-        "filters": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "No generic pagination or filters on Manage-owned endpoints. Only service/agent proxies preserve query parameters; owning service defines their exact semantics. Exact allowlist: GET models; GET/POST chat/threads; GET thread messages; DELETE thread; POST thread chat stream/cancel; POST ask or browser action complete. UUID path segments; reject unknown/traversal/double-slash operations. Body2MiB; streams upstream body/status/content-type. Inject signed user/project and captured bearer, not browser identity; Agentic must enforce current thread/action ownership and review lifecycle."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Exact allowlist: GET models; GET/POST chat/threads; GET thread messages; DELETE thread; POST thread chat stream/cancel; POST ask or browser action complete. UUID path segments; reject unknown/traversal/double-slash operations. Body2MiB; streams upstream body/status/content-type. Inject signed user/project and captured bearer, not browser identity; Agentic must enforce current thread/action ownership and review lifecycle."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Exact allowlist: GET models; GET/POST chat/threads; GET thread messages; DELETE thread; POST thread chat stream/cancel; POST ask or browser action complete. UUID path segments; reject unknown/traversal/double-slash operations. Body2MiB; streams upstream body/status/content-type. Inject signed user/project and captured bearer, not browser identity; Agentic must enforce current thread/action ownership and review lifecycle. Sessions last12hours; handoffs60seconds by minting helpers. Refresh replaces cookie; logout clears local cookie. Project inactive/outage blocks administration. Revision observations are not durable current configuration."
-        },
-        "relationships": {
-          "status": "source_reviewed_requires_runtime_verification",
-          "source_refs": [
-            "Service/infera-manage/src/router.rs",
-            "Service/infera-manage/src/session.rs",
-            "Service/infera-manage/src/sso.rs",
-            "Service/infera-manage/src/runtime.rs",
-            "Service/infera-manage/src/config.rs",
-            "Service/infera-manage/src/proxy.rs",
-            "Service/infera-manage/src/agent.rs",
-            "Service/infera-manage/src/services.rs",
-            "Service/infera-manage/src/setup.rs",
-            "Service/infera-manage/src/state.rs"
-          ],
-          "meaning": "Manage project slug -> Agentic live status/settings-manage authority, service sandbox namespace and signed handoff. Identity project may differ. Organization signed UUID/derived fallback must be mapped explicitly to owning-service org. Agentic thread/action IDs are UUIDs and remain Agentic execution/review authority. Payment/Messenger setup-check and Agentic setup report require actual cross-service verification."
-        },
-        "test_evidence": [],
-        "remaining_gates": [
-          "canonical signing provisioning, entropy and rotation reconciliation",
-          "live project membership/settings-manage revocation",
-          "current identity revision/service enablement across restart",
-          "IDP refresh and identity mapping",
-          "real SDK-backed service and human-review workflows",
-          "readable localized accessible UI and negative permissions acceptance"
-        ],
-        "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
-        "local_boundary_evidence": [
-          "manage-current-authority"
-        ],
-        "local_contract_overrides": {
-          "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
-          "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
-          "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
-        }
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -1591,6 +734,7 @@
         "handlerModule": "router",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/router.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -1608,6 +752,7 @@
         "handlerModule": "sso",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/sso.rs",
         "query": "SsoQuery",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -1626,6 +771,7 @@
         "handlerModule": "sso",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/sso.rs",
         "body": "DevLoginRequest",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -1644,6 +790,7 @@
         "handlerModule": "sso",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/sso.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -1661,6 +808,7 @@
         "handlerModule": "router",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/router.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -1678,6 +826,7 @@
         "handlerModule": "setup",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/setup.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -1695,6 +844,7 @@
         "handlerModule": "proxy",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/proxy.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -1712,6 +862,7 @@
         "handlerModule": "proxy",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/proxy.rs",
         "pathParam": "String",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -1730,6 +881,7 @@
         "handlerModule": "agent",
         "source": "infera-manage/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-manage/src/agent.rs",
         "pathParam": "String",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -1767,7 +919,8 @@
       "ANY /api/v1/proxy/{*rest}",
       "ANY /api/v1/agent/{*rest}"
     ],
-    "changed": []
+    "changed": [],
+    "extraction_errors": []
   },
   "working_route_candidates": [
     {
@@ -1834,6 +987,20 @@
   "middleware_sources": [
     {
       "path": "infera-manage/src/main.rs",
+      "checksum": "33c97bed04ff8c8c0f6e838dd769cfbd3e409980e7a7d73071b74e4e408e2b08"
+    },
+    {
+      "path": "infera-manage/src/router.rs",
+      "checksum": "28ab3aeeb12dcf745904a87b9b489829d1c588c9af3c7401a12017135290dcbd"
+    },
+    {
+      "path": "infera-manage/src/session.rs",
+      "checksum": "edac3e3bbdb0d515ac680534ebb948b8df6038f84b6dd1047cde9ae7280161a0"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-manage/src/main.rs",
       "checksum": "1bc0553e81453d086ac6656e1abc3cf33518bb1fb7ec0bdbf0dfdae0d918e2b1"
     },
     {
@@ -1843,6 +1010,24 @@
     {
       "path": "infera-manage/src/session.rs",
       "checksum": "6b2bdf96d17f75ee4611513cca8e9d72b23a30158b53d75225e1dc726be51877"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-manage/README.md",
+      "checksum": "ee486b2bdc84ae0f8d996ed98eded2d814601dab2aae955474d974bf372b583d"
+    },
+    {
+      "path": "Service/infera-manage/src/router.rs",
+      "checksum": "28ab3aeeb12dcf745904a87b9b489829d1c588c9af3c7401a12017135290dcbd"
+    },
+    {
+      "path": "Service/infera-manage/src/proxy.rs",
+      "checksum": "d7bea121562b76cf8a127d8488e0f4bc69375d9612d1b72bc36368f981d3d8ce"
+    },
+    {
+      "path": "Service/infera-manage/src/agent.rs",
+      "checksum": "84aacdf6cfca09a3f318a42fe68bba90d8cf710a547c198e87d5f13aad9c9988"
     }
   ],
   "missing_meaning_sources": [],

@@ -1,0 +1,116 @@
+{
+  "infera-task/src/summary_evidence.rs": {
+    "format_input_sha256": "3b7120134408810f0fe2973c4606e9727389b8c9249d72846e718e4f91f62c1c",
+    "final_sha256": "3b7120134408810f0fe2973c4606e9727389b8c9249d72846e718e4f91f62c1c",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-task/src/summary_query.rs": {
+    "format_input_sha256": "b36c72231af14225a3f41c1dca3de8c6b38d107934a29745e5a29c06ea096eb2",
+    "final_sha256": "b36c72231af14225a3f41c1dca3de8c6b38d107934a29745e5a29c06ea096eb2",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-task/tests/summary-native/src/lib.rs": {
+    "format_input_sha256": "8a71865dbc9d35540225c0cb9fcd896bc536da9f17c63533a2128ddb396c9917",
+    "final_sha256": "8a71865dbc9d35540225c0cb9fcd896bc536da9f17c63533a2128ddb396c9917",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-task/migration/src/m20261019_000050_summary_activity_outbox.rs": {
+    "format_input_sha256": "d34aea1cfd4e73327b67d9f778d3e633be872c510704d15ef45b011d4edb05e7",
+    "final_sha256": "d34aea1cfd4e73327b67d9f778d3e633be872c510704d15ef45b011d4edb05e7",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-chat/src/summary_evidence.rs": {
+    "format_input_sha256": "a06fc071c590998f0dae78a542fa059efe65dbbf5db92deca4311579426c1211",
+    "final_sha256": "a06fc071c590998f0dae78a542fa059efe65dbbf5db92deca4311579426c1211",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-chat/src/summary_query.rs": {
+    "format_input_sha256": "1b97ad152d656b042c32adf511a28403231adfa2bd9f0a2bd81c8b22e834f49b",
+    "final_sha256": "1b97ad152d656b042c32adf511a28403231adfa2bd9f0a2bd81c8b22e834f49b",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-chat/tests/summary-native/src/lib.rs": {
+    "format_input_sha256": "1adb5c1f201a512cc5031c7f08ef70dbd8c90f4e862e0b2efcc20f6830a40a27",
+    "final_sha256": "1adb5c1f201a512cc5031c7f08ef70dbd8c90f4e862e0b2efcc20f6830a40a27",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-chat/migration/src/m20261019_000050_summary_activity_outbox.rs": {
+    "format_input_sha256": "999b6dd86a46301a7737177bf8cf3d71604ba62d42d308ce9bed8a5a0587cb21",
+    "final_sha256": "999b6dd86a46301a7737177bf8cf3d71604ba62d42d308ce9bed8a5a0587cb21",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-session/src/summary_evidence.rs": {
+    "format_input_sha256": "032e4fce40a170f70617d6a776f7602c9d5c62ca79a016a91c7032e8945004e0",
+    "final_sha256": "032e4fce40a170f70617d6a776f7602c9d5c62ca79a016a91c7032e8945004e0",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-session/src/summary_query.rs": {
+    "format_input_sha256": "6a3014416a53432932da9345f729643aa900782807c4f0e0d4b307b4b9e77a7d",
+    "final_sha256": "6a3014416a53432932da9345f729643aa900782807c4f0e0d4b307b4b9e77a7d",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-session/tests/summary-native/src/lib.rs": {
+    "format_input_sha256": "b44aa56dfdcb849221bcf8ff98d6e5bba7d0252d6a59e4daaf956950984a33f7",
+    "final_sha256": "b44aa56dfdcb849221bcf8ff98d6e5bba7d0252d6a59e4daaf956950984a33f7",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-session/migration/src/m20261019_000050_summary_activity_outbox.rs": {
+    "format_input_sha256": "6b2a83e1b141b9d4004dc1af889d10563118deea01d388320360c581c77c1dd1",
+    "final_sha256": "6b2a83e1b141b9d4004dc1af889d10563118deea01d388320360c581c77c1dd1",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-crm/src/summary_evidence.rs": {
+    "format_input_sha256": "68b09d7f5819403f07c8a7e10902f2bc8c540bdc983f25fd035879d6f40b4c4a",
+    "final_sha256": "68b09d7f5819403f07c8a7e10902f2bc8c540bdc983f25fd035879d6f40b4c4a",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-crm/src/summary_query.rs": {
+    "format_input_sha256": "b4db8dd0570255d7b9faccc3f34ecc2e41fdfbf94aa033d9df01fdf9446ddc4f",
+    "final_sha256": "b4db8dd0570255d7b9faccc3f34ecc2e41fdfbf94aa033d9df01fdf9446ddc4f",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-crm/src/native_policy.rs": {
+    "format_input_sha256": "26fa716b64c3812de274094f04f51fd2ac9b09023c9597b6fd8c289dace43bee",
+    "final_sha256": "26fa716b64c3812de274094f04f51fd2ac9b09023c9597b6fd8c289dace43bee",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-crm/tests/summary-native/src/lib.rs": {
+    "format_input_sha256": "a48ef2973068d26738f033fb2a47770e3a5ddeccaf05ad15766eaedea6812c29",
+    "final_sha256": "a48ef2973068d26738f033fb2a47770e3a5ddeccaf05ad15766eaedea6812c29",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-crm/migration/src/m20261019_000008_summary_activity_outbox.rs": {
+    "format_input_sha256": "d72511a3cfa35e152487aa85a47216b5147ad4fab4abda9fc6970897169be6a3",
+    "final_sha256": "d72511a3cfa35e152487aa85a47216b5147ad4fab4abda9fc6970897169be6a3",
+    "changed_by_formatting": false,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-crm/src/common/auth.rs": {
+    "format_input_sha256": "5ec2dd8503692bf704441e9bf0e74c7c1941a13899b3788e2fd58aa8a7fd75d3",
+    "final_sha256": "cdf38cfe7b4052437cde8305999bb8e8c3b93ee8a25f1fca7954dcd57b4cdc31",
+    "changed_by_formatting": true,
+    "rustfmt_normalization_identical": true
+  },
+  "infera-crm/tests/summary_evidence.rs": {
+    "format_input_sha256": "dd99ae2a2916f150a5b62d130118f9d8a594857ecc5be54f2f710366a0ee0869",
+    "final_sha256": "05fdd9ed18fe2b80ce5b43052b811b678fca17952d4066e97c098ba8d2077cad",
+    "changed_by_formatting": true,
+    "rustfmt_normalization_identical": true
+  }
+}

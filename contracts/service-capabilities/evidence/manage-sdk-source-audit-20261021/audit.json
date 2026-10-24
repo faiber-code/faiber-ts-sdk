@@ -1,0 +1,289 @@
+{
+  "status": "source_only",
+  "native_execution": "pending_not_run",
+  "sdk_build": "pending_not_run",
+  "prepared_tests": [
+    "tests/manage.test.mjs",
+    "tests/manage-durable-actions.test.mjs",
+    "tests/manage-source-audit.test.mjs"
+  ],
+  "source_basis": {
+    "manage": {
+      "packet_revision": "2c28db4d80bf4814a69892189afe2ae41663e554",
+      "candidate_revision": "5ac22d1145c68693717ff4dedcaff74a74746197",
+      "source_files": {
+        "src/router.rs": {
+          "packet_sha256": "d7398c3ae9d6e75b9de3411516b5b09d708d7337e77af1fd998d26b0feb67af3",
+          "candidate_sha256": "d7398c3ae9d6e75b9de3411516b5b09d708d7337e77af1fd998d26b0feb67af3",
+          "identical": true
+        },
+        "src/session.rs": {
+          "packet_sha256": "6b2bdf96d17f75ee4611513cca8e9d72b23a30158b53d75225e1dc726be51877",
+          "candidate_sha256": "6b2bdf96d17f75ee4611513cca8e9d72b23a30158b53d75225e1dc726be51877",
+          "identical": true
+        },
+        "src/sso.rs": {
+          "packet_sha256": "ec6e74c0a52327fe806c2c0021297e4decdccce99f99c622dfa2beb67981b3cd",
+          "candidate_sha256": "ec6e74c0a52327fe806c2c0021297e4decdccce99f99c622dfa2beb67981b3cd",
+          "identical": true
+        },
+        "src/runtime.rs": {
+          "packet_sha256": "53eaf932f8b7b8b99d515f16ba99327a4bb4f681aeb5e7ba97641b96bd95ad6a",
+          "candidate_sha256": "53eaf932f8b7b8b99d515f16ba99327a4bb4f681aeb5e7ba97641b96bd95ad6a",
+          "identical": true
+        },
+        "src/config.rs": {
+          "packet_sha256": "69630ab99b90b627de540f3ea04adad737b0f0c3ad371293bd0a05974364ad8f",
+          "candidate_sha256": "69630ab99b90b627de540f3ea04adad737b0f0c3ad371293bd0a05974364ad8f",
+          "identical": true
+        },
+        "src/agent.rs": {
+          "packet_sha256": "f0d99422f76e55cbd1621f8a5552f32dc0a4d25c1b0a14b69b7eefea6d10da3b",
+          "candidate_sha256": "f0d99422f76e55cbd1621f8a5552f32dc0a4d25c1b0a14b69b7eefea6d10da3b",
+          "identical": true
+        },
+        "src/actions.rs": {
+          "packet_sha256": "c6ea1eac24152f00b547fc51e868a7a37150658444bce83399e84452d9e64a07",
+          "candidate_sha256": "c6ea1eac24152f00b547fc51e868a7a37150658444bce83399e84452d9e64a07",
+          "identical": true
+        },
+        "src/manage_action_protocol.rs": {
+          "packet_sha256": "4aef4b73ca5a37ddc891d511c83f425e4ebf44ca87cc30ede2b29a697c5adc0a",
+          "candidate_sha256": "4aef4b73ca5a37ddc891d511c83f425e4ebf44ca87cc30ede2b29a697c5adc0a",
+          "identical": true
+        },
+        "src/proxy.rs": {
+          "packet_sha256": "d7bea121562b76cf8a127d8488e0f4bc69375d9612d1b72bc36368f981d3d8ce",
+          "candidate_sha256": "d7bea121562b76cf8a127d8488e0f4bc69375d9612d1b72bc36368f981d3d8ce",
+          "identical": true
+        },
+        "src/services.rs": {
+          "packet_sha256": "d1457032b69aeb9a0b9fd84e8d8e2edf9ba1f5c4c850904fd34ae2a7e11ae56d",
+          "candidate_sha256": "d1457032b69aeb9a0b9fd84e8d8e2edf9ba1f5c4c850904fd34ae2a7e11ae56d",
+          "identical": true
+        },
+        "src/setup.rs": {
+          "packet_sha256": "0e1f6222a33a44c0d71b55ec92a11746c299d081869027024f3fa04463eb1273",
+          "candidate_sha256": "0e1f6222a33a44c0d71b55ec92a11746c299d081869027024f3fa04463eb1273",
+          "identical": true
+        },
+        "src/error.rs": {
+          "packet_sha256": "80f6e262702fda39dcfa2396e46719f564ca4e0f93f61c3d1c7919bebfa69fdb",
+          "candidate_sha256": "80f6e262702fda39dcfa2396e46719f564ca4e0f93f61c3d1c7919bebfa69fdb",
+          "identical": true
+        }
+      }
+    },
+    "agentic": {
+      "packet_revision": "854a6dd654aab4518bca3a9523d370a161bd659a",
+      "candidate_revision": "e6c2a00fc4418604a99bf84b365e0db13fc8f5e6",
+      "source_files": {
+        "src/project/manage_threads.rs": {
+          "packet_sha256": "72562d070cebb7190a1eb2a374f9b34e6985308db9c040b453b8fef8a67dcf2b",
+          "candidate_sha256": "72562d070cebb7190a1eb2a374f9b34e6985308db9c040b453b8fef8a67dcf2b",
+          "identical": true
+        },
+        "src/project/access.rs": {
+          "packet_sha256": "f978068ce0c1662abd860ff1300f32e8bb8b37ecec46ccaab0c3d1504c5ed65a",
+          "candidate_sha256": "f978068ce0c1662abd860ff1300f32e8bb8b37ecec46ccaab0c3d1504c5ed65a",
+          "identical": true
+        },
+        "src/project/admin_open.rs": {
+          "packet_sha256": "95de7ffb5619ebf8e18f3d47d01e915fc3de7f11a1b85413f235ebfc6586534c",
+          "candidate_sha256": "95de7ffb5619ebf8e18f3d47d01e915fc3de7f11a1b85413f235ebfc6586534c",
+          "identical": true
+        },
+        "src/browser/manage_actions.rs": {
+          "packet_sha256": "0ce25da7193d7ba1361915bab6d3d0d240eba92e06a8f7e4c089a845a0c26aa4",
+          "candidate_sha256": "b0594b6f9882d754770527ec5e59273b867265fc78941143ba3ac30abd9057bf",
+          "identical": false
+        },
+        "src/manage_action_protocol.rs": {
+          "packet_sha256": "4aef4b73ca5a37ddc891d511c83f425e4ebf44ca87cc30ede2b29a697c5adc0a",
+          "candidate_sha256": "4aef4b73ca5a37ddc891d511c83f425e4ebf44ca87cc30ede2b29a697c5adc0a",
+          "identical": true
+        },
+        "src/browser/routes.rs": {
+          "packet_sha256": "9c3a0bc1da3cc9b26fc1f1b0034dcd2e8644a73dbb8e6c118b6edcb313747263",
+          "candidate_sha256": "9c3a0bc1da3cc9b26fc1f1b0034dcd2e8644a73dbb8e6c118b6edcb313747263",
+          "identical": true
+        },
+        "src/ask/routes.rs": {
+          "packet_sha256": "a44a53c75e81acdb5d75ab4b3f3b7cb22f3652f7cad648a789ff657e43610bba",
+          "candidate_sha256": "a44a53c75e81acdb5d75ab4b3f3b7cb22f3652f7cad648a789ff657e43610bba",
+          "identical": true
+        },
+        "src/chat/routes.rs": {
+          "packet_sha256": "d528ba93e51f0d047e2a1b3e88a5bbed8934f9e8b49ef909ea715b939ceb48b7",
+          "candidate_sha256": "d528ba93e51f0d047e2a1b3e88a5bbed8934f9e8b49ef909ea715b939ceb48b7",
+          "identical": true
+        },
+        "src/handlers/models.rs": {
+          "packet_sha256": "00d4abfec2148965f9b456d1ac37d35ac01d23f834f553123a480334db1fc120",
+          "candidate_sha256": "00d4abfec2148965f9b456d1ac37d35ac01d23f834f553123a480334db1fc120",
+          "identical": true
+        },
+        "src/ide/routes.rs": {
+          "packet_sha256": "274b94efd34baa912007b263341141276c1c3699ceed692044dcfc43db363144",
+          "candidate_sha256": "274b94efd34baa912007b263341141276c1c3699ceed692044dcfc43db363144",
+          "identical": true
+        },
+        "src/ide/threads.rs": {
+          "packet_sha256": "d9df1d0273fae447d0a0323fc25891b2150d6f1a965cc9c61584518611bb6267",
+          "candidate_sha256": "d9df1d0273fae447d0a0323fc25891b2150d6f1a965cc9c61584518611bb6267",
+          "identical": true
+        },
+        "src/ide/agent_stream.rs": {
+          "packet_sha256": "fa0baae67df6d33e4b79608cfbb66cb44a20d7263d6f8d3a86a09d74b22ba86e",
+          "candidate_sha256": "fa0baae67df6d33e4b79608cfbb66cb44a20d7263d6f8d3a86a09d74b22ba86e",
+          "identical": true
+        },
+        "src/creation/setup.rs": {
+          "packet_sha256": "9137c2e9365325f06749fee91f61dafeb599aea8f35cffec029e65502c2df3a6",
+          "candidate_sha256": "9137c2e9365325f06749fee91f61dafeb599aea8f35cffec029e65502c2df3a6",
+          "identical": true
+        },
+        "domain/src/ide.rs": {
+          "packet_sha256": "4f38e7b7addaa1c685b1e39cd2484cc7c3aebf3c8aa2055d08710dbb95adb888",
+          "candidate_sha256": "4f38e7b7addaa1c685b1e39cd2484cc7c3aebf3c8aa2055d08710dbb95adb888",
+          "identical": true
+        },
+        "domain/src/bson_time.rs": {
+          "packet_sha256": "645ae99bc09a80281ead2df1433c18c1413594de4579fa437207d8b6892e8bdb",
+          "candidate_sha256": "645ae99bc09a80281ead2df1433c18c1413594de4579fa437207d8b6892e8bdb",
+          "identical": true
+        },
+        "domain/src/template.rs": {
+          "packet_sha256": "2624cbe5132fc84db0c8a7ee4ee5434a5fe872e4412b2b1480fb6c587e03cbb6",
+          "candidate_sha256": "2624cbe5132fc84db0c8a7ee4ee5434a5fe872e4412b2b1480fb6c587e03cbb6",
+          "identical": true
+        }
+      }
+    },
+    "control": {
+      "revision": "e15272c1539eee4c1b183a8b2ec7e0453301d8b3",
+      "scope": "Manage ingress exemption and forwarded identity header boundary only; Control is not a SERVICE_NAMES proxy target and no public Control API is exported by this package.",
+      "source_files": [
+        "crates/faiber-core/src/ops/workloads.rs",
+        "crates/faiber-core/src/ops/manage_domains.rs",
+        "crates/faiber-core/src/types.rs"
+      ],
+      "source_sha256": {
+        "crates/faiber-core/src/ops/workloads.rs": {
+          "head": "e8285a95b511efb17b850db7629a27446d5fe456f0b6ced7496a3ef03f74e408",
+          "inspected_worktree": "e8285a95b511efb17b850db7629a27446d5fe456f0b6ced7496a3ef03f74e408"
+        },
+        "crates/faiber-core/src/ops/manage_domains.rs": {
+          "head": "4184eab220e11e9b134b2b03042b0cb5f2c3705bfae8cc859745865630d01911",
+          "inspected_worktree": "4184eab220e11e9b134b2b03042b0cb5f2c3705bfae8cc859745865630d01911"
+        },
+        "crates/faiber-core/src/types.rs": {
+          "head": "14d083650cac5ee4839f67292cc7620282907af55f7396decaeda3f41f3098ff",
+          "inspected_worktree": "14d083650cac5ee4839f67292cc7620282907af55f7396decaeda3f41f3098ff"
+        }
+      }
+    }
+  },
+  "ledger": [
+    {
+      "area": "me",
+      "defect": "runtime status and reauth_required omitted from public DTO",
+      "resolution": "named ManageRuntimeStatus on ManageMeResponse"
+    },
+    {
+      "area": "mounted Manage JSON and session routes",
+      "defect": "health, setup inspection and logout absent from curated client",
+      "resolution": "health/checkSetup/logout; SSO remains documented browser navigation"
+    },
+    {
+      "area": "message history",
+      "defect": "query omitted; created_at incorrectly string despite BSON serializer",
+      "resolution": "getAgentMessagesPage and ManageMessageTimestamp; no invented cursor header"
+    },
+    {
+      "area": "thread and completion input",
+      "defect": "Rust Option null values excluded, default completion result required",
+      "resolution": "thread title/ide_mode accept null; legacy result optional and error nullable"
+    },
+    {
+      "area": "chat input/cancellation receipt",
+      "defect": "image/model_strategy and known cancellation receipt fields missing",
+      "resolution": "named ManagePromptImageInput and optional receipt fields"
+    },
+    {
+      "area": "manual service proxy",
+      "defect": "encoded dot segments and unsafe fragments could be normalized by URL adapter; runtime service could escape prefix",
+      "resolution": "decoded path/control/fragment/service validation; valid encoded slash and URL query content preserved"
+    },
+    {
+      "area": "consumer guidance",
+      "defect": "first README example suggested browser event could drive proxy execution",
+      "resolution": "example loads strict durable SSE reference via getAgentAction; no legacy execution fallback"
+    },
+    {
+      "area": "durable operations",
+      "defect": "generated JSDoc lacked actual scope/errors/retry behavior",
+      "resolution": "generator and generated operations carry signed-session/current permissions/409/cancellation semantics"
+    },
+    {
+      "area": "candidate schema delta",
+      "defect": "baseline wire contract does not explicitly mention nullable type arrays",
+      "resolution": "Updated operations.json candidate pins, wire schema_boundary/source_selection and public README; preserved original handoff identity with explicit historical scope.",
+      "status": "fixed_source_only"
+    }
+  ],
+  "compatibility": "The public five durable routes, DTOs, protocol and proof format are unchanged between packet pins and candidate heads. All12 Manage files and15 of16 Agentic files reviewed are byte-identical. Agentic browser/manage_actions.rs changes its schema subset: a concrete type paired with null is now supported, general unions remain unavailable, and check_schema is called before validating a value. SDK JsonValue bodies remain compatible; selecting this candidate requires packet/evidence wording for nullable schemas and new source pins, not new browser methods. This is source compatibility only.",
+  "remaining_gates": [
+    "Run final SDK type/build, generated consistency and focused wire tests after all parallel fixes stabilize.",
+    "Native Manage/Agentic authority and durable execution evidence remains pending; source review is not runtime proof.",
+    "Current deployed secrets, Agentic private origin, project identity revisions, session refresh, catalog schemas and signed receipts require combined runtime acceptance.",
+    "Office must use existing poulstar-office app sandbox; Admin existing poulstar app sandbox; no standalone deployment or duplicate project is authorized."
+  ],
+  "scope_exclusions": [
+    "No backend edits, deployment, publication or commits.",
+    "No all-route Agentic/Control completeness claim.",
+    "No unsupported schema catalog rollout or automatic unknown-outcome retries."
+  ],
+  "selected_sources": {
+    "manage": "5ac22d1145c68693717ff4dedcaff74a74746197",
+    "agentic": "e6c2a00fc4418604a99bf84b365e0db13fc8f5e6"
+  },
+  "operation_coverage": {
+    "ManageApi": [
+      "getAgentActionCapabilities",
+      "listAgentActions",
+      "getAgentAction",
+      "reviewAgentAction",
+      "executeAgentAction",
+      "health",
+      "checkSetup",
+      "logout",
+      "me",
+      "devLogin",
+      "serviceHealth",
+      "listAgentModels",
+      "uploadProfileImage",
+      "createAgentThread",
+      "listAgentThreads",
+      "listAgentThreadsPage",
+      "getAgentMessages",
+      "getAgentMessagesPage",
+      "openAgentChatStream",
+      "cancelAgentChat",
+      "deleteAgentThread",
+      "completeAgentAction",
+      "completeAgentQuestion",
+      "executeServiceAction"
+    ],
+    "ManageActionOperations": [
+      "getAgentActionCapabilities",
+      "listAgentActions",
+      "getAgentAction",
+      "reviewAgentAction",
+      "executeAgentAction"
+    ],
+    "transport": "Every method uses the supplied FaiberClient; cookie mode sends withCredentials. Manage authority derives actor/project/token from the signed session; browser actor headers or supplied project values grant no authority. Proxies preserve upstream status/query/body and current owning-service ACL. SSE helper functions parse events and do not dispatch.",
+    "non_json": "GET /sso is documented browser navigation; static SPA assets are not SDK JSON operations."
+  },
+  "prepared_fixtures": "nullable-schema-fixtures.json"
+}

@@ -1,0 +1,1167 @@
+[
+  {
+    "operation": "GET /health",
+    "name": "routerStatusRouteGetHealth",
+    "method": "GET",
+    "path": "/health",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "version": "test"
+      }
+    }
+  },
+  {
+    "operation": "GET /up",
+    "name": "routerStatusRouteGetUp",
+    "method": "GET",
+    "path": "/up",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "version": "test"
+      }
+    }
+  },
+  {
+    "operation": "GET /api/openapi.json",
+    "name": "routerOpenapiJsonGet",
+    "method": "GET",
+    "path": "/api/openapi.json",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "openapi": "3.1.0",
+      "info": {
+        "title": "Messenger",
+        "version": "test"
+      },
+      "paths": {}
+    }
+  },
+  {
+    "operation": "GET /api/v1/templates",
+    "name": "templateTemplatesIndexGet",
+    "method": "GET",
+    "path": "/api/v1/templates",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": [
+        {
+          "id": 2,
+          "name": "welcome",
+          "fa_name": "Welcome",
+          "params": [
+            "name"
+          ],
+          "channel_id": null
+        }
+      ]
+    }
+  },
+  {
+    "operation": "POST /api/v1/templates",
+    "name": "templateTemplatesCreatePost",
+    "method": "POST",
+    "path": "/api/v1/templates",
+    "args": [
+      {
+        "name": "welcome",
+        "fa_name": "Welcome",
+        "params": [
+          "name"
+        ]
+      }
+    ],
+    "body": {
+      "name": "welcome",
+      "fa_name": "Welcome",
+      "params": [
+        "name"
+      ]
+    },
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": 2,
+        "name": "welcome",
+        "fa_name": "Welcome",
+        "params": [
+          "name"
+        ],
+        "channel_id": null
+      }
+    }
+  },
+  {
+    "operation": "GET /api/v1/templates/{id}",
+    "name": "templateTemplatesShowGet",
+    "method": "GET",
+    "path": "/api/v1/templates/2",
+    "args": [
+      2
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": 2,
+        "name": "welcome",
+        "fa_name": "Welcome",
+        "params": [
+          "name"
+        ],
+        "channel_id": null
+      }
+    }
+  },
+  {
+    "operation": "PATCH /api/v1/templates/{id}",
+    "name": "templateTemplatesUpdatePatch",
+    "method": "PATCH",
+    "path": "/api/v1/templates/2",
+    "args": [
+      2,
+      {
+        "channel_id": null
+      }
+    ],
+    "body": {
+      "channel_id": null
+    },
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": 2,
+        "name": "welcome",
+        "fa_name": "Welcome",
+        "params": [
+          "name"
+        ],
+        "channel_id": null
+      }
+    }
+  },
+  {
+    "operation": "DELETE /api/v1/templates/{id}",
+    "name": "templateTemplatesDeleteDelete",
+    "method": "DELETE",
+    "path": "/api/v1/templates/2",
+    "args": [
+      2
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {}
+    }
+  },
+  {
+    "operation": "GET /api/v1/templates/{id}/contents",
+    "name": "templateTemplateContentsIndexGet",
+    "method": "GET",
+    "path": "/api/v1/templates/2/contents",
+    "args": [
+      2
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": [
+        {
+          "id": 2,
+          "template_id": 2,
+          "channel": "email",
+          "text": "Welcome {{name}}",
+          "options": null
+        }
+      ]
+    }
+  },
+  {
+    "operation": "POST /api/v1/templates/{id}/contents",
+    "name": "templateTemplateContentsCreatePost",
+    "method": "POST",
+    "path": "/api/v1/templates/2/contents",
+    "args": [
+      2,
+      {
+        "channel": "email",
+        "text": "Welcome {{name}}"
+      }
+    ],
+    "body": {
+      "channel": "email",
+      "text": "Welcome {{name}}"
+    },
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": 2,
+        "template_id": 2,
+        "channel": "email",
+        "text": "Welcome {{name}}",
+        "options": null
+      }
+    }
+  },
+  {
+    "operation": "PATCH /api/v1/templates/contents/{content_id}",
+    "name": "templateTemplateContentsUpdatePatch",
+    "method": "PATCH",
+    "path": "/api/v1/templates/contents/2",
+    "args": [
+      2,
+      {
+        "text": "Hello"
+      }
+    ],
+    "body": {
+      "text": "Hello"
+    },
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": 2,
+        "template_id": 2,
+        "channel": "email",
+        "text": "Welcome {{name}}",
+        "options": null
+      }
+    }
+  },
+  {
+    "operation": "GET /api/v1/channels",
+    "name": "channelChannelsIndexGet",
+    "method": "GET",
+    "path": "/api/v1/channels",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": [
+        {
+          "id": 2,
+          "name": "Learners"
+        }
+      ]
+    }
+  },
+  {
+    "operation": "POST /api/v1/channels",
+    "name": "channelChannelsCreatePost",
+    "method": "POST",
+    "path": "/api/v1/channels",
+    "args": [
+      {
+        "name": "Learners"
+      }
+    ],
+    "body": {
+      "name": "Learners"
+    },
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": 2,
+        "name": "Learners"
+      }
+    }
+  },
+  {
+    "operation": "GET /api/v1/channels/{id}",
+    "name": "channelChannelsShowGet",
+    "method": "GET",
+    "path": "/api/v1/channels/2",
+    "args": [
+      2
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": 2,
+        "name": "Learners"
+      }
+    }
+  },
+  {
+    "operation": "PATCH /api/v1/channels/{id}",
+    "name": "channelChannelsUpdatePatch",
+    "method": "PATCH",
+    "path": "/api/v1/channels/2",
+    "args": [
+      2,
+      {
+        "name": "Learners"
+      }
+    ],
+    "body": {
+      "name": "Learners"
+    },
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": 2,
+        "name": "Learners"
+      }
+    }
+  },
+  {
+    "operation": "DELETE /api/v1/channels/{id}",
+    "name": "channelChannelsDeleteDelete",
+    "method": "DELETE",
+    "path": "/api/v1/channels/2",
+    "args": [
+      2
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {}
+    }
+  },
+  {
+    "operation": "GET /api/v1/services",
+    "name": "serviceServicesIndexGet",
+    "method": "GET",
+    "path": "/api/v1/services",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": [
+        {
+          "id": 2,
+          "name": "primary",
+          "provider": "smtp",
+          "channel": "email",
+          "options": null,
+          "priority": 0
+        }
+      ]
+    }
+  },
+  {
+    "operation": "POST /api/v1/services",
+    "name": "serviceServicesCreatePost",
+    "method": "POST",
+    "path": "/api/v1/services",
+    "args": [
+      {
+        "name": "primary",
+        "provider": "smtp",
+        "channel": "email",
+        "options": {
+          "host": "smtp.example.invalid"
+        }
+      }
+    ],
+    "body": {
+      "name": "primary",
+      "provider": "smtp",
+      "channel": "email",
+      "options": {
+        "host": "smtp.example.invalid"
+      }
+    },
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": 2,
+        "name": "primary",
+        "provider": "smtp",
+        "channel": "email",
+        "options": null,
+        "priority": 0
+      }
+    }
+  },
+  {
+    "operation": "POST /api/v1/services/setup-check",
+    "name": "serviceSetupCheckPost",
+    "method": "POST",
+    "path": "/api/v1/services/setup-check",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "configured": true,
+        "providerVerified": false,
+        "channels": {
+          "email": {
+            "configured": true,
+            "providerVerified": false
+          }
+        },
+        "providers": [
+          {
+            "id": 2,
+            "channel": "email",
+            "provider": "Smtp",
+            "configured": true,
+            "providerVerified": false,
+            "reason": "provider_rejected"
+          }
+        ],
+        "checkedAt": "2026-10-21T00:00:00Z"
+      }
+    }
+  },
+  {
+    "operation": "POST /api/v1/services/website-otp-readiness",
+    "name": "serviceReadinessPost",
+    "method": "POST",
+    "path": "/api/v1/services/website-otp-readiness",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "ready": false
+    }
+  },
+  {
+    "operation": "GET /api/v1/services/{id}",
+    "name": "serviceServicesShowGet",
+    "method": "GET",
+    "path": "/api/v1/services/2",
+    "args": [
+      2
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": 2,
+        "name": "primary",
+        "provider": "smtp",
+        "channel": "email",
+        "options": null,
+        "priority": 0
+      }
+    }
+  },
+  {
+    "operation": "PATCH /api/v1/services/{id}",
+    "name": "serviceServicesUpdatePatch",
+    "method": "PATCH",
+    "path": "/api/v1/services/2",
+    "args": [
+      2,
+      {
+        "priority": 3
+      }
+    ],
+    "body": {
+      "priority": 3
+    },
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": 2,
+        "name": "primary",
+        "provider": "smtp",
+        "channel": "email",
+        "options": null,
+        "priority": 0
+      }
+    }
+  },
+  {
+    "operation": "DELETE /api/v1/services/{id}",
+    "name": "serviceServicesDeleteDelete",
+    "method": "DELETE",
+    "path": "/api/v1/services/2",
+    "args": [
+      2
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {}
+    }
+  },
+  {
+    "operation": "GET /api/v1/notifications/me",
+    "name": "notificationNotificationsMyInboxGet",
+    "method": "GET",
+    "path": "/api/v1/notifications/me",
+    "args": [
+      {
+        "page[number]": 2,
+        "page[size]": 30
+      }
+    ],
+    "body": null,
+    "query": {
+      "page[number]": 2,
+      "page[size]": 30
+    },
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "data": [
+          {
+            "id": 2,
+            "title": null,
+            "description": "Welcome",
+            "path": null,
+            "destination": null,
+            "work_item_id": null,
+            "event": null,
+            "read": false,
+            "created_at": "2026-10-21T00:00:00"
+          }
+        ],
+        "meta": {
+          "page": 2,
+          "page_size": 30,
+          "total_items": 31,
+          "total_pages": 2
+        }
+      }
+    }
+  },
+  {
+    "operation": "PATCH /api/v1/notifications/me/read-all",
+    "name": "notificationNotificationsMyMarkAllReadPatch",
+    "method": "PATCH",
+    "path": "/api/v1/notifications/me/read-all",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "updated": 1
+      }
+    }
+  },
+  {
+    "operation": "PATCH /api/v1/notifications/me/{id}/read",
+    "name": "notificationNotificationsMyMarkReadPatch",
+    "method": "PATCH",
+    "path": "/api/v1/notifications/me/2/read",
+    "args": [
+      2
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": 2,
+        "title": null,
+        "description": "Welcome",
+        "path": null,
+        "destination": null,
+        "work_item_id": null,
+        "event": null,
+        "read": false,
+        "created_at": "2026-10-21T00:00:00"
+      }
+    }
+  },
+  {
+    "operation": "GET /api/v1/notifications",
+    "name": "notificationNotificationsIndexGet",
+    "method": "GET",
+    "path": "/api/v1/notifications",
+    "args": [
+      {
+        "page[number]": 2,
+        "page[size]": 30,
+        "recipient": "user"
+      }
+    ],
+    "body": null,
+    "query": {
+      "page[number]": 2,
+      "page[size]": 30,
+      "recipient": "user"
+    },
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "data": [
+          {
+            "id": 2,
+            "service_name": "website",
+            "template_id": 2,
+            "channel": "email",
+            "correlation_id": null,
+            "recipient": "user@example.invalid",
+            "status": "waiting",
+            "description": null,
+            "params": {
+              "name": "Learner"
+            },
+            "options": {},
+            "delivery_attempts": null,
+            "delivered": false,
+            "read": false,
+            "read_at": null,
+            "scheduled_at": null,
+            "sent_at": null,
+            "failed_at": null,
+            "created_at": "2026-10-21T00:00:00"
+          }
+        ],
+        "meta": {
+          "page": 2,
+          "page_size": 30,
+          "total_items": 31,
+          "total_pages": 2
+        }
+      }
+    }
+  },
+  {
+    "operation": "PATCH /api/v1/notifications/read-all",
+    "name": "notificationNotificationsMarkAllReadPatch",
+    "method": "PATCH",
+    "path": "/api/v1/notifications/read-all",
+    "args": [
+      {
+        "recipient": "user"
+      }
+    ],
+    "body": null,
+    "query": {
+      "recipient": "user"
+    },
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "updated": 1
+      }
+    }
+  },
+  {
+    "operation": "GET /api/v1/notifications/realtime/config",
+    "name": "notificationNotificationsRealtimeConfigGet",
+    "method": "GET",
+    "path": "/api/v1/notifications/realtime/config",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "ws_url": "wss://socket.invalid",
+        "app_key": "owned-key",
+        "channel": "private-user",
+        "event": "PrivateMessageEvent"
+      }
+    }
+  },
+  {
+    "operation": "POST /api/v1/notifications/realtime/auth",
+    "name": "notificationNotificationsRealtimeAuthPost",
+    "method": "POST",
+    "path": "/api/v1/notifications/realtime/auth",
+    "args": [
+      {
+        "socket_id": "12.34",
+        "channel_name": "private-user"
+      }
+    ],
+    "body": {
+      "socket_id": "12.34",
+      "channel_name": "private-user"
+    },
+    "query": null,
+    "response": {
+      "auth": "owned-fixture-signature"
+    }
+  },
+  {
+    "operation": "GET /api/v1/notifications/{id}",
+    "name": "notificationNotificationsShowGet",
+    "method": "GET",
+    "path": "/api/v1/notifications/2",
+    "args": [
+      2
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": 2,
+        "service_name": "website",
+        "template_id": 2,
+        "channel": "email",
+        "correlation_id": null,
+        "recipient": "user@example.invalid",
+        "status": "waiting",
+        "description": null,
+        "params": {
+          "name": "Learner"
+        },
+        "options": {},
+        "delivery_attempts": null,
+        "delivered": false,
+        "read": false,
+        "read_at": null,
+        "scheduled_at": null,
+        "sent_at": null,
+        "failed_at": null,
+        "created_at": "2026-10-21T00:00:00"
+      }
+    }
+  },
+  {
+    "operation": "PATCH /api/v1/notifications/{id}/read",
+    "name": "notificationNotificationsMarkReadPatch",
+    "method": "PATCH",
+    "path": "/api/v1/notifications/2/read",
+    "args": [
+      2,
+      {
+        "recipient": "user"
+      }
+    ],
+    "body": null,
+    "query": {
+      "recipient": "user"
+    },
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": 2,
+        "service_name": "website",
+        "template_id": 2,
+        "channel": "email",
+        "correlation_id": null,
+        "recipient": "user@example.invalid",
+        "status": "waiting",
+        "description": null,
+        "params": {
+          "name": "Learner"
+        },
+        "options": {},
+        "delivery_attempts": null,
+        "delivered": false,
+        "read": false,
+        "read_at": null,
+        "scheduled_at": null,
+        "sent_at": null,
+        "failed_at": null,
+        "created_at": "2026-10-21T00:00:00"
+      }
+    }
+  },
+  {
+    "operation": "GET /api/v1/dashboard",
+    "name": "dashboardDashboardShowGet",
+    "method": "GET",
+    "path": "/api/v1/dashboard",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "templates": 2,
+        "notifications": 3,
+        "channels": 1,
+        "services": 1,
+        "providers": 5
+      }
+    }
+  },
+  {
+    "operation": "GET /api/v1/integration/rabbitmq",
+    "name": "integrationRabbitmqIntegrationShowGet",
+    "method": "GET",
+    "path": "/api/v1/integration/rabbitmq",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "queue": "messenger_queue",
+        "broker_url_hint": "amqp://user:pass@host:5672/%2f",
+        "sample_profile_id": "00000000-0000-4000-8000-000000000001",
+        "events": []
+      }
+    }
+  },
+  {
+    "operation": "GET /api/v1/integration/docs",
+    "name": "integrationIntegrationDocsShowGet",
+    "method": "GET",
+    "path": "/api/v1/integration/docs",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "direct": {
+          "transport": "rabbitmq",
+          "events": []
+        },
+        "sdk": []
+      }
+    }
+  },
+  {
+    "operation": "GET /api/v1/integration/flow",
+    "name": "integrationFlowIntegrationShowGet",
+    "method": "GET",
+    "path": "/api/v1/integration/flow",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "queue": "messenger_queue",
+        "events": []
+      }
+    }
+  },
+  {
+    "operation": "GET /api/v1/notifications/me/events",
+    "name": "inboxStreamEventsGet",
+    "method": "GET",
+    "path": "/api/v1/notifications/me/events",
+    "args": [
+      {
+        "cursor": 7,
+        "wait_seconds": 0
+      }
+    ],
+    "body": null,
+    "query": {
+      "cursor": 7,
+      "wait_seconds": 0
+    },
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "events": [
+          {
+            "sequence": 8,
+            "notification_id": 2,
+            "payload": {
+              "type": "notification.upserted",
+              "cursor": 8,
+              "event_id": "user:8",
+              "notification": {
+                "id": 2,
+                "title": null,
+                "description": "Welcome",
+                "path": null,
+                "destination": null,
+                "work_item_id": null,
+                "event": null,
+                "read": false,
+                "created_at": "2026-10-21T00:00:00",
+                "deleted": false
+              }
+            }
+          }
+        ],
+        "cursor": 8,
+        "has_more": false
+      }
+    }
+  },
+  {
+    "operation": "GET /api/v1/notifications/me/unread-count",
+    "name": "inboxStreamUnreadGet",
+    "method": "GET",
+    "path": "/api/v1/notifications/me/unread-count",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "unread_count": 1
+      }
+    }
+  },
+  {
+    "operation": "POST /api/v1/push/devices",
+    "name": "mobilePushRegisterPost",
+    "method": "POST",
+    "path": "/api/v1/push/devices",
+    "args": [
+      {
+        "application_id": "default",
+        "installation_id": "11111111-1111-4111-8111-111111111111",
+        "platform": "android",
+        "token": "owned-test-token-123456789",
+        "locale": "en"
+      }
+    ],
+    "body": {
+      "application_id": "default",
+      "installation_id": "11111111-1111-4111-8111-111111111111",
+      "platform": "android",
+      "token": "owned-test-token-123456789",
+      "locale": "en"
+    },
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": "11111111-1111-4111-8111-111111111111"
+      }
+    }
+  },
+  {
+    "operation": "DELETE /api/v1/push/devices/{id}",
+    "name": "mobilePushRevokeDelete",
+    "method": "DELETE",
+    "path": "/api/v1/push/devices/11111111-1111-4111-8111-111111111111",
+    "args": [
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "revoked": true
+      }
+    }
+  },
+  {
+    "operation": "GET /api/v1/web-push/config",
+    "name": "webPushConfigGet",
+    "method": "GET",
+    "path": "/api/v1/web-push/config",
+    "args": [],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "enabled": false,
+        "public_key": null
+      }
+    }
+  },
+  {
+    "operation": "POST /api/v1/web-push/subscriptions",
+    "name": "webPushSubscribePost",
+    "method": "POST",
+    "path": "/api/v1/web-push/subscriptions",
+    "args": [
+      {
+        "subscription": {
+          "endpoint": "https://fcm.googleapis.com/test",
+          "keys": {
+            "p256dh": "owned-test",
+            "auth": "owned-test"
+          }
+        }
+      }
+    ],
+    "body": {
+      "subscription": {
+        "endpoint": "https://fcm.googleapis.com/test",
+        "keys": {
+          "p256dh": "owned-test",
+          "auth": "owned-test"
+        }
+      }
+    },
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": "11111111-1111-4111-8111-111111111111"
+      }
+    }
+  },
+  {
+    "operation": "DELETE /api/v1/web-push/subscriptions/{id}",
+    "name": "webPushUnsubscribeDelete",
+    "method": "DELETE",
+    "path": "/api/v1/web-push/subscriptions/11111111-1111-4111-8111-111111111111",
+    "args": [
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "removed": true
+      }
+    }
+  },
+  {
+    "operation": "POST /api/v1/web-push/subscriptions/{id}/test",
+    "name": "webPushTestPushPost",
+    "method": "POST",
+    "path": "/api/v1/web-push/subscriptions/11111111-1111-4111-8111-111111111111/test",
+    "args": [
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": "11111111-1111-4111-8111-111111111111",
+        "status": "pending"
+      }
+    }
+  },
+  {
+    "operation": "GET /api/v1/web-push/deliveries/{id}",
+    "name": "webPushDeliveryGet",
+    "method": "GET",
+    "path": "/api/v1/web-push/deliveries/11111111-1111-4111-8111-111111111111",
+    "args": [
+      "11111111-1111-4111-8111-111111111111"
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "id": "11111111-1111-4111-8111-111111111111",
+        "status": "pending",
+        "provider_status": null
+      }
+    }
+  },
+  {
+    "operation": "POST /api/v1/notifications",
+    "name": "notificationNotificationsSendPost",
+    "method": "POST",
+    "path": "/api/v1/notifications",
+    "args": [
+      {
+        "template_name": "welcome",
+        "channel": "email",
+        "recipient": "user@example.invalid",
+        "params": {
+          "name": "Learner"
+        }
+      }
+    ],
+    "body": {
+      "template_name": "welcome",
+      "channel": "email",
+      "recipient": "user@example.invalid",
+      "params": {
+        "name": "Learner"
+      }
+    },
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "notification_ids": [
+          2
+        ]
+      }
+    }
+  },
+  {
+    "operation": "POST /api/v1/channels/subscribe",
+    "name": "channelChannelsSubscribePost",
+    "method": "POST",
+    "path": "/api/v1/channels/subscribe",
+    "args": [
+      {
+        "channel_id": 2,
+        "user_id": "user",
+        "subscribed": false
+      }
+    ],
+    "body": {
+      "channel_id": 2,
+      "user_id": "user",
+      "subscribed": false
+    },
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {}
+    }
+  }
+]

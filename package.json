@@ -1,6 +1,6 @@
 {
   "name": "faiber-ts-sdk-monorepo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Framework-agnostic TypeScript SDK for Faiber services",
   "private": true,
   "workspaces": [
@@ -8,8 +8,8 @@
   ],
   "scripts": {
     "clean": "node scripts/clean.mjs",
-    "generate": "node scripts/generate-openapi.mjs",
-    "generate:check": "node scripts/generate-openapi.mjs --check",
+    "generate": "npm run contracts:extract && npm run contracts:generate && node scripts/generate-manage-actions.mjs",
+    "generate:check": "npm run contracts:audit && node scripts/generate-service-operations.mjs service-contracts.json --check && node scripts/generate-manage-actions.mjs --check",
     "contracts:extract": "node scripts/extract-service-contracts.mjs",
     "contracts:generate": "node scripts/generate-service-operations.mjs",
     "contracts:audit": "node scripts/audit-service-contracts.mjs",
@@ -19,7 +19,11 @@
     "typecheck": "tsc -b --pretty false",
     "test:types": "tsc -p tests/tsconfig.json --pretty false",
     "test": "npm run test:types && node --test tests/*.test.mjs",
-    "pack:check": "node scripts/pack-check.mjs"
+    "pack:check": "npm run provenance:check && node scripts/pack-check.mjs",
+    "openapi:generate": "node scripts/generate-openapi.mjs",
+    "openapi:check": "node scripts/generate-openapi.mjs --check",
+    "provenance:generate": "node scripts/package-provenance.mjs",
+    "provenance:check": "node scripts/package-provenance.mjs --check"
   },
   "engines": {
     "node": ">=18"

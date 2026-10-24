@@ -1,0 +1,24 @@
+[
+  {
+    "id": "build-1792586890966-infera-modules",
+    "service": "infera-modules",
+    "status": "success",
+    "requestedCommit": "2a1063315b85c4c222763b88a463b489b2e6d521",
+    "verifiedCommit": "2a1063315b85c4c222763b88a463b489b2e6d521",
+    "tag": "193.151.155.174:5000/infera-modules:2a1063315b85",
+    "jobName": "build-infera-modules-1792586890966",
+    "podName": "build-infera-modules-1792586890966-z5nkx",
+    "error": null
+  },
+  {
+    "id": "build-1792586890946-infera-flow",
+    "service": "infera-flow",
+    "status": "success",
+    "requestedCommit": "a9a0f523379733ecbdec07d4ebf43dda67fee767",
+    "verifiedCommit": "a9a0f523379733ecbdec07d4ebf43dda67fee767",
+    "tag": "193.151.155.174:5000/infera-flow:a9a0f5233797",
+    "jobName": "build-infera-flow-1792586890946",
+    "podName": "build-infera-flow-1792586890946-kx9kd",
+    "error": null
+  }
+]

@@ -1,0 +1,1038 @@
+[
+  {
+    "operation": "GET /",
+    "name": "routerRootStatusGet",
+    "method": "GET",
+    "path": "/",
+    "args": [],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "version": "fixture"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/openapi.json",
+    "name": "routerOpenapiJsonGet",
+    "method": "GET",
+    "path": "/api/openapi.json",
+    "args": [],
+    "query": null,
+    "body": null,
+    "response": {
+      "openapi": "3.1.0",
+      "info": {
+        "title": "Owned Payment",
+        "version": "fixture"
+      },
+      "paths": {}
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/auth/self",
+    "name": "sessionGetSelfGet",
+    "method": "GET",
+    "path": "/api/v1/auth/self",
+    "args": [],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "user_id": "00000000-0000-4000-8000-000000000007",
+        "roles": [
+          "admin"
+        ],
+        "permissions": [
+          "admin:gateway:read"
+        ]
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/gateways",
+    "name": "gatewayIndexGet",
+    "method": "GET",
+    "path": "/api/v1/gateways",
+    "args": [
+      {
+        "status": "active",
+        "page[number]": 2,
+        "page[size]": 3
+      }
+    ],
+    "query": {
+      "status": "active",
+      "page[number]": 2,
+      "page[size]": 3
+    },
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "data": [
+          {
+            "id": 7,
+            "name": "Owned fixture",
+            "provider": "mock",
+            "options": {
+              "merchant": "encrypted-fixture"
+            },
+            "sandbox": null,
+            "priority": 0,
+            "status": "inactive",
+            "created_at": "2026-10-21T00:00:00Z",
+            "updated_at": "2026-10-21T00:00:00Z"
+          }
+        ],
+        "meta": {
+          "page": 1,
+          "page_size": 20,
+          "total_items": 1,
+          "total_pages": 1
+        }
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "POST /api/v1/gateways",
+    "name": "gatewayStorePost",
+    "method": "POST",
+    "path": "/api/v1/gateways",
+    "args": [
+      {
+        "name": "Owned fixture",
+        "provider": "mock",
+        "sandbox": false,
+        "options": {
+          "merchant": "fixture"
+        }
+      }
+    ],
+    "query": null,
+    "body": {
+      "name": "Owned fixture",
+      "provider": "mock",
+      "sandbox": false,
+      "options": {
+        "merchant": "fixture"
+      }
+    },
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "id": 7,
+        "name": "Owned fixture",
+        "provider": "mock",
+        "options": {
+          "merchant": "encrypted-fixture"
+        },
+        "sandbox": null,
+        "priority": 0,
+        "status": "inactive",
+        "created_at": "2026-10-21T00:00:00Z",
+        "updated_at": "2026-10-21T00:00:00Z"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "DELETE /api/v1/gateways/{id}",
+    "name": "gatewayDestroyDelete",
+    "method": "DELETE",
+    "path": "/api/v1/gateways/7",
+    "args": [
+      7
+    ],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "id": 7,
+        "name": "Owned fixture",
+        "provider": "mock",
+        "options": {
+          "merchant": "encrypted-fixture"
+        },
+        "sandbox": null,
+        "priority": 0,
+        "status": "inactive",
+        "created_at": "2026-10-21T00:00:00Z",
+        "updated_at": "2026-10-21T00:00:00Z"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/gateways/{id}",
+    "name": "gatewayShowGet",
+    "method": "GET",
+    "path": "/api/v1/gateways/7",
+    "args": [
+      7
+    ],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "id": 7,
+        "name": "Owned fixture",
+        "provider": "mock",
+        "options": {
+          "merchant": "encrypted-fixture"
+        },
+        "sandbox": null,
+        "priority": 0,
+        "status": "inactive",
+        "created_at": "2026-10-21T00:00:00Z",
+        "updated_at": "2026-10-21T00:00:00Z"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "PATCH /api/v1/gateways/{id}",
+    "name": "gatewayUpdatePatch",
+    "method": "PATCH",
+    "path": "/api/v1/gateways/7",
+    "args": [
+      7,
+      {
+        "name": "Owned fixture",
+        "provider": "mock",
+        "sandbox": false,
+        "options": {
+          "merchant": "fixture"
+        }
+      }
+    ],
+    "query": null,
+    "body": {
+      "name": "Owned fixture",
+      "provider": "mock",
+      "sandbox": false,
+      "options": {
+        "merchant": "fixture"
+      }
+    },
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "id": 7,
+        "name": "Owned fixture",
+        "provider": "mock",
+        "options": {
+          "merchant": "encrypted-fixture"
+        },
+        "sandbox": null,
+        "priority": 0,
+        "status": "inactive",
+        "created_at": "2026-10-21T00:00:00Z",
+        "updated_at": "2026-10-21T00:00:00Z"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/gateways/options",
+    "name": "gatewayOptionsGet",
+    "method": "GET",
+    "path": "/api/v1/gateways/options",
+    "args": [],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "providers": [
+          {
+            "value": "mock",
+            "label": "Mock (test)"
+          }
+        ],
+        "statuses": [
+          {
+            "value": "inactive",
+            "label": "Inactive"
+          }
+        ]
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "POST /api/v1/gateways/setup-check",
+    "name": "gatewaySetupCheckPost",
+    "method": "POST",
+    "path": "/api/v1/gateways/setup-check",
+    "args": [],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "configured": false,
+        "providerVerified": false,
+        "providers": [
+          {
+            "id": 7,
+            "provider": "mock",
+            "configured": false,
+            "providerVerified": false,
+            "reason": "missing_production_credentials"
+          }
+        ],
+        "checkedAt": "2026-10-21T00:00:00Z"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/integration/docs",
+    "name": "integrationIntegrationDocsShowGet",
+    "method": "GET",
+    "path": "/api/v1/integration/docs",
+    "args": [],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "direct": {
+          "transport": "http",
+          "events": [
+            {
+              "event_name": "DirectPaymentActionJob",
+              "payload_fields": [
+                {
+                  "name": "success",
+                  "field_type": "boolean",
+                  "required": true,
+                  "description": "Payment succeeded"
+                }
+              ]
+            }
+          ]
+        },
+        "sdk": [
+          {
+            "event_name": "payment.create",
+            "method": "create",
+            "language": "rust",
+            "cargo_dep": "owned fixture",
+            "code": "owned fixture"
+          }
+        ]
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/integration/flow",
+    "name": "integrationFlowIntegrationShowGet",
+    "method": "GET",
+    "path": "/api/v1/integration/flow",
+    "args": [],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "queue": "payment_queue",
+        "events": [
+          {
+            "event_name": "DirectPaymentActionJob",
+            "payload_fields": [
+              {
+                "name": "success",
+                "field_type": "boolean",
+                "required": true,
+                "description": "Payment succeeded"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/internal/2done/availability",
+    "name": "productPlansAvailabilityGet",
+    "method": "GET",
+    "path": "/api/v1/internal/2done/availability",
+    "args": [],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "available": true,
+        "sandbox": true
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "POST /api/v1/internal/2done/payment",
+    "name": "productPlansCreatePost",
+    "method": "POST",
+    "path": "/api/v1/internal/2done/payment",
+    "args": [
+      {
+        "amount": 100,
+        "service_name": "fixture",
+        "service_model": "order",
+        "service_id": "owned",
+        "queue_name": "fixture_queue",
+        "idempotency_key": "fixture:owned"
+      }
+    ],
+    "query": null,
+    "body": {
+      "amount": 100,
+      "service_name": "fixture",
+      "service_model": "order",
+      "service_id": "owned",
+      "queue_name": "fixture_queue",
+      "idempotency_key": "fixture:owned"
+    },
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "transaction": "00000000-0000-4000-8000-000000000007",
+        "redirect_url": "https://owned.invalid/payments/00000000-0000-4000-8000-000000000007/redirect"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/internal/2done/transactions/{id}",
+    "name": "productPlansReceiptGet",
+    "method": "GET",
+    "path": "/api/v1/internal/2done/transactions/00000000-0000-4000-8000-000000000007",
+    "args": [
+      "00000000-0000-4000-8000-000000000007"
+    ],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "uuid": "00000000-0000-4000-8000-000000000007",
+        "amount": 100,
+        "status": "pending",
+        "service_name": "fixture",
+        "service_model_type": "order",
+        "service_model_id": "00000000-0000-4000-8000-000000000007"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/internal/asset/purchases/{id}",
+    "name": "assetCheckoutReceiptGet",
+    "method": "GET",
+    "path": "/api/v1/internal/asset/purchases/00000000-0000-4000-8000-000000000007",
+    "args": [
+      "00000000-0000-4000-8000-000000000007"
+    ],
+    "query": null,
+    "body": null,
+    "response": {
+      "purchaseId": "owned",
+      "transaction": "owned",
+      "amount": 100,
+      "currency": "IRR",
+      "kind": "topup",
+      "providerVerified": false,
+      "status": "pending"
+    },
+    "text": false
+  },
+  {
+    "operation": "POST /api/v1/internal/fitness/payment",
+    "name": "fitnessCreatePost",
+    "method": "POST",
+    "path": "/api/v1/internal/fitness/payment",
+    "args": [
+      {
+        "amount": 100,
+        "service_name": "fixture",
+        "service_model": "order",
+        "service_id": "owned",
+        "queue_name": "fixture_queue",
+        "idempotency_key": "fixture:owned"
+      }
+    ],
+    "query": null,
+    "body": {
+      "amount": 100,
+      "service_name": "fixture",
+      "service_model": "order",
+      "service_id": "owned",
+      "queue_name": "fixture_queue",
+      "idempotency_key": "fixture:owned"
+    },
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "transaction": "00000000-0000-4000-8000-000000000007",
+        "redirect_url": "https://owned.invalid/payments/00000000-0000-4000-8000-000000000007/redirect"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/internal/fitness/transactions/{id}",
+    "name": "fitnessReceiptGet",
+    "method": "GET",
+    "path": "/api/v1/internal/fitness/transactions/00000000-0000-4000-8000-000000000007",
+    "args": [
+      "00000000-0000-4000-8000-000000000007"
+    ],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "uuid": "00000000-0000-4000-8000-000000000007",
+        "amount": 100,
+        "status": "pending",
+        "service_name": "fixture",
+        "service_model_type": "order",
+        "service_model_id": "00000000-0000-4000-8000-000000000007"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "POST /api/v1/internal/fitness/transactions/{id}/retry",
+    "name": "fitnessRetryPost",
+    "method": "POST",
+    "path": "/api/v1/internal/fitness/transactions/00000000-0000-4000-8000-000000000007/retry",
+    "args": [
+      "00000000-0000-4000-8000-000000000007"
+    ],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "transaction": "00000000-0000-4000-8000-000000000007",
+        "redirect_url": "https://owned.invalid/payments/00000000-0000-4000-8000-000000000007/redirect"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "POST /api/v1/internal/shop/payment",
+    "name": "shopCheckoutCreatePost",
+    "method": "POST",
+    "path": "/api/v1/internal/shop/payment",
+    "args": [
+      {
+        "amount": 100,
+        "service_name": "fixture",
+        "service_model": "order",
+        "service_id": "owned",
+        "queue_name": "fixture_queue",
+        "idempotency_key": "fixture:owned"
+      }
+    ],
+    "query": null,
+    "body": {
+      "amount": 100,
+      "service_name": "fixture",
+      "service_model": "order",
+      "service_id": "owned",
+      "queue_name": "fixture_queue",
+      "idempotency_key": "fixture:owned"
+    },
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "transaction": "00000000-0000-4000-8000-000000000007",
+        "redirect_url": "https://owned.invalid/payments/00000000-0000-4000-8000-000000000007/redirect"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/internal/shop/readiness",
+    "name": "shopCheckoutReadinessGet",
+    "method": "GET",
+    "path": "/api/v1/internal/shop/readiness",
+    "args": [],
+    "query": null,
+    "body": null,
+    "response": {
+      "configured": true
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/internal/shop/transactions/{id}",
+    "name": "shopCheckoutReceiptGet",
+    "method": "GET",
+    "path": "/api/v1/internal/shop/transactions/00000000-0000-4000-8000-000000000007",
+    "args": [
+      "00000000-0000-4000-8000-000000000007"
+    ],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "transaction": "00000000-0000-4000-8000-000000000007",
+        "order_id": "00000000-0000-4000-8000-000000000007",
+        "site": "fixture",
+        "amount": 100,
+        "status": "pending",
+        "providerVerified": true
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "POST /api/v1/payment",
+    "name": "paymentCreatePaymentPost",
+    "method": "POST",
+    "path": "/api/v1/payment",
+    "args": [
+      {
+        "amount": 100,
+        "service_name": "fixture",
+        "service_model": "order",
+        "service_id": "owned",
+        "queue_name": "fixture_queue",
+        "idempotency_key": "fixture:owned"
+      }
+    ],
+    "query": null,
+    "body": {
+      "amount": 100,
+      "service_name": "fixture",
+      "service_model": "order",
+      "service_id": "owned",
+      "queue_name": "fixture_queue",
+      "idempotency_key": "fixture:owned"
+    },
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "transaction": "00000000-0000-4000-8000-000000000007",
+        "redirect_url": "https://owned.invalid/payments/00000000-0000-4000-8000-000000000007/redirect"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/settings",
+    "name": "settingsShowGet",
+    "method": "GET",
+    "path": "/api/v1/settings",
+    "args": [],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "safe_fallback_url": "https://owned.invalid/result"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "PATCH /api/v1/settings",
+    "name": "settingsUpdatePatch",
+    "method": "PATCH",
+    "path": "/api/v1/settings",
+    "args": [
+      {
+        "safe_fallback_url": "https://owned.invalid/result"
+      }
+    ],
+    "query": null,
+    "body": {
+      "safe_fallback_url": "https://owned.invalid/result"
+    },
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "safe_fallback_url": "https://owned.invalid/result"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/transactions",
+    "name": "transactionIndexGet",
+    "method": "GET",
+    "path": "/api/v1/transactions",
+    "args": [
+      {
+        "status": "pending",
+        "page[number]": 2,
+        "page[size]": 3
+      }
+    ],
+    "query": {
+      "status": "pending",
+      "page[number]": 2,
+      "page[size]": 3
+    },
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "transactions": {
+          "data": [
+            {
+              "uuid": "00000000-0000-4000-8000-000000000007",
+              "amount": 100,
+              "gateway_id": 7,
+              "gateway": null,
+              "description": null,
+              "status": "pending",
+              "service_name": "fixture",
+              "service_model_type": "order",
+              "service_model_id": "00000000-0000-4000-8000-000000000007",
+              "callback_url": null,
+              "authority": null,
+              "user_ip": null,
+              "queue_name": "fixture_queue",
+              "tracking_code": null,
+              "masked_card_number": null,
+              "created_at": "2026-10-21T00:00:00Z",
+              "updated_at": "2026-10-21T00:00:00Z"
+            }
+          ],
+          "meta": {
+            "page": 1,
+            "page_size": 20,
+            "total_items": 1,
+            "total_pages": 1
+          }
+        },
+        "summaries": {
+          "status": {
+            "accepted": 0,
+            "pending": 100,
+            "rejected": 0
+          },
+          "services": [
+            {
+              "name": "order",
+              "amount": 100
+            }
+          ]
+        },
+        "service_names": [
+          "fixture"
+        ],
+        "gateways": [
+          {
+            "id": 7,
+            "name": "Owned fixture",
+            "provider": "mock"
+          }
+        ]
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/transactions/{uuid}",
+    "name": "routerShowStatusGet",
+    "method": "GET",
+    "path": "/api/v1/transactions/00000000-0000-4000-8000-000000000007",
+    "args": [
+      "00000000-0000-4000-8000-000000000007"
+    ],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "status": "pending"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "POST /api/v1/transactions/{uuid}/reject",
+    "name": "transactionRejectPaymentPost",
+    "method": "POST",
+    "path": "/api/v1/transactions/00000000-0000-4000-8000-000000000007/reject",
+    "args": [
+      "00000000-0000-4000-8000-000000000007"
+    ],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "transaction": {
+          "uuid": "00000000-0000-4000-8000-000000000007",
+          "amount": 100,
+          "gateway_id": 7,
+          "gateway": null,
+          "description": null,
+          "status": "rejected",
+          "service_name": "fixture",
+          "service_model_type": "order",
+          "service_model_id": "00000000-0000-4000-8000-000000000007",
+          "callback_url": null,
+          "authority": null,
+          "user_ip": null,
+          "queue_name": "fixture_queue",
+          "tracking_code": null,
+          "masked_card_number": null,
+          "created_at": "2026-10-21T00:00:00Z",
+          "updated_at": "2026-10-21T00:00:00Z"
+        },
+        "verification": {
+          "id": "00000000-0000-4000-8000-000000000007",
+          "transaction_uuid": "00000000-0000-4000-8000-000000000007",
+          "verifier_user_id": "00000000-0000-4000-8000-000000000007",
+          "successful": false,
+          "previous_status": "pending",
+          "resulting_status": "rejected",
+          "tracking_code": null,
+          "message": "owned decline",
+          "created_at": "2026-10-21T00:00:00Z"
+        }
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/transactions/{uuid}/verifications",
+    "name": "transactionVerificationLogsGet",
+    "method": "GET",
+    "path": "/api/v1/transactions/00000000-0000-4000-8000-000000000007/verifications",
+    "args": [
+      "00000000-0000-4000-8000-000000000007"
+    ],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": [
+        {
+          "id": "00000000-0000-4000-8000-000000000007",
+          "transaction_uuid": "00000000-0000-4000-8000-000000000007",
+          "verifier_user_id": "00000000-0000-4000-8000-000000000007",
+          "successful": false,
+          "previous_status": "pending",
+          "resulting_status": "rejected",
+          "tracking_code": null,
+          "message": "owned decline",
+          "created_at": "2026-10-21T00:00:00Z"
+        }
+      ]
+    },
+    "text": false
+  },
+  {
+    "operation": "POST /api/v1/transactions/{uuid}/verify",
+    "name": "transactionVerifyPaymentPost",
+    "method": "POST",
+    "path": "/api/v1/transactions/00000000-0000-4000-8000-000000000007/verify",
+    "args": [
+      "00000000-0000-4000-8000-000000000007"
+    ],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "transaction": {
+          "uuid": "00000000-0000-4000-8000-000000000007",
+          "amount": 100,
+          "gateway_id": 7,
+          "gateway": null,
+          "description": null,
+          "status": "rejected",
+          "service_name": "fixture",
+          "service_model_type": "order",
+          "service_model_id": "00000000-0000-4000-8000-000000000007",
+          "callback_url": null,
+          "authority": null,
+          "user_ip": null,
+          "queue_name": "fixture_queue",
+          "tracking_code": null,
+          "masked_card_number": null,
+          "created_at": "2026-10-21T00:00:00Z",
+          "updated_at": "2026-10-21T00:00:00Z"
+        },
+        "verification": {
+          "id": "00000000-0000-4000-8000-000000000007",
+          "transaction_uuid": "00000000-0000-4000-8000-000000000007",
+          "verifier_user_id": "00000000-0000-4000-8000-000000000007",
+          "successful": false,
+          "previous_status": "pending",
+          "resulting_status": "rejected",
+          "tracking_code": null,
+          "message": "owned decline",
+          "created_at": "2026-10-21T00:00:00Z"
+        }
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /api/v1/transactions/daily-income",
+    "name": "transactionDailyIncomeGet",
+    "method": "GET",
+    "path": "/api/v1/transactions/daily-income",
+    "args": [
+      {
+        "days": 7
+      }
+    ],
+    "query": {
+      "days": 7
+    },
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": [
+        {
+          "date": "2026-10-21",
+          "amount": 0
+        }
+      ]
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /health",
+    "name": "routerStatusRouteGet",
+    "method": "GET",
+    "path": "/health",
+    "args": [],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "version": "fixture"
+      }
+    },
+    "text": false
+  },
+  {
+    "operation": "GET /payments/{uuid}/redirect",
+    "name": "paymentWebRedirectGet",
+    "method": "GET",
+    "path": "/payments/00000000-0000-4000-8000-000000000007/redirect",
+    "args": [
+      "00000000-0000-4000-8000-000000000007"
+    ],
+    "query": null,
+    "body": null,
+    "response": "<!doctype html><title>Owned fixture</title>",
+    "text": true
+  },
+  {
+    "operation": "GET /payments/callbacks/{provider}",
+    "name": "paymentWebCallbackGet",
+    "method": "GET",
+    "path": "/payments/callbacks/mock",
+    "args": [
+      "mock",
+      {
+        "Authority": "owned authority/+",
+        "transid": "second",
+        "paymentNumber": "third"
+      }
+    ],
+    "query": {
+      "Authority": "owned authority/+",
+      "transid": "second",
+      "paymentNumber": "third"
+    },
+    "body": null,
+    "response": "<!doctype html><title>Owned fixture</title>",
+    "text": true
+  },
+  {
+    "operation": "POST /payments/callbacks/{provider}",
+    "name": "paymentWebCallbackPost",
+    "method": "POST",
+    "path": "/payments/callbacks/mock",
+    "args": [
+      "mock",
+      {
+        "Authority": "owned authority/+",
+        "transid": "second",
+        "paymentNumber": "third"
+      }
+    ],
+    "query": {
+      "Authority": "owned authority/+",
+      "transid": "second",
+      "paymentNumber": "third"
+    },
+    "body": null,
+    "response": "<!doctype html><title>Owned fixture</title>",
+    "text": true
+  },
+  {
+    "operation": "GET /up",
+    "name": "routerUpGet",
+    "method": "GET",
+    "path": "/up",
+    "args": [],
+    "query": null,
+    "body": null,
+    "response": {
+      "status": "success",
+      "message": "owned fixture",
+      "data": {
+        "version": "fixture"
+      }
+    },
+    "text": false
+  }
+]
