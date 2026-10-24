@@ -1,0 +1,9 @@
+manage-authority-components 0 26
+manage-authority-binary 0 0
+agentic-manage-authority 101 0
+{
+  "status": "failed",
+  "failure": "agentic-manage-authority failed; see retained log",
+  "source_unchanged_during_run": true,
+  "duration_seconds": 62.266
+}

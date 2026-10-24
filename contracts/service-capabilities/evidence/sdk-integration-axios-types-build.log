@@ -1,0 +1,16 @@
+
+> faiber-ts-sdk-monorepo@0.24.1 build
+> tsc -b
+
+packages/crm/src/index.ts(46,3): error TS2394: This overload signature is not compatible with its implementation signature.
+packages/chat/src/index.ts(90,208): error TS2345: Argument of type 'RequestOptions<RoutesRealtimeAuthPostInput> | undefined' is not assignable to parameter of type 'RequestOptions<URLSearchParams> | undefined'.
+  Type 'RequestOptions<RoutesRealtimeAuthPostInput>' is not assignable to type 'RequestOptions<URLSearchParams> | undefined'.
+    Type 'RequestOptions<RoutesRealtimeAuthPostInput>' is not assignable to type 'RequestOptions<URLSearchParams>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Type 'RequestOptions<RoutesRealtimeAuthPostInput>' is not assignable to type '{ withXSRFToken?: boolean | ((config: RequestOptionsContext<URLSearchParams>) => boolean | undefined); }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+        Types of property 'withXSRFToken' are incompatible.
+          Type 'boolean | ((config: RequestOptionsContext<RoutesRealtimeAuthPostInput>) => boolean | undefined)' is not assignable to type 'boolean | ((config: RequestOptionsContext<URLSearchParams>) => boolean | undefined)'.
+            Type '(config: RequestOptionsContext<RoutesRealtimeAuthPostInput>) => boolean | undefined' is not assignable to type 'boolean | ((config: RequestOptionsContext<URLSearchParams>) => boolean | undefined)'.
+              Type '(config: RequestOptionsContext<RoutesRealtimeAuthPostInput>) => boolean | undefined' is not assignable to type '(config: RequestOptionsContext<URLSearchParams>) => boolean | undefined'.
+                Types of parameters 'config' and 'config' are incompatible.
+                  Type 'RequestOptionsContext<URLSearchParams>' is not assignable to type 'RequestOptionsContext<RoutesRealtimeAuthPostInput>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                    Type 'URLSearchParams' is missing the following properties from type 'RoutesRealtimeAuthPostInput': "socket_id", "channel_name"

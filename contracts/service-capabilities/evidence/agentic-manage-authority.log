@@ -1,65 +1,21 @@
 
 running 3 tests
 test project::admin_open::authority_tests::configured_signing_has_no_fixed_fallback_and_retains_existing_bytes ... ok
-test project::admin_open::authority_tests::real_manage_agentic_http_rechecks_current_mongo_authority_across_restart_and_revocation ... ok
+test project::admin_open::authority_tests::real_manage_agentic_http_rechecks_current_mongo_authority_across_restart_and_revocation ... Manage actual SDK probe: {"status":"passed","transport":"actual Axios/fetch over owned HTTP","scope":"create/paged list/messages/delete; query, project and billing denials; no model call or service mutation receipt"}
+
+ok
 test project::admin_open::tests::admin_hosts_are_stable_and_project_isolated_without_customer_dns ... ok
 
-test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 490 filtered out; finished in 2.18s
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 490 filtered out; finished in 6.13s
 
-warning: patch `infera-flow-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/Service/faiber-sdk/crates/infera-flow-sdk)` was not used in the crate graph
-warning: patch `infera-idp-macro v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/Service/faiber-sdk/crates/infera-idp-macro)` was not used in the crate graph
-warning: patch `infera-messenger-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/Service/faiber-sdk/crates/infera-messenger-sdk)` was not used in the crate graph
-warning: patch `infera-payment-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/Service/faiber-sdk/crates/infera-payment-sdk)` was not used in the crate graph
+warning: patch `infera-flow-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-sdk-84a0e9a9/Service/faiber-sdk/crates/infera-flow-sdk)` was not used in the crate graph
+warning: patch `infera-idp-macro v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-sdk-84a0e9a9/Service/faiber-sdk/crates/infera-idp-macro)` was not used in the crate graph
+warning: patch `infera-messenger-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-sdk-84a0e9a9/Service/faiber-sdk/crates/infera-messenger-sdk)` was not used in the crate graph
+warning: patch `infera-payment-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-sdk-84a0e9a9/Service/faiber-sdk/crates/infera-payment-sdk)` was not used in the crate graph
 help: Check that the patched package version and available features are compatible
       with the dependency requirements. If the patch has a different version from
       what is locked in the Cargo.lock file, run `cargo update` to use the new
       version. This may also occur with an optional dependency that is not enabled.
-   Compiling serde_json v1.0.150
-   Compiling icu_normalizer v2.2.0
-   Compiling hyper v1.10.1
-   Compiling spki v0.7.3
-   Compiling event-listener v5.4.1
-   Compiling parking_lot_core v0.9.12
-   Compiling prefix-trie v0.8.4
-   Compiling derive_more-impl v2.1.1
-   Compiling tree-sitter-scss v1.0.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/infera-agentic/vendor/tree-sitter-scss)
-   Compiling tokio-stream v0.1.18
-   Compiling rust_decimal v1.42.1
-   Compiling tracing-subscriber v0.3.23
-   Compiling event-listener-strategy v0.5.4
-   Compiling x509-cert v0.2.5
-   Compiling pkcs5 v0.7.1
-   Compiling idna_adapter v1.2.2
-   Compiling async-channel v2.5.0
-   Compiling async-lock v3.4.2
-   Compiling idna v1.1.0
-   Compiling blocking v1.6.2
-   Compiling parking_lot v0.12.5
-   Compiling url v2.5.8
-   Compiling hyper-util v0.1.20
-   Compiling amq-protocol-types v8.3.1
-   Compiling tower-http v0.6.11
-   Compiling cms v0.2.3
-   Compiling amq-protocol-uri v8.3.1
-   Compiling hickory-proto v0.26.1
-   Compiling hyper-rustls v0.27.9
-   Compiling reqwest v0.12.28
-   Compiling pkcs12 v0.1.0
-   Compiling p12-keystore v0.2.1
-   Compiling async-global-executor v3.1.0
-   Compiling moka v0.12.15
-   Compiling axum v0.8.9
-   Compiling async-global-executor-trait v2.2.0
-   Compiling tcp-stream v0.30.9
-   Compiling hickory-net v0.26.1
-   Compiling async-global-executor-trait v3.1.0
-   Compiling amq-protocol-tcp v8.3.1
-   Compiling amq-protocol v8.3.1
-   Compiling attohttpc v0.28.5
-   Compiling bson v2.15.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/infera-agentic/vendor/bson)
-   Compiling hickory-resolver v0.26.1
-   Compiling aws-creds v0.37.0
-   Compiling lapin v3.7.2
 warning: hiding a lifetime that's elided elsewhere is confusing
    --> vendor/bson/src/de/error.rs:127:33
     |
@@ -145,9 +101,15 @@ help: use `'_` for type paths
 575 |     pub fn entry(&mut self, k: String) -> Entry<'_> {
     |                                                ++++
 
-   Compiling reqwest-eventsource v0.6.0
-   Compiling code_pipeline v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/infera-agentic/code_pipeline)
-   Compiling async-openai v0.30.1
+warning: `bson` (lib) generated 6 warnings (run `cargo fix --lib -p bson` to apply 6 suggestions)
+warning: unused import: `HeaderValue`
+ --> /Users/mohammadralizadeh/Infera/.task-worktrees/manage-sdk-84a0e9a9/Service/faiber-sdk/crates/infera-idp-sdk/src/middleware.rs:5:12
+  |
+5 |     http::{HeaderValue, Request},
+  |            ^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
 warning: variable does not need to be mutable
  --> code_pipeline/src/tsx/imports.rs:8:9
   |
@@ -158,36 +120,8 @@ warning: variable does not need to be mutable
   |
   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
 
-   Compiling derive_more v2.1.1
-   Compiling axum-extra v0.10.3
-   Compiling infera-idp-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/Service/faiber-sdk/crates/infera-idp-sdk)
-warning: unused import: `HeaderValue`
- --> /Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/Service/faiber-sdk/crates/infera-idp-sdk/src/middleware.rs:5:12
-  |
-5 |     http::{HeaderValue, Request},
-  |            ^^^^^^^^^^^
-  |
-  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
-
-   Compiling mongodb v3.8.0
-   Compiling rust-s3 v0.35.1
-   Compiling infera-profile-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/Service/faiber-sdk/crates/infera-profile-sdk)
-warning: `code_pipeline` (lib) generated 1 warning (run `cargo fix --lib -p code_pipeline` to apply 1 suggestion)
-   Compiling infera-asset-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/Service/faiber-sdk/crates/infera-asset-sdk)
 warning: `infera-idp-sdk` (lib) generated 1 warning (run `cargo fix --lib -p infera-idp-sdk` to apply 1 suggestion)
-   Compiling git2 v0.20.4
-warning: field `status` is never read
-  --> /Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/Service/faiber-sdk/crates/infera-profile-sdk/src/models.rs:58:9
-   |
-57 | pub(crate) struct ProfileListEnvelope {
-   |                   ------------------- field in this struct
-58 |     pub status: String,
-   |         ^^^^^^
-   |
-   = note: `ProfileListEnvelope` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
-   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
-
-   Compiling ide_core v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/infera-agentic/ide_core)
+warning: `code_pipeline` (lib) generated 1 warning (run `cargo fix --lib -p code_pipeline` to apply 1 suggestion)
 warning: variable does not need to be mutable
   --> ide_core/src/lib.rs:47:9
    |
@@ -214,13 +148,21 @@ warning: function `git_pull` is never used
      |
      = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
 
-   Compiling faiber-agent-core v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/infera-agentic/faiber-agent-core)
-   Compiling dashmap v6.2.1
-warning: `infera-profile-sdk` (lib) generated 1 warning
+   Compiling infera-profile-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-sdk-84a0e9a9/Service/faiber-sdk/crates/infera-profile-sdk)
 warning: `ide_core` (lib) generated 3 warnings (run `cargo fix --lib -p ide_core` to apply 2 suggestions)
-warning: `bson` (lib) generated 6 warnings (run `cargo fix --lib -p bson` to apply 6 suggestions)
-   Compiling domain v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/infera-agentic/domain)
-   Compiling infera_agentic v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/infera-agentic)
+warning: field `status` is never read
+  --> /Users/mohammadralizadeh/Infera/.task-worktrees/manage-sdk-84a0e9a9/Service/faiber-sdk/crates/infera-profile-sdk/src/models.rs:58:9
+   |
+57 | pub(crate) struct ProfileListEnvelope {
+   |                   ------------------- field in this struct
+58 |     pub status: String,
+   |         ^^^^^^
+   |
+   = note: `ProfileListEnvelope` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `infera-profile-sdk` (lib) generated 1 warning
+   Compiling infera_agentic v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-sdk-84a0e9a9/infera-agentic)
 warning: unused import: `require_any_permission`
  --> src/admin/mod.rs:6:70
   |
@@ -603,16 +545,14 @@ warning: function `link_service` is never used
 335 | pub async fn link_service(
     |              ^^^^^^^^^^^^
 
-warning: fields `id`, `thread_id`, `question`, and `created_at` are never read
+warning: fields `id`, `question`, and `created_at` are never read
   --> src/ask/hub.rs:17:9
    |
 16 | pub struct AskRequest {
    |            ---------- fields in this struct
 17 |     pub id: Uuid,
    |         ^^
-18 |     pub thread_id: Uuid,
-   |         ^^^^^^^^^
-19 |     pub user_id: Uuid,
+...
 20 |     pub question: String,
    |         ^^^^^^^^
 ...
@@ -621,16 +561,14 @@ warning: fields `id`, `thread_id`, `question`, and `created_at` are never read
    |
    = note: `AskRequest` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
 
-warning: fields `id`, `thread_id`, `name`, `args`, and `created_at` are never read
+warning: fields `id`, `name`, `args`, and `created_at` are never read
   --> src/browser/actions.rs:17:9
    |
 16 | pub struct BrowserAction {
    |            ------------- fields in this struct
 17 |     pub id: Uuid,
    |         ^^
-18 |     pub thread_id: Uuid,
-   |         ^^^^^^^^^
-19 |     pub user_id: Uuid,
+...
 20 |     pub name: String,
    |         ^^^^
 21 |     pub args: Value,
@@ -900,9 +838,9 @@ warning: function `default_design_json` is never used
   |        ^^^^^^^^^^^^^^^^^^^
 
 warning: function `messages_to_turns` is never used
-   --> src/ide/threads.rs:514:8
+   --> src/ide/threads.rs:534:8
     |
-514 | pub fn messages_to_turns(messages: &[IdeChatMessage]) -> Vec<crate::ai::models::ChatMessage> {
+534 | pub fn messages_to_turns(messages: &[IdeChatMessage]) -> Vec<crate::ai::models::ChatMessage> {
     |        ^^^^^^^^^^^^^^^^^
 
 warning: function `is_parallel_safe_tool` is never used
@@ -1161,5 +1099,5 @@ help: use `let _ = ...` to ignore the resulting value
     |         +++++++
 
 warning: `infera_agentic` (bin "infera_agentic" test) generated 130 warnings (run `cargo fix --bin "infera_agentic" -p infera_agentic --tests` to apply 39 suggestions)
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 53.81s
-     Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/infera-agentic/target/debug/deps/infera_agentic-47c54f8c88aafc92)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.15s
+     Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/infera-agentic/target/debug/deps/infera_agentic-326bead3083f2889)

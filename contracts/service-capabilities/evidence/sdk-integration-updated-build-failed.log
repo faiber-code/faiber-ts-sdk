@@ -1,0 +1,411 @@
+Warning: truncated output (original token count: 19531)
+Total output lines: 445
+
+packages/chat/src/index.ts(74,142): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<AttachmentUploadBody> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<AttachmentUploadBody>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<AttachmentUploadBody, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<AttachmentUploadBody, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<AttachmentUploadBody, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<AttachmentUploadBody, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<AttachmentUploadBody, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<AttachmentUploadBody, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<AttachmentUploadBody, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<AttachmentUploadBody, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'AttachmentUploadBody'.
+packages/chat/src/operations.ts(415,83): error TS2379: Argument of type '{ method: "POST"; url: string; data: URLSearchParams; headers: { "Content-Type": string; } | { "Content-Type": string; } | { "Content-Type": string; Accept?: AxiosHeaderValue; ... 16 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'AxiosRequestConfig<URLSearchParams, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<RoutesRealtimeAuthPostInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<RoutesRealtimeAuthPostInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<RoutesRealtimeAuthPostInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<URLSearchParams, any>' is not assignable to type 'InternalAxiosRequestConfig<RoutesRealtimeAuthPostInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'data' are incompatible.
+                Type 'URLSearchParams' is missing the following properties from type 'RoutesRealtimeAuthPostInput': "socket_id", "channel_name"
+packages/crm/src/index.ts(46,3): error TS2394: This overload signature is not compatible with its implementation signature.
+packages/crm/src/index.ts(50,146): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<ApiUpdateWorkflowNodeRoutePatchInput> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<ApiUpdateWorkflowNodeRoutePatchInput>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<ApiUpdateWorkflowNodeRoutePatchInput, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<ApiUpdateWorkflowNodeRoutePatchInput, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<ApiUpdateWorkflowNodeRoutePatchInput, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<ApiUpdateWorkflowNodeRoutePatchInput, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<ApiUpdateWorkflowNodeRoutePatchInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<ApiUpdateWorkflowNodeRoutePatchInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<ApiUpdateWorkflowNodeRoutePatchInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<ApiUpdateWorkflowNodeRoutePatchInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'ApiUpdateWorkflowNodeRoutePatchInput'.
+packages/flow/src/index.ts(8,171): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<JsonObject> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<JsonObject>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<JsonObject, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<JsonObject, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'JsonObject'.
+packages/flow/src/index.ts(12,127): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<JsonObject> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<JsonObject>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<JsonObject, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<JsonObject, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'JsonObject'.
+packages/idp/src/index.ts(10,110): error TS2379: Argument of type '{ headers: { "Content-Type": string; } | { "Content-Type": string; } | { "Content-Type": string; Accept?: AxiosHeaderValue; "Content-Length"?: AxiosHeaderValue; ... 15 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'RequestOptions<URLSearchParams>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<LoginInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<LoginInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<LoginInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<URLSearchParams, any>' is not assignable to type 'InternalAxiosRequestConfig<LoginInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'data' are incompatible.
+                Type 'URLSearchParams' is missing the following properties from type 'LoginInput': grant_type, username, password, client_id, client_secret
+packages/idp/src/index.ts(13,114): error TS2379: Argument of type '{ headers: { "Content-Type": string; } | { "Content-Type": string; } | { "Content-Type": string; Accept?: AxiosHeaderValue; "Content-Length"?: AxiosHeaderValue; ... 15 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'RequestOptions<URLSearchParams>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<WebLoginInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<WebLoginInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<WebLoginInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<URLSearchParams, any>' is not assignable to type 'InternalAxiosRequestConfig<WebLoginInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'data' are incompatible.
+                Type 'URLSearchParams' is missing the following properties from type 'WebLoginInput': grant_type, username, password, client_id, client_secret
+packages/idp/src/index.ts(16,118): error TS2379: Argument of type '{ headers: { "Content-Type": string; } | { "Content-Type": string; } | { "Content-Type": string; Accept?: AxiosHeaderValue; "Content-Length"?: AxiosHeaderValue; ... 15 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'RequestOptions<URLSearchParams>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<AccountLoginInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<AccountLoginInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<AccountLoginInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<URLSearchParams, any>' is not assignable to type 'InternalAxiosRequestConfig<AccountLoginInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'data' are incompatible.
+                Property 'account' is missing in type 'URLSearchParams' but required in type 'AccountLoginInput'.
+packages/idp/src/index.ts(19,114): error TS2379: Argument of type '{ headers: { "Content-Type": string; } | { "Content-Type": string; } | { "Content-Type": string; Accept?: AxiosHeaderValue; "Content-Length"?: AxiosHeaderValue; ... 15 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'RequestOptions<URLSearchParams>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<OtpLoginInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<OtpLoginInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<OtpLoginInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<URLSearchParams, any>' is not assignable to type 'InternalAxiosRequestConfig<OtpLoginInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'data' are incompatible.
+                Type 'URLSearchParams' is missing the following properties from type 'OtpLoginInput': grant_type, username, otp_code, client_id, client_secret
+packages/idp/src/operations.ts(131,81): error TS2379: Argument of type '{ method: "POST"; url: string; data: URLSearchParams; headers: { "Content-Type": string; } | { "Content-Type": string; } | { "Content-Type": string; Accept?: AxiosHeaderValue; ... 16 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'AxiosRequestConfig<URLSearchParams, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<AuthLoginAccountPostInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<AuthLoginAccountPostInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<AuthLoginAccountPostInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<URLSearchParams, any>' is not assignable to type 'InternalAxiosRequestConfig<AuthLoginAccountPostInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'data' are incompatible.
+                Property '"account"' is missing in type 'URLSearchParams' but required in type 'AuthLoginAccountPostInput'.
+packages/idp/src/operations.ts(272,74): error TS2379: Argument of type '{ method: "POST"; url: string; data: URLSearchParams; headers: { "Content-Type": string; } | { "Content-Type": string; } | { "Content-Type": string; Accept?: AxiosHeaderValue; ... 16 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'AxiosRequestConfig<URLSearchParams, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<AuthLoginPostInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<AuthLoginPostInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<AuthLoginPostInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<URLSearchParams, any>' is not assignable to type 'InternalAxiosRequestConfig<AuthLoginPostInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'data' are incompatible.
+                Type 'URLSearchParams' is missing the following properties from type 'AuthLoginPostInput': "grant_type", "username", "password", "client_id", "client_secret"
+packages/idp/src/operations.ts(304,74): error TS2379: Argument of type '{ method: "POST"; url: string; data: URLSearchParams; headers: { "Content-Type": string; } | { "Content-Type": string; } | { "Content-Type": string; Accept?: AxiosHeaderValue; ... 16 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'AxiosRequestConfig<URLSearchParams, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<AuthTokenPostInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<AuthTokenPostInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<AuthTokenPostInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<URLSearchParams, any>' is not assignable to type 'InternalAxiosRequestConfig<AuthTokenPostInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'data' are incompatible.
+                Type 'URLSearchParams' is missing the following properties from type 'AuthTokenPostInput': "grant_type", "code", "client_id", "redirect_uri", "code_verifier"
+packages/idp/src/operations.ts(360,77): error TS2379: Argument of type '{ method: "POST"; url: string; data: URLSearchParams; headers: { "Content-Type": string; } | { "Content-Type": string; } | { "Content-Type": string; Accept?: AxiosHeaderValue; ... 16 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'AxiosRequestConfig<URLSearchParams, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<AuthOtpLoginPostInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<AuthOtpLoginPostInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<AuthOtpLoginPostInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<URLSearchParams, any>' is not assignable to type 'InternalAxiosRequestConfig<AuthOtpLoginPostInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'data' are incompatible.
+                Type 'URLSearchParams' is missing the following properties from type 'AuthOtpLoginPostInput': "grant_type", "username", "otp_code", "client_id", "client_secret"
+packages/idp/src/operations.ts(456,77): error TS2379: Argument of type '{ method: "POST"; url: string; data: URLSearchParams; headers: { "Content-Type": string; } | { "Content-Type": string; } | { "Content-Type": string; Accept?: AxiosHeaderValue; ... 16 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'AxiosRequestConfig<URLSearchParams, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<AuthLoginWebPostInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<AuthLoginWebPostInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<AuthLoginWebPostInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<URLSearchParams, any>' is not assignable to type 'InternalAxiosRequestConfig<AuthLoginWebPostInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'data' are incompatible.
+                Type 'URLSearchParams' is missing the following properties from type 'AuthLoginWebPostInput': "grant_type", "username", "password", "client_id", "client_secret"
+packages/idp/src/operations.ts(499,86): error TS2379: Argument of type '{ method: "POST"; url: string; data: URLSearchParams; headers: { "Content-Type": string; } | { "Content-Type": string; } | { "Content-Type": string; Accept?: AxiosHeaderValue; ... 16 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'AxiosRequestConfig<URLSearchParams, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<OidcBackchannelLogoutPostInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<OidcBackchannelLogoutPostInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<OidcBackchannelLogoutPostInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<URLSearchParams, any>' is not assignable to type 'InternalAxiosRequestConfig<OidcBackchannelLogoutPostInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'data' are incompatible.
+                Property '"logout_token"' is missing in type 'URLSearchParams' but required in type 'OidcBackchannelLogoutPostInput'.
+packages/idp/src/operations.ts(510,79): error TS2379: Argument of type '{ method: "POST"; url: string; data: URLSearchParams; headers: { "Content-Type": string; } | { "Content-Type": string; } | { "Content-Type": string; Accept?: AxiosHeaderValue; ... 16 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'AxiosRequestConfig<URLSearchParams, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<OidcIntrospectPostInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<OidcIntrospectPostInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<OidcIntrospectPostInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<URLSearchParams, any>' is not assignable to type 'InternalAxiosRequestConfig<OidcIntrospectPostInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'data' are incompatible.
+                Property '"token"' is missing in type 'URLSearchParams' but required in type 'OidcIntrospectPostInput'.
+packages/idp/src/operations.ts(551,75): error TS2379: Argument of type '{ method: "POST"; url: string; data: URLSearchParams; headers: { "Content-Type": string; } | { "Content-Type": string; } | { "Content-Type": string; Accept?: AxiosHeaderValue; ... 16 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'AxiosRequestConfig<URLSearchParams, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<OidcRevokePostInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<OidcRevokePostInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<OidcRevokePostInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<URLSearchParams, any>' is not assignable to type 'InternalAxiosRequestConfig<OidcRevokePostInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'data' are incompatible.
+                Property '"token"' is missing in type 'URLSearchParams' but required in type 'OidcRevokePostInput'.
+packages/idp/src/operations.ts(562,74): error TS2379: Argument of type '{ method: "POST"; url: string; data: URLSearchParams; headers: { "Content-Type": string; } | { "Content-Type": string; } | { "Content-Type": string; Accept?: AxiosHeaderValue; ... 16 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'AxiosRequestConfig<URLSearchParams, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<OidcTokenPostInput, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<OidcTokenPostInput, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<OidcTokenPostInput, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<URLSearchParams, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<URLSearchParams, any>' is not assignable to type 'InternalAxiosRequestConfig<OidcTokenPostInput, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'data' are incompatible.
+                Property '"grant_type"' is missing in type 'URLSearchParams' but required in type 'OidcTokenPostInput'.
+packages/knowledge/src/index.ts(14,168): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<JsonObject> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<JsonObject>' with 'ex…1531 tokens truncated…   Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<Record<string, never>, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<Record<string, never>, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'Record<string, never>'.
+packages/lms/src/index.ts(294,289): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<Record<string, never>> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<Record<string, never>>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<Record<string, never>, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<Record<string, never>, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'Record<string, never>'.
+packages/lms/src/interactive.ts(34,195): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<JsonObject> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<JsonObject>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<JsonObject, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<JsonObject, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'JsonObject'.
+packages/lms/src/notification-settings.ts(17,194): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<JsonObject> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<JsonObject>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<JsonObject, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<JsonObject, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'JsonObject'.
+packages/messenger/src/index.ts(24,188): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<JsonObject> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<JsonObject>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<JsonObject, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<JsonObject, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'JsonObject'.
+packages/messenger/src/index.ts(25,146): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<JsonObject> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<JsonObject>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<JsonObject, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<JsonObject, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<JsonObject, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'JsonObject'.
+packages/modules/src/index.ts(134,154): error TS2379: Argument of type '{ headers: { "If-Match": string; } | { "If-Match": string; } | { "If-Match": string; Accept?: AxiosHeaderValue; "Content-Length"?: AxiosHeaderValue; "User-Agent"?: AxiosHeaderValue; ... 15 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'RequestOptions<undefined>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<undefined, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'withXSRFToken' are incompatible.
+                Type 'boolean | ((config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                  Type '(config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                      Types of parameters 'config' and 'config' are incompatible.
+                        Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<undefined, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                          Types of property 'data' are incompatible.
+                            Type 'unknown' is not assignable to type 'undefined'.
+packages/modules/src/index.ts(140,132): error TS2379: Argument of type '{ headers: { "If-Match": string; } | { "If-Match": string; } | { "If-Match": string; Accept?: AxiosHeaderValue; "Content-Length"?: AxiosHeaderValue; "User-Agent"?: AxiosHeaderValue; ... 15 more ...; common?: AxiosHeaders; }; ... 44 more ...; sensitiveHeaders?: string[]; }' is not assignable to parameter of type 'RequestOptions<undefined>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'withXSRFToken' are incompatible.
+    Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined)'.
+      Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined'.
+          Types of parameters 'config' and 'config' are incompatible.
+            Type 'InternalAxiosRequestConfig<undefined, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+              Types of property 'withXSRFToken' are incompatible.
+                Type 'boolean | ((config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                  Type '(config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                      Types of parameters 'config' and 'config' are incompatible.
+                        Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<undefined, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                          Types of property 'data' are incompatible.
+                            Type 'unknown' is not assignable to type 'undefined'.
+packages/modules/src/index.ts(152,139): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<undefined> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<undefined>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<undefined, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<undefined, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'undefined'.
+packages/modules/src/index.ts(155,138): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<undefined> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<undefined>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<undefined, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<undefined, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<undefined, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'undefined'.
+packages/social/src/index.ts(30,175): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<Record<string, never>> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<Record<string, never>>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<Record<string, never>, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<Record<string, never>, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'Record<string, never>'.
+packages/social/src/index.ts(38,204): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<Record<string, never>> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<Record<string, never>>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<Record<string, never>, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<Record<string, never>, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'Record<string, never>'.
+packages/social/src/index.ts(40,156): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<Record<string, never>> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<Record<string, never>>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<Record<string, never>, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<Record<string, never>, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'Record<string, never>'.
+packages/state/src/api.ts(41,235): error TS2345: Argument of type 'RequestOptions | undefined' is not assignable to parameter of type 'RequestOptions<Record<string, never>> | undefined'.
+  Type 'RequestOptions' is not assignable to type 'RequestOptions<Record<string, never>>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'withXSRFToken' are incompatible.
+      Type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)'.
+        Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)'.
+          Type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined'.
+            Types of parameters 'config' and 'config' are incompatible.
+              Type 'InternalAxiosRequestConfig<Record<string, never>, any>' is not assignable to type 'InternalAxiosRequestConfig<unknown, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                Types of property 'withXSRFToken' are incompatible.
+                  Type 'boolean | ((config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined)' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                    Type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined' is not assignable to type 'boolean | ((config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined)'.
+                      Type '(config: InternalAxiosRequestConfig<Record<string, never>, any>) => boolean | undefined' is not assignable to type '(config: InternalAxiosRequestConfig<unknown, any>) => boolean | undefined'.
+                        Types of parameters 'config' and 'config' are incompatible.
+                          Type 'InternalAxiosRequestConfig<unknown, any>' is not assignable to type 'InternalAxiosRequestConfig<Record<string, never>, any>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+                            Types of property 'data' are incompatible.
+                              Type 'unknown' is not assignable to type 'Record<string, never>'.

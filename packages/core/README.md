@@ -79,3 +79,15 @@ subscription.close();
 ```
 
 Subscription authorization is repeated on reconnect. `onSubscribed` runs after every successful subscription: reload persisted data to recover events missed while offline. Events are invalidation hints and their service-specific payload is intentionally `unknown`; service HTTP responses remain authoritative. `onError` reports connection/authorization failures; HTTP authorization failures retain normal Axios behavior within your callback. Close cancels the connection and ignores late authorization results. HTTPS pages require `wss:`; allow the exact WebSocket origin in your Content Security Policy.
+
+## Short IDs
+
+```ts
+import { shortIdFromUuid } from "@faiber/sdk-core";
+const code = shortIdFromUuid("550e8400-e29b-41d4-a716-446655440000"); // GDCN7L
+```
+
+This synchronous, offline helper accepts canonical or compact UUIDs and throws
+`TypeError` for malformed input. It derives six uppercase characters without
+`0`, `1`, `I`, or `O`. Use the classroom UUID or the profile row's `id` (not
+`user_id`). The alias is not guaranteed unique; retain the UUID for operations.

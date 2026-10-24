@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "exit_code": 0,
+  "reason": null,
+  "tests_executed": 6,
+  "tests_failed": 0,
+  "tests_ignored": 0,
+  "source_unchanged_during_run": true,
+  "duration_seconds": 101.688
+}

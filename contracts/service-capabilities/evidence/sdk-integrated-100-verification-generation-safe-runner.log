@@ -1,0 +1,38 @@
+install 0
+build 0
+types-and-tests 0
+audit 0
+pack-dry-run 0
+source-whitespace 0
+actual-manage-sdk-wire 0
+pack-asset 0
+pack-chat 0
+pack-core 0
+pack-crm 0
+pack-drm 0
+pack-flow 0
+pack-game 0
+pack-idp 0
+pack-knowledge 0
+pack-lms 0
+pack-manage 0
+pack-messenger 0
+pack-modules 0
+pack-payment 0
+pack-profile 0
+pack-reservation 0
+pack-sdk 0
+pack-session 0
+pack-social 0
+pack-state 0
+pack-task 0
+pack-version 0
+tarball-consumer-install 0
+tarball-consumer-exports 0
+tarball-consumer-types 0
+{
+  "status": "passed",
+  "failure": null,
+  "source_unchanged_during_run": true,
+  "duration_seconds": 35.32
+}

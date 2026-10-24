@@ -31,6 +31,8 @@ export interface ProfileListQuery extends QueryParams {
 }
 export interface Profile extends JsonObject {
     id: string;
+    /** Six-character alias derived from id, not user_id; collisions are possible. */
+    short_id: string;
     user_id: string;
     email?: string | null;
     phone?: string | null;
@@ -449,4 +451,7 @@ export type ProfileFilterOperator = "eq" | "neq" | "gt" | "gte" | "lt" | "lte" |
 export interface ProfileFilterClause { path: ProfileFilterPath; op: ProfileFilterOperator; value?: JsonValue; }
 /** Array-valued paths sort by their minimum JSON value. */
 export interface ProfileSortClause { path: ProfileFilterPath; dir: "asc" | "desc"; }
+/** Search live email, names, phone, national code, or an exact six-character short ID. */
+export interface ProfileSearchInput extends FilterProfilesInput { search: string; }
+
 export interface FilterProfilesInput { filters?: readonly ProfileFilterClause[]; sort?: readonly ProfileSortClause[]; page?: number; per_page?: number; role?: string; search?: string; }

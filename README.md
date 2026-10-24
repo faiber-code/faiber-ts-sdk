@@ -154,3 +154,27 @@ sorting and pagination. See the [profile package guide](packages/profile/README.
 ### Expanded service operations
 
 The service `operations` clients include typed storefront checkout, product trial gifts, paid fitness coaching, handoff/password flows, provider readiness, v2 games and matchmaking, room presence/moderation, and APK publishing. HTTP calls preserve the complete Axios response and configured authorization. Match and room realtime operations perform WebSocket upgrades using scoped tickets obtained from authenticated HTTP calls; they return the connected socket/client. Package READMEs describe the required permissions, dedicated server credentials, request casing and response envelopes.
+
+### Role summary migration (1.0.0)
+
+Use `sdk.profile.summaries` for configurable IDP role summaries. LMS summary APIs and fixed-role
+types were removed in this breaking release. Supply canonical role UUIDs, explicitly grant Profile
+summary permissions, and distinguish job status from persisted result availability/freshness.
+See the [Profile package guide](packages/profile/README.md#configurable-role-summaries).
+
+### UUID-derived classroom and profile short IDs
+
+```ts
+import { shortIdFromUuid } from "@faiber/faiber-ts-sdk";
+const code = shortIdFromUuid("550e8400-e29b-41d4-a716-446655440000"); // GDCN7L
+const classrooms = await sdk.lms.searchClassrooms({ search: code });
+const profiles = await sdk.profile.searchProfiles({ search: "Sara", role: "student" });
+```
+
+Classrooms search by name, course name, existing code, or short ID. Profiles search
+by email, names, phone, national code, or short ID. List and detail responses expose
+`short_id`; it uses the classroom UUID or profile row `id` (not IDP `user_id`).
+The six-character alias is calculated without a stored column and supports offline
+display. It can collide: searches return all authorized matches with their normal
+pagination; retain full identifiers for reads and mutations. Searches normalize
+case and Persian/Arabic digits. The backend short-ID migrations must be deployed.

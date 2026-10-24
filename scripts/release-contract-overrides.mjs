@@ -1,5 +1,7 @@
+import { profileSummaryContracts } from "./profile-summary-contracts.mjs";
 // Reviewed wire contracts; keyed by the mounted method and path, never ambiguous handler names.
 export const releaseContracts = {
+  ...profileSummaryContracts,
   "idp:POST /api/v1/auth/secure/handoff/{user_id}": {
     "response": "import(\"./contracts.types.js\").HandoffTokenResponse",
     "auth": "server-only x-infera-handoff-secret; configured client allowlist",
@@ -508,7 +510,14 @@ export const releaseContracts = {
     "auth": "public OAuth bootstrap",
     "purpose": "Exchange OTP credentials using application/x-www-form-urlencoded; full token response and cancellation options are preserved."
   },
+  "lms:GET /api/v1/classrooms": {
+    "purpose": "List authorized classrooms; search matches classroom name, course name, legacy code, or exact six-character UUID-derived short ID. All collisions remain paginated results; read_own scope is preserved."
+  },
+  "profile:POST /api/v1/profile/people/search": {
+    "purpose": "Search active directory identities by email, name, phone, national code, or exact UUID-derived short ID. National codes are not returned; short-ID collisions return all matching people within the directory limit."
+  },
   "profile:POST /api/v1/profile/search": {
+    "purpose": "Search profiles by live email, names, phone, national code, exact UUID-derived short ID, and configured properties. Returns all matching short-ID collisions with pagination; short_id is derived from profile_id, not user_id.",
     "methodName": "profileSearchSearchPost",
     "typeBase": "ProfileSearchSearchPost"
   },

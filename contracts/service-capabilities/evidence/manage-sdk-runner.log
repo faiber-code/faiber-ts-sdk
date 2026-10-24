@@ -1,0 +1,9 @@
+manage-authority-components 0 26
+manage-authority-binary 0 0
+agentic-manage-authority 0 3
+{
+  "status": "passed",
+  "failure": null,
+  "source_unchanged_during_run": true,
+  "duration_seconds": 29.059
+}

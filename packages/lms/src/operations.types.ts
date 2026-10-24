@@ -37,149 +37,18 @@ export type AcademyCompleteSessionPostInput = import("./types.js").AcademyComple
 /** Backend response type: Value. */
 export type AcademyCompleteSessionPostResponse = import("./types.js").AcademySessionCompletionResponse;
 
-/** Backend query type: JobQuery. */
-export interface AiSummaryJobsGetQuery extends QueryParams {
-  "page"?: number | null;
-  "page_size"?: number | null;
-  "status"?: string | null;
-  "role"?: string | null;
-  "user_id"?: string | null;
-}
-/** Backend response type: Value. */
-export interface AiSummaryJobsGetResponse extends ApiEnvelope<JsonValue> {
-}
 
-/** Backend query type: LatestQuery. */
-export interface AiSummaryLatestGetQuery extends QueryParams {
-  "role": string;
-  "user_id"?: string | null;
-}
-/** Backend response type: LatestSummary. */
-export interface AiSummaryLatestGetResponseData extends JsonObject {
-  "subject_user_id": string;
-  "role": string;
-  "enabled": boolean;
-  "state": string;
-  "freshness": string;
-  "language"?: string | null;
-  "model_ref"?: string | null;
-  "classroom_ids": string[];
-  "evidence_cutoff"?: string | null;
-  "generated_at"?: string | null;
-  "next_refresh_at"?: string | null;
-  "summary"?: JsonValue | null;
-}
-export interface AiSummaryLatestGetResponse extends ApiEnvelope<AiSummaryLatestGetResponseData> {
-}
 
-/** Backend response type: Vec<ModelOption>. */
-export interface AiSummaryModelsGetResponseItem extends JsonObject {
-  "model_ref": string;
-  "model": string;
-  "provider_label": string;
-  "source": string;
-}
-export interface AiSummaryModelsGetResponse extends ApiEnvelope<AiSummaryModelsGetResponseItem[]> {
-}
 
-/** Backend request type: BulkRefreshRequest. */
-export interface AiSummaryRefreshManyPostInput extends JsonObject {
-  "role": string;
-  "user_ids": string[];
-}
-/** Backend response type: BulkRefreshResponse. */
-export interface AiSummaryRefreshManyPostResponseDataQueued extends JsonObject {
-  "subject_user_id": string;
-  "role": string;
-  "state": string;
-  "due_at": string;
-}
-export interface AiSummaryRefreshManyPostResponseData extends JsonObject {
-  "queued": AiSummaryRefreshManyPostResponseDataQueued[];
-}
-export interface AiSummaryRefreshManyPostResponse extends ApiEnvelope<AiSummaryRefreshManyPostResponseData> {
-}
 
-/** Backend response type: SummarySettings. */
-export interface AiSummarySettingsGetResponseDataRoles extends JsonObject {
-  "role": string;
-  "enabled": boolean;
-  "model_ref"?: string | null;
-  "language": string;
-  "guidance": string;
-  "quiet_minutes": number;
-  "max_wait_minutes": number;
-  "config_revision": number;
-}
-export interface AiSummarySettingsGetResponseData extends JsonObject {
-  "globally_enabled": boolean;
-  "concurrency_limit": number;
-  "financial_owner_user_id"?: string | null;
-  "roles": AiSummarySettingsGetResponseDataRoles[];
-}
-export interface AiSummarySettingsGetResponse extends ApiEnvelope<AiSummarySettingsGetResponseData> {
-}
 
-/** Backend request type: UpdateSummarySettings. */
-export interface AiSummaryUpdateSettingsPutInputRoles extends JsonObject {
-  "role": string;
-  "enabled": boolean;
-  "model_ref"?: string | null;
-  "language": string;
-  "guidance"?: string;
-  "quiet_minutes": number;
-  "max_wait_minutes": number;
-}
-export interface AiSummaryUpdateSettingsPutInput extends JsonObject {
-  "globally_enabled": boolean;
-  "concurrency_limit"?: number;
-  "roles": AiSummaryUpdateSettingsPutInputRoles[];
-}
-/** Backend response type: SummarySettings. */
-export interface AiSummaryUpdateSettingsPutResponseDataRoles extends JsonObject {
-  "role": string;
-  "enabled": boolean;
-  "model_ref"?: string | null;
-  "language": string;
-  "guidance": string;
-  "quiet_minutes": number;
-  "max_wait_minutes": number;
-  "config_revision": number;
-}
-export interface AiSummaryUpdateSettingsPutResponseData extends JsonObject {
-  "globally_enabled": boolean;
-  "concurrency_limit": number;
-  "financial_owner_user_id"?: string | null;
-  "roles": AiSummaryUpdateSettingsPutResponseDataRoles[];
-}
-export interface AiSummaryUpdateSettingsPutResponse extends ApiEnvelope<AiSummaryUpdateSettingsPutResponseData> {
-}
 
-/** Backend query type: JobQuery. */
-export interface AiSummarySummariesGetQuery extends QueryParams {
-  "page"?: number | null;
-  "page_size"?: number | null;
-  "status"?: string | null;
-  "role"?: string | null;
-  "user_id"?: string | null;
-}
-/** Backend response type: Value. */
-export interface AiSummarySummariesGetResponse extends ApiEnvelope<JsonValue> {
-}
 
-/** Backend response type: RefreshResponse. */
-export interface AiSummaryRefreshPostResponseData extends JsonObject {
-  "subject_user_id": string;
-  "role": string;
-  "state": string;
-  "due_at": string;
-}
-export interface AiSummaryRefreshPostResponse extends ApiEnvelope<AiSummaryRefreshPostResponseData> {
-}
 
 /** Backend response type: SessionResponse. */
 export interface SessionGetSelfGetResponseDataProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -255,6 +124,7 @@ export interface ClassroomIndexClassroomGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<models::ClassroomResponse>. */
 export interface ClassroomIndexClassroomGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -264,6 +134,7 @@ export interface ClassroomIndexClassroomGetResponseItemTeacherProfile extends Js
 }
 export interface ClassroomIndexClassroomGetResponseItemConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -273,6 +144,7 @@ export interface ClassroomIndexClassroomGetResponseItemConsultantProfile extends
 }
 export interface ClassroomIndexClassroomGetResponseItemSupportProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -281,6 +153,10 @@ export interface ClassroomIndexClassroomGetResponseItemSupportProfile extends Js
   "gender"?: string | null;
 }
 export interface ClassroomIndexClassroomGetResponseItem extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
+  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
+  "student_count": number;
   "id": string;
   "course_id": string;
   "course_name"?: string | null;
@@ -352,6 +228,7 @@ export interface ClassroomStoreClassroomPostInput extends JsonObject {
 /** Backend response type: models::ClassroomResponse. */
 export interface ClassroomStoreClassroomPostResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -361,6 +238,7 @@ export interface ClassroomStoreClassroomPostResponseDataTeacherProfile extends J
 }
 export interface ClassroomStoreClassroomPostResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -370,6 +248,7 @@ export interface ClassroomStoreClassroomPostResponseDataConsultantProfile extend
 }
 export interface ClassroomStoreClassroomPostResponseDataSupportProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -378,6 +257,10 @@ export interface ClassroomStoreClassroomPostResponseDataSupportProfile extends J
   "gender"?: string | null;
 }
 export interface ClassroomStoreClassroomPostResponseData extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
+  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
+  "student_count": number;
   "id": string;
   "course_id": string;
   "course_name"?: string | null;
@@ -422,6 +305,7 @@ export interface ClassroomDestroyClassroomDeleteResponse extends ApiEnvelope<Jso
 /** Backend response type: models::ClassroomResponse. */
 export interface ClassroomShowClassroomGetResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -431,6 +315,7 @@ export interface ClassroomShowClassroomGetResponseDataTeacherProfile extends Jso
 }
 export interface ClassroomShowClassroomGetResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -440,6 +325,7 @@ export interface ClassroomShowClassroomGetResponseDataConsultantProfile extends 
 }
 export interface ClassroomShowClassroomGetResponseDataSupportProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -448,6 +334,10 @@ export interface ClassroomShowClassroomGetResponseDataSupportProfile extends Jso
   "gender"?: string | null;
 }
 export interface ClassroomShowClassroomGetResponseData extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
+  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
+  "student_count": number;
   "id": string;
   "course_id": string;
   "course_name"?: string | null;
@@ -509,6 +399,7 @@ export interface ClassroomUpdateClassroomPatchInput extends JsonObject {
 /** Backend response type: models::ClassroomResponse. */
 export interface ClassroomUpdateClassroomPatchResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -518,6 +409,7 @@ export interface ClassroomUpdateClassroomPatchResponseDataTeacherProfile extends
 }
 export interface ClassroomUpdateClassroomPatchResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -527,6 +419,7 @@ export interface ClassroomUpdateClassroomPatchResponseDataConsultantProfile exte
 }
 export interface ClassroomUpdateClassroomPatchResponseDataSupportProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -535,6 +428,10 @@ export interface ClassroomUpdateClassroomPatchResponseDataSupportProfile extends
   "gender"?: string | null;
 }
 export interface ClassroomUpdateClassroomPatchResponseData extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
+  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
+  "student_count": number;
   "id": string;
   "course_id": string;
   "course_name"?: string | null;
@@ -584,6 +481,7 @@ export interface ClassroomShowCompletionGetResponseDataCertificateTemplates exte
 }
 export interface ClassroomShowCompletionGetResponseDataStudentsProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -647,6 +545,7 @@ export interface ClassroomIndexClassroomUsersGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<models::ClassroomUserResponse>. */
 export interface ClassroomIndexClassroomUsersGetResponseItemProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -686,6 +585,7 @@ export interface ClassroomEnrollClassroomUserPostInput extends JsonObject {
 /** Backend response type: models::ClassroomUserResponse. */
 export interface ClassroomEnrollClassroomUserPostResponseDataProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -718,6 +618,7 @@ export interface ClassroomUpdateClassroomUserPatchInput extends JsonObject {
 /** Backend response type: models::ClassroomUserResponse. */
 export interface ClassroomUpdateClassroomUserPatchResponseDataProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -796,6 +697,7 @@ export interface ClassroomIndexSessionGetResponseItemSessionType extends JsonObj
 }
 export interface ClassroomIndexSessionGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -889,6 +791,7 @@ export interface ClassroomStoreSessionPostResponseDataSessionType extends JsonOb
 }
 export interface ClassroomStoreSessionPostResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -954,6 +857,7 @@ export interface ClassroomShowSessionGetResponseDataSessionType extends JsonObje
 }
 export interface ClassroomShowSessionGetResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -1038,6 +942,7 @@ export interface ClassroomUpdateSessionPatchResponseDataSessionType extends Json
 }
 export interface ClassroomUpdateSessionPatchResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -1086,6 +991,7 @@ export interface ClassroomIndexAttendanceGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<models::AbsenceResponse>. */
 export interface ClassroomIndexAttendanceGetResponseItemProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -1175,6 +1081,7 @@ export interface ClassroomIndexTodaySessionsGetResponseItemSessionType extends J
 }
 export interface ClassroomIndexTodaySessionsGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -1245,6 +1152,7 @@ export interface ClassroomIndexAbsencesGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<models::AbsenceResponse>. */
 export interface ClassroomIndexAbsencesGetResponseItemProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -2121,6 +2029,7 @@ export interface DrmRoutesIndexCompositionsGetResponse extends ApiEnvelope<DrmRo
 /** Backend response type: models::EvaluationContext. */
 export interface EvaluationGetContextGetResponseDataTeacherRatingsTargetsProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -2452,6 +2361,7 @@ export interface ExamIndexAttemptGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<models::AttemptResponse>. */
 export interface ExamIndexAttemptGetResponseItemProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -2497,6 +2407,7 @@ export interface ExamIndexAttemptGetResponse extends ApiEnvelope<ExamIndexAttemp
 /** Backend response type: models::AttemptResponse. */
 export interface ExamShowAttemptGetResponseDataProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -2541,6 +2452,7 @@ export interface ExamUpdateAttemptPatchInput extends JsonObject {
 /** Backend response type: models::AttemptResponse. */
 export interface ExamUpdateAttemptPatchResponseDataProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -2589,6 +2501,7 @@ export interface ExamSaveAttemptAnswerPutResponse extends ApiEnvelope<ExamSaveAt
 /** Backend response type: models::AttemptDeliveryResponse. */
 export interface ExamShowAttemptDeliveryGetResponseDataProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -2650,6 +2563,7 @@ export interface ExamShowAttemptDeliveryGetResponse extends ApiEnvelope<ExamShow
 /** Backend response type: models::AttemptDeliveryResponse. */
 export interface ExamStartAttemptPostResponseDataProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -2711,6 +2625,7 @@ export interface ExamStartAttemptPostResponse extends ApiEnvelope<ExamStartAttem
 /** Backend response type: models::AttemptDeliveryResponse. */
 export interface ExamSubmitAttemptPostResponseDataProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -2910,6 +2825,7 @@ export interface ExamIndexSessionGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<models::SessionResponse>. */
 export interface ExamIndexSessionGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -2919,6 +2835,7 @@ export interface ExamIndexSessionGetResponseItemTeacherProfile extends JsonObjec
 }
 export interface ExamIndexSessionGetResponseItemConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -2928,6 +2845,7 @@ export interface ExamIndexSessionGetResponseItemConsultantProfile extends JsonOb
 }
 export interface ExamIndexSessionGetResponseItemSupportProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3004,6 +2922,7 @@ export interface ExamStoreSessionPostInput extends JsonObject {
 /** Backend response type: models::SessionResponse. */
 export interface ExamStoreSessionPostResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3013,6 +2932,7 @@ export interface ExamStoreSessionPostResponseDataTeacherProfile extends JsonObje
 }
 export interface ExamStoreSessionPostResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3022,6 +2942,7 @@ export interface ExamStoreSessionPostResponseDataConsultantProfile extends JsonO
 }
 export interface ExamStoreSessionPostResponseDataSupportProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3071,6 +2992,7 @@ export interface ExamDestroySessionDeleteResponse extends ApiEnvelope<JsonValue>
 /** Backend response type: models::SessionResponse. */
 export interface ExamShowSessionGetResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3080,6 +3002,7 @@ export interface ExamShowSessionGetResponseDataTeacherProfile extends JsonObject
 }
 export interface ExamShowSessionGetResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3089,6 +3012,7 @@ export interface ExamShowSessionGetResponseDataConsultantProfile extends JsonObj
 }
 export interface ExamShowSessionGetResponseDataSupportProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3155,6 +3079,7 @@ export interface ExamUpdateSessionPatchInput extends JsonObject {
 /** Backend response type: models::SessionResponse. */
 export interface ExamUpdateSessionPatchResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3164,6 +3089,7 @@ export interface ExamUpdateSessionPatchResponseDataTeacherProfile extends JsonOb
 }
 export interface ExamUpdateSessionPatchResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3173,6 +3099,7 @@ export interface ExamUpdateSessionPatchResponseDataConsultantProfile extends Jso
 }
 export interface ExamUpdateSessionPatchResponseDataSupportProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3653,6 +3580,7 @@ export interface HomeworkIndexAssignmentGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<models::AssignmentResponse>. */
 export interface HomeworkIndexAssignmentGetResponseItemProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3662,6 +3590,7 @@ export interface HomeworkIndexAssignmentGetResponseItemProfile extends JsonObjec
 }
 export interface HomeworkIndexAssignmentGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3671,6 +3600,7 @@ export interface HomeworkIndexAssignmentGetResponseItemTeacherProfile extends Js
 }
 export interface HomeworkIndexAssignmentGetResponseItemConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3680,6 +3610,7 @@ export interface HomeworkIndexAssignmentGetResponseItemConsultantProfile extends
 }
 export interface HomeworkIndexAssignmentGetResponseItemSupportProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3745,6 +3676,7 @@ export interface HomeworkStoreAssignmentPostInput extends JsonObject {
 /** Backend response type: models::AssignmentResponse. */
 export interface HomeworkStoreAssignmentPostResponseDataProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3754,6 +3686,7 @@ export interface HomeworkStoreAssignmentPostResponseDataProfile extends JsonObje
 }
 export interface HomeworkStoreAssignmentPostResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3763,6 +3696,7 @@ export interface HomeworkStoreAssignmentPostResponseDataTeacherProfile extends J
 }
 export interface HomeworkStoreAssignmentPostResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3772,6 +3706,7 @@ export interface HomeworkStoreAssignmentPostResponseDataConsultantProfile extend
 }
 export interface HomeworkStoreAssignmentPostResponseDataSupportProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3818,6 +3753,7 @@ export interface HomeworkDestroyAssignmentDeleteResponse extends ApiEnvelope<Jso
 /** Backend response type: models::AssignmentResponse. */
 export interface HomeworkShowAssignmentGetResponseDataProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3827,6 +3763,7 @@ export interface HomeworkShowAssignmentGetResponseDataProfile extends JsonObject
 }
 export interface HomeworkShowAssignmentGetResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3836,6 +3773,7 @@ export interface HomeworkShowAssignmentGetResponseDataTeacherProfile extends Jso
 }
 export interface HomeworkShowAssignmentGetResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3845,6 +3783,7 @@ export interface HomeworkShowAssignmentGetResponseDataConsultantProfile extends 
 }
 export interface HomeworkShowAssignmentGetResponseDataSupportProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3903,6 +3842,7 @@ export interface HomeworkUpdateAssignmentPatchInput extends JsonObject {
 /** Backend response type: models::AssignmentResponse. */
 export interface HomeworkUpdateAssignmentPatchResponseDataProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3912,6 +3852,7 @@ export interface HomeworkUpdateAssignmentPatchResponseDataProfile extends JsonOb
 }
 export interface HomeworkUpdateAssignmentPatchResponseDataTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3921,6 +3862,7 @@ export interface HomeworkUpdateAssignmentPatchResponseDataTeacherProfile extends
 }
 export interface HomeworkUpdateAssignmentPatchResponseDataConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3930,6 +3872,7 @@ export interface HomeworkUpdateAssignmentPatchResponseDataConsultantProfile exte
 }
 export interface HomeworkUpdateAssignmentPatchResponseDataSupportProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3988,6 +3931,7 @@ export interface HomeworkIndexCurrentTermAssignmentGetQuery extends QueryParams 
 /** Backend response type: crate::models::PagedResult<models::AssignmentResponse>. */
 export interface HomeworkIndexCurrentTermAssignmentGetResponseItemProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -3997,6 +3941,7 @@ export interface HomeworkIndexCurrentTermAssignmentGetResponseItemProfile extend
 }
 export interface HomeworkIndexCurrentTermAssignmentGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -4006,6 +3951,7 @@ export interface HomeworkIndexCurrentTermAssignmentGetResponseItemTeacherProfile
 }
 export interface HomeworkIndexCurrentTermAssignmentGetResponseItemConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -4015,6 +3961,7 @@ export interface HomeworkIndexCurrentTermAssignmentGetResponseItemConsultantProf
 }
 export interface HomeworkIndexCurrentTermAssignmentGetResponseItemSupportProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -4306,6 +4253,7 @@ export interface ProfileRoutesIndexGetQuery extends QueryParams {
 /** Backend response type: PagedResult<ProfileSummary>. */
 export interface ProfileRoutesIndexGetResponseItem extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -4359,6 +4307,7 @@ export interface ReportAssignedChatContactsGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<models::AssignedChatContact>. */
 export interface ReportAssignedChatContactsGetResponseItem extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -4389,6 +4338,7 @@ export interface ReportAssignedStudentsGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<crate::profile::ProfileSummary>. */
 export interface ReportAssignedStudentsGetResponseItem extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -4418,6 +4368,7 @@ export interface ReportClassroomsGetQuery extends QueryParams {
 /** Backend response type: Vec<models::ClassroomReport>. */
 export interface ReportClassroomsGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -4427,6 +4378,7 @@ export interface ReportClassroomsGetResponseItemTeacherProfile extends JsonObjec
 }
 export interface ReportClassroomsGetResponseItemConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -4462,6 +4414,7 @@ export interface ReportConsultantsGetQuery extends QueryParams {
 /** Backend response type: Vec<models::ConsultantReport>. */
 export interface ReportConsultantsGetResponseItemConsultantProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -4496,6 +4449,7 @@ export type ReportCoursesGetResponse = import("./types.js").AcademyCoursesRespon
 /** Backend response type: Vec<crate::profile::ProfileSummary>. */
 export interface ReportMyStudentsGetResponseItem extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -4516,6 +4470,7 @@ export interface ReportStudentSummaryGetQuery extends QueryParams {
 /** Backend response type: models::StudentReport. */
 export interface ReportStudentSummaryGetResponseDataProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -4545,6 +4500,7 @@ export interface ReportStudentsGetQuery extends QueryParams {
 /** Backend response type: Vec<models::StudentReport>. */
 export interface ReportStudentsGetResponseItemProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;
@@ -4574,6 +4530,7 @@ export interface ReportTeachersGetQuery extends QueryParams {
 /** Backend response type: Vec<models::TeacherReport>. */
 export interface ReportTeachersGetResponseItemTeacherProfile extends JsonObject {
   "user_id": string;
+  "short_id"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "email"?: string | null;

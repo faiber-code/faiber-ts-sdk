@@ -1,18 +1,20 @@
 
-running 24 tests
+running 26 tests
 test config::signing_tests::missing_or_blank_signing_configuration_fails_closed ... ok
-test proxy::tests::strips_browser_identity_organization_and_credentials ... ok
-test agent::tests::allows_only_manage_chat_workflow_routes ... ok
-test config::signing_tests::configured_derivation_preserves_bytes_precedence_and_project_scope ... ok
-test agent::tests::rejects_broad_or_malformed_agent_paths ... ok
 test config::tests::configured_non_marketing_origin_is_preserved ... ok
 test config::tests::legacy_marketing_origins_use_the_agentic_api_host ... ok
+test agent::tests::allows_only_manage_chat_workflow_routes ... ok
+test agent::tests::rejects_broad_or_malformed_agent_paths ... ok
+test proxy::tests::strips_browser_identity_organization_and_credentials ... ok
+test config::signing_tests::configured_derivation_preserves_bytes_precedence_and_project_scope ... ok
 test session::tests::derived_organization_is_stable_and_project_scoped ... ok
-test runtime::tests::activation_returns_to_the_owned_project_page ... ok
 test setup::tests::a_verified_email_channel_cannot_complete_customer_sms_setup ... ok
-test sso::lifecycle_tests::bootstrap_lookup_never_requests_public_role_assignment ... ok
+test runtime::tests::activation_returns_to_the_owned_project_page ... ok
 test session::tests::authoritative_non_nil_organization_claim_wins ... ok
+test sso::lifecycle_tests::bootstrap_lookup_never_requests_public_role_assignment ... ok
 test services::tests::advertises_exact_permissions_for_tenant_aware_services ... ok
+test agent::binding_tests::clients_cannot_supply_another_project_agent_or_trusted_assistant_protocol ... ok
+test agent::binding_tests::stream_scope_and_service_context_come_from_the_signed_session ... ok
 test sso::setup_return_tests::setup_handoff_accepts_only_known_steps_and_uuid_runs ... ok
 test token::tests::signed_handoff_rejects_wrong_keys_and_tampering ... ok
 test setup::tests::setup_report_uses_internal_origin_and_a_signed_project_proof ... ok
@@ -25,7 +27,7 @@ test runtime::live_tests::runtime_uses_authenticated_live_status_and_never_a_sta
 test authority_tests::stale_handoffs_and_sessions_fail_before_and_after_manage_restart ... ok
 test authority_tests::incompatible_forged_expired_or_replayed_authority_is_never_accepted ... ok
 
-test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+test result: ok. 26 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
 
 warning: patch `infera-asset-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-asset-sdk)` was not used in the crate graph
 warning: patch `infera-flow-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-flow-sdk)` was not used in the crate graph
@@ -38,6 +40,7 @@ help: Check that the patched package version and available features are compatib
       with the dependency requirements. If the patch has a different version from
       what is locked in the Cargo.lock file, run `cargo update` to use the new
       version. This may also occur with an optional dependency that is not enabled.
+    Blocking waiting for file lock on build directory
 warning: function `in_cluster_url` is never used
   --> src/services.rs:64:8
    |
@@ -59,5 +62,5 @@ warning: function `other_projects_for_me` is never used
     |        ^^^^^^^^^^^^^^^^^^^^^
 
 warning: `infera_manage` (bin "infera_manage" test) generated 3 warnings
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.33s
      Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_manage-235d153fb1d4c2bf)

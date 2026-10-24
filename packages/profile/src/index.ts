@@ -1,8 +1,10 @@
+import {ProfileSummariesApi} from "./summaries.js";
 import { RestResource, ServiceApi, UnsupportedOperationError, multipart, type Identifier, type QueryParams, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 type R<E extends T.ProfileRecord, C, U, L, S> = RestResource<E, C, U, L, S>;
 import { ProfileOperations } from "./operations.js";
 export class ProfileApi extends ServiceApi {
+    readonly summaries = new ProfileSummariesApi(this.client);
     /** Resolves 1–200 authenticated sandbox user IDs to active profile names. Requires profile:lookup; invalid batches return 400. Scope eligible membership through Task before calling. */
     resolvePeople(data: T.ResolvePeopleInput, options?: RequestOptions<T.ResolvePeopleInput>) { return this.client.post<T.ResolvePeopleResponse, T.ResolvePeopleInput>("/api/v1/profile/people/resolve", data, options); }
     readonly operations = new ProfileOperations(this.client);
@@ -18,6 +20,14 @@ export class ProfileApi extends ServiceApi {
     readonly greetings: R<T.Greeting, T.CreateGreetingInput, T.UpdateGreetingInput, T.GreetingListResponse, T.GreetingResponse> = new RestResource(this.client, "/api/v1/greetings", { supported: [] });
     /** Lists profiles with merged role records, active status, enrollment state, and role/status filters. */
     listProfiles(params?: T.ProfileListQuery, options?: RequestOptions) { return this.client.get<T.ProfileListResponse>("/api/v1/profile", params, options); }
+    /** Searches live profile email, names, phone, national code, or exact short ID.
+     * @param input Search text, optional role, filters, sorting and pagination.
+     * @param options Axios headers, timeout and cancellation signal.
+     * @returns Full Axios response with profiles, short_id and pagination metadata.
+     * Requires profile:read. Case and Persian/Arabic variants are normalized; all short-ID
+     * collisions are returned. HTTP failures reject with AxiosError; cancellation is preserved.
+     */
+    searchProfiles(input: T.ProfileSearchInput, options?: RequestOptions) { return this.filterProfiles(input, options); }
     /** Lists any profile role with live core/property/trusted-event filters, applied before pagination.
      * Requires profile:read. Invalid paths/clauses return 400; unavailable configured fields return 400.
      * Returns the full Axios response. Accepts cancellation, headers and timeout options.
@@ -77,3 +87,6 @@ export * from "./operations.js";
 export * from "./operations.types.js";
 
 export * from "./contracts.types.js";
+
+export * from "./summaries.js";
+export * from "./summaries.types.js";

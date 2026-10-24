@@ -53,12 +53,11 @@ const sessions = await api.courseSessions(courseId);
 
 ## Complete capability
 
-This package exposes 165 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 174 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `academy` | 8 | `GET`, `POST` |
-| `ai-summary` | 8 | `GET`, `POST`, `PUT` |
 | `branding` | 5 | `GET`, `POST`, `PUT` |
 | `certificate` | 10 | `GET`, `PATCH`, `POST` |
 | `classroom` | 20 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
@@ -250,3 +249,62 @@ const homeworks = await lms.homeworks.list({ teacher_user_id: teacherId, page_si
 Uses configured authentication (`lms:exam:read` / `lms:homework:read` or corresponding own
 scopes). Responses retain Axios metadata; permission, validation, cancellation and network
 failures reject normally. Definition filters require the matching LMS service update.
+
+## Summary API migration in 1.0.0
+
+LMS AI summary settings, generation, queue and result methods have been removed. Use
+`ProfileApi.summaries` from `@faiber/faiber-profile`, or `sdk.profile.summaries` from
+`@faiber/faiber-ts-sdk`. Role UUIDs replace the old student/teacher/support enum.
+The new Profile summary read permissions must be explicitly granted; parent status gives no access.
+Ordinary LMS student reports, attendance, assessments, feedback and evaluations remain available.
+Legacy summary data is not imported and there is no compatibility proxy.
+
+## Classroom student counts
+
+```ts
+const response = await api.listClassrooms({ "page[number]": 1, "page[size]": 20 });
+for (const classroom of response.data.data.data) {
+  console.log(classroom.name, classroom.student_count, classroom.capacity);
+}
+```
+
+`student_count` is a number on classroom list, detail, create and update responses,
+including `api.operations.classroomIndexClassroomGet`, `api.classrooms.list`, and
+`faiber.lms.listClassrooms` through `@faiber/faiber-ts-sdk`. It counts distinct user IDs
+with an `active`, `inactive`, `disabled`, or `enrolled` classroom membership. Legacy
+activation flags do not revoke membership; IDP controls account activation. Removed,
+withdrawn-after-completion and pending records do not count. Staff assignments and
+session attendance do not add students. Duplicate enrollment rows count once.
+
+Counts cover the whole classroom, regardless of enrollment pagination, and are batched
+for the authorized classroom page. Empty classrooms return `0`. `capacity: null`
+means no limit is configured; a numeric zero remains zero. A UI may display `18 / 25`
+or a localized `0 / Unlimited`. This does not change enrollment or capacity rules.
+The list requires `lms:classroom:read` or `lms:classroom:read_own` with existing record
+scoping. Normal Axios response, error, authentication and cancellation behavior applies.
+
+## Classroom short IDs and search
+
+```ts
+const controller = new AbortController();
+const matches = await lms.searchClassrooms({
+  search: "GDCN7L", // also accepts classroom name, course name, or existing code
+  "page[number]": 1,
+  "page[size]": 20,
+}, { signal: controller.signal });
+for (const classroom of matches.data.data.data) {
+  console.log(classroom.short_id, classroom.id, classroom.name);
+}
+```
+
+Use your configured `LmsApi` instance and an `AbortController`. The existing
+`listClassrooms`, `classrooms.list`, and generated list operation accept the same
+`search` parameter. Requires `lms:classroom:read` or scoped
+`lms:classroom:read_own`; all status, relationship, course and pagination filters
+remain available. Full Axios responses and errors are preserved.
+
+`short_id` is derived from the UUID without a stored column. Matching is case
+insensitive and accepts Persian/Arabic digits; enter all six characters for a
+short-ID lookup. Collisions return multiple results: select using the record's
+name/course and keep its full UUID for subsequent operations. `shortIdFromUuid`
+is also exported for offline display. Requires the service's short-ID migration.

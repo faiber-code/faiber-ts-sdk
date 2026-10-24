@@ -6,6 +6,8 @@
   },
   "include": [
     "type-consumer.ts",
-    "release-type-consumer.ts"
+    "release-type-consumer.ts",
+    "lms-classroom-counts.types.ts",
+    "short-ids.types.ts"
   ]
 }

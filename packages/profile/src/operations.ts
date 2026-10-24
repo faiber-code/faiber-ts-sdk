@@ -1,5 +1,6 @@
-import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";
+import { ServiceApi, urlEncoded, type ApiEnvelope, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./operations.types.js";
+import type * as S from "./summaries.types.js";
 
 export class ProfileOperations extends ServiceApi {
   /**
@@ -1530,7 +1531,7 @@ export class ProfileOperations extends ServiceApi {
     return this.client.request<T.ProfileSearchResolvePostResponse, T.ProfileSearchResolvePostInput>({ ...options, method: "POST", url: `/api/v1/profile/people/resolve`, data: data });
   }
   /**
-   * Performs the search operation for the profile search capability.
+   * Search active directory identities by email, name, phone, national code, or exact UUID-derived short ID. National codes are not returned; short-ID collisions return all matching people within the directory limit.
    * Calls `POST /api/v1/profile/people/search` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -1552,7 +1553,7 @@ export class ProfileOperations extends ServiceApi {
     return this.client.request<T.ProfileProvinceGetPostResponse, T.ProfileProvinceGetPostInput>({ ...options, method: "POST", url: `/api/v1/profile/province/get`, data: data });
   }
   /**
-   * Performs the search operation for the profile search capability.
+   * Search profiles by live email, names, phone, national code, exact UUID-derived short ID, and configured properties. Returns all matching short-ID collisions with pagination; short_id is derived from profile_id, not user_id.
    * Calls `POST /api/v1/profile/search` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -2378,4 +2379,185 @@ export class ProfileOperations extends ServiceApi {
   routerHealthGetUp(options?: RequestOptions) {
     return this.client.request<T.RouterHealthGetUpResponse>({ ...options, method: "GET", url: `/up` });
   }
+
+    /**
+     * Performs the settings role summary operation.
+     * Calls `GET /api/v1/ai-summaries/settings` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummarySettingsGet(options?:RequestOptions) { return this.client.request<ApiEnvelope<S.SummarySettings>>({ ...options, method:"GET", url:`/api/v1/ai-summaries/settings` }); }
+    /**
+     * Performs the updateSettings role summary operation.
+     * Calls `PUT /api/v1/ai-summaries/settings` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummarySettingsPut(data:S.SummarySettings,options?:RequestOptions<S.SummarySettings>) { return this.client.request<ApiEnvelope<S.SummarySettings>,S.SummarySettings>({ ...options, method:"PUT", url:`/api/v1/ai-summaries/settings`,data }); }
+    /**
+     * Performs the roles role summary operation.
+     * Calls `GET /api/v1/ai-summaries/roles` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryRolesGet(options?:RequestOptions) { return this.client.request<ApiEnvelope<S.SummaryRole[]>>({ ...options, method:"GET", url:`/api/v1/ai-summaries/roles` }); }
+    /**
+     * Performs the models role summary operation.
+     * Calls `GET /api/v1/ai-summaries/models` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryModelsGet(options?:RequestOptions) { return this.client.request<ApiEnvelope<S.SummaryModel[]>>({ ...options, method:"GET", url:`/api/v1/ai-summaries/models` }); }
+    /**
+     * Performs the sources role summary operation.
+     * Calls `GET /api/v1/ai-summaries/sources` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummarySourcesGet(options?:RequestOptions) { return this.client.request<ApiEnvelope<S.SummaryCapability[]>>({ ...options, method:"GET", url:`/api/v1/ai-summaries/sources` }); }
+    /**
+     * Performs the checkSource role summary operation.
+     * Calls `POST /api/v1/ai-summaries/sources/{source}/check` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummarySourceCheckPost(source:S.SummarySource,options?:RequestOptions) { return this.client.request<ApiEnvelope<S.SummarySourceCheck>>({ ...options, method:"POST", url:`/api/v1/ai-summaries/sources/${encodeURIComponent(source)}/check` }); }
+    /**
+     * Performs the configurations role summary operation.
+     * Calls `GET /api/v1/ai-summaries/configurations` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryConfigurationsGet(options?:RequestOptions) { return this.client.request<ApiEnvelope<S.SummaryConfigurationRecord[]>>({ ...options, method:"GET", url:`/api/v1/ai-summaries/configurations` }); }
+    /**
+     * Performs the createConfiguration role summary operation.
+     * Calls `POST /api/v1/ai-summaries/configurations` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryConfigurationCreatePost(data:S.SummaryConfigurationWrite,options?:RequestOptions<S.SummaryConfigurationWrite>) { return this.client.request<ApiEnvelope<S.SummaryConfigurationRecord>,S.SummaryConfigurationWrite>({ ...options, method:"POST", url:`/api/v1/ai-summaries/configurations`,data }); }
+    /**
+     * Performs the configuration role summary operation.
+     * Calls `GET /api/v1/ai-summaries/configurations/{id}` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryConfigurationGet(id:string,options?:RequestOptions) { return this.client.request<ApiEnvelope<S.SummaryConfigurationRecord>>({ ...options, method:"GET", url:`/api/v1/ai-summaries/configurations/${encodeURIComponent(id)}` }); }
+    /**
+     * Performs the updateConfiguration role summary operation.
+     * Calls `PUT /api/v1/ai-summaries/configurations/{id}` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryConfigurationPut(id:string,data:S.SummaryConfigurationWrite,options?:RequestOptions<S.SummaryConfigurationWrite>) { return this.client.request<ApiEnvelope<S.SummaryConfigurationRecord>,S.SummaryConfigurationWrite>({ ...options, method:"PUT", url:`/api/v1/ai-summaries/configurations/${encodeURIComponent(id)}`,data }); }
+    /**
+     * Performs the validate role summary operation.
+     * Calls `POST /api/v1/ai-summaries/configurations/{id}/validate` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryValidatePost(id:string,options?:RequestOptions) { return this.client.request<ApiEnvelope<S.SummaryValidation>>({ ...options, method:"POST", url:`/api/v1/ai-summaries/configurations/${encodeURIComponent(id)}/validate` }); }
+    /**
+     * Performs the publish role summary operation.
+     * Calls `POST /api/v1/ai-summaries/configurations/{id}/publish` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryPublishPost(id:string,options?:RequestOptions) { return this.client.request<ApiEnvelope<S.SummaryConfigurationRecord>>({ ...options, method:"POST", url:`/api/v1/ai-summaries/configurations/${encodeURIComponent(id)}/publish` }); }
+    /**
+     * Performs the preview role summary operation.
+     * Calls `POST /api/v1/ai-summaries/configurations/{id}/preview` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryPreviewPost(id:string,data:S.SummaryPreviewWrite,options?:RequestOptions<S.SummaryPreviewWrite>) { return this.client.request<ApiEnvelope<S.SummaryPreviewResponse>,S.SummaryPreviewWrite>({ ...options, method:"POST", url:`/api/v1/ai-summaries/configurations/${encodeURIComponent(id)}/preview`,data }); }
+    /**
+     * Performs the setStatus role summary operation.
+     * Calls `PATCH /api/v1/ai-summaries/configurations/{id}/status` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryStatusPatch(id:string,data:S.SummaryStatusWrite,options?:RequestOptions<S.SummaryStatusWrite>) { return this.client.request<ApiEnvelope<S.SummaryConfigurationRecord>,S.SummaryStatusWrite>({ ...options, method:"PATCH", url:`/api/v1/ai-summaries/configurations/${encodeURIComponent(id)}/status`,data }); }
+    /**
+     * Performs the latest role summary operation.
+     * Calls `GET /api/v1/ai-summaries/latest` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:read_own or profile:ai_summary:read_all. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryLatestGet(query:S.SummaryLatestQuery,options?:RequestOptions) { return this.client.request<ApiEnvelope<S.SummaryLatest>>({ ...options, method:"GET", url:`/api/v1/ai-summaries/latest`,params:query }); }
+    /**
+     * Performs the summaries role summary operation.
+     * Calls `GET /api/v1/ai-summaries/summaries` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:read_own or profile:ai_summary:read_all. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummarySummariesGet(query?:S.SummaryListQuery,options?:RequestOptions) { return this.client.request<ApiEnvelope<S.SummaryPage<S.SummaryRun>>>({ ...options, method:"GET", url:`/api/v1/ai-summaries/summaries`,params:query }); }
+    /**
+     * Performs the run role summary operation.
+     * Calls `GET /api/v1/ai-summaries/runs/{id}` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:read_own or profile:ai_summary:read_all. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryRunGet(id:string,options?:RequestOptions) { return this.client.request<ApiEnvelope<S.SummaryRun>>({ ...options, method:"GET", url:`/api/v1/ai-summaries/runs/${encodeURIComponent(id)}` }); }
+    /**
+     * Performs the jobs role summary operation.
+     * Calls `GET /api/v1/ai-summaries/jobs` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:manage. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryJobsGet(query?:S.SummaryListQuery,options?:RequestOptions) { return this.client.request<ApiEnvelope<S.SummaryPage<S.SummaryJob>>>({ ...options, method:"GET", url:`/api/v1/ai-summaries/jobs`,params:query }); }
+    /**
+     * Performs the refresh role summary operation.
+     * Calls `POST /api/v1/ai-summaries/refresh` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:manage. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryRefreshPost(data:S.SummaryRefreshWrite,options?:RequestOptions<S.SummaryRefreshWrite>) { return this.client.request<ApiEnvelope<S.SummaryRefreshResponse>,S.SummaryRefreshWrite>({ ...options, method:"POST", url:`/api/v1/ai-summaries/refresh`,data }); }
+    /**
+     * Performs the retry role summary operation.
+     * Calls `POST /api/v1/ai-summaries/jobs/{id}/retry` through the shared IDP-aware Faiber client.
+     * Requires profile:ai_summary:manage. Own reads are restricted to the authenticated subject.
+     * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
+     * @returns The complete Axios response with the typed Profile envelope.
+     * @throws AxiosError on 401/403, invalid input (422), conflicting draft/state (409), or service failure.
+     */
+    aiSummaryRetryPost(id:string,options?:RequestOptions) { return this.client.request<ApiEnvelope<S.SummaryRetryResponse>>({ ...options, method:"POST", url:`/api/v1/ai-summaries/jobs/${encodeURIComponent(id)}/retry` }); }
 }

@@ -1,0 +1,60 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.26s
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_knowledge-c76c40bd2e845643)
+
+running 53 tests
+test broker::tests::drm_sync_is_not_exposed_as_an_http_route ... ok
+test broker::tests::rejects_non_sync_events ... ok
+test broker::tests::sync_topology_uses_versioned_topic_events ... ok
+test context::tests::service_auth_requires_a_configured_exact_token ... ok
+test cors::tests::exact_consumer_origin_receives_preflight_headers ... ok
+test engine::tests::evaluates_nested_conditions ... ok
+test engine::tests::rejects_unsafe_operator ... ok
+test evaluation::tests::computes_reproducible_quality_and_stability_metrics ... ok
+test platform::memory_delivery_tests::application_and_processed_audit_roll_back_together_before_retry ... ok
+test platform::memory_delivery_tests::concurrent_workers_claim_disjoint_batches_and_apply_each_event_once ... ok
+test platform::memory_delivery_tests::current_policy_and_invalid_envelope_are_checked_inside_application ... ok
+test platform::memory_delivery_tests::downgrade_requires_quiescence_and_roundtrip_preserves_memory ... ok
+test platform::memory_delivery_tests::expired_claims_recover_and_both_owner_and_generation_fence_all_acks ... ok
+test platform::memory_delivery_tests::lease_expiry_during_apply_rolls_back_every_side_effect ... ok
+test platform::memory_delivery_tests::legacy_orphaned_leases_and_exhausted_attempts_do_not_stick_forever ... ok
+test platform::memory_delivery_tests::legacy_wire_receipts_are_durable_queue_receipts_not_applied_receipts ... ok
+test platform::memory_delivery_tests::real_process_crash_after_claim_is_reclaimed_after_expiry ... ok
+test platform::memory_delivery_tests::real_process_crash_during_apply_rolls_back_then_retries_once ... ok
+test platform::tests::assistant_query_preserves_selected_media_and_safe_defaults ... ok
+test platform::tests::chunks_with_overlap ... ok
+test platform::tests::context_packing_never_exceeds_hard_budget ... ok
+test platform::tests::drm_analysis_summary_is_canonical_only_when_ready ... ok
+test platform::tests::drm_media_ids_are_deduplicated_and_validated ... ok
+test platform::tests::empty_selected_media_uses_an_orderable_expression ... ok
+test platform::tests::long_memory_extracts_only_atomic_user_facts ... ok
+test platform::tests::long_memory_requires_signal ... ok
+test platform::tests::mcp_exposes_governed_tools ... ok
+test platform::tests::mcp_schemas_require_governed_identity_fields ... ok
+test platform::tests::migration_contract_covers_runtime_inventory_and_cleanup ... ok
+test platform::tests::overrides_take_precedence ... ok
+test platform::tests::profile_context_is_compact_and_excludes_sensitive_identity_fields ... ok
+test platform::tests::recommender_conditions_and_group_limits_are_enforced ... ok
+test platform::tests::runtime_optimization_migration_is_reversible ... ok
+test platform::tests::selected_media_has_a_reserved_ranking_lane ... ok
+test platform::tests::session_summary_query_requires_ready_canonical_document ... ok
+test platform::tests::source_configuration_rejects_ssrf_and_inline_secrets ... ok
+test platform::tests::summaries_are_bounded_and_normalized ... ok
+test repository::item_link_tests::accepts_external_url_without_entity_link ... ok
+test repository::item_link_tests::requires_all_polymorphic_entity_parts ... ok
+test repository::item_link_tests::validates_custom_visibility_condition ... ok
+test retrieval::tests::delivered_results_are_excluded_from_delta_context ... ok
+test retrieval::tests::fail_closed_policy_exposes_only_reason_codes ... ok
+test retrieval::tests::governance_covers_tenant_publication_validity_groups_and_conditions ... ok
+test retrieval::tests::selected_media_has_reserved_lane_and_exact_scope ... ok
+test retrieval::tests::surfaces_produce_identical_governed_results ... ok
+test task_conversion::tests::bounds_and_unsupported_inputs_are_explicit ... ok
+test task_conversion::tests::docx_keeps_persian_tables_and_does_not_interpret_instructions ... ok
+test task_conversion::tests::office_rejects_entities_path_traversal_and_sparse_ranges ... ok
+test task_conversion::tests::pdf_extracts_text_warns_on_scans_and_rejects_over_100_pages ... ok
+test task_conversion::tests::relocated_worksheets_cannot_bypass_allocation_limits ... ok
+test task_conversion::tests::text_and_tables_preserve_persian_and_checkbox_evidence ... ok
+test task_conversion::tests::xlsx_preserves_stored_values_without_running_formulas ... ok
+test task_projections::tests::persian_chunks_preserve_text_and_are_bounded ... ok
+
+test result: ok. 53 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 2.82s
+

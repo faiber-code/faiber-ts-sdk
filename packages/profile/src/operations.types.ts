@@ -121,6 +121,8 @@ export interface SessionGetSelfGetResponseDataProfileParent extends JsonObject {
   "parent_type"?: string | null;
 }
 export interface SessionGetSelfGetResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -268,6 +270,8 @@ export interface SessionUpdateSelfNamePatchResponseDataProfileParent extends Jso
   "parent_type"?: string | null;
 }
 export interface SessionUpdateSelfNamePatchResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -416,6 +420,8 @@ export interface SessionCompleteOnboardingPutResponseDataProfileParent extends J
   "parent_type"?: string | null;
 }
 export interface SessionCompleteOnboardingPutResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -1250,6 +1256,8 @@ export interface ProfileIndexGetResponseDataProfilesParent extends JsonObject {
   "parent_type"?: string | null;
 }
 export interface ProfileIndexGetResponseDataProfiles extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -1798,6 +1806,8 @@ export interface ProfileShowGetResponseDataProfileParent extends JsonObject {
   "parent_type"?: string | null;
 }
 export interface ProfileShowGetResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -1966,6 +1976,8 @@ export interface ProfileUpdatePatchResponseDataProfileParent extends JsonObject 
   "parent_type"?: string | null;
 }
 export interface ProfileUpdatePatchResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -2104,6 +2116,8 @@ export interface ProfileShowAdminGetResponseDataProfileParent extends JsonObject
   "parent_type"?: string | null;
 }
 export interface ProfileShowAdminGetResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -2268,6 +2282,8 @@ export interface ProfileUpdateEmployeeTypePatchResponseDataProfileParent extends
   "parent_type"?: string | null;
 }
 export interface ProfileUpdateEmployeeTypePatchResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -2410,6 +2426,8 @@ export interface ProfileUpdateEmployeeTypePutResponseDataProfileParent extends J
   "parent_type"?: string | null;
 }
 export interface ProfileUpdateEmployeeTypePutResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -2552,6 +2570,8 @@ export interface ProfileUpdateFreemiumPatchResponseDataProfileParent extends Jso
   "parent_type"?: string | null;
 }
 export interface ProfileUpdateFreemiumPatchResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -2694,6 +2714,8 @@ export interface ProfileUpdateFreemiumPutResponseDataProfileParent extends JsonO
   "parent_type"?: string | null;
 }
 export interface ProfileUpdateFreemiumPutResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -2832,6 +2854,8 @@ export interface ProfileShowFullGetResponseDataProfileParent extends JsonObject 
   "parent_type"?: string | null;
 }
 export interface ProfileShowFullGetResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -2998,6 +3022,8 @@ export interface ProfileUpdateStatusPatchResponseDataProfileParent extends JsonO
   "parent_type"?: string | null;
 }
 export interface ProfileUpdateStatusPatchResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -3140,6 +3166,8 @@ export interface ProfileUpdateStatusPutResponseDataProfileParent extends JsonObj
   "parent_type"?: string | null;
 }
 export interface ProfileUpdateStatusPutResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -3280,6 +3308,8 @@ export interface ProfileAccountantIndexGetResponseDataProfilesParent extends Jso
   "parent_type"?: string | null;
 }
 export interface ProfileAccountantIndexGetResponseDataProfiles extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -3492,6 +3522,8 @@ export interface ProfileCityGetPostResponseDataProfilesParent extends JsonObject
   "parent_type"?: string | null;
 }
 export interface ProfileCityGetPostResponseDataProfiles extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -3632,6 +3664,8 @@ export interface ProfileConsultantIndexGetResponseDataProfilesParent extends Jso
   "parent_type"?: string | null;
 }
 export interface ProfileConsultantIndexGetResponseDataProfiles extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -3782,6 +3816,8 @@ export interface ProfileCountryGetPostResponseDataProfilesParent extends JsonObj
   "parent_type"?: string | null;
 }
 export interface ProfileCountryGetPostResponseDataProfiles extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -3928,6 +3964,8 @@ export interface ProfileBulkGetPostResponseDataProfilesParent extends JsonObject
   "parent_type"?: string | null;
 }
 export interface ProfileBulkGetPostResponseDataProfiles extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -4084,6 +4122,8 @@ export interface ProfileManagerIndexGetResponseDataProfilesParent extends JsonOb
   "parent_type"?: string | null;
 }
 export interface ProfileManagerIndexGetResponseDataProfiles extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -4267,6 +4307,8 @@ export interface ProfileOtherIndexGetResponseDataProfilesParent extends JsonObje
   "parent_type"?: string | null;
 }
 export interface ProfileOtherIndexGetResponseDataProfiles extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -4414,6 +4456,8 @@ export interface ProfileParentIndexGetResponseDataProfilesParent extends JsonObj
   "parent_type"?: string | null;
 }
 export interface ProfileParentIndexGetResponseDataProfiles extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -4464,6 +4508,8 @@ export interface ProfileParentIndexGetResponse extends ApiEnvelope<ProfileParent
 export type ProfileSearchResolvePostInput = import("./types.js").ResolvePeopleInput;
 /** Backend response type: PeopleResult. */
 export interface ProfileSearchResolvePostResponseDataResults extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "user_id": string;
   "first_name_fa"?: string | null;
   "last_name_fa"?: string | null;
@@ -4485,6 +4531,8 @@ export interface ProfileSearchSearchPostApiV1ProfilePeopleSearchInput extends Js
 }
 /** Backend response type: PeopleResult. */
 export interface ProfileSearchSearchPostApiV1ProfilePeopleSearchResponseDataResults extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "user_id": string;
   "first_name_fa"?: string | null;
   "last_name_fa"?: string | null;
@@ -4604,6 +4652,8 @@ export interface ProfileProvinceGetPostResponseDataProfilesParent extends JsonOb
   "parent_type"?: string | null;
 }
 export interface ProfileProvinceGetPostResponseDataProfiles extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -4664,6 +4714,8 @@ export interface ProfileSearchSearchPostInput extends JsonObject {
 }
 /** Backend response type: SearchData. */
 export interface ProfileSearchSearchPostResponseDataResults extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "profile_id": string;
   "user_id": string;
   "core"?: JsonValue | null;
@@ -4784,6 +4836,8 @@ export interface ProfileStudentIndexGetResponseDataProfilesParent extends JsonOb
   "parent_type"?: string | null;
 }
 export interface ProfileStudentIndexGetResponseDataProfiles extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -4943,6 +4997,8 @@ export interface ProfileSupportIndexGetResponseDataProfilesParent extends JsonOb
   "parent_type"?: string | null;
 }
 export interface ProfileSupportIndexGetResponseDataProfiles extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -5102,6 +5158,8 @@ export interface ProfileTeacherIndexGetResponseDataProfilesParent extends JsonOb
   "parent_type"?: string | null;
 }
 export interface ProfileTeacherIndexGetResponseDataProfiles extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -5306,6 +5364,8 @@ export interface ProfileUpdatePersonalPatchResponseDataProfileParent extends Jso
   "parent_type"?: string | null;
 }
 export interface ProfileUpdatePersonalPatchResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
@@ -5463,6 +5523,8 @@ export interface ProfileUpdatePersonalPutResponseDataProfileParent extends JsonO
   "parent_type"?: string | null;
 }
 export interface ProfileUpdatePersonalPutResponseDataProfile extends JsonObject {
+  /** Six-character UUID-derived alias; search may return collisions. */
+  "short_id": string;
   "id": string;
   "user_id": string;
   "email"?: string | null;
