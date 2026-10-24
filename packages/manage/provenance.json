@@ -19,8 +19,8 @@
     "packages/manage/src/types.ts": "fe8e4f5c090d950011035f6b99dadb7f481bf1ca79ef2f3e75f8134ad6ff5708"
   },
   "capability_review_sha256": "7d54e63b39d10af9b39524caf7a4b37da107102a334c04d958d41bf0bd7428f1",
-  "source_pin_file_sha256": "bcfd980e1db1c6498d3769a33c70ac61c46dcbba09bf01eb97c857bebf8927d6",
-  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
+  "source_pin_file_sha256": "a1e906ba4d4d463f074b276b31bff0359beb99dbc760e6682975907aa6c3d5a1",
+  "http_contract_file_sha256": "81a85ea4fdd5111cb945e64745e02cba9ce4eda5bdf2f2b06eb20665a4922de6",
   "public_contract": {
     "kind": "reviewed-durable-actions",
     "operation_count": 5,

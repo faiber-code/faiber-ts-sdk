@@ -18,8 +18,8 @@
     "packages/social/src/types.ts": "51cdc3cd25ded88f5e064fbf2dbd4a7a7a2339865a873cb84b10492e0cb837b0"
   },
   "capability_review_sha256": "49c52ee46b6d613494636eecd4740674ca23080a166882c40523fb2d08bd2d13",
-  "source_pin_file_sha256": "bcfd980e1db1c6498d3769a33c70ac61c46dcbba09bf01eb97c857bebf8927d6",
-  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
+  "source_pin_file_sha256": "a1e906ba4d4d463f074b276b31bff0359beb99dbc760e6682975907aa6c3d5a1",
+  "http_contract_file_sha256": "81a85ea4fdd5111cb945e64745e02cba9ce4eda5bdf2f2b06eb20665a4922de6",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 112,

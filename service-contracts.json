@@ -9061,6 +9061,21 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/classrooms/sessions/calendar",
+      "module": "classroom",
+      "handler": "index_calendar",
+      "permissions": [
+        "lms:classroom:read"
+      ],
+      "source": "infera-lms/src/classroom/routes.rs",
+      "query": "super::calendar::CalendarQuery",
+      "response": "super::calendar::CalendarResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/classrooms/sessions/today",
       "module": "classroom",
       "handler": "index_today_sessions",

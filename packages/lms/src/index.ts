@@ -3,6 +3,7 @@ import { LmsMediaApi } from "./media.js";
 import { InteractiveLearningApi } from "./interactive.js";
 import { RestResource, ServiceApi, type AxiosResponse, type Identifier, type QueryParams, type PageQuery, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
+import type { ClassroomCalendarRequest, ClassroomCalendarQuery } from "./calendar.types.js";
 import type * as O from "./operations.types.js";
 type R<E extends T.LmsEntity, C, U, Q extends QueryParams = PageQuery> = RestResource<E, C, U, T.LmsListResponse<E>, T.LmsResponse<E>, Q, import("./wire.types.js").LmsEmptyMutationResponse>;
 import { LmsOperations } from "./operations.js";
@@ -267,6 +268,24 @@ export class LmsApi extends ServiceApi {
     dashboard(options?: RequestOptions) { return this.client.get<T.DashboardResponse>("/api/v1/dashboard", undefined, options); }
     /** Lists active classroom-session types in scheduler display order. */
     classroomSessionTypes(options?: RequestOptions) { return this.client.get<T.ClassroomSessionTypesResponse>("/api/v1/classrooms/session-types", undefined, options); }
+    /**
+     * Complete weekly calendar or selected local day in exactly one authenticated request.
+     * Requires lms:classroom:read; education-facing visibility restrictions still apply.
+     * Use date + IANA timezone for today, or RFC3339 midnight from/to spanning 1–7 local days.
+     * Type counts respect date/teacher/classroom scope independently of selected types.
+     * Returns the full Axios response. Forwards cancellation, timeout, adapters and headers.
+     * Rejects with AxiosError on 400/422 query errors, 401/403 auth errors, 502 enrichment or transport errors.
+     */
+    classroomCalendar(params: ClassroomCalendarRequest, options?: RequestOptions) {
+        const { teacher_ids, session_types, session_type_ids, ...selection } = params;
+        const query: ClassroomCalendarQuery = {
+            ...selection,
+            ...(teacher_ids?.length ? { teacher_ids: teacher_ids.join(",") } : {}),
+            ...(session_types?.length ? { session_types: session_types.join(",") } : {}),
+            ...(session_type_ids?.length ? { session_type_ids: session_type_ids.join(",") } : {}),
+        };
+        return this.operations.classroomCalendarGet(query, options);
+    }
     /** Lists classroom sessions scheduled for one local date, with lock, type, room, and profile metadata. */
     todayClassroomSessions(params?: T.TodayClassroomSessionListQuery, options?: RequestOptions) { return this.client.get<T.ClassroomSessionPageResponse>("/api/v1/classrooms/sessions/today", params, options); }
     /** Returns Session UI and recording URLs, using the configured Session domain when available. */
@@ -331,3 +350,5 @@ export * from "./branding.types.js";
 export type { LmsBranding as BrandingShowGetResponseData, LmsBranding as BrandingUpdatePutResponseData, LmsPublicBranding as BrandingPublicShowGetResponseData } from "./branding.types.js";
 
 export * from "./wire.types.js";
+
+export * from "./calendar.types.js";

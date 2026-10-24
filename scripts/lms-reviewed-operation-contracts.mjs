@@ -1,5 +1,14 @@
 // Source-reviewed LMS corrections at 1a557957; no native execution is certified here.
 export const lmsReviewedOperationContracts = {
+  "lms:GET /api/v1/classrooms/sessions/calendar": {
+    methodName: "classroomCalendarGet",
+    typeBase: "ClassroomCalendarGet",
+    requiredQuery: true,
+    query: 'import("./calendar.types.js").ClassroomCalendarQuery',
+    response: 'import("./calendar.types.js").ClassroomCalendarResponse',
+    dataAlias: 'import("./calendar.types.js").ClassroomCalendarData',
+    purpose: "Return every authorized session and complete calendar details for 1–7 local days. Requires an IANA timezone and date or half-open midnight range. Type counts ignore selected type filters; summary respects all filters. Rejects invalid ranges (422), malformed queries (400), missing read permission (403), and unavailable profile enrichment (502). No pagination or enrichment requests are needed.",
+  },
   "lms:POST /api/v1/classrooms/batch": {
     "response": "ApiEnvelope<import(\"./wire.types.js\").LmsBatchClassrooms>",
     "dataAlias": "import(\"./wire.types.js\").LmsBatchClassrooms",

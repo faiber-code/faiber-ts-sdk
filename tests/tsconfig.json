@@ -41,6 +41,7 @@
     "flow-source-wire.types.ts",
     "reservation-source-wire.types.ts",
     "reservation-capacity.types.ts",
-    "short-ids.types.ts"
+    "short-ids.types.ts",
+    "lms-calendar.types.ts"
   ]
 }

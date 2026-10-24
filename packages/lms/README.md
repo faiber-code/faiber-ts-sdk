@@ -335,3 +335,111 @@ insensitive and accepts Persian/Arabic digits; enter all six characters for a
 short-ID lookup. Collisions return multiple results: select using the record's
 name/course and keep its full UUID for subsequent operations. `shortIdFromUuid`
 is also exported for offline display. Requires the service's short-ID migration.
+
+## Complete weekly calendar and today view (unreleased)
+
+The following API is implemented in this source branch and is not included in
+the published 1.1.0 packages. Use it after the calendar SDK release and backend
+deployment are available.
+
+`lms.classroomCalendar` loads timetable rows, cards, staff/classroom/course details,
+student counts, filter badges and summary metrics with **one API request**. It
+requires `lms:classroom:read`, with existing role/own-record visibility restrictions.
+No report or Profile permissions or frontend enrichment requests are needed.
+Existing paginated session methods remain compatible.
+
+```ts
+import { FaiberSDK } from '@faiber/faiber-ts-sdk';
+import type { ClassroomCalendarRequest } from '@faiber/faiber-lms';
+
+// Use your existing authenticated SDK instance; secure cookie auth is shown here.
+const sdk = new FaiberSDK({
+  domains: { lms: 'https://lms.example.com' },
+  axios: { withCredentials: true },
+});
+const controller = new AbortController();
+
+// /dashboard/lms/calendar: one request for this complete local week.
+const week: ClassroomCalendarRequest = {
+  from: '2026-10-25T00:00:00+03:30',
+  to: '2026-11-01T00:00:00+03:30', // exclusive
+  timezone: 'Asia/Tehran',
+  teacher_ids: ['0451390a-bfab-4de5-b463-b93d6d15b1c5'],
+  session_types: ['online', 'interactive'],
+};
+const weeklyResponse = await sdk.lms.classroomCalendar(week, {
+  signal: controller.signal,
+});
+const weekly = weeklyResponse.data.data;
+// Render timetable/cards from weekly.sessions, metrics from weekly.summary,
+// and stable type-filter badges from weekly.type_counts. No enrichment calls.
+
+// /dashboard/lms/today: one request for the selected local date.
+// This is an alternative page load, not an additional request for the weekly page.
+const dailyResponse = await sdk.lms.classroomCalendar({
+  date: '2026-10-25',
+  timezone: 'Asia/Tehran',
+}, { signal: controller.signal });
+const daily = dailyResponse.data.data;
+for (const session of daily.sessions) {
+  const time = new Intl.DateTimeFormat('fa-IR', {
+    timeZone: daily.range.timezone, hour: '2-digit', minute: '2-digit',
+  }).format(new Date(session.starts_at));
+  console.log(session.title, time, session.student_count); // zero stays zero
+}
+```
+
+The individual `LmsApi` exposes the same `classroomCalendar` method. The exact wire
+operation is `lms.operations.classroomCalendarGet`, with CSV strings instead of
+arrays. All entry points preserve the complete Axios response, errors, headers,
+request options, token/cookie authentication and cancellation. Selector opening
+and explicit calendar actions may make their own requests.
+
+### Calendar contract
+
+- Supply required IANA `timezone` and either `date` (`YYYY-MM-DD`) **or** `from`/`to`
+  (RFC3339 instants). Ranges cover 1–7 complete local days, inclusive opening
+  midnight and exclusive closing midnight. DST days may have 23/25 hours; weeks
+  may have 167/169 hours. Ambiguous/nonexistent midnight is rejected explicitly.
+- Sessions are included by their start instant, sorted by `starts_at` then `id`.
+  There is no pagination, result cap or silent truncation. Undated supplementary
+  sessions cannot be assigned to a day and are excluded from rows and metrics.
+  Dated supplementary sessions are included; cancelled/completed sessions remain
+  visible. Soft-deleted sessions/classrooms are excluded.
+- Array filters support multiple `teacher_ids`, `session_types` (categories), and
+  `session_type_ids` (configured type UUIDs), plus one `classroom_id`. Each list
+  uses OR, separate filters use AND. Empty convenience arrays mean all values;
+  wire CSV filters must have 1–100 entries. Unknown values are rejected, not ignored.
+- Categories: `online` (آنلاین), `in_person` (حضوری), `makeup` (جبرانی),
+  `interactive` (آنلاین تعاملی), `supplementary` (مکمل), plus `unknown` for
+  unmapped configured types. `delivery_mode` uses the same categories. Lifecycle,
+  record status and access mode are separate fields.
+- `summary` describes returned rows **after all filters**. `type_counts`,
+  `configured_type_counts`, and `total_before_type_filters` respect visibility,
+  date, teacher and classroom filters but ignore **both type filters**. Category
+  counts always include all categories with genuine zero values.
+- Effective teacher is session teacher with classroom fallback; support is
+  classroom support with consultant fallback. Null IDs mean unassigned; a
+  non-null ID with null profile means no Profile record was returned. Display
+  names are strings, locale maps, or null. A Profile service failure rejects the
+  whole request with 502 rather than silently omitting enrichment.
+- `student_count`: distinct selected IDs when restricted (empty selection = 0),
+  otherwise distinct active/inactive/disabled/enrolled classroom members.
+  `classroom_student_count` always means enrollment, and `classroom_capacity` is
+  independent: null is unconfigured and zero is preserved. Summary
+  `student_seat_count` sums session counts, not unique people across the range.
+- Missing duration/end time/type/room/lifecycle values remain null. The sum of
+  known durations is paired with `unknown_duration_count`. Missing lifecycle is
+  grouped under `unknown`. Timing/access fields come from LMS; do not manually
+  add timezone offsets to timestamps or derive access mode from category.
+- Query shape/unknown keys (including pagination) return 400; range/timezone/filter
+  validation returns 422; missing permission returns 403 (gateway auth may return
+  401); Profile failures return 502. Catch Axios errors and keep cancellation
+  distinct from failed loading. There is no SDK retry or enrichment fallback.
+
+Public types include `ClassroomCalendarRequest`, `ClassroomCalendarQuery`,
+`ClassroomCalendarResponse`, `ClassroomCalendarData`, `ClassroomCalendarSession`,
+`CalendarSummary`, `CalendarProfileSummary`, `CalendarSessionType`,
+`CalendarSessionCategory`, and explicit range/filter/count types. Package release
+and compatible backend deployment are both required before enabling this method
+in a production client.

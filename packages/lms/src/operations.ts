@@ -443,6 +443,17 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.ClassroomRecordAttendancePutResponse, T.ClassroomRecordAttendancePutInput>({ ...options, method: "PUT", url: `/api/v1/classrooms/sessions/${encodeURIComponent(id)}/attendance`, data: data });
   }
   /**
+   * Return every authorized session and complete calendar details for 1–7 local days. Requires an IANA timezone and date or half-open midnight range. Type counts ignore selected type filters; summary respects all filters. Rejects invalid ranges (422), malformed queries (400), missing read permission (403), and unavailable profile enrichment (502). No pagination or enrichment requests are needed.
+   * Calls `GET /api/v1/classrooms/sessions/calendar` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   */
+  classroomCalendarGet(params: T.ClassroomCalendarGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ClassroomCalendarGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/sessions/calendar`, params });
+  }
+  /**
    * List today sessions records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
    * Calls `GET /api/v1/classrooms/sessions/today` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.

@@ -33,7 +33,7 @@
     },
     "lms": {
       "directory": "infera-lms",
-      "revision": "39d5a0b80ef33c9f732dc00b0ee0e9e54047901a"
+      "revision": "dffab43c9a730e1cc335f117fe53bb352dedd71f"
     },
     "messenger": {
       "directory": "infera-messenger",
@@ -93,8 +93,8 @@
     "packages/core/src/types.ts": "fee1c4b8f5ed4de92276be41d10a13ada5361c24ed80656029a4cf5e3e940afa"
   },
   "capability_review_sha256": null,
-  "source_pin_file_sha256": "bcfd980e1db1c6498d3769a33c70ac61c46dcbba09bf01eb97c857bebf8927d6",
-  "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
+  "source_pin_file_sha256": "a1e906ba4d4d463f074b276b31bff0359beb99dbc760e6682975907aa6c3d5a1",
+  "http_contract_file_sha256": "81a85ea4fdd5111cb945e64745e02cba9ce4eda5bdf2f2b06eb20665a4922de6",
   "public_contract": {
     "kind": "shared-client-or-facade"
   },

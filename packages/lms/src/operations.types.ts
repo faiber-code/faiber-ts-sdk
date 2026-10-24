@@ -1034,6 +1034,12 @@ export interface ClassroomRecordAttendancePutResponseData extends JsonObject {
 export interface ClassroomRecordAttendancePutResponse extends ApiEnvelope<ClassroomRecordAttendancePutResponseData> {
 }
 
+/** Backend query type: super::calendar::CalendarQuery. */
+export type ClassroomCalendarGetQuery = import("./calendar.types.js").ClassroomCalendarQuery;
+/** Backend response type: super::calendar::CalendarResponse. */
+export type ClassroomCalendarGetResponseData = import("./calendar.types.js").ClassroomCalendarData;
+export type ClassroomCalendarGetResponse = import("./calendar.types.js").ClassroomCalendarResponse;
+
 /** Backend query type: models::TodaySessionListQuery. */
 export interface ClassroomIndexTodaySessionsGetQuery extends QueryParams {
   "page[number]"?: number | null;
