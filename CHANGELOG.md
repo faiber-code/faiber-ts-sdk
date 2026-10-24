@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.2.0 — 2026-10-24
+
+- Add `lms.classroomCalendar` and `lms.operations.classroomCalendarGet` for complete daily and weekly calendars in one authenticated request.
+- Export explicit calendar request/response, session, profile, count, category, range and summary types.
+- Include teacher/support summaries, classroom/course identity, actual session student counts, enrollment/capacity, timing and action metadata without frontend enrichment.
+- Support multiple teachers, classroom and session-type filters, timezone-aware half-open local day/week ranges, and type badges independent of selected type filters.
+- Document daily and weekly integration, null/zero semantics, undated supplementary exclusion, authorization, cancellation and errors. Existing paginated endpoints remain compatible.
+- Requires the matching LMS calendar endpoint deployment; SDK publication alone does not deploy the backend.
+
 ## 1.1.0 — 2026-10-24
 
 - Add deterministic six-character classroom and profile short IDs derived from existing UUIDs. Aliases may collide; canonical UUIDs remain the identifiers for mutations.

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-manage",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "source_revisions": {
     "manage": {
       "revision": "5ac22d1145c68693717ff4dedcaff74a74746197"

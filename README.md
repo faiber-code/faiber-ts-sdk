@@ -208,3 +208,29 @@ The six-character alias is calculated without a stored column and supports offli
 display. It can collide: searches return all authorized matches with their normal
 pagination; retain full identifiers for reads and mutations. Searches normalize
 case and Persian/Arabic digits. The backend short-ID migrations must be deployed.
+
+## Daily and weekly LMS calendar
+
+Since 1.2.0, an existing authenticated SDK instance loads a complete local day in
+one request. Requires `lms:classroom:read` and an LMS deployment with the calendar
+endpoint. Existing visibility rules apply; no separate Profile/report permission
+or enrichment request is needed.
+
+```ts
+const controller = new AbortController();
+const response = await sdk.lms.classroomCalendar({
+  date: '2026-10-25',
+  timezone: 'Asia/Tehran',
+}, { signal: controller.signal });
+const { sessions, summary, type_counts } = response.data.data;
+```
+
+For a week, replace `date` with `from: '2026-10-25T00:00:00+03:30'` and
+`to: '2026-11-01T00:00:00+03:30'`. The end is exclusive; complete ranges may
+span 1–7 local days. All results are returned without pagination. Multiple teacher
+and type filters are arrays. Type counts ignore selected type filters, while
+summary metrics describe returned sessions. Preserve zero student counts and
+format timestamp instants using the requested timezone. The call preserves the
+full Axios response, cancellation and errors. See the
+[@faiber/faiber-lms guide](https://www.npmjs.com/package/@faiber/faiber-lms)
+for the complete field, filtering and null semantics and weekly examples.

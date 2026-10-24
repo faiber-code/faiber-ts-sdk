@@ -336,11 +336,10 @@ short-ID lookup. Collisions return multiple results: select using the record's
 name/course and keep its full UUID for subsequent operations. `shortIdFromUuid`
 is also exported for offline display. Requires the service's short-ID migration.
 
-## Complete weekly calendar and today view (unreleased)
+## Complete weekly calendar and today view
 
-The following API is implemented in this source branch and is not included in
-the published 1.1.0 packages. Use it after the calendar SDK release and backend
-deployment are available.
+Available since SDK 1.2.0. Requires an LMS deployment that includes
+`GET /api/v1/classrooms/sessions/calendar`.
 
 `lms.classroomCalendar` loads timetable rows, cards, staff/classroom/course details,
 student counts, filter badges and summary metrics with **one API request**. It

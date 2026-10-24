@@ -81,8 +81,8 @@ test("generated contracts have exact route coverage, named outputs, and complete
     }
     total += endpoints.length;
   }
-  // Snapshot adds eight Knowledge management/policy and two Chat recovery routes.
-  assert.equal(total, 1671);
+  // Snapshot includes the complete LMS calendar route alongside the existing service contracts.
+  assert.equal(total, 1672);
 });
 
 test("every published workspace package includes developer documentation", async () => {

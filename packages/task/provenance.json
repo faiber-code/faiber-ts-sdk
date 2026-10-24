@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-task",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "source_revisions": {
     "task": {
       "directory": "infera-task",

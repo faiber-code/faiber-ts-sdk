@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-ts-sdk",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "source_revisions": {
     "asset": {
       "directory": "infera-asset",
@@ -81,7 +81,7 @@
     }
   },
   "package_source_sha256": {
-    "packages/sdk/src/capabilities.ts": "90521393209d8d3a44531d371a99b3ce1103392c1d91f8595d133e236bac8ebb",
+    "packages/sdk/src/capabilities.ts": "29c83510585af042aebb09e1f8d0818727cc94fd03ba0a78a034871f4bb048fa",
     "packages/sdk/src/index.ts": "1bdfc0b798a3155ed5969ff7a938af59004bb3ea9d75051a359c6f1d95968161"
   },
   "capability_review_sha256": null,
