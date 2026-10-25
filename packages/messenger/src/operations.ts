@@ -182,7 +182,7 @@ export class MessengerOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases).
    */
-  notificationNotificationsMyMarkReadPatch(id: Identifier, options?: RequestOptions) {
+  notificationNotificationsMyMarkReadPatch(id: Identifier, options?: RequestOptions & { data?: T.NotificationInboxStateInput }) {
     return this.client.request<T.NotificationNotificationsMyMarkReadPatchResponse>({ ...options, method: "PATCH", url: `/api/v1/notifications/me/${encodeURIComponent(id)}/read` });
   }
   /**

@@ -223,3 +223,6 @@ export type RouterStatusRouteGetHealthResponse = import("./types.js").MessengerH
 
 /** Backend response type: api. */
 export type RouterStatusRouteGetUpResponse = import("./types.js").MessengerHealthResponse;
+
+/** Optional recipient-owned state; an absent body preserves mark-read semantics. */
+export type NotificationInboxStateInput = import("./types.js").InboxStateInput;

@@ -259,6 +259,7 @@ export type RoutesSendPostResponse = import("./reviewed-wire.js").ChatMessageRes
 
 /** Backend request type: ReadInput. */
 export interface RoutesReadPostInput extends JsonObject {
+  unread?: boolean;
   "sequence": number;
   "message_id"?: string | null;
 }

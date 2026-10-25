@@ -36,7 +36,8 @@ export interface MessengerRequiredRecipientQuery extends QueryParams { recipient
 export interface MessengerPageMeta { page: number; page_size: number; total_items: number; total_pages: number }
 export interface MessengerNotificationPage { data: Notification[]; meta: MessengerPageMeta }
 /** Recipient copy only; description is the message body, never a delivery diagnostic. destination is deliberately native dynamic JSON. */
-export interface InboxItem { destination: JsonValue; id: number; title: string | null; description: string | null; path: string | null; work_item_id: string | null; event: string | null; read: boolean; created_at: string }
+export interface InboxStateInput { read?: boolean; important?: boolean }
+export interface InboxItem { important: boolean; destination: JsonValue; id: number; title: string | null; description: string | null; path: string | null; work_item_id: string | null; event: string | null; read: boolean; created_at: string }
 export interface MessengerInboxPage { data: InboxItem[]; meta: MessengerPageMeta }
 /** The native success value is exactly an empty JSON object. */
 export type MessengerEmptyObject = Record<string, never>;

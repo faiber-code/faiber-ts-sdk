@@ -70,7 +70,7 @@ export interface MemberInput extends JsonObject { user_id: string; role?: string
 export interface SendMessageInput extends JsonObject { message_type?: string; content: JsonValue; metadata?: JsonValue; reply_to_id?: string | null; thread_root_id?: string | null; client_id?: string | null; attachment_ids?: string[]; }
 export interface EditMessageInput extends JsonObject { content: JsonValue; }
 export interface ReactionInput extends JsonObject { emoji: string; }
-export interface ReadInput extends JsonObject { sequence: number; message_id?: string | null; }
+export interface ReadInput extends JsonObject { sequence: number; unread?: boolean; message_id?: string | null; }
 /** profile, props, meta and inputs carry dynamic governed Agentic/Knowledge context, not a fixed local DTO. */
 export interface AiMessageInput extends JsonObject { message: string; client_id?: string | null; model_ref?: string | null; profile?: JsonValue; props?: JsonValue; meta?: JsonValue; inputs?: JsonValue; knowledge_group_slugs?: string[]; knowledge_level?: number | null; drm_media_ids?: string[]; session_room_id?: string | null; }
 export type ConversationResponse = import('./reviewed-wire.js').ChatEnvelope<Conversation>;

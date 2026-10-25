@@ -45,6 +45,8 @@ export class MessengerApi extends ServiceApi {
     myInboxPage(params?: O.NotificationNotificationsMyInboxGetQuery, options?: RequestOptions) { return this.client.get<T.InboxResponse>("/api/v1/notifications/me", params, options); }
     /** Mark one current actor notification read; requires notification:self:read. Other-recipient, missing and deleted records return 404. */
     markMyNotificationRead(id: Identifier, options?: RequestOptions) { return this.client.patch<T.InboxItemResponse>(`/api/v1/notifications/me/${encodeURIComponent(id)}/read`, undefined, options); }
+    /** Update only this recipient's requested state. Importance never changes read state. */
+    setMyNotificationState(id: Identifier, data: T.InboxStateInput, options?: RequestOptions<T.InboxStateInput>) { return this.operations.notificationNotificationsMyMarkReadPatch(id, { ...options, data }); }
     /** Mark all current actor notifications read; requires notification:self:read. */
     markMyInboxRead(options?: RequestOptions) { return this.client.patch<T.InboxReadAllResponse>("/api/v1/notifications/me/read-all", undefined, options); }
     /** Authorize only the current actor private channel; requires notification:self:read. Returns raw {auth}; wrong channel is 403, unavailable realtime is 503. */
