@@ -414,7 +414,7 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesSendPostResponse, T.RoutesSendPostInput>({ ...options, method: "POST", url: `/api/v1/conversations/${encodeURIComponent(id)}/messages`, data: data });
   }
   /**
-   * Advance the current active member read sequence monotonically. Sequence cannot be negative or exceed the conversation head; message_id, when provided, must have that exact sequence. Returns 204.
+   * Advance the current active member read sequence; unread:true instead marks an existing received message and subsequent messages unread. Sequence cannot be negative or exceed the conversation head; message_id, when provided, must have that exact sequence. Returns 204.
    * Calls `POST /api/v1/conversations/{id}/read` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.

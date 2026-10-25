@@ -1,30 +1,30 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-chat",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "source_revisions": {
     "chat": {
       "directory": "infera-chat",
-      "revision": "03dd17ad3a1f6a36f5b6ad42e8e11729b44ebc55"
+      "revision": "e82d4526b31f8549fe0186979c52d8179b0e4a49"
     }
   },
   "package_source_sha256": {
     "packages/chat/src/assistant-voice.ts": "2646fbad3ad189bfad58dc1d2c3713cdf4169b78cea3f9f0a89396c976b2083b",
     "packages/chat/src/index.ts": "c8db545e2673b6f2f7b610f31e8f2796afe4f46e6460b55b495a9922cfcf1a39",
     "packages/chat/src/learning.ts": "362ca67a1e763cfb8c8e2d9105330b1f61622f4e916d1b77b5257387fa54691f",
-    "packages/chat/src/operations.ts": "40a2965f39d813b5505bb7556d85dc9591eeb3f812140fb251c8a71accbe9ed3",
-    "packages/chat/src/operations.types.ts": "fdd0abaf7520d9d6fd947a2fdffca62f48d44cdc87da7f4dc6ffd7cda7e2eb3a",
+    "packages/chat/src/operations.ts": "7c9a4937447d06594da9c16a2e294ca2cbdd251188c8c96e00cc946ab1bcbcea",
+    "packages/chat/src/operations.types.ts": "bc7b9cf0863a130463eb1e5f3385cbb09cc0b09035fa3c83a5b349d6abbdd106",
     "packages/chat/src/personal.ts": "802316a11b33a0619a5db6041ffee38a75674374ee1022e0e8a4df3d4f8ad49c",
     "packages/chat/src/reviewed-wire.ts": "d1ff294d5af41fb768773c4a401d8429df9ea301c3cf2616cce04659c506af3a",
     "packages/chat/src/speech-live.ts": "30fcab33101d3e3a7e5bd9ee1fb4618f910f81c7af39f4a38b38e5ca59782e5e",
     "packages/chat/src/speech-playback.ts": "90f32542a3e6cf392782538b66244d87186f023de73092b2b74470c85b92da46",
     "packages/chat/src/speech-recorder.ts": "695af79a049dc07658aeb7e3001b0c8cc09757232f8f5fdde19cd782a0e1efeb",
-    "packages/chat/src/types.ts": "708c642912915db3a15c03e38caa154894937eb04e74129c7512768e0a94031d",
+    "packages/chat/src/types.ts": "46f902611d832e9a5dd16779dd53a1408a723d51592b9531fc4e28e24e1c8d96",
     "packages/chat/src/workspace.ts": "6cc509f9655d46c8b7fa7e4c4675b4d9e0c32df0f9b45c59aec844ce47d52181"
   },
   "capability_review_sha256": "916e361c42644d64dd39a325685b0b5ca6083d7455396596f6600261896233a7",
-  "source_pin_file_sha256": "a1e906ba4d4d463f074b276b31bff0359beb99dbc760e6682975907aa6c3d5a1",
-  "http_contract_file_sha256": "81a85ea4fdd5111cb945e64745e02cba9ce4eda5bdf2f2b06eb20665a4922de6",
+  "source_pin_file_sha256": "c659ed01fcd5b74403816728244415d5c9d647998b5b6fc8d176a3ef28a7c960",
+  "http_contract_file_sha256": "33351316bb5e5a25d26e42b310b6be030014cc8747aa95606f70758449e3fc9b",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 69,

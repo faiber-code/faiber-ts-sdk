@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-flow",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "source_revisions": {
     "flow": {
       "directory": "infera-flow",
@@ -15,8 +15,8 @@
     "packages/flow/src/types.ts": "166900d0963f35a50b926b4b50a8f5cb88bc22c24fb988db685bee34b50a7786"
   },
   "capability_review_sha256": "2c12bcd97ab289ee2d049f7b55845a54789f704084c9511ce59c15e7348548e2",
-  "source_pin_file_sha256": "a1e906ba4d4d463f074b276b31bff0359beb99dbc760e6682975907aa6c3d5a1",
-  "http_contract_file_sha256": "81a85ea4fdd5111cb945e64745e02cba9ce4eda5bdf2f2b06eb20665a4922de6",
+  "source_pin_file_sha256": "c659ed01fcd5b74403816728244415d5c9d647998b5b6fc8d176a3ef28a7c960",
+  "http_contract_file_sha256": "33351316bb5e5a25d26e42b310b6be030014cc8747aa95606f70758449e3fc9b",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 18,

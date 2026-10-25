@@ -101,7 +101,7 @@
         },
         {
           "path": "infera-lms/src/router.rs",
-          "line": 165,
+          "line": 166,
           "function": "routes"
         }
       ]
@@ -124,7 +124,7 @@
         },
         {
           "path": "infera-lms/src/router.rs",
-          "line": 165,
+          "line": 166,
           "function": "routes"
         }
       ]

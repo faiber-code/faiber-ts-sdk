@@ -236,7 +236,8 @@ export const chatReviewedOperationContracts = {
     "auth": "Authenticated IDP session; chat:read"
   },
   "chat:POST /api/v1/conversations/{id}/read": {
-    "purpose": "Advance the current active member read sequence monotonically. Sequence cannot be negative or exceed the conversation head; message_id, when provided, must have that exact sequence. Returns 204.",
+    "input": "import(\"./types.js\").ReadInput",
+    "purpose": "Advance the current active member read sequence; unread:true instead marks an existing received message and subsequent messages unread. Sequence cannot be negative or exceed the conversation head; message_id, when provided, must have that exact sequence. Returns 204.",
     "auth": "Authenticated IDP session; chat:write"
   },
   "chat:PUT /api/v1/messages/{id}": {

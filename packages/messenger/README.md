@@ -26,7 +26,7 @@ Use a configured `TokenProvider` for Bearer authentication, or `withCredentials`
 
 ## Complete API
 
-`api.operations` exposes all 47 mounted HTTP operations; input, query, response, path, method, and permission types are exported. The reviewed backend source is `0eb2143fae39dee3e0543abaac59ea1aaaed771c`. Source review does not establish adoption by a deployed instance or native infrastructure acceptance.
+`api.operations` exposes all 47 mounted HTTP operations; input, query, response, path, method, and permission types are exported. The reviewed backend source is `c65ae75c6cbed3f07b13a58887e3bf4842f22d22`. Source review does not establish adoption by a deployed instance or native infrastructure acceptance.
 
 | Capability | Operations |
 |---|---:|
@@ -70,6 +70,10 @@ Template patch `channel_id: null` clears the group; omission preserves it. Null 
 Provider service input uses `{name, provider, channel, options, priority?}` with lowercase provider names `smtp`, `ghasedak`, `armaghan`, `pusher`, or `firebase`. Options are provider-specific dynamic JSON encrypted by the backend; every provider read/create/update response returns `options: null`. Omitted/null patch options preserves credentials. Priority is a signed 16-bit integer. Setup reports serialize provider enum labels as `Smtp`, `Ghasedak`, `Armaghan`, `Pusher`, or `Firebase`.
 
 Administrative notification reads include provider diagnostics and routing fields. Their list uses `{ "page[number]": 2, "page[size]": 30, recipient?: "user-id" }` with metadata nested in `response.data.data.meta`. Defaults are page 1/size 20; size clamps to 1..100, and page clamps to at least 1. Records sort by updated time then ID descending. `markAllNotificationsRead({recipient})` requires a nonempty recipient; its result is `{updated}`.
+
+## Personal inbox state
+
+Use `myInboxPage({important:true})` for a separately paginated pinned section and `important:false` for the rest. `setMyNotificationState(id,{important:true})` changes only that recipient's importance. `{read:false}` restores unread state; `{read:true}` marks it read. Either field can be updated independently or together. The existing `markMyNotificationRead(id)` remains compatible. Missing or deleted records and records belonging to another recipient return 404.
 
 ## Recipient delivery
 

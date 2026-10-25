@@ -105,10 +105,12 @@ export type NotificationNotificationsMarkReadPatchQuery = import("./types.js").M
 export type NotificationNotificationsMarkReadPatchResponse = import("./types.js").NotificationResponse;
 
 /** Backend query type: PaginationQuery. */
-export type NotificationNotificationsMyInboxGetQuery = import("./types.js").MessengerPageQuery;
+export type NotificationNotificationsMyInboxGetQuery = import("./types.js").MessengerInboxQuery;
 /** Backend response type: crate::models::PagedResult<InboxItem>. */
 export type NotificationNotificationsMyInboxGetResponse = import("./types.js").InboxResponse;
 
+/** Backend request type: InboxStateInput. */
+export type NotificationNotificationsMyMarkReadPatchInput = import("./types.js").InboxStateInput;
 /** Backend response type: InboxItem. */
 export type NotificationNotificationsMyMarkReadPatchResponse = import("./types.js").InboxItemResponse;
 
@@ -223,6 +225,3 @@ export type RouterStatusRouteGetHealthResponse = import("./types.js").MessengerH
 
 /** Backend response type: api. */
 export type RouterStatusRouteGetUpResponse = import("./types.js").MessengerHealthResponse;
-
-/** Optional recipient-owned state; an absent body preserves mark-read semantics. */
-export type NotificationInboxStateInput = import("./types.js").InboxStateInput;

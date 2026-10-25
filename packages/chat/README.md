@@ -325,3 +325,7 @@ schema check. Their exported types document that behavior. Catalog listings and
 assistant lookup scope follow the selected backend: active/managed assistant lists
 and the public assistant lookup do not apply an organization predicate in their
 repositories. Do not infer tenant isolation from an SDK type or a catalog result.
+
+## Mark a received message unread
+
+`api.markRead(conversationId, {sequence: message.sequence, message_id: message.id, unread: true}, {signal})` rewinds only the caller's personal read position to before that received message. This can make later received messages unread too. It does not retract read receipts already delivered to senders. Own, deleted, nonexistent, and other-conversation messages are rejected. Stop automatic visible-message read updates before invoking this action, and resume when the user deliberately reopens the conversation.

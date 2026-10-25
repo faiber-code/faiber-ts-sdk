@@ -164,7 +164,7 @@ export class MessengerOperations extends ServiceApi {
     return this.client.request<T.NotificationNotificationsMarkReadPatchResponse>({ ...options, method: "PATCH", url: `/api/v1/notifications/${encodeURIComponent(id)}/read`, params });
   }
   /**
-   * Page current non-nil actor recipient records using literal page[number]/page[size], default 1/20 and size clamp 1..100; ordered updated_at/id descending. Recipient DTO excludes routing/provider diagnostics; description is body copy. Unauthenticated actor is 401, missing self-read permission is 403.
+   * Page current non-nil actor recipient records using literal page[number]/page[size], default 1/20 and size clamp 1..100; filtered by optional important before pagination, ordered created_at/id descending. Recipient DTO excludes routing/provider diagnostics; description is body copy. Unauthenticated actor is 401, missing self-read permission is 403.
    * Calls `GET /api/v1/notifications/me` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -175,15 +175,16 @@ export class MessengerOperations extends ServiceApi {
     return this.client.request<T.NotificationNotificationsMyInboxGetResponse>({ ...options, method: "GET", url: `/api/v1/notifications/me`, params });
   }
   /**
-   * Mark one current actor notification read and return recipient-safe copy. Requires non-nil actor and self-read permission; missing/other-recipient/deleted record is 404.
+   * Update current actor read/important state independently; absent body marks read. Return recipient-safe copy. Requires non-nil actor and self-read permission; missing/other-recipient/deleted record is 404.
    * Calls `PATCH /api/v1/notifications/me/{id}/read` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases).
    */
-  notificationNotificationsMyMarkReadPatch(id: Identifier, options?: RequestOptions & { data?: T.NotificationInboxStateInput }) {
-    return this.client.request<T.NotificationNotificationsMyMarkReadPatchResponse>({ ...options, method: "PATCH", url: `/api/v1/notifications/me/${encodeURIComponent(id)}/read` });
+  notificationNotificationsMyMarkReadPatch(id: Identifier, options?: RequestOptions<T.NotificationNotificationsMyMarkReadPatchInput> & { data?: T.NotificationNotificationsMyMarkReadPatchInput }) {
+    return this.client.request<T.NotificationNotificationsMyMarkReadPatchResponse, T.NotificationNotificationsMyMarkReadPatchInput>({ ...options, method: "PATCH", url: `/api/v1/notifications/me/${encodeURIComponent(id)}/read` });
   }
   /**
    * Poll current non-nil actor durable recipient events, up to 100 per page. Omit cursor to capture current head before inbox snapshot; negative cursor is 400 and expired/future cursor is 410 requiring resync. wait_seconds defaults/maxes at 25. Payloads are recipient-safe and include cursor/event_id; provider acceptance is not delivery proof.

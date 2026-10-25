@@ -124,9 +124,9 @@ export const messengerReviewedOperationContracts = {
     "auth": "Authenticated IDP context; admin:service:delete"
   },
   "messenger:GET /api/v1/notifications/me": {
-    "query": "import(\"./types.js\").MessengerPageQuery",
+    "query": "import(\"./types.js\").MessengerInboxQuery",
     "response": "import(\"./types.js\").InboxResponse",
-    "purpose": "Page current non-nil actor recipient records using literal page[number]/page[size], default 1/20 and size clamp 1..100; ordered updated_at/id descending. Recipient DTO excludes routing/provider diagnostics; description is body copy. Unauthenticated actor is 401, missing self-read permission is 403.",
+    "purpose": "Page current non-nil actor recipient records using literal page[number]/page[size], default 1/20 and size clamp 1..100; filtered by optional important before pagination, ordered created_at/id descending. Recipient DTO excludes routing/provider diagnostics; description is body copy. Unauthenticated actor is 401, missing self-read permission is 403.",
     "auth": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)"
   },
   "messenger:PATCH /api/v1/notifications/me/read-all": {
@@ -135,8 +135,10 @@ export const messengerReviewedOperationContracts = {
     "auth": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)"
   },
   "messenger:PATCH /api/v1/notifications/me/{id}/read": {
+    "optionalInputInOptions": true,
+    "input": "import(\"./types.js\").InboxStateInput",
     "response": "import(\"./types.js\").InboxItemResponse",
-    "purpose": "Mark one current actor notification read and return recipient-safe copy. Requires non-nil actor and self-read permission; missing/other-recipient/deleted record is 404.",
+    "purpose": "Update current actor read/important state independently; absent body marks read. Return recipient-safe copy. Requires non-nil actor and self-read permission; missing/other-recipient/deleted record is 404.",
     "auth": "Authenticated IDP context; notification:self:read; non-nil current actor and self_inbox_user explicit permission check (message:/messenger: aliases)"
   },
   "messenger:GET /api/v1/notifications": {

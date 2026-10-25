@@ -11401,6 +11401,7 @@
         "notification:self:read"
       ],
       "source": "infera-messenger/src/notification/routes.rs",
+      "body": "InboxStateInput",
       "pathParam": "i64",
       "response": "InboxItem",
       "responseEnvelope": "api",

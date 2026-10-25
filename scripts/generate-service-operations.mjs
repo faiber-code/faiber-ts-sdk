@@ -533,7 +533,8 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     const ids = placeholders(endpoint.path);
     const reviewed = {...collaborationContracts[`${service}:${endpoint.method} ${endpoint.path}`], ...reviewedRelease};
     if (endpoint.method === "ANY" && !reviewed?.dynamicMethod) throw new Error(`Unreviewed dynamic HTTP method: ${service} ${endpoint.path}`);
-    const hasInput = Boolean(endpoint.body || endpoint.multipart || endpoint.binary);
+    const optionalInputInOptions = Boolean(reviewed?.optionalInputInOptions);
+    const hasInput = Boolean(endpoint.body || endpoint.multipart || endpoint.binary || optionalInputInOptions);
     if (endpoint.source.includes('/shared/') && (!reviewed?.response || (hasInput && !reviewed?.input))) {
       throw new Error(`Public path-dependency wire types require explicit review: ${service} ${endpoint.method} ${endpoint.path}`);
     }
@@ -618,11 +619,11 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     }
     const args = ids.map(id => `${camel(id)}: ${reviewed?.pathTypes?.[id] ?? "Identifier"}`);
     if (endpoint.method === "ANY") args.push('method: import("@faiber/sdk-core").HttpRequestMethod');
-    if (hasInput && !optionalChatUpload) args.push(`data: T.${base}Input`);
+    if (hasInput && !optionalChatUpload && !optionalInputInOptions) args.push(`data: T.${base}Input`);
     if (hasQuery) args.push(`params${reviewed?.requiredQuery ? "" : "?"}: T.${base}Query`);
     if (reviewed?.idempotencyKey) args.push("idempotencyKey: string");
     if (reviewed?.membershipRevision) args.push("membershipRevision: string");
-    args.push(`options?: RequestOptions${optionalChatUpload ? "<T.AttachmentUploadBody>" : endpoint.formUrlEncoded ? "<URLSearchParams>" : hasInput ? `<T.${base}Input>` : ""}`);
+    args.push(`options?: RequestOptions${optionalChatUpload ? "<T.AttachmentUploadBody>" : endpoint.formUrlEncoded ? "<URLSearchParams>" : hasInput ? `<T.${base}Input>` : ""}${optionalInputInOptions ? ` & { data?: T.${base}Input }` : ""}`);
     if (optionalChatUpload) args.push("data?: T.AttachmentUploadBody");
     const permissions = reviewed?.auth ?? (endpoint.permissions.length ? endpoint.permissions.join(", ") : endpoint.path.startsWith("/internal/") || endpoint.path.startsWith("/api/v1/internal/") ? "trusted backend service credential and tenant scope; not a public browser endpoint" : "session-derived or public bootstrap route");
     operationLines.push("  /**");
@@ -654,7 +655,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       ? `{ ...data, ${Object.entries(reviewed.pathFields).map(([field, arg]) => `${JSON.stringify(field)}: String(${arg})`).join(", ")} }` : "data";
     if (optionalChatUpload) {
       operationLines.push(`    return this.client.request<T.${base}Response, T.AttachmentUploadBody>({ ...options, method: "POST", url: ${escapedPath(endpoint.path)}, ...(data === undefined ? {} : { data, headers: { ...options?.headers, "Content-Type": "application/octet-stream" } }) });`);
-    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ${reviewed?.timeout ? `timeout: ${reviewed.timeout}, ` : ""}...options, method: ${endpoint.method === "ANY" ? "method" : `"${endpoint.method}"`}, url: ${escapedPath(endpoint.path,reviewed)}${reviewed?.idempotencyKey ? ", headers" : ""}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${reviewed?.textResponse ? ', responseType: "text"' : binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${reviewed?.fetchStream ? ', adapter: options?.adapter ?? "fetch"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? `, headers: { "Content-Type": ${reviewed?.binaryContentType === "blob" ? '(typeof Blob !== "undefined" && data instanceof Blob && data.type ? data.type : "application/octet-stream")' : '"application/octet-stream"'}, ...options?.headers }` : reviewed?.jsonBody ? ', headers: { "Content-Type": "application/json", ...options?.headers }' : ""} });`);
+    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ${reviewed?.timeout ? `timeout: ${reviewed.timeout}, ` : ""}...options, method: ${endpoint.method === "ANY" ? "method" : `"${endpoint.method}"`}, url: ${escapedPath(endpoint.path,reviewed)}${reviewed?.idempotencyKey ? ", headers" : ""}${hasInput && !optionalInputInOptions ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${reviewed?.textResponse ? ', responseType: "text"' : binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${reviewed?.fetchStream ? ', adapter: options?.adapter ?? "fetch"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? `, headers: { "Content-Type": ${reviewed?.binaryContentType === "blob" ? '(typeof Blob !== "undefined" && data instanceof Blob && data.type ? data.type : "application/octet-stream")' : '"application/octet-stream"'}, ...options?.headers }` : reviewed?.jsonBody ? ', headers: { "Content-Type": "application/json", ...options?.headers }' : ""} });`);
     operationLines.push("  }");
   }
   operationLines.push("}", "");

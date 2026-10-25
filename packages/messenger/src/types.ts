@@ -30,6 +30,7 @@ export interface MessengerDashboard { templates: number; notifications: number; 
 /** There is no query extractor on channel, template or provider lists. */
 export interface MessengerNoQuery extends QueryParams { [key: string]: never }
 export interface MessengerPageQuery extends QueryParams { 'page[number]'?: number; 'page[size]'?: number }
+export interface MessengerInboxQuery extends MessengerPageQuery { important?: boolean }
 export interface MessengerNotificationQuery extends MessengerPageQuery { recipient?: string }
 export interface MessengerRecipientQuery extends QueryParams { recipient?: string }
 export interface MessengerRequiredRecipientQuery extends QueryParams { recipient: string }
