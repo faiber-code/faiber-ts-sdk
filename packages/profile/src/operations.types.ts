@@ -1342,6 +1342,7 @@ export interface ProfileSearchResolvePostResponseDataResults extends JsonObject 
   "last_name_en": string | null;
   "email": string | null;
   "phone": string | null;
+  "avatar": string | null;
 }
 export interface ProfileSearchResolvePostResponseData extends JsonObject {
   "results": ProfileSearchResolvePostResponseDataResults[];
@@ -1630,6 +1631,16 @@ export type ProvinceForceDestroyDeleteResponse = ApiEnvelope<import("./wire.type
 /** Backend response type: serde_json::Value. */
 export type ProvinceRestoreGetResponse = ApiEnvelope<import("./wire.types.js").EmptyMutationData>;
 
+/** Backend query type: Search. */
+export interface PublicSocialSearchGetQuery extends QueryParams {
+  "q": string;
+}
+/** Backend response type: Value. */
+export type PublicSocialSearchGetResponse = JsonValue;
+
+/** Backend response type: Value. */
+export type PublicSocialPublicGetResponse = JsonValue;
+
 /** Backend response type: Vec<entity::referral_source::Model>. */
 export type ReferralListGetResponse = ApiEnvelope<import("./wire.types.js").ProfileReferralSource[]>;
 
@@ -1703,6 +1714,18 @@ export interface SettingStorePostResponseData extends JsonObject {
 }
 export interface SettingStorePostResponse extends ApiEnvelope<SettingStorePostResponseData> {
 }
+
+/** Backend response type: Value. */
+export type PublicSocialMeGetResponse = JsonValue;
+
+/** Backend request type: Update. */
+export interface PublicSocialUpdatePutInput extends JsonObject {
+  "handle": string;
+  "display_name": string;
+  "bio": string;
+}
+/** Backend response type: Value. */
+export type PublicSocialUpdatePutResponse = JsonValue;
 
 /** Backend query type: ActionQuery. */
 export interface LifecycleActionsListGetQuery extends QueryParams {

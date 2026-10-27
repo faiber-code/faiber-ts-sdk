@@ -1,6 +1,6 @@
 // Exact additive/CAS source contract from IDP 8287992 (native ad3aaaed equivalent).
-const read = 'idp:acl:read against the current active local principal';
-const write = 'both current idp:acl:read and idp:acl:update, rechecked after target user lock';
+const read = 'idp:user:read with a matching current target scope';
+const write = 'idp:user:assign_roles with a matching current target scope and assignable-role ceiling, rechecked after target user lock';
 export const idpMembershipContracts = {
   'idp:GET /api/v1/users/{user_id}/role-memberships': {
     methodName: 'userRoleMembershipsGet', typeBase: 'UserRoleMembershipsGet',
@@ -15,7 +15,7 @@ export const idpMembershipContracts = {
   },
   ...Object.fromEntries(['PATCH','PUT'].map(method => [`idp:${method} /api/v1/users/{user_id}/change-roles`, {
     membershipRevision: true,
-    auth: 'current idp:acl:update, rechecked after target user lock; target must already be active',
+    auth: 'idp:user:assign_roles with a matching current target scope; both added and removed roles must fit the assignment ceiling, rechecked after the target user lock',
     purpose: 'Intentionally replace roles using the captured observed membership revision as quoted If-Match. Missing precondition is 428; stale revision is 409 with zero changes. Never refetch a revision to apply a saved stale role union.'
   }]))
 };

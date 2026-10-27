@@ -1999,6 +1999,28 @@ export class ProfileOperations extends ServiceApi {
     return this.client.request<T.ProvinceRestoreGetResponse>({ ...options, method: "GET", url: `/api/v1/province/undo/${encodeURIComponent(id)}` });
   }
   /**
+   * Performs the search operation for the public social capability.
+   * Calls `GET /api/v1/public-profiles` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  publicSocialSearchGet(params?: T.PublicSocialSearchGetQuery, options?: RequestOptions) {
+    return this.client.request<T.PublicSocialSearchGetResponse>({ ...options, method: "GET", url: `/api/v1/public-profiles`, params });
+  }
+  /**
+   * Performs the public operation for the public social capability.
+   * Calls `GET /api/v1/public-profiles/{handle}` through the shared IDP-aware Faiber client.
+   * @param handle Backend path identifier `handle`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  publicSocialPublicGet(handle: Identifier, options?: RequestOptions) {
+    return this.client.request<T.PublicSocialPublicGetResponse>({ ...options, method: "GET", url: `/api/v1/public-profiles/${encodeURIComponent(handle)}` });
+  }
+  /**
    * List undeleted referral sources ordered by sort_order.
    * Calls `GET /api/v1/referral-source` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -2128,6 +2150,27 @@ export class ProfileOperations extends ServiceApi {
    */
   settingStorePost(data: T.SettingStorePostInput, options?: RequestOptions<T.SettingStorePostInput>) {
     return this.client.request<T.SettingStorePostResponse, T.SettingStorePostInput>({ ...options, method: "POST", url: `/api/v1/setting`, data: data });
+  }
+  /**
+   * Performs the me operation for the public social capability.
+   * Calls `GET /api/v1/social-profile/me` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  publicSocialMeGet(options?: RequestOptions) {
+    return this.client.request<T.PublicSocialMeGetResponse>({ ...options, method: "GET", url: `/api/v1/social-profile/me` });
+  }
+  /**
+   * Performs the update operation for the public social capability.
+   * Calls `PUT /api/v1/social-profile/me` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  publicSocialUpdatePut(data: T.PublicSocialUpdatePutInput, options?: RequestOptions<T.PublicSocialUpdatePutInput>) {
+    return this.client.request<T.PublicSocialUpdatePutResponse, T.PublicSocialUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/social-profile/me`, data: data });
   }
   /**
    * List state actions, optionally by state_id, ordered by sort_order.

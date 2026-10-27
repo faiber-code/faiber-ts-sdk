@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/sdk-core",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "source_revisions": {
     "asset": {
       "directory": "infera-asset",
@@ -25,7 +25,7 @@
     },
     "idp": {
       "directory": "infera-idp",
-      "revision": "828799249ef714d333b03bded092a9d6af6ba7bb"
+      "revision": "5db939e9df92459d1239a582f0a2a53020b94354"
     },
     "knowledge": {
       "directory": "infera-knowledge",
@@ -49,7 +49,7 @@
     },
     "profile": {
       "directory": "infera-profile",
-      "revision": "ac1aa429598aa7e2578e3b41181a9913a4481025"
+      "revision": "8d4af53bddae5fcfdb0df79dd6e785912090e8f1"
     },
     "reservation": {
       "directory": "infera-reservation",
@@ -93,8 +93,8 @@
     "packages/core/src/types.ts": "fee1c4b8f5ed4de92276be41d10a13ada5361c24ed80656029a4cf5e3e940afa"
   },
   "capability_review_sha256": null,
-  "source_pin_file_sha256": "c659ed01fcd5b74403816728244415d5c9d647998b5b6fc8d176a3ef28a7c960",
-  "http_contract_file_sha256": "33351316bb5e5a25d26e42b310b6be030014cc8747aa95606f70758449e3fc9b",
+  "source_pin_file_sha256": "87aae9725acf7a612b7d57557fa0d9fb10c050ba68e39f9b66ec61b956b65c58",
+  "http_contract_file_sha256": "b4898281b848cf450d4c4df47f6582dbd003d97882a0bdd7d1374907550dea9f",
   "public_contract": {
     "kind": "shared-client-or-facade"
   },

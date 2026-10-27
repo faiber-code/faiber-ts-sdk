@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-game-sdk",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "source_revisions": {
     "state": {
       "directory": "infera-state",
@@ -20,8 +20,8 @@
     "packages/game/src/wasm.ts": "bfc9a8733dcfd107c104a5162e4e7e1623fe07600b4cde11b8b2a72b1f5b8570"
   },
   "capability_review_sha256": null,
-  "source_pin_file_sha256": "c659ed01fcd5b74403816728244415d5c9d647998b5b6fc8d176a3ef28a7c960",
-  "http_contract_file_sha256": "33351316bb5e5a25d26e42b310b6be030014cc8747aa95606f70758449e3fc9b",
+  "source_pin_file_sha256": "87aae9725acf7a612b7d57557fa0d9fb10c050ba68e39f9b66ec61b956b65c58",
+  "http_contract_file_sha256": "b4898281b848cf450d4c4df47f6582dbd003d97882a0bdd7d1374907550dea9f",
   "public_contract": {
     "kind": "local-game-runtime-with-state-transport"
   },

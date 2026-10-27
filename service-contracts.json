@@ -6206,7 +6206,7 @@
       "handler": "logout",
       "permissions": [],
       "source": "infera-idp/src/auth/routes.rs",
-      "responseEnvelope": "api",
+      "responseEnvelope": "raw-response",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -6887,6 +6887,20 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/users/{user_id}/identity-keys",
+      "module": "user",
+      "handler": "read",
+      "permissions": [],
+      "source": "infera-idp/src/user/routes.rs",
+      "handlerModule": "identity_keys",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/users/{user_id}/logout",
       "module": "user",
       "handler": "user_logout",
@@ -7092,6 +7106,58 @@
       "permissions": [],
       "source": "infera-idp/src/user/routes.rs",
       "response": "bool",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/visibility/catalog",
+      "module": "visibility",
+      "handler": "catalog",
+      "permissions": [],
+      "source": "infera-idp/src/visibility.rs",
+      "response": "Catalog",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/visibility/resolve",
+      "module": "visibility",
+      "handler": "resolve",
+      "permissions": [],
+      "source": "infera-idp/src/visibility.rs",
+      "body": "ResolveRequest",
+      "response": "EffectiveScope",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/visibility/roles/{role_id}",
+      "module": "visibility",
+      "handler": "read",
+      "permissions": [],
+      "source": "infera-idp/src/visibility.rs",
+      "pathParam": "Uuid",
+      "response": "RuleSet",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/visibility/roles/{role_id}",
+      "module": "visibility",
+      "handler": "save",
+      "permissions": [],
+      "source": "infera-idp/src/visibility.rs",
+      "body": "SaveRules",
+      "pathParam": "Uuid",
+      "response": "RuleSet",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -16009,7 +16075,7 @@
       "module": "profile",
       "handler": "index",
       "permissions": [
-        "profile:read"
+        "profile:list"
       ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
@@ -16566,7 +16632,7 @@
       "module": "profile",
       "handler": "accountant_index",
       "permissions": [
-        "profile:read_accountant"
+        "profile:list"
       ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
@@ -16691,7 +16757,7 @@
       "module": "profile",
       "handler": "consultant_index",
       "permissions": [
-        "profile:read_consultant"
+        "profile:list"
       ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
@@ -16806,7 +16872,7 @@
       "module": "profile",
       "handler": "manager_index",
       "permissions": [
-        "profile:read_manager"
+        "profile:list"
       ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
@@ -16873,7 +16939,7 @@
       "module": "profile",
       "handler": "other_index",
       "permissions": [
-        "profile:read"
+        "profile:list"
       ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
@@ -16889,7 +16955,7 @@
       "module": "profile",
       "handler": "parent_index",
       "permissions": [
-        "profile:read_parent"
+        "profile:list"
       ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
@@ -16905,7 +16971,7 @@
       "module": "profile_search",
       "handler": "resolve",
       "permissions": [
-        "profile:lookup"
+        "profile:list"
       ],
       "source": "infera-profile/src/profile_search/routes.rs",
       "handlerModule": "people",
@@ -16921,7 +16987,7 @@
       "module": "profile_search",
       "handler": "search",
       "permissions": [
-        "profile:lookup"
+        "profile:list"
       ],
       "source": "infera-profile/src/profile_search/routes.rs",
       "handlerModule": "people",
@@ -16950,7 +17016,7 @@
       "module": "profile_search",
       "handler": "search",
       "permissions": [
-        "profile:search"
+        "profile:list"
       ],
       "source": "infera-profile/src/profile_search/routes.rs",
       "body": "crate::profile_search::models::SearchRequest",
@@ -16966,7 +17032,7 @@
       "module": "profile",
       "handler": "student_index",
       "permissions": [
-        "profile:read_student"
+        "profile:list"
       ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
@@ -17006,7 +17072,7 @@
       "module": "profile",
       "handler": "support_index",
       "permissions": [
-        "profile:read_support"
+        "profile:list"
       ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
@@ -17046,7 +17112,7 @@
       "module": "profile",
       "handler": "teacher_index",
       "permissions": [
-        "profile:read_teacher"
+        "profile:list"
       ],
       "source": "infera-profile/src/profile/routes.rs",
       "query": "models::ListQuery",
@@ -17276,6 +17342,32 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/public-profiles",
+      "module": "public_social",
+      "handler": "search",
+      "permissions": [],
+      "source": "infera-profile/src/public_social.rs",
+      "query": "Search",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public-profiles/{handle}",
+      "module": "public_social",
+      "handler": "public",
+      "permissions": [],
+      "source": "infera-profile/src/public_social.rs",
+      "pathParam": "String",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/referral-source",
       "module": "referral",
       "handler": "list",
@@ -17430,6 +17522,31 @@
       "body": "models::Create",
       "response": "models::SingleData",
       "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/social-profile/me",
+      "module": "public_social",
+      "handler": "me",
+      "permissions": [],
+      "source": "infera-profile/src/public_social.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/social-profile/me",
+      "module": "public_social",
+      "handler": "update",
+      "permissions": [],
+      "source": "infera-profile/src/public_social.rs",
+      "body": "Update",
+      "response": "Value",
+      "responseEnvelope": "raw",
       "multipart": false,
       "formUrlEncoded": false
     },

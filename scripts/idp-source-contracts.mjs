@@ -179,7 +179,7 @@ export const idpSourceContracts = {
     "purpose": "Revoke another active session owned by the current user. Unknown/unowned sessions return 404 and the current session returns 409; use logout to end the current session."
   },
   "idp:GET /api/v1/users": {
-    "auth": "current idp:user:read through the native active principal/session",
+    "auth": "current idp:user:read through the native active principal/session and a matching dynamic target scope",
     "purpose": "List managed users using search, enabled/disabled status and exact current active role filters. page defaults to 1, per_page to 20 and clamps to 1\u2013100; pages clamp to the last page. UUID search is exact; other search uses SQL LIKE across identifiers/display name."
   },
   "idp:POST /api/v1/users": {
@@ -220,11 +220,11 @@ export const idpSourceContracts = {
     "requiredQuery": true
   },
   "idp:GET /api/v1/users/stats": {
-    "auth": "current idp:user:read through the native active principal/session",
+    "auth": "current idp:user:read through the native active principal/session and a matching dynamic target scope",
     "purpose": "Read counts of total users, enabled users and active sessions; returns the three counts in data."
   },
   "idp:GET /api/v1/users/registration-stats": {
-    "auth": "current idp:user:read through the native active principal/session",
+    "auth": "current idp:user:read through the native active principal/session and a matching dynamic target scope",
     "purpose": "Read registration buckets for range=day (default), week or year; invalid range returns 400. Returns data.points with bucket and registrations."
   },
   "idp:GET /api/v1/users/sync": {
@@ -232,55 +232,55 @@ export const idpSourceContracts = {
     "purpose": "Publish all users to LMS and active users to Profile; this GET mutates downstream state and returns data=true. Handler has no session or ACL check; deployment gateway policy is separate."
   },
   "idp:GET /api/v1/users/{user_id}": {
-    "auth": "current idp:user:read through the native active principal/session",
+    "auth": "current idp:user:read through the native active principal/session and a matching dynamic target scope",
     "purpose": "Read a managed user by native UUID; returns data.user and 404 for unknown identities."
   },
   "idp:PUT /api/v1/users/{user_id}": {
-    "auth": "current idp:user:update through the native active principal/session",
+    "auth": "current idp:user:update through the native active principal/session and a matching dynamic target scope",
     "purpose": "Replace phone, email and national_code using PATCH or PUT. Omitted/null/empty fields are cleared by this backend, so supply every identity value to retain. Validates and publishes Profile/LMS updates; returns data.user."
   },
   "idp:PATCH /api/v1/users/{user_id}": {
-    "auth": "current idp:user:update through the native active principal/session",
+    "auth": "current idp:user:update through the native active principal/session and a matching dynamic target scope",
     "purpose": "Replace phone, email and national_code using PATCH or PUT. Omitted/null/empty fields are cleared by this backend, so supply every identity value to retain. Validates and publishes Profile/LMS updates; returns data.user."
   },
   "idp:PUT /api/v1/users/{user_id}/change-password": {
-    "auth": "current idp:user:change_password through the native active principal/session",
+    "auth": "current idp:user:change_password through the native active principal/session and a matching dynamic target scope",
     "purpose": "Set an administrative target password of at least 8 characters. When password is supplied, this legacy handler deletes all local identity rows before creating the password identity; use self/password for preservation. Returns data.user."
   },
   "idp:PATCH /api/v1/users/{user_id}/change-password": {
-    "auth": "current idp:user:change_password through the native active principal/session",
+    "auth": "current idp:user:change_password through the native active principal/session and a matching dynamic target scope",
     "purpose": "Set an administrative target password of at least 8 characters. When password is supplied, this legacy handler deletes all local identity rows before creating the password identity; use self/password for preservation. Returns data.user."
   },
   "idp:GET /api/v1/users/{user_id}/role-memberships": {
-    "auth": "current idp:acl:read, rechecked after target user lock",
+    "auth": "idp:user:read with a matching current target scope, rechecked after target user lock",
     "purpose": "Read every stored local role membership row, including inactive and duplicate rows, with an opaque revision. Does not activate the target or grant authority."
   },
   "idp:POST /api/v1/users/{user_id}/role-memberships": {
-    "auth": "both current idp:acl:read and idp:acl:update, rechecked after target user lock",
+    "auth": "idp:user:assign_roles with a matching current target scope and assignable-role ceiling, rechecked after target user lock",
     "purpose": "Append 1\u2013128 unique non-nil active local role UUIDs to an already enabled local user. Preserves every existing membership; repeated active additions are no-ops. Rechecks authority under the target lock."
   },
   "idp:PUT /api/v1/users/{user_id}/change-roles": {
-    "auth": "current idp:acl:update, rechecked after target user lock; target must already be active when roles are supplied",
+    "auth": "idp:user:assign_roles with a matching current target scope; added and removed roles must fit its assignment ceiling, rechecked after target user lock",
     "purpose": "Intentionally replace target memberships with reviewed role UUIDs and quoted If-Match revision. Missing precondition is 428; stale revision is 409 with zero changes. Never fetch a fresh revision to submit a saved stale union. Missing/null roles is a no-op."
   },
   "idp:PATCH /api/v1/users/{user_id}/change-roles": {
-    "auth": "current idp:acl:update, rechecked after target user lock; target must already be active when roles are supplied",
+    "auth": "idp:user:assign_roles with a matching current target scope; added and removed roles must fit its assignment ceiling, rechecked after target user lock",
     "purpose": "Intentionally replace target memberships with reviewed role UUIDs and quoted If-Match revision. Missing precondition is 428; stale revision is 409 with zero changes. Never fetch a fresh revision to submit a saved stale union. Missing/null roles is a no-op."
   },
   "idp:DELETE /api/v1/users/{user_id}": {
-    "auth": "current idp:user:delete through the native active principal/session",
+    "auth": "current idp:user:delete through the native active principal/session and a matching dynamic target scope",
     "purpose": "Delete a managed user and publish downstream deletion. Cannot delete the current caller (406); returns data.user, not a deleted flag."
   },
   "idp:GET /api/v1/users/{user_id}/logout": {
-    "auth": "current idp:user:logout through the native active principal/session",
+    "auth": "current idp:user:logout through the native active principal/session and a matching dynamic target scope",
     "purpose": "Force-revoke all target user sessions and attempt back-channel logout propagation; returns the updated data.user with active-session count."
   },
   "idp:PUT /api/v1/users/{user_id}/status": {
-    "auth": "current idp:user:update through the native active principal/session",
+    "auth": "current idp:user:update through the native active principal/session and a matching dynamic target scope",
     "purpose": "Enable or disable a target account. Cannot disable self (406); disabling revokes current tokens/sessions before external publication and re-enabling does not restore credentials. Returns data.user."
   },
   "idp:PATCH /api/v1/users/{user_id}/status": {
-    "auth": "current idp:user:update through the native active principal/session",
+    "auth": "current idp:user:update through the native active principal/session and a matching dynamic target scope",
     "purpose": "Enable or disable a target account. Cannot disable self (406); disabling revokes current tokens/sessions before external publication and re-enabling does not restore credentials. Returns data.user."
   },
   "idp:GET /api/v1/acl/roles": {

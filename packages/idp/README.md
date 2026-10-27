@@ -38,7 +38,7 @@ await tokens.setTokens({
 
 ## Complete capability
 
-This package exposes 109 mounted operations from the identity and access service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 114 mounted operations from the identity and access service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -52,7 +52,8 @@ This package exposes 109 mounted operations from the identity and access service
 | `oidc` | 11 | `GET`, `POST` |
 | `router` | 2 | `GET` |
 | `settings` | 7 | `GET`, `POST`, `PUT` |
-| `user` | 26 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `visibility` | 4 | `GET`, `POST`, `PUT` |
+| `user` | 27 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
 Legacy token login, web login, account login, and OTP login are encoded as `application/x-www-form-urlencoded`. `api.operations.authBrowserLoginPost` accepts a registered public client, a password or OTP credential, and a matching HTTPS Origin; it returns an HttpOnly session cookie without a client secret or bearer token in the response. Persist and reuse a stable, non-secret `device_id` for legacy token login so the IDP can distinguish physical devices. Use `api.sessions()` to list active sessions and `api.revokeSession(sessionId)` to revoke one. Role assignment uses role UUIDs.
 
@@ -152,3 +153,34 @@ The legacy administrative `changePassword` operation removes all local identity 
 OIDC and native authorization, OAuth callback, token-login and browser handoff operations return HTTP redirects. Browser clients generally navigate to these authorization URLs; an Axios call may follow a redirect and receive the destination page. OIDC token/user-info/discovery/JWKS/introspection responses are raw JSON. Logout/back-channel logout return empty 204 and revocation returns empty 200. Login-page asset download returns bytes with Axios `responseType: "arraybuffer"`; uploads require the first multipart field to be named `file`, PNG/JPEG/WebP with a matching signature, and 1 byte–8 MiB.
 
 Public registration rejects role assignment; use managed creation or the reviewed membership workflow. Full membership replacement requires `idp:acl:update` and the captured revision; reading a snapshot requires `idp:acl:read`, and additive membership updates require both. The `users/sync` handler has no session/ACL guard and triggers downstream publication; deployment gateway policy determines its exposure.
+
+### Dynamic profile and identity scopes
+
+`idp.visibility.catalog()`, `.rules(roleId)` and `.save(roleId, input)` require
+`idp:visibility:assign`. Actions remain in the service YAML catalog; target role UUIDs
+are configurable. Rule assignment is a privileged operation: holders can configure
+scoped access for any role, including their own.
+
+```ts
+const { data: response } = await sdk.idp.visibility.rules(supportRoleId);
+await sdk.idp.visibility.save(supportRoleId, {
+  revision: response.data.revision,
+  grants: [{
+    action: 'profile:list', scope: 'roles',
+    target_role_ids: [studentRoleId, teacherRoleId], assignable_role_ids: [],
+  }],
+}, { signal: abortController.signal });
+```
+
+Saving replaces the role's entire scope document. Handle HTTP 409 by reloading
+and reviewing the current revision before retrying; HTTP 422 indicates an invalid
+action or role. Responses preserve Axios metadata. `.resolve({ action })` resolves
+the current caller's live scope and returns HTTP 403 if no grant exists. List,
+detail, edit, password and role assignment are independent actions.
+
+With no saved document (revision 0), existing active permissions keep unrestricted
+target access. Saving a document enables explicit rules; saving an empty document
+denies its scoped actions. Grants from other roles and direct permissions remain
+additive. Catalog role choices include every current IDP role, including custom
+roles. Services choose `legacy_action` for their actual route; clients cannot use
+a student-list permission to authorize unrelated list routes.

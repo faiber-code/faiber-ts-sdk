@@ -321,7 +321,7 @@ export interface AuthLoginPostInput extends JsonObject {
 /** Backend response type: api. */
 export type AuthLoginPostResponse = import("./types.js").AuthTokensResponse;
 
-/** Backend response type: api. */
+/** Backend response type: raw-response. */
 export type AuthLogoutGetResponse = import("./contracts.types.js").IdpEmptyResponse;
 
 /** Backend query type: AuthorizeQuery. */
@@ -1170,6 +1170,10 @@ export interface UserChangeRolesPutResponseData extends JsonObject {
 export interface UserChangeRolesPutResponse extends ApiEnvelope<UserChangeRolesPutResponseData> {
 }
 
+/** Backend response type: Value. */
+export interface UserReadGetApiV1UsersUserIdIdentityKeysResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: UserResponse. */
 export interface UserUserLogoutGetResponseDataUserRoles extends JsonObject {
   "id": string;
@@ -1411,6 +1415,22 @@ export interface UserUsersStatsGetResponse extends ApiEnvelope<UserUsersStatsGet
 /** Backend response type: bool. */
 export interface UserSyncUsersGetResponse extends ApiEnvelope<boolean> {
 }
+
+/** Backend response type: Catalog. */
+export type VisibilityCatalogGetResponse = import("./visibility.js").VisibilityCatalogResponse;
+
+/** Backend request type: ResolveRequest. */
+export type VisibilityResolvePostInput = import("./visibility.js").ResolveVisibilityInput;
+/** Backend response type: EffectiveScope. */
+export type VisibilityResolvePostResponse = import("./visibility.js").EffectiveVisibilityResponse;
+
+/** Backend response type: RuleSet. */
+export type VisibilityRoleGetResponse = import("./visibility.js").VisibilityRulesResponse;
+
+/** Backend request type: SaveRules. */
+export type VisibilityRolePutInput = import("./visibility.js").SaveVisibilityRulesInput;
+/** Backend response type: RuleSet. */
+export type VisibilityRolePutResponse = import("./visibility.js").VisibilityRulesResponse;
 
 /** Backend response type: HealthResponse. */
 export type RouterStatusRouteGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;

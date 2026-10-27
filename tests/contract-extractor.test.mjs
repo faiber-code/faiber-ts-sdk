@@ -48,7 +48,7 @@ test("contract extraction finds the sibling services tree and emits portable mou
     assert.ok(manifest.payment.some(endpoint=>endpoint.path==="/api/v1/transactions/daily-income"));
     assert.ok(!manifest.payment.some(endpoint=>endpoint.path.includes("/transactions/transactions/")));
     const manager=manifest.profile.find(endpoint=>endpoint.path==="/api/v1/profile/manager");
-    assert.deepEqual(manager.permissions,["profile:read_manager"]);
+    assert.deepEqual(manager.permissions,["profile:list"]);
     assert.equal(manager.query,"models::ListQuery");
     assert.equal(manager.response,"models::ListData");
     assert.equal(manager.responseMeta,"crate::models::PaginationMeta");

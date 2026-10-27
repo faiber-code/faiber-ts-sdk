@@ -21,7 +21,7 @@
   },
   "idp": {
     "directory": "infera-idp",
-    "revision": "828799249ef714d333b03bded092a9d6af6ba7bb"
+    "revision": "5db939e9df92459d1239a582f0a2a53020b94354"
   },
   "knowledge": {
     "directory": "infera-knowledge",
@@ -45,7 +45,7 @@
   },
   "profile": {
     "directory": "infera-profile",
-    "revision": "ac1aa429598aa7e2578e3b41181a9913a4481025"
+    "revision": "8d4af53bddae5fcfdb0df79dd6e785912090e8f1"
   },
   "reservation": {
     "directory": "infera-reservation",

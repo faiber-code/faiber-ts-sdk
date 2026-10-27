@@ -234,3 +234,20 @@ format timestamp instants using the requested timezone. The call preserves the
 full Axios response, cancellation and errors. See the
 [@faiber/faiber-lms guide](https://www.npmjs.com/package/@faiber/faiber-lms)
 for the complete field, filtering and null semantics and weekly examples.
+
+### Profile and identity visibility rules
+
+Use `sdk.idp.visibility.catalog()`, `.rules(roleId)` and `.save(roleId, { revision, grants })`
+to configure dynamic target-role scopes. These methods require `idp:visibility:assign`.
+Use `.resolve({ action: 'profile:list' })` to inspect the authenticated caller's
+current scope. List, detail, mutation, password and role-assignment grants remain
+independent. See the [IDP package guide](packages/idp/README.md#dynamic-profile-and-identity-scopes)
+for revision conflicts, assignment ceilings and cancellation. This capability
+requires the matching IDP/Profile visibility-rules backend release.
+
+With no saved document (revision 0), existing active permissions keep unrestricted
+target access. Saving a document enables explicit rules; saving an empty document
+denies its scoped actions. Grants from other roles and direct permissions remain
+additive. Catalog role choices include every current IDP role, including custom
+roles. Services choose `legacy_action` for their actual route; clients cannot use
+a student-list permission to authorize unrelated list routes.

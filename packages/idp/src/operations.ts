@@ -778,7 +778,7 @@ export class IdpOperations extends ServiceApi {
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:read through the native active principal/session.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:read through the native active principal/session and a matching dynamic target scope.
    */
   userUsersIndexGet(params?: T.UserUsersIndexGetQuery, options?: RequestOptions) {
     return this.client.request<T.UserUsersIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/users`, params });
@@ -800,7 +800,7 @@ export class IdpOperations extends ServiceApi {
    * @param userId Backend path identifier `user_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:delete through the native active principal/session.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:delete through the native active principal/session and a matching dynamic target scope.
    */
   userUserDeleteDelete(userId: Identifier, options?: RequestOptions) {
     return this.client.request<T.UserUserDeleteDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/users/${encodeURIComponent(userId)}` });
@@ -811,7 +811,7 @@ export class IdpOperations extends ServiceApi {
    * @param userId Backend path identifier `user_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:read through the native active principal/session.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:read through the native active principal/session and a matching dynamic target scope.
    */
   userUserFindGet(userId: Identifier, options?: RequestOptions) {
     return this.client.request<T.UserUserFindGetResponse>({ ...options, method: "GET", url: `/api/v1/users/${encodeURIComponent(userId)}` });
@@ -823,7 +823,7 @@ export class IdpOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:update through the native active principal/session.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:update through the native active principal/session and a matching dynamic target scope.
    */
   userUserUpdatePatch(userId: Identifier, data: T.UserUserUpdatePatchInput, options?: RequestOptions<T.UserUserUpdatePatchInput>) {
     return this.client.request<T.UserUserUpdatePatchResponse, T.UserUserUpdatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/users/${encodeURIComponent(userId)}`, data: data });
@@ -835,7 +835,7 @@ export class IdpOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:update through the native active principal/session.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:update through the native active principal/session and a matching dynamic target scope.
    */
   userUserUpdatePut(userId: Identifier, data: T.UserUserUpdatePutInput, options?: RequestOptions<T.UserUserUpdatePutInput>) {
     return this.client.request<T.UserUserUpdatePutResponse, T.UserUserUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/users/${encodeURIComponent(userId)}`, data: data });
@@ -847,7 +847,7 @@ export class IdpOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:change_password through the native active principal/session.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:change_password through the native active principal/session and a matching dynamic target scope.
    */
   userChangePasswordPatch(userId: Identifier, data: T.UserChangePasswordPatchInput, options?: RequestOptions<T.UserChangePasswordPatchInput>) {
     return this.client.request<T.UserChangePasswordPatchResponse, T.UserChangePasswordPatchInput>({ ...options, method: "PATCH", url: `/api/v1/users/${encodeURIComponent(userId)}/change-password`, data: data });
@@ -859,7 +859,7 @@ export class IdpOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:change_password through the native active principal/session.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:change_password through the native active principal/session and a matching dynamic target scope.
    */
   userChangePasswordPut(userId: Identifier, data: T.UserChangePasswordPutInput, options?: RequestOptions<T.UserChangePasswordPutInput>) {
     return this.client.request<T.UserChangePasswordPutResponse, T.UserChangePasswordPutInput>({ ...options, method: "PUT", url: `/api/v1/users/${encodeURIComponent(userId)}/change-password`, data: data });
@@ -872,7 +872,7 @@ export class IdpOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:acl:update, rechecked after target user lock; target must already be active when roles are supplied.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: idp:user:assign_roles with a matching current target scope; added and removed roles must fit its assignment ceiling, rechecked after target user lock.
    */
   userChangeRolesPatch(userId: Identifier, data: T.UserChangeRolesPatchInput, membershipRevision: string, options?: RequestOptions<T.UserChangeRolesPatchInput>) {
     options = membershipRevisionOptions(membershipRevision, options);
@@ -886,11 +886,22 @@ export class IdpOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:acl:update, rechecked after target user lock; target must already be active when roles are supplied.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: idp:user:assign_roles with a matching current target scope; added and removed roles must fit its assignment ceiling, rechecked after target user lock.
    */
   userChangeRolesPut(userId: Identifier, data: T.UserChangeRolesPutInput, membershipRevision: string, options?: RequestOptions<T.UserChangeRolesPutInput>) {
     options = membershipRevisionOptions(membershipRevision, options);
     return this.client.request<T.UserChangeRolesPutResponse, T.UserChangeRolesPutInput>({ ...options, method: "PUT", url: `/api/v1/users/${encodeURIComponent(userId)}/change-roles`, data: data });
+  }
+  /**
+   * Performs the read operation for the user capability.
+   * Calls `GET /api/v1/users/{user_id}/identity-keys` through the shared IDP-aware Faiber client.
+   * @param userId Backend path identifier `user_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  userReadGetApiV1UsersUserIdIdentityKeys(userId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.UserReadGetApiV1UsersUserIdIdentityKeysResponse>({ ...options, method: "GET", url: `/api/v1/users/${encodeURIComponent(userId)}/identity-keys` });
   }
   /**
    * Force-revoke all target user sessions and attempt back-channel logout propagation; returns the updated data.user with active-session count.
@@ -898,7 +909,7 @@ export class IdpOperations extends ServiceApi {
    * @param userId Backend path identifier `user_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:logout through the native active principal/session.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:logout through the native active principal/session and a matching dynamic target scope.
    */
   userUserLogoutGet(userId: Identifier, options?: RequestOptions) {
     return this.client.request<T.UserUserLogoutGetResponse>({ ...options, method: "GET", url: `/api/v1/users/${encodeURIComponent(userId)}/logout` });
@@ -909,7 +920,7 @@ export class IdpOperations extends ServiceApi {
    * @param userId Backend path identifier `user_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:acl:read, rechecked after target user lock.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: idp:user:read with a matching current target scope, rechecked after target user lock.
    */
   userRoleMembershipsGet(userId: Identifier, options?: RequestOptions) {
     return this.client.request<T.UserRoleMembershipsGetResponse>({ ...options, method: "GET", url: `/api/v1/users/${encodeURIComponent(userId)}/role-memberships` });
@@ -921,7 +932,7 @@ export class IdpOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: both current idp:acl:read and idp:acl:update, rechecked after target user lock.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: idp:user:assign_roles with a matching current target scope and assignable-role ceiling, rechecked after target user lock.
    */
   userRoleMembershipsPost(userId: Identifier, data: T.UserRoleMembershipsPostInput, options?: RequestOptions<T.UserRoleMembershipsPostInput>) {
     return this.client.request<T.UserRoleMembershipsPostResponse, T.UserRoleMembershipsPostInput>({ ...options, method: "POST", url: `/api/v1/users/${encodeURIComponent(userId)}/role-memberships`, data: data });
@@ -933,7 +944,7 @@ export class IdpOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:update through the native active principal/session.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:update through the native active principal/session and a matching dynamic target scope.
    */
   userUserSetStatusPatch(userId: Identifier, data: T.UserUserSetStatusPatchInput, options?: RequestOptions<T.UserUserSetStatusPatchInput>) {
     return this.client.request<T.UserUserSetStatusPatchResponse, T.UserUserSetStatusPatchInput>({ ...options, method: "PATCH", url: `/api/v1/users/${encodeURIComponent(userId)}/status`, data: data });
@@ -945,7 +956,7 @@ export class IdpOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:update through the native active principal/session.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:update through the native active principal/session and a matching dynamic target scope.
    */
   userUserSetStatusPut(userId: Identifier, data: T.UserUserSetStatusPutInput, options?: RequestOptions<T.UserUserSetStatusPutInput>) {
     return this.client.request<T.UserUserSetStatusPutResponse, T.UserUserSetStatusPutInput>({ ...options, method: "PUT", url: `/api/v1/users/${encodeURIComponent(userId)}/status`, data: data });
@@ -1000,7 +1011,7 @@ export class IdpOperations extends ServiceApi {
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:read through the native active principal/session.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:read through the native active principal/session and a matching dynamic target scope.
    */
   userUsersRegistrationStatsGet(params?: T.UserUsersRegistrationStatsGetQuery, options?: RequestOptions) {
     return this.client.request<T.UserUsersRegistrationStatsGetResponse>({ ...options, method: "GET", url: `/api/v1/users/registration-stats`, params });
@@ -1052,7 +1063,7 @@ export class IdpOperations extends ServiceApi {
    * Calls `GET /api/v1/users/stats` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:read through the native active principal/session.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current idp:user:read through the native active principal/session and a matching dynamic target scope.
    */
   userUsersStatsGet(options?: RequestOptions) {
     return this.client.request<T.UserUsersStatsGetResponse>({ ...options, method: "GET", url: `/api/v1/users/stats` });
@@ -1066,6 +1077,50 @@ export class IdpOperations extends ServiceApi {
    */
   userSyncUsersGet(options?: RequestOptions) {
     return this.client.request<T.UserSyncUsersGetResponse>({ ...options, method: "GET", url: `/api/v1/users/sync` });
+  }
+  /**
+   * List active YAML-defined scoped actions and stable local role UUIDs for rule assignment.
+   * Calls `GET /api/v1/visibility/catalog` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: idp:visibility:assign on the current active local principal.
+   */
+  visibilityCatalogGet(options?: RequestOptions) {
+    return this.client.request<T.VisibilityCatalogGetResponse>({ ...options, method: "GET", url: `/api/v1/visibility/catalog` });
+  }
+  /**
+   * Resolve only the authenticated caller against current role memberships and permission grants. No matching grant returns 403. Never accepts caller-supplied actor IDs or scopes.
+   * Calls `POST /api/v1/visibility/resolve` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated current principal with an active scoped grant for the requested action.
+   */
+  visibilityResolvePost(data: T.VisibilityResolvePostInput, options?: RequestOptions<T.VisibilityResolvePostInput>) {
+    return this.client.request<T.VisibilityResolvePostResponse, T.VisibilityResolvePostInput>({ ...options, method: "POST", url: `/api/v1/visibility/resolve`, data: data });
+  }
+  /**
+   * Read one local role scope document and its concurrency revision; unknown roles return 404.
+   * Calls `GET /api/v1/visibility/roles/{role_id}` through the shared IDP-aware Faiber client.
+   * @param roleId Backend path identifier `role_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: idp:visibility:assign on the current active local principal.
+   */
+  visibilityRoleGet(roleId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.VisibilityRoleGetResponse>({ ...options, method: "GET", url: `/api/v1/visibility/roles/${encodeURIComponent(roleId)}` });
+  }
+  /**
+   * Replace the role scope document atomically with an audit entry. Supply the observed revision; stale revisions return 409 and invalid catalog actions or target UUIDs return 422.
+   * Calls `PUT /api/v1/visibility/roles/{role_id}` through the shared IDP-aware Faiber client.
+   * @param roleId Backend path identifier `role_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: idp:visibility:assign on the current active local principal.
+   */
+  visibilityRolePut(roleId: Identifier, data: T.VisibilityRolePutInput, options?: RequestOptions<T.VisibilityRolePutInput>) {
+    return this.client.request<T.VisibilityRolePutResponse, T.VisibilityRolePutInput>({ ...options, method: "PUT", url: `/api/v1/visibility/roles/${encodeURIComponent(roleId)}`, data: data });
   }
   /**
    * Read process health and the static service version; does not verify database, broker or downstream readiness.

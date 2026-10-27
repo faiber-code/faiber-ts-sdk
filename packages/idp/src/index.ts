@@ -1,3 +1,4 @@
+import { IdpVisibilityApi } from "./visibility.js";
 import { IdpRoleResource, IdpUserResource } from "./resources.js";
 import { membershipRevisionOptions, type AddUserRoleMemberships, type AddUserRoleMembershipsResponse, type UserRoleMembershipSnapshotResponse } from "./memberships.js";
 import type { IdpEmptyResponse } from "./contracts.types.js";
@@ -7,6 +8,7 @@ import { RestResource, ServiceApi, urlEncoded, type Identifier, type RequestOpti
 import type { AccountLoginInput, AuthTokensResponse, ChangePasswordInput, ChangeRolesInput, LinkedFaiberBillingQuery, LinkedFaiberBillingResponse, LinkedFaiberTopUpInput, LinkedFaiberTopUpResponse, LinkedIdentityListResponse, LoginInput, LogoutUserResponse, OAuthProviderListResponse, OtpLoginInput, Permission, PermissionListResponse, PermissionResponse, RegisterUserInput, SessionListResponse, SetUserStatusInput, UpdateUserInput, UserResponse, UserSelfResponse, ValidateSessionResponse, WebLoginInput, } from "./types.js";
 import { IdpOperations } from "./operations.js";
 export class IdpApi extends ServiceApi {
+    readonly visibility = new IdpVisibilityApi(this.client);
     readonly authority = new IdpAuthorityApi(this.client);
     readonly operations = new IdpOperations(this.client);
     readonly users = new IdpUserResource(this.client);
@@ -196,7 +198,7 @@ export class IdpApi extends ServiceApi {
     }
     /**
      * Intentionally replace target memberships with reviewed role UUIDs and quoted If-Match revision. Missing precondition is 428; stale revision is 409 with zero changes. Never fetch a fresh revision to submit a saved stale union. Missing/null roles is a no-op.
-     * Authorization: current idp:acl:update, rechecked after target user lock; target must already be active when roles are supplied.
+     * Authorization: idp:user:assign_roles with a matching target scope and assignable-role ceiling, rechecked after the target user lock; target must already be active.
      * @param userId Native identity user UUID.
      * @param data Named request body with the native wire fields.
      * @param membershipRevision Exact opaque revision captured by the caller for this reviewed replacement.
@@ -209,7 +211,7 @@ export class IdpApi extends ServiceApi {
     }
     /**
      * Read every stored local role membership row, including inactive and duplicate rows, with an opaque revision. Does not activate the target or grant authority.
-     * Authorization: current idp:acl:read, rechecked after target user lock.
+     * Authorization: idp:user:read with a matching target scope, rechecked after the target user lock.
      * @param userId Native identity user UUID.
      * @param options Authentication, cancellation, timeout, headers and Axios request options.
      * @returns Complete Axios response preserving the native body, status and headers.
@@ -220,7 +222,7 @@ export class IdpApi extends ServiceApi {
     }
     /**
      * Append 1–128 unique non-nil active local role UUIDs to an already enabled local user. Preserves every existing membership; repeated active additions are no-ops. Rechecks authority under the target lock.
-     * Authorization: both current idp:acl:read and idp:acl:update, rechecked after target user lock.
+     * Authorization: idp:user:assign_roles with a matching target scope and assignable-role ceiling, rechecked after the target user lock.
      * @param userId Native identity user UUID.
      * @param data Named request body with the native wire fields.
      * @param options Authentication, cancellation, timeout, headers and Axios request options.
@@ -266,3 +268,5 @@ export * from "./authority.js";
 export * from "./memberships.js";
 
 export * from "./resources.js";
+
+export * from "./visibility.js";

@@ -1,3 +1,4 @@
+import { idpVisibilityContracts } from "./idp-visibility-contracts.mjs";
 import { reservationReviewedOperationContracts } from "./reservation-reviewed-operation-contracts.mjs";
 import { paymentReviewedOperationContracts } from "./payment-reviewed-operation-contracts.mjs";
 import { flowReviewedOperationContracts } from "./flow-reviewed-operation-contracts.mjs";
@@ -30,6 +31,7 @@ export const releaseContracts = {
   "modules:GET /api/v1/tags": { purpose: "List non-deleted hosted catalogs by case-insensitive literal tag name substring. Search: at most 128 raw Unicode characters, no NUL (400 on violation); server trims whitespace and echoes string or null in data.search. Omitted/blank search preserves unfiltered rows/count. page_number is 1-based; page_size clamps to 1..100, default 10. Stable UUID order. Existing authorization and tenancy unchanged; search does not filter lifecycle status." },
   "modules:GET /api/v1/seo-contents": { purpose: "List non-deleted hosted catalogs by case-insensitive literal SEO title or URL substring. Search: at most 128 raw Unicode characters, no NUL (400 on violation); server trims whitespace and echoes string or null in data.search. Omitted/blank search preserves unfiltered rows/count. page_number is 1-based; page_size clamps to 1..100, default 10. Stable UUID order. Existing authorization and tenancy unchanged; search does not filter lifecycle status." },
   ...idpMembershipContracts,
+  ...idpVisibilityContracts,
   "idp:GET /api/v1/acl/users/{user_id}/effective-permissions": {
     response: 'import("./authority.js").EffectivePermissionResponse',
     query: 'import("./authority.js").EffectivePermissionQuery',
