@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-chat",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "source_revisions": {
     "chat": {
       "directory": "infera-chat",
@@ -23,8 +23,8 @@
     "packages/chat/src/workspace.ts": "6cc509f9655d46c8b7fa7e4c4675b4d9e0c32df0f9b45c59aec844ce47d52181"
   },
   "capability_review_sha256": "916e361c42644d64dd39a325685b0b5ca6083d7455396596f6600261896233a7",
-  "source_pin_file_sha256": "87aae9725acf7a612b7d57557fa0d9fb10c050ba68e39f9b66ec61b956b65c58",
-  "http_contract_file_sha256": "b4898281b848cf450d4c4df47f6582dbd003d97882a0bdd7d1374907550dea9f",
+  "source_pin_file_sha256": "6c64dab6bf1b2958f842dd55df28ef539a91e3b0c3fba2eac6f87c2f228a1b78",
+  "http_contract_file_sha256": "442b0234bd7c45ae1719a14d5bbfe59cabf4e88cd274962a0a7e47fbc64b83d4",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 69,

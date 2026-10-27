@@ -1123,6 +1123,29 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.VisibilityRolePutResponse, T.VisibilityRolePutInput>({ ...options, method: "PUT", url: `/api/v1/visibility/roles/${encodeURIComponent(roleId)}`, data: data });
   }
   /**
+   * Read the role's single target-role selection and revision. Null means no configured restriction; an empty array allows no target people.
+   * Calls `GET /api/v1/visibility/roles/{role_id}/scope` through the shared IDP-aware Faiber client.
+   * @param roleId Backend path identifier `role_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: idp:visibility:assign on the current active local principal.
+   */
+  visibilityRoleScopeGet(roleId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.VisibilityRoleScopeGetResponse>({ ...options, method: "GET", url: `/api/v1/visibility/roles/${encodeURIComponent(roleId)}/scope` });
+  }
+  /**
+   * Replace one role target scope with revision checking and audit. Never grants or revokes action permissions. Unknown target roles return 422; stale revisions return 409.
+   * Calls `PUT /api/v1/visibility/roles/{role_id}/scope` through the shared IDP-aware Faiber client.
+   * @param roleId Backend path identifier `role_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: idp:visibility:assign on the current active local principal.
+   */
+  visibilityRoleScopePut(roleId: Identifier, data: T.VisibilityRoleScopePutInput, options?: RequestOptions<T.VisibilityRoleScopePutInput>) {
+    return this.client.request<T.VisibilityRoleScopePutResponse, T.VisibilityRoleScopePutInput>({ ...options, method: "PUT", url: `/api/v1/visibility/roles/${encodeURIComponent(roleId)}/scope`, data: data });
+  }
+  /**
    * Read process health and the static service version; does not verify database, broker or downstream readiness.
    * Calls `GET /health` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

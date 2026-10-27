@@ -101,3 +101,19 @@ test("visibility operations preserve cookie transport and expose stale-revision 
   assert.ok(seen.every((c) => c.withCredentials === true));
   assert.ok(seen.every((c) => !c.headers.get("Authorization")));
 });
+
+test("single role scope writes only targets and revision with authenticated shared transport", async () => {
+ const seen=[];
+ const sdk=new FaiberSDK({domains:{idp:"https://identity.example"},tokenProvider:new MemoryTokenProvider({accessToken:"scope-test"}),axios:{adapter:async config=>{seen.push(config);return {data:{status:"success",data:{role_id:"support",revision:3,target_role_ids:["student"]}},status:200,statusText:"OK",headers:{},config};}}});
+ const controller=new AbortController();
+ await sdk.idp.visibility.roleScope("support/uuid",{signal:controller.signal});
+ const input={revision:2,target_role_ids:["student"]};
+ const result=await sdk.idp.visibility.saveRoleScope("support/uuid",input,{signal:controller.signal});
+ assert.equal(seen[0].url,"/api/v1/visibility/roles/support%2Fuuid/scope");
+ assert.deepEqual(JSON.parse(seen[1].data),input);
+ assert.equal(seen[1].signal,controller.signal);
+ assert.equal(seen[1].headers.get("Authorization"),"Bearer scope-test");
+ assert.equal(result.data.data.revision,3);
+ await sdk.idp.visibility.saveRoleScope("support",{revision:3,target_role_ids:null});
+ assert.deepEqual(JSON.parse(seen[2].data),{revision:3,target_role_ids:null});
+});

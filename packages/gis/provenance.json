@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-gis",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "source_revisions": {
     "gis": {
       "directory": "infera-gis",
@@ -15,8 +15,8 @@
     "packages/gis/src/types.ts": "a54f4909ced50333c2af1709384f7bb594842c154a48c3e09585ff616407d117"
   },
   "capability_review_sha256": "c135fd48dd61199d6524cdb887619aa0b210283162b560d806cd52ce0d209044",
-  "source_pin_file_sha256": "87aae9725acf7a612b7d57557fa0d9fb10c050ba68e39f9b66ec61b956b65c58",
-  "http_contract_file_sha256": "b4898281b848cf450d4c4df47f6582dbd003d97882a0bdd7d1374907550dea9f",
+  "source_pin_file_sha256": "6c64dab6bf1b2958f842dd55df28ef539a91e3b0c3fba2eac6f87c2f228a1b78",
+  "http_contract_file_sha256": "442b0234bd7c45ae1719a14d5bbfe59cabf4e88cd274962a0a7e47fbc64b83d4",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 48,

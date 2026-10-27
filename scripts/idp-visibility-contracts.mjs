@@ -26,6 +26,17 @@ export const idpVisibilityContracts = {
     purpose:
       "Replace the role scope document atomically with an audit entry. Supply the observed revision; stale revisions return 409 and invalid catalog actions or target UUIDs return 422.",
   },
+  "idp:GET /api/v1/visibility/roles/{role_id}/scope": {
+    methodName: "visibilityRoleScopeGet", typeBase: "VisibilityRoleScopeGet",
+    response: 'import("./visibility.js").VisibilityRoleScopeResponse', auth: manage,
+    purpose: "Read the role's single target-role selection and revision. Null means no configured restriction; an empty array allows no target people.",
+  },
+  "idp:PUT /api/v1/visibility/roles/{role_id}/scope": {
+    methodName: "visibilityRoleScopePut", typeBase: "VisibilityRoleScopePut",
+    input: 'import("./visibility.js").SaveVisibilityRoleScopeInput',
+    response: 'import("./visibility.js").VisibilityRoleScopeResponse', auth: manage,
+    purpose: "Replace one role target scope with revision checking and audit. Never grants or revokes action permissions. Unknown target roles return 422; stale revisions return 409.",
+  },
   "idp:POST /api/v1/visibility/resolve": {
     methodName: "visibilityResolvePost",
     typeBase: "VisibilityResolvePost",

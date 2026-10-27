@@ -235,19 +235,26 @@ full Axios response, cancellation and errors. See the
 [@faiber/faiber-lms guide](https://www.npmjs.com/package/@faiber/faiber-lms)
 for the complete field, filtering and null semantics and weekly examples.
 
-### Profile and identity visibility rules
+### Role target visibility
 
-Use `sdk.idp.visibility.catalog()`, `.rules(roleId)` and `.save(roleId, { revision, grants })`
-to configure dynamic target-role scopes. These methods require `idp:visibility:assign`.
-Use `.resolve({ action: 'profile:list' })` to inspect the authenticated caller's
-current scope. List, detail, mutation, password and role-assignment grants remain
-independent. See the [IDP package guide](packages/idp/README.md#dynamic-profile-and-identity-scopes)
-for revision conflicts, assignment ceilings and cancellation. This capability
-requires the matching IDP/Profile visibility-rules backend release.
+Read `sdk.idp.visibility.roleScope(roleId)` and save one common target-role list:
 
-With no saved document (revision 0), existing active permissions keep unrestricted
-target access. Saving a document enables explicit rules; saving an empty document
-denies its scoped actions. Grants from other roles and direct permissions remain
-additive. Catalog role choices include every current IDP role, including custom
-roles. Services choose `legacy_action` for their actual route; clients cannot use
-a student-list permission to authorize unrelated list routes.
+```ts
+const { data: response } = await sdk.idp.visibility.roleScope(supportRoleId);
+await sdk.idp.visibility.saveRoleScope(supportRoleId, {
+  revision: response.data.revision,
+  target_role_ids: [studentRoleId, teacherRoleId],
+}, { signal: abortController.signal });
+```
+
+Management requires `idp:visibility:assign`. Normal YAML-backed permissions separately
+control read, edit, delete, password changes and other actions. Saving this scope never
+changes those permissions. `null` removes the role's limit; `[]` allows no targets.
+Configured scopes combine across active actor roles; unconfigured roles and direct
+permissions cannot remove a configured limit. If no role has a configured scope,
+existing permissions retain unrestricted target access. The role catalog is fully dynamic.
+
+The revision is required; reload and review after HTTP 409, and handle invalid UUIDs
+as HTTP 422. Responses retain Axios metadata and shared authentication/cancellation.
+The old `.rules/.save` action-grant methods are deprecated; use `.roleScope/.saveRoleScope`.
+Deploy the corresponding IDP role-target-scope backend before using these methods.

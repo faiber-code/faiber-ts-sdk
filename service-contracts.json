@@ -7164,6 +7164,33 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/visibility/roles/{role_id}/scope",
+      "module": "visibility",
+      "handler": "read_role_scope",
+      "permissions": [],
+      "source": "infera-idp/src/visibility.rs",
+      "pathParam": "Uuid",
+      "response": "RoleTargetScope",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/visibility/roles/{role_id}/scope",
+      "module": "visibility",
+      "handler": "save_role_scope",
+      "permissions": [],
+      "source": "infera-idp/src/visibility.rs",
+      "body": "SaveRoleTargetScope",
+      "pathParam": "Uuid",
+      "response": "RoleTargetScope",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/health",
       "module": "router",
       "handler": "status_route",

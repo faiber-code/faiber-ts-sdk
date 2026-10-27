@@ -48,6 +48,18 @@ export interface SaveVisibilityRulesInput {
   revision: number;
   grants: VisibilityGrant[];
 }
+/** One target-role scope, separate from ordinary action permissions. */
+export interface VisibilityRoleScope {
+  role_id: string;
+  revision: number;
+  /** null: no limit; []: no targets; otherwise any of these active IDP roles. */
+  target_role_ids: string[] | null;
+}
+export interface SaveVisibilityRoleScopeInput {
+  revision: number;
+  target_role_ids: string[] | null;
+}
+export type VisibilityRoleScopeResponse = ApiEnvelope<VisibilityRoleScope>;
 export interface ResolveVisibilityInput {
   action: VisibilityAction;
   /** Route-specific old permission, selected by the enforcing service. */
@@ -57,7 +69,7 @@ export interface EffectiveVisibilityScope {
   action: VisibilityAction;
   actor_id: string;
   all: boolean;
-  /** True when an unsaved role or direct permission preserves legacy access. */
+  /** True when no active actor role has a configured target scope. */
   legacy_unrestricted: boolean;
   user_ids: string[];
   assignable_role_ids: string[];
@@ -84,7 +96,7 @@ export class IdpVisibilityApi extends ServiceApi {
       options,
     );
   }
-  /** Replace all scoped grants for a role. Requires idp:visibility:assign. A stale revision returns 409; invalid actions or targets return 422. */
+  /** @deprecated Use saveRoleScope; action permissions remain separate. Replace the legacy scope document for a role. Requires idp:visibility:assign. A stale revision returns 409; invalid actions or targets return 422. */
   save(
     roleId: string,
     input: SaveVisibilityRulesInput,
@@ -94,6 +106,19 @@ export class IdpVisibilityApi extends ServiceApi {
       `/api/v1/visibility/roles/${encodeURIComponent(roleId)}`,
       input,
       options,
+    );
+  }
+  /** Read the single target-role scope. Requires idp:visibility:assign. */
+  roleScope(roleId: string, options?: RequestOptions) {
+    return this.client.get<VisibilityRoleScopeResponse>(
+      `/api/v1/visibility/roles/${encodeURIComponent(roleId)}/scope`, undefined, options,
+    );
+  }
+  /** Replace the target-role scope without granting or revoking any action permission. */
+  saveRoleScope(roleId: string, input: SaveVisibilityRoleScopeInput,
+    options?: RequestOptions<SaveVisibilityRoleScopeInput>) {
+    return this.client.put<VisibilityRoleScopeResponse, SaveVisibilityRoleScopeInput>(
+      `/api/v1/visibility/roles/${encodeURIComponent(roleId)}/scope`, input, options,
     );
   }
   /** Resolve the signed-in caller's current target scope for one action. Returns 403 without a matching grant. Never accepts another actor's identity. */

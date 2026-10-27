@@ -1432,6 +1432,14 @@ export type VisibilityRolePutInput = import("./visibility.js").SaveVisibilityRul
 /** Backend response type: RuleSet. */
 export type VisibilityRolePutResponse = import("./visibility.js").VisibilityRulesResponse;
 
+/** Backend response type: RoleTargetScope. */
+export type VisibilityRoleScopeGetResponse = import("./visibility.js").VisibilityRoleScopeResponse;
+
+/** Backend request type: SaveRoleTargetScope. */
+export type VisibilityRoleScopePutInput = import("./visibility.js").SaveVisibilityRoleScopeInput;
+/** Backend response type: RoleTargetScope. */
+export type VisibilityRoleScopePutResponse = import("./visibility.js").VisibilityRoleScopeResponse;
+
 /** Backend response type: HealthResponse. */
 export type RouterStatusRouteGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
 

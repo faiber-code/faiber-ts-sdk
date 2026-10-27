@@ -52,7 +52,7 @@ This package exposes 114 mounted operations from the identity and access service
 | `oidc` | 11 | `GET`, `POST` |
 | `router` | 2 | `GET` |
 | `settings` | 7 | `GET`, `POST`, `PUT` |
-| `visibility` | 4 | `GET`, `POST`, `PUT` |
+| `visibility` | 6 | `GET`, `POST`, `PUT` |
 | `user` | 27 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
 Legacy token login, web login, account login, and OTP login are encoded as `application/x-www-form-urlencoded`. `api.operations.authBrowserLoginPost` accepts a registered public client, a password or OTP credential, and a matching HTTPS Origin; it returns an HttpOnly session cookie without a client secret or bearer token in the response. Persist and reuse a stable, non-secret `device_id` for legacy token login so the IDP can distinguish physical devices. Use `api.sessions()` to list active sessions and `api.revokeSession(sessionId)` to revoke one. Role assignment uses role UUIDs.
@@ -154,33 +154,27 @@ OIDC and native authorization, OAuth callback, token-login and browser handoff o
 
 Public registration rejects role assignment; use managed creation or the reviewed membership workflow. Full membership replacement requires `idp:acl:update` and the captured revision; reading a snapshot requires `idp:acl:read`, and additive membership updates require both. The `users/sync` handler has no session/ACL guard and triggers downstream publication; deployment gateway policy determines its exposure.
 
-### Dynamic profile and identity scopes
 
-`idp.visibility.catalog()`, `.rules(roleId)` and `.save(roleId, input)` require
-`idp:visibility:assign`. Actions remain in the service YAML catalog; target role UUIDs
-are configurable. Rule assignment is a privileged operation: holders can configure
-scoped access for any role, including their own.
+### Role target visibility
+
+Read `sdk.idp.visibility.roleScope(roleId)` and save one common target-role list:
 
 ```ts
-const { data: response } = await sdk.idp.visibility.rules(supportRoleId);
-await sdk.idp.visibility.save(supportRoleId, {
+const { data: response } = await sdk.idp.visibility.roleScope(supportRoleId);
+await sdk.idp.visibility.saveRoleScope(supportRoleId, {
   revision: response.data.revision,
-  grants: [{
-    action: 'profile:list', scope: 'roles',
-    target_role_ids: [studentRoleId, teacherRoleId], assignable_role_ids: [],
-  }],
+  target_role_ids: [studentRoleId, teacherRoleId],
 }, { signal: abortController.signal });
 ```
 
-Saving replaces the role's entire scope document. Handle HTTP 409 by reloading
-and reviewing the current revision before retrying; HTTP 422 indicates an invalid
-action or role. Responses preserve Axios metadata. `.resolve({ action })` resolves
-the current caller's live scope and returns HTTP 403 if no grant exists. List,
-detail, edit, password and role assignment are independent actions.
+Management requires `idp:visibility:assign`. Normal YAML-backed permissions separately
+control read, edit, delete, password changes and other actions. Saving this scope never
+changes those permissions. `null` removes the role's limit; `[]` allows no targets.
+Configured scopes combine across active actor roles; unconfigured roles and direct
+permissions cannot remove a configured limit. If no role has a configured scope,
+existing permissions retain unrestricted target access. The role catalog is fully dynamic.
 
-With no saved document (revision 0), existing active permissions keep unrestricted
-target access. Saving a document enables explicit rules; saving an empty document
-denies its scoped actions. Grants from other roles and direct permissions remain
-additive. Catalog role choices include every current IDP role, including custom
-roles. Services choose `legacy_action` for their actual route; clients cannot use
-a student-list permission to authorize unrelated list routes.
+The revision is required; reload and review after HTTP 409, and handle invalid UUIDs
+as HTTP 422. Responses retain Axios metadata and shared authentication/cancellation.
+The old `.rules/.save` action-grant methods are deprecated; use `.roleScope/.saveRoleScope`.
+Deploy the corresponding IDP role-target-scope backend before using these methods.

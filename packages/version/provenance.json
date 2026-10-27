@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-version",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "source_revisions": {
     "version": {
       "directory": "infera_version",
@@ -16,8 +16,8 @@
     "packages/version/src/types.ts": "ce9894b8f8b27e85069b1fcf03ed08353db838eb9fa68b181c7a654d88f9cba4"
   },
   "capability_review_sha256": "11b06d6f2aeb50f9f9861e0f4a6fd4bbd1bfa68ac18a9d02d4e57a9204238fad",
-  "source_pin_file_sha256": "87aae9725acf7a612b7d57557fa0d9fb10c050ba68e39f9b66ec61b956b65c58",
-  "http_contract_file_sha256": "b4898281b848cf450d4c4df47f6582dbd003d97882a0bdd7d1374907550dea9f",
+  "source_pin_file_sha256": "6c64dab6bf1b2958f842dd55df28ef539a91e3b0c3fba2eac6f87c2f228a1b78",
+  "http_contract_file_sha256": "442b0234bd7c45ae1719a14d5bbfe59cabf4e88cd274962a0a7e47fbc64b83d4",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 7,
