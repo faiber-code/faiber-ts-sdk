@@ -1,5 +1,17 @@
 # @faiber/faiber-task
 
+## Offline synchronization
+
+`api.offline.capabilities()` discovers the coordinated offline-sync backend.
+`api.offline.apply(change, {signal})` submits a named `OfflineChange` with a stable
+UUID, original UTC `changed_at`, target, kind and payload. Retain the exact payload
+on retry. `OfflineSyncResult.outcome` is `applied` or `superseded`, and its snapshot
+contains the current authorized task/checklist/document. Conflict ordering is per
+work item by original edit time, with UUID tie-breaking. Note-document payloads
+must contain full Yjs state. Domain permission and validation errors remain errors;
+clients retain unsynced work. These APIs require the Task offline migration and
+endpoint deployment; package types alone do not enable server support.
+
 Typed client for every authenticated Faiber Tasks route. Tasks is the sandbox-local authority
 for projects, work items, sprints, scoped access grants, reporting, comments, agent proposals,
 and realtime invalidation events.

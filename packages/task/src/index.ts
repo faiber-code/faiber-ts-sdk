@@ -1,4 +1,5 @@
 import { FeedbackApi } from './feedback.js';
+import {TaskOfflineOperations} from './offline.js';
 import { TaskWorkspaceOperations } from "./workspace.js";
 import { TaskCollaborationOperations } from "./collaboration.js";
 import { ServiceApi, type Identifier, type RequestOptions } from "@faiber/sdk-core";
@@ -12,6 +13,7 @@ const versionOptions = <TData>(version: number, options?: RequestOptions<TData>)
 /** Typed client for every authenticated route mounted by Faiber Tasks. */
 import { TaskOperations } from "./operations.js";
 export class TaskApi extends ServiceApi {
+  readonly offline = new TaskOfflineOperations(this.client);
   readonly feedback = new FeedbackApi(this.client);
   readonly collaboration = new TaskCollaborationOperations(this.client);
   readonly workspaceAssistant = new TaskWorkspaceOperations(this.client);
@@ -204,5 +206,6 @@ export * from "./operations.js";
 export * from "./operations.types.js";
 
 export * from "./workspace.js";
+export * from './offline.js';
 
 export * from "./feedback.js";

@@ -5,12 +5,16 @@ export interface WorkspaceAssistantBinding {role:WorkspaceAssistantRole;assistan
 export interface WorkspaceAssistantBindingInput {assistant_id:string;knowledge_slug:'2done-action'|'2done-chat';enabled:boolean;expected_version:number}
 export interface WorkspaceDraft {title:string;description:string;checklist:string[];project_id:string;owner_id:string|null;priority:'low'|'medium'|'high';item_type:'task'|'note';due_at:string|null;reminder:ReminderInput|null}
 export interface WorkspaceCitation {title:string;url:string}
+/** Display choices as plain text. Send a selected value as a new user message in the same conversation; never execute it as a command. */
+export interface WorkspaceClarificationOption {label:string;value:string}
+/** Optional on compatible servers. At most four questions and eight options per question. */
+export interface WorkspaceClarificationQuestion {id:string;question:string;kind:'choice'|'person'|'time'|'text';options:WorkspaceClarificationOption[]}
 export interface WorkspaceResultBase {schema_version:'1.0.0';text:string;citations:WorkspaceCitation[];knowledge_release_id:string;shared_knowledge_release_id?:string|null;retrieved_at:string}
 export type WorkspaceAssistantResult = WorkspaceResultBase & (
  | {kind:'draft';draft:WorkspaceDraft}
  | {kind:'proposal';proposal:ReviewProposal}
  | {kind:'answer';record_ids:string[];query_id:number|null;data?:WorkspaceQueryResult}
- | {kind:'clarification'});
+ | {kind:'clarification';questions?:WorkspaceClarificationQuestion[]});
 /** Explicit assistant roles; API calls inherit the configured caller authentication. */
 export class ChatWorkspaceOperations extends ServiceApi {
  /** Inspect all role bindings, including disabled staged releases. Requires assistant:manage; preserves Axios errors and request options. */

@@ -329,3 +329,13 @@ repositories. Do not infer tenant isolation from an SDK type or a catalog result
 ## Mark a received message unread
 
 `api.markRead(conversationId, {sequence: message.sequence, message_id: message.id, unread: true}, {signal})` rewinds only the caller's personal read position to before that received message. This can make later received messages unread too. It does not retract read receipts already delivered to senders. Own, deleted, nonexistent, and other-conversation messages are rejected. Stop automatic visible-message read updates before invoking this action, and resume when the user deliberately reopens the conversation.
+
+## Guided workspace clarification
+
+`WorkspaceResult` may include optional `questions` on its `clarification` branch.
+The exported `WorkspaceClarificationQuestion` and `WorkspaceClarificationOption`
+types describe bounded display questions and `{label, value}` choices. Send a
+selected value as an ordinary AI message in the same conversation; it is not a
+command, member authorization, or mutation approval. Text-only older results remain
+valid. These additive types require the coordinated guided-clarification backend
+change for structured output; they do not imply that it is deployed.
