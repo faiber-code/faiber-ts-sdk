@@ -1,5 +1,5 @@
 import {readFileSync,realpathSync} from 'node:fs';
-import {resolve,relative,isAbsolute} from 'node:path';
+import {resolve,relative,isAbsolute,sep} from 'node:path';
 import {createHash} from 'node:crypto';
 
 /** Bind inventory bytes to a retained artifact inside the capability evidence root. */
@@ -7,7 +7,7 @@ export function loadRuntimeInventory(descriptor,root) {
  try {
   if(!descriptor||isAbsolute(descriptor.artifact_path??'')||!/^[a-f0-9]{64}$/.test(descriptor.sha256??''))return null;
   const directory=realpathSync(root),path=realpathSync(resolve(directory,descriptor.artifact_path)),rel=relative(directory,path);
-  if(!rel||rel==='..'||rel.startsWith('../'))return null;
+  if(!rel||isAbsolute(rel)||rel==='..'||rel.startsWith(`..${sep}`))return null;
   const bytes=readFileSync(path);if(!bytes.length||createHash('sha256').update(bytes).digest('hex')!==descriptor.sha256)return null;
   const data=JSON.parse(bytes.toString('utf8'));
   if(!Array.isArray(data.catalog)||!data.catalog.length||!Array.isArray(data.workloads)||!data.workloads.length||!Number.isFinite(Date.parse(data.observed_at)))return null;

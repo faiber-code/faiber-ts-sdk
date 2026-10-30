@@ -5,22 +5,24 @@
   "source_revisions": {
     "task": {
       "directory": "infera-task",
-      "revision": "b8ed5921e4f6bd2d7f4ef675f0cb8b3fbbb1e23d"
+      "revision": "45d5cd73de946443b7a2f13ac297e2b8514288d1"
     }
   },
   "package_source_sha256": {
-    "packages/task/src/collaboration.ts": "9fb873e4cd78263ae2e6657ca22e26e05718890ba76f110ec693494de8c73220",
-    "packages/task/src/feedback.ts": "22d27abdfbb872dad7c261831cd573ef5ac528dd796bb166d522639970b663e1",
-    "packages/task/src/index.ts": "ef05e0a37745345177726027bad95e08630ef3fbc480f01ad0bae2c0a126bee6",
-    "packages/task/src/operations.ts": "3b890e1cd21a57f3d43d807156ed36071ccf86c53d5d0cfb086000c89e795adc",
-    "packages/task/src/operations.types.ts": "24ef41615f2ac6fb7a66b734d4b172dcad1b175ba5b11a81a8e66dfd23b4e3e8",
-    "packages/task/src/types.ts": "d8c12ac0c9f1cd0b55fa41bb58f88e7166093b7cb7a9e87365ce7c18e9ed4adf",
-    "packages/task/src/wire.types.ts": "ec8b1432495d968d083df50e5d600a997a9611c1087f96dba97a26057a1aa633",
-    "packages/task/src/workspace.ts": "6873fb559d167e05ca8480ad6890f1732735f36cad30b197610d21829ff8b851"
+    "packages/task/src/campaigns.ts": "e04f7539f3783a668a51166afdce1d29aa21f375f239a386c61af906b9e16619",
+    "packages/task/src/collaboration.ts": "9200ef8dfe6cfd4a62a9cd1f1af9c3aad2abcc1310bbcb3c8ca7dcaba90fcd4f",
+    "packages/task/src/feedback.ts": "a3057d6fbc45e5573941b42eb1e20b849ae9c631a2420fdab08093e5c05a4db0",
+    "packages/task/src/index.ts": "ece06bdcdb72cd150b80b3a53f5e55bc38574541ffa472f1ddac250c6bd077d5",
+    "packages/task/src/offline.ts": "07f6476b0a955739692da032199d82fa584bfa0b78f28a70cb10285868425b03",
+    "packages/task/src/operations.ts": "3b7d29b48cf16294929017cf5a4f2f9dd611461ba26c9112f0f6f4fd3acb1ee4",
+    "packages/task/src/operations.types.ts": "1b6f6f3a1db2fa6bcd9bbaa4fa30f56dec181fd4dd09c167b292c79668b69ca0",
+    "packages/task/src/types.ts": "82601bd924f0b479979703a8791a9081bd65d0a91315c01a43e8ed9fc49b55ab",
+    "packages/task/src/wire.types.ts": "3c10548f1ab9fbf2059e7cba035408146147c182304f8a111eafaf34d20e7bad",
+    "packages/task/src/workspace.ts": "292c3b7c00d081809e30a7797fec5b0f09d655d4e549964dd31d664f674d0cd7"
   },
-  "capability_review_sha256": "85188e40cb1f2779d5890227f2516570be241833019be34247d0adecc6b9670b",
-  "source_pin_file_sha256": "6c64dab6bf1b2958f842dd55df28ef539a91e3b0c3fba2eac6f87c2f228a1b78",
-  "http_contract_file_sha256": "442b0234bd7c45ae1719a14d5bbfe59cabf4e88cd274962a0a7e47fbc64b83d4",
+  "capability_review_sha256": "3543c32b6383fc50d8d442954a5420191274e39597eb5c8a0ad76659c7c5dfef",
+  "source_pin_file_sha256": "340b65b3c42b12d60ca340138ebfa7e04737fe132b65ee9c6023cd59f6387349",
+  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 128,

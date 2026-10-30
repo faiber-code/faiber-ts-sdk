@@ -1,3 +1,4 @@
+import {fileURLToPath} from 'node:url';
 import assert from 'node:assert/strict';
 import { readFile, mkdtemp, mkdir, writeFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -52,7 +53,7 @@ test('extraction respects pub(crate), nested qualified handlers and namespaced p
     await writeFile(join(root, 'infera-profile/src/profile_search/routes.rs'), 'pub fn routes()->Router{Router::new().route("/people/resolve",post(super::people::resolve))}');
     await writeFile(join(root, 'infera-profile/src/profile_search/people.rs'), '#[infera_idp_macro::should_have_permissions(path("/api/v1/profile/people/resolve"),methods("POST"),permissions("profile:lookup"))]\npub async fn resolve(Json(input):Json<ResolvePeople>)->Json<APIResponse<PeopleResult>>{unimplemented!()}');
     const output = join(root, 'contracts.json');
-    const result = spawnSync(process.execPath, [new URL('../scripts/extract-service-contracts.mjs', import.meta.url).pathname, output], { env: { ...process.env, FAIBER_SERVICES_ROOT: root }, encoding: 'utf8' });
+    const result = spawnSync(process.execPath, [fileURLToPath(new URL('../scripts/extract-service-contracts.mjs', import.meta.url)), output], { env: { ...process.env, FAIBER_SERVICES_ROOT: root }, encoding: 'utf8' });
     assert.equal(result.status, 0, result.stderr);
     const contracts = JSON.parse(await readFile(output, 'utf8'));
     assert.deepEqual(contracts.lms.map(e => e.path), ['/api/v1/reports/parents', '/api/v1/reports/staff']);

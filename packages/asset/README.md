@@ -123,3 +123,21 @@ Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services 
 Create assets with `{name, asset_type}` (`Coin`, `Badge`, `XP`, `Charge`, or `Gem`) and ranks with `{name, min_xp}`. User AI plan updates accept `{tier}`. `dashboard({month: "2026-10"})` selects a month. Charge mapping conditions are tagged objects such as `{type: "xp_balance", operator: "gte", value: "100"}`. Action criteria, reward conditions, caps and multiplier models are exported alongside the operation models.
 
 `economyPolicy()` returns `null` before configuration and includes `configuration_revision` afterward; policy updates return the saved policy. Policy models include funding settings and evidence bindings, and capabilities include rule creation/update flags. Economy journal accepts `before` and `descending`; own-history supports `after` and `limit` only. Gift list/detail payloads remain product-owned JSON because Asset forwards the configured adapter's data unchanged; Asset annotates detail/items with `can_copy` and exposes a concrete token-copy response.
+
+### Funded Do and private Dox
+
+`asset.doEconomy` manages the separately configured funded-rewards policy. It does
+not change the existing scoped economy's prohibition on coin purchases. Prices
+use integer rial and integer coins. Operators configure inactive packs, catalog
+items, backing, delivery costs, review requirements and promotion reserves.
+
+Policy updates require `admin:coin_settings:update`, a current version and an
+audit reason. Read-only policy/audit calls require `admin:coin_settings:read`.
+Campaign funding uses a stable `request_id`; retries cannot issue twice.
+Financial transfers, purchases and entitlement delivery require trusted backend
+integrations. Never put their credentials in a browser.
+
+```ts
+const snapshot = await asset.doEconomy.policy({ signal: controller.signal });
+console.log(snapshot.data.data.version, snapshot.data.data.policy.enabled);
+```

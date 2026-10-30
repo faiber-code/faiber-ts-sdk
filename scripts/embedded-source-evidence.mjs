@@ -1,5 +1,5 @@
 import { readFileSync, realpathSync } from 'node:fs';
-import { basename, dirname, isAbsolute, relative, resolve } from 'node:path';
+import { basename, dirname, isAbsolute, relative, resolve , sep } from 'node:path';
 import { createHash } from 'node:crypto';
 import { balancedEnd } from './capability-source.mjs';
 import { productionRust, maskRust } from './rust-source.mjs';
@@ -24,7 +24,7 @@ export function embeddedSourceEvidence(root, sources) {
       if (manifestConcat && item.manifestDir) {
         base = realpathSync(item.manifestDir);
         const manifestRelative = relative(project,base);
-        if (manifestRelative === '..' || manifestRelative.startsWith('../') || isAbsolute(manifestRelative)) {
+        if (manifestRelative === '..' || manifestRelative.startsWith(`..${sep}`) || isAbsolute(manifestRelative)) {
           gaps.push({source:relative(project,item.path),argument,reason:'manifest directory escapes service root'}); continue;
         }
         requested = manifestConcat[1].slice(1);
@@ -33,11 +33,11 @@ export function embeddedSourceEvidence(root, sources) {
       if (!requested || isAbsolute(requested)) { gaps.push({source, argument, reason:'unresolved or absolute compiler input'}); continue; }
       const candidate = resolve(base, requested);
       const assetPath = relative(project,candidate);
-      if (!assetPath || assetPath === '..' || assetPath.startsWith('../') || isAbsolute(assetPath)) { gaps.push({source,argument,reason:'compiler input escapes service root'}); continue; }
+      if (!assetPath || assetPath === '..' || assetPath.startsWith(`..${sep}`) || isAbsolute(assetPath)) { gaps.push({source,argument,reason:'compiler input escapes service root'}); continue; }
       try {
         const path = realpathSync(candidate);
         const rel = relative(project, path);
-        if (!rel || rel === '..' || rel.startsWith('../') || isAbsolute(rel)) {
+        if (!rel || rel === '..' || rel.startsWith(`..${sep}`) || isAbsolute(rel)) {
           gaps.push({source, argument, reason:'compiler input escapes service root'}); continue;
         }
         if (visited.has(rel)) continue;

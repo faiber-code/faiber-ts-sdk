@@ -1,9 +1,11 @@
+import { DoEconomyApi } from "./do-dox.js";
 import type * as E from "./economy.types.js";
 import { RestResource, ServiceApi, type Identifier, type RequestOptions, } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 import type * as O from "./operations.types.js";
 import { AssetOperations } from "./operations.js";
 export class AssetApi extends ServiceApi {
+    readonly doEconomy = new DoEconomyApi(this.client);
     /** Reads versioned scoped-reward policy. Requires admin:coin_settings:read. */
     economyPolicy(options?: RequestOptions) { return this.client.get<E.EconomyPolicyResponse>("/api/v1/economy/policy", undefined, options); }
     /** Updates a higher policy version; launch/supply/currency remain immutable. Requires admin:coin_settings:update. */
@@ -107,3 +109,5 @@ export * from "./operations.types.js";
 export * from "./economy.types.js";
 
 export * from "./contracts.types.js";
+
+export * from "./do-dox.js";

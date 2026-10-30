@@ -11,21 +11,21 @@
     }
   },
   "package_source_sha256": {
-    "packages/manage/src/durable.ts": "24001c54e2a942fa9f7d9d74fd8710270456966b5c5d654abc2b6e7324ccb8cf",
-    "packages/manage/src/durable.types.ts": "6caeb9167882809ea5b6cce6bdfd3d85039c9a4172b031e7364134bb9fd7750d",
-    "packages/manage/src/index.ts": "d3a0ab9190d11972c60ea1d2870186bfbd1ff7f69b42cb74693373dd15cfca64",
-    "packages/manage/src/operations.ts": "f2e84ecd13c1b1b4d5b812ac764204ffaa278031def77180b9d86792b8a7ece4",
-    "packages/manage/src/stream.ts": "6803c133f1ae377115f95004e5c35ef3854c8837e63f23f442912b4a96752af4",
-    "packages/manage/src/types.ts": "fe8e4f5c090d950011035f6b99dadb7f481bf1ca79ef2f3e75f8134ad6ff5708"
+    "packages/manage/src/durable.ts": "cd74a5a424154832783feca467097cdfc25b38e01ac1346c27d41866e8c853cd",
+    "packages/manage/src/durable.types.ts": "ef0c784d7f2776e40cc694019381de0891f685567d570a3e4137288060514f84",
+    "packages/manage/src/index.ts": "6581b0a9ea6a107b61c4a0cc58a2930551ff7e17459d3740992b2e1d8abce054",
+    "packages/manage/src/operations.ts": "8437c3b165492dfed258c9e163b2652bf57d183a1676d29d218d882193287126",
+    "packages/manage/src/stream.ts": "ca37e9da1a7ff05cfa3125c7be89161c56a5eadee8ec4cf3bd2292d2e3d72798",
+    "packages/manage/src/types.ts": "1fcf3f5794ac1641991cf66b18fa0b03b289d5b7b39d8c7b213fe29183981b21"
   },
-  "capability_review_sha256": "7d54e63b39d10af9b39524caf7a4b37da107102a334c04d958d41bf0bd7428f1",
-  "source_pin_file_sha256": "6c64dab6bf1b2958f842dd55df28ef539a91e3b0c3fba2eac6f87c2f228a1b78",
-  "http_contract_file_sha256": "442b0234bd7c45ae1719a14d5bbfe59cabf4e88cd274962a0a7e47fbc64b83d4",
+  "capability_review_sha256": "4fd049eb5607f150a28e4d2a4b390d3a49bca10503dd4b609ceefaed26768bc5",
+  "source_pin_file_sha256": "340b65b3c42b12d60ca340138ebfa7e04737fe132b65ee9c6023cd59f6387349",
+  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "reviewed-durable-actions",
     "operation_count": 5,
-    "sha256": "162040ba41406904d9973a991a4d569821af6fffdb52d07a4b34584ae59bcbcd",
-    "wire_sha256": "3f74dccc7956db1a0b5d84481f9fc742af141e058dd05151945353387a349678"
+    "sha256": "51d4f14541ef21ceab8ebe73e815b60e467914c6e9ab222575c8e898b4ed4d3b",
+    "wire_sha256": "2231f7af24f1e6a6ba60056ece9672ea1709f06006681dc91a7601e6b1fcdd6b"
   },
   "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
 }

@@ -2,7 +2,7 @@ import {reconcileRuntimeInventory} from './runtime-inventory.mjs';
 /** Evaluate evidence-backed completion. Counts and generated declarations cannot pass these gates. */
 import { readFileSync, realpathSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { resolve, relative, isAbsolute } from 'node:path';
+import { resolve, relative, isAbsolute , sep } from 'node:path';
 
 /** Recompute artifact integrity; never trust a manifest's self-asserted flag. */
 export function verifyRunArtifacts(runs, evidenceRoot) {
@@ -11,7 +11,7 @@ export function verifyRunArtifacts(runs, evidenceRoot) {
       if (typeof artifactPath !== 'string' || isAbsolute(artifactPath) || !/^[a-f0-9]{64}$/.test(checksum ?? '')) return false;
       const path = realpathSync(resolve(evidenceRoot, artifactPath));
       const rel = relative(realpathSync(evidenceRoot), path);
-      if (!rel || rel === '..' || rel.startsWith('../')) return false;
+      if (!rel || isAbsolute(rel) || rel === '..' || rel.startsWith(`..${sep}`)) return false;
       const bytes = readFileSync(path);
       return bytes.length > 0 && createHash('sha256').update(bytes).digest('hex') === checksum;
     } catch { return false; } // Missing/unreadable artifacts fail closed.

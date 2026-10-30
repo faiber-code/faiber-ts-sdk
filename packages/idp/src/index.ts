@@ -1,3 +1,4 @@
+import {ContactVerificationApi} from "./verification.js";
 import { IdpVisibilityApi } from "./visibility.js";
 import { IdpRoleResource, IdpUserResource } from "./resources.js";
 import { membershipRevisionOptions, type AddUserRoleMemberships, type AddUserRoleMembershipsResponse, type UserRoleMembershipSnapshotResponse } from "./memberships.js";
@@ -8,6 +9,7 @@ import { RestResource, ServiceApi, urlEncoded, type Identifier, type RequestOpti
 import type { AccountLoginInput, AuthTokensResponse, ChangePasswordInput, ChangeRolesInput, LinkedFaiberBillingQuery, LinkedFaiberBillingResponse, LinkedFaiberTopUpInput, LinkedFaiberTopUpResponse, LinkedIdentityListResponse, LoginInput, LogoutUserResponse, OAuthProviderListResponse, OtpLoginInput, Permission, PermissionListResponse, PermissionResponse, RegisterUserInput, SessionListResponse, SetUserStatusInput, UpdateUserInput, UserResponse, UserSelfResponse, ValidateSessionResponse, WebLoginInput, } from "./types.js";
 import { IdpOperations } from "./operations.js";
 export class IdpApi extends ServiceApi {
+  readonly contactVerification = new ContactVerificationApi(this.client);
     readonly visibility = new IdpVisibilityApi(this.client);
     readonly authority = new IdpAuthorityApi(this.client);
     readonly operations = new IdpOperations(this.client);
@@ -270,3 +272,5 @@ export * from "./memberships.js";
 export * from "./resources.js";
 
 export * from "./visibility.js";
+
+export * from "./verification.js";

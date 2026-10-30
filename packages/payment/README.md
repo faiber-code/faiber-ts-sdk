@@ -92,3 +92,13 @@ Gateway identifiers are integers. `gateways.list({ status: "active", "page[numbe
 `gatewayOptions()` returns `{ providers, statuses }` label/value arrays. `dailyIncomeFor({ days: 7 })` returns UTC date/amount points, including zero dates; the backend clamps the day window to1–90. No count field is returned. `createPayment()` accepts an optional `idempotency_key`; trusted product, fitness, Asset and storefront purchases must use their dedicated server-authorized checkout contracts. Generic creation is not an authorization bypass for those purchases.
 
 Payment navigation operations return text/HTML, not JSON envelopes. Provider callbacks accept `Authority`, `transid` or `paymentNumber` in the query for both GET and POST. A callback may return303 with a `Location` header for a configured allowed HTTPS origin; otherwise it returns the payment result page. In Node, pass `maxRedirects: 0` and a `validateStatus` that accepts303 to inspect that response. A result page with HTTP200 can describe a failed payment. These routes may contact the real provider and are not read-only health checks.
+
+### Configured reward-pack checkouts
+
+`rewardCheckouts.create(product, body, options)` and
+`rewardCheckouts.receipt(product, transactionId, options)` require that product's
+configured backend Bearer credential. The server validates model, order,
+idempotency key and HTTPS callback origin. These endpoints create/read verified
+Payment transactions; Asset alone credits a wallet after independently matching
+the receipt. Pending or cancelled payments never issue coins. Product settings
+belong in service configuration, and these credentials must stay off clients.

@@ -5,19 +5,20 @@
   "source_revisions": {
     "payment": {
       "directory": "infera-payment",
-      "revision": "ca2f9bbd7ea9e43a78874a2d93bbbd68e5d257c8"
+      "revision": "28646e7d879a0ff7d94c937b83a4699ce1246550"
     }
   },
   "package_source_sha256": {
-    "packages/payment/src/contracts.types.ts": "795eb1a1a592c669223d3aaec2f663dd82689a590f71cc104b7bcde2099d19eb",
-    "packages/payment/src/index.ts": "c17b741892a6f7c76e2ed345a8f471959708ddb119ddb3670eb18ad7466887a5",
-    "packages/payment/src/operations.ts": "1ce86476d0fb15e2257618ef9b162dd0a14371895a469f998e9e93b07aa9f43d",
-    "packages/payment/src/operations.types.ts": "15db1318ff221a0af6bbcc4232a48299836b67492e46095ca1a509ca0ae6079c",
-    "packages/payment/src/types.ts": "cd9a57df50bf2e8ea26cc10fdda63908f97a66c64492710c552951483812f2ee"
+    "packages/payment/src/contracts.types.ts": "2aab2e54641c4663f81fc8598c15e240b4420ade21a0bddf51239d3cd0eb21ae",
+    "packages/payment/src/index.ts": "85049cfd8732ee56c896b3dfc7803cbbaaea4f095f12633448a86232a87732bf",
+    "packages/payment/src/operations.ts": "56fb2e5169c1308b64d849371717cbb4c42573c66bf8ad11331f5a90d4365f1e",
+    "packages/payment/src/operations.types.ts": "48e800cb7d5e5c96a8b400ad1d7ca2582c27c397fb043a8914baf459f3923857",
+    "packages/payment/src/reward-checkout.ts": "04ad67ed3151d7c8f487d7ef81c9d23c557e917be62c22da6ef7af2133086c6f",
+    "packages/payment/src/types.ts": "e58bafd620d9020b407f0aec1ab81654301beff67c17374137b1b17100f04b6a"
   },
-  "capability_review_sha256": "2e335010c118007dd92a4c2145fa96cde9025b1b43f8d8e43a9f26f9633fdce6",
-  "source_pin_file_sha256": "6c64dab6bf1b2958f842dd55df28ef539a91e3b0c3fba2eac6f87c2f228a1b78",
-  "http_contract_file_sha256": "442b0234bd7c45ae1719a14d5bbfe59cabf4e88cd274962a0a7e47fbc64b83d4",
+  "capability_review_sha256": "288a743188927584318969920dfd686505e14241cffe486fedd9729f70dc945d",
+  "source_pin_file_sha256": "340b65b3c42b12d60ca340138ebfa7e04737fe132b65ee9c6023cd59f6387349",
+  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 36,

@@ -5,7 +5,7 @@
   "source_revisions": {
     "asset": {
       "directory": "infera-asset",
-      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+      "revision": "391882611ba5eb431fafac7219da6e3c8e7e33c4"
     },
     "chat": {
       "directory": "infera-chat",
@@ -25,7 +25,7 @@
     },
     "idp": {
       "directory": "infera-idp",
-      "revision": "3f36c40a3c44dbb97497ed1b6d55c2796eb6f6a9"
+      "revision": "5e96d1057c6939a53c306d3efd328e13d7603902"
     },
     "knowledge": {
       "directory": "infera-knowledge",
@@ -45,7 +45,7 @@
     },
     "payment": {
       "directory": "infera-payment",
-      "revision": "ca2f9bbd7ea9e43a78874a2d93bbbd68e5d257c8"
+      "revision": "28646e7d879a0ff7d94c937b83a4699ce1246550"
     },
     "profile": {
       "directory": "infera-profile",
@@ -61,7 +61,7 @@
     },
     "social": {
       "directory": "infera-social",
-      "revision": "d067ac956571abd73211b06d835caa658b1f09bc"
+      "revision": "df162a17c6f7dbcde975f39cc4554fe00d728e9d"
     },
     "state": {
       "directory": "infera-state",
@@ -69,7 +69,7 @@
     },
     "task": {
       "directory": "infera-task",
-      "revision": "b8ed5921e4f6bd2d7f4ef675f0cb8b3fbbb1e23d"
+      "revision": "45d5cd73de946443b7a2f13ac297e2b8514288d1"
     },
     "version": {
       "directory": "infera_version",
@@ -81,12 +81,12 @@
     }
   },
   "package_source_sha256": {
-    "packages/sdk/src/capabilities.ts": "b1a8d03db5a191a866960efea647ff1f2bf680ad14ebf861a1b997b02375175d",
-    "packages/sdk/src/index.ts": "1bdfc0b798a3155ed5969ff7a938af59004bb3ea9d75051a359c6f1d95968161"
+    "packages/sdk/src/capabilities.ts": "6fa0a625f73f5a83d3a1acebe4b21a56978455d0d643baee860df4e61fddf84b",
+    "packages/sdk/src/index.ts": "bebfc882dcbcf4732de1325efe76e4f18a7822fa210f8ad4cef953c1fe683015"
   },
   "capability_review_sha256": null,
-  "source_pin_file_sha256": "6c64dab6bf1b2958f842dd55df28ef539a91e3b0c3fba2eac6f87c2f228a1b78",
-  "http_contract_file_sha256": "442b0234bd7c45ae1719a14d5bbfe59cabf4e88cd274962a0a7e47fbc64b83d4",
+  "source_pin_file_sha256": "340b65b3c42b12d60ca340138ebfa7e04737fe132b65ee9c6023cd59f6387349",
+  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "shared-client-or-facade"
   },

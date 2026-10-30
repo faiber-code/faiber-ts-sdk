@@ -1,3 +1,4 @@
+import { CampaignsApi } from "./campaigns.js";
 import { ServiceApi, multipart, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type {
   AnalyticsQuery, SocialTargetCollection, CreateCategoryInput, CreateCommentInput, CreatePostInput, CreateReportInput, FeedQuery, LegacyImportInput, RecordViewInput,
@@ -11,6 +12,7 @@ const id = (value: Identifier) => encodeURIComponent(value);
 
 import { SocialOperations } from "./operations.js";
 export class SocialApi extends ServiceApi {
+  readonly campaigns = new CampaignsApi(this.client);
   readonly operations = new SocialOperations(this.client);
   /**
    * List organization-scoped, non-deleted categories ordered by sort_order and slug; hidden/archived categories are included.
@@ -356,3 +358,5 @@ export * from "./admin.types.js";
 export * from "./discovery.types.js";
 
 export * from "./contracts.types.js";
+
+export * from "./campaigns.js";

@@ -9,19 +9,19 @@
     }
   },
   "package_source_sha256": {
-    "packages/game/src/assets.ts": "753c8f945a828b35b774c71176e492a4eb95190d17647e1ab164b159ac21c7ef",
-    "packages/game/src/ecs.ts": "1d248b56c0bc5f4f3ec80b7797927aae1768df4e89251a397a5b0308d0a10775",
-    "packages/game/src/engine.ts": "3aa82c610142b02519e93f0334c1121a19b8407a522bc7cf43260aecbca9b16c",
-    "packages/game/src/index.ts": "a841a0d982f58549fef9290938716c0b2c8ade241542ad85ee826d1577608078",
-    "packages/game/src/match.ts": "0d31a7d911eb416bba850d60088cfb572620703c55c9b9bde079177a68e188f3",
-    "packages/game/src/quality.ts": "70a86301ba2f10267c11a80a76585c7254883c88000d589f88e1274f5871281a",
-    "packages/game/src/renderer.ts": "5f6dfdc8419f235f569fcf56a133294480480054874c6b4abecd0a9bf0c4c139",
-    "packages/game/src/state.ts": "900765ef84d59cabfc06366de0437485c9912232166807abb6be79ba5ca72abf",
-    "packages/game/src/wasm.ts": "bfc9a8733dcfd107c104a5162e4e7e1623fe07600b4cde11b8b2a72b1f5b8570"
+    "packages/game/src/assets.ts": "5b1901464c400a4d48d51cbe46963b19b65a842d7515797edd893eafe4deafe3",
+    "packages/game/src/ecs.ts": "9964ac58c1b6852700d3d8f0f7a47211ea51e7cfd077bab7598232d9539d0270",
+    "packages/game/src/engine.ts": "674d6f0611df405314135ab0d5f9639b3971d6b31789a3ef80ab625b2d43abd3",
+    "packages/game/src/index.ts": "6d994e3c7347f705f91a524668561e9d29c9245bbe84cdff59fdf076bd7e9270",
+    "packages/game/src/match.ts": "e91937d1bd0d81257842ae5cd3ee0fa5832632c110cd91e37caaa2f9de88b5f9",
+    "packages/game/src/quality.ts": "dab1a9ed5fd73ec648b754417d6df2f431336a42c51840c07fe4fabc39ae6480",
+    "packages/game/src/renderer.ts": "68c4d32b278c8fc7ef716bd350b64b4447bd6d204fedda6e444e553eb02d1510",
+    "packages/game/src/state.ts": "893aa2b67b75055d2eceb8e22e43ff94bdb50f26927e3ee1a2eaf69e9017461a",
+    "packages/game/src/wasm.ts": "1aedd118badd21dce87fe443da0b959d58138bbdc175f093f54cda029c6aaef1"
   },
   "capability_review_sha256": null,
-  "source_pin_file_sha256": "6c64dab6bf1b2958f842dd55df28ef539a91e3b0c3fba2eac6f87c2f228a1b78",
-  "http_contract_file_sha256": "442b0234bd7c45ae1719a14d5bbfe59cabf4e88cd274962a0a7e47fbc64b83d4",
+  "source_pin_file_sha256": "340b65b3c42b12d60ca340138ebfa7e04737fe132b65ee9c6023cd59f6387349",
+  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "local-game-runtime-with-state-transport"
   },

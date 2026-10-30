@@ -178,3 +178,13 @@ The revision is required; reload and review after HTTP 409, and handle invalid U
 as HTTP 422. Responses retain Axios metadata and shared authentication/cancellation.
 The old `.rules/.save` action-grant methods are deprecated; use `.roleScope/.saveRoleScope`.
 Deploy the corresponding IDP role-target-scope backend before using these methods.
+
+### Explicit contact ownership
+
+`contactVerification.facts(userId, options)` is a backend-only integration.
+Configure the service Bearer credential through the shared transport; never ship
+it to a browser. It returns the standard envelope with `user_id` and
+`contact_verified`, without exposing contact values. A populated contact field
+or active account is insufficient: the current contact must match a recorded
+successful OTP or explicit verified assertion from a trusted OAuth provider.
+Changing contacts invalidates the old match. Treat outages as unverified.

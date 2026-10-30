@@ -1,3 +1,4 @@
+import {serviceRoot} from './service-root.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {cpSync,mkdtempSync,mkdirSync,readFileSync,writeFileSync,rmSync,symlinkSync} from 'node:fs';
@@ -19,7 +20,7 @@ test('form operation regeneration preserves encoded request option bodies and is
   writeFileSync(join(work,'package.json'),JSON.stringify({type:'module'}));
   writeFileSync(join(work,'manifest.json'),JSON.stringify(selected));
   symlinkSync(join(root,'node_modules'),join(work,'node_modules'),'dir');
-  const run=()=>execFileSync(process.execPath,[join(work,'scripts/generate-service-operations.mjs'),join(work,'manifest.json'),'idp,chat'],{env:{...process.env,FAIBER_SERVICES_ROOT:resolve(root,'../Service')},stdio:'pipe'});
+  const run=()=>execFileSync(process.execPath,[join(work,'scripts/generate-service-operations.mjs'),join(work,'manifest.json'),'idp,chat'],{env:{...process.env,FAIBER_SERVICES_ROOT:serviceRoot(root)},stdio:'pipe'});
   run();
   const before=[];
   for(const [service,rows] of Object.entries(selected)){

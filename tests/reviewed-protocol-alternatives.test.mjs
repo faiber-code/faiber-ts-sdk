@@ -16,7 +16,7 @@ import {readFileSync} from 'node:fs';
 import {sourceIndex} from '../scripts/capability-source.mjs';
 function tombstone(service,path) {
  const source=service==='lms'?'infera-lms/src/router.rs':'infera-agentic/src/lms_integration.rs';
- const file=sourceIndex(readFileSync(new URL(`./fixtures/summary-cutoff/${service}.rs`,import.meta.url),'utf8'),source);
+ const file=sourceIndex(readFileSync(new URL(`./fixtures/summary-cutoff/${service}.rs`,import.meta.url),'utf8').replaceAll('\r\n','\n'),source);
  return {file,op:{method:'ANY',path,source,handler_source:source,handler:'retired_summary',mounted_via:[{path:source,function:'routes'}]}};
 }
 test('exact state-free retired summary handlers stay visible as 410 boundaries without supported SDK operations',()=>{

@@ -165,3 +165,22 @@ unconfigured realtime can return 503.
 Project `settings`, work-item `custom_fields`, session/commit `metadata` and agent-proposal
 `payload` deliberately retain JSON extension data because the service stores
 `serde_json::Value`; fixed outer envelopes and all declared nested models remain typed.
+
+### Funded campaigns and private recognition
+
+Campaign jobs use Social posts and claims. Public Do campaign discovery does not
+expose private participant identities or evidence. Starting a job queues a funded
+reservation; proof review queues an idempotent Asset settlement. A pending response
+is not confirmation that a reward has been paid. Read the assignment again to
+observe settlement. Dox campaigns are private and have no spending power.
+
+Use stable `request_id` values on retries. A reused ID with different contents
+returns a conflict. Upload scanned evidence using `FormData`; proof downloads
+require participant, campaign moderator, or authorized operator access. These APIs
+require deployed campaign support and configured service integrations. Financial
+features are disabled until funded and enabled by the service operator.
+
+```ts
+const campaigns = await task.rewards.campaigns({ view: 'public' }, { signal: controller.signal });
+console.log(campaigns.status, campaigns.data.data.items);
+```

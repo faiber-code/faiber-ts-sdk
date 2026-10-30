@@ -8,7 +8,11 @@ import { access, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join, relative, resolve } from "node:path";
 
 const sdkRoot = resolve(import.meta.dirname, "..");
-const siblingRoots = [join(sdkRoot, "..", "Service"), join(sdkRoot, "..", "services")];
+const siblingRoots = [];
+for(let parent=dirname(sdkRoot);;parent=dirname(parent)){
+  siblingRoots.push(join(parent,"Service"),join(parent,"services"));
+  if(parent===dirname(parent))break;
+}
 const discoveredServicesRoot = process.env.FAIBER_SERVICES_ROOT ?? await (async () => {
   for (const candidate of siblingRoots) {
     try { await access(candidate); return candidate; } catch { /* keep looking */ }

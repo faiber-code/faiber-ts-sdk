@@ -1,7 +1,7 @@
 {
   "asset": {
     "directory": "infera-asset",
-    "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    "revision": "391882611ba5eb431fafac7219da6e3c8e7e33c4"
   },
   "chat": {
     "directory": "infera-chat",
@@ -21,7 +21,7 @@
   },
   "idp": {
     "directory": "infera-idp",
-    "revision": "3f36c40a3c44dbb97497ed1b6d55c2796eb6f6a9"
+    "revision": "5e96d1057c6939a53c306d3efd328e13d7603902"
   },
   "knowledge": {
     "directory": "infera-knowledge",
@@ -41,7 +41,7 @@
   },
   "payment": {
     "directory": "infera-payment",
-    "revision": "ca2f9bbd7ea9e43a78874a2d93bbbd68e5d257c8"
+    "revision": "28646e7d879a0ff7d94c937b83a4699ce1246550"
   },
   "profile": {
     "directory": "infera-profile",
@@ -57,7 +57,7 @@
   },
   "social": {
     "directory": "infera-social",
-    "revision": "d067ac956571abd73211b06d835caa658b1f09bc"
+    "revision": "df162a17c6f7dbcde975f39cc4554fe00d728e9d"
   },
   "state": {
     "directory": "infera-state",
@@ -65,7 +65,7 @@
   },
   "task": {
     "directory": "infera-task",
-    "revision": "b8ed5921e4f6bd2d7f4ef675f0cb8b3fbbb1e23d"
+    "revision": "45d5cd73de946443b7a2f13ac297e2b8514288d1"
   },
   "version": {
     "directory": "infera_version",

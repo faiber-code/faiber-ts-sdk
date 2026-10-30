@@ -13,7 +13,7 @@ export function archiveSourceRevision(repository, revision, destination) {
   if (!paths.some(path=>['src','crates'].includes(path))) throw new Error(`Missing runtime source: ${repository}@${revision}`);
   mkdirSync(destination,{recursive:true});
   const extract = selected => {
-    const archive = execFileSync('git',['archive',revision,'--',...selected],{cwd:repository,maxBuffer:128*1024*1024});
+    const archive = execFileSync('git',['-c','core.autocrlf=false','archive',revision,'--',...selected],{cwd:repository,maxBuffer:128*1024*1024});
     const archivePath=join(destination,'.source-snapshot.tar');
     writeFileSync(archivePath,archive);
     try {execFileSync('tar',['-xf',archivePath,'-C',destination]);}

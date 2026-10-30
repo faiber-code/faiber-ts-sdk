@@ -9,15 +9,15 @@
     }
   },
   "package_source_sha256": {
-    "packages/reservation/src/contracts.types.ts": "41f1edcc67636f7c7ff4f8542e54fd1dbe06c1c6e8bc92a3d6ef2b88b14fdc5e",
-    "packages/reservation/src/index.ts": "a02910e05621ad4733376e609f8fba0e0d3b4162a26d2a50a2dd4ded6496b7b2",
-    "packages/reservation/src/operations.ts": "d7687f8d3fbf7e0199681d0ab863d5a1a164ae01c8c1dc74221b4744d607d3bf",
-    "packages/reservation/src/operations.types.ts": "5f34f2b6fc2b948728697caded2d51401a50cf3119448deb13fa39ba930bffc3",
-    "packages/reservation/src/types.ts": "cc62ec3c494ae40e6e0d24ecf69d261ac84c37ba8b048c45512e5faa6e205a43"
+    "packages/reservation/src/contracts.types.ts": "bbdcb3287355c3e6b5501ea68ed72c3f98ff58280d106aab30ad1b4581db03f8",
+    "packages/reservation/src/index.ts": "32cfbf46454c42c33d08f21462ba8eafa6f963db21b2994d2514f37555ea22fd",
+    "packages/reservation/src/operations.ts": "21858bbdfba94f54b27f64d2f466d5cd4ab0c7c08bd3ce6167767dc4813a4449",
+    "packages/reservation/src/operations.types.ts": "e06b7247177fc603e018f775c57a047b9cf1b01164fbf9e25ba368d21c977cf9",
+    "packages/reservation/src/types.ts": "b4ddc0a28e722ad1c82843ffa55809253fdcf7718e8eed22b5ab3664ed791643"
   },
-  "capability_review_sha256": "f7d58de4714cc71716e5d98bebd1664d5e3a405f050d266d386a7b7f0dd45158",
-  "source_pin_file_sha256": "6c64dab6bf1b2958f842dd55df28ef539a91e3b0c3fba2eac6f87c2f228a1b78",
-  "http_contract_file_sha256": "442b0234bd7c45ae1719a14d5bbfe59cabf4e88cd274962a0a7e47fbc64b83d4",
+  "capability_review_sha256": "88dfa849a50c6c25aa8046168cd03f03690fb84375964489a0445c6283622fcd",
+  "source_pin_file_sha256": "340b65b3c42b12d60ca340138ebfa7e04737fe132b65ee9c6023cd59f6387349",
+  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 30,
