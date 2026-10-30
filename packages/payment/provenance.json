@@ -17,7 +17,7 @@
     "packages/payment/src/types.ts": "e58bafd620d9020b407f0aec1ab81654301beff67c17374137b1b17100f04b6a"
   },
   "capability_review_sha256": "288a743188927584318969920dfd686505e14241cffe486fedd9729f70dc945d",
-  "source_pin_file_sha256": "340b65b3c42b12d60ca340138ebfa7e04737fe132b65ee9c6023cd59f6387349",
+  "source_pin_file_sha256": "74aab041a4d43d2d18895989ed79a73e6fd925f1b75d5e5b746ddfdde16f48df",
   "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "source-extracted-http",

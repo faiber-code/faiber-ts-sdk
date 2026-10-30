@@ -18,7 +18,7 @@
     "packages/session/src/types.ts": "c1b360cda4b571aad1d0f72cc8744690ef7c7c8a3724c42881234a85ffb84db8"
   },
   "capability_review_sha256": "06ef821ca281fa871eca2bf60df60b324d5dab43a99482570a06eebe8c914542",
-  "source_pin_file_sha256": "340b65b3c42b12d60ca340138ebfa7e04737fe132b65ee9c6023cd59f6387349",
+  "source_pin_file_sha256": "74aab041a4d43d2d18895989ed79a73e6fd925f1b75d5e5b746ddfdde16f48df",
   "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "source-extracted-http",
