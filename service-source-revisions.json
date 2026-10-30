@@ -1,7 +1,7 @@
 {
   "asset": {
     "directory": "infera-asset",
-    "revision": "391882611ba5eb431fafac7219da6e3c8e7e33c4"
+    "revision": "580e12614b23d05470f27a419a95e770f1cf67ef"
   },
   "chat": {
     "directory": "infera-chat",
@@ -57,7 +57,7 @@
   },
   "social": {
     "directory": "infera-social",
-    "revision": "df162a17c6f7dbcde975f39cc4554fe00d728e9d"
+    "revision": "7bd90b1c5db6858516bfa14bc78cebb5d5233cca"
   },
   "state": {
     "directory": "infera-state",
@@ -65,7 +65,7 @@
   },
   "task": {
     "directory": "infera-task",
-    "revision": "45d5cd73de946443b7a2f13ac297e2b8514288d1"
+    "revision": "b09671f28a56db0519daa6c9f3227ece79ff99e4"
   },
   "version": {
     "directory": "infera_version",

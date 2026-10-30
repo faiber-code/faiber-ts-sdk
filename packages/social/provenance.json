@@ -5,12 +5,12 @@
   "source_revisions": {
     "social": {
       "directory": "infera-social",
-      "revision": "df162a17c6f7dbcde975f39cc4554fe00d728e9d"
+      "revision": "7bd90b1c5db6858516bfa14bc78cebb5d5233cca"
     }
   },
   "package_source_sha256": {
     "packages/social/src/admin.types.ts": "4a30b30ab2aa9fa1796d771a6b99a639b26546def11e74d893fa27c691e146d2",
-    "packages/social/src/campaigns.ts": "8ac483014e339c51ad4d33ed8763358f79b80ea93c4b11ff8580c5aa0c4cda21",
+    "packages/social/src/campaigns.ts": "149daedc98ffe8ff6921b903bb6c09e135adf417e8024421215d7c6022e3d459",
     "packages/social/src/contracts.types.ts": "7ed2cc5d1b4c0402bd11468ae9c163f499a729227fb9fe2d16a7dc1185dc4304",
     "packages/social/src/discovery.types.ts": "960916f94270eb418423d8e4d436317a24319efdb70d64d30195d79bef864634",
     "packages/social/src/index.ts": "9991278e519199e8e87b741dcbc2446d54c18cbb8b051b91be18e7a1777a1c87",
@@ -19,7 +19,7 @@
     "packages/social/src/types.ts": "d1709f3d3aa51089bc280ed73f0214fb94d261cc770e67ab2b6df33dc399c437"
   },
   "capability_review_sha256": "89fc5c8e50d5864f6cd3c5332e46ce89b8fc354778d78a09b394b2147c96cf87",
-  "source_pin_file_sha256": "340b65b3c42b12d60ca340138ebfa7e04737fe132b65ee9c6023cd59f6387349",
+  "source_pin_file_sha256": "74aab041a4d43d2d18895989ed79a73e6fd925f1b75d5e5b746ddfdde16f48df",
   "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "source-extracted-http",

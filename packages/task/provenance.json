@@ -5,11 +5,11 @@
   "source_revisions": {
     "task": {
       "directory": "infera-task",
-      "revision": "45d5cd73de946443b7a2f13ac297e2b8514288d1"
+      "revision": "b09671f28a56db0519daa6c9f3227ece79ff99e4"
     }
   },
   "package_source_sha256": {
-    "packages/task/src/campaigns.ts": "e04f7539f3783a668a51166afdce1d29aa21f375f239a386c61af906b9e16619",
+    "packages/task/src/campaigns.ts": "343e67d92584a046af6feebddaf501d11859517082d5935425e908f608459ba3",
     "packages/task/src/collaboration.ts": "9200ef8dfe6cfd4a62a9cd1f1af9c3aad2abcc1310bbcb3c8ca7dcaba90fcd4f",
     "packages/task/src/feedback.ts": "a3057d6fbc45e5573941b42eb1e20b849ae9c631a2420fdab08093e5c05a4db0",
     "packages/task/src/index.ts": "ece06bdcdb72cd150b80b3a53f5e55bc38574541ffa472f1ddac250c6bd077d5",
@@ -21,7 +21,7 @@
     "packages/task/src/workspace.ts": "292c3b7c00d081809e30a7797fec5b0f09d655d4e549964dd31d664f674d0cd7"
   },
   "capability_review_sha256": "3543c32b6383fc50d8d442954a5420191274e39597eb5c8a0ad76659c7c5dfef",
-  "source_pin_file_sha256": "340b65b3c42b12d60ca340138ebfa7e04737fe132b65ee9c6023cd59f6387349",
+  "source_pin_file_sha256": "74aab041a4d43d2d18895989ed79a73e6fd925f1b75d5e5b746ddfdde16f48df",
   "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "source-extracted-http",

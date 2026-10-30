@@ -5,7 +5,7 @@
   "source_revisions": {
     "asset": {
       "directory": "infera-asset",
-      "revision": "391882611ba5eb431fafac7219da6e3c8e7e33c4"
+      "revision": "580e12614b23d05470f27a419a95e770f1cf67ef"
     }
   },
   "package_source_sha256": {
@@ -18,7 +18,7 @@
     "packages/asset/src/types.ts": "90a430de5470a388757b612f6634e729cccf62edb0b36fedac11aa108dab1cf4"
   },
   "capability_review_sha256": "da618f3bbbba06bb3241f18a849cc2d8055e1a6fd6947524725b9fb19129af0e",
-  "source_pin_file_sha256": "340b65b3c42b12d60ca340138ebfa7e04737fe132b65ee9c6023cd59f6387349",
+  "source_pin_file_sha256": "74aab041a4d43d2d18895989ed79a73e6fd925f1b75d5e5b746ddfdde16f48df",
   "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "source-extracted-http",
