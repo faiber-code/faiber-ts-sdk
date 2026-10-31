@@ -9,7 +9,7 @@
     },
     "chat": {
       "directory": "infera-chat",
-      "revision": "e82d4526b31f8549fe0186979c52d8179b0e4a49"
+      "revision": "7cf5d45451256e62fe0254f933b8aad58800369e"
     },
     "crm": {
       "directory": "infera-crm",
@@ -81,12 +81,12 @@
     }
   },
   "package_source_sha256": {
-    "packages/sdk/src/capabilities.ts": "9c0d7bf879701adfb13c23d3cc861b4dcf35232b4c8a6e987c8db95cce13adcb",
-    "packages/sdk/src/index.ts": "1bdfc0b798a3155ed5969ff7a938af59004bb3ea9d75051a359c6f1d95968161"
+    "packages/sdk/src/capabilities.ts": "58b62638509085fada0275ea9ac8f87cd10ebd1b4e60e802c2d27b8564c8f981",
+    "packages/sdk/src/index.ts": "bebfc882dcbcf4732de1325efe76e4f18a7822fa210f8ad4cef953c1fe683015"
   },
   "capability_review_sha256": null,
-  "source_pin_file_sha256": "2c7d583562161ca30360a425bd83a9b489b6cde56c83b4fd896c324b9c983950",
-  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
+  "source_pin_file_sha256": "f575f49dca3f1648f9155035ee2ae45ca36afc284786ea4fd6c800136cc7c507",
+  "http_contract_file_sha256": "69f253a5bab1da90295eb6f2d9ecd6910830373f3525c0ae8d9636facfc14133",
   "public_contract": {
     "kind": "shared-client-or-facade"
   },

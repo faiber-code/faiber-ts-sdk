@@ -6,10 +6,13 @@ export interface WorkspaceAssistantBindingInput {assistant_id:string;knowledge_s
 export interface WorkspaceDraft {title:string;description:string;checklist:string[];project_id:string;owner_id:string|null;priority:'low'|'medium'|'high';item_type:'task'|'note';due_at:string|null;reminder:ReminderInput|null}
 export interface WorkspaceCitation {title:string;url:string}
 /** Display choices as plain text. Send a selected value as a new user message in the same conversation; never execute it as a command. */
-export interface WorkspaceClarificationOption {label:string;value:string}
+export interface WorkspaceQuestionOption {label:string;value:string}
+export interface WorkspaceClarificationOption extends WorkspaceQuestionOption {}
 /** Optional on compatible servers. At most four questions and eight options per question. */
-export interface WorkspaceClarificationQuestion {id:string;question:string;kind:'choice'|'person'|'time'|'text';options:WorkspaceClarificationOption[]}
-export interface WorkspaceResultBase {schema_version:'1.0.0';text:string;citations:WorkspaceCitation[];knowledge_release_id:string;shared_knowledge_release_id?:string|null;retrieved_at:string}
+export interface WorkspaceQuestion {id:string;question:string;kind:'choice'|'person'|'time'|'text'|'single_select'|'multi_select';options:WorkspaceQuestionOption[]}
+/** Compatibility name; questions may appear on any user-facing result, not just clarifications. */
+export interface WorkspaceClarificationQuestion extends WorkspaceQuestion {}
+export interface WorkspaceResultBase {questions?:WorkspaceQuestion[];schema_version:'1.0.0';text:string;citations:WorkspaceCitation[];knowledge_release_id:string;shared_knowledge_release_id?:string|null;retrieved_at:string}
 export type WorkspaceAssistantResult = WorkspaceResultBase & (
  | {kind:'draft';draft:WorkspaceDraft}
  | {kind:'proposal';proposal:ReviewProposal}

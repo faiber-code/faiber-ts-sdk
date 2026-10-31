@@ -332,10 +332,15 @@ repositories. Do not infer tenant isolation from an SDK type or a catalog result
 
 ## Guided workspace clarification
 
-`WorkspaceResult` may include optional `questions` on its `clarification` branch.
-The exported `WorkspaceClarificationQuestion` and `WorkspaceClarificationOption`
-types describe bounded display questions and `{label, value}` choices. Send a
-selected value as an ordinary AI message in the same conversation; it is not a
-command, member authorization, or mutation approval. Text-only older results remain
-valid. These additive types require the coordinated guided-clarification backend
-change for structured output; they do not imply that it is deployed.
+`WorkspaceAssistantResult` may include optional `questions` on any user-facing
+reply, including normal answers, drafts, proposals and clarifications. The named
+`WorkspaceQuestion` / `WorkspaceQuestionOption` types support `single_select`
+and `multi_select`, with up to four questions and eight options per question.
+The existing clarification type names remain available for compatibility.
+
+Send one chosen value, or all selected values for a multi-select question, as one
+ordinary AI message in the same conversation. Choices are display data, not
+commands, identity grants or mutation approvals. The usual composer can still
+accept a typed reply; voice clients can accept spoken answers. Questions are
+optional and do not imply ambiguity. Backend rollout is required for the model
+to emit these additive hints; text-only older results remain valid.
