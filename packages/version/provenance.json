@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-version",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "source_revisions": {
     "version": {
       "directory": "infera_version",
@@ -9,15 +9,15 @@
     }
   },
   "package_source_sha256": {
-    "packages/version/src/contracts.types.ts": "77d25a480440d7b059847476e16d8fed4174720fb0e9cfd39488ba26b4d080aa",
-    "packages/version/src/index.ts": "69fc7b720c2d8845f7223fe314ad5b64c98ea04547a8839d4fc72804ca1f862e",
-    "packages/version/src/operations.ts": "a4ae52aa17a7eda00fbb30f5c199b5fa1d61045e34879899127baf646f809ec7",
-    "packages/version/src/operations.types.ts": "5062c5ef68f07e466be581fbab34f2a6319a1707867cefe5e5e00e7324e52117",
-    "packages/version/src/types.ts": "d02abcb566e49045e679768c520511d77c1e9405e30a671c0420f5525830fd4b"
+    "packages/version/src/contracts.types.ts": "e7ea5d6422807f8076dfd4b797d17c4cdab4475b5e85cdef36dde1b2496b4cc7",
+    "packages/version/src/index.ts": "60d8443595e3171a333422533e58f792800ef248e2944fadb370b407a5ffe88f",
+    "packages/version/src/operations.ts": "4fb3d846c990e3715a308c9ed7dddc03789d0f724cb5789cff42fecdf0c532cf",
+    "packages/version/src/operations.types.ts": "d431dba38fa4296de1d323b6739065336d2d62728aa32471ba0aaea0b660cf83",
+    "packages/version/src/types.ts": "ce9894b8f8b27e85069b1fcf03ed08353db838eb9fa68b181c7a654d88f9cba4"
   },
-  "capability_review_sha256": "1cf12983e0187a6f1b7561972e78f26d20e825f8d8b2e5e3cfc6d796190f7ec7",
-  "source_pin_file_sha256": "5f98dcc2097189e3b5411af883dab58c9a09ec2479cee6a61e68b20a66896a4b",
-  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
+  "capability_review_sha256": "11b06d6f2aeb50f9f9861e0f4a6fd4bbd1bfa68ac18a9d02d4e57a9204238fad",
+  "source_pin_file_sha256": "2c7d583562161ca30360a425bd83a9b489b6cde56c83b4fd896c324b9c983950",
+  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 7,

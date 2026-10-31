@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-payment",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "source_revisions": {
     "payment": {
       "directory": "infera-payment",
@@ -9,17 +9,17 @@
     }
   },
   "package_source_sha256": {
-    "packages/payment/src/contracts.types.ts": "2aab2e54641c4663f81fc8598c15e240b4420ade21a0bddf51239d3cd0eb21ae",
-    "packages/payment/src/index.ts": "0c3f18856adb5f5442de4f7a218a27907917ad9ffb66711d9c5449cf8b6d8deb",
-    "packages/payment/src/operations.ts": "56fb2e5169c1308b64d849371717cbb4c42573c66bf8ad11331f5a90d4365f1e",
-    "packages/payment/src/operations.types.ts": "48e800cb7d5e5c96a8b400ad1d7ca2582c27c397fb043a8914baf459f3923857",
-    "packages/payment/src/reward-checkout.ts": "880f46aac670a9b5eb2703012e9677427068badf513d2e57f2e2191191e5f9cd",
-    "packages/payment/src/reward-refunds.ts": "976cdd67fdb2b9014192f12904eb72f8c4a6febbd6489ebc0b69ad3536a08493",
-    "packages/payment/src/types.ts": "e58bafd620d9020b407f0aec1ab81654301beff67c17374137b1b17100f04b6a"
+    "packages/payment/src/contracts.types.ts": "795eb1a1a592c669223d3aaec2f663dd82689a590f71cc104b7bcde2099d19eb",
+    "packages/payment/src/index.ts": "52e3b0505216385c6f712076adfa9e1ae3998848568cb57b5fc97bb8c93fb265",
+    "packages/payment/src/operations.ts": "1ce86476d0fb15e2257618ef9b162dd0a14371895a469f998e9e93b07aa9f43d",
+    "packages/payment/src/operations.types.ts": "15db1318ff221a0af6bbcc4232a48299836b67492e46095ca1a509ca0ae6079c",
+    "packages/payment/src/reward-checkout.ts": "3d50a58ae8669775b1570ed6b50fb7a3c3bf5e2d7abcfff6d5f447b3eda002b4",
+    "packages/payment/src/reward-refunds.ts": "0076b7056d317233b89fa87d74fc68546d095be3173eb97c674aec8ef8454fd3",
+    "packages/payment/src/types.ts": "cd9a57df50bf2e8ea26cc10fdda63908f97a66c64492710c552951483812f2ee"
   },
-  "capability_review_sha256": "288a743188927584318969920dfd686505e14241cffe486fedd9729f70dc945d",
-  "source_pin_file_sha256": "5f98dcc2097189e3b5411af883dab58c9a09ec2479cee6a61e68b20a66896a4b",
-  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
+  "capability_review_sha256": "2e335010c118007dd92a4c2145fa96cde9025b1b43f8d8e43a9f26f9633fdce6",
+  "source_pin_file_sha256": "2c7d583562161ca30360a425bd83a9b489b6cde56c83b4fd896c324b9c983950",
+  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 36,

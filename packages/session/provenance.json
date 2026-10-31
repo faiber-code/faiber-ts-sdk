@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-session",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "source_revisions": {
     "session": {
       "directory": "infera-session",
@@ -9,17 +9,17 @@
     }
   },
   "package_source_sha256": {
-    "packages/session/src/branding.types.ts": "3985d0608d37f26fefb980b5e4a39815b167960515befeaa3b8a33b181e7ff09",
-    "packages/session/src/contracts.types.ts": "eaf1f062bbde0e4209b4d46a71225b43fda058b9b10a37a369072aeb18c7c637",
-    "packages/session/src/index.ts": "9191800892741831dad960ac7405399ec213aa8da49b999c114eb0c8d6b954b5",
-    "packages/session/src/operations.ts": "b0a88fa59c131a6803a58721701aabd21affd45fa3034154b99db83dddc47fdc",
-    "packages/session/src/operations.types.ts": "945593bea0b4675fbd46e8d7b80d183bfe98b1976dc07c857b5cb99ec079a2ff",
-    "packages/session/src/reviewed-wire.ts": "5c596a00425151d07347ce82390d0b3050a50bab5296425b87993f3a6354bd3b",
-    "packages/session/src/types.ts": "c1b360cda4b571aad1d0f72cc8744690ef7c7c8a3724c42881234a85ffb84db8"
+    "packages/session/src/branding.types.ts": "f9e5a893519e0536415eb7eb6c9f81d7f85676d7ce6bd4f8fd92e744e4cf25eb",
+    "packages/session/src/contracts.types.ts": "74f6581755fbb1b3c81ed3fc3fed46c17092931db8629bc044c0dc822c867fb9",
+    "packages/session/src/index.ts": "3e22e15b293c012873a755eaeb7de2e4ab3a2bfc88b81f4bbd4dd6c8cd22dd8b",
+    "packages/session/src/operations.ts": "ae31fa6889f5f44214d56545eee1f1e46d4ae1ad8b18f1d8284df3c55ac4860f",
+    "packages/session/src/operations.types.ts": "ed1d4d51d3ce8b05dc1249333fa5bb51759f3d74eeaa00cebb2f4fac9e666e00",
+    "packages/session/src/reviewed-wire.ts": "5585a15b340d6667b5b5b2f1733e0e41545d483587d6dbaa9c09de931a25f533",
+    "packages/session/src/types.ts": "1d66388c362deba53bab68d12cb33f7d107e5612aed63766da7e14fee80f0f94"
   },
-  "capability_review_sha256": "06ef821ca281fa871eca2bf60df60b324d5dab43a99482570a06eebe8c914542",
-  "source_pin_file_sha256": "5f98dcc2097189e3b5411af883dab58c9a09ec2479cee6a61e68b20a66896a4b",
-  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
+  "capability_review_sha256": "6d51b56107772902bf71e179352ba32a4b4fd29ced4ffc2b87ef83d94b5566d5",
+  "source_pin_file_sha256": "2c7d583562161ca30360a425bd83a9b489b6cde56c83b4fd896c324b9c983950",
+  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 45,

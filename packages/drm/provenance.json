@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-drm",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "source_revisions": {
     "drm": {
       "directory": "infera-drm",
@@ -9,15 +9,15 @@
     }
   },
   "package_source_sha256": {
-    "packages/drm/src/index.ts": "54af43a6719af6bbfe14c1e3c13ae22ea5df58cc1940cf9c3fa2770fa50373fd",
-    "packages/drm/src/operations.ts": "31f38e5594053575b0079e78531640a53901292bbcb2b8fa01a4fff38b0d1e7b",
-    "packages/drm/src/operations.types.ts": "e965fb53ae0d73eb5477d59edf620c8bb4ac397d2a1704ec0ba528fa45e04bcc",
-    "packages/drm/src/types.ts": "8143dd1cd2c95a6ec4aacdabbe609666c4fe9c6dfb404c69f17adac2857fdac0",
-    "packages/drm/src/wire.types.ts": "97c92af300470946ac53a0882c09b55a7aa1eee94eb05610cc548875aba2ef0c"
+    "packages/drm/src/index.ts": "3ecf750f5b191e635a3f310ae90c8b63058337a7c05856d66ba1c31bf942841f",
+    "packages/drm/src/operations.ts": "5ffb79aadebf85042bb5679a4d294013d0d4cc3f74c4982883c4ad12ba933eeb",
+    "packages/drm/src/operations.types.ts": "eee8afbc852d3b43cc4500af8aad3a22b52be90469a3572d364cd13793d58a92",
+    "packages/drm/src/types.ts": "34536fb8a397e9f1cdc6ad2eeb5e39a6e9f0d66b1470fb62b4d57c918d498b3a",
+    "packages/drm/src/wire.types.ts": "9c3984b2896d52fce3d21d77343fef1d5e86304b3758ea18bc0342f6dfcc739c"
   },
-  "capability_review_sha256": "e58afb1f53b6ad8b6b4847de617801ec7e95034fad0311bfe0a413c72ae2370a",
-  "source_pin_file_sha256": "5f98dcc2097189e3b5411af883dab58c9a09ec2479cee6a61e68b20a66896a4b",
-  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
+  "capability_review_sha256": "e2e8fcfe2ddb596976f05d8e43e40f233909001db12147074df69575aa5bc4c9",
+  "source_pin_file_sha256": "2c7d583562161ca30360a425bd83a9b489b6cde56c83b4fd896c324b9c983950",
+  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 96,

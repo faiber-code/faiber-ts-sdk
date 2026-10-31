@@ -1,5 +1,21 @@
 // Source-reviewed LMS corrections at 1a557957; no native execution is certified here.
 export const lmsReviewedOperationContracts = {
+  "lms:DELETE /api/v1/certificates/{id}": {
+    response: 'import("./wire.types.js").LmsEmptyMutationResponse',
+    auth: "lms:certificate:delete",
+    purpose: "Delete an authorized certificate. Returns a success envelope with an empty data object; errors preserve the server response and no deletion is inferred on failure.",
+  },
+  "lms:DELETE /api/v1/certificates/templates/{id}": {
+    response: 'import("./wire.types.js").LmsEmptyMutationResponse',
+    auth: "lms:certificate:template:delete",
+    purpose: "Delete an authorized certificate template. Returns a success envelope with an empty data object; errors preserve the server response and no deletion is inferred on failure.",
+  },
+  "lms:DELETE /api/v1/classrooms/sessions/{id}": {
+    response: 'import("./wire.types.js").LmsEmptyMutationResponse',
+    auth: "lms:classroom:session:delete",
+    purpose: "Delete an authorized classroom session. Returns a success envelope with an empty data object; errors preserve the server response and no deletion is inferred on failure.",
+  },
+
   "lms:GET /api/v1/classrooms/sessions/calendar": {
     methodName: "classroomCalendarGet",
     typeBase: "ClassroomCalendarGet",
@@ -376,7 +392,7 @@ export const lmsReviewedOperationContracts = {
     "auth": "IDP route metadata: lms:classroom:read; trusted gateway identity plus any handler-local checks apply"
   },
   "lms:PATCH /api/v1/classrooms/{id}": {
-    "purpose": "Patch classroom records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.",
+    "purpose": "Update a classroom with lms:classroom:update. Course replacement with linked sessions or rescheduling started sessions returns 409 classroom_session_changes_confirmation_required until confirm_session_changes is explicitly true. Retiring rooms separately requires confirm_recording_reset or returns 409 recording_reset_confirmation_required. Show the consequences before retrying: templates are remapped in order, surplus sessions are archived, new destination sessions are created, and affected recordings/automatic attendance are reset. Standalone sessions and manual attendance are retained. Errors roll back all changes; flags default to false. Missing classrooms return 404; null starts_at is invalid.",
     "auth": "IDP route metadata: lms:classroom:update; trusted gateway identity plus any handler-local checks apply"
   },
   "lms:GET /api/v1/exams": {

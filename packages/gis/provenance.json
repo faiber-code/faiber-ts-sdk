@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-gis",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "source_revisions": {
     "gis": {
       "directory": "infera-gis",
@@ -9,14 +9,14 @@
     }
   },
   "package_source_sha256": {
-    "packages/gis/src/index.ts": "85d2013c8e70993059c52349b766f0559631b543809ffcd37e326d7d2b2251e5",
-    "packages/gis/src/operations.ts": "b15b289ca3ce45345fd48dec8017bf4310162bbcb2bbb7c64db69577b09239a0",
-    "packages/gis/src/operations.types.ts": "16d02c81e9abb4cb848cad00dca4cf1d20f2e110d1a8bc31e3ec52657853e78d",
-    "packages/gis/src/types.ts": "cccb5c0473f471381468a31170f461108d9d2cfeaa9311cee9916e1b48a31cd2"
+    "packages/gis/src/index.ts": "665fbe37b33d5380cfa48de0dc4fb071e96ef8a367b0e18f87f2e2abf6284030",
+    "packages/gis/src/operations.ts": "24d8475e6bc8f77b71c9ba84ab1baf36077716e60f64882fcfe52804d33b6215",
+    "packages/gis/src/operations.types.ts": "d81a044d01da2eb96851240e5641deed7c824ce5e903448631162c4f73b74f3b",
+    "packages/gis/src/types.ts": "a54f4909ced50333c2af1709384f7bb594842c154a48c3e09585ff616407d117"
   },
-  "capability_review_sha256": "d4e59e24118dfa22b1be09d750b50123d05538a3c1d54d822a3be93a5707cee7",
-  "source_pin_file_sha256": "5f98dcc2097189e3b5411af883dab58c9a09ec2479cee6a61e68b20a66896a4b",
-  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
+  "capability_review_sha256": "c135fd48dd61199d6524cdb887619aa0b210283162b560d806cd52ce0d209044",
+  "source_pin_file_sha256": "2c7d583562161ca30360a425bd83a9b489b6cde56c83b4fd896c324b9c983950",
+  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 48,

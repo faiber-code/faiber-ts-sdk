@@ -126,3 +126,19 @@ test('database variant routers retain every branch and cannot hide an unresolved
  const unknown=mountedRouterOperations([sourceIndex('pub fn routes()->Router{match state.db { A=>known(),B=>unreviewed() }} fn known()->Router{Router::new().route("/ok",get(check))} async fn check(){}','example/src/router.rs')],{path:'src/router.rs',function:'routes'});
  assert.ok(unknown.unresolved.some(x=>x.call==='unreviewed'));
 });
+
+
+test('router helpers preserve parent/self calls and forwarded native/delegated router arguments', () => {
+  const files = [
+    sourceIndex('pub fn routes() -> Router { crate::records::routes::router() }', 'example/src/router.rs'),
+    sourceIndex(`pub fn router() -> Router { boundary(Router::new().route("/native", get(read)), super::extra_routes()) }
+      fn boundary<S>(native: Router<S>, delegated: Router<S>) -> Router<S> { native.route_layer(middleware()).merge(delegated) }
+      async fn read() {}`, 'example/src/records/routes.rs'),
+    sourceIndex(`pub fn extra_routes() -> Router { self::delegated() }
+      fn delegated() -> Router { Router::new().route("/delegated", get(read)) }
+      async fn read() {}`, 'example/src/records/mod.rs'),
+  ];
+  const graph = mountedRouterOperations(files, { path: 'src/router.rs', function: 'routes' });
+  assert.deepEqual(graph.unresolved, []);
+  assert.deepEqual(graph.operations.map(op => op.path).sort(), ['/delegated', '/native']);
+});

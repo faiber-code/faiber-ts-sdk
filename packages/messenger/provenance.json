@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-messenger",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "source_revisions": {
     "messenger": {
       "directory": "infera-messenger",
@@ -9,16 +9,16 @@
     }
   },
   "package_source_sha256": {
-    "packages/messenger/src/contracts.types.ts": "fa6aa4b3c8f04e674c65ce577dc814835d1a2adad926b5b46471977e2c0cc46f",
-    "packages/messenger/src/delivery.ts": "0a47905b80e38a3725048899f47e2d4b14a7249464bdb947ecc1416c12400d3c",
-    "packages/messenger/src/index.ts": "c71e9f7a224adb6aa15f70273032271ca8303e14d14ab3b8955572342bbc6c1a",
-    "packages/messenger/src/operations.ts": "48f76fa758b071fa9fd0145a75a496ad39242a9b7b8bd2f949aabe97744733ce",
-    "packages/messenger/src/operations.types.ts": "a34c2b6127b1aab3ec2e675ca0e189ac344b19b658a56b46943b261394cea4bf",
-    "packages/messenger/src/types.ts": "eda39511ad69284b622f811e11f7186ac5592974ef69c296a61175777707c3e4"
+    "packages/messenger/src/contracts.types.ts": "f1a99249d3a851ec18bb87529daadb86cf47b6652ef4aac05aa820e1c36dfe3f",
+    "packages/messenger/src/delivery.ts": "edbbd00156ff7e585bd8719f72b833171956aa4ae07b12d7fcb95884fa936345",
+    "packages/messenger/src/index.ts": "b84161cf9b388f5759dea83c552cceadccb144859231dead72beacb92619cc69",
+    "packages/messenger/src/operations.ts": "bbcdb45d8dab781d04b61a716d4e28777403e9d1438fcc55da1b4a469cc0c99f",
+    "packages/messenger/src/operations.types.ts": "3aba5493dfb066d628d51b499713c95b6d6e2ce9b15eb98926b3380ffd35ef84",
+    "packages/messenger/src/types.ts": "eba79eb275b74bfa040330a66fa45aa36c13751918c9d6221e53d8966bf05f18"
   },
-  "capability_review_sha256": "be8c183ed2f336f48093f503ab76018e151f32c11c3c0c3becec95f611635c4e",
-  "source_pin_file_sha256": "5f98dcc2097189e3b5411af883dab58c9a09ec2479cee6a61e68b20a66896a4b",
-  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
+  "capability_review_sha256": "f67864c287fbd792023c1b8afcbccb6892e87646f18558e63fac46b0256c059e",
+  "source_pin_file_sha256": "2c7d583562161ca30360a425bd83a9b489b6cde56c83b4fd896c324b9c983950",
+  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 47,

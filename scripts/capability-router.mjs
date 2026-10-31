@@ -46,9 +46,11 @@ function functionFor(files, current, call, resolving=new Set()) {
   const ownCrate=crateRoot.split('/').at(-1).replaceAll('-','_');
   if(qualifier===ownCrate)qualifier='crate';
   else if(qualifier.startsWith(`${ownCrate}::`))qualifier=`crate::${qualifier.slice(ownCrate.length+2)}`;
-  const absolute=qualifier==='crate'||qualifier.startsWith('crate::')||qualifier.startsWith('super::')||qualifier.startsWith('self::');
+  const absolute=qualifier==='crate'||qualifier==='super'||qualifier==='self'||qualifier.startsWith('crate::')||qualifier.startsWith('super::')||qualifier.startsWith('self::');
   if (qualifier.startsWith('crate::')) qualifier = qualifier.slice(7);
   else if (qualifier === 'crate') qualifier = '';
+  else if (qualifier === 'super') qualifier = moduleOf(current.path).split('::').slice(0,-1).join('::');
+  else if (qualifier === 'self') qualifier = moduleOf(current.path);
   else if (qualifier.startsWith('super::')) qualifier = `${moduleOf(current.path).split('::').slice(0,-1).join('::')}::${qualifier.slice(7)}`;
   else if (qualifier.startsWith('self::')) qualifier = `${moduleOf(current.path)}::${qualifier.slice(6)}`;
   // A qualified sibling imported by `use super::*` belongs to the parent
@@ -132,8 +134,8 @@ export function mountedRouterOperations(files, entry) {
   // Match Axum's path_for_nested_route: nesting a root route under /items
   // produces /items, while an explicitly slash-terminated prefix stays so.
   const joinPath = (prefix,path) => !prefix?path:prefix.endsWith('/')?`${prefix}${path.replace(/^\//,'')}`:path==='/'?prefix:`${prefix}${path}`;
-  function visit(file, fn, prefix, trail, selectedVariable) {
-    const key = `${file.path}:${fn.name}:${prefix}:${selectedVariable??''}:${JSON.stringify(conditions)}`;
+  function visit(file, fn, prefix, trail, selectedVariable, routerArguments = new Map(), argumentKey = "") {
+    const key = `${file.path}:${fn.name}:${prefix}:${selectedVariable??''}:${JSON.stringify(conditions)}:${argumentKey}`;
     if (visited.has(key)) return;
     if (trail.length > 30) { unresolved.push({kind:'router_depth',path:file.path,function:fn.name}); return; }
     visited.add(key);
@@ -157,12 +159,26 @@ export function mountedRouterOperations(files, entry) {
         return;
       }
       const base = text.match(/^((?:\w+::)*\w+)\s*(\(|\.|$)/);
-      if (base && variables.has(base[1])) {
+      if (base && routerArguments.has(base[1])) {
+        routerArguments.get(base[1])(atPrefix);
+      } else if (base && variables.has(base[1])) {
         if (expanding.has(base[1])) { unresolved.push({kind:'variable_cycle',name:base[1],path:file.path}); return; }
         expanding.add(base[1]); expression(variables.get(base[1]),atPrefix); expanding.delete(base[1]);
       } else if (base && base[2] === '(' && !['Router::new','axum::Router::new'].includes(base[1])) {
         const resolved=functionFor(files,file,base[1]);
-        if (resolved && /\bRouter\b/.test(resolved.fn.signature)) visit(resolved.file,resolved.fn,atPrefix,[...trail,{path:file.path,line:fn.line,function:fn.name}]);
+        if (resolved && /\bRouter\b/.test(resolved.fn.signature)) {
+          const open = text.indexOf('('), close = balancedEnd(maskRust(text), open);
+          const args = splitRust(text.slice(open + 1, close));
+          const signature = resolved.fn.signature;
+          const paramsOpen = signature.indexOf('('), paramsClose = balancedEnd(maskRust(signature), paramsOpen);
+          const params = splitRust(signature.slice(paramsOpen + 1, paramsClose));
+          const bindings = new Map();
+          params.forEach((param, index) => {
+            const router = param.trim().match(/^(\w+)\s*:\s*(?:axum::)?Router\b/);
+            if (router && args[index]) bindings.set(router[1], prefix => expression(args[index], prefix));
+          });
+          visit(resolved.file,resolved.fn,atPrefix,[...trail,{path:file.path,line:fn.line,function:fn.name}],undefined,bindings,text);
+        }
         else unresolved.push({kind:'router_call',call:base[1],path:file.path,line:fn.line});
       } else if (!base || (base[2] !== '(' && !variables.has(base[1]))) {
         unresolved.push({kind:'router_expression',expression:text.slice(0,180),path:file.path,line:fn.line});

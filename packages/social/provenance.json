@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-social",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "source_revisions": {
     "social": {
       "directory": "infera-social",
@@ -9,18 +9,18 @@
     }
   },
   "package_source_sha256": {
-    "packages/social/src/admin.types.ts": "4a30b30ab2aa9fa1796d771a6b99a639b26546def11e74d893fa27c691e146d2",
-    "packages/social/src/campaigns.ts": "149daedc98ffe8ff6921b903bb6c09e135adf417e8024421215d7c6022e3d459",
-    "packages/social/src/contracts.types.ts": "7ed2cc5d1b4c0402bd11468ae9c163f499a729227fb9fe2d16a7dc1185dc4304",
-    "packages/social/src/discovery.types.ts": "960916f94270eb418423d8e4d436317a24319efdb70d64d30195d79bef864634",
-    "packages/social/src/index.ts": "9991278e519199e8e87b741dcbc2446d54c18cbb8b051b91be18e7a1777a1c87",
-    "packages/social/src/operations.ts": "59fca5f90232819658954a732f0d242ebd53252530481f8a6821dc9f67936035",
-    "packages/social/src/operations.types.ts": "b1b0aaeff7f25a2128aa8f7744a4d9540c7ff7b1a4f672f76448a5d46fbfcd7c",
-    "packages/social/src/types.ts": "d1709f3d3aa51089bc280ed73f0214fb94d261cc770e67ab2b6df33dc399c437"
+    "packages/social/src/admin.types.ts": "f7759044ddf7d708ac9826d01dd508f249b5598256b896bc3ce47f80555d7c46",
+    "packages/social/src/campaigns.ts": "155c8da9693fa39c5a988be5335a4b385a0c40d5d961e54753c6a70b7984c8d8",
+    "packages/social/src/contracts.types.ts": "2ca85b932c7202502b4e50939f8421d4d5501e2f9e352dfcace80541e51ee4b3",
+    "packages/social/src/discovery.types.ts": "aa4fe6cad0618957a196cdba17a6ee7abdbbca26146803661af27c4d6c690cfd",
+    "packages/social/src/index.ts": "489e28969b33ecf50f70fed218c1827bbf96436a5bbc90767241a01416638579",
+    "packages/social/src/operations.ts": "1fbad0ec14daec823ddf6d1f3b9d0eb750c8ac80e920c227dddec1834487f93f",
+    "packages/social/src/operations.types.ts": "62bdd141c13e39b048dab35d788a7f14df8fb26755a43937819aee5a9be04a1e",
+    "packages/social/src/types.ts": "51cdc3cd25ded88f5e064fbf2dbd4a7a7a2339865a873cb84b10492e0cb837b0"
   },
-  "capability_review_sha256": "89fc5c8e50d5864f6cd3c5332e46ce89b8fc354778d78a09b394b2147c96cf87",
-  "source_pin_file_sha256": "5f98dcc2097189e3b5411af883dab58c9a09ec2479cee6a61e68b20a66896a4b",
-  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
+  "capability_review_sha256": "49c52ee46b6d613494636eecd4740674ca23080a166882c40523fb2d08bd2d13",
+  "source_pin_file_sha256": "2c7d583562161ca30360a425bd83a9b489b6cde56c83b4fd896c324b9c983950",
+  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 112,

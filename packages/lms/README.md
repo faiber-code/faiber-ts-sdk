@@ -442,3 +442,47 @@ Public types include `ClassroomCalendarRequest`, `ClassroomCalendarQuery`,
 `CalendarSessionCategory`, and explicit range/filter/count types. Package release
 and compatible backend deployment are both required before enabling this method
 in a production client.
+
+
+### Confirm classroom course or schedule changes
+
+`lms.operations.classroomUpdateClassroomPatch(id, input, options)` and
+`lms.classrooms.update(id, input, options)` accept the same typed confirmation flags.
+The caller needs `lms:classroom:update`. Omit both flags on the initial request.
+HTTP 409 with `response.data.error` equal to
+`classroom_session_changes_confirmation_required` means that replacing the course
+or rescheduling started sessions needs consent. A separate
+`recording_reset_confirmation_required` conflict protects existing room recordings.
+The SDK preserves the Axios error and does **not** retry or confirm automatically.
+
+Before asking for confirmation, explain that course-linked sessions are mapped to
+the destination course in order. A shorter destination archives surplus sessions;
+a longer destination creates additional sessions. Standalone meetings are retained.
+Affected room recordings are deleted and measured online attendance is reset;
+manual attendance and archived session history are retained. Schedule changes can
+affect sessions that have already started. On cancel, send no further request.
+
+```ts
+import type { LmsService } from '@faiber/faiber-ts-sdk';
+
+const proposed: LmsService.ClassroomUpdateClassroomPatchInput = {
+  course_id: destinationCourseId,
+  starts_at: '2026-11-07T13:00:00Z',
+};
+// Initial save; handle HTTP 409 in your application's confirmation UI.
+await sdk.lms.operations.classroomUpdateClassroomPatch(classroomId, proposed);
+
+// Run this separately, only after the user accepts all consequences above.
+const confirmed: LmsService.UpdateClassroomInput = {
+  ...proposed,
+  confirm_session_changes: true,
+  confirm_recording_reset: true,
+};
+await sdk.lms.classrooms.update(classroomId, confirmed, { signal: controller.signal });
+```
+
+Keep the pending payload immutable while confirmation is open. If the user edits
+it, discard consent and submit a new unconfirmed request. The server applies the
+change transactionally and rejects invalid course/session links without partial
+updates. These flags require the LMS service revision supporting classroom course
+replacement; publishing or upgrading the SDK alone does not deploy that service.

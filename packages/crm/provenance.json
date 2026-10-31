@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-crm",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "source_revisions": {
     "crm": {
       "directory": "infera-crm",
@@ -9,15 +9,15 @@
     }
   },
   "package_source_sha256": {
-    "packages/crm/src/contracts.types.ts": "37a36a1214fa18012431e22d81cb2bdfd12662a323276bd700d8afd14d696822",
-    "packages/crm/src/index.ts": "dbe877fe781dd3bc124e6fd2b56e80e2be8ff259926380cc8106e591b9864496",
-    "packages/crm/src/operations.ts": "86cb25fc784698bba92d4602c63e442ad9a87f26bc724cf530e730898eb1141d",
-    "packages/crm/src/operations.types.ts": "cbf18ed5a46751199bdfd3fbdfae3e4fc7a017f84bfa18aa83f64de6bf8c2f19",
-    "packages/crm/src/types.ts": "19ae22a0bbc413f9b7e537645a86a4d57f1634a6eee12dc931cb8f56ee401087"
+    "packages/crm/src/contracts.types.ts": "a258fa87a503da5572b1078e544424d7b9aca6c773b25d771af0930a379be048",
+    "packages/crm/src/index.ts": "9954b6e10e3ffc8f4ac9db43cbc981590fcdf2e6100aeebd9c102d376e455562",
+    "packages/crm/src/operations.ts": "349903cc503064725a2be2a95201067e3830de1d9dacf7c319e377eb2bc82462",
+    "packages/crm/src/operations.types.ts": "7c0d659a28215f2fabdae45bc2cbaeca5dd3537ba37597f1ab3d0657d07f041c",
+    "packages/crm/src/types.ts": "0aa837b22f7711b0947beb9143fec81cb1ae74fe9f7445c5694c1accf9a35607"
   },
-  "capability_review_sha256": "fef7e2d969077cb22d9c46eb93011afa2726178fcdc54f30d646e9e75c037eee",
-  "source_pin_file_sha256": "5f98dcc2097189e3b5411af883dab58c9a09ec2479cee6a61e68b20a66896a4b",
-  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
+  "capability_review_sha256": "960e955229cfc2979d5035b9b7ff6fd25dfcec40e47ba6fe3a1157fa9583bc08",
+  "source_pin_file_sha256": "2c7d583562161ca30360a425bd83a9b489b6cde56c83b4fd896c324b9c983950",
+  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 92,

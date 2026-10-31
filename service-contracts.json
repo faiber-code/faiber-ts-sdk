@@ -8754,6 +8754,21 @@
       "formUrlEncoded": false
     },
     {
+      "method": "DELETE",
+      "path": "/api/v1/certificates/{id}",
+      "module": "certificate",
+      "handler": "destroy_certificate",
+      "permissions": [
+        "lms:certificate:delete"
+      ],
+      "source": "infera-lms/src/certificate/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/certificates/{id}",
       "module": "certificate",
@@ -8815,6 +8830,21 @@
       "formUrlEncoded": false
     },
     {
+      "method": "DELETE",
+      "path": "/api/v1/certificates/templates/{id}",
+      "module": "certificate",
+      "handler": "destroy_template",
+      "permissions": [
+        "lms:certificate:template:delete"
+      ],
+      "source": "infera-lms/src/certificate/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/certificates/templates/{id}",
       "module": "certificate",
@@ -8866,7 +8896,9 @@
       "module": "classroom",
       "handler": "index_classroom",
       "permissions": [
-        "lms:classroom:read"
+        "lms:classroom:read",
+        "lms:classroom:read_own",
+        "lms:classroom:list_all"
       ],
       "source": "infera-lms/src/classroom/routes.rs",
       "query": "models::ClassroomListQuery",
@@ -9005,7 +9037,7 @@
       "module": "classroom",
       "handler": "remove_classroom_user",
       "permissions": [
-        "lms:classroom:update"
+        "lms:classroom:user:delete"
       ],
       "source": "infera-lms/src/classroom/routes.rs",
       "pathParam": "(Uuid, Uuid)",
@@ -9051,7 +9083,9 @@
       "module": "classroom",
       "handler": "index_session_types",
       "permissions": [
-        "lms:classroom:read"
+        "lms:classroom:read",
+        "lms:classroom:read_own",
+        "lms:classroom:list_all"
       ],
       "source": "infera-lms/src/classroom/routes.rs",
       "response": "Vec<models::ClassroomSessionTypeResponse>",
@@ -9085,6 +9119,21 @@
       "source": "infera-lms/src/classroom/routes.rs",
       "body": "models::CreateSessionRequest",
       "response": "models::SessionResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/classrooms/sessions/{id}",
+      "module": "classroom",
+      "handler": "destroy_session",
+      "permissions": [
+        "lms:classroom:session:delete"
+      ],
+      "source": "infera-lms/src/classroom/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -9640,7 +9689,7 @@
       "module": "course",
       "handler": "destroy_session",
       "permissions": [
-        "lms:course:delete"
+        "lms:course:session:delete"
       ],
       "source": "infera-lms/src/course/routes.rs",
       "pathParam": "(Uuid, Uuid)",
@@ -9776,7 +9825,7 @@
       "module": "course",
       "handler": "destroy_category",
       "permissions": [
-        "lms:course:delete"
+        "lms:course:category:delete"
       ],
       "source": "infera-lms/src/course/routes.rs",
       "pathParam": "Uuid",
@@ -10180,7 +10229,7 @@
       "module": "exam",
       "handler": "destroy_question",
       "permissions": [
-        "lms:exam:delete"
+        "lms:exam:question:delete"
       ],
       "source": "infera-lms/src/exam/routes.rs",
       "pathParam": "Uuid",
@@ -10256,7 +10305,7 @@
       "module": "exam",
       "handler": "destroy_session",
       "permissions": [
-        "lms:exam:delete"
+        "lms:exam:session:delete"
       ],
       "source": "infera-lms/src/exam/routes.rs",
       "pathParam": "Uuid",
@@ -10486,7 +10535,7 @@
       "module": "homework",
       "handler": "destroy_homework",
       "permissions": [
-        "lms:homework:delete"
+        "lms:homework_bank:delete"
       ],
       "source": "infera-lms/src/homework/routes.rs",
       "pathParam": "Uuid",
@@ -10562,7 +10611,7 @@
       "module": "homework",
       "handler": "destroy_assignment",
       "permissions": [
-        "lms:homework:delete"
+        "lms:homework:assignment:delete"
       ],
       "source": "infera-lms/src/homework/routes.rs",
       "pathParam": "Uuid",
@@ -10592,7 +10641,9 @@
       "module": "homework",
       "handler": "update_assignment",
       "permissions": [
-        "lms:homework:update"
+        "lms:homework:update",
+        "lms:homework:review_own",
+        "lms:homework:submit_own"
       ],
       "source": "infera-lms/src/homework/routes.rs",
       "body": "models::UpdateAssignmentRequest",

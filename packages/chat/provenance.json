@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-chat",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "source_revisions": {
     "chat": {
       "directory": "infera-chat",
@@ -9,22 +9,22 @@
     }
   },
   "package_source_sha256": {
-    "packages/chat/src/assistant-voice.ts": "5ee422a26d529e3545e335c5084193d24693332fb3c0db6c1831f7dbbdc987d9",
-    "packages/chat/src/index.ts": "cb7dfdd8d97dc94f9bca48d620562e04244a6b4ad347e01847bbd16a75101db5",
-    "packages/chat/src/learning.ts": "cad58f1a281deade7da5d51aae665ec7b07af9614ef0f368cb9b708afa1fa409",
-    "packages/chat/src/operations.ts": "89d254762a24d9f18f2107bec75abefc197b132fc68bbae922029f440340d19f",
-    "packages/chat/src/operations.types.ts": "68832850143e08fa56075fd836eafb7834edc527d6a8108953f0fea3c28fcf7c",
-    "packages/chat/src/personal.ts": "51234c08c55a970e5b786577087353360738a823a099bfa6cfaf0da5260a58fb",
-    "packages/chat/src/reviewed-wire.ts": "d39363b4fbbd0322b3b512ffa22bf07e2052fffddd9320d5063d832f36047313",
-    "packages/chat/src/speech-live.ts": "c4b30cb9529ae6019ee1ecc34e00f42ac25f0023f1f81a7221707f01cfe91610",
-    "packages/chat/src/speech-playback.ts": "21729f54efad7db00d2b3788ee56d99b03e8d739bc057b903222b45469cf7909",
-    "packages/chat/src/speech-recorder.ts": "a77979b6e64cd45ca9aab42978ecbbce4b6326ab6a60398fbed3e6d650e02e2f",
-    "packages/chat/src/types.ts": "11b108550b6437ebe2c1bdf6b286b9a775e88f0dd0397c5a8826fdd46a57ac38",
-    "packages/chat/src/workspace.ts": "5be8a0bb7e78d3c97b3deabdc9664a32d8cdf16f0a257e4b3f4d426e74d27986"
+    "packages/chat/src/assistant-voice.ts": "2646fbad3ad189bfad58dc1d2c3713cdf4169b78cea3f9f0a89396c976b2083b",
+    "packages/chat/src/index.ts": "c8db545e2673b6f2f7b610f31e8f2796afe4f46e6460b55b495a9922cfcf1a39",
+    "packages/chat/src/learning.ts": "362ca67a1e763cfb8c8e2d9105330b1f61622f4e916d1b77b5257387fa54691f",
+    "packages/chat/src/operations.ts": "7c9a4937447d06594da9c16a2e294ca2cbdd251188c8c96e00cc946ab1bcbcea",
+    "packages/chat/src/operations.types.ts": "bc7b9cf0863a130463eb1e5f3385cbb09cc0b09035fa3c83a5b349d6abbdd106",
+    "packages/chat/src/personal.ts": "802316a11b33a0619a5db6041ffee38a75674374ee1022e0e8a4df3d4f8ad49c",
+    "packages/chat/src/reviewed-wire.ts": "d1ff294d5af41fb768773c4a401d8429df9ea301c3cf2616cce04659c506af3a",
+    "packages/chat/src/speech-live.ts": "30fcab33101d3e3a7e5bd9ee1fb4618f910f81c7af39f4a38b38e5ca59782e5e",
+    "packages/chat/src/speech-playback.ts": "90f32542a3e6cf392782538b66244d87186f023de73092b2b74470c85b92da46",
+    "packages/chat/src/speech-recorder.ts": "695af79a049dc07658aeb7e3001b0c8cc09757232f8f5fdde19cd782a0e1efeb",
+    "packages/chat/src/types.ts": "46f902611d832e9a5dd16779dd53a1408a723d51592b9531fc4e28e24e1c8d96",
+    "packages/chat/src/workspace.ts": "0d6b48a3556a35801008a80836410478cd65a0453ef277a46cf0cb03139506bd"
   },
-  "capability_review_sha256": "77c54e9768803ad9d29a3881a9f57f2704bd080ea3636fedf36b90ae81529a86",
-  "source_pin_file_sha256": "5f98dcc2097189e3b5411af883dab58c9a09ec2479cee6a61e68b20a66896a4b",
-  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
+  "capability_review_sha256": "916e361c42644d64dd39a325685b0b5ca6083d7455396596f6600261896233a7",
+  "source_pin_file_sha256": "2c7d583562161ca30360a425bd83a9b489b6cde56c83b4fd896c324b9c983950",
+  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 69,

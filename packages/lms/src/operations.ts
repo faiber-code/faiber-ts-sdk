@@ -146,6 +146,17 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.CertificateStoreCertificatePostResponse, T.CertificateStoreCertificatePostInput>({ ...options, method: "POST", url: `/api/v1/certificates`, data: data });
   }
   /**
+   * Delete an authorized certificate. Returns a success envelope with an empty data object; errors preserve the server response and no deletion is inferred on failure.
+   * Calls `DELETE /api/v1/certificates/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:delete.
+   */
+  certificateDestroyCertificateDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CertificateDestroyCertificateDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/certificates/${encodeURIComponent(id)}` });
+  }
+  /**
    * Read certificate records through the mounted LMS certificate::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
    * Calls `GET /api/v1/certificates/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -189,6 +200,17 @@ export class LmsOperations extends ServiceApi {
    */
   certificateStoreTemplatePost(data: T.CertificateStoreTemplatePostInput, options?: RequestOptions<T.CertificateStoreTemplatePostInput>) {
     return this.client.request<T.CertificateStoreTemplatePostResponse, T.CertificateStoreTemplatePostInput>({ ...options, method: "POST", url: `/api/v1/certificates/templates`, data: data });
+  }
+  /**
+   * Delete an authorized certificate template. Returns a success envelope with an empty data object; errors preserve the server response and no deletion is inferred on failure.
+   * Calls `DELETE /api/v1/certificates/templates/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:template:delete.
+   */
+  certificateDestroyTemplateDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CertificateDestroyTemplateDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/certificates/templates/${encodeURIComponent(id)}` });
   }
   /**
    * Read certificate template records through the mounted LMS certificate::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
@@ -269,7 +291,7 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.ClassroomShowClassroomGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/${encodeURIComponent(id)}` });
   }
   /**
-   * Patch classroom records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
+   * Update a classroom with lms:classroom:update. Course replacement with linked sessions or rescheduling started sessions returns 409 classroom_session_changes_confirmation_required until confirm_session_changes is explicitly true. Retiring rooms separately requires confirm_recording_reset or returns 409 recording_reset_confirmation_required. Show the consequences before retrying: templates are remapped in order, surplus sessions are archived, new destination sessions are created, and affected recordings/automatic attendance are reset. Standalone sessions and manual attendance are retained. Errors roll back all changes; flags default to false. Missing classrooms return 404; null starts_at is invalid.
    * Calls `PATCH /api/v1/classrooms/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
@@ -394,6 +416,17 @@ export class LmsOperations extends ServiceApi {
    */
   classroomStoreSessionPost(data: T.ClassroomStoreSessionPostInput, options?: RequestOptions<T.ClassroomStoreSessionPostInput>) {
     return this.client.request<T.ClassroomStoreSessionPostResponse, T.ClassroomStoreSessionPostInput>({ ...options, method: "POST", url: `/api/v1/classrooms/sessions`, data: data });
+  }
+  /**
+   * Delete an authorized classroom session. Returns a success envelope with an empty data object; errors preserve the server response and no deletion is inferred on failure.
+   * Calls `DELETE /api/v1/classrooms/sessions/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:session:delete.
+   */
+  classroomDestroySessionDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ClassroomDestroySessionDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/classrooms/sessions/${encodeURIComponent(id)}` });
   }
   /**
    * Read session records through the mounted LMS classroom::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.

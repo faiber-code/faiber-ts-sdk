@@ -29,7 +29,7 @@
   },
   "lms": {
     "directory": "infera-lms",
-    "revision": "dffab43c9a730e1cc335f117fe53bb352dedd71f"
+    "revision": "7b754d74d356e417cd7f3e2f8169bbeb94db64c3"
   },
   "messenger": {
     "directory": "infera-messenger",

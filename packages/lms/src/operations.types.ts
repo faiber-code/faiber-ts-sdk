@@ -72,6 +72,9 @@ export type CertificateStoreCertificatePostInput = import("./types.js").CreateCe
 /** Backend response type: models::CertificateResponse. */
 export type CertificateStoreCertificatePostResponse = import("./types.js").CertificateResponse;
 
+/** Backend response type: serde_json::Value. */
+export type CertificateDestroyCertificateDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
+
 /** Backend response type: models::CertificateResponse. */
 export type CertificateShowCertificateGetResponse = import("./types.js").CertificateResponse;
 
@@ -92,6 +95,9 @@ export type CertificateIndexTemplateGetResponse = import("./types.js").Certifica
 export type CertificateStoreTemplatePostInput = import("./types.js").CreateCertificateTemplateInput;
 /** Backend response type: models::CertificateTemplateResponse. */
 export type CertificateStoreTemplatePostResponse = import("./types.js").CertificateTemplateResponse;
+
+/** Backend response type: serde_json::Value. */
+export type CertificateDestroyTemplateDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::CertificateTemplateResponse. */
 export type CertificateShowTemplateGetResponse = import("./types.js").CertificateTemplateResponse;
@@ -369,6 +375,8 @@ export interface ClassroomShowClassroomGetResponse extends ApiEnvelope<Classroom
 
 /** Backend request type: models::UpdateClassroomRequest. */
 export interface ClassroomUpdateClassroomPatchInput extends JsonObject {
+  "confirm_session_changes"?: boolean;
+  "confirm_recording_reset"?: boolean;
   "course_id"?: string | null;
   "name"?: string | null;
   "code"?: string | null;
@@ -818,6 +826,9 @@ export interface ClassroomStoreSessionPostResponseData extends JsonObject {
 }
 export interface ClassroomStoreSessionPostResponse extends ApiEnvelope<ClassroomStoreSessionPostResponseData> {
 }
+
+/** Backend response type: serde_json::Value. */
+export type ClassroomDestroySessionDeleteResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
 /** Backend response type: models::SessionResponse. */
 export interface ClassroomShowSessionGetResponseDataCourseSession extends JsonObject {
@@ -1540,6 +1551,8 @@ export interface CourseIndexCourseGetQuery extends QueryParams {
   "page[number]"?: number | null;
   "page[size]"?: number | null;
   "category_ids"?: string | null;
+  "course_id"?: string | null;
+  "course_ids"?: string | null;
   "search"?: string | null;
 }
 /** Backend response type: crate::models::PagedResult<models::CourseResponse>. */

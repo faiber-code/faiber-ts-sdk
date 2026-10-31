@@ -82,7 +82,7 @@ test("generated contracts have exact route coverage, named outputs, and complete
     total += endpoints.length;
   }
   // Snapshot includes six visibility operations alongside the existing service contracts.
-  assert.equal(total, 1683);
+  assert.equal(total, 1686);
 });
 
 test("every published workspace package includes developer documentation", async () => {

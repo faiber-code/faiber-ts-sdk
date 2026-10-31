@@ -1,33 +1,33 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-lms",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "source_revisions": {
     "lms": {
       "directory": "infera-lms",
-      "revision": "dffab43c9a730e1cc335f117fe53bb352dedd71f"
+      "revision": "7b754d74d356e417cd7f3e2f8169bbeb94db64c3"
     }
   },
   "package_source_sha256": {
-    "packages/lms/src/branding.types.ts": "a7a65ac9c7c042fd87e77b54d78dec689f92797b9478d76185a9951731a4d16e",
-    "packages/lms/src/calendar.types.ts": "4e2e09795e7d0bc558c11b7131891fa7b6658dfdd0e78c577f801cb3255afaec",
-    "packages/lms/src/contracts.types.ts": "2d39fa5862f5090290baad2f7a94c160c2f9df28110bddfc59cb82f4a9c29007",
-    "packages/lms/src/index.ts": "2f05c0875ff313bd0d85287c7853825781fe2549654220514294263ced5f56fe",
-    "packages/lms/src/interactive.ts": "114aa448265509966876e476e1ff3694e7e384a64485536ba017a9db0bc1366d",
-    "packages/lms/src/media.ts": "57b31d181453015bdcc434d41b3c6182af65c8747110a7e69dc01f4c616b297e",
-    "packages/lms/src/notification-settings.ts": "20de7957af8e7e94443d4162ef855d3f399eb64606d77138a2cbeec070815679",
-    "packages/lms/src/operations.ts": "28d8d5433168dae39a27ee3d4a3ff7b255c5d57fb892030d4373adb341e85b4d",
-    "packages/lms/src/operations.types.ts": "f90123a67ec3efce609a2a93b773aecce609cc662a6865d1907ed372448679b5",
-    "packages/lms/src/types.ts": "1d6088bece53a4dd57f3f14ed53b1311531ef19c587ddcd482d458dd03dbe297",
-    "packages/lms/src/wire.types.ts": "e7c1dae661dcabc936d6807e9f2f0862c4d11ada0737c0287fb39f737176346b"
+    "packages/lms/src/branding.types.ts": "0d02d978a28df6b3aa126d0de244e58f252368464b47147d71f92eb7dbea02cd",
+    "packages/lms/src/calendar.types.ts": "4fff8da017b478abcd68ff5af633b1d2df87a4a665f2f1823d254133f348240e",
+    "packages/lms/src/contracts.types.ts": "313429cde46b90bd34c5d5276dc1d8e999c96d22393b67dc65cc0495a4622e30",
+    "packages/lms/src/index.ts": "4bf68b19447c351798e1f9684c2893248deba02b733b6e5d71e048947817b7b1",
+    "packages/lms/src/interactive.ts": "baa215f4c1ad4f9eda438b94c36a22d3504d0d0d1612510b9b34f3bae7c1d53f",
+    "packages/lms/src/media.ts": "d5d72f0efbd6bd237ef306e02f9488b9e912b28bf2d4eac23af02ceb07b75512",
+    "packages/lms/src/notification-settings.ts": "2784e29db21a6c2b925c3fa9c35a8523590f53bec8650ad0278791ab2c5f240a",
+    "packages/lms/src/operations.ts": "261a19f3c80d685512275fc36eb4d149558e866955fb4e148e078739883d1efe",
+    "packages/lms/src/operations.types.ts": "017fb5451da693ea2e7178f83292f59fe6356507d550616b7db046333d3a0cd5",
+    "packages/lms/src/types.ts": "2ac3a29d0d588fef38089e1e26d9b88d3367245354440734074fb1209c424c4d",
+    "packages/lms/src/wire.types.ts": "097042cdc470246ae70be80f0fd55ce48d77e58c75c659b49636cf3dc8b3560c"
   },
-  "capability_review_sha256": "1bb7f62d68232471cc359184843d22ddc81e251548c1fc6481e88ca783e48c6d",
-  "source_pin_file_sha256": "5f98dcc2097189e3b5411af883dab58c9a09ec2479cee6a61e68b20a66896a4b",
-  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
+  "capability_review_sha256": "7c7e8a13f29df9943d0381d80b19a70c64ddb0a761922f66143f1df35a11b60f",
+  "source_pin_file_sha256": "2c7d583562161ca30360a425bd83a9b489b6cde56c83b4fd896c324b9c983950",
+  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
   "public_contract": {
     "kind": "source-extracted-http",
-    "operation_count": 182,
-    "sha256": "e174138b7ec2d2566c3131f54a1d114b43b76779a2fbc9e31d2e540be850d5ee"
+    "operation_count": 185,
+    "sha256": "c57a081b37fe9dfa7ede855c3d9d15d72c7f7ccdc805807ee980738ce0f15dcd"
   },
   "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
 }

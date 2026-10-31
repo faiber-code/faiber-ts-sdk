@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-task",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "source_revisions": {
     "task": {
       "directory": "infera-task",
@@ -9,20 +9,20 @@
     }
   },
   "package_source_sha256": {
-    "packages/task/src/campaigns.ts": "15687cbd29a01726980895bec48097270f51c7675d5245342718460ab3acea6f",
-    "packages/task/src/collaboration.ts": "9200ef8dfe6cfd4a62a9cd1f1af9c3aad2abcc1310bbcb3c8ca7dcaba90fcd4f",
-    "packages/task/src/feedback.ts": "a3057d6fbc45e5573941b42eb1e20b849ae9c631a2420fdab08093e5c05a4db0",
-    "packages/task/src/index.ts": "ece06bdcdb72cd150b80b3a53f5e55bc38574541ffa472f1ddac250c6bd077d5",
-    "packages/task/src/offline.ts": "07f6476b0a955739692da032199d82fa584bfa0b78f28a70cb10285868425b03",
-    "packages/task/src/operations.ts": "3b7d29b48cf16294929017cf5a4f2f9dd611461ba26c9112f0f6f4fd3acb1ee4",
-    "packages/task/src/operations.types.ts": "1b6f6f3a1db2fa6bcd9bbaa4fa30f56dec181fd4dd09c167b292c79668b69ca0",
-    "packages/task/src/types.ts": "82601bd924f0b479979703a8791a9081bd65d0a91315c01a43e8ed9fc49b55ab",
-    "packages/task/src/wire.types.ts": "3c10548f1ab9fbf2059e7cba035408146147c182304f8a111eafaf34d20e7bad",
-    "packages/task/src/workspace.ts": "292c3b7c00d081809e30a7797fec5b0f09d655d4e549964dd31d664f674d0cd7"
+    "packages/task/src/campaigns.ts": "93b30063c55373d2787b12f520d7305720285c6c53c886b2d348dcac559436f9",
+    "packages/task/src/collaboration.ts": "9fb873e4cd78263ae2e6657ca22e26e05718890ba76f110ec693494de8c73220",
+    "packages/task/src/feedback.ts": "22d27abdfbb872dad7c261831cd573ef5ac528dd796bb166d522639970b663e1",
+    "packages/task/src/index.ts": "9a534e513490b432db1f0e868b1e7cf40801fafb7f269e089d0a9d4d133af89e",
+    "packages/task/src/offline.ts": "c11a86bba3c947e9e6ab877f976252dc0dfea59e263f0827828998f24b2d3af4",
+    "packages/task/src/operations.ts": "3b890e1cd21a57f3d43d807156ed36071ccf86c53d5d0cfb086000c89e795adc",
+    "packages/task/src/operations.types.ts": "24ef41615f2ac6fb7a66b734d4b172dcad1b175ba5b11a81a8e66dfd23b4e3e8",
+    "packages/task/src/types.ts": "d8c12ac0c9f1cd0b55fa41bb58f88e7166093b7cb7a9e87365ce7c18e9ed4adf",
+    "packages/task/src/wire.types.ts": "ec8b1432495d968d083df50e5d600a997a9611c1087f96dba97a26057a1aa633",
+    "packages/task/src/workspace.ts": "6873fb559d167e05ca8480ad6890f1732735f36cad30b197610d21829ff8b851"
   },
-  "capability_review_sha256": "3543c32b6383fc50d8d442954a5420191274e39597eb5c8a0ad76659c7c5dfef",
-  "source_pin_file_sha256": "5f98dcc2097189e3b5411af883dab58c9a09ec2479cee6a61e68b20a66896a4b",
-  "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
+  "capability_review_sha256": "85188e40cb1f2779d5890227f2516570be241833019be34247d0adecc6b9670b",
+  "source_pin_file_sha256": "2c7d583562161ca30360a425bd83a9b489b6cde56c83b4fd896c324b9c983950",
+  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 128,
