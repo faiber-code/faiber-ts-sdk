@@ -5,7 +5,7 @@
   "source_revisions": {
     "asset": {
       "directory": "infera-asset",
-      "revision": "580e12614b23d05470f27a419a95e770f1cf67ef"
+      "revision": "dfc79a56e4038c3ac1b00899e5a31fdc94bb11a5"
     },
     "chat": {
       "directory": "infera-chat",
@@ -45,7 +45,7 @@
     },
     "payment": {
       "directory": "infera-payment",
-      "revision": "28646e7d879a0ff7d94c937b83a4699ce1246550"
+      "revision": "f78020de88294b7c9712916292ea6a501ee16d4e"
     },
     "profile": {
       "directory": "infera-profile",
@@ -69,7 +69,7 @@
     },
     "task": {
       "directory": "infera-task",
-      "revision": "b09671f28a56db0519daa6c9f3227ece79ff99e4"
+      "revision": "32cc874e5f26dc3fbd8055cc491c7b4602746491"
     },
     "version": {
       "directory": "infera_version",
@@ -93,7 +93,7 @@
     "packages/core/src/types.ts": "6d9ac48dae0974e2f3baa219e4c0828453d17bd69a81428e9f90d2c75719708c"
   },
   "capability_review_sha256": null,
-  "source_pin_file_sha256": "74aab041a4d43d2d18895989ed79a73e6fd925f1b75d5e5b746ddfdde16f48df",
+  "source_pin_file_sha256": "aab2e017d265f3966764252e0cda42d67851e4143780723500f7e7a47537d028",
   "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "shared-client-or-facade"

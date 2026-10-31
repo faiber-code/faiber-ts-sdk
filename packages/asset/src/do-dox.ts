@@ -1,9 +1,16 @@
 import { ServiceApi, type RequestOptions } from '@faiber/sdk-core';
 
 export interface DoPack { id:string; coins:number; price_rial:number; enabled:boolean }
+export interface AssetDoRefundReceipt {id:string;profile_id:string;order_id:string;transaction_id:string;coins:number;amount_rial:number;status:'pending'|'refunded'}
+export interface AssetDoRefundRequest {id:string;operation_id:string;profile_id:string;order_id:string}
+/** Trusted backend integration. Supply x-do-service-token for Task requests or x-do-refund-token for Payment reads; never expose these credentials in a browser. */
+export class DoRefundIntegrationApi extends ServiceApi {
+ reserve(body:AssetDoRefundRequest,options?:RequestOptions<AssetDoRefundRequest>){return this.client.post<DoResponse<AssetDoRefundReceipt>,AssetDoRefundRequest>('/api/v1/internal/do/refunds',body,options)}
+ receipt(id:string,options?:RequestOptions){return this.client.get<DoResponse<AssetDoRefundReceipt>>(`/api/v1/internal/do/refunds/${encodeURIComponent(id)}`,undefined,options)}
+}
 export interface DoItem { id:string; title_en:string; title_fa:string; kind:'cosmetic'|'badge'|'plan'; coins:number; cost_rial:number; enabled:boolean; plan:string|null }
 export interface DoPolicy {
-  enabled:boolean; public_creation:boolean; public_participation:boolean; packs:DoPack[]; catalog:DoItem[];
+  pilot_profiles?:string[]; enabled:boolean; public_creation:boolean; public_participation:boolean; packs:DoPack[]; catalog:DoItem[];
   reserve_rial_per_do:number; fee_basis_points:number; marketing_budget_rial:number; margin_basis_points:number;
   delivery_cost_rial:Record<string,number>; high_value_threshold:number; standard_approvals:number; high_value_approvals:number;
   review_hours:number; appeal_days:number; first_week_discount:number; later_discount:number; referral_extra_discount:number;

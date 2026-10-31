@@ -5,19 +5,20 @@
   "source_revisions": {
     "payment": {
       "directory": "infera-payment",
-      "revision": "28646e7d879a0ff7d94c937b83a4699ce1246550"
+      "revision": "f78020de88294b7c9712916292ea6a501ee16d4e"
     }
   },
   "package_source_sha256": {
     "packages/payment/src/contracts.types.ts": "2aab2e54641c4663f81fc8598c15e240b4420ade21a0bddf51239d3cd0eb21ae",
-    "packages/payment/src/index.ts": "85049cfd8732ee56c896b3dfc7803cbbaaea4f095f12633448a86232a87732bf",
+    "packages/payment/src/index.ts": "0c3f18856adb5f5442de4f7a218a27907917ad9ffb66711d9c5449cf8b6d8deb",
     "packages/payment/src/operations.ts": "56fb2e5169c1308b64d849371717cbb4c42573c66bf8ad11331f5a90d4365f1e",
     "packages/payment/src/operations.types.ts": "48e800cb7d5e5c96a8b400ad1d7ca2582c27c397fb043a8914baf459f3923857",
-    "packages/payment/src/reward-checkout.ts": "04ad67ed3151d7c8f487d7ef81c9d23c557e917be62c22da6ef7af2133086c6f",
+    "packages/payment/src/reward-checkout.ts": "e322b77f59b70ba92e1388eb892d832b45de4d052f928f0f7ee7460fb8924eaa",
+    "packages/payment/src/reward-refunds.ts": "c51f5fbef2ef60c1f5615b325b5ea8d6fd6c4226e68ce0cd557875acc2612658",
     "packages/payment/src/types.ts": "e58bafd620d9020b407f0aec1ab81654301beff67c17374137b1b17100f04b6a"
   },
   "capability_review_sha256": "288a743188927584318969920dfd686505e14241cffe486fedd9729f70dc945d",
-  "source_pin_file_sha256": "74aab041a4d43d2d18895989ed79a73e6fd925f1b75d5e5b746ddfdde16f48df",
+  "source_pin_file_sha256": "aab2e017d265f3966764252e0cda42d67851e4143780723500f7e7a47537d028",
   "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "source-extracted-http",

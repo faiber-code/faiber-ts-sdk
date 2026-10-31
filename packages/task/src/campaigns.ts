@@ -27,7 +27,7 @@ export interface ReviewCampaignProof {request_id:string;version:number;decision:
 export interface DoPack {id:string;coins:number;price_rial:number;enabled:boolean}
 export interface DoItem {id:string;title_en:string;title_fa:string;kind:'cosmetic'|'badge'|'plan';coins:number;cost_rial:number;enabled:boolean;plan:string|null}
 export interface DoHistory {operation_id:string;source:string;destination:string;coins:number;created_at:string}
-export interface DoOrder {id:string;pack:DoPack;status:'pending'|'paid'|'refunded'|'cancelled';redirect_url:string|null}
+export interface DoOrder {refund_eligible?:boolean;id:string;pack:DoPack;status:'pending'|'paid'|'refunded'|'cancelled';redirect_url:string|null}
 export interface RewardStreak {current_days:number;best_days:number;freezes:number;last_day:string|null}
 export interface RewardEnrollment {workspace_id:string;user_id:string;enrolled_at:string;timezone:string;first_purchase_id:string|null;first_purchase_status:'reserved'|'paid'|null;referrer_id:string|null}
 export interface RewardReferral {status:'pending'|'reserved'|'qualified'|'expired';expires_at:string}
@@ -38,11 +38,13 @@ export interface DoRiskAppeal {id:string;reason:string;status:'open'|'resolved';
 export interface DoRiskAppealInput {request_id:string;reason:string}
 export interface DoRiskAppealReceipt {id:string;status:'open'}
 export interface CampaignBudgetSummary {campaign_id:string;status:string;available:number;reserved:number}
-export interface DoSnapshot {campaign_budgets?:CampaignBudgetSummary[];risk_hold:DoRiskHold|null;risk_appeals:DoRiskAppeal[];version:number;enabled:boolean;public_creation:boolean;public_participation:boolean;high_value_threshold:number;review_hours:number;appeal_days:number;first_week_discount:number;later_discount:number;referral_extra_discount:number;referral_reward:number;referral_monthly_limit:number;referral_campaign_id:string|null;available:number;reserved:number;packs:DoPack[];catalog:DoItem[];history:DoHistory[];orders:DoOrder[];campaign_available?:number;redemptions:DoRedemption[];owned_items:DoOwnedItem[];standard_approvals:number;high_value_approvals:number}
+export interface DoRefund {id:string;order_id:string;coins:number;amount_rial:number;status:'pending'|'refunded';created_at?:string}
+export interface DoRefundRequest {request_id:string}
+export interface DoSnapshot {refunds?:DoRefund[];refund_reserved?:number;campaign_budgets?:CampaignBudgetSummary[];risk_hold:DoRiskHold|null;risk_appeals:DoRiskAppeal[];version:number;enabled:boolean;public_creation:boolean;public_participation:boolean;high_value_threshold:number;review_hours:number;appeal_days:number;first_week_discount:number;later_discount:number;referral_extra_discount:number;referral_reward:number;referral_monthly_limit:number;referral_campaign_id:string|null;available:number;reserved:number;packs:DoPack[];catalog:DoItem[];history:DoHistory[];orders:DoOrder[];campaign_available?:number;redemptions:DoRedemption[];owned_items:DoOwnedItem[];standard_approvals:number;high_value_approvals:number}
 export interface RewardOverview extends DoSnapshot {discount_percent:number;enrollment:RewardEnrollment;streak:RewardStreak;referrals:RewardReferral[]}
 export interface RewardPurchase {request_id:string;pack_id?:string;item_id?:string}
 export interface DoPackCheckout {redirect_url:string}
-export interface DoPackSettlement {credited:number}
+export interface DoPackSettlement {credited:number;redirect_url?:string;status?:'pending'|'paid'|'cancelled'}
 export interface RewardCheckin {request_id:string;timezone:string;referrer_id?:string}
 export interface TaskDoxRequest {id:string;workspace_id:string;space_id:string;work_item_id:string;user_id:string;amount:number;status:'pending'|'approved'|'awarded';reviewer_id:string|null}
 export interface TaskDoxState {enabled:boolean;request:TaskDoxRequest|null;can_offer:boolean;can_approve:boolean}
@@ -88,6 +90,8 @@ export class RewardsApi extends ServiceApi {
  buyPack(body:RewardPurchase,options?:RequestOptions<RewardPurchase>){return this.client.post<RewardResponse<DoPackCheckout>,RewardPurchase>('/api/v1/rewards/packs',body,options)}
  /** Reconciles a provider-verified pack payment; duplicate callbacks do not mint twice. */
  reconcilePack(id:string,options?:RequestOptions<undefined>){return this.client.post<RewardResponse<DoPackSettlement>,undefined>(`/api/v1/rewards/packs/${encodeURIComponent(id)}/reconcile`,undefined,options)}
+ /** Reserves only an untouched original purchased pack for refund. Stable request IDs replay safely; committed, transferred or spent origins cannot be refunded. */
+ refundPack(id:string,body:DoRefundRequest,options?:RequestOptions<DoRefundRequest>){return this.client.post<RewardResponse<DoRefund>,DoRefundRequest>(`/api/v1/rewards/packs/${encodeURIComponent(id)}/refund`,body,options)}
  /** Buys an enabled catalog item; entitlement delivery may remain pending. */
  redeem(body:RewardPurchase,options?:RequestOptions<RewardPurchase>){return this.client.post<RewardResponse<RewardReceipt>,RewardPurchase>('/api/v1/rewards/redeem',body,options)}
  /** Reads one's private Dox score in an authorized space. */

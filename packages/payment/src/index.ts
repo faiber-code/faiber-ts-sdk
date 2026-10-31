@@ -1,4 +1,5 @@
 import {RewardCheckoutApi} from "./reward-checkout.js";
+import {RewardRefundsApi} from "./reward-refunds.js";
 import { ServiceApi, type RequestOptions } from "@faiber/sdk-core";
 import type { CreateGatewayInput, CreatePaymentInput, CreatePaymentResponse, GatewayListResponse, GatewayOptionsResponse, GatewayResponse, TransactionListResponse, TransactionResponse, UpdateGatewayInput, GatewayListQuery, TransactionListQuery, DailyIncomeQuery, UpdatePaymentSettingsInput } from "./types.js";
 import { PaymentOperations } from "./operations.js";
@@ -24,6 +25,7 @@ export class PaymentTransactionsApi extends ServiceApi {
 }
 export class PaymentApi extends ServiceApi {
   readonly rewardCheckouts = new RewardCheckoutApi(this.client);
+  readonly rewardRefunds = new RewardRefundsApi(this.client);
     readonly operations = new PaymentOperations(this.client);
     readonly gateways = new PaymentGatewaysApi(this.client);
     readonly transactions = new PaymentTransactionsApi(this.client);
@@ -58,3 +60,4 @@ export * from "./operations.types.js";
 export * from "./contracts.types.js";
 
 export * from "./reward-checkout.js";
+export * from "./reward-refunds.js";
