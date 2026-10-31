@@ -19,7 +19,7 @@
     "packages/social/src/types.ts": "d1709f3d3aa51089bc280ed73f0214fb94d261cc770e67ab2b6df33dc399c437"
   },
   "capability_review_sha256": "89fc5c8e50d5864f6cd3c5332e46ce89b8fc354778d78a09b394b2147c96cf87",
-  "source_pin_file_sha256": "b9e7af3a6fb5793307e52b2eb63ae18a29de41c9d0b2768837a8ea730488fcc0",
+  "source_pin_file_sha256": "726737db7bc71ec2740cf0df48f31326c339dc66d0147d1bfd83d5f896ebd610",
   "http_contract_file_sha256": "69f253a5bab1da90295eb6f2d9ecd6910830373f3525c0ae8d9636facfc14133",
   "public_contract": {
     "kind": "source-extracted-http",
