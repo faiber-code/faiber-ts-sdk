@@ -102,7 +102,9 @@ export type SpeechLanguage = 'en'|'fa'|'auto';
 export type SpeechAudioFormat = 'mp3' | 'wav';
 export interface SpeechSynthesisInput { text:string; language?: SpeechLanguage | null; /** Compact mono MP3 by default; WAV for lossless processing. */ format?: SpeechAudioFormat | null }
 
+export type AssistantReasoningEffort = "none" | "low" | "medium" | "high" | "max";
 export interface ManagedAssistantRecord extends JsonObject {
+  /** Null uses the model service default; supported values come from its catalog. */ reasoning_effort:AssistantReasoningEffort|null;
   id:string; organization_id:string; owner_id:string; name:string; system_prompt:string; model_ref:string; billing_payer:string;
   knowledge_group_slugs:string[]; knowledge_level:number|null; knowledge_base_ids:string[]; recommender_group_ids:string[];
   short_memory_enabled:boolean; long_memory_enabled:boolean; short_memory_turns:number; long_memory_limit:number;

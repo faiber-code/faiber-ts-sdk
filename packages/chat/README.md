@@ -344,3 +344,5 @@ commands, identity grants or mutation approvals. The usual composer can still
 accept a typed reply; voice clients can accept spoken answers. Questions are
 optional and do not imply ambiguity. Backend rollout is required for the model
 to emit these additive hints; text-only older results remain valid.
+
+Managed assistant create/update requests accept `reasoning_effort` (`none`, `low`, `medium`, `high`, or `max`). Choose only values declared in the model catalog’s `reasoning_levels`; `default_reasoning_effort` describes the structured-workflow default when known. On update, omit this field to retain the saved override or send `null` to restore automatic behavior. Managed detail includes the saved override and the captured Knowledge policy revision required for a safe save.

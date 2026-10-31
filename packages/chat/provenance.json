@@ -5,7 +5,7 @@
   "source_revisions": {
     "chat": {
       "directory": "infera-chat",
-      "revision": "7cf5d45451256e62fe0254f933b8aad58800369e"
+      "revision": "a55e47d6fd01cf68f9194d5b687fda0b5a66fbb6"
     }
   },
   "package_source_sha256": {
@@ -15,15 +15,15 @@
     "packages/chat/src/operations.ts": "89d254762a24d9f18f2107bec75abefc197b132fc68bbae922029f440340d19f",
     "packages/chat/src/operations.types.ts": "68832850143e08fa56075fd836eafb7834edc527d6a8108953f0fea3c28fcf7c",
     "packages/chat/src/personal.ts": "51234c08c55a970e5b786577087353360738a823a099bfa6cfaf0da5260a58fb",
-    "packages/chat/src/reviewed-wire.ts": "d39363b4fbbd0322b3b512ffa22bf07e2052fffddd9320d5063d832f36047313",
+    "packages/chat/src/reviewed-wire.ts": "fff07b76d014cac81aca367eb4a0efbb49e5c16f131392a57ab2a41f069cc38d",
     "packages/chat/src/speech-live.ts": "c4b30cb9529ae6019ee1ecc34e00f42ac25f0023f1f81a7221707f01cfe91610",
     "packages/chat/src/speech-playback.ts": "21729f54efad7db00d2b3788ee56d99b03e8d739bc057b903222b45469cf7909",
     "packages/chat/src/speech-recorder.ts": "a77979b6e64cd45ca9aab42978ecbbce4b6326ab6a60398fbed3e6d650e02e2f",
-    "packages/chat/src/types.ts": "11b108550b6437ebe2c1bdf6b286b9a775e88f0dd0397c5a8826fdd46a57ac38",
+    "packages/chat/src/types.ts": "85b61d68bff85a9da00ba158c10c1ab4ce2fc89f6bf93013fd68282356aba1ff",
     "packages/chat/src/workspace.ts": "ec3a6203537fc1c896c5534bb319aa9cc39c9c593be5e8b0be641b3d4d210600"
   },
   "capability_review_sha256": "77c54e9768803ad9d29a3881a9f57f2704bd080ea3636fedf36b90ae81529a86",
-  "source_pin_file_sha256": "f575f49dca3f1648f9155035ee2ae45ca36afc284786ea4fd6c800136cc7c507",
+  "source_pin_file_sha256": "b9e7af3a6fb5793307e52b2eb63ae18a29de41c9d0b2768837a8ea730488fcc0",
   "http_contract_file_sha256": "69f253a5bab1da90295eb6f2d9ecd6910830373f3525c0ae8d9636facfc14133",
   "public_contract": {
     "kind": "source-extracted-http",

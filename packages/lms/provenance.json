@@ -22,7 +22,7 @@
     "packages/lms/src/wire.types.ts": "e7c1dae661dcabc936d6807e9f2f0862c4d11ada0737c0287fb39f737176346b"
   },
   "capability_review_sha256": "1bb7f62d68232471cc359184843d22ddc81e251548c1fc6481e88ca783e48c6d",
-  "source_pin_file_sha256": "f575f49dca3f1648f9155035ee2ae45ca36afc284786ea4fd6c800136cc7c507",
+  "source_pin_file_sha256": "b9e7af3a6fb5793307e52b2eb63ae18a29de41c9d0b2768837a8ea730488fcc0",
   "http_contract_file_sha256": "69f253a5bab1da90295eb6f2d9ecd6910830373f3525c0ae8d9636facfc14133",
   "public_contract": {
     "kind": "source-extracted-http",

@@ -17,7 +17,7 @@
     "packages/messenger/src/types.ts": "eda39511ad69284b622f811e11f7186ac5592974ef69c296a61175777707c3e4"
   },
   "capability_review_sha256": "be8c183ed2f336f48093f503ab76018e151f32c11c3c0c3becec95f611635c4e",
-  "source_pin_file_sha256": "f575f49dca3f1648f9155035ee2ae45ca36afc284786ea4fd6c800136cc7c507",
+  "source_pin_file_sha256": "b9e7af3a6fb5793307e52b2eb63ae18a29de41c9d0b2768837a8ea730488fcc0",
   "http_contract_file_sha256": "69f253a5bab1da90295eb6f2d9ecd6910830373f3525c0ae8d9636facfc14133",
   "public_contract": {
     "kind": "source-extracted-http",

@@ -85,6 +85,7 @@ export interface SpeechSettingsInput {
 }
 
 export interface ChatCreateAssistantInput extends JsonObject {
+  /** Null or omitted uses the current model default. */ reasoning_effort?:import("./types.js").AssistantReasoningEffort|null;
   "configuration_id": string;
   "status"?: AssistantStatus | null;
   "name": string;
@@ -112,6 +113,7 @@ export interface ChatCreateAssistantInput extends JsonObject {
 }
 
 export interface ChatUpdateAssistantInput extends JsonObject {
+  /** Omitted preserves the saved override; null restores automatic. Validated against the model catalog. */ reasoning_effort?:import("./types.js").AssistantReasoningEffort|null;
   "configuration_id": string;
   "name"?: string | null;
   "system_prompt"?: string | null;

@@ -9,7 +9,7 @@
     },
     "chat": {
       "directory": "infera-chat",
-      "revision": "7cf5d45451256e62fe0254f933b8aad58800369e"
+      "revision": "a55e47d6fd01cf68f9194d5b687fda0b5a66fbb6"
     },
     "crm": {
       "directory": "infera-crm",
@@ -85,7 +85,7 @@
     "packages/sdk/src/index.ts": "bebfc882dcbcf4732de1325efe76e4f18a7822fa210f8ad4cef953c1fe683015"
   },
   "capability_review_sha256": null,
-  "source_pin_file_sha256": "f575f49dca3f1648f9155035ee2ae45ca36afc284786ea4fd6c800136cc7c507",
+  "source_pin_file_sha256": "b9e7af3a6fb5793307e52b2eb63ae18a29de41c9d0b2768837a8ea730488fcc0",
   "http_contract_file_sha256": "69f253a5bab1da90295eb6f2d9ecd6910830373f3525c0ae8d9636facfc14133",
   "public_contract": {
     "kind": "shared-client-or-facade"
