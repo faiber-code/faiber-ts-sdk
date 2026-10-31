@@ -16,7 +16,7 @@
     "packages/reservation/src/types.ts": "b4ddc0a28e722ad1c82843ffa55809253fdcf7718e8eed22b5ab3664ed791643"
   },
   "capability_review_sha256": "88dfa849a50c6c25aa8046168cd03f03690fb84375964489a0445c6283622fcd",
-  "source_pin_file_sha256": "aab2e017d265f3966764252e0cda42d67851e4143780723500f7e7a47537d028",
+  "source_pin_file_sha256": "5f98dcc2097189e3b5411af883dab58c9a09ec2479cee6a61e68b20a66896a4b",
   "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "source-extracted-http",

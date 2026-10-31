@@ -9,7 +9,7 @@ export interface RewardRefundReceipt {id:string;profile_id:string;order_id:strin
 /** Financial operator workflow. Bank execution occurs in the original merchant portal; two distinct assigned operators verify its completed outcome. */
 export class RewardRefundsApi extends ServiceApi {
  /** Requires admin:transaction:read; returns at most 100 pending-first records. */
- list(options?:RequestOptions){return this.client.get<PaymentEnvelope<BankRefundSummary[]>>('/api/v1/reward-refunds/',undefined,options)}
+ list(options?:RequestOptions){return this.client.get<PaymentEnvelope<BankRefundSummary[]>>('/api/v1/reward-refunds',undefined,options)}
  /** Reads a refund with immutable review rounds. Requires admin:transaction:read; missing IDs return 404. Write capabilities additionally require product assignment. */
  show(id:string,options?:RequestOptions){return this.client.get<PaymentEnvelope<BankRefund>>(`/api/v1/reward-refunds/${encodeURIComponent(id)}`,undefined,options)}
  /** Requires admin:transaction:refund and configured assignment; a refund owner cannot review their own refund. */

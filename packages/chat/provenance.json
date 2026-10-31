@@ -23,7 +23,7 @@
     "packages/chat/src/workspace.ts": "5be8a0bb7e78d3c97b3deabdc9664a32d8cdf16f0a257e4b3f4d426e74d27986"
   },
   "capability_review_sha256": "77c54e9768803ad9d29a3881a9f57f2704bd080ea3636fedf36b90ae81529a86",
-  "source_pin_file_sha256": "aab2e017d265f3966764252e0cda42d67851e4143780723500f7e7a47537d028",
+  "source_pin_file_sha256": "5f98dcc2097189e3b5411af883dab58c9a09ec2479cee6a61e68b20a66896a4b",
   "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "source-extracted-http",

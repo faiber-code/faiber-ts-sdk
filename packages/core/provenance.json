@@ -45,7 +45,7 @@
     },
     "payment": {
       "directory": "infera-payment",
-      "revision": "f78020de88294b7c9712916292ea6a501ee16d4e"
+      "revision": "9b24401b49b8a0337c7c37b79bbb12d7860f1a53"
     },
     "profile": {
       "directory": "infera-profile",
@@ -93,7 +93,7 @@
     "packages/core/src/types.ts": "6d9ac48dae0974e2f3baa219e4c0828453d17bd69a81428e9f90d2c75719708c"
   },
   "capability_review_sha256": null,
-  "source_pin_file_sha256": "aab2e017d265f3966764252e0cda42d67851e4143780723500f7e7a47537d028",
+  "source_pin_file_sha256": "5f98dcc2097189e3b5411af883dab58c9a09ec2479cee6a61e68b20a66896a4b",
   "http_contract_file_sha256": "131ec8652df8f1b9c23bfa8b3eb2ce2e25028dd0c297093f260226872c0ee5cc",
   "public_contract": {
     "kind": "shared-client-or-facade"

@@ -41,7 +41,7 @@
   },
   "payment": {
     "directory": "infera-payment",
-    "revision": "f78020de88294b7c9712916292ea6a501ee16d4e"
+    "revision": "9b24401b49b8a0337c7c37b79bbb12d7860f1a53"
   },
   "profile": {
     "directory": "infera-profile",
