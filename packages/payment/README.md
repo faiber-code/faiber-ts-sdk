@@ -102,3 +102,18 @@ idempotency key and HTTPS callback origin. These endpoints create/read verified
 Payment transactions; Asset alone credits a wallet after independently matching
 the receipt. Pending or cancelled payments never issue coins. Product settings
 belong in service configuration, and these credentials must stay off clients.
+
+### Funded reward refunds
+
+`PaymentApi.rewardRefunds` exposes `list`, `show`, `start`, `confirm`, and `reopen`.
+These operator calls require IDP authentication and the applicable transaction
+permission plus assignment to the configured product. The payer cannot verify
+its own refund. Preserve `operation_id` and `version` when retrying an unchanged
+request; changed semantics or stale rounds return HTTP 409. The methods preserve
+Axios responses and accept `RequestOptions`, including an abort signal.
+
+Bank execution takes place in the original merchant portal. Two distinct assigned
+operators then verify the full refund to the original payer. Reopening a review
+round never executes another bank refund. `rewardCheckout.refund` is a trusted
+backend integration and requires an existing Asset escrow; never expose its
+service credential in browser code. Readiness reports configuration only.

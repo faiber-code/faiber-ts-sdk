@@ -6,6 +6,7 @@ export interface RewardCheckoutReadiness {live_gateway_ready:boolean;refund_supp
 export type RewardPaymentResponse=PaymentEnvelope<RewardPaymentReceipt>;
 /** Configured product checkout. Trusted backend credentials must never be sent to browsers. */
 export class RewardCheckoutApi extends ServiceApi {
+ /** Backend-only gateway/refund configuration check using the product service token; availability does not prove actual reserve funding or bank acceptance. */
  readiness(product:string,options?:RequestOptions){return this.client.get<PaymentEnvelope<RewardCheckoutReadiness>>(`/api/v1/internal/reward-checkouts/${encodeURIComponent(product)}/readiness`,undefined,options)}
  /** Backend-only idempotent registration or reconciliation of an Asset-reserved original-pack refund. */
  refund(product:string,body:RewardRefundReceipt,options?:RequestOptions<RewardRefundReceipt>){return this.client.post<PaymentEnvelope<RewardRefundReceipt>,RewardRefundReceipt>(`/api/v1/internal/reward-checkouts/${encodeURIComponent(product)}/refunds`,body,options)}
