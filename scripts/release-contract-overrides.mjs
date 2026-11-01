@@ -1,3 +1,4 @@
+import {spaceRewardContracts} from "./space-reward-contracts.mjs";
 import { idpVisibilityContracts } from "./idp-visibility-contracts.mjs";
 import { reservationReviewedOperationContracts } from "./reservation-reviewed-operation-contracts.mjs";
 import { paymentReviewedOperationContracts } from "./payment-reviewed-operation-contracts.mjs";
@@ -809,3 +810,5 @@ for (const [key, correction] of Object.entries(paymentReviewedOperationContracts
 for (const [key, correction] of Object.entries(reservationReviewedOperationContracts)) {
   releaseContracts[key] = { ...releaseContracts[key], ...correction };
 }
+
+for(const [key,correction] of Object.entries(spaceRewardContracts))releaseContracts[key]={...releaseContracts[key],...correction};

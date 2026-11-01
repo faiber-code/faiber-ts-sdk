@@ -81,8 +81,8 @@ test("generated contracts have exact route coverage, named outputs, and complete
     }
     total += endpoints.length;
   }
-  // Snapshot includes six visibility operations alongside the existing service contracts.
-  assert.equal(total, 1686);
+  // Reviewed snapshot includes the Asset ledger and Task/Chat integrations.
+  assert.equal(total, 1759);
 });
 
 test("every published workspace package includes developer documentation", async () => {

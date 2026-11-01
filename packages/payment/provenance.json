@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-payment",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "source_revisions": {
     "payment": {
       "directory": "infera-payment",
@@ -18,8 +18,8 @@
     "packages/payment/src/types.ts": "cd9a57df50bf2e8ea26cc10fdda63908f97a66c64492710c552951483812f2ee"
   },
   "capability_review_sha256": "2e335010c118007dd92a4c2145fa96cde9025b1b43f8d8e43a9f26f9633fdce6",
-  "source_pin_file_sha256": "d7cfaa0ed6f055e876a0716e167a37617dead70d56bd37b18c842c275ba9a31f",
-  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
+  "source_pin_file_sha256": "e929b4038af893213725d9c9bb687fd79652106eb274244d7e206a1bafd21e8d",
+  "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 36,

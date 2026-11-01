@@ -144,6 +144,27 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesSavePutResponse, T.RoutesSavePutInput>({ ...options, method: "PUT", url: `/api/v1/admin/image-settings`, data: data });
   }
   /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `GET /api/v1/admin/media-retention` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage and organization scope. Version compare-and-swap; periods1..3650 for all four kinds..
+   */
+  routesGetGet(options?: RequestOptions) {
+    return this.client.request<T.RoutesGetGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/media-retention` });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `PUT /api/v1/admin/media-retention` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage and organization scope. Version compare-and-swap; periods1..3650 for all four kinds..
+   */
+  routesPutPut(data: T.RoutesPutPutInput, options?: RequestOptions<T.RoutesPutPutInput>) {
+    return this.client.request<T.RoutesPutPutResponse, T.RoutesPutPutInput>({ ...options, method: "PUT", url: `/api/v1/admin/media-retention`, data: data });
+  }
+  /**
    * Read configured model catalog unchanged from upstream; image catalog filters vision-capable entries.
    * Calls `GET /api/v1/admin/speech-models` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -241,6 +262,128 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesDownloadAttachmentGetResponse>({ ...options, method: "GET", url: `/api/v1/attachments/${encodeURIComponent(id)}/content`, responseType: "arraybuffer" });
   }
   /**
+   * Inspect a current-user action; IDs do not grant cross-user access.
+   * Calls `GET /api/v1/connector-actions/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  routesActionStatusGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesActionStatusGetResponse>({ ...options, method: "GET", url: `/api/v1/connector-actions/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Execute an explicitly approved, unexpired action after rechecking provider access; retries are durable.
+   * Calls `POST /api/v1/connector-actions/{id}/approve` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  routesApprovePost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesApprovePostResponse>({ ...options, method: "POST", url: `/api/v1/connector-actions/${encodeURIComponent(id)}/approve` });
+  }
+  /**
+   * Cancel a current-user pending action.
+   * Calls `POST /api/v1/connector-actions/{id}/cancel` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  routesCancelPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesCancelPostResponse>({ ...options, method: "POST", url: `/api/v1/connector-actions/${encodeURIComponent(id)}/cancel` });
+  }
+  /**
+   * List own connection status without credentials. Requires authenticated chat access.
+   * Calls `GET /api/v1/connectors` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:read.
+   */
+  routesListGetApiV1Connectors(options?: RequestOptions) {
+    return this.client.request<T.RoutesListGetApiV1ConnectorsResponse>({ ...options, method: "GET", url: `/api/v1/connectors` });
+  }
+  /**
+   * Revoke the current user's connector and pending actions.
+   * Calls `DELETE /api/v1/connectors/{provider}` through the shared IDP-aware Faiber client.
+   * @param provider Backend path identifier `provider`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  routesDisconnectDelete(provider: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesDisconnectDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/connectors/${encodeURIComponent(provider)}` });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `GET /api/v1/connectors/{provider}/callback` through the shared IDP-aware Faiber client.
+   * @param provider Backend path identifier `provider`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: One-use OAuth state bound to actor/provider; provider callback navigation, not a privileged action helper..
+   */
+  routesOauthCallbackGet(provider: Identifier, params?: T.RoutesOauthCallbackGetQuery, options?: RequestOptions) {
+    return this.client.request<T.RoutesOauthCallbackGetResponse>({ ...options, method: "GET", url: `/api/v1/connectors/${encodeURIComponent(provider)}/callback`, params });
+  }
+  /**
+   * Begin provider authorization; navigate to the returned URL only after a user request.
+   * Calls `POST /api/v1/connectors/{provider}/connect` through the shared IDP-aware Faiber client.
+   * @param provider Backend path identifier `provider`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  routesConnectPost(provider: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesConnectPostResponse>({ ...options, method: "POST", url: `/api/v1/connectors/${encodeURIComponent(provider)}/connect` });
+  }
+  /**
+   * Invoke a provider tool with its declared schema. Writes return an approval action, never execute implicitly. T describes the provider-defined result payload.
+   * Calls `POST /api/v1/connectors/{provider}/tools/{tool}` through the shared IDP-aware Faiber client.
+   * @param provider Backend path identifier `provider`.
+   * @param tool Backend path identifier `tool`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  routesInvokePost(provider: Identifier, tool: Identifier, data: T.RoutesInvokePostInput, options?: RequestOptions<T.RoutesInvokePostInput>) {
+    return this.client.request<T.RoutesInvokePostResponse, T.RoutesInvokePostInput>({ ...options, method: "POST", url: `/api/v1/connectors/${encodeURIComponent(provider)}/tools/${encodeURIComponent(tool)}`, data: data });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `GET /api/v1/connectors/faiber/callback` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: One-use OAuth state bound to actor/provider; provider callback navigation, not a privileged action helper..
+   */
+  connectorsCallbackGet(params?: T.ConnectorsCallbackGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ConnectorsCallbackGetResponse>({ ...options, method: "GET", url: `/api/v1/connectors/faiber/callback`, params });
+  }
+  /**
+   * List selected and eligible Faiber project sandboxes for the current connector.
+   * Calls `GET /api/v1/connectors/faiber/projects` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  connectorsProjectsGet(options?: RequestOptions) {
+    return this.client.request<T.ConnectorsProjectsGetResponse>({ ...options, method: "GET", url: `/api/v1/connectors/faiber/projects` });
+  }
+  /**
+   * Select only currently authorized projects; stale/revoked connection returns409/403.
+   * Calls `PUT /api/v1/connectors/faiber/projects` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  connectorsSelectProjectsPut(data: T.ConnectorsSelectProjectsPutInput, options?: RequestOptions<T.ConnectorsSelectProjectsPutInput>) {
+    return this.client.request<T.ConnectorsSelectProjectsPutResponse, T.ConnectorsSelectProjectsPutInput>({ ...options, method: "PUT", url: `/api/v1/connectors/faiber/projects`, data: data });
+  }
+  /**
    * List current active memberships in nondeleted, nonquarantined organization conversations ordered by last message; direct rooms must retain exactly their private pair.
    * Calls `GET /api/v1/conversations` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -306,6 +449,18 @@ export class ChatOperations extends ServiceApi {
    */
   routesAiSendPost(id: Identifier, data: T.RoutesAiSendPostInput, options?: RequestOptions<T.RoutesAiSendPostInput>) {
     return this.client.request<T.RoutesAiSendPostResponse, T.RoutesAiSendPostInput>({ ...options, method: "POST", url: `/api/v1/conversations/${encodeURIComponent(id)}/ai/messages`, data: data });
+  }
+  /**
+   * Stream assistant speech previews and a final validated reply. Requires chat:ai and conversation membership. Never treat text previews as completed task mutations.
+   * Calls `POST /api/v1/conversations/{id}/ai/messages/stream` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:ai.
+   */
+  routesHandlePostApiV1ConversationsIdAiMessagesStream(id: Identifier, data: T.RoutesHandlePostApiV1ConversationsIdAiMessagesStreamInput, options?: RequestOptions<T.RoutesHandlePostApiV1ConversationsIdAiMessagesStreamInput>) {
+    return this.client.request<T.RoutesHandlePostApiV1ConversationsIdAiMessagesStreamResponse, T.RoutesHandlePostApiV1ConversationsIdAiMessagesStreamInput>({ ...options, method: "POST", url: `/api/v1/conversations/${encodeURIComponent(id)}/ai/messages/stream`, data: data, responseType: "stream", adapter: options?.adapter ?? "fetch" });
   }
   /**
    * List only public pending runtime-input projection keys for the current Agentic thread; arbitrary schema/ui values are preserved and missing upstream keys become null.
@@ -449,6 +604,38 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesRealtimeConfigGetResponse>({ ...options, method: "GET", url: `/api/v1/conversations/${encodeURIComponent(id)}/realtime-config` });
   }
   /**
+   * Search own AI conversation history in SQL. Cursor is bound to q; changed search requires clearing cursor.
+   * Calls `GET /api/v1/conversations/history` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  routesHistoryGetApiV1ConversationsHistory(params?: T.RoutesHistoryGetApiV1ConversationsHistoryQuery, options?: RequestOptions) {
+    return this.client.request<T.RoutesHistoryGetApiV1ConversationsHistoryResponse>({ ...options, method: "GET", url: `/api/v1/conversations/history`, params });
+  }
+  /**
+   * Document extraction limits; requires chat:ai.
+   * Calls `GET /api/v1/document-status` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:ai.
+   */
+  routesStatusGetApiV1DocumentStatus(options?: RequestOptions) {
+    return this.client.request<T.RoutesStatusGetApiV1DocumentStatusResponse>({ ...options, method: "GET", url: `/api/v1/document-status` });
+  }
+  /**
+   * Extract explicitly uploaded document bytes; requires chat:ai and non-guest identity. Unsupported type/size returns400. Bytes are not persisted.
+   * Calls `POST /api/v1/documents/extract` through the shared IDP-aware Faiber client.
+   * @param data Typed binary byte stream.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:ai.
+   */
+  routesExtractPost(data: T.RoutesExtractPostInput, options?: RequestOptions<T.RoutesExtractPostInput>) {
+    return this.client.request<T.RoutesExtractPostResponse, T.RoutesExtractPostInput>({ ...options, method: "POST", url: `/api/v1/documents/extract`, data: data, headers: { "Content-Type": (typeof Blob !== "undefined" && data instanceof Blob && data.type ? data.type : "application/octet-stream"), ...options?.headers } });
+  }
+  /**
    * Server-only fitness plan generation using the deployment Bearer secret and deny-unknown-fields input. Returns parsed model JSON, which is not locally plan-schema validated; 180-second model timeout.
    * Calls `POST /api/v1/fitness/generate` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
@@ -511,6 +698,17 @@ export class ChatOperations extends ServiceApi {
    */
   humanChatNotificationContextGet(id: string, options?: RequestOptions) {
     return this.client.request<T.HumanChatNotificationContextGetResponse>({ ...options, method: "GET", url: `/api/v1/integrations/lms/messages/${encodeURIComponent(id)}/notification-context` });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `POST /api/v1/internal/faiber-task-sync` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted PRODUCT_CHAT_SERVICE_TOKEN Bearer credential; current actor connector, selected project and exact connection version are rechecked..
+   */
+  connectorsInvokePost(data: T.ConnectorsInvokePostInput, options?: RequestOptions<T.ConnectorsInvokePostInput>) {
+    return this.client.request<T.ConnectorsInvokePostResponse, T.ConnectorsInvokePostInput>({ ...options, method: "POST", url: `/api/v1/internal/faiber-task-sync`, data: data });
   }
   /**
    * Server-only Task media import with x-task-import-token and stable UUID; changed source conflicts. OCR returns normalized text/tables/warnings; audio adds duration_ms and is limited to 60 seconds.
@@ -699,6 +897,17 @@ export class ChatOperations extends ServiceApi {
    */
   routesHandlePost(data: T.RoutesHandlePostInput, options?: RequestOptions<T.RoutesHandlePostInput>) {
     return this.client.request<T.RoutesHandlePostResponse, T.RoutesHandlePostInput>({ ...options, method: "POST", url: `/api/v1/speech/voice`, data: data });
+  }
+  /**
+   * Stream authorized, metered PCM speech for a voice session. Requires chat:ai and the actor-owned project session. Returns the full Axios response with a WHATWG stream.
+   * Calls `POST /api/v1/speech/voice/stream` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:ai.
+   */
+  routesStreamPost(data: T.RoutesStreamPostInput, options?: RequestOptions<T.RoutesStreamPostInput>) {
+    return this.client.request<T.RoutesStreamPostResponse, T.RoutesStreamPostInput>({ ...options, method: "POST", url: `/api/v1/speech/voice/stream`, data: data, responseType: "stream", adapter: options?.adapter ?? "fetch" });
   }
   /**
    * Read or mutate current native observer policy with current IDP authority; Bearer-only authorization, exact revision and reason rules apply. See source summary observation policy.

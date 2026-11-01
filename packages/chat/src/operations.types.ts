@@ -68,6 +68,14 @@ export interface RoutesSavePutResponseData extends JsonObject {
 export interface RoutesSavePutResponse extends ApiEnvelope<RoutesSavePutResponseData> {
 }
 
+/** Backend response type: RetentionSettings. */
+export type RoutesGetGetResponse = import("./integrations.js").ChatIntegrationResponse<import("./bridge-contracts.js").ChatMediaRetention>;
+
+/** Backend request type: RetentionSettings. */
+export type RoutesPutPutInput = import("./bridge-contracts.js").ChatMediaRetention;
+/** Backend response type: RetentionSettings. */
+export type RoutesPutPutResponse = import("./integrations.js").ChatIntegrationResponse<import("./bridge-contracts.js").ChatMediaRetention>;
+
 /** Backend response type: Value. */
 export type RoutesModelsGetApiV1AdminSpeechModelsResponse = import("./reviewed-wire.js").SpeechModelsResponse;
 
@@ -126,6 +134,47 @@ export interface RoutesCompleteAttachmentPostResponse extends ApiEnvelope<Routes
 export type RoutesDownloadAttachmentGetResponse = ArrayBuffer | Uint8Array;
 
 /** Backend response type: Value. */
+export type RoutesActionStatusGetResponse = Awaited<ReturnType<import("./integrations.js").ChatIntegrationsApi["action"]>>["data"];
+
+/** Backend response type: Value. */
+export type RoutesApprovePostResponse = Awaited<ReturnType<import("./integrations.js").ChatIntegrationsApi["approve"]>>["data"];
+
+/** Backend response type: Value. */
+export type RoutesCancelPostResponse = Awaited<ReturnType<import("./integrations.js").ChatIntegrationsApi["cancel"]>>["data"];
+
+/** Backend response type: Value. */
+export type RoutesListGetApiV1ConnectorsResponse = Awaited<ReturnType<import("./integrations.js").ChatIntegrationsApi["list"]>>["data"];
+
+/** Backend response type: Value. */
+export type RoutesDisconnectDeleteResponse = Awaited<ReturnType<import("./integrations.js").ChatIntegrationsApi["disconnect"]>>["data"];
+
+/** Backend query type: Callback. */
+export type RoutesOauthCallbackGetQuery = import("./bridge-contracts.js").ConnectorCallbackQuery;
+/** Backend response type: redirect. */
+export type RoutesOauthCallbackGetResponse = void;
+
+/** Backend response type: Value. */
+export type RoutesConnectPostResponse = Awaited<ReturnType<import("./integrations.js").ChatIntegrationsApi["connect"]>>["data"];
+
+/** Backend request type: ToolRequest. */
+export type RoutesInvokePostInput = Parameters<import("./integrations.js").ChatIntegrationsApi["invoke"]>[2];
+/** Backend response type: Value. */
+export type RoutesInvokePostResponse = Awaited<ReturnType<import("./integrations.js").ChatIntegrationsApi["invoke"]>>["data"];
+
+/** Backend query type: Callback. */
+export type ConnectorsCallbackGetQuery = import("./bridge-contracts.js").ConnectorCallbackQuery;
+/** Backend response type: redirect. */
+export type ConnectorsCallbackGetResponse = void;
+
+/** Backend response type: Value. */
+export type ConnectorsProjectsGetResponse = Awaited<ReturnType<import("./integrations.js").ChatIntegrationsApi["projects"]>>["data"];
+
+/** Backend request type: Selection. */
+export type ConnectorsSelectProjectsPutInput = Parameters<import("./integrations.js").ChatIntegrationsApi["selectProjects"]>[0];
+/** Backend response type: Value. */
+export type ConnectorsSelectProjectsPutResponse = Awaited<ReturnType<import("./integrations.js").ChatIntegrationsApi["selectProjects"]>>["data"];
+
+/** Backend response type: Value. */
 export type RoutesListGetResponse = import("./reviewed-wire.js").ChatConversationsResponse;
 
 /** Backend request type: CreateConversation. */
@@ -166,6 +215,11 @@ export interface RoutesAiSendPostInput extends JsonObject {
 }
 /** Backend response type: Value. */
 export type RoutesAiSendPostResponse = import("./reviewed-wire.js").ChatAiResponse;
+
+/** Backend request type: AiMessage. */
+export type RoutesHandlePostApiV1ConversationsIdAiMessagesStreamInput = Parameters<import("./streaming.js").ChatStreamingApi["messages"]>[1];
+/** Backend response type: raw-response. */
+export type RoutesHandlePostApiV1ConversationsIdAiMessagesStreamResponse = Awaited<ReturnType<import("./streaming.js").ChatStreamingApi["messages"]>>["data"];
 
 /** Backend response type: Value. */
 export type RoutesAiRuntimeInputsGetResponse = import("./reviewed-wire.js").ChatRuntimeInputsResponse;
@@ -273,6 +327,19 @@ export type RoutesRealtimeAuthPostResponse = import("./reviewed-wire.js").ChatRe
 /** Backend response type: Value. */
 export type RoutesRealtimeConfigGetResponse = import("./types.js").ChatRealtimeConfigResponse;
 
+/** Backend query type: crate::conversation_history::HistoryQuery. */
+export type RoutesHistoryGetApiV1ConversationsHistoryQuery = NonNullable<Parameters<import("./integrations.js").ChatIntegrationsApi["history"]>[0]>;
+/** Backend response type: Value. */
+export type RoutesHistoryGetApiV1ConversationsHistoryResponse = Awaited<ReturnType<import("./integrations.js").ChatIntegrationsApi["history"]>>["data"];
+
+/** Backend response type: Value. */
+export type RoutesStatusGetApiV1DocumentStatusResponse = Awaited<ReturnType<import("./integrations.js").ChatIntegrationsApi["documentStatus"]>>["data"];
+
+/** Backend request type: binary byte stream. */
+export type RoutesExtractPostInput = Parameters<import("./integrations.js").ChatIntegrationsApi["extractDocument"]>[0];
+/** Backend response type: Value. */
+export type RoutesExtractPostResponse = Awaited<ReturnType<import("./integrations.js").ChatIntegrationsApi["extractDocument"]>>["data"];
+
 /** Backend request type: Generation. */
 export interface FitnessGeneratePostInput extends JsonObject {
   "order_id": string;
@@ -305,11 +372,16 @@ export interface FitnessSaveSettingsPutInput extends JsonObject {
 /** Backend response type: Value. */
 export type FitnessSaveSettingsPutResponse = import("./reviewed-wire.js").FitnessSettingsResponse;
 
-/** Backend response type: Value. */
+/** Backend response type: ImageStatus. */
 export type RoutesStatusGetApiV1ImageStatusResponse = import("./reviewed-wire.js").ImageStatusResponse;
 
 /** Backend response type: Value. */
 export type HumanChatNotificationContextGetResponse = import("./personal.js").PersonalChatResponse<import("./personal.js").ChatNotificationContext>;
+
+/** Backend request type: Input. */
+export type ConnectorsInvokePostInput = import("./bridge-contracts.js").FaiberTaskSyncInput;
+/** Backend response type: Value. */
+export type ConnectorsInvokePostResponse = import("./integrations.js").ChatIntegrationResponse<import("./bridge-contracts.js").FaiberTaskSyncResult>;
 
 /** Backend request type: MediaInput. */
 export type MemoryImportExtractPostInput = import("./reviewed-wire.js").ImportedMediaInput;
@@ -398,6 +470,11 @@ export type RoutesSynthesizePostResponse = import("./reviewed-wire.js").SpeechAu
 export type RoutesHandlePostInput = import("./assistant-voice.js").AssistantVoiceInput;
 /** Backend response type: Value. */
 export type RoutesHandlePostResponse = import("./assistant-voice.js").AssistantVoiceResponse;
+
+/** Backend request type: VoiceInput. */
+export type RoutesStreamPostInput = Parameters<import("./streaming.js").ChatStreamingApi["audio"]>[0];
+/** Backend response type: raw-response. */
+export type RoutesStreamPostResponse = Awaited<ReturnType<import("./streaming.js").ChatStreamingApi["audio"]>>["data"];
 
 /** Backend response type: Value. */
 export type NativeAccessGetStatusGetResponse = import("@faiber/sdk-core").NativeSummaryAccessResponse;

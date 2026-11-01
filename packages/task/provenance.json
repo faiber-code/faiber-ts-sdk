@@ -1,32 +1,35 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-task",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "source_revisions": {
     "task": {
       "directory": "infera-task",
-      "revision": "32cc874e5f26dc3fbd8055cc491c7b4602746491"
+      "revision": "50d337d9aed31faf5c1a06a25a1c5a79ecf86f20"
     }
   },
   "package_source_sha256": {
-    "packages/task/src/campaigns.ts": "93b30063c55373d2787b12f520d7305720285c6c53c886b2d348dcac559436f9",
-    "packages/task/src/collaboration.ts": "9fb873e4cd78263ae2e6657ca22e26e05718890ba76f110ec693494de8c73220",
-    "packages/task/src/feedback.ts": "22d27abdfbb872dad7c261831cd573ef5ac528dd796bb166d522639970b663e1",
-    "packages/task/src/index.ts": "9a534e513490b432db1f0e868b1e7cf40801fafb7f269e089d0a9d4d133af89e",
+    "packages/task/src/bridge-contracts.ts": "02036385c6f124d68268dfde2f6cb2c50b2c69f433f1c5e37f511507c0d5544d",
+    "packages/task/src/campaigns.ts": "4946207fb4bc2c19423f10708b7d4f863ee5d15c29fb85b32dba2295a7442efd",
+    "packages/task/src/collaboration.ts": "bb9eeea8a16fd92020d76833e06ecee4acf8dfe48a6248f4ef52c64ac99425c1",
+    "packages/task/src/feedback.ts": "3457cbf0f81eb576dadd03c366e49d848d4a22b51e56e962a9885dde842704e7",
+    "packages/task/src/index.ts": "5fd09be9174fd1ce0449ffb97f9d6b2cc097fb9d333aea6b9df26dd22bd285dd",
+    "packages/task/src/integrations.ts": "94d3646c43bbda5ea304ef875155bfa5c6dd53e1638f6a55abe4f0cd34370706",
     "packages/task/src/offline.ts": "c11a86bba3c947e9e6ab877f976252dc0dfea59e263f0827828998f24b2d3af4",
-    "packages/task/src/operations.ts": "3b890e1cd21a57f3d43d807156ed36071ccf86c53d5d0cfb086000c89e795adc",
-    "packages/task/src/operations.types.ts": "24ef41615f2ac6fb7a66b734d4b172dcad1b175ba5b11a81a8e66dfd23b4e3e8",
-    "packages/task/src/types.ts": "d8c12ac0c9f1cd0b55fa41bb58f88e7166093b7cb7a9e87365ce7c18e9ed4adf",
-    "packages/task/src/wire.types.ts": "ec8b1432495d968d083df50e5d600a997a9611c1087f96dba97a26057a1aa633",
+    "packages/task/src/operations.ts": "7f0e573e35a718df0d91231d94a27328ef6c1a23d9f9cb9bf592948cc5f65a17",
+    "packages/task/src/operations.types.ts": "38ccd186241537b90d222b94d7f24bd64ff82356753db7eea732e7768d56b497",
+    "packages/task/src/space-rewards.ts": "8e73bb5c341d7b7203d08b9f1fbc8b2c04af26a9d7d2df7064e1ae76d4d1e258",
+    "packages/task/src/types.ts": "a2b73782717a4fa15be181febe5300f76e770d518f6baf1a70519b48f9dde30c",
+    "packages/task/src/wire.types.ts": "8f2341f5f705fc9dd0a32d27c5584d06b9ebcd0733c36d2b85c3b88ff96159d0",
     "packages/task/src/workspace.ts": "6873fb559d167e05ca8480ad6890f1732735f36cad30b197610d21829ff8b851"
   },
   "capability_review_sha256": "85188e40cb1f2779d5890227f2516570be241833019be34247d0adecc6b9670b",
-  "source_pin_file_sha256": "d7cfaa0ed6f055e876a0716e167a37617dead70d56bd37b18c842c275ba9a31f",
-  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
+  "source_pin_file_sha256": "e929b4038af893213725d9c9bb687fd79652106eb274244d7e206a1bafd21e8d",
+  "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
   "public_contract": {
     "kind": "source-extracted-http",
-    "operation_count": 128,
-    "sha256": "4829a3887752d81b5f7ef2572758b69cc36125ba727db5194bed0e3cf8b0bd00"
+    "operation_count": 168,
+    "sha256": "0d5d095e38ad8b3f7f34e6dd141f66c46dcfa9fb6a3d45ab06471dad7b1878b1"
   },
   "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
 }

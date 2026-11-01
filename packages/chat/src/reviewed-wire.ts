@@ -48,7 +48,7 @@ export type SpeechModelCatalog = JsonValue;
 export type SpeechModelsResponse = ChatEnvelope<SpeechModelCatalog>;
 export interface FitnessModelCatalog {llm:AgenticModelCatalog;speech:SpeechModelCatalog}
 export type FitnessModelsResponse = ChatEnvelope<FitnessModelCatalog>;
-export interface ImageStatus {enabled:boolean}
+export interface ImageStatus {enabled:boolean;chat_images?:boolean}
 export type ImageStatusResponse = ChatEnvelope<ImageStatus>;
 /** Prompt-derived values are only key-filtered in fitness::extract_intake; their value types are not checked. */
 export interface FitnessIntakeFields {

@@ -632,6 +632,27 @@ export interface DashboardDashboardShowGetResponseData extends JsonObject {
 export interface DashboardDashboardShowGetResponse extends ApiEnvelope<DashboardDashboardShowGetResponseData> {
 }
 
+/** Backend response type: Value. */
+export type DoDoxAuditGetResponse = Awaited<ReturnType<import("./do-dox.js").DoEconomyApi["audit"]>>["data"];
+
+/** Backend request type: MarketingFund. */
+export type DoDoxMarketingFundPostInput = Parameters<import("./do-dox.js").DoEconomyApi["fundCampaign"]>[0];
+/** Backend response type: Value. */
+export type DoDoxMarketingFundPostResponse = Awaited<ReturnType<import("./do-dox.js").DoEconomyApi["fundCampaign"]>>["data"];
+
+/** Backend response type: Value. */
+export type DoDoxGetPolicyGetResponse = Awaited<ReturnType<import("./do-dox.js").DoEconomyApi["policy"]>>["data"];
+
+/** Backend request type: PolicyEdit. */
+export type DoDoxSavePolicyPutInput = Parameters<import("./do-dox.js").DoEconomyApi["savePolicy"]>[0];
+/** Backend response type: Value. */
+export type DoDoxSavePolicyPutResponse = Awaited<ReturnType<import("./do-dox.js").DoEconomyApi["savePolicy"]>>["data"];
+
+/** Backend request type: RiskEdit. */
+export type DoDoxRiskPostInput = Parameters<import("./do-dox.js").DoEconomyApi["setRisk"]>[0];
+/** Backend response type: Value. */
+export type DoDoxRiskPostResponse = Awaited<ReturnType<import("./do-dox.js").DoEconomyApi["setRisk"]>>["data"];
+
 /** Backend response type: Capabilities. */
 export type EconomyCapabilitiesGetResponse = import("./types.js").EconomyCapabilitiesResponse;
 
@@ -790,6 +811,47 @@ export interface IntegrationRabbitmqIntegrationShowGetResponseData extends JsonO
 }
 export interface IntegrationRabbitmqIntegrationShowGetResponse extends ApiEnvelope<IntegrationRabbitmqIntegrationShowGetResponseData> {
 }
+
+/** Backend request type: Account. */
+export type ProfileAiCreditsBalanceRoutePostInput = import("./ledger-contracts.js").AssetAiCreditAccount;
+/** Backend response type: Value. */
+export type ProfileAiCreditsBalanceRoutePostResponse = import("./ledger-contracts.js").AssetCreditResponse<import("./ledger-contracts.js").AssetAiCreditBalance>;
+
+/** Backend request type: Grant. */
+export type ProfileAiCreditsGrantRoutePostInput = import("./ledger-contracts.js").AssetAiCreditGrant;
+/** Backend response type: Value. */
+export type ProfileAiCreditsGrantRoutePostResponse = import("./ledger-contracts.js").AssetCreditResponse<import("./ledger-contracts.js").AssetAiCreditBalance>;
+
+/** Backend request type: Reserve. */
+export type ProfileAiCreditsReserveRoutePostInput = import("./ledger-contracts.js").AssetAiCreditReserve;
+/** Backend response type: Value. */
+export type ProfileAiCreditsReserveRoutePostResponse = import("./ledger-contracts.js").AssetCreditResponse<import("./ledger-contracts.js").AssetAiCreditReservation>;
+
+/** Backend request type: Settle. */
+export type ProfileAiCreditsSettleRoutePostInput = import("./ledger-contracts.js").AssetAiCreditSettle;
+/** Backend response type: Value. */
+export type ProfileAiCreditsSettleRoutePostResponse = import("./ledger-contracts.js").AssetCreditResponse<import("./ledger-contracts.js").AssetAiCreditReservation>;
+
+/** Backend request type: Envelope. */
+export type DoDoxCommandPostInput = import("./ledger-contracts.js").AssetRewardCommand;
+/** Backend response type: Value. */
+export type DoDoxCommandPostResponse = import("./do-dox.js").DoResponse<import("./ledger-contracts.js").AssetRewardReceipt>;
+
+/** Backend request type: Read. */
+export type DoDoxReadPostInput = import("./ledger-contracts.js").AssetRewardRead;
+/** Backend response type: Value. */
+export type DoDoxReadPostResponse = import("./do-dox.js").DoResponse<import("./ledger-contracts.js").AssetRewardReadResult>;
+
+/** Backend response type: FinancialConfiguration. */
+export type DoDoxFinancialConfigurationGetResponse = import("./do-dox.js").DoResponse<import("./ledger-contracts.js").AssetRewardReadiness>;
+
+/** Backend request type: RefundRequest. */
+export type DoDoxCreatePostInput = Parameters<import("./do-dox.js").DoRefundIntegrationApi["reserve"]>[0];
+/** Backend response type: RefundReceipt. */
+export type DoDoxCreatePostResponse = Awaited<ReturnType<import("./do-dox.js").DoRefundIntegrationApi["reserve"]>>["data"];
+
+/** Backend response type: RefundReceipt. */
+export type DoDoxReadGetResponse = Awaited<ReturnType<import("./do-dox.js").DoRefundIntegrationApi["receipt"]>>["data"];
 
 /** Backend request type: PlanProduct. */
 export type FitnessPublishPutInput = import("./contracts.types.js").FitnessAssetProductInput;

@@ -57,3 +57,5 @@ export interface ProjectPlanAccess { allowed:boolean }
 /** PageMeta values are nullable when the repository does not supply cursor/total counts. */
 export interface TaskPaginationMeta {next_cursor?:string|null;previous_cursor?:string|null;limit:number;total?:number|null}
 export interface TaskPageResponse<T> extends TaskListResponse<T> {meta:TaskPaginationMeta}
+
+export interface CommentPage {items:Comment[];next_cursor:string|null}

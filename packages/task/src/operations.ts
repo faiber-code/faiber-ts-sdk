@@ -103,6 +103,153 @@ export class TaskOperations extends ServiceApi {
     return this.client.request<T.RoutesDownloadGetResponse>({ ...options, method: "GET", url: `/api/v1/attachments/${encodeURIComponent(id)}/download`, responseType: "arraybuffer" });
   }
   /**
+   * Lists own assignments or a permitted moderation/appeals queue.
+   * Calls `ANY /api/v1/campaign-assignments` through the shared IDP-aware Faiber client.
+   * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsProxyAnyApiV1CampaignAssignments(method: import("@faiber/sdk-core").HttpRequestMethod, params?: T.CampaignsProxyAnyApiV1CampaignAssignmentsQuery, options?: RequestOptions) {
+    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
+    if (method === "CONNECT" && !options?.adapter) throw new TypeError("CONNECT requires an explicit tunnel-capable Axios adapter");
+    return this.client.request<T.CampaignsProxyAnyApiV1CampaignAssignmentsResponse>({ ...options, method: method, url: `/api/v1/campaign-assignments`, params });
+  }
+  /**
+   * Gets private evidence, submission versions and review history.
+   * Calls `ANY /api/v1/campaign-assignments/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsProxyAnyApiV1CampaignAssignmentsId(id: Identifier, method: import("@faiber/sdk-core").HttpRequestMethod, options?: RequestOptions) {
+    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
+    if (method === "CONNECT" && !options?.adapter) throw new TypeError("CONNECT requires an explicit tunnel-capable Axios adapter");
+    return this.client.request<T.CampaignsProxyAnyApiV1CampaignAssignmentsIdResponse>({ ...options, method: method, url: `/api/v1/campaign-assignments/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Uploads one private proof file. The server scans and validates it before acceptance.
+   * Calls `ANY /api/v1/campaign-assignments/{id}/files` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsProxyAnyApiV1CampaignAssignmentsIdFiles(id: Identifier, method: import("@faiber/sdk-core").HttpRequestMethod, options?: RequestOptions<T.CampaignsProxyAnyApiV1CampaignAssignmentsIdFilesInput> & { data?: T.CampaignsProxyAnyApiV1CampaignAssignmentsIdFilesInput }) {
+    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
+    if (method === "CONNECT" && !options?.adapter) throw new TypeError("CONNECT requires an explicit tunnel-capable Axios adapter");
+    return this.client.request<T.CampaignsProxyAnyApiV1CampaignAssignmentsIdFilesResponse, T.CampaignsProxyAnyApiV1CampaignAssignmentsIdFilesInput>({ ...options, method: method, url: `/api/v1/campaign-assignments/${encodeURIComponent(id)}/files` });
+  }
+  /**
+   * Reviews or appeals a submission; self-approval is forbidden.
+   * Calls `ANY /api/v1/campaign-assignments/{id}/review` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsProxyAnyApiV1CampaignAssignmentsIdReview(id: Identifier, method: import("@faiber/sdk-core").HttpRequestMethod, options?: RequestOptions<T.CampaignsProxyAnyApiV1CampaignAssignmentsIdReviewInput> & { data?: T.CampaignsProxyAnyApiV1CampaignAssignmentsIdReviewInput }) {
+    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
+    if (method === "CONNECT" && !options?.adapter) throw new TypeError("CONNECT requires an explicit tunnel-capable Axios adapter");
+    return this.client.request<T.CampaignsProxyAnyApiV1CampaignAssignmentsIdReviewResponse, T.CampaignsProxyAnyApiV1CampaignAssignmentsIdReviewInput>({ ...options, method: method, url: `/api/v1/campaign-assignments/${encodeURIComponent(id)}/review` });
+  }
+  /**
+   * Submits clean attachment IDs or HTTPS proof links using the current assignment version.
+   * Calls `ANY /api/v1/campaign-assignments/{id}/submit` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsProxyAnyApiV1CampaignAssignmentsIdSubmit(id: Identifier, method: import("@faiber/sdk-core").HttpRequestMethod, options?: RequestOptions<T.CampaignsProxyAnyApiV1CampaignAssignmentsIdSubmitInput> & { data?: T.CampaignsProxyAnyApiV1CampaignAssignmentsIdSubmitInput }) {
+    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
+    if (method === "CONNECT" && !options?.adapter) throw new TypeError("CONNECT requires an explicit tunnel-capable Axios adapter");
+    return this.client.request<T.CampaignsProxyAnyApiV1CampaignAssignmentsIdSubmitResponse, T.CampaignsProxyAnyApiV1CampaignAssignmentsIdSubmitInput>({ ...options, method: method, url: `/api/v1/campaign-assignments/${encodeURIComponent(id)}/submit` });
+  }
+  /**
+   * Downloads evidence only for its participant, moderator or authorized appeal operator.
+   * Calls `ANY /api/v1/campaign-files/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsProxyAnyApiV1CampaignFilesId(id: Identifier, method: import("@faiber/sdk-core").HttpRequestMethod, options?: RequestOptions) {
+    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
+    if (method === "CONNECT" && !options?.adapter) throw new TypeError("CONNECT requires an explicit tunnel-capable Axios adapter");
+    return this.client.request<T.CampaignsProxyAnyApiV1CampaignFilesIdResponse>({ ...options, method: method, url: `/api/v1/campaign-files/${encodeURIComponent(id)}`, responseType: "arraybuffer" });
+  }
+  /**
+   * Starts an eligible job; pending funding must complete before submission.
+   * Calls `ANY /api/v1/campaign-jobs/{id}/start` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsProxyAnyApiV1CampaignJobsIdStart(id: Identifier, method: import("@faiber/sdk-core").HttpRequestMethod, options?: RequestOptions<T.CampaignsProxyAnyApiV1CampaignJobsIdStartInput> & { data?: T.CampaignsProxyAnyApiV1CampaignJobsIdStartInput }) {
+    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
+    if (method === "CONNECT" && !options?.adapter) throw new TypeError("CONNECT requires an explicit tunnel-capable Axios adapter");
+    return this.client.request<T.CampaignsProxyAnyApiV1CampaignJobsIdStartResponse, T.CampaignsProxyAnyApiV1CampaignJobsIdStartInput>({ ...options, method: method, url: `/api/v1/campaign-jobs/${encodeURIComponent(id)}/start` });
+  }
+  /**
+   * Lists authorized campaigns, 25 per page; view=public never includes private campaigns. Creates a draft; Dox requires a private authorized space.
+   * Calls `ANY /api/v1/campaigns` through the shared IDP-aware Faiber client.
+   * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.
+   * @param data Typed JSON request body.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsProxyAnyApiV1Campaigns(method: import("@faiber/sdk-core").HttpRequestMethod, params?: T.CampaignsProxyAnyApiV1CampaignsQuery, options?: RequestOptions<T.CampaignsProxyAnyApiV1CampaignsInput> & { data?: T.CampaignsProxyAnyApiV1CampaignsInput }) {
+    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
+    if (method === "CONNECT" && !options?.adapter) throw new TypeError("CONNECT requires an explicit tunnel-capable Axios adapter");
+    return this.client.request<T.CampaignsProxyAnyApiV1CampaignsResponse, T.CampaignsProxyAnyApiV1CampaignsInput>({ ...options, method: method, url: `/api/v1/campaigns`, params });
+  }
+  /**
+   * Gets visible campaign metadata and jobs. Proof and participant identities are private. Mutates membership, publication, budget or closure; owner permissions apply.
+   * Calls `ANY /api/v1/campaigns/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsProxyAnyApiV1CampaignsId(id: Identifier, method: import("@faiber/sdk-core").HttpRequestMethod, options?: RequestOptions<T.CampaignsProxyAnyApiV1CampaignsIdInput> & { data?: T.CampaignsProxyAnyApiV1CampaignsIdInput }) {
+    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
+    if (method === "CONNECT" && !options?.adapter) throw new TypeError("CONNECT requires an explicit tunnel-capable Axios adapter");
+    return this.client.request<T.CampaignsProxyAnyApiV1CampaignsIdResponse, T.CampaignsProxyAnyApiV1CampaignsIdInput>({ ...options, method: method, url: `/api/v1/campaigns/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Adds a job to an owned draft; accepted reward terms are immutable.
+   * Calls `ANY /api/v1/campaigns/{id}/jobs` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsProxyAnyApiV1CampaignsIdJobs(id: Identifier, method: import("@faiber/sdk-core").HttpRequestMethod, options?: RequestOptions<T.CampaignsProxyAnyApiV1CampaignsIdJobsInput> & { data?: T.CampaignsProxyAnyApiV1CampaignsIdJobsInput }) {
+    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
+    if (method === "CONNECT" && !options?.adapter) throw new TypeError("CONNECT requires an explicit tunnel-capable Axios adapter");
+    return this.client.request<T.CampaignsProxyAnyApiV1CampaignsIdJobsResponse, T.CampaignsProxyAnyApiV1CampaignsIdJobsInput>({ ...options, method: method, url: `/api/v1/campaigns/${encodeURIComponent(id)}/jobs` });
+  }
+  /**
    * Config. Returns the Task status/message/data envelope with the full Axios status and headers. Private uploads remain quarantined until accepted; current task/note scope and binding rules are rechecked.
    * Calls `GET /api/v1/collaboration/config` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -121,6 +268,38 @@ export class TaskOperations extends ServiceApi {
    */
   routesEventsGet(options?: RequestOptions) {
     return this.client.request<T.RoutesEventsGetResponse>({ ...options, method: "GET", url: `/api/v1/events`, responseType: "stream", adapter: options?.adapter ?? "fetch" });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `GET /api/v1/faiber-feedback/capabilities` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Short-lived x-faiber-feedback-grant bound to exact GET path/query plus workspace-owned developer read policy; not a tenant identity. mine=true is forbidden..
+   */
+  feedbackCapabilitiesGetApiV1FaiberFeedbackCapabilities(options?: RequestOptions) {
+    return this.client.request<T.FeedbackCapabilitiesGetApiV1FaiberFeedbackCapabilitiesResponse>({ ...options, method: "GET", url: `/api/v1/faiber-feedback/capabilities` });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `GET /api/v1/faiber-feedback/requests` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Short-lived x-faiber-feedback-grant bound to exact GET path/query plus workspace-owned developer read policy; not a tenant identity. mine=true is forbidden..
+   */
+  feedbackIndexGetApiV1FaiberFeedbackRequests(params?: T.FeedbackIndexGetApiV1FaiberFeedbackRequestsQuery, options?: RequestOptions) {
+    return this.client.request<T.FeedbackIndexGetApiV1FaiberFeedbackRequestsResponse>({ ...options, method: "GET", url: `/api/v1/faiber-feedback/requests`, params });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `GET /api/v1/faiber-feedback/requests/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Short-lived x-faiber-feedback-grant bound to exact GET path/query plus workspace-owned developer read policy; not a tenant identity. mine=true is forbidden..
+   */
+  feedbackShowGetApiV1FaiberFeedbackRequestsId(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.FeedbackShowGetApiV1FaiberFeedbackRequestsIdResponse>({ ...options, method: "GET", url: `/api/v1/faiber-feedback/requests/${encodeURIComponent(id)}` });
   }
   /**
    * Assignees. Returns the Task status/message/data envelope with the full Axios status and headers. Feedback realm identity is required; no platform fallback. Optional X-Feedback-Reporter-Id fences capture identity (409 requires fresh capture); IDP role grants and branch/stage checks remain authoritative.
@@ -272,6 +451,73 @@ export class TaskOperations extends ServiceApi {
    */
   routesUseGuestLinkPost(data: T.RoutesUseGuestLinkPostInput, options?: RequestOptions<T.RoutesUseGuestLinkPostInput>) {
     return this.client.request<T.RoutesUseGuestLinkPostResponse, T.RoutesUseGuestLinkPostInput>({ ...options, method: "POST", url: `/api/v1/guest-links/use`, data: data });
+  }
+  /**
+   * Read this actor's Faiber project synchronization settings. Requires task:access:use; settings are actor-scoped.
+   * Calls `GET /api/v1/integrations/faiber/{project}/sync` through the shared IDP-aware Faiber client.
+   * @param project Backend path identifier `project`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  faiberSyncSettingsGet(project: Identifier, options?: RequestOptions) {
+    return this.client.request<T.FaiberSyncSettingsGetResponse>({ ...options, method: "GET", url: `/api/v1/integrations/faiber/${encodeURIComponent(project)}/sync` });
+  }
+  /**
+   * Save versioned settings after checking source connection and destination project permissions. 409 for stale settings; disabling remains possible after revocation.
+   * Calls `PUT /api/v1/integrations/faiber/{project}/sync` through the shared IDP-aware Faiber client.
+   * @param project Backend path identifier `project`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  faiberSyncSavePut(project: Identifier, data: T.FaiberSyncSavePutInput, options?: RequestOptions<T.FaiberSyncSavePutInput>) {
+    return this.client.request<T.FaiberSyncSavePutResponse, T.FaiberSyncSavePutInput>({ ...options, method: "PUT", url: `/api/v1/integrations/faiber/${encodeURIComponent(project)}/sync`, data: data });
+  }
+  /**
+   * Queue a sync attempt; does not imply imported data is already available.
+   * Calls `POST /api/v1/integrations/faiber/{project}/sync/run` through the shared IDP-aware Faiber client.
+   * @param project Backend path identifier `project`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  faiberSyncRetryPost(project: Identifier, options?: RequestOptions) {
+    return this.client.request<T.FaiberSyncRetryPostResponse>({ ...options, method: "POST", url: `/api/v1/integrations/faiber/${encodeURIComponent(project)}/sync/run` });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `POST /api/v1/internal/campaign-notification` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted CAMPAIGN_SCOPE_SERVICE_TOKEN Bearer credential; caller must enforce actor permissions. Never put this credential in browser code..
+   */
+  campaignsNotificationPost(data: T.CampaignsNotificationPostInput, options?: RequestOptions<T.CampaignsNotificationPostInput>) {
+    return this.client.request<T.CampaignsNotificationPostResponse, T.CampaignsNotificationPostInput>({ ...options, method: "POST", url: `/api/v1/internal/campaign-notification`, data: data });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `POST /api/v1/internal/campaign-referral-facts` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted CAMPAIGN_SCOPE_SERVICE_TOKEN Bearer credential; caller must enforce actor permissions. Never put this credential in browser code..
+   */
+  campaignsFactsPost(data: T.CampaignsFactsPostInput, options?: RequestOptions<T.CampaignsFactsPostInput>) {
+    return this.client.request<T.CampaignsFactsPostResponse, T.CampaignsFactsPostInput>({ ...options, method: "POST", url: `/api/v1/internal/campaign-referral-facts`, data: data });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `POST /api/v1/internal/campaign-scope` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted CAMPAIGN_SCOPE_SERVICE_TOKEN Bearer credential; caller must enforce actor permissions. Never put this credential in browser code..
+   */
+  campaignsScopePost(data: T.CampaignsScopePostInput, options?: RequestOptions<T.CampaignsScopePostInput>) {
+    return this.client.request<T.CampaignsScopePostResponse, T.CampaignsScopePostInput>({ ...options, method: "POST", url: `/api/v1/internal/campaign-scope`, data: data });
   }
   /**
    * List. Returns the Task status/message/data envelope with the full Axios status and headers.
@@ -604,6 +850,27 @@ export class TaskOperations extends ServiceApi {
     return this.client.request<T.RoutesPutPreferencesPutResponse, T.RoutesPutPreferencesPutInput>({ ...options, method: "PUT", url: `/api/v1/notification-preferences`, data: data });
   }
   /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `GET /api/v1/offline-sync` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  routesCapabilitiesGet(options?: RequestOptions) {
+    return this.client.request<T.RoutesCapabilitiesGetResponse>({ ...options, method: "GET", url: `/api/v1/offline-sync` });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `POST /api/v1/offline-sync` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  routesApplyPostApiV1OfflineSync(data: T.RoutesApplyPostApiV1OfflineSyncInput, options?: RequestOptions<T.RoutesApplyPostApiV1OfflineSyncInput>) {
+    return this.client.request<T.RoutesApplyPostApiV1OfflineSyncResponse, T.RoutesApplyPostApiV1OfflineSyncInput>({ ...options, method: "POST", url: `/api/v1/offline-sync`, data: data });
+  }
+  /**
    * Upsert performance policy. Returns the Task status/message/data envelope with the full Axios status and headers.
    * Calls `PUT /api/v1/performance/policies` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
@@ -678,6 +945,29 @@ export class TaskOperations extends ServiceApi {
    */
   routesUsersGet(params: T.RoutesUsersGetQuery, options?: RequestOptions) {
     return this.client.request<T.RoutesUsersGetResponse>({ ...options, method: "GET", url: `/api/v1/plans/admin/users`, params });
+  }
+  /**
+   * Inspect an authorized admin target's subscription and credit balance. Upstream failure sets credit_unavailable without inventing a balance.
+   * Calls `GET /api/v1/plans/admin/users/{user_id}` through the shared IDP-aware Faiber client.
+   * @param userId Backend path identifier `user_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  routesAdminUserGet(userId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesAdminUserGetResponse>({ ...options, method: "GET", url: `/api/v1/plans/admin/users/${encodeURIComponent(userId)}` });
+  }
+  /**
+   * Record an explicit, audited entitlement adjustment. Stable request IDs prevent double grants; plan changes require the returned state precondition. queued means durable delivery is pending.
+   * Calls `POST /api/v1/plans/admin/users/{user_id}/adjustments` through the shared IDP-aware Faiber client.
+   * @param userId Backend path identifier `user_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  routesAdminAdjustPost(userId: Identifier, data: T.RoutesAdminAdjustPostInput, options?: RequestOptions<T.RoutesAdminAdjustPostInput>) {
+    return this.client.request<T.RoutesAdminAdjustPostResponse, T.RoutesAdminAdjustPostInput>({ ...options, method: "POST", url: `/api/v1/plans/admin/users/${encodeURIComponent(userId)}/adjustments`, data: data });
   }
   /**
    * Checkout. Returns the Task status/message/data envelope with the full Axios status and headers.
@@ -823,6 +1113,54 @@ export class TaskOperations extends ServiceApi {
     return this.client.request<T.RoutesProjectChecklistsGetResponse>({ ...options, method: "GET", url: `/api/v1/projects/${encodeURIComponent(id)}/checklists` });
   }
   /**
+   * Reads one's private Dox score in an authorized space. Read settings, wallet, products and a 100-entry history page. Pass history_cursor as before to continue. Requires project.read and current membership.
+   * Calls `GET /api/v1/projects/{id}/dox` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsReadGet(id: Identifier, params?: T.CampaignsReadGetQuery, options?: RequestOptions) {
+    return this.client.request<T.CampaignsReadGetResponse>({ ...options, method: "GET", url: `/api/v1/projects/${encodeURIComponent(id)}/dox`, params });
+  }
+  /**
+   * Configure rewards as the creator with project.update. Starts disabled; managed requires selected members. 409 on stale version; allocation is 500 per member, once.
+   * Calls `POST /api/v1/projects/{id}/dox` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsConfigurePost(id: Identifier, data: T.CampaignsConfigurePostInput, options?: RequestOptions<T.CampaignsConfigurePostInput>) {
+    return this.client.request<T.CampaignsConfigurePostResponse, T.CampaignsConfigurePostInput>({ ...options, method: "POST", url: `/api/v1/projects/${encodeURIComponent(id)}/dox`, data: data });
+  }
+  /**
+   * Create or update an owner-managed product. Positive integer amounts, title <=300; updates require its current version.
+   * Calls `POST /api/v1/projects/{id}/dox/products` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsProductPost(id: Identifier, data: T.CampaignsProductPostInput, options?: RequestOptions<T.CampaignsProductPostInput>) {
+    return this.client.request<T.CampaignsProductPostResponse, T.CampaignsProductPostInput>({ ...options, method: "POST", url: `/api/v1/projects/${encodeURIComponent(id)}/dox/products`, data: data });
+  }
+  /**
+   * Purchase a versioned product with reward.redeem; durable settlement may remain processing. Successful transfers notify current members.
+   * Calls `POST /api/v1/projects/{id}/dox/purchase` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsPurchasePost(id: Identifier, data: T.CampaignsPurchasePostInput, options?: RequestOptions<T.CampaignsPurchasePostInput>) {
+    return this.client.request<T.CampaignsPurchasePostResponse, T.CampaignsPurchasePostInput>({ ...options, method: "POST", url: `/api/v1/projects/${encodeURIComponent(id)}/dox/purchase`, data: data });
+  }
+  /**
    * Grant project access. Returns the Task status/message/data envelope with the full Axios status and headers.
    * Calls `POST /api/v1/projects/{id}/grants` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -867,6 +1205,55 @@ export class TaskOperations extends ServiceApi {
    */
   routesGetGetApiV1ProjectsIdMemoryUsage(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesGetGetApiV1ProjectsIdMemoryUsageResponse>({ ...options, method: "GET", url: `/api/v1/projects/${encodeURIComponent(id)}/memory-usage` });
+  }
+  /**
+   * Get the next completed task and remaining count, optionally a specific task. Requires selected managed-reward moderator, membership and approval.review. Own tasks are excluded.
+   * Calls `GET /api/v1/projects/{id}/moderation` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use and local approval.review; enabled managed rewards, selected active moderator; no self review.
+   */
+  campaignsQueueReadGet(id: Identifier, params?: T.CampaignsQueueReadGetQuery, options?: RequestOptions) {
+    return this.client.request<T.CampaignsQueueReadGetResponse>({ ...options, method: "GET", url: `/api/v1/projects/${encodeURIComponent(id)}/moderation`, params });
+  }
+  /**
+   * Approve/lock with an integer Dox amount (zero allowed), reject to Todo, or skip to the queue end. Requires moderator access and current task version. 409 on concurrent review; never pays twice.
+   * Calls `POST /api/v1/projects/{id}/moderation/{task}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param task Backend path identifier `task`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsDecidePost(id: Identifier, task: Identifier, data: T.CampaignsDecidePostInput, options?: RequestOptions<T.CampaignsDecidePostInput>) {
+    return this.client.request<T.CampaignsDecidePostResponse, T.CampaignsDecidePostInput>({ ...options, method: "POST", url: `/api/v1/projects/${encodeURIComponent(id)}/moderation/${encodeURIComponent(task)}`, data: data });
+  }
+  /**
+   * Page all visible tasks by review status. Requires moderator access; page is one-based, page_size 1..100 (default20).
+   * Calls `GET /api/v1/projects/{id}/moderation/tasks` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use and local approval.review; enabled managed rewards, selected active moderator; no self review.
+   */
+  campaignsListGet(id: Identifier, params?: T.CampaignsListGetQuery, options?: RequestOptions) {
+    return this.client.request<T.CampaignsListGetResponse>({ ...options, method: "GET", url: `/api/v1/projects/${encodeURIComponent(id)}/moderation/tasks`, params });
+  }
+  /**
+   * Page the full space ledger or processing/failed attempts; moderator-only. account is space or user:UUID; direction requires account. Summary includes all space balances, independent of filters.
+   * Calls `GET /api/v1/projects/{id}/moderation/transactions` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use and local approval.review; enabled managed rewards, selected active moderator; no self review.
+   */
+  campaignsTransactionsGet(id: Identifier, params?: T.CampaignsTransactionsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.CampaignsTransactionsGetResponse>({ ...options, method: "GET", url: `/api/v1/projects/${encodeURIComponent(id)}/moderation/transactions`, params });
   }
   /**
    * Get. Returns the Task status/message/data envelope with the full Axios status and headers.
@@ -1000,6 +1387,83 @@ export class TaskOperations extends ServiceApi {
    */
   workspaceValidate(data: T.RoutesValidateProposalPostInput, options?: RequestOptions<T.RoutesValidateProposalPostInput>) {
     return this.client.request<T.RoutesValidateProposalPostResponse, T.RoutesValidateProposalPostInput>({ ...options, method: "POST", url: `/api/v1/review-proposals/validate`, data: data });
+  }
+  /**
+   * Gets the global Do wallet, catalog, offers and account-wide streak.
+   * Calls `GET /api/v1/rewards` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsOverviewGet(options?: RequestOptions) {
+    return this.client.request<T.CampaignsOverviewGetResponse>({ ...options, method: "GET", url: `/api/v1/rewards` });
+  }
+  /**
+   * Records one server-dated check-in, with replay protection.
+   * Calls `POST /api/v1/rewards/checkin` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsCheckinPost(data: T.CampaignsCheckinPostInput, options?: RequestOptions<T.CampaignsCheckinPostInput>) {
+    return this.client.request<T.CampaignsCheckinPostResponse, T.CampaignsCheckinPostInput>({ ...options, method: "POST", url: `/api/v1/rewards/checkin`, data: data });
+  }
+  /**
+   * Prepares a server-priced coin-pack payment. Never grants coins at checkout.
+   * Calls `POST /api/v1/rewards/packs` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsPackPost(data: T.CampaignsPackPostInput, options?: RequestOptions<T.CampaignsPackPostInput>) {
+    return this.client.request<T.CampaignsPackPostResponse, T.CampaignsPackPostInput>({ ...options, method: "POST", url: `/api/v1/rewards/packs`, data: data });
+  }
+  /**
+   * Reconciles a provider-verified pack payment; duplicate callbacks do not mint twice.
+   * Calls `POST /api/v1/rewards/packs/{id}/reconcile` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsReconcilePackPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CampaignsReconcilePackPostResponse>({ ...options, method: "POST", url: `/api/v1/rewards/packs/${encodeURIComponent(id)}/reconcile` });
+  }
+  /**
+   * Reserves only an untouched original purchased pack for refund. Stable request IDs replay safely; committed, transferred or spent origins cannot be refunded.
+   * Calls `POST /api/v1/rewards/packs/{id}/refund` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsRefundPackPost(id: Identifier, data: T.CampaignsRefundPackPostInput, options?: RequestOptions<T.CampaignsRefundPackPostInput>) {
+    return this.client.request<T.CampaignsRefundPackPostResponse, T.CampaignsRefundPackPostInput>({ ...options, method: "POST", url: `/api/v1/rewards/packs/${encodeURIComponent(id)}/refund`, data: data });
+  }
+  /**
+   * Buys an enabled catalog item; entitlement delivery may remain pending.
+   * Calls `POST /api/v1/rewards/redeem` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsRedeemPost(data: T.CampaignsRedeemPostInput, options?: RequestOptions<T.CampaignsRedeemPostInput>) {
+    return this.client.request<T.CampaignsRedeemPostResponse, T.CampaignsRedeemPostInput>({ ...options, method: "POST", url: `/api/v1/rewards/redeem`, data: data });
+  }
+  /**
+   * Appeals a risk hold using a stable request ID. Requires authenticated Task access; the operator's reason stays visible in overview. 409 if an appeal is already open.
+   * Calls `POST /api/v1/rewards/risk-appeal` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsRiskAppealPost(data: T.CampaignsRiskAppealPostInput, options?: RequestOptions<T.CampaignsRiskAppealPostInput>) {
+    return this.client.request<T.CampaignsRiskAppealPostResponse, T.CampaignsRiskAppealPostInput>({ ...options, method: "POST", url: `/api/v1/rewards/risk-appeal`, data: data });
   }
   /**
    * List sprints. Returns the Task status/message/data envelope with the full Axios status and headers.
@@ -1249,6 +1713,29 @@ export class TaskOperations extends ServiceApi {
    */
   routesAttachCommitPost(id: Identifier, data: T.RoutesAttachCommitPostInput, options?: RequestOptions<T.RoutesAttachCommitPostInput>) {
     return this.client.request<T.RoutesAttachCommitPostResponse, T.RoutesAttachCommitPostInput>({ ...options, method: "POST", url: `/api/v1/work-items/${encodeURIComponent(id)}/commits`, data: data });
+  }
+  /**
+   * Reads the authorized task's private recognition request and available approval actions. Requires Task access and work_item.read; inaccessible IDs return 404. Read a task's estimate, transfer status and available actions. Requires work_item.read. locked means approval prevents task mutations.
+   * Calls `GET /api/v1/work-items/{id}/dox` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsTaskReadGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CampaignsTaskReadGetResponse>({ ...options, method: "GET", url: `/api/v1/work-items/${encodeURIComponent(id)}/dox` });
+  }
+  /**
+   * Offer as creator before completion, or approve as authorized creator/moderator. Self-review is forbidden; failed payouts are retryable.
+   * Calls `POST /api/v1/work-items/{id}/dox` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  campaignsTaskChangePost(id: Identifier, data: T.CampaignsTaskChangePostInput, options?: RequestOptions<T.CampaignsTaskChangePostInput>) {
+    return this.client.request<T.CampaignsTaskChangePostResponse, T.CampaignsTaskChangePostInput>({ ...options, method: "POST", url: `/api/v1/work-items/${encodeURIComponent(id)}/dox`, data: data });
   }
   /**
    * Add points. Returns HTTP 201 with the Task status/message/data envelope; ETag is preserved when supplied.

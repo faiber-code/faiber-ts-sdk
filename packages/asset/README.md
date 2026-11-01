@@ -141,3 +141,30 @@ integrations. Never put their credentials in a browser.
 const snapshot = await asset.doEconomy.policy({ signal: controller.signal });
 console.log(snapshot.data.data.version, snapshot.data.data.policy.enabled);
 ```
+
+## Generic Dox ledger (trusted backends)
+
+Dox is a closed, space-scoped asset independent of purchasable Do. `AssetApi.dox`
+owns issuance, account balances, immutable postings, replay protection, and
+atomic transfers. Task checks membership and work-review permissions before
+requesting a transfer. No browser application holds the service credential.
+
+```ts
+const asset = new AssetApi(new FaiberClient('asset', {
+  domains: { asset: process.env.ASSET_URL! }, authMode: 'cookie'
+}));
+const result = await asset.dox.management({
+  profile_id: moderatorId, space_id: spaceId,
+  dox_management: { account: 'space', direction: 'out', page: 1, page_size: 20 }
+}, { headers: { 'x-do-service-token': process.env.ASSET_TASK_TOKEN! }, signal });
+```
+
+`execute()` accepts named configure/transfer commands with a stable `id` and
+`actor_id`. The source/destination UUID is a member; null represents the space.
+Each member receives a one-time 500 allocation, routed by the configured mode.
+Transfers conserve supply and reject overspending. A task or purchase identity
+cannot pay twice even with a different request ID. `management()` is Task-service
+only; `read()` pages one member's history. Page size is 1–100; direction requires
+an account (`space` or `user:UUID`). Full Axios responses and cancellation are
+preserved; handle 401/403, insufficient balance, and conflicting replays. These
+contracts are generic and contain no product routing or UI assumptions.

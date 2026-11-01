@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-manage",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "source_revisions": {
     "manage": {
       "revision": "5ac22d1145c68693717ff4dedcaff74a74746197"
@@ -19,8 +19,8 @@
     "packages/manage/src/types.ts": "fe8e4f5c090d950011035f6b99dadb7f481bf1ca79ef2f3e75f8134ad6ff5708"
   },
   "capability_review_sha256": "7d54e63b39d10af9b39524caf7a4b37da107102a334c04d958d41bf0bd7428f1",
-  "source_pin_file_sha256": "d7cfaa0ed6f055e876a0716e167a37617dead70d56bd37b18c842c275ba9a31f",
-  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
+  "source_pin_file_sha256": "e929b4038af893213725d9c9bb687fd79652106eb274244d7e206a1bafd21e8d",
+  "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
   "public_contract": {
     "kind": "reviewed-durable-actions",
     "operation_count": 5,

@@ -28,12 +28,12 @@ export interface ChecklistChange {kind:string;id?:string;title?:string;previous_
 export interface WorkItemActivity {id:string;actor_id:string|null;action:string;occurred_at:string;changed:string[];status:string|null;timer_paused:boolean|null;checklist_changes:ChecklistChange[]|null;completed:number|null;total:number|null}
 export interface GuestLinkAccess {guest_link_id:string;workspace_id:string;project_id:string|null;work_item_id:string|null;capabilities:string[];expires_at:string}
 export interface Readiness {ready:boolean}
-export interface PlanDefinition {id:ProductPlanId;price_toman:number;tasks:number;responses:number;images:number;shared_spaces:number;members:number}
+export interface PlanDefinition {id:ProductPlanId;price_toman:number;ai_credit_toman?:number;tasks:number|null;responses:number|null;images:number|null;shared_spaces:number;members:number}
 export interface PlanUsage {tasks:number;responses:number;images:number;images_reserved:number;responses_reserved:number;tasks_reserved:number;shared_spaces:number}
 export interface CheckoutQuote {allowed:boolean;kind:'purchase'|'renew'|'upgrade';price_toman:number;credit_toman:number;payable_toman:number;remaining_credit_rial:number;source_plan:ProductPlanId;source_until:string;source_credit_rial:number;remaining_days:number}
-export interface PlanAccount {enabled:boolean;owner_id:string;is_owner:boolean;plan:PlanDefinition;status:string;period_start:string;period_end:string;active_until:string;usage:PlanUsage;trial_eligible:boolean;checkout_available:boolean;checkout_test_mode:boolean;can_issue_gifts:boolean;plans:PlanDefinition[];checkout_quotes:Record<'personal'|'planner'|'business'|'legend',CheckoutQuote>;credit_toman:number;pending_orders:string[]}
-export interface PlanCheckout {redirect_url:string;order_id:string}
-export interface PlanReconcile {status:string}
+export interface PlanAccount {billing_mode?:'profile_credits';free_features?:string[];ai_credits?:import('./integrations.js').AiCreditBalance;enabled:boolean;owner_id:string;is_owner:boolean;plan:PlanDefinition;status:'inactive'|'trial'|'paid';period_start:string;period_end:string;active_until:string;usage:PlanUsage;trial_eligible:boolean;checkout_available:boolean;checkout_test_mode:boolean;can_issue_gifts:boolean;plans:PlanDefinition[];checkout_quotes:Record<'personal'|'planner'|'business'|'legend',CheckoutQuote>;credit_toman:number;pending_orders:string[]}
+export interface PlanCheckout {redirect_url:string;order_id:string;status?:never}
+export interface PlanReconcile {status:string;redirect_url?:never;order_id?:never}
 /** A fully credited checkout reconciles immediately and returns status instead of a redirect. */
 export type PlanCheckoutResult = PlanCheckout | PlanReconcile;
 export interface PlanGiftToken {token:string;valid_days:number}

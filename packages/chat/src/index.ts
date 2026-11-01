@@ -1,3 +1,5 @@
+import {ChatStreamingApi} from './streaming.js';
+import {ChatIntegrationsApi} from './integrations.js';
 import { PersonalChatApi } from "./personal.js";
 import { LearningTeacherApi } from "./learning.js";
 import { ChatWorkspaceOperations } from "./workspace.js";
@@ -7,6 +9,8 @@ import type * as O from "./operations.types.js";
 import { ChatOperations } from "./operations.js";
 const id = (value: Identifier) => encodeURIComponent(value);
 export class ChatApi extends ServiceApi {
+ readonly streaming=new ChatStreamingApi(this.client);
+ readonly integrations=new ChatIntegrationsApi(this.client);
   readonly personal = new PersonalChatApi(this.client);
   /** Metered assistant voice; requires chat:ai and current Task project access.
    * Stable UUIDs and chunk sequences preserve retries. Reserve 65 input seconds or
@@ -246,3 +250,9 @@ export * from "./personal.js";
 function validConfigurationId(value:unknown):value is string{return typeof value==="string"&&/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value)&&value.replaceAll("-","")!=="0".repeat(32);}
 
 export * from "./reviewed-wire.js";
+
+export * from './integrations.js';
+
+export * from './streaming.js';
+
+export * from "./bridge-contracts.js";

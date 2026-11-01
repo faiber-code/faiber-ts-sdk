@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-state-sdk",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "source_revisions": {
     "state": {
       "directory": "infera-state",
@@ -21,8 +21,8 @@
     "packages/state/src/types.ts": "477ce94cdc645f6684d852c6d78986a41f41ef71869861bb4f246833d317bfcc"
   },
   "capability_review_sha256": "3cb618e2737f50aae358167b50bd1d3fa63fd85f9b046bd181718946f4e809be",
-  "source_pin_file_sha256": "d7cfaa0ed6f055e876a0716e167a37617dead70d56bd37b18c842c275ba9a31f",
-  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
+  "source_pin_file_sha256": "e929b4038af893213725d9c9bb687fd79652106eb274244d7e206a1bafd21e8d",
+  "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 45,

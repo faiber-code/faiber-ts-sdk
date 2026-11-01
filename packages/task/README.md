@@ -184,3 +184,46 @@ features are disabled until funded and enabled by the service operator.
 const campaigns = await task.rewards.campaigns({ view: 'public' }, { signal: controller.signal });
 console.log(campaigns.status, campaigns.data.data.items);
 ```
+
+## Space rewards and moderation
+
+`TaskApi.spaceRewards` coordinates generic work verification with the Asset Dox
+ledger. Rewards default to disabled. Distributed mode issues 500 Dox per member;
+the task creator approves another member's completed task and funds its reward.
+Managed mode issues 500 per member to the space treasury; selected moderators
+review completed work. Self-approval is forbidden. Asset remains the sole balance
+and transfer authority. Products return spent Dox to the space treasury.
+
+```ts
+const task = new TaskApi(new FaiberClient('task', {
+  domains: { task: 'https://task.example.com' }, authMode: 'cookie'
+}));
+const signal = new AbortController().signal;
+const queue = await task.spaceRewards.queue(spaceId, undefined, { signal });
+const item = queue.data.data.item;
+if (item) {
+  await task.spaceRewards.decide(spaceId, item.id, {
+    request_id: crypto.randomUUID(), version: item.version,
+    action: 'approve', amount: item.amount + 5
+  }, { signal });
+}
+const ledger = await task.spaceRewards.transactions(spaceId, {
+  account: 'space', direction: 'out', status: 'completed', page: 1, page_size: 20
+}, { signal });
+```
+
+The caller must explicitly request each decision. `approve` verifies and locks the
+task; `reject` returns it to Todo; `skip` moves it to the queue end. Amount zero
+verifies without paying. Review and ledger routes require current membership,
+`approval.review`, and selection as a managed-mode moderator. Completed postings
+and processing/failed attempts have separate status filters; attempts do not
+change balances. Preserve `request_id` and payload after transport failures.
+Handle Axios 403/404 for access, 409 for stale versions, and cancellation normally.
+`tasks()` and `transactions()` return server pagination; never treat a page as the
+whole collection. `read()` supplies a cursor for older member transactions.
+
+The legacy Dox configuration input changed in 2.0.0: supply `version`, an explicit
+`mode`, and `moderators`, or use `spaceRewards.configure()`. Dox is a transferable
+space asset, no longer a standalone score. Existing Do/campaign APIs remain.
+`integrations` exposes actor-owned Faiber synchronization, scoped time reports,
+and audited subscription administration without application UI dependencies.

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-idp",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "source_revisions": {
     "idp": {
       "directory": "infera-idp",
@@ -11,7 +11,7 @@
   "package_source_sha256": {
     "packages/idp/src/authority.ts": "771caff551a474f09b7a2cf429dccbd5c1c5c9c8ca970b4668f03a99b5d94344",
     "packages/idp/src/contracts.types.ts": "4898b0cd715c9509f57fa9cce06b3139bfeec1e0f0c4dc8effade5e8b8b6301d",
-    "packages/idp/src/index.ts": "4db1cd26a0a353b10be3d87ff0077739df14f5720189d4497d5247bef57b474e",
+    "packages/idp/src/index.ts": "bdc01da5b5bd95d561c5385ceacf42a0389c92bbe3907233a58276e67d5adbc2",
     "packages/idp/src/memberships.ts": "ba3c661e38eec353e2df2ce5f28b41fb2275fed59a0d2ac7680030809088aecf",
     "packages/idp/src/operations.ts": "19da4111bbaafacfcd61eb5e7cf401b7f62cefd7a7155a9f3b1b2076768f7525",
     "packages/idp/src/operations.types.ts": "735713ed716df66c7b212dccf0a92b313457f1c08269189390dfc4b687f0c3f7",
@@ -21,8 +21,8 @@
     "packages/idp/src/visibility.ts": "518eea6a95fe65134c35007760b3cab2438704696999c54f3c139d0ec0d8ad93"
   },
   "capability_review_sha256": "8ee5e21c8c47c329209a68516ef164a58309ebe97829ca2582d0ee3ca8e0b83d",
-  "source_pin_file_sha256": "d7cfaa0ed6f055e876a0716e167a37617dead70d56bd37b18c842c275ba9a31f",
-  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
+  "source_pin_file_sha256": "e929b4038af893213725d9c9bb687fd79652106eb274244d7e206a1bafd21e8d",
+  "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 116,

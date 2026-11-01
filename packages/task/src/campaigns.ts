@@ -1,3 +1,4 @@
+import {SpaceRewardsApi,type SpaceRewards,type SpaceTaskReward,type DoxConfigureInput,type DoxTaskInput} from './space-rewards.js';
 import { ServiceApi, type RequestOptions } from '@faiber/sdk-core';
 export type CampaignAsset = 'do'|'dox';
 export type CampaignVisibility = 'public'|'private';
@@ -47,8 +48,8 @@ export interface DoPackCheckout {redirect_url:string}
 export interface DoPackSettlement {credited:number;redirect_url?:string;status?:'pending'|'paid'|'cancelled'}
 export interface RewardCheckin {request_id:string;timezone:string;referrer_id?:string}
 export interface TaskDoxRequest {id:string;workspace_id:string;space_id:string;work_item_id:string;user_id:string;amount:number;status:'pending'|'approved'|'awarded';reviewer_id:string|null}
-export interface TaskDoxState {enabled:boolean;request:TaskDoxRequest|null;can_offer:boolean;can_approve:boolean}
-export interface DoxScore {space_id:string;enabled:boolean;score:number;can_manage:boolean}
+export type TaskDoxState=SpaceTaskReward;
+export type DoxScore=SpaceRewards;
 export interface DoxMutation {request_id:string;action:'request'|'approve'|'configure';amount?:number;enabled?:boolean}
 export interface DoxResult {accepted?:boolean;enabled?:boolean}
 
@@ -96,10 +97,10 @@ export class RewardsApi extends ServiceApi {
  redeem(body:RewardPurchase,options?:RequestOptions<RewardPurchase>){return this.client.post<RewardResponse<RewardReceipt>,RewardPurchase>('/api/v1/rewards/redeem',body,options)}
  /** Reads one's private Dox score in an authorized space. */
  dox(id:string,options?:RequestOptions){return this.client.get<RewardResponse<DoxScore>>(`/api/v1/projects/${encodeURIComponent(id)}/dox`,undefined,options)}
- /** Enables local Dox scoring; requires space campaign management. */
- configureDox(id:string,body:DoxMutation,options?:RequestOptions<DoxMutation>){return this.client.post<RewardResponse<DoxResult>,DoxMutation>(`/api/v1/projects/${encodeURIComponent(id)}/dox`,body,options)}
+ /** Configure space rewards as its creator; use the current version and explicit mode. */
+ configureDox(id:string,body:DoxConfigureInput,options?:RequestOptions<DoxConfigureInput>){return new SpaceRewardsApi(this.client).configure(id,body,options)}
  /** Reads the authorized task's private recognition request and available approval actions. Requires Task access and work_item.read; inaccessible IDs return 404. */
  taskDoxState(id:string,options?:RequestOptions){return this.client.get<RewardResponse<TaskDoxState>>(`/api/v1/work-items/${encodeURIComponent(id)}/dox`,undefined,options)}
  /** Offers Dox before completion or approves another member's completed task. */
- taskDox(id:string,body:DoxMutation,options?:RequestOptions<DoxMutation>){return this.client.post<RewardResponse<DoxResult>,DoxMutation>(`/api/v1/work-items/${encodeURIComponent(id)}/dox`,body,options)}
+ taskDox(id:string,body:DoxTaskInput,options?:RequestOptions<DoxTaskInput>){return new SpaceRewardsApi(this.client).changeTask(id,body,options)}
 }

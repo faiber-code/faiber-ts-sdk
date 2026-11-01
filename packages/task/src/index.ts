@@ -1,3 +1,5 @@
+import {TaskIntegrationsApi} from './integrations.js';
+import {SpaceRewardsApi} from './space-rewards.js';
 import { RewardsApi } from "./campaigns.js";
 import { FeedbackApi } from './feedback.js';
 import {TaskOfflineOperations} from './offline.js';
@@ -14,6 +16,8 @@ const versionOptions = <TData>(version: number, options?: RequestOptions<TData>)
 /** Typed client for every authenticated route mounted by Faiber Tasks. */
 import { TaskOperations } from "./operations.js";
 export class TaskApi extends ServiceApi {
+  readonly integrations=new TaskIntegrationsApi(this.client);
+  readonly spaceRewards = new SpaceRewardsApi(this.client);
   readonly rewards = new RewardsApi(this.client);
   readonly offline = new TaskOfflineOperations(this.client);
   readonly feedback = new FeedbackApi(this.client);
@@ -213,3 +217,9 @@ export * from './offline.js';
 export * from "./feedback.js";
 
 export * from "./campaigns.js";
+
+export * from './space-rewards.js';
+
+export * from './integrations.js';
+
+export * from "./bridge-contracts.js";

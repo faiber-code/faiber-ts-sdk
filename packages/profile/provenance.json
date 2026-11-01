@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-profile",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "source_revisions": {
     "profile": {
       "directory": "infera-profile",
@@ -16,11 +16,11 @@
     "packages/profile/src/summaries.ts": "5a9ef534ec724d10b0f4251591792a39e1e50adb5c2bfdd3fe45f5699dbd01fa",
     "packages/profile/src/summaries.types.ts": "721a04a4e857881100372aa40c2a55f1395ed309e68dea33cfb697259e44facb",
     "packages/profile/src/types.ts": "0c7196807a33d216d19f4dafa6f594385a3bc7eeb337078ba9a60d8402439ccb",
-    "packages/profile/src/wire.types.ts": "90a211007fdc4fcb290804e1f6537eb3fe621e4e0bce63b6f87d526aef4cef97"
+    "packages/profile/src/wire.types.ts": "fe1f0dbba6f9493be972d86549d04ecefcb8f5f35c90384e7d57434ed636a123"
   },
   "capability_review_sha256": "fb280ef8a146c670faf81da7f6733d1fc3328be67fecb55e03c43a631a059059",
-  "source_pin_file_sha256": "d7cfaa0ed6f055e876a0716e167a37617dead70d56bd37b18c842c275ba9a31f",
-  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
+  "source_pin_file_sha256": "e929b4038af893213725d9c9bb687fd79652106eb274244d7e206a1bafd21e8d",
+  "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 239,

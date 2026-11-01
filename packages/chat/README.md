@@ -376,3 +376,21 @@ optional and do not imply ambiguity. Backend rollout is required for the model
 to emit these additive hints; text-only older results remain valid.
 
 Managed assistant create/update requests accept `reasoning_effort` (`none`, `low`, `medium`, `high`, or `max`). Choose only values declared in the model catalog’s `reasoning_levels`; `default_reasoning_effort` describes the structured-workflow default when known. On update, omit this field to retain the saved override or send `null` to restore automatic behavior. Managed detail includes the saved override and the captured Knowledge policy revision required for a safe save.
+
+## User-owned connectors, documents and streaming
+
+`ChatApi.integrations` discovers connectors, starts OAuth, selects authorized
+Faiber projects, invokes schema-declared tools, and reads/approves/cancels durable
+actions. A write tool returns an approval action; only call `approve()` after an
+explicit user decision. Provider result JSON is untrusted data. Document extraction
+accepts a Blob and content type under server limits and requires `chat:ai`.
+`history({q,cursor,limit})` searches the current user's AI history with server
+pagination; clear the cursor when the search changes.
+
+`ChatApi.streaming.audio(input, {signal})` and `.messages(id, input, {signal})`
+return full Axios responses containing WHATWG NDJSON streams. Parse complete
+newline-delimited `VoiceAudioFrame` or `AssistantReplyFrame` records. Require the
+terminal done/complete frame, handle error frames, and cancel/release the reader
+on teardown. Pre-stream HTTP failures are ordinary Axios errors. Speech previews
+are not proof that a requested task mutation has completed. These APIs inherit
+configured cookie/Bearer authentication and never create another transport.

@@ -258,3 +258,15 @@ The revision is required; reload and review after HTTP 409, and handle invalid U
 as HTTP 422. Responses retain Axios metadata and shared authentication/cancellation.
 The old `.rules/.save` action-grant methods are deprecated; use `.roleScope/.saveRoleScope`.
 Deploy the corresponding IDP role-target-scope backend before using these methods.
+
+### 2.0.0: generic Dox assets and work moderation
+
+Asset owns Dox issuance, space accounts and immutable transfers (`AssetApi.dox`).
+Task owns estimates, completed-work verification, products and moderator access
+(`TaskApi.spaceRewards`), with full server-paginated task/transaction views.
+Dox configuration now requires the current version and explicit distributed or
+managed mode; this replaces the former score configuration contract. See the
+[Task guide](packages/task/README.md) and [Asset guide](packages/asset/README.md).
+Chat adds typed connector/document/history operations and authenticated speech
+and assistant NDJSON streams. Applications consume these generic SDK APIs;
+product navigation, presentation and local state belong in application code.

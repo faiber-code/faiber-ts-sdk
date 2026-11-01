@@ -1,3 +1,4 @@
+import {DoxLedgerApi} from './dox.js';
 import { DoEconomyApi } from "./do-dox.js";
 import type * as E from "./economy.types.js";
 import { RestResource, ServiceApi, type Identifier, type RequestOptions, } from "@faiber/sdk-core";
@@ -5,6 +6,7 @@ import type * as T from "./types.js";
 import type * as O from "./operations.types.js";
 import { AssetOperations } from "./operations.js";
 export class AssetApi extends ServiceApi {
+    readonly dox=new DoxLedgerApi(this.client);
     readonly doEconomy = new DoEconomyApi(this.client);
     /** Reads versioned scoped-reward policy. Requires admin:coin_settings:read. */
     economyPolicy(options?: RequestOptions) { return this.client.get<E.EconomyPolicyResponse>("/api/v1/economy/policy", undefined, options); }
@@ -111,3 +113,7 @@ export * from "./economy.types.js";
 export * from "./contracts.types.js";
 
 export * from "./do-dox.js";
+
+export * from './dox.js';
+
+export * from "./ledger-contracts.js";

@@ -54,11 +54,70 @@ export type RoutesContentPutResponse = import("./types.js").TaskResponse<import(
 /** Backend response type: raw-response. */
 export type RoutesDownloadGetResponse = ArrayBuffer | Uint8Array;
 
+/** Backend query type: undefined. */
+export type CampaignsProxyAnyApiV1CampaignAssignmentsQuery = NonNullable<Parameters<import("./campaigns.js").RewardsApi["work"]>[0]>;
+/** Backend response type: raw-response. */
+export type CampaignsProxyAnyApiV1CampaignAssignmentsResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["work"]>>["data"];
+
+/** Backend response type: raw-response. */
+export type CampaignsProxyAnyApiV1CampaignAssignmentsIdResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["assignment"]>>["data"];
+
+/** Backend request type: multipart/form-data. */
+export type CampaignsProxyAnyApiV1CampaignAssignmentsIdFilesInput = Parameters<import("./campaigns.js").RewardsApi["upload"]>[1];
+/** Backend response type: raw-response. */
+export type CampaignsProxyAnyApiV1CampaignAssignmentsIdFilesResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["upload"]>>["data"];
+
+/** Backend request type: multipart/form-data. */
+export type CampaignsProxyAnyApiV1CampaignAssignmentsIdReviewInput = Parameters<import("./campaigns.js").RewardsApi["review"]>[1];
+/** Backend response type: raw-response. */
+export type CampaignsProxyAnyApiV1CampaignAssignmentsIdReviewResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["review"]>>["data"];
+
+/** Backend request type: multipart/form-data. */
+export type CampaignsProxyAnyApiV1CampaignAssignmentsIdSubmitInput = Parameters<import("./campaigns.js").RewardsApi["submit"]>[1];
+/** Backend response type: raw-response. */
+export type CampaignsProxyAnyApiV1CampaignAssignmentsIdSubmitResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["submit"]>>["data"];
+
+/** Backend response type: raw-response. */
+export type CampaignsProxyAnyApiV1CampaignFilesIdResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["file"]>>["data"];
+
+/** Backend request type: multipart/form-data. */
+export type CampaignsProxyAnyApiV1CampaignJobsIdStartInput = Parameters<import("./campaigns.js").RewardsApi["startJob"]>[1];
+/** Backend response type: raw-response. */
+export type CampaignsProxyAnyApiV1CampaignJobsIdStartResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["startJob"]>>["data"];
+
+/** Backend request type: multipart/form-data. */
+export type CampaignsProxyAnyApiV1CampaignsInput = Parameters<import("./campaigns.js").RewardsApi["createCampaign"]>[0];
+/** Backend query type: undefined. */
+export type CampaignsProxyAnyApiV1CampaignsQuery = NonNullable<Parameters<import("./campaigns.js").RewardsApi["campaigns"]>[0]>;
+/** Backend response type: raw-response. */
+export type CampaignsProxyAnyApiV1CampaignsResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["campaigns"]>>["data"] | Awaited<ReturnType<import("./campaigns.js").RewardsApi["createCampaign"]>>["data"];
+
+/** Backend request type: multipart/form-data. */
+export type CampaignsProxyAnyApiV1CampaignsIdInput = Parameters<import("./campaigns.js").RewardsApi["changeCampaign"]>[1];
+/** Backend response type: raw-response. */
+export type CampaignsProxyAnyApiV1CampaignsIdResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["campaign"]>>["data"] | Awaited<ReturnType<import("./campaigns.js").RewardsApi["changeCampaign"]>>["data"];
+
+/** Backend request type: multipart/form-data. */
+export type CampaignsProxyAnyApiV1CampaignsIdJobsInput = Parameters<import("./campaigns.js").RewardsApi["addJob"]>[1];
+/** Backend response type: raw-response. */
+export type CampaignsProxyAnyApiV1CampaignsIdJobsResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["addJob"]>>["data"];
+
 /** Backend response type: serde_json::Value. */
 export type RoutesConfigGetApiV1CollaborationConfigResponse = import("./types.js").TaskResponse<import("./collaboration.js").CollaborationConfig>;
 
 /** Backend response type: stream. */
 export type RoutesEventsGetResponse = import("./types.js").TaskEventStreamBody;
+
+/** Backend response type: Value. */
+export type FeedbackCapabilitiesGetApiV1FaiberFeedbackCapabilitiesResponse = import("./types.js").TaskResponse<import("./bridge-contracts.js").DeveloperFeedbackCapabilities>;
+
+/** Backend query type: SearchQuery. */
+export type FeedbackIndexGetApiV1FaiberFeedbackRequestsQuery = import("./bridge-contracts.js").DeveloperFeedbackQuery;
+/** Backend response type: RequestPage. */
+export type FeedbackIndexGetApiV1FaiberFeedbackRequestsResponse = import("./types.js").TaskResponse<import("./bridge-contracts.js").DeveloperFeedbackPage>;
+
+/** Backend response type: RequestDetail. */
+export type FeedbackShowGetApiV1FaiberFeedbackRequestsIdResponse = import("./types.js").TaskResponse<import("./bridge-contracts.js").DeveloperFeedbackDetail>;
 
 /** Backend response type: Value. */
 export type FeedbackAssigneesGetResponse = import("./types.js").TaskResponse<import("./feedback.js").FeedbackAssignees>;
@@ -114,6 +173,32 @@ export interface RoutesUseGuestLinkPostInput extends JsonObject {
 }
 /** Backend response type: serde_json::Value. */
 export type RoutesUseGuestLinkPostResponse = import("./types.js").TaskResponse<import("./wire.types.js").GuestLinkAccess>;
+
+/** Backend response type: Value. */
+export type FaiberSyncSettingsGetResponse = Awaited<ReturnType<import("./integrations.js").TaskIntegrationsApi["sync"]>>["data"];
+
+/** Backend request type: Settings. */
+export type FaiberSyncSavePutInput = Parameters<import("./integrations.js").TaskIntegrationsApi["saveSync"]>[1];
+/** Backend response type: Value. */
+export type FaiberSyncSavePutResponse = Awaited<ReturnType<import("./integrations.js").TaskIntegrationsApi["saveSync"]>>["data"];
+
+/** Backend response type: Value. */
+export type FaiberSyncRetryPostResponse = Awaited<ReturnType<import("./integrations.js").TaskIntegrationsApi["runSync"]>>["data"];
+
+/** Backend request type: Notification. */
+export type CampaignsNotificationPostInput = import("./bridge-contracts.js").CampaignNotificationInput;
+/** Backend response type: Value. */
+export type CampaignsNotificationPostResponse = import("./types.js").TaskResponse<import("./bridge-contracts.js").CampaignNotificationReceipt>;
+
+/** Backend request type: Facts. */
+export type CampaignsFactsPostInput = import("./bridge-contracts.js").CampaignReferralInput;
+/** Backend response type: Value. */
+export type CampaignsFactsPostResponse = import("./types.js").TaskResponse<import("./bridge-contracts.js").CampaignReferralFacts>;
+
+/** Backend request type: Scope. */
+export type CampaignsScopePostInput = import("./bridge-contracts.js").CampaignScopeInput;
+/** Backend response type: Value. */
+export type CampaignsScopePostResponse = import("./types.js").TaskResponse<import("./bridge-contracts.js").CampaignScopeResult>;
 
 /** Backend query type: GiftQuery. */
 export interface RoutesListGetQuery extends QueryParams {
@@ -307,6 +392,14 @@ export interface RoutesPutPreferencesPutInput extends JsonObject {
 /** Backend response type: Value. */
 export type RoutesPutPreferencesPutResponse = import("./types.js").TaskResponse<import("./wire.types.js").NotificationPreferences>;
 
+/** Backend response type: Value. */
+export type RoutesCapabilitiesGetResponse = Awaited<ReturnType<import("./offline.js").TaskOfflineOperations["capabilities"]>>["data"];
+
+/** Backend request type: Change. */
+export type RoutesApplyPostApiV1OfflineSyncInput = Parameters<import("./offline.js").TaskOfflineOperations["apply"]>[0];
+/** Backend response type: Value. */
+export type RoutesApplyPostApiV1OfflineSyncResponse = Awaited<ReturnType<import("./offline.js").TaskOfflineOperations["apply"]>>["data"];
+
 /** Backend request type: PerformancePolicyInput. */
 export interface RoutesUpsertPerformancePolicyPutInput extends JsonObject {
   "month": string;
@@ -356,9 +449,18 @@ export interface RoutesUsersGetQuery extends QueryParams {
 /** Backend response type: Value. */
 export type RoutesUsersGetResponse = import("./types.js").TaskResponse<import("./types.js").AdminUserPlansData>;
 
+/** Backend response type: Value. */
+export type RoutesAdminUserGetResponse = Awaited<ReturnType<import("./integrations.js").TaskIntegrationsApi["billing"]>>["data"];
+
+/** Backend request type: AdminAdjustment. */
+export type RoutesAdminAdjustPostInput = Parameters<import("./integrations.js").TaskIntegrationsApi["adjustBilling"]>[1];
+/** Backend response type: Value. */
+export type RoutesAdminAdjustPostResponse = Awaited<ReturnType<import("./integrations.js").TaskIntegrationsApi["adjustBilling"]>>["data"];
+
 /** Backend request type: Checkout. */
 export interface RoutesCheckoutPostInput extends JsonObject {
   "plan": string;
+  "amount_toman"?: number | null;
   "request_id": string;
 }
 /** Backend response type: Value. */
@@ -424,6 +526,28 @@ export type RoutesPutPutApiV1ProjectsIdBoardWorkflowResponse = import("./types.j
 /** Backend response type: Value. */
 export type RoutesProjectChecklistsGetResponse = import("./types.js").TaskResponse<import("./types.js").ChecklistSnapshot[]>;
 
+/** Backend query type: HistoryQuery. */
+export interface CampaignsReadGetQuery extends QueryParams {
+  "before"?: string | null;
+}
+/** Backend response type: Value. */
+export type CampaignsReadGetResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["dox"]>>["data"] | Awaited<ReturnType<import("./space-rewards.js").SpaceRewardsApi["read"]>>["data"];
+
+/** Backend request type: Input. */
+export type CampaignsConfigurePostInput = Parameters<import("./space-rewards.js").SpaceRewardsApi["configure"]>[1];
+/** Backend response type: Value. */
+export type CampaignsConfigurePostResponse = Awaited<ReturnType<import("./space-rewards.js").SpaceRewardsApi["configure"]>>["data"];
+
+/** Backend request type: ProductInput. */
+export type CampaignsProductPostInput = Parameters<import("./space-rewards.js").SpaceRewardsApi["product"]>[1];
+/** Backend response type: Value. */
+export type CampaignsProductPostResponse = Awaited<ReturnType<import("./space-rewards.js").SpaceRewardsApi["product"]>>["data"];
+
+/** Backend request type: PurchaseInput. */
+export type CampaignsPurchasePostInput = Parameters<import("./space-rewards.js").SpaceRewardsApi["purchase"]>[1];
+/** Backend response type: Value. */
+export type CampaignsPurchasePostResponse = Awaited<ReturnType<import("./space-rewards.js").SpaceRewardsApi["purchase"]>>["data"];
+
 /** Backend request type: GrantAccess. */
 export interface RoutesGrantProjectAccessPostInput extends JsonObject {
   "user_id": string;
@@ -441,6 +565,28 @@ export type RoutesRemoveMemberDeleteResponse = import("./types.js").TaskResponse
 
 /** Backend response type: Usage. */
 export type RoutesGetGetApiV1ProjectsIdMemoryUsageResponse = import("./types.js").TaskResponse<import("./collaboration.js").MemoryUsage>;
+
+/** Backend query type: QueueQuery. */
+export interface CampaignsQueueReadGetQuery extends QueryParams {
+  "task"?: string | null;
+}
+/** Backend response type: Value. */
+export type CampaignsQueueReadGetResponse = Awaited<ReturnType<import("./space-rewards.js").SpaceRewardsApi["queue"]>>["data"];
+
+/** Backend request type: Decision. */
+export type CampaignsDecidePostInput = Parameters<import("./space-rewards.js").SpaceRewardsApi["decide"]>[2];
+/** Backend response type: Value. */
+export type CampaignsDecidePostResponse = Awaited<ReturnType<import("./space-rewards.js").SpaceRewardsApi["decide"]>>["data"];
+
+/** Backend query type: ListQuery. */
+export type CampaignsListGetQuery = NonNullable<Parameters<import("./space-rewards.js").SpaceRewardsApi["tasks"]>[1]>;
+/** Backend response type: Value. */
+export type CampaignsListGetResponse = Awaited<ReturnType<import("./space-rewards.js").SpaceRewardsApi["tasks"]>>["data"];
+
+/** Backend query type: TransactionQuery. */
+export type CampaignsTransactionsGetQuery = NonNullable<Parameters<import("./space-rewards.js").SpaceRewardsApi["transactions"]>[1]>;
+/** Backend response type: Value. */
+export type CampaignsTransactionsGetResponse = Awaited<ReturnType<import("./space-rewards.js").SpaceRewardsApi["transactions"]>>["data"];
 
 /** Backend query type: Filters. */
 export interface RoutesGetGetApiV1ProjectsIdReportQuery extends QueryParams {
@@ -547,6 +693,37 @@ export type RoutesValidateProposalPostInput = import("./workspace.js").ReviewPro
 /** Backend response type: Value. */
 export type RoutesValidateProposalPostResponse = import("./types.js").TaskResponse<import("./workspace.js").ReviewPreviewResult>;
 
+/** Backend response type: Value. */
+export type CampaignsOverviewGetResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["overview"]>>["data"];
+
+/** Backend request type: Checkin. */
+export type CampaignsCheckinPostInput = Parameters<import("./campaigns.js").RewardsApi["checkin"]>[0];
+/** Backend response type: Value. */
+export type CampaignsCheckinPostResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["checkin"]>>["data"];
+
+/** Backend request type: Purchase. */
+export type CampaignsPackPostInput = Parameters<import("./campaigns.js").RewardsApi["buyPack"]>[0];
+/** Backend response type: Value. */
+export type CampaignsPackPostResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["buyPack"]>>["data"];
+
+/** Backend response type: Value. */
+export type CampaignsReconcilePackPostResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["reconcilePack"]>>["data"];
+
+/** Backend request type: RefundPurchase. */
+export type CampaignsRefundPackPostInput = Parameters<import("./campaigns.js").RewardsApi["refundPack"]>[1];
+/** Backend response type: Value. */
+export type CampaignsRefundPackPostResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["refundPack"]>>["data"];
+
+/** Backend request type: Purchase. */
+export type CampaignsRedeemPostInput = Parameters<import("./campaigns.js").RewardsApi["redeem"]>[0];
+/** Backend response type: Value. */
+export type CampaignsRedeemPostResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["redeem"]>>["data"];
+
+/** Backend request type: RiskAppeal. */
+export type CampaignsRiskAppealPostInput = Parameters<import("./campaigns.js").RewardsApi["appealRisk"]>[0];
+/** Backend response type: Value. */
+export type CampaignsRiskAppealPostResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["appealRisk"]>>["data"];
+
 /** Backend query type: SprintListQuery. */
 export interface RoutesListSprintsGetQuery extends QueryParams {
   "team_id"?: string | null;
@@ -636,7 +813,7 @@ export interface RoutesListWorkItemsGetQuery extends QueryParams {
   "q"?: string | null;
   "sort"?: string | null;
 }
-/** Backend response type: Vec<WorkItemView>. */
+/** Backend response type: serde_json::Value. */
 export type RoutesListWorkItemsGetResponse = import("./types.js").TaskPageResponse<import("./types.js").WorkItem>;
 
 /** Backend request type: CreateWorkItem. */
@@ -721,32 +898,7 @@ export interface RoutesCommentPageGetQuery extends QueryParams {
   "before"?: string | null;
 }
 /** Backend response type: CommentPage. */
-export interface RoutesCommentPageGetResponseDataItemsAttachments extends JsonObject {
-  "id": string;
-  "work_item_id": string;
-  "filename": string;
-  "content_type": string;
-  "size_bytes": number;
-  "status": string;
-  "purpose": string;
-  "version": number;
-}
-export interface RoutesCommentPageGetResponseDataItems extends JsonObject {
-  "id": string;
-  "work_item_id": string;
-  "author_id": string;
-  "body": string;
-  "mentions": string[];
-  "version": number;
-  "created_at": string;
-  "attachments": RoutesCommentPageGetResponseDataItemsAttachments[];
-}
-export interface RoutesCommentPageGetResponseData extends JsonObject {
-  "items": RoutesCommentPageGetResponseDataItems[];
-  "next_cursor": string | null;
-}
-export interface RoutesCommentPageGetResponse extends ApiEnvelope<RoutesCommentPageGetResponseData> {
-}
+export type RoutesCommentPageGetResponse = import("./types.js").TaskResponse<import("./types.js").CommentPage>;
 
 /** Backend response type: Vec<CommitLinkView>. */
 export interface RoutesListCommitsGetResponseItem extends JsonObject {
@@ -776,6 +928,14 @@ export interface RoutesAttachCommitPostInput extends JsonObject {
 }
 /** Backend response type: raw-response. */
 export type RoutesAttachCommitPostResponse = import("./types.js").TaskResponse<import("./wire.types.js").CommitLink>;
+
+/** Backend response type: Value. */
+export type CampaignsTaskReadGetResponse = Awaited<ReturnType<import("./campaigns.js").RewardsApi["taskDoxState"]>>["data"] | Awaited<ReturnType<import("./space-rewards.js").SpaceRewardsApi["task"]>>["data"];
+
+/** Backend request type: Input. */
+export type CampaignsTaskChangePostInput = Parameters<import("./space-rewards.js").SpaceRewardsApi["changeTask"]>[1];
+/** Backend response type: Value. */
+export type CampaignsTaskChangePostResponse = Awaited<ReturnType<import("./space-rewards.js").SpaceRewardsApi["changeTask"]>>["data"];
 
 /** Backend request type: PointEntryInput. */
 export interface RoutesAddPointsPostInput extends JsonObject {

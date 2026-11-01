@@ -9,6 +9,21 @@ import { RestResource, ServiceApi, urlEncoded, type Identifier, type RequestOpti
 import type { AccountLoginInput, AuthTokensResponse, ChangePasswordInput, ChangeRolesInput, LinkedFaiberBillingQuery, LinkedFaiberBillingResponse, LinkedFaiberTopUpInput, LinkedFaiberTopUpResponse, LinkedIdentityListResponse, LoginInput, LogoutUserResponse, OAuthProviderListResponse, OtpLoginInput, Permission, PermissionListResponse, PermissionResponse, RegisterUserInput, SessionListResponse, SetUserStatusInput, UpdateUserInput, UserResponse, UserSelfResponse, ValidateSessionResponse, WebLoginInput, } from "./types.js";
 import { IdpOperations } from "./operations.js";
 export class IdpApi extends ServiceApi {
+    /** Build the browser OAuth navigation URL on the configured canonical identity origin.
+     * The caller must validate its product redirect destination. Navigation is required
+     * for the provider flow; this helper does not perform a request or authenticate a user.
+     * @param provider Configured provider key.
+     * @param redirect Absolute approved callback destination.
+     * @param intent Login or explicit identity linking.
+     * @param origin Canonical IDP origin when the API client uses a same-origin proxy.
+     */
+    customOauthUrl(provider:string,redirect:string,intent:'login'|'link'='login',origin?:string){
+        const base=origin??this.client.axios.defaults.baseURL;
+        if(!base)throw new TypeError('An absolute identity origin is required');
+        const url=new URL(`${base.replace(/\/+$/,'')}/api/v1/auth/custom-oauth/${encodeURIComponent(provider)}`);
+        url.searchParams.set('redirect',redirect);if(intent==='link')url.searchParams.set('intent',intent);return url.href;
+    }
+
   readonly contactVerification = new ContactVerificationApi(this.client);
     readonly visibility = new IdpVisibilityApi(this.client);
     readonly authority = new IdpAuthorityApi(this.client);

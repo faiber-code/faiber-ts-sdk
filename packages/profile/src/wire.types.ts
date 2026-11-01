@@ -328,5 +328,5 @@ export interface CampaignPurposeSnapshot extends JsonObject {
 }
 
 /** Minimal active-person lookup; national codes are searchable but never returned. */
-export interface ProfileDirectoryPerson { user_id: string; short_id: string; first_name_fa: string | null; last_name_fa: string | null; first_name_en: string | null; last_name_en: string | null; email: string | null; phone: string | null; }
+export interface ProfileDirectoryPerson { avatar?:string|null; user_id: string; short_id: string; first_name_fa: string | null; last_name_fa: string | null; first_name_en: string | null; last_name_en: string | null; email: string | null; phone: string | null; }
 export interface ProfilePeopleSearchResult { results: ProfileDirectoryPerson[]; has_more: boolean; }

@@ -493,6 +493,59 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.DashboardDashboardShowGetResponse>({ ...options, method: "GET", url: `/api/v1/dashboard`, params });
   }
   /**
+   * Reads outstanding backing and the latest 100 operator audit records. Requires admin:coin_settings:read.
+   * Calls `GET /api/v1/do/audit` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:coin_settings:read.
+   */
+  doDoxAuditGet(options?: RequestOptions) {
+    return this.client.request<T.DoDoxAuditGetResponse>({ ...options, method: "GET", url: `/api/v1/do/audit` });
+  }
+  /**
+   * Funds a campaign from explicit marketing reserves. Requires admin:coin_settings:update. Reuse request_id on retries; changed semantics return 409.
+   * Calls `POST /api/v1/do/campaign-funding` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:coin_settings:update.
+   */
+  doDoxMarketingFundPost(data: T.DoDoxMarketingFundPostInput, options?: RequestOptions<T.DoDoxMarketingFundPostInput>) {
+    return this.client.request<T.DoDoxMarketingFundPostResponse, T.DoDoxMarketingFundPostInput>({ ...options, method: "POST", url: `/api/v1/do/campaign-funding`, data: data });
+  }
+  /**
+   * Reads packs, benefit prices, review rules and promotion reserves. Requires admin:coin_settings:read.
+   * Calls `GET /api/v1/do/policy` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:coin_settings:read.
+   */
+  doDoxGetPolicyGet(options?: RequestOptions) {
+    return this.client.request<T.DoDoxGetPolicyGetResponse>({ ...options, method: "GET", url: `/api/v1/do/policy` });
+  }
+  /**
+   * Saves an audited version of policy. Requires admin:coin_settings:update; stale versions and underfunded packs return 409.
+   * Calls `PUT /api/v1/do/policy` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:coin_settings:update.
+   */
+  doDoxSavePolicyPut(data: T.DoDoxSavePolicyPutInput, options?: RequestOptions<T.DoDoxSavePolicyPutInput>) {
+    return this.client.request<T.DoDoxSavePolicyPutResponse, T.DoDoxSavePolicyPutInput>({ ...options, method: "PUT", url: `/api/v1/do/policy`, data: data });
+  }
+  /**
+   * Holds or releases a profile's payouts/redemptions with an audited reason. Requires admin:coin_settings:update.
+   * Calls `POST /api/v1/do/risk` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:coin_settings:update.
+   */
+  doDoxRiskPost(data: T.DoDoxRiskPostInput, options?: RequestOptions<T.DoDoxRiskPostInput>) {
+    return this.client.request<T.DoDoxRiskPostResponse, T.DoDoxRiskPostInput>({ ...options, method: "POST", url: `/api/v1/do/risk`, data: data });
+  }
+  /**
    * Read literal permission flags for policy updates, reward review, rule updates and rule creation. The endpoint declares admin:wallet:read_own with admin:coin_settings:read as an alias.
    * Calls `GET /api/v1/economy/capabilities` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -707,6 +760,104 @@ export class AssetOperations extends ServiceApi {
    */
   integrationRabbitmqIntegrationShowGet(options?: RequestOptions) {
     return this.client.request<T.IntegrationRabbitmqIntegrationShowGetResponse>({ ...options, method: "GET", url: `/api/v1/integration/rabbitmq` });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `POST /api/v1/internal/ai-credits/balance` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted x-ai-credit-token; grant credential for balance/grant, meter credential for balance/reserve/settle; never expose to browser..
+   */
+  profileAiCreditsBalanceRoutePost(data: T.ProfileAiCreditsBalanceRoutePostInput, options?: RequestOptions<T.ProfileAiCreditsBalanceRoutePostInput>) {
+    return this.client.request<T.ProfileAiCreditsBalanceRoutePostResponse, T.ProfileAiCreditsBalanceRoutePostInput>({ ...options, method: "POST", url: `/api/v1/internal/ai-credits/balance`, data: data });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `POST /api/v1/internal/ai-credits/grant` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted x-ai-credit-token; grant credential for balance/grant, meter credential for balance/reserve/settle; never expose to browser..
+   */
+  profileAiCreditsGrantRoutePost(data: T.ProfileAiCreditsGrantRoutePostInput, options?: RequestOptions<T.ProfileAiCreditsGrantRoutePostInput>) {
+    return this.client.request<T.ProfileAiCreditsGrantRoutePostResponse, T.ProfileAiCreditsGrantRoutePostInput>({ ...options, method: "POST", url: `/api/v1/internal/ai-credits/grant`, data: data });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `POST /api/v1/internal/ai-credits/reserve` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted x-ai-credit-token; grant credential for balance/grant, meter credential for balance/reserve/settle; never expose to browser..
+   */
+  profileAiCreditsReserveRoutePost(data: T.ProfileAiCreditsReserveRoutePostInput, options?: RequestOptions<T.ProfileAiCreditsReserveRoutePostInput>) {
+    return this.client.request<T.ProfileAiCreditsReserveRoutePostResponse, T.ProfileAiCreditsReserveRoutePostInput>({ ...options, method: "POST", url: `/api/v1/internal/ai-credits/reserve`, data: data });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `POST /api/v1/internal/ai-credits/settle` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted x-ai-credit-token; grant credential for balance/grant, meter credential for balance/reserve/settle; never expose to browser..
+   */
+  profileAiCreditsSettleRoutePost(data: T.ProfileAiCreditsSettleRoutePostInput, options?: RequestOptions<T.ProfileAiCreditsSettleRoutePostInput>) {
+    return this.client.request<T.ProfileAiCreditsSettleRoutePostResponse, T.ProfileAiCreditsSettleRoutePostInput>({ ...options, method: "POST", url: `/api/v1/internal/ai-credits/settle`, data: data });
+  }
+  /**
+   * Configure the closed ledger or transfer existing Dox atomically. Stable operation IDs are idempotent; task/purchase domain IDs prevent duplicate payouts. 409 on insufficient funds or conflicting replays.
+   * Calls `POST /api/v1/internal/do/execute` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted x-do-service-token; Social for campaign commands, Task for wallet/space commands. Stable ID required; changed replay or insufficient funds returns409..
+   */
+  doDoxCommandPost(data: T.DoDoxCommandPostInput, options?: RequestOptions<T.DoDoxCommandPostInput>) {
+    return this.client.request<T.DoDoxCommandPostResponse, T.DoDoxCommandPostInput>({ ...options, method: "POST", url: `/api/v1/internal/do/execute`, data: data });
+  }
+  /**
+   * Read one member's balance and cursor-paginated history; at most 100 postings per page. Read confirmed space postings and balances. Page is one-based, size1..100; direction requires an account. Only Task credentials are accepted.
+   * Calls `POST /api/v1/internal/do/read` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted x-do-service-token; management requires Task credential. Scope and membership must be validated by calling service..
+   */
+  doDoxReadPost(data: T.DoDoxReadPostInput, options?: RequestOptions<T.DoDoxReadPostInput>) {
+    return this.client.request<T.DoDoxReadPostResponse, T.DoDoxReadPostInput>({ ...options, method: "POST", url: `/api/v1/internal/do/read`, data: data });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `GET /api/v1/internal/do/readiness` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted Task x-do-service-token; configuration snapshot does not prove external cash reserves..
+   */
+  doDoxFinancialConfigurationGet(options?: RequestOptions) {
+    return this.client.request<T.DoDoxFinancialConfigurationGetResponse>({ ...options, method: "GET", url: `/api/v1/internal/do/readiness` });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `POST /api/v1/internal/do/refunds` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  doDoxCreatePost(data: T.DoDoxCreatePostInput, options?: RequestOptions<T.DoDoxCreatePostInput>) {
+    return this.client.request<T.DoDoxCreatePostResponse, T.DoDoxCreatePostInput>({ ...options, method: "POST", url: `/api/v1/internal/do/refunds`, data: data });
+  }
+  /**
+   * Read or mutate the scoped service resource; preserve the full response and service validation errors.
+   * Calls `GET /api/v1/internal/do/refunds/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Verified service identity and handler-specific actor/resource scope. Shared FaiberClient credentials are forwarded..
+   */
+  doDoxReadGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.DoDoxReadGetResponse>({ ...options, method: "GET", url: `/api/v1/internal/do/refunds/${encodeURIComponent(id)}` });
   }
   /**
    * Publish an immutable fitness product using server-only FITNESS_PROFILE_SERVICE_TOKEN as Bearer authorization. Require fitness: tier, gym metadata, IRR price 1000–1000000000, zero points/storage and no linked product. Changed existing versions return 409.

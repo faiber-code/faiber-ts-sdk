@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-drm",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "source_revisions": {
     "drm": {
       "directory": "infera-drm",
@@ -16,8 +16,8 @@
     "packages/drm/src/wire.types.ts": "9c3984b2896d52fce3d21d77343fef1d5e86304b3758ea18bc0342f6dfcc739c"
   },
   "capability_review_sha256": "e2e8fcfe2ddb596976f05d8e43e40f233909001db12147074df69575aa5bc4c9",
-  "source_pin_file_sha256": "d7cfaa0ed6f055e876a0716e167a37617dead70d56bd37b18c842c275ba9a31f",
-  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
+  "source_pin_file_sha256": "e929b4038af893213725d9c9bb687fd79652106eb274244d7e206a1bafd21e8d",
+  "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 96,

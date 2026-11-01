@@ -1,34 +1,37 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-chat",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "source_revisions": {
     "chat": {
       "directory": "infera-chat",
-      "revision": "37ed68231e9983d17f143bc6d41c4334669133db"
+      "revision": "4bfa200c2903f09c9ebadbfceb06d9b8367f4f74"
     }
   },
   "package_source_sha256": {
     "packages/chat/src/assistant-voice.ts": "2646fbad3ad189bfad58dc1d2c3713cdf4169b78cea3f9f0a89396c976b2083b",
-    "packages/chat/src/index.ts": "c8db545e2673b6f2f7b610f31e8f2796afe4f46e6460b55b495a9922cfcf1a39",
+    "packages/chat/src/bridge-contracts.ts": "9695d483aab622b625e7e11ff755fb07a1e6e86c26103480354fd109b961d73e",
+    "packages/chat/src/index.ts": "c9e13bc86f58a11879fb88351d3d62e777cfed2ca4297147fc217f5c5ad3e753",
+    "packages/chat/src/integrations.ts": "30ccd5b57ea07f94d4959dd9352e42e9ad9f60679d57cf75b8f9ea68a5d9dc34",
     "packages/chat/src/learning.ts": "362ca67a1e763cfb8c8e2d9105330b1f61622f4e916d1b77b5257387fa54691f",
-    "packages/chat/src/operations.ts": "7c9a4937447d06594da9c16a2e294ca2cbdd251188c8c96e00cc946ab1bcbcea",
-    "packages/chat/src/operations.types.ts": "bc7b9cf0863a130463eb1e5f3385cbb09cc0b09035fa3c83a5b349d6abbdd106",
+    "packages/chat/src/operations.ts": "7294d5a39a9c17b922f8961c6037a5b7c96805a2c5cd30e84d3a00ea2f4fbd13",
+    "packages/chat/src/operations.types.ts": "f2de49f5fd5c8335ce004541ca31ad8b5d0ddcfc10d510eac02b7ab72155a33b",
     "packages/chat/src/personal.ts": "802316a11b33a0619a5db6041ffee38a75674374ee1022e0e8a4df3d4f8ad49c",
-    "packages/chat/src/reviewed-wire.ts": "7bdd044fbb526ae99ebc3ff63dd893d13a6d2e3b1b8c0a3cd9dead61a9c682a8",
+    "packages/chat/src/reviewed-wire.ts": "753fd5a4cbd1609d21cc9a97b8a356fcde5e3eb55aa4ff62dcc42329c77747c9",
     "packages/chat/src/speech-live.ts": "30fcab33101d3e3a7e5bd9ee1fb4618f910f81c7af39f4a38b38e5ca59782e5e",
     "packages/chat/src/speech-playback.ts": "90f32542a3e6cf392782538b66244d87186f023de73092b2b74470c85b92da46",
     "packages/chat/src/speech-recorder.ts": "695af79a049dc07658aeb7e3001b0c8cc09757232f8f5fdde19cd782a0e1efeb",
+    "packages/chat/src/streaming.ts": "348dbb41a7e838c23e1d5c8517dcc897bb3d9d895e60ba19fca51169a65d8f83",
     "packages/chat/src/types.ts": "bd6b4a807115c776e417acd0d5915e52f33be0d11ce1209eddbb65036cd2fe4d",
     "packages/chat/src/workspace.ts": "45eb9ff1377297fe499f113c51f7e981db2c7f969230ec31aabacee46e89961d"
   },
   "capability_review_sha256": "916e361c42644d64dd39a325685b0b5ca6083d7455396596f6600261896233a7",
-  "source_pin_file_sha256": "d7cfaa0ed6f055e876a0716e167a37617dead70d56bd37b18c842c275ba9a31f",
-  "http_contract_file_sha256": "505b75293ed51e0173d851044416cddf22199fdb8820db0052ddeec58ad5bc54",
+  "source_pin_file_sha256": "e929b4038af893213725d9c9bb687fd79652106eb274244d7e206a1bafd21e8d",
+  "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
   "public_contract": {
     "kind": "source-extracted-http",
-    "operation_count": 69,
-    "sha256": "af212f9fbc08f81020aefcc37bc22c073cee3653ce92f83a13efff18f2379a3e"
+    "operation_count": 88,
+    "sha256": "e8dab054b06acef758d65a10d04e0675d427a57a51b51bf67b3f27c2831f1197"
   },
   "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
 }
