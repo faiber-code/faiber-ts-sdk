@@ -201,6 +201,7 @@ export type RoutesUpdatePutResponse = import("./reviewed-wire.js").ChatConversat
 
 /** Backend request type: AiMessage. */
 export interface RoutesAiSendPostInput extends JsonObject {
+  "stream_progress"?: boolean;
   "message": string;
   "client_id"?: string | null;
   "model_ref"?: string | null;

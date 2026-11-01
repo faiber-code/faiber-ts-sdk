@@ -256,3 +256,5 @@ export * from './integrations.js';
 export * from './streaming.js';
 
 export * from "./bridge-contracts.js";
+
+export type {WorkspaceReadPolicy,WorkspaceReadRule,WorkspaceReplyTiming} from './workspace-read-policy.js';

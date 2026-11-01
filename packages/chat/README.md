@@ -394,3 +394,19 @@ terminal done/complete frame, handle error frames, and cancel/release the reader
 on teardown. Pre-stream HTTP failures are ordinary Axios errors. Speech previews
 are not proof that a requested task mutation has completed. These APIs inherit
 configured cookie/Bearer authentication and never create another transport.
+
+### Responsive assistant replies
+
+Set `stream_progress: true` in the message input and use
+`chat.streaming.messages()` with `readAssistantReplyStream(response.data)` to
+consume typed reply frames. `progress` is a waiting notice, not an answer or a
+successful mutation; display or speak it separately from cumulative `text`.
+Only `complete` confirms the final reply. The decoder rejects interrupted or
+malformed streams and cancels its reader when iteration stops. Pass an AbortSignal
+to the request to cancel transport work.
+
+Published assistant-contract metadata may include a `WorkspaceReadPolicy` under
+`read_policy`. Its bounded, anchored patterns can prefetch authorized Task records
+or answer clear read-only lookups directly. Note queries require a selected space;
+ambiguous matches retain the assistant's normal tools, editing, and approval flow.
+Only trusted published configuration supplies these rules, never message inputs.
