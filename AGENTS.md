@@ -1,3 +1,13 @@
+<!-- infera-main-only-policy-v1 -->
+## Main-only development and shared Infera services
+
+- Work, commit, merge, and push on `main` only. Do not create or use feature, release, or project-specific branches for future work. If a checkout is on another branch, preserve its pending work and reconcile it into the canonical repository's `main` before editing; never discard work or force-push. An isolated checkout, if needed, must also use `main`.
+- Infera services are generic, shared services with one canonical repository and image repository per service. Project-specific behavior belongs in supported configuration and project-owned data. Do not create service forks, project-specific service code, catalog aliases, or alternate image names.
+- Build and deploy a service only from an immutable commit verified to belong to its canonical remote `main`. Service catalog/build source branches must be `main`; never deploy a different branch or unmerged working-tree code.
+- Build each service revision once and reuse that exact immutable image across its authorized sandbox rollout. Sandboxes use the same generic service implementation, not project-specific variants.
+- Preserve each project's environment, resources, storage, and data. Follow the user's deployment scope; shared code does not independently authorize changing primary services or unrelated applications.
+<!-- /infera-main-only-policy-v1 -->
+
 # Faiber TypeScript SDK Contributor Guide
 
 This repository is the public TypeScript SDK monorepo for Faiber services. Changes must keep source contracts, consumer documentation, Git releases, and npm packages synchronized.
