@@ -367,3 +367,34 @@ const genericFiltersInput: FilterProfilesInput = {
   ],
 };
 void dynamicStudentQuery; void genericFiltersInput;
+
+// Session interaction contracts retain cancellation and require stable retry IDs.
+const sessionReaction: ChatService.SessionEventMessageInput = {
+  message_type: 'session_event', client_id: 'reaction-id',
+  content: { event_type: 'reaction', emoji: '👏' },
+};
+const sessionHand: ChatService.SessionEventMessageInput = {
+  message_type: 'session_event', client_id: 'hand-id',
+  content: { event_type: 'hand', state: 'lowered' },
+};
+const sessionAi: ChatService.SessionAiMessageInput = { message: 'Explain this', client_id: 'ai-id' };
+void sdk.chat.sendMessage('bound-conversation', sessionReaction, { signal: AbortSignal.timeout(1_000) });
+void sdk.chat.sendMessage('bound-conversation', sessionHand);
+void sdk.chat.sendAiMessage('bound-conversation', sessionAi);
+// @ts-expect-error Session hand state must match the server enum.
+const invalidHand: ChatService.SessionHandContent = { event_type: 'hand', state: 'up' };
+// @ts-expect-error Bound session events require a stable client ID.
+const missingClientId: ChatService.SessionEventMessageInput = { message_type: 'session_event', content: { event_type: 'reaction', emoji: '👏' } };
+void [invalidHand, missingClientId];
+
+const fundingPolicy: AssetService.EconomyFundingPolicy = {basis_points:400,allocations:[{role:'learner',fraction:'0.75'}]};
+const evidenceBinding: AssetService.EconomyEvidenceBinding = {producer:'infera-lms',fact:'attendance.present',action_name:'verified-attendance'};
+void [fundingPolicy,evidenceBinding];
+void sdk.asset.economyObjects('configuration_projection').then(response => {
+  const first=response.data.data[0]; if(!first) return;
+  const revision:number = first.data.revision;
+  const policyVersion:number = first.data.policy_version;
+  void [revision,policyVersion];
+});
+void sdk.asset.economyJournal({before:200,descending:true},{signal:AbortSignal.timeout(1000)});
+void sdk.asset.operations.economyJournalGet({before:200,descending:true});

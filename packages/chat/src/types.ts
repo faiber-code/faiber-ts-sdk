@@ -123,3 +123,11 @@ export type AssistantConfigurationIntentResponse=ChatEnvelope<AssistantConfigura
 export interface AssistantPolicyReconciliationInput extends JsonObject { action:"recover"|"cancel"; }
 export interface AssistantPolicyCancellationReceipt extends JsonObject { configuration_id:string; assistant_id:string; status:"cancelled"; }
 export type AssistantPolicyReconciliationResponse=ChatEnvelope<ManagedAssistantRecord|AssistantPolicyCancellationReceipt>;
+
+/** Session interactions remain subject to Chat and Asset authorization. */
+export interface SessionReactionContent extends JsonObject { event_type: 'reaction'; emoji: string; text?: string; }
+export interface SessionHandContent extends JsonObject { event_type: 'hand'; state: 'raised' | 'lowered'; text?: string; }
+/** Reuse client_id when retrying the same session interaction. */
+export interface SessionEventMessageInput extends SendMessageInput { message_type: 'session_event'; content: SessionReactionContent | SessionHandContent; client_id: string; }
+/** Bound session AI conversations require a stable client_id for recovery. */
+export interface SessionAiMessageInput extends AiMessageInput { client_id: string; }
