@@ -832,6 +832,9 @@ export type ProfileAiCreditsSettleRoutePostInput = import("./ledger-contracts.js
 /** Backend response type: Value. */
 export type ProfileAiCreditsSettleRoutePostResponse = import("./ledger-contracts.js").AssetCreditResponse<import("./ledger-contracts.js").AssetAiCreditReservation>;
 
+/** Backend response type: serde_json::Value. */
+export type RouterBalanceGetResponse = import("./ledger-contracts.js").AssetBackupBalance;
+
 /** Backend request type: Envelope. */
 export type DoDoxCommandPostInput = import("./ledger-contracts.js").AssetRewardCommand;
 /** Backend response type: Value. */

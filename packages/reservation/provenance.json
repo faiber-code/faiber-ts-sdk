@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-reservation",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "source_revisions": {
     "reservation": {
       "directory": "infera-reservation",
@@ -16,8 +16,8 @@
     "packages/reservation/src/types.ts": "cc62ec3c494ae40e6e0d24ecf69d261ac84c37ba8b048c45512e5faa6e205a43"
   },
   "capability_review_sha256": "f7d58de4714cc71716e5d98bebd1664d5e3a405f050d266d386a7b7f0dd45158",
-  "source_pin_file_sha256": "2cf8bcf9d4699ecaa519e9c3743bbfba87881b51a874a899cb5a0fd3e24880fe",
-  "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
+  "source_pin_file_sha256": "387911b20ba5bed7b90ff4457f462e52fe9201a4b41d75391d45548a82c5947c",
+  "http_contract_file_sha256": "ab0b79b93a80256159f224084a1de38702f8eeefb7974f524fa0d5eabf31c09b",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 30,

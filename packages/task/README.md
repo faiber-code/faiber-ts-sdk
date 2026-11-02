@@ -227,3 +227,31 @@ The legacy Dox configuration input changed in 2.0.0: supply `version`, an explic
 space asset, no longer a standalone score. Existing Do/campaign APIs remain.
 `integrations` exposes actor-owned Faiber synchronization, scoped time reports,
 and audited subscription administration without application UI dependencies.
+
+
+## Community profiles and conversations
+
+`api.community` exposes consent-based personalization, ranked public discovery,
+interests, blocking, conversations and Do gifts. The same typed methods are
+available as `CommunityApi`. They inherit your FaiberClient credentials,
+request options, abort signals and full Axios responses. Public browsing and
+messages require public profiles; gifts and assistant questions require mutual
+interest. These operations do not grant access to another person’s tasks or notes.
+
+```ts
+const me = await api.community.self({ signal });
+const people = await api.community.people({ q: "design", page: 1 }, { signal });
+await api.community.interest(people.data.data.items[0].user_id, true, { signal });
+```
+
+Keep questionnaire drafts on the device until complete. Submit `analyze()` with
+all answers and a stable `request_id`; reuse it on retry. `publish()` separately
+requires explicit consent and the returned version. A profile can remain private
+after analysis. `gift()` accepts a catalog ID, never a caller-supplied price.
+Use the server-returned `remaining_submissions` for campaign retry limits.
+
+Identity/permission errors use 401/403, inaccessible profiles 404, and stale
+versions, conflicting retries, limits or missing configuration 409. Do not infer
+that a deployed service supports these endpoints from the SDK version alone.
+The community service and its AI billing configuration must be rolled out before
+production use. Task additionally requires its community forwarding feature.

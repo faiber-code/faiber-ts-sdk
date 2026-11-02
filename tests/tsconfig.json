@@ -45,6 +45,7 @@
     "lms-calendar.types.ts",
     "lms-classroom-confirmation.types.ts",
     "workspace-read-policy.types.ts",
-    "lms-filter-media.types.ts"
+    "lms-filter-media.types.ts",
+    "community-rewards.types.ts"
   ]
 }

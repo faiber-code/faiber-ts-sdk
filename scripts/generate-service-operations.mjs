@@ -52,6 +52,20 @@ const camel = value => {
 const operationBaseName = endpoint => `${endpoint.module}-${endpoint.handler}-${endpoint.method.toLowerCase()}`;
 // Preserve published names for manually reviewed workspace contracts.
 const stableOperationNames = {
+  "GET /api/v1/community/me": "communityMeGet",
+  "POST /api/v1/community/me/analyze": "communityAnalyzePost",
+  "POST /api/v1/community/me/publish": "communityPublishPost",
+  "GET /api/v1/community/people": "communityPeopleGet",
+  "GET /api/v1/community/people/{id}": "communityPersonGet",
+  "POST /api/v1/community/people/{id}/interest": "communityInterestPost",
+  "POST /api/v1/community/people/{id}/block": "communityBlockPost",
+  "POST /api/v1/community/people/{id}/ask": "communityAskPost",
+  "GET /api/v1/community/people/{id}/messages": "communityMessagesGet",
+  "POST /api/v1/community/people/{id}/messages": "communitySendPost",
+  "GET /api/v1/community/messages": "communityInboxGet",
+  "GET /api/v1/community/gifts": "communityGiftsGet",
+  "POST /api/v1/community/people/{id}/gifts": "communityGiftPost",
+
   "GET /api/openapi.json": "workspaceQuery",
   "GET /api/v1/planning-preferences": "workspacePreferences",
   "PUT /api/v1/planning-preferences": "workspaceSavePreferences",

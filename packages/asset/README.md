@@ -168,3 +168,26 @@ only; `read()` pages one member's history. Page size is 1–100; direction requi
 an account (`space` or `user:UUID`). Full Axios responses and cancellation are
 preserved; handle 401/403, insufficient balance, and conflicting replays. These
 contracts are generic and contain no product routing or UI assumptions.
+
+
+## Administering a product’s Do policy
+
+Use `DoEconomyApi` with your existing authenticated `FaiberClient('asset', …)`.
+`policy()` returns `{ version, can_edit, policy }` inside `response.data.data`.
+`savePolicy({ version, policy, reason })` updates that same version, records an
+audit reason, and returns the saved snapshot. Read and write require
+`admin:coin_settings:read` and `admin:coin_settings:update`, respectively.
+Never put trusted backend service tokens in an admin browser.
+
+The policy includes packs, products, bilingual gifts, personalization rewards,
+the daily payout sequence, referral rewards and limits, campaign funding and
+resubmission limits, and funding/review rules. Gift image paths must be local,
+identifiers unique, and amounts valid integers. Existing policies default to
+zero personalization rewards and an empty check-in schedule. An empty schedule
+disables daily coin grants; otherwise days beyond it use the final amount.
+
+Read the saved policy before editing and preserve fields outside your form.
+On `do.version_conflict`, retain the draft and explicitly reload/reconcile the
+new revision; do not retry with a guessed version. Backend validation rejects
+underfunded packs and invalid values. Both calls preserve full Axios responses
+and accept `RequestOptions`, including an abort `signal`.

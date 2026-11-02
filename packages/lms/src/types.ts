@@ -675,3 +675,10 @@ export type AcademyEnrollmentsResponse = ApiEnvelope<AcademyEnrollment[]>;
 export type AcademySessionCompletionResponse = ApiEnvelope<AcademySessionCompletion>;
 export type AcademyExamAttemptResponse = ApiEnvelope<AcademyExamAttempt>;
 export type AcademyExamResultResponse = ApiEnvelope<AcademyExamResult>;
+
+/** A directed link between course UUIDs in a progression. */
+export interface CourseProgressionEdge { from: string; to: string; }
+/** Atomic visual steps and explicit edges. Reuse the captured revision when saving. */
+export interface CourseProgression { revision: number; steps: string[][]; edges: CourseProgressionEdge[]; }
+/** Canonical progression response; stale writes return 409 and invalid graphs 422. */
+export interface CourseProgressionResponse { status: string; message: string; data: CourseProgression; }

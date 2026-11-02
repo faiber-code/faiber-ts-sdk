@@ -138,3 +138,6 @@ export { GisApi };
 export * as GisService from "@faiber/faiber-gis";
 
 export type {ManageAgentActionCapabilities,ManageDurableActionEvent,ManageAgentActionPayload,ManageAgentActionState,ManageAgentActionOutcome,ManageAgentActionView,ManageAgentActionReply,ManageAgentActionSummary,ManageAgentActionReviewInput,ManageAgentActionExecuteInput,ManageDurableActionSseEvent} from "@faiber/faiber-manage";
+
+export {CommunityApi} from "@faiber/faiber-social";
+export {DoEconomyApi} from "@faiber/faiber-asset";

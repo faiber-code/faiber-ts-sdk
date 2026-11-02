@@ -260,6 +260,145 @@ export class TaskOperations extends ServiceApi {
     return this.client.request<T.RoutesConfigGetApiV1CollaborationConfigResponse>({ ...options, method: "GET", url: `/api/v1/collaboration/config` });
   }
   /**
+   * Community gifts. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `GET /api/v1/community/gifts` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityGiftsGet(options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyGetApiV1CommunityGiftsResponse>({ ...options, method: "GET", url: `/api/v1/community/gifts` });
+  }
+  /**
+   * Community me. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `GET /api/v1/community/me` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityMeGet(options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyGetApiV1CommunityMeResponse>({ ...options, method: "GET", url: `/api/v1/community/me` });
+  }
+  /**
+   * Community analyze. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `POST /api/v1/community/me/analyze` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityAnalyzePost(options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyPostApiV1CommunityMeAnalyzeResponse>({ ...options, method: "POST", url: `/api/v1/community/me/analyze` });
+  }
+  /**
+   * Community publish. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `POST /api/v1/community/me/publish` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityPublishPost(options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyPostApiV1CommunityMePublishResponse>({ ...options, method: "POST", url: `/api/v1/community/me/publish` });
+  }
+  /**
+   * Community inbox. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `GET /api/v1/community/messages` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityInboxGet(options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyGetApiV1CommunityMessagesResponse>({ ...options, method: "GET", url: `/api/v1/community/messages` });
+  }
+  /**
+   * Community people. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `GET /api/v1/community/people` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityPeopleGet(params?: T.CommunityProxyGetApiV1CommunityPeopleQuery, options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyGetApiV1CommunityPeopleResponse>({ ...options, method: "GET", url: `/api/v1/community/people`, params });
+  }
+  /**
+   * Community person. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `GET /api/v1/community/people/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityPersonGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyGetApiV1CommunityPeopleIdResponse>({ ...options, method: "GET", url: `/api/v1/community/people/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Community ask. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `POST /api/v1/community/people/{id}/ask` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityAskPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyPostApiV1CommunityPeopleIdAskResponse>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/ask` });
+  }
+  /**
+   * Community block. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `POST /api/v1/community/people/{id}/block` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityBlockPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyPostApiV1CommunityPeopleIdBlockResponse>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/block` });
+  }
+  /**
+   * Community gift. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `POST /api/v1/community/people/{id}/gifts` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityGiftPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyPostApiV1CommunityPeopleIdGiftsResponse>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/gifts` });
+  }
+  /**
+   * Community interest. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `POST /api/v1/community/people/{id}/interest` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityInterestPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyPostApiV1CommunityPeopleIdInterestResponse>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/interest` });
+  }
+  /**
+   * Community messages. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `GET /api/v1/community/people/{id}/messages` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityMessagesGet(id: Identifier, params?: T.CommunityProxyGetApiV1CommunityPeopleIdMessagesQuery, options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyGetApiV1CommunityPeopleIdMessagesResponse>({ ...options, method: "GET", url: `/api/v1/community/people/${encodeURIComponent(id)}/messages`, params });
+  }
+  /**
+   * Community send. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `POST /api/v1/community/people/{id}/messages` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communitySendPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyPostApiV1CommunityPeopleIdMessagesResponse>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/messages` });
+  }
+  /**
    * Events. Raw SSE invalidate/changed frames, no JSON envelope; permission rechecked per event and keepalive every 15 seconds. Reconnect and refetch current snapshots; no replay cursor.
    * Calls `GET /api/v1/events` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

@@ -487,6 +487,9 @@ export interface IdentityAuthorityEnrollPostResponseData extends JsonObject {
 export interface IdentityAuthorityEnrollPostResponse extends ApiEnvelope<IdentityAuthorityEnrollPostResponseData> {
 }
 
+/** Backend response type: Value. */
+export type ContactVerificationFactsGetResponse = import("./verification.js").VerifiedContactResponse;
+
 /** Backend response type: Vec<ProviderView>. */
 export type CustomOauthListGetResponse = import("./contracts.types.js").CustomProviderListResponse;
 

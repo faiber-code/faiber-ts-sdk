@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-payment",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "source_revisions": {
     "payment": {
       "directory": "infera-payment",
@@ -11,19 +11,19 @@
   "package_source_sha256": {
     "packages/payment/src/contracts.types.ts": "795eb1a1a592c669223d3aaec2f663dd82689a590f71cc104b7bcde2099d19eb",
     "packages/payment/src/index.ts": "52e3b0505216385c6f712076adfa9e1ae3998848568cb57b5fc97bb8c93fb265",
-    "packages/payment/src/operations.ts": "1ce86476d0fb15e2257618ef9b162dd0a14371895a469f998e9e93b07aa9f43d",
-    "packages/payment/src/operations.types.ts": "15db1318ff221a0af6bbcc4232a48299836b67492e46095ca1a509ca0ae6079c",
+    "packages/payment/src/operations.ts": "f07161bcf069390eea9472866c49f5bec9eb26e79bf40779e5d802776c6e9d73",
+    "packages/payment/src/operations.types.ts": "682460c5960fa3dcbeb3a7cd9898407414ad6d654d435c85bc4e8e922e16e421",
     "packages/payment/src/reward-checkout.ts": "3d50a58ae8669775b1570ed6b50fb7a3c3bf5e2d7abcfff6d5f447b3eda002b4",
     "packages/payment/src/reward-refunds.ts": "0076b7056d317233b89fa87d74fc68546d095be3173eb97c674aec8ef8454fd3",
     "packages/payment/src/types.ts": "cd9a57df50bf2e8ea26cc10fdda63908f97a66c64492710c552951483812f2ee"
   },
   "capability_review_sha256": "2e335010c118007dd92a4c2145fa96cde9025b1b43f8d8e43a9f26f9633fdce6",
-  "source_pin_file_sha256": "2cf8bcf9d4699ecaa519e9c3743bbfba87881b51a874a899cb5a0fd3e24880fe",
-  "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
+  "source_pin_file_sha256": "387911b20ba5bed7b90ff4457f462e52fe9201a4b41d75391d45548a82c5947c",
+  "http_contract_file_sha256": "ab0b79b93a80256159f224084a1de38702f8eeefb7974f524fa0d5eabf31c09b",
   "public_contract": {
     "kind": "source-extracted-http",
-    "operation_count": 36,
-    "sha256": "2095768913b7d7a271eeeb27e0a60569176c753ccc2490d0a5e1e80707561f9b"
+    "operation_count": 45,
+    "sha256": "9a0b4e999452e8d649cb804fbd7bf429529b23559483682d30c54f228d258301"
   },
   "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
 }

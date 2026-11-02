@@ -1,3 +1,4 @@
+import {CommunityApi} from "./community.js";
 import { CampaignsApi } from "./campaigns.js";
 import { ServiceApi, multipart, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type {
@@ -12,6 +13,7 @@ const id = (value: Identifier) => encodeURIComponent(value);
 
 import { SocialOperations } from "./operations.js";
 export class SocialApi extends ServiceApi {
+  readonly community = new CommunityApi(this.client);
   readonly campaigns = new CampaignsApi(this.client);
   readonly operations = new SocialOperations(this.client);
   /**
@@ -360,3 +362,5 @@ export * from "./discovery.types.js";
 export * from "./contracts.types.js";
 
 export * from "./campaigns.js";
+
+export * from "./community.js";

@@ -1058,6 +1058,20 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/internal/backups/balance/{owner}",
+      "module": "router",
+      "handler": "balance",
+      "permissions": [],
+      "source": "infera-asset/src/router.rs",
+      "handlerModule": "backup_billing",
+      "pathParam": "String",
+      "response": "serde_json::Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "POST",
       "path": "/api/v1/internal/do/execute",
       "module": "do_dox",
@@ -6893,6 +6907,19 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/internal/verification/{id}",
+      "module": "contact_verification",
+      "handler": "facts",
+      "permissions": [],
+      "source": "infera-idp/src/contact_verification.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/settings/custom-oauth",
       "module": "custom_oauth",
       "handler": "list",
@@ -10335,6 +10362,37 @@
       "source": "infera-lms/src/course/routes.rs",
       "body": "models::ReorderRequest",
       "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/courses/progression",
+      "module": "course",
+      "handler": "get",
+      "permissions": [
+        "lms:course:read"
+      ],
+      "source": "infera-lms/src/course/routes.rs",
+      "handlerModule": "progression",
+      "response": "Progression",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/courses/progression",
+      "module": "course",
+      "handler": "put",
+      "permissions": [
+        "lms:course:update"
+      ],
+      "source": "infera-lms/src/course/routes.rs",
+      "handlerModule": "progression",
+      "body": "Progression",
+      "response": "Progression",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -15084,6 +15142,60 @@
     },
     {
       "method": "POST",
+      "path": "/api/v1/internal/reward-checkouts/{product}/payment",
+      "module": "reward_checkout",
+      "handler": "create",
+      "permissions": [],
+      "source": "infera-payment/src/reward_checkout.rs",
+      "body": "crate::payment::models::CreatePaymentRequest",
+      "pathParam": "String",
+      "response": "crate::payment::models::CreatePaymentResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/internal/reward-checkouts/{product}/readiness",
+      "module": "reward_checkout",
+      "handler": "readiness",
+      "permissions": [],
+      "source": "infera-payment/src/reward_checkout.rs",
+      "pathParam": "String",
+      "response": "CheckoutReadiness",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/internal/reward-checkouts/{product}/refunds",
+      "module": "reward_refunds",
+      "handler": "create",
+      "permissions": [],
+      "source": "infera-payment/src/reward_refunds.rs",
+      "body": "RefundReceipt",
+      "pathParam": "String",
+      "response": "RefundReceipt",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/internal/reward-checkouts/{product}/transactions/{id}",
+      "module": "reward_checkout",
+      "handler": "receipt",
+      "permissions": [],
+      "source": "infera-payment/src/reward_checkout.rs",
+      "pathParam": "(String, Uuid)",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
       "path": "/api/v1/internal/shop/payment",
       "module": "shop_checkout",
       "handler": "create",
@@ -15129,6 +15241,83 @@
       "source": "infera-payment/src/payment/routes.rs",
       "body": "models::CreatePaymentRequest",
       "response": "models::CreatePaymentResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reward-refunds",
+      "module": "reward_refunds",
+      "handler": "index",
+      "permissions": [
+        "admin:transaction:read"
+      ],
+      "source": "infera-payment/src/reward_refunds.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reward-refunds/{id}",
+      "module": "reward_refunds",
+      "handler": "detail",
+      "permissions": [
+        "admin:transaction:read"
+      ],
+      "source": "infera-payment/src/reward_refunds.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/reward-refunds/{id}/confirm",
+      "module": "reward_refunds",
+      "handler": "confirm",
+      "permissions": [
+        "admin:transaction:refund"
+      ],
+      "source": "infera-payment/src/reward_refunds.rs",
+      "body": "OperatorReview",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/reward-refunds/{id}/reopen",
+      "module": "reward_refunds",
+      "handler": "reopen",
+      "permissions": [
+        "admin:transaction:refund"
+      ],
+      "source": "infera-payment/src/reward_refunds.rs",
+      "body": "OperatorReview",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/reward-refunds/{id}/start",
+      "module": "reward_refunds",
+      "handler": "start",
+      "permissions": [
+        "admin:transaction:refund"
+      ],
+      "source": "infera-payment/src/reward_refunds.rs",
+      "body": "OperatorReview",
+      "pathParam": "Uuid",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -20345,6 +20534,191 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/campaign-assignments",
+      "module": "campaigns",
+      "handler": "my_work",
+      "permissions": [],
+      "source": "infera-social/src/campaigns/routes.rs",
+      "query": "ListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/campaign-assignments/{id}",
+      "module": "campaigns",
+      "handler": "detail",
+      "permissions": [],
+      "source": "infera-social/src/campaigns/routes.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/campaign-assignments/{id}/files",
+      "module": "campaigns",
+      "handler": "upload",
+      "permissions": [],
+      "source": "infera-social/src/campaigns/uploads.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": true,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/campaign-assignments/{id}/review",
+      "module": "campaigns",
+      "handler": "review",
+      "permissions": [],
+      "source": "infera-social/src/campaigns/routes.rs",
+      "body": "Review",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/campaign-assignments/{id}/submit",
+      "module": "campaigns",
+      "handler": "submit",
+      "permissions": [],
+      "source": "infera-social/src/campaigns/routes.rs",
+      "body": "Submission",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/campaign-files/{id}",
+      "module": "campaigns",
+      "handler": "download",
+      "permissions": [],
+      "source": "infera-social/src/campaigns/uploads.rs",
+      "pathParam": "Uuid",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/campaign-jobs/{id}/start",
+      "module": "campaigns",
+      "handler": "start",
+      "permissions": [],
+      "source": "infera-social/src/campaigns/routes.rs",
+      "body": "Mutation",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/campaign-referrals",
+      "module": "campaigns",
+      "handler": "list",
+      "permissions": [],
+      "source": "infera-social/src/campaigns/referrals.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/campaign-referrals/bind",
+      "module": "campaigns",
+      "handler": "receive",
+      "permissions": [],
+      "source": "infera-social/src/campaigns/referrals.rs",
+      "body": "Bind",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/campaigns",
+      "module": "campaigns",
+      "handler": "list",
+      "permissions": [],
+      "source": "infera-social/src/campaigns/routes.rs",
+      "query": "ListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/campaigns",
+      "module": "campaigns",
+      "handler": "create",
+      "permissions": [],
+      "source": "infera-social/src/campaigns/routes.rs",
+      "body": "CampaignInput",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/campaigns/{id}",
+      "module": "campaigns",
+      "handler": "show",
+      "permissions": [],
+      "source": "infera-social/src/campaigns/routes.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/campaigns/{id}",
+      "module": "campaigns",
+      "handler": "change",
+      "permissions": [],
+      "source": "infera-social/src/campaigns/routes.rs",
+      "body": "Mutation",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/campaigns/{id}/jobs",
+      "module": "campaigns",
+      "handler": "add_job",
+      "permissions": [],
+      "source": "infera-social/src/campaigns/routes.rs",
+      "body": "JobInput",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/categories",
       "module": "api",
       "handler": "list_categories",
@@ -20607,6 +20981,204 @@
       ],
       "source": "infera-social/src/api/routes.rs",
       "body": "CreateComment",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/community/gifts",
+      "module": "community",
+      "handler": "gifts",
+      "permissions": [
+        "social:community:read"
+      ],
+      "source": "infera-social/src/community/mod.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/community/me",
+      "module": "community",
+      "handler": "me",
+      "permissions": [
+        "social:community:read"
+      ],
+      "source": "infera-social/src/community/mod.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/me/analyze",
+      "module": "community",
+      "handler": "analyze",
+      "permissions": [
+        "social:community:personalize"
+      ],
+      "source": "infera-social/src/community/mod.rs",
+      "body": "AnalysisInput",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/me/publish",
+      "module": "community",
+      "handler": "publish",
+      "permissions": [
+        "social:community:publish"
+      ],
+      "source": "infera-social/src/community/mod.rs",
+      "body": "Visibility",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/community/messages",
+      "module": "community",
+      "handler": "inbox",
+      "permissions": [
+        "social:community:messages:read"
+      ],
+      "source": "infera-social/src/community/mod.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/community/people",
+      "module": "community",
+      "handler": "people",
+      "permissions": [
+        "social:community:read"
+      ],
+      "source": "infera-social/src/community/mod.rs",
+      "query": "Search",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/community/people/{id}",
+      "module": "community",
+      "handler": "person",
+      "permissions": [
+        "social:community:read"
+      ],
+      "source": "infera-social/src/community/mod.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/ask",
+      "module": "community",
+      "handler": "ask",
+      "permissions": [
+        "social:community:ask"
+      ],
+      "source": "infera-social/src/community/mod.rs",
+      "body": "Question",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/block",
+      "module": "community",
+      "handler": "block",
+      "permissions": [
+        "social:community:interest"
+      ],
+      "source": "infera-social/src/community/mod.rs",
+      "body": "Toggle",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/gifts",
+      "module": "community",
+      "handler": "gift",
+      "permissions": [
+        "social:community:gifts:send"
+      ],
+      "source": "infera-social/src/community/mod.rs",
+      "body": "GiftInput",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/interest",
+      "module": "community",
+      "handler": "interest",
+      "permissions": [
+        "social:community:interest"
+      ],
+      "source": "infera-social/src/community/mod.rs",
+      "body": "Toggle",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/community/people/{id}/messages",
+      "module": "community",
+      "handler": "messages",
+      "permissions": [
+        "social:community:messages:read"
+      ],
+      "source": "infera-social/src/community/mod.rs",
+      "query": "Search",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/messages",
+      "module": "community",
+      "handler": "send",
+      "permissions": [
+        "social:community:messages:send"
+      ],
+      "source": "infera-social/src/community/mod.rs",
+      "body": "Message",
       "pathParam": "Uuid",
       "response": "Value",
       "responseEnvelope": "api",
@@ -22226,6 +22798,175 @@
       "handlerModule": "attachments",
       "response": "serde_json::Value",
       "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/community/gifts",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/community/me",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/me/analyze",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/me/publish",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/community/messages",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/community/people",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/community/people/{id}",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/ask",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/block",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/gifts",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/interest",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/community/people/{id}/messages",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/messages",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
       "multipart": false,
       "formUrlEncoded": false
     },

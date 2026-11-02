@@ -454,6 +454,165 @@ export class SocialOperations extends ServiceApi {
     return this.client.request<T.DiscoveryBlockPutResponse>({ ...options, method: "PUT", url: `/api/v1/block/${encodeURIComponent(id)}` });
   }
   /**
+   * Campaign work; preserves funding, membership, proof and version rules. Full Axios response; retry stable request IDs. Review requires explicit reasons for rejection.
+   * Calls `GET /api/v1/campaign-assignments` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:campaigns:use; verified organization/actor; private campaign or assignment membership and method-specific moderation checks.
+   */
+  campaignsMyWorkGet(params?: T.CampaignsMyWorkGetQuery, options?: RequestOptions) {
+    return this.client.request<T.CampaignsMyWorkGetResponse>({ ...options, method: "GET", url: `/api/v1/campaign-assignments`, params });
+  }
+  /**
+   * Campaign assignment; preserves funding, membership, proof and version rules. Full Axios response; retry stable request IDs. Review requires explicit reasons for rejection.
+   * Calls `GET /api/v1/campaign-assignments/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:campaigns:use; verified organization/actor; private campaign or assignment membership and method-specific moderation checks.
+   */
+  campaignsDetailGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CampaignsDetailGetResponse>({ ...options, method: "GET", url: `/api/v1/campaign-assignments/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Campaign upload; preserves funding, membership, proof and version rules. Full Axios response; retry stable request IDs. Review requires explicit reasons for rejection.
+   * Calls `POST /api/v1/campaign-assignments/{id}/files` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed multipart form.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:campaigns:use; verified organization/actor; private campaign or assignment membership and method-specific moderation checks.
+   */
+  campaignsUploadPost(id: Identifier, data: T.CampaignsUploadPostInput, options?: RequestOptions<T.CampaignsUploadPostInput>) {
+    return this.client.request<T.CampaignsUploadPostResponse, T.CampaignsUploadPostInput>({ ...options, method: "POST", url: `/api/v1/campaign-assignments/${encodeURIComponent(id)}/files`, data: data });
+  }
+  /**
+   * Campaign review; preserves funding, membership, proof and version rules. Full Axios response; retry stable request IDs. Review requires explicit reasons for rejection.
+   * Calls `POST /api/v1/campaign-assignments/{id}/review` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:campaigns:use; verified organization/actor; private campaign or assignment membership and method-specific moderation checks.
+   */
+  campaignsReviewPost(id: Identifier, data: T.CampaignsReviewPostInput, options?: RequestOptions<T.CampaignsReviewPostInput>) {
+    return this.client.request<T.CampaignsReviewPostResponse, T.CampaignsReviewPostInput>({ ...options, method: "POST", url: `/api/v1/campaign-assignments/${encodeURIComponent(id)}/review`, data: data });
+  }
+  /**
+   * Campaign submit; preserves funding, membership, proof and version rules. Full Axios response; retry stable request IDs. Review requires explicit reasons for rejection.
+   * Calls `POST /api/v1/campaign-assignments/{id}/submit` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:campaigns:use; verified organization/actor; private campaign or assignment membership and method-specific moderation checks.
+   */
+  campaignsSubmitPost(id: Identifier, data: T.CampaignsSubmitPostInput, options?: RequestOptions<T.CampaignsSubmitPostInput>) {
+    return this.client.request<T.CampaignsSubmitPostResponse, T.CampaignsSubmitPostInput>({ ...options, method: "POST", url: `/api/v1/campaign-assignments/${encodeURIComponent(id)}/submit`, data: data });
+  }
+  /**
+   * Campaign file; preserves funding, membership, proof and version rules. Full Axios response; retry stable request IDs. Review requires explicit reasons for rejection.
+   * Calls `GET /api/v1/campaign-files/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:campaigns:use; verified organization/actor; private campaign or assignment membership and method-specific moderation checks.
+   */
+  campaignsDownloadGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CampaignsDownloadGetResponse>({ ...options, method: "GET", url: `/api/v1/campaign-files/${encodeURIComponent(id)}`, responseType: "arraybuffer" });
+  }
+  /**
+   * Campaign startJob; preserves funding, membership, proof and version rules. Full Axios response; retry stable request IDs. Review requires explicit reasons for rejection.
+   * Calls `POST /api/v1/campaign-jobs/{id}/start` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:campaigns:use; verified organization/actor; private campaign or assignment membership and method-specific moderation checks.
+   */
+  campaignsStartPost(id: Identifier, data: T.CampaignsStartPostInput, options?: RequestOptions<T.CampaignsStartPostInput>) {
+    return this.client.request<T.CampaignsStartPostResponse, T.CampaignsStartPostInput>({ ...options, method: "POST", url: `/api/v1/campaign-jobs/${encodeURIComponent(id)}/start`, data: data });
+  }
+  /**
+   * List up to 100 own referral states and expiry dates.
+   * Calls `GET /api/v1/campaign-referrals` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:campaigns:use; caller-owned referral records.
+   */
+  campaignsListGetApiV1CampaignReferrals(options?: RequestOptions) {
+    return this.client.request<T.CampaignsListGetApiV1CampaignReferralsResponse>({ ...options, method: "GET", url: `/api/v1/campaign-referrals` });
+  }
+  /**
+   * Bind once to the independently verified referrer; replay the same request ID.
+   * Calls `POST /api/v1/campaign-referrals/bind` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:campaigns:use; binding independently verified with Task.
+   */
+  campaignsReceivePost(data: T.CampaignsReceivePostInput, options?: RequestOptions<T.CampaignsReceivePostInput>) {
+    return this.client.request<T.CampaignsReceivePostResponse, T.CampaignsReceivePostInput>({ ...options, method: "POST", url: `/api/v1/campaign-referrals/bind`, data: data });
+  }
+  /**
+   * Campaign campaigns; preserves funding, membership, proof and version rules. Full Axios response; retry stable request IDs. Review requires explicit reasons for rejection.
+   * Calls `GET /api/v1/campaigns` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:campaigns:use; verified organization/actor; private campaign or assignment membership and method-specific moderation checks.
+   */
+  campaignsListGetApiV1Campaigns(params?: T.CampaignsListGetApiV1CampaignsQuery, options?: RequestOptions) {
+    return this.client.request<T.CampaignsListGetApiV1CampaignsResponse>({ ...options, method: "GET", url: `/api/v1/campaigns`, params });
+  }
+  /**
+   * Campaign createCampaign; preserves funding, membership, proof and version rules. Full Axios response; retry stable request IDs. Review requires explicit reasons for rejection.
+   * Calls `POST /api/v1/campaigns` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:campaigns:use; verified organization/actor; private campaign or assignment membership and method-specific moderation checks.
+   */
+  campaignsCreatePost(data: T.CampaignsCreatePostInput, options?: RequestOptions<T.CampaignsCreatePostInput>) {
+    return this.client.request<T.CampaignsCreatePostResponse, T.CampaignsCreatePostInput>({ ...options, method: "POST", url: `/api/v1/campaigns`, data: data });
+  }
+  /**
+   * Campaign campaign; preserves funding, membership, proof and version rules. Full Axios response; retry stable request IDs. Review requires explicit reasons for rejection.
+   * Calls `GET /api/v1/campaigns/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:campaigns:use; verified organization/actor; private campaign or assignment membership and method-specific moderation checks.
+   */
+  campaignsShowGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CampaignsShowGetResponse>({ ...options, method: "GET", url: `/api/v1/campaigns/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Campaign changeCampaign; preserves funding, membership, proof and version rules. Full Axios response; retry stable request IDs. Review requires explicit reasons for rejection.
+   * Calls `POST /api/v1/campaigns/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:campaigns:use; verified organization/actor; private campaign or assignment membership and method-specific moderation checks.
+   */
+  campaignsChangePost(id: Identifier, data: T.CampaignsChangePostInput, options?: RequestOptions<T.CampaignsChangePostInput>) {
+    return this.client.request<T.CampaignsChangePostResponse, T.CampaignsChangePostInput>({ ...options, method: "POST", url: `/api/v1/campaigns/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
+   * Campaign addJob; preserves funding, membership, proof and version rules. Full Axios response; retry stable request IDs. Review requires explicit reasons for rejection.
+   * Calls `POST /api/v1/campaigns/{id}/jobs` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:campaigns:use; verified organization/actor; private campaign or assignment membership and method-specific moderation checks.
+   */
+  campaignsAddJobPost(id: Identifier, data: T.CampaignsAddJobPostInput, options?: RequestOptions<T.CampaignsAddJobPostInput>) {
+    return this.client.request<T.CampaignsAddJobPostResponse, T.CampaignsAddJobPostInput>({ ...options, method: "POST", url: `/api/v1/campaigns/${encodeURIComponent(id)}/jobs`, data: data });
+  }
+  /**
    * List organization-scoped, non-deleted categories ordered by sort_order and slug; hidden/archived categories are included.
    * Calls `GET /api/v1/categories` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -654,6 +813,152 @@ export class SocialOperations extends ServiceApi {
    */
   apiCreatePostCommentPostApiV1CommentsPostId(id: Identifier, data: T.ApiCreatePostCommentPostApiV1CommentsPostIdInput, options?: RequestOptions<T.ApiCreatePostCommentPostApiV1CommentsPostIdInput>) {
     return this.client.request<T.ApiCreatePostCommentPostApiV1CommentsPostIdResponse, T.ApiCreatePostCommentPostApiV1CommentsPostIdInput>({ ...options, method: "POST", url: `/api/v1/comments/post/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
+   * Community gifts. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `GET /api/v1/community/gifts` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:read.
+   */
+  communityGiftsGet(options?: RequestOptions) {
+    return this.client.request<T.CommunityGiftsGetResponse>({ ...options, method: "GET", url: `/api/v1/community/gifts` });
+  }
+  /**
+   * Community me. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `GET /api/v1/community/me` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:read.
+   */
+  communityMeGet(options?: RequestOptions) {
+    return this.client.request<T.CommunityMeGetResponse>({ ...options, method: "GET", url: `/api/v1/community/me` });
+  }
+  /**
+   * Community analyze. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `POST /api/v1/community/me/analyze` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:personalize.
+   */
+  communityAnalyzePost(data: T.CommunityAnalyzePostInput, options?: RequestOptions<T.CommunityAnalyzePostInput>) {
+    return this.client.request<T.CommunityAnalyzePostResponse, T.CommunityAnalyzePostInput>({ ...options, method: "POST", url: `/api/v1/community/me/analyze`, data: data });
+  }
+  /**
+   * Community publish. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `POST /api/v1/community/me/publish` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:publish.
+   */
+  communityPublishPost(data: T.CommunityPublishPostInput, options?: RequestOptions<T.CommunityPublishPostInput>) {
+    return this.client.request<T.CommunityPublishPostResponse, T.CommunityPublishPostInput>({ ...options, method: "POST", url: `/api/v1/community/me/publish`, data: data });
+  }
+  /**
+   * Community inbox. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `GET /api/v1/community/messages` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:messages:read.
+   */
+  communityInboxGet(options?: RequestOptions) {
+    return this.client.request<T.CommunityInboxGetResponse>({ ...options, method: "GET", url: `/api/v1/community/messages` });
+  }
+  /**
+   * Community people. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `GET /api/v1/community/people` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:read.
+   */
+  communityPeopleGet(params?: T.CommunityPeopleGetQuery, options?: RequestOptions) {
+    return this.client.request<T.CommunityPeopleGetResponse>({ ...options, method: "GET", url: `/api/v1/community/people`, params });
+  }
+  /**
+   * Community person. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `GET /api/v1/community/people/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:read.
+   */
+  communityPersonGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CommunityPersonGetResponse>({ ...options, method: "GET", url: `/api/v1/community/people/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Community ask. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `POST /api/v1/community/people/{id}/ask` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:ask.
+   */
+  communityAskPost(id: Identifier, data: T.CommunityAskPostInput, options?: RequestOptions<T.CommunityAskPostInput>) {
+    return this.client.request<T.CommunityAskPostResponse, T.CommunityAskPostInput>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/ask`, data: data });
+  }
+  /**
+   * Community block. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `POST /api/v1/community/people/{id}/block` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:interest.
+   */
+  communityBlockPost(id: Identifier, data: T.CommunityBlockPostInput, options?: RequestOptions<T.CommunityBlockPostInput>) {
+    return this.client.request<T.CommunityBlockPostResponse, T.CommunityBlockPostInput>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/block`, data: data });
+  }
+  /**
+   * Community gift. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `POST /api/v1/community/people/{id}/gifts` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:gifts:send.
+   */
+  communityGiftPost(id: Identifier, data: T.CommunityGiftPostInput, options?: RequestOptions<T.CommunityGiftPostInput>) {
+    return this.client.request<T.CommunityGiftPostResponse, T.CommunityGiftPostInput>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/gifts`, data: data });
+  }
+  /**
+   * Community interest. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `POST /api/v1/community/people/{id}/interest` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:interest.
+   */
+  communityInterestPost(id: Identifier, data: T.CommunityInterestPostInput, options?: RequestOptions<T.CommunityInterestPostInput>) {
+    return this.client.request<T.CommunityInterestPostResponse, T.CommunityInterestPostInput>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/interest`, data: data });
+  }
+  /**
+   * Community messages. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `GET /api/v1/community/people/{id}/messages` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:messages:read.
+   */
+  communityMessagesGet(id: Identifier, params?: T.CommunityMessagesGetQuery, options?: RequestOptions) {
+    return this.client.request<T.CommunityMessagesGetResponse>({ ...options, method: "GET", url: `/api/v1/community/people/${encodeURIComponent(id)}/messages`, params });
+  }
+  /**
+   * Community send. Authenticated organization/profile scope; public discovery and messages require both profiles public; assistant questions and gifts additionally require mutual interest. Does not grant task or note access. Reuse request_id for retries when present; stale versions or unavailable configuration return 409.
+   * Calls `POST /api/v1/community/people/{id}/messages` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:messages:send.
+   */
+  communitySendPost(id: Identifier, data: T.CommunitySendPostInput, options?: RequestOptions<T.CommunitySendPostInput>) {
+    return this.client.request<T.CommunitySendPostResponse, T.CommunitySendPostInput>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/messages`, data: data });
   }
   /**
    * Remove the current actor follow edge; returns204 even when no edge existed.

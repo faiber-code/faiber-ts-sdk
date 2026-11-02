@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-session",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "source_revisions": {
     "session": {
       "directory": "infera-session",
@@ -18,8 +18,8 @@
     "packages/session/src/types.ts": "1d66388c362deba53bab68d12cb33f7d107e5612aed63766da7e14fee80f0f94"
   },
   "capability_review_sha256": "6d51b56107772902bf71e179352ba32a4b4fd29ced4ffc2b87ef83d94b5566d5",
-  "source_pin_file_sha256": "2cf8bcf9d4699ecaa519e9c3743bbfba87881b51a874a899cb5a0fd3e24880fe",
-  "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
+  "source_pin_file_sha256": "387911b20ba5bed7b90ff4457f462e52fe9201a4b41d75391d45548a82c5947c",
+  "http_contract_file_sha256": "ab0b79b93a80256159f224084a1de38702f8eeefb7974f524fa0d5eabf31c09b",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 45,

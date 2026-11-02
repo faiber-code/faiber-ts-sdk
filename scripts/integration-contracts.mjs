@@ -1,6 +1,8 @@
+import {communityEndpoints} from "./community-contracts.mjs";
 import {routerContracts} from "./router-contract-overrides.mjs";
 // Audited mounted integration routes and concrete wire types. No workflow configuration is included.
 export const integrationEndpoints = [
+  ...communityEndpoints,
   {
     "service": "task",
     "endpoint": {

@@ -15,7 +15,7 @@ export interface CampaignListQuery {view?:'mine'|'public';page?:number;space_id?
 export interface CampaignMember {user_id:string;role:'participant'|'moderator';active:boolean}
 export interface CampaignAvailability {available_do:number|null;review_hours:number|null;appeal_days:number|null}
 export interface CampaignDetail {availability?:CampaignAvailability;campaign:Campaign;jobs:CampaignJob[];role:'participant'|'moderator'|null;members:CampaignMember[];finance:DoSnapshot|null}
-export interface CampaignAssignment {id:string;campaign_id:string;job_id:string;user_id:string;status:AssignmentStatus;reward:number;instructions:string;required_approvals:number;review_hours:number;appeal_days:number;deadline:string;review_deadline:string|null;appeal_until:string|null;submission_version:number;version:number;risk_flags:string[];last_error:string|null;created_at:string;campaign_title?:string;job_title?:string;asset?:CampaignAsset}
+export interface CampaignAssignment {remaining_submissions?:number;submission_limit?:number;id:string;campaign_id:string;job_id:string;user_id:string;status:AssignmentStatus;reward:number;instructions:string;required_approvals:number;review_hours:number;appeal_days:number;deadline:string;review_deadline:string|null;appeal_until:string|null;submission_version:number;version:number;risk_flags:string[];last_error:string|null;created_at:string;campaign_title?:string;job_title?:string;asset?:CampaignAsset}
 export interface CampaignWorkList {items:CampaignAssignment[]}
 export interface CampaignWorkQuery {view?:'review'|'appeals'}
 export interface CampaignProof {assignment_id:string;version:number;note:string;links:string[];attachment_ids:string[];external_ids:string[];created_at:string}
@@ -36,7 +36,7 @@ export interface DoOwnedItem {item_id:string;kind:'cosmetic'|'badge'}
 export interface DoRiskHold {reason:string;created_at:string}
 export interface DoRiskAppeal {id:string;reason:string;status:'open'|'resolved';created_at:string}
 export interface CampaignBudgetSummary {campaign_id:string;status:string;available:number;reserved:number}
-export interface DoSnapshot {campaign_budgets?:CampaignBudgetSummary[];risk_hold:DoRiskHold|null;risk_appeals:DoRiskAppeal[];version:number;enabled:boolean;public_creation:boolean;public_participation:boolean;high_value_threshold:number;review_hours:number;appeal_days:number;first_week_discount:number;later_discount:number;referral_extra_discount:number;referral_reward:number;referral_monthly_limit:number;referral_campaign_id:string|null;available:number;reserved:number;packs:DoPack[];catalog:DoItem[];history:DoHistory[];orders:DoOrder[];campaign_available?:number;redemptions:DoRedemption[];owned_items:DoOwnedItem[];standard_approvals:number;high_value_approvals:number}
+export interface DoSnapshot {personalization_reward?:number;daily_checkin_rewards?:number[];public_campaign_minimum?:number;campaign_max_resubmissions?:number;campaign_budgets?:CampaignBudgetSummary[];risk_hold:DoRiskHold|null;risk_appeals:DoRiskAppeal[];version:number;enabled:boolean;public_creation:boolean;public_participation:boolean;high_value_threshold:number;review_hours:number;appeal_days:number;first_week_discount:number;later_discount:number;referral_extra_discount:number;referral_reward:number;referral_monthly_limit:number;referral_campaign_id:string|null;available:number;reserved:number;packs:DoPack[];catalog:DoItem[];history:DoHistory[];orders:DoOrder[];campaign_available?:number;redemptions:DoRedemption[];owned_items:DoOwnedItem[];standard_approvals:number;high_value_approvals:number}
 export interface RewardOverview extends DoSnapshot {discount_percent:number;enrollment:RewardEnrollment;streak:RewardStreak;referrals:RewardReferral[]}
 export interface RewardPurchase {request_id:string;pack_id?:string;item_id?:string}
 export interface DoPackCheckout {redirect_url:string}
@@ -75,3 +75,7 @@ export class CampaignsApi extends ServiceApi {
  /** Downloads evidence only for its participant, moderator or authorized appeal operator. */
  file(id:string,options?:RequestOptions){return this.client.get<Blob>(`/api/v1/campaign-files/${encodeURIComponent(id)}`,undefined,{...options,responseType:'blob'})}
 }
+
+export interface CampaignReferralPage{items:RewardReferral[]}
+export interface CampaignReferralBind{request_id:string;referrer_id:string}
+export interface CampaignReferralAccepted{accepted:true}

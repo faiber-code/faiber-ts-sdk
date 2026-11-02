@@ -69,6 +69,22 @@ export type FitnessReceiptGetResponse = import("./contracts.types.js").ProductPa
 export type FitnessRetryPostResponse = import("./types.js").CreatePaymentResponse;
 
 /** Backend request type: crate::payment::models::CreatePaymentRequest. */
+export type RewardCheckoutCreatePostInput = Parameters<import("./reward-checkout.js").RewardCheckoutApi["create"]>[1];
+/** Backend response type: crate::payment::models::CreatePaymentResponse. */
+export type RewardCheckoutCreatePostResponse = Awaited<ReturnType<import("./reward-checkout.js").RewardCheckoutApi["create"]>>["data"];
+
+/** Backend response type: CheckoutReadiness. */
+export type RewardCheckoutReadinessGetResponse = Awaited<ReturnType<import("./reward-checkout.js").RewardCheckoutApi["readiness"]>>["data"];
+
+/** Backend request type: RefundReceipt. */
+export type RewardRefundsCreatePostInput = Parameters<import("./reward-checkout.js").RewardCheckoutApi["refund"]>[1];
+/** Backend response type: RefundReceipt. */
+export type RewardRefundsCreatePostResponse = Awaited<ReturnType<import("./reward-checkout.js").RewardCheckoutApi["refund"]>>["data"];
+
+/** Backend response type: Value. */
+export type RewardCheckoutReceiptGetResponse = Awaited<ReturnType<import("./reward-checkout.js").RewardCheckoutApi["receipt"]>>["data"];
+
+/** Backend request type: crate::payment::models::CreatePaymentRequest. */
 export type ShopCheckoutCreatePostInput = import("./types.js").CreatePaymentInput;
 /** Backend response type: crate::payment::models::CreatePaymentResponse. */
 export type ShopCheckoutCreatePostResponse = import("./types.js").CreatePaymentResponse;
@@ -83,6 +99,27 @@ export type ShopCheckoutReceiptGetResponse = import("./contracts.types.js").Shop
 export type PaymentCreatePaymentPostInput = import("./types.js").CreatePaymentInput;
 /** Backend response type: models::CreatePaymentResponse. */
 export type PaymentCreatePaymentPostResponse = import("./types.js").CreatePaymentResponse;
+
+/** Backend response type: Value. */
+export type RewardRefundsIndexGetResponse = Awaited<ReturnType<import("./reward-refunds.js").RewardRefundsApi["list"]>>["data"];
+
+/** Backend response type: Value. */
+export type RewardRefundsDetailGetResponse = Awaited<ReturnType<import("./reward-refunds.js").RewardRefundsApi["show"]>>["data"];
+
+/** Backend request type: OperatorReview. */
+export type RewardRefundsConfirmPostInput = Parameters<import("./reward-refunds.js").RewardRefundsApi["confirm"]>[1];
+/** Backend response type: Value. */
+export type RewardRefundsConfirmPostResponse = Awaited<ReturnType<import("./reward-refunds.js").RewardRefundsApi["confirm"]>>["data"];
+
+/** Backend request type: OperatorReview. */
+export type RewardRefundsReopenPostInput = Parameters<import("./reward-refunds.js").RewardRefundsApi["reopen"]>[1];
+/** Backend response type: Value. */
+export type RewardRefundsReopenPostResponse = Awaited<ReturnType<import("./reward-refunds.js").RewardRefundsApi["reopen"]>>["data"];
+
+/** Backend request type: OperatorReview. */
+export type RewardRefundsStartPostInput = Parameters<import("./reward-refunds.js").RewardRefundsApi["start"]>[1];
+/** Backend response type: Value. */
+export type RewardRefundsStartPostResponse = Awaited<ReturnType<import("./reward-refunds.js").RewardRefundsApi["start"]>>["data"];
 
 /** Backend response type: models::PaymentSettingsResponse. */
 export type SettingsShowGetResponse = import("./types.js").PaymentSettingsResponse;

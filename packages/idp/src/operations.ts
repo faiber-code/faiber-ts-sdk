@@ -504,6 +504,17 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.IdentityAuthorityEnrollPostResponse, T.IdentityAuthorityEnrollPostInput>({ ...options, method: "POST", url: `/api/v1/federation/enroll`, data: data });
   }
   /**
+   * Read explicit verification of an active user’s current contact. Contact presence alone does not imply verification; unavailable storage returns 503.
+   * Calls `GET /api/v1/internal/verification/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Backend-only Bearer CONTACT_VERIFICATION_SERVICE_TOKEN; invalid or missing credentials return 401.
+   */
+  contactVerificationFactsGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ContactVerificationFactsGetResponse>({ ...options, method: "GET", url: `/api/v1/internal/verification/${encodeURIComponent(id)}` });
+  }
+  /**
    * List stored custom OAuth providers with endpoint/mapping configuration and has_secret; encrypted/plaintext secrets are omitted.
    * Calls `GET /api/v1/settings/custom-oauth` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

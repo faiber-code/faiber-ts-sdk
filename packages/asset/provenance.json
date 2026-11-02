@@ -1,31 +1,31 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-asset",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "source_revisions": {
     "asset": {
       "directory": "infera-asset",
-      "revision": "afc0d6843e87f9030c823562f5492c3c134fd330"
+      "revision": "1e7cc58d63e4a6a8b45fc65ea9b1719bb72ff56c"
     }
   },
   "package_source_sha256": {
     "packages/asset/src/contracts.types.ts": "98f028bd1d35558ac0e1b2ae61db8012ac212bcbf831cb473acfb3d2b82f4fe9",
-    "packages/asset/src/do-dox.ts": "ea667515e855e5c301c7446a8949fc6e04efb3dc9202db42011f87d00002c825",
+    "packages/asset/src/do-dox.ts": "7cdf99f9190c5c64a62029e69c07a1eaa2bc5870962714de8ea354c602de2232",
     "packages/asset/src/dox.ts": "9540a8d1caf4337a1511a5b4f793fcb671723e67431216ca247590eb4cc16081",
     "packages/asset/src/economy.types.ts": "4a42bf7b821679a7f79829140f2da49474354ad19ae9d1756b77028aa8270045",
     "packages/asset/src/index.ts": "9a6a4149e0bc7293ec5c1773abffcc0f96b0990ff277d5e10ac87af4f68a7ae3",
-    "packages/asset/src/ledger-contracts.ts": "35033f5c25e0c1821c35d9fbb23c4ba6a86f14d3b5d06a6c368f76021e1dc9a9",
-    "packages/asset/src/operations.ts": "35ce769ec58a4f94e084225df5ba14436ad693eacd65f175413240be327c1907",
-    "packages/asset/src/operations.types.ts": "1548ca1af11f3b0b27b2ac53467abe4b4c0bd347f8a135154d96c010640e211e",
+    "packages/asset/src/ledger-contracts.ts": "22916c6e2ea39ec68aa0d9d235bfd9a7ea05da86791875a4a26d43359d481107",
+    "packages/asset/src/operations.ts": "261d0a51d558a2f241ab520fc0340207d2357e97e6682e101563a43c9a508183",
+    "packages/asset/src/operations.types.ts": "7b2292f5e783044e9128322e083c611bf3e7ca329615bf1f916e144119042fcf",
     "packages/asset/src/types.ts": "53d89e1644808d1b66f19dc5088213a2c3208ef6b402c9deffc5dd6e647fd0f5"
   },
   "capability_review_sha256": "27f2fbaa5a58b96d9a7f7666f0b7cb9a9145a5a76c67c5876e965859da092237",
-  "source_pin_file_sha256": "2cf8bcf9d4699ecaa519e9c3743bbfba87881b51a874a899cb5a0fd3e24880fe",
-  "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
+  "source_pin_file_sha256": "387911b20ba5bed7b90ff4457f462e52fe9201a4b41d75391d45548a82c5947c",
+  "http_contract_file_sha256": "ab0b79b93a80256159f224084a1de38702f8eeefb7974f524fa0d5eabf31c09b",
   "public_contract": {
     "kind": "source-extracted-http",
-    "operation_count": 124,
-    "sha256": "4c9536e6e2e89fe4be6260d67123a962bc78a4c5243c1597b7e904da61c84c8e"
+    "operation_count": 125,
+    "sha256": "df2b8444b3fda6276a62a74ae0f1d7ec12130b4764942735a4bc982b9ef17465"
   },
   "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
 }

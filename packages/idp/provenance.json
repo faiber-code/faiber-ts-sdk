@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-idp",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "source_revisions": {
     "idp": {
       "directory": "infera-idp",
@@ -13,20 +13,20 @@
     "packages/idp/src/contracts.types.ts": "4898b0cd715c9509f57fa9cce06b3139bfeec1e0f0c4dc8effade5e8b8b6301d",
     "packages/idp/src/index.ts": "bdc01da5b5bd95d561c5385ceacf42a0389c92bbe3907233a58276e67d5adbc2",
     "packages/idp/src/memberships.ts": "ba3c661e38eec353e2df2ce5f28b41fb2275fed59a0d2ac7680030809088aecf",
-    "packages/idp/src/operations.ts": "19da4111bbaafacfcd61eb5e7cf401b7f62cefd7a7155a9f3b1b2076768f7525",
-    "packages/idp/src/operations.types.ts": "735713ed716df66c7b212dccf0a92b313457f1c08269189390dfc4b687f0c3f7",
+    "packages/idp/src/operations.ts": "82e7a7862baa5def015b73312312d4048737fcfa31f1b0a1afd11c0604ea705b",
+    "packages/idp/src/operations.types.ts": "4b6cdd60ead5876619b21cf41ef2820f77f50a39df64cf099dd982c5e0d37183",
     "packages/idp/src/resources.ts": "f43143979124466f6bd4c93e21fed8de3b44b11fd994e8a917a04d10bf78a7ed",
     "packages/idp/src/types.ts": "b1e400b1074bece1d7ace82b6c9d1cfe3a77bd2c10b48d269b84ecac6fff8474",
     "packages/idp/src/verification.ts": "6fec53d42a0d83701e51ab8d79ed6daba2a9870ad25a39c04caf7dc2105b77f9",
     "packages/idp/src/visibility.ts": "518eea6a95fe65134c35007760b3cab2438704696999c54f3c139d0ec0d8ad93"
   },
   "capability_review_sha256": "8ee5e21c8c47c329209a68516ef164a58309ebe97829ca2582d0ee3ca8e0b83d",
-  "source_pin_file_sha256": "2cf8bcf9d4699ecaa519e9c3743bbfba87881b51a874a899cb5a0fd3e24880fe",
-  "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
+  "source_pin_file_sha256": "387911b20ba5bed7b90ff4457f462e52fe9201a4b41d75391d45548a82c5947c",
+  "http_contract_file_sha256": "ab0b79b93a80256159f224084a1de38702f8eeefb7974f524fa0d5eabf31c09b",
   "public_contract": {
     "kind": "source-extracted-http",
-    "operation_count": 116,
-    "sha256": "9e44f7820179a9e1b191017e4a930f5ba16ab0b2ab7b4b4eae53af8aa7f4cdd8"
+    "operation_count": 117,
+    "sha256": "3cd17b81afafb3faa3bbeadfee032dcf68dc7fc0b2583b2639f9e81e4d02b901"
   },
   "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
 }

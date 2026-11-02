@@ -205,6 +205,53 @@ export class PaymentOperations extends ServiceApi {
     return this.client.request<T.FitnessRetryPostResponse>({ ...options, method: "POST", url: `/api/v1/internal/fitness/transactions/${encodeURIComponent(id)}/retry` });
   }
   /**
+   * Configured product create; validates product scope and server-owned prices and payment identity. Never infer successful settlement from checkout creation or readiness. Reuse operation IDs on retry.
+   * Calls `POST /api/v1/internal/reward-checkouts/{product}/payment` through the shared IDP-aware Faiber client.
+   * @param product Backend path identifier `product`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted configured product service Bearer token; never expose in browsers.
+   */
+  rewardCheckoutCreatePost(product: Identifier, data: T.RewardCheckoutCreatePostInput, options?: RequestOptions<T.RewardCheckoutCreatePostInput>) {
+    return this.client.request<T.RewardCheckoutCreatePostResponse, T.RewardCheckoutCreatePostInput>({ ...options, method: "POST", url: `/api/v1/internal/reward-checkouts/${encodeURIComponent(product)}/payment`, data: data });
+  }
+  /**
+   * Configured product readiness; validates product scope and server-owned prices and payment identity. Never infer successful settlement from checkout creation or readiness. Reuse operation IDs on retry.
+   * Calls `GET /api/v1/internal/reward-checkouts/{product}/readiness` through the shared IDP-aware Faiber client.
+   * @param product Backend path identifier `product`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted configured product service Bearer token; never expose in browsers.
+   */
+  rewardCheckoutReadinessGet(product: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RewardCheckoutReadinessGetResponse>({ ...options, method: "GET", url: `/api/v1/internal/reward-checkouts/${encodeURIComponent(product)}/readiness` });
+  }
+  /**
+   * Configured product refund; validates product scope and server-owned prices and payment identity. Never infer successful settlement from checkout creation or readiness. Reuse operation IDs on retry.
+   * Calls `POST /api/v1/internal/reward-checkouts/{product}/refunds` through the shared IDP-aware Faiber client.
+   * @param product Backend path identifier `product`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted configured product service Bearer token; never expose in browsers.
+   */
+  rewardRefundsCreatePost(product: Identifier, data: T.RewardRefundsCreatePostInput, options?: RequestOptions<T.RewardRefundsCreatePostInput>) {
+    return this.client.request<T.RewardRefundsCreatePostResponse, T.RewardRefundsCreatePostInput>({ ...options, method: "POST", url: `/api/v1/internal/reward-checkouts/${encodeURIComponent(product)}/refunds`, data: data });
+  }
+  /**
+   * Configured product receipt; validates product scope and server-owned prices and payment identity. Never infer successful settlement from checkout creation or readiness. Reuse operation IDs on retry.
+   * Calls `GET /api/v1/internal/reward-checkouts/{product}/transactions/{id}` through the shared IDP-aware Faiber client.
+   * @param product Backend path identifier `product`.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted configured product service Bearer token; never expose in browsers.
+   */
+  rewardCheckoutReceiptGet(product: Identifier, id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RewardCheckoutReceiptGetResponse>({ ...options, method: "GET", url: `/api/v1/internal/reward-checkouts/${encodeURIComponent(product)}/transactions/${encodeURIComponent(id)}` });
+  }
+  /**
    * Create trusted storefront link at HTTP 200: non-nil UUID service_id, configured site service_name, service_model=storefront_order, queue_name=modules_queue, idempotency_key=shop:{id}, callback exactly SHOP_RETURN_URL?checkout={id} with HTTPS return URL. Invalid UUID/amount returns 422, mismatch 403; requires live Zarinpal proof cached within 20 minutes (503 otherwise).
    * Calls `POST /api/v1/internal/shop/payment` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
@@ -246,6 +293,63 @@ export class PaymentOperations extends ServiceApi {
    */
   paymentCreatePaymentPost(data: T.PaymentCreatePaymentPostInput, options?: RequestOptions<T.PaymentCreatePaymentPostInput>) {
     return this.client.request<T.PaymentCreatePaymentPostResponse, T.PaymentCreatePaymentPostInput>({ ...options, method: "POST", url: `/api/v1/payment`, data: data });
+  }
+  /**
+   * Bank refund list; retains immutable review rounds and idempotency. Writes require current version and independent operator verification; conflicts return 409. Reopening a review never executes another bank refund.
+   * Calls `GET /api/v1/reward-refunds` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:transaction:read; verified operator.
+   */
+  rewardRefundsIndexGet(options?: RequestOptions) {
+    return this.client.request<T.RewardRefundsIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/reward-refunds` });
+  }
+  /**
+   * Bank refund show; retains immutable review rounds and idempotency. Writes require current version and independent operator verification; conflicts return 409. Reopening a review never executes another bank refund.
+   * Calls `GET /api/v1/reward-refunds/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:transaction:read; verified operator.
+   */
+  rewardRefundsDetailGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RewardRefundsDetailGetResponse>({ ...options, method: "GET", url: `/api/v1/reward-refunds/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Bank refund confirm; retains immutable review rounds and idempotency. Writes require current version and independent operator verification; conflicts return 409. Reopening a review never executes another bank refund.
+   * Calls `POST /api/v1/reward-refunds/{id}/confirm` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:transaction:refund and configured product operator assignment; self-review forbidden.
+   */
+  rewardRefundsConfirmPost(id: Identifier, data: T.RewardRefundsConfirmPostInput, options?: RequestOptions<T.RewardRefundsConfirmPostInput>) {
+    return this.client.request<T.RewardRefundsConfirmPostResponse, T.RewardRefundsConfirmPostInput>({ ...options, method: "POST", url: `/api/v1/reward-refunds/${encodeURIComponent(id)}/confirm`, data: data });
+  }
+  /**
+   * Bank refund reopen; retains immutable review rounds and idempotency. Writes require current version and independent operator verification; conflicts return 409. Reopening a review never executes another bank refund.
+   * Calls `POST /api/v1/reward-refunds/{id}/reopen` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:transaction:refund and configured product operator assignment; self-review forbidden.
+   */
+  rewardRefundsReopenPost(id: Identifier, data: T.RewardRefundsReopenPostInput, options?: RequestOptions<T.RewardRefundsReopenPostInput>) {
+    return this.client.request<T.RewardRefundsReopenPostResponse, T.RewardRefundsReopenPostInput>({ ...options, method: "POST", url: `/api/v1/reward-refunds/${encodeURIComponent(id)}/reopen`, data: data });
+  }
+  /**
+   * Bank refund start; retains immutable review rounds and idempotency. Writes require current version and independent operator verification; conflicts return 409. Reopening a review never executes another bank refund.
+   * Calls `POST /api/v1/reward-refunds/{id}/start` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:transaction:refund and configured product operator assignment; self-review forbidden.
+   */
+  rewardRefundsStartPost(id: Identifier, data: T.RewardRefundsStartPostInput, options?: RequestOptions<T.RewardRefundsStartPostInput>) {
+    return this.client.request<T.RewardRefundsStartPostResponse, T.RewardRefundsStartPostInput>({ ...options, method: "POST", url: `/api/v1/reward-refunds/${encodeURIComponent(id)}/start`, data: data });
   }
   /**
    * Read configured safe fallback URL or https://faiber.ir default at HTTP 200.

@@ -9,7 +9,13 @@ export class DoRefundIntegrationApi extends ServiceApi {
  receipt(id:string,options?:RequestOptions){return this.client.get<DoResponse<AssetDoRefundReceipt>>(`/api/v1/internal/do/refunds/${encodeURIComponent(id)}`,undefined,options)}
 }
 export interface DoItem { id:string; title_en:string; title_fa:string; kind:'cosmetic'|'badge'|'plan'; coins:number; cost_rial:number; enabled:boolean; plan:string|null }
-export interface DoPolicy {
+export interface DoGift {id:string;title_en:string;title_fa:string;coins:number;image:string;enabled:boolean}
+export interface DoCommunityPolicy {
+  personalization_reward:number; daily_checkin_rewards:number[];
+  public_campaign_minimum:number; campaign_max_resubmissions:number; gifts:DoGift[];
+}
+/** New fields are optional on writes for older policy consumers; the service supplies defaults. */
+export interface DoPolicy extends Partial<DoCommunityPolicy> {
   pilot_profiles?:string[]; enabled:boolean; public_creation:boolean; public_participation:boolean; packs:DoPack[]; catalog:DoItem[];
   reserve_rial_per_do:number; fee_basis_points:number; marketing_budget_rial:number; margin_basis_points:number;
   delivery_cost_rial:Record<string,number>; high_value_threshold:number; standard_approvals:number; high_value_approvals:number;
@@ -17,7 +23,8 @@ export interface DoPolicy {
   referral_reward:number; referral_monthly_limit:number; referral_campaign_id:string|null;
 }
 export interface DoResponse<T> { status:string; message:string; data:T }
-export interface DoPolicySnapshot { can_edit:boolean; version:number; policy:DoPolicy }
+export type DoEffectivePolicy = DoPolicy & DoCommunityPolicy;
+export interface DoPolicySnapshot { can_edit:boolean; version:number; policy:DoEffectivePolicy }
 export interface DoPolicyEdit { version:number; policy:DoPolicy; reason:string }
 export interface DoRiskEdit { profile_id:string; held:boolean; reason:string }
 export interface DoRiskResult { held:boolean }

@@ -806,6 +806,17 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.ProfileAiCreditsSettleRoutePostResponse, T.ProfileAiCreditsSettleRoutePostInput>({ ...options, method: "POST", url: `/api/v1/internal/ai-credits/settle`, data: data });
   }
   /**
+   * Read whether the named payer has a positive backup wallet balance. Raw allowed/currency response; 403 for bad credentials, 400 for invalid payer UUID.
+   * Calls `GET /api/v1/internal/backups/balance/{owner}` through the shared IDP-aware Faiber client.
+   * @param owner Backend path identifier `owner`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Trusted backend x-infera-backup-token matching BACKUP_SERVICE_TOKEN; never expose this credential in browsers.
+   */
+  routerBalanceGet(owner: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RouterBalanceGetResponse>({ ...options, method: "GET", url: `/api/v1/internal/backups/balance/${encodeURIComponent(owner)}` });
+  }
+  /**
    * Configure the closed ledger or transfer existing Dox atomically. Stable operation IDs are idempotent; task/purchase domain IDs prevent duplicate payouts. 409 on insufficient funds or conflicting replays.
    * Calls `POST /api/v1/internal/do/execute` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.

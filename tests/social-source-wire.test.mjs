@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {FaiberClient,MemoryTokenProvider} from '../packages/core/dist/index.js';
 import {SocialApi} from '../packages/social/dist/index.js';
+import {communityContracts} from '../scripts/community-contracts.mjs';
 import {socialReviewedOperationContracts} from '../scripts/social-reviewed-operation-contracts.mjs';
 
 function fixture(data,status=200){
@@ -16,9 +17,10 @@ function fixture(data,status=200){
 
 test('Social immutable source review covers every mounted operation with named models',()=>{
  const routes=JSON.parse(readFileSync(new URL('../service-contracts.json',import.meta.url))).social;
- assert.equal(routes.length,112);
- assert.deepEqual(Object.keys(socialReviewedOperationContracts).sort(),routes.map(e=>`social:${e.method} ${e.path}`).sort());
- for(const e of routes){const c=socialReviewedOperationContracts[`social:${e.method} ${e.path}`];assert.ok(c.auth);assert.ok(c.purpose);assert.ok(c.response);if(e.body)assert.ok(c.input);if(e.query)assert.ok(c.query);}
+ assert.equal(routes.length,139);
+ const reviewed={...socialReviewedOperationContracts,...Object.fromEntries(Object.entries(communityContracts).filter(([key])=>key.startsWith('social:')))};
+ assert.deepEqual(Object.keys(reviewed).sort(),routes.map(e=>`social:${e.method} ${e.path}`).sort());
+ for(const e of routes){const c=reviewed[`social:${e.method} ${e.path}`];assert.ok(c.auth);assert.ok(c.purpose);assert.ok(c.response);if(e.body)assert.ok(c.input);if(e.query)assert.ok(c.query);}
  const types=readFileSync(new URL('../packages/social/src/operations.types.ts',import.meta.url),'utf8');
  assert.doesNotMatch(types,/extends ApiEnvelope<JsonValue>|extends JsonObject|BackendJson</);
  assert.match(types,/SocialClaimDetailResponse/);assert.match(types,/SocialFundingEventResponse/);

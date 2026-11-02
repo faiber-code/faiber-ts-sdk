@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-lms",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "source_revisions": {
     "lms": {
       "directory": "infera-lms",
@@ -16,18 +16,18 @@
     "packages/lms/src/interactive.ts": "baa215f4c1ad4f9eda438b94c36a22d3504d0d0d1612510b9b34f3bae7c1d53f",
     "packages/lms/src/media.ts": "d5d72f0efbd6bd237ef306e02f9488b9e912b28bf2d4eac23af02ceb07b75512",
     "packages/lms/src/notification-settings.ts": "2784e29db21a6c2b925c3fa9c35a8523590f53bec8650ad0278791ab2c5f240a",
-    "packages/lms/src/operations.ts": "ff102fd12de17127feeb5d83d21f4768bcedd1f7d3aa379aa0c628787ea5cf0b",
-    "packages/lms/src/operations.types.ts": "ed9ac6e3612be419c270e5b3188ee731f4124b87ab8ab971d1b42011c4cec290",
-    "packages/lms/src/types.ts": "9ba1157b9a15c013d718a0e37775cbf0d447eb25a2b81e621f62683431ee7399",
+    "packages/lms/src/operations.ts": "26cae50853ed0f40b526614e9d66936d24b5bdabaf5402dece309c622e2d6177",
+    "packages/lms/src/operations.types.ts": "d61f28e4eda936da3434ecb1e212730d1be26a5397884ba87beadcc333fc6411",
+    "packages/lms/src/types.ts": "63433a2a66d4d38d109fbbd48dcb85d857f7ea73998c50054b31126a1e0bb16b",
     "packages/lms/src/wire.types.ts": "097042cdc470246ae70be80f0fd55ce48d77e58c75c659b49636cf3dc8b3560c"
   },
   "capability_review_sha256": "7c7e8a13f29df9943d0381d80b19a70c64ddb0a761922f66143f1df35a11b60f",
-  "source_pin_file_sha256": "2cf8bcf9d4699ecaa519e9c3743bbfba87881b51a874a899cb5a0fd3e24880fe",
-  "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
+  "source_pin_file_sha256": "387911b20ba5bed7b90ff4457f462e52fe9201a4b41d75391d45548a82c5947c",
+  "http_contract_file_sha256": "ab0b79b93a80256159f224084a1de38702f8eeefb7974f524fa0d5eabf31c09b",
   "public_contract": {
     "kind": "source-extracted-http",
-    "operation_count": 185,
-    "sha256": "c57a081b37fe9dfa7ede855c3d9d15d72c7f7ccdc805807ee980738ce0f15dcd"
+    "operation_count": 187,
+    "sha256": "72e5ebd2b66ca1ffff9d2a260a6302f6856d448238a38bd7fc7f0984dad7d78b"
   },
   "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
 }

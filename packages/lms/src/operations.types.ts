@@ -1979,6 +1979,14 @@ export interface CourseReorderCategoriesPatchInput extends JsonObject {
 /** Backend response type: serde_json::Value. */
 export type CourseReorderCategoriesPatchResponse = import("./wire.types.js").LmsEmptyMutationResponse;
 
+/** Backend response type: Progression. */
+export type CourseGetGetResponse = import("./types.js").CourseProgressionResponse;
+
+/** Backend request type: Progression. */
+export type CoursePutPutInput = import("./types.js").CourseProgression;
+/** Backend response type: Progression. */
+export type CoursePutPutResponse = import("./types.js").CourseProgressionResponse;
+
 /** Backend request type: models::ReorderRequest. */
 export interface CourseReorderCoursesPatchInput extends JsonObject {
   "active_id": string;

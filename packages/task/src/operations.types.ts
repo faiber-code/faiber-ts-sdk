@@ -105,6 +105,49 @@ export type CampaignsProxyAnyApiV1CampaignsIdJobsResponse = Awaited<ReturnType<i
 /** Backend response type: serde_json::Value. */
 export type RoutesConfigGetApiV1CollaborationConfigResponse = import("./types.js").TaskResponse<import("./collaboration.js").CollaborationConfig>;
 
+/** Backend response type: raw-response. */
+export type CommunityProxyGetApiV1CommunityGiftsResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityGiftCatalog>;
+
+/** Backend response type: raw-response. */
+export type CommunityProxyGetApiV1CommunityMeResponse = import("./community.js").CommunityResponse<import("./community.js").CommunitySelf>;
+
+/** Backend response type: raw-response. */
+export type CommunityProxyPostApiV1CommunityMeAnalyzeResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityAnalysis>;
+
+/** Backend response type: raw-response. */
+export type CommunityProxyPostApiV1CommunityMePublishResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityVisibility>;
+
+/** Backend response type: raw-response. */
+export type CommunityProxyGetApiV1CommunityMessagesResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityInbox>;
+
+/** Backend query type: undefined. */
+export type CommunityProxyGetApiV1CommunityPeopleQuery = import("./community.js").CommunityPeopleQuery;
+/** Backend response type: raw-response. */
+export type CommunityProxyGetApiV1CommunityPeopleResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityPeople>;
+
+/** Backend response type: raw-response. */
+export type CommunityProxyGetApiV1CommunityPeopleIdResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityPerson>;
+
+/** Backend response type: raw-response. */
+export type CommunityProxyPostApiV1CommunityPeopleIdAskResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityAnswer>;
+
+/** Backend response type: raw-response. */
+export type CommunityProxyPostApiV1CommunityPeopleIdBlockResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityBlock>;
+
+/** Backend response type: raw-response. */
+export type CommunityProxyPostApiV1CommunityPeopleIdGiftsResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityGiftReceipt>;
+
+/** Backend response type: raw-response. */
+export type CommunityProxyPostApiV1CommunityPeopleIdInterestResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityInterest>;
+
+/** Backend query type: undefined. */
+export type CommunityProxyGetApiV1CommunityPeopleIdMessagesQuery = import("./community.js").CommunityMessagesQuery;
+/** Backend response type: raw-response. */
+export type CommunityProxyGetApiV1CommunityPeopleIdMessagesResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityMessagePage>;
+
+/** Backend response type: raw-response. */
+export type CommunityProxyPostApiV1CommunityPeopleIdMessagesResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityMessage>;
+
 /** Backend response type: stream. */
 export type RoutesEventsGetResponse = import("./types.js").TaskEventStreamBody;
 

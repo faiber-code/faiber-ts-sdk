@@ -166,6 +166,68 @@ export type DiscoveryUnblockDeleteResponse = void;
 /** Backend response type: no-content. */
 export type DiscoveryBlockPutResponse = void;
 
+/** Backend query type: ListQuery. */
+export type CampaignsMyWorkGetQuery = NonNullable<Parameters<import("./campaigns.js").CampaignsApi["work"]>[0]>;
+/** Backend response type: Value. */
+export type CampaignsMyWorkGetResponse = Awaited<ReturnType<import("./campaigns.js").CampaignsApi["work"]>>["data"];
+
+/** Backend response type: Value. */
+export type CampaignsDetailGetResponse = Awaited<ReturnType<import("./campaigns.js").CampaignsApi["assignment"]>>["data"];
+
+/** Backend request type: multipart/form-data. */
+export type CampaignsUploadPostInput = Parameters<import("./campaigns.js").CampaignsApi["upload"]>[1];
+/** Backend response type: Value. */
+export type CampaignsUploadPostResponse = Awaited<ReturnType<import("./campaigns.js").CampaignsApi["upload"]>>["data"];
+
+/** Backend request type: Review. */
+export type CampaignsReviewPostInput = Parameters<import("./campaigns.js").CampaignsApi["review"]>[1];
+/** Backend response type: Value. */
+export type CampaignsReviewPostResponse = Awaited<ReturnType<import("./campaigns.js").CampaignsApi["review"]>>["data"];
+
+/** Backend request type: Submission. */
+export type CampaignsSubmitPostInput = Parameters<import("./campaigns.js").CampaignsApi["submit"]>[1];
+/** Backend response type: Value. */
+export type CampaignsSubmitPostResponse = Awaited<ReturnType<import("./campaigns.js").CampaignsApi["submit"]>>["data"];
+
+/** Backend response type: raw-response. */
+export type CampaignsDownloadGetResponse = ArrayBuffer;
+
+/** Backend request type: Mutation. */
+export type CampaignsStartPostInput = Parameters<import("./campaigns.js").CampaignsApi["startJob"]>[1];
+/** Backend response type: Value. */
+export type CampaignsStartPostResponse = Awaited<ReturnType<import("./campaigns.js").CampaignsApi["startJob"]>>["data"];
+
+/** Backend response type: Value. */
+export type CampaignsListGetApiV1CampaignReferralsResponse = import("./campaigns.js").RewardResponse<import("./campaigns.js").CampaignReferralPage>;
+
+/** Backend request type: Bind. */
+export type CampaignsReceivePostInput = import("./campaigns.js").CampaignReferralBind;
+/** Backend response type: Value. */
+export type CampaignsReceivePostResponse = import("./campaigns.js").RewardResponse<import("./campaigns.js").CampaignReferralAccepted>;
+
+/** Backend query type: ListQuery. */
+export type CampaignsListGetApiV1CampaignsQuery = NonNullable<Parameters<import("./campaigns.js").CampaignsApi["campaigns"]>[0]>;
+/** Backend response type: Value. */
+export type CampaignsListGetApiV1CampaignsResponse = Awaited<ReturnType<import("./campaigns.js").CampaignsApi["campaigns"]>>["data"];
+
+/** Backend request type: CampaignInput. */
+export type CampaignsCreatePostInput = Parameters<import("./campaigns.js").CampaignsApi["createCampaign"]>[0];
+/** Backend response type: Value. */
+export type CampaignsCreatePostResponse = Awaited<ReturnType<import("./campaigns.js").CampaignsApi["createCampaign"]>>["data"];
+
+/** Backend response type: Value. */
+export type CampaignsShowGetResponse = Awaited<ReturnType<import("./campaigns.js").CampaignsApi["campaign"]>>["data"];
+
+/** Backend request type: Mutation. */
+export type CampaignsChangePostInput = Parameters<import("./campaigns.js").CampaignsApi["changeCampaign"]>[1];
+/** Backend response type: Value. */
+export type CampaignsChangePostResponse = Awaited<ReturnType<import("./campaigns.js").CampaignsApi["changeCampaign"]>>["data"];
+
+/** Backend request type: JobInput. */
+export type CampaignsAddJobPostInput = Parameters<import("./campaigns.js").CampaignsApi["addJob"]>[1];
+/** Backend response type: Value. */
+export type CampaignsAddJobPostResponse = Awaited<ReturnType<import("./campaigns.js").CampaignsApi["addJob"]>>["data"];
+
 /** Backend response type: Value. */
 export type ApiListCategoriesGetResponse = import("./types.js").SocialCategoryListResponse;
 
@@ -231,6 +293,63 @@ export type ApiListPostCommentsGetApiV1CommentsPostIdResponse = import("./types.
 export type ApiCreatePostCommentPostApiV1CommentsPostIdInput = import("./types.js").CreateCommentInput;
 /** Backend response type: Value. */
 export type ApiCreatePostCommentPostApiV1CommentsPostIdResponse = import("./types.js").SocialCommentResponse;
+
+/** Backend response type: Value. */
+export type CommunityGiftsGetResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityGiftCatalog>;
+
+/** Backend response type: Value. */
+export type CommunityMeGetResponse = import("./community.js").CommunityResponse<import("./community.js").CommunitySelf>;
+
+/** Backend request type: AnalysisInput. */
+export type CommunityAnalyzePostInput = import("./community.js").CommunityAnalysisInput;
+/** Backend response type: Value. */
+export type CommunityAnalyzePostResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityAnalysis>;
+
+/** Backend request type: Visibility. */
+export type CommunityPublishPostInput = import("./community.js").CommunityVisibilityInput;
+/** Backend response type: Value. */
+export type CommunityPublishPostResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityVisibility>;
+
+/** Backend response type: Value. */
+export type CommunityInboxGetResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityInbox>;
+
+/** Backend query type: Search. */
+export type CommunityPeopleGetQuery = import("./community.js").CommunityPeopleQuery;
+/** Backend response type: Value. */
+export type CommunityPeopleGetResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityPeople>;
+
+/** Backend response type: Value. */
+export type CommunityPersonGetResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityPerson>;
+
+/** Backend request type: Question. */
+export type CommunityAskPostInput = import("./community.js").CommunityQuestionInput;
+/** Backend response type: Value. */
+export type CommunityAskPostResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityAnswer>;
+
+/** Backend request type: Toggle. */
+export type CommunityBlockPostInput = import("./community.js").CommunityToggleInput;
+/** Backend response type: Value. */
+export type CommunityBlockPostResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityBlock>;
+
+/** Backend request type: GiftInput. */
+export type CommunityGiftPostInput = import("./community.js").CommunityGiftInput;
+/** Backend response type: Value. */
+export type CommunityGiftPostResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityGiftReceipt>;
+
+/** Backend request type: Toggle. */
+export type CommunityInterestPostInput = import("./community.js").CommunityToggleInput;
+/** Backend response type: Value. */
+export type CommunityInterestPostResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityInterest>;
+
+/** Backend query type: Search. */
+export type CommunityMessagesGetQuery = import("./community.js").CommunityMessagesQuery;
+/** Backend response type: Value. */
+export type CommunityMessagesGetResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityMessagePage>;
+
+/** Backend request type: Message. */
+export type CommunitySendPostInput = import("./community.js").CommunityMessageInput;
+/** Backend response type: Value. */
+export type CommunitySendPostResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityMessage>;
 
 /** Backend response type: no-content. */
 export type DiscoveryUnfollowDeleteResponse = void;

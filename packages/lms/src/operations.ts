@@ -982,6 +982,27 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.CourseReorderCategoriesPatchResponse, T.CourseReorderCategoriesPatchInput>({ ...options, method: "PATCH", url: `/api/v1/courses/categories/reorder`, data: data });
   }
   /**
+   * Read the versioned visual course rows and explicit edges in a repeatable-read transaction. Deleted course placement is removed; legacy cycles return 422.
+   * Calls `GET /api/v1/courses/progression` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:read; handler-local permission guard.
+   */
+  courseGetGet(options?: RequestOptions) {
+    return this.client.request<T.CourseGetGetResponse>({ ...options, method: "GET", url: `/api/v1/courses/progression` });
+  }
+  /**
+   * Atomically replace visual course rows and explicit forward edges using the captured revision. Stale revision returns 409; unknown/duplicate courses, duplicate edges and backward connections return 422.
+   * Calls `PUT /api/v1/courses/progression` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:update; handler-local permission guard.
+   */
+  coursePutPut(data: T.CoursePutPutInput, options?: RequestOptions<T.CoursePutPutInput>) {
+    return this.client.request<T.CoursePutPutResponse, T.CoursePutPutInput>({ ...options, method: "PUT", url: `/api/v1/courses/progression`, data: data });
+  }
+  /**
    * Reorder courses records through the mounted LMS course::routes handler.
    * Calls `PATCH /api/v1/courses/reorder` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.

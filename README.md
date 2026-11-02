@@ -280,3 +280,13 @@ archive/playback table actions. `sdk.drm.classroomSessionComposition(row)` fetch
 composition manifest using DRM permissions, independently of session type or schedule.
 Authorized exam reviewers can inspect answer keys during active attempts; students remain
 redacted until the attempt ends. See the LMS and DRM package guides for examples and access rules.
+
+
+## Community and reward policy updates
+
+`faiber.task.community` and `faiber.social.community` provide typed, authenticated
+community profiles, explicit publication, public discovery, interests, messaging
+and gifts. `AssetService.DoEconomyApi` manages versioned reward settings using
+IDP coin-settings permissions. Community operations are also available through
+the complete generated `operations` surfaces. Refer to the Task, Social and
+Asset package guides for consent gates, retry semantics and deployment requirements.
