@@ -6,6 +6,25 @@ import type * as O from "./operations.types.js";
 import { DrmOperations } from "./operations.js";
 export class DrmApi extends ServiceApi {
     readonly operations = new DrmOperations(this.client);
+  /**
+   * Fetch the latest published preview manifest. Requires drm:composition:read.
+   * Independent of classroom type, lock, dates or room provisioning. Uses the authenticated
+   * DRM transport; missing/unpublished compositions return 404. Preserves Axios response,
+   * cancellation and errors. Media playback/license requests retain their own DRM permissions.
+   */
+  compositionManifest(id: Identifier, options?: RequestOptions) {
+    return this.operations.routerGetManifestGet(id, options);
+  }
+  /**
+   * Resolve any LMS session's linked composition and fetch its preview manifest with
+   * drm:composition:read. Throws TypeError locally if no composition is linked; otherwise
+   * preserves the complete Axios response and errors from compositionManifest.
+   */
+  classroomSessionComposition(reference: T.ClassroomSessionCompositionReference, options?: RequestOptions) {
+    const id = reference.media?.drm_mixed_media_id ?? reference.course_session?.drm_mixed_media_id;
+    if (!id) throw new TypeError("Classroom session has no linked DRM composition");
+    return this.compositionManifest(id, options);
+  }
   /** Checks public process liveness (dependency health is a separate operation); preserves Axios status/headers and cancellation. Calls `GET /api/v1/status`. */
   status(options?: RequestOptions) { return this.client.get<T.DrmStatus>("/api/v1/status", undefined, options); }
   /** Lists media folders; requires drm:media:read. Calls `GET /api/v1/folders`. */

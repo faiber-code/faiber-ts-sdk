@@ -47,3 +47,16 @@ The client exposes all 96 mounted operations through `drm.operations`, with conv
 Paginated media, compositions, item queries, jobs, analyses and audit events return `{ data, page, page_size, total_items }`, without an extra envelope. Pages start at 1 and sizes clamp to 1–100. Defaults are 30 for media/items/jobs, 20 for compositions/analyses, and 50 for audit. Other endpoints return bare records or arrays. An absent composition analysis returns JSON `null`; successful deletes return no body. Requests retain snake_case fields. `category_id: null` clears a mixed-media category; the pinned backend's ordinary nested optional fields such as media `folder_id` and composition `description` treat JSON null as no change. Workflow nodes/edges must be arrays; nested editor data, historical documents and metadata remain documented dynamic JSON. The Knowledge catalog is an unmodified upstream JSON response.
 
 Every call returns the complete Axios response and supports request options including headers, cancellation signals, timeout, credentials and adapters. Axios errors retain backend status and `{ error }` payloads for local validation (400), authorization (401/403), missing resources (404), conflicts (409) and internal failures (500); extractor failures may use framework error bodies. Cancellation rejects with the Axios cancellation error. The [complete Faiber SDK](https://www.npmjs.com/package/@faiber/faiber-ts-sdk) includes the same service client as `sdk.drm`.
+
+## Preview a classroom composition
+
+With the complete SDK, pass any LMS session row to
+`sdk.drm.classroomSessionComposition(row, { signal })`. The method uses
+`row.media.drm_mixed_media_id`, with `row.course_session.drm_mixed_media_id` as a fallback,
+and returns the full Axios response containing the published manifest (`data.document`
+and `data.version`). `drm.compositionManifest(compositionId)` accepts an ID directly.
+
+Both methods require `drm:composition:read` and use the DRM client's authenticated transport.
+They are independent of classroom type, start time, lock and room provisioning. No linked
+composition throws `TypeError` before HTTP; no published manifest returns 404. The manifest
+is player input, not a public MP4 URL. Media/package/license access retains its own DRM grants.

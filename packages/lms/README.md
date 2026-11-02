@@ -486,3 +486,57 @@ it, discard consent and submit a new unconfirmed request. The server applies the
 change transactionally and rejects invalid course/session links without partial
 updates. These flags require the LMS service revision supporting classroom course
 replacement; publishing or upgrading the SDK alone does not deploy that service.
+
+## Certificate filters and session media
+
+These capabilities require LMS revision `c24b8e68a051d9330ff8f3360bf6677ddb723a2d` or later.
+Publishing the SDK does not deploy the LMS backend.
+
+```ts
+const certificates = await sdk.lms.certificates.list({
+  user_id: studentUserId,
+  profile_search: "علی", // localized name, email, phone, national code, short ID or user ID
+  status: "issued",
+  certificate_template_id: templateId, // certificate type; certificate_type is an alias
+  course_id: courseId,
+  issued_from: "2026-01-01T00:00:00+03:30",
+  issued_to: "2026-12-31T23:59:59+03:30",
+  "page[number]": 1,
+  "page[size]": 20,
+});
+const sessions = await sdk.lms.classroomSessions.list({ classroom_id: classroomId });
+for (const row of sessions.data.data.data) {
+  const links = sdk.lms.classroomSessionMediaLinks(row);
+  // links.recording opens the Session archive; links.recordingsApi lists ready recordings.
+  // links.playback opens scheduled Session playback; links.compositionManifest targets DRM.
+  if (row.media.drm_mixed_media_id) {
+    const preview = await sdk.drm.classroomSessionComposition(row);
+    // Use preview.data.document in a composition player; preview.data.version identifies it.
+  }
+}
+```
+
+These examples use the complete SDK (`sdk`); standalone `LmsApi` exposes the same LMS methods.
+Certificate filters combine with AND before count/pagination. `student_user_id` aliases `user_id`.
+Additional filters: `classroom_id`, `grade_id`, `issued_by`, `public_id`, `verification_code`,
+`legacy_code`, `search` (literal title/code/public-ID search), `has_media`, `has_grade`, `revoked`,
+and inclusive `created_from/to`, `updated_from/to`, `revoked_from/to` timestamps. Use RFC3339
+with a timezone for all date bounds. Do not send both a canonical field and its alias.
+A certificate type is an existing certificate template, not a separate new taxonomy.
+`lms:certificate:read_own` remains restricted to the caller's issued certificates; full reads
+require `lms:certificate:read`. Invalid ranges return 422; profile search failures return 502.
+
+Every classroom session list/detail response includes `media` with nullable relative paths,
+and `course_session.drm_mixed_media_id`. Paths are discovery metadata, not access grants or
+signed URLs. Session paths use the Session domain; DRM paths use the DRM domain. Recordings
+require Session recording permission and may be empty until processing finishes. Composition
+preview requires `drm:composition:read` and works for every session type, including locked,
+future and roomless sessions when a composition is linked. An unpublished/missing manifest
+returns 404. Playback and license operations keep their own DRM permissions. Browser links
+need an authenticated destination session; SDK requests use your configured credentials.
+
+`examDelivery(attemptId)` now returns correct answers, option answer metadata and per-question
+grading to authorized administrators and assigned reviewers while an attempt is active.
+Students still receive redacted keys until completion/expiry/cancellation. This uses the
+existing `lms:exam:read` or scoped `lms:exam:read_own` checks and assignment relationships,
+never a role name or a client-supplied reviewer flag. `passed` remains final-result-only.

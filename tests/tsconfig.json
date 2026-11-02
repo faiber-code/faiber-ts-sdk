@@ -44,6 +44,7 @@
     "short-ids.types.ts",
     "lms-calendar.types.ts",
     "lms-classroom-confirmation.types.ts",
-    "workspace-read-policy.types.ts"
+    "workspace-read-policy.types.ts",
+    "lms-filter-media.types.ts"
   ]
 }

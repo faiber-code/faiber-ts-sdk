@@ -157,7 +157,7 @@ export class LmsApi extends ServiceApi {
     readonly homeworkQuestions: R<T.HomeworkQuestion, T.CreateHomeworkQuestionInput, T.UpdateHomeworkQuestionInput, O.HomeworkIndexQuestionGetQuery> = new RestResource(this.client, "/api/v1/homeworks/questions", { supported: ["list", "show", "create", "update"] });
     /** Delivered homework-bank items, with typed status and relationship filters. */
     readonly homeworkAssignments = new HomeworkAssignmentsApi(this.client);
-    readonly certificates: R<T.Certificate, T.CreateCertificateInput, T.UpdateCertificateInput> = new RestResource(this.client, "/api/v1/certificates", { supported: ["list", "show", "create", "update"] });
+    readonly certificates: R<T.Certificate, T.CreateCertificateInput, T.UpdateCertificateInput, T.CertificateListQuery> = new RestResource(this.client, "/api/v1/certificates", { supported: ["list", "show", "create", "update"] });
     readonly certificateTemplates: R<T.CertificateTemplate, T.CreateCertificateTemplateInput, T.UpdateCertificateTemplateInput> = new RestResource(this.client, "/api/v1/certificates/templates", { supported: ["list", "show", "create", "update"] });
     /** @deprecated This resource is not mounted by the supported LMS revision; all methods reject before HTTP. */
     readonly events: R<T.Event, T.CreateEventInput, T.UpdateEventInput> = new RestResource(this.client, "/api/v1/events", { supported: [] });
@@ -207,6 +207,15 @@ export class LmsApi extends ServiceApi {
     listExamBankItems(examBankId: Identifier, params?: O.ExamIndexQuestionGetQuery, options?: RequestOptions) { return this.operations.examIndexQuestionGet({ ...params, exam_id: String(examBankId) }, options); }
     /** Lists exam users/attempts. */
     listExamUsers(params?: O.ExamIndexAttemptGetQuery, options?: RequestOptions) { return this.operations.examIndexAttemptGet(params, options); }
+    /**
+     * Read a learner's questions, saved answers and grading. Requires lms:exam:read or
+     * lms:exam:read_own with candidate/assigned-reviewer scope. Authorized staff see answer
+     * keys during active attempts; candidates receive keys only after the attempt ends.
+     * Returns the complete Axios response; forbidden/missing attempts reject with AxiosError.
+     */
+    examDelivery(id: Identifier, options?: RequestOptions) {
+        return this.operations.examShowAttemptDeliveryGet(id, options);
+    }
     /** Reads one exam user/attempt. */
     examUser(id: Identifier, options?: RequestOptions) { return this.operations.examShowAttemptGet(id, options); }
     /** Updates scoring, deadline, extension, description, or status for an exam user/attempt. */
@@ -288,6 +297,24 @@ export class LmsApi extends ServiceApi {
     }
     /** Lists classroom sessions scheduled for one local date, with lock, type, room, and profile metadata. */
     todayClassroomSessions(params?: T.TodayClassroomSessionListQuery, options?: RequestOptions) { return this.client.get<T.ClassroomSessionPageResponse>("/api/v1/classrooms/sessions/today", params, options); }
+    /**
+     * Builds recording archive, playback and DRM manifest links from any session row.
+     * No request is made. The Session/DRM destinations still require their own permissions;
+     * recordings may be empty and unpublished compositions return 404. Works before room provisioning.
+     * Use drm.classroomSessionComposition(row) to fetch the preview manifest with SDK authentication.
+     */
+    classroomSessionMediaLinks(reference: T.ClassroomSessionMediaReference): T.ClassroomSessionMediaLinks {
+        const room = reference.session_room_id;
+        const composition = reference.media?.drm_mixed_media_id ?? reference.course_session?.drm_mixed_media_id;
+        const sessionDomain = this.client.config.domains.session;
+        return {
+            room: classroomSessionViewUrl(reference, sessionDomain),
+            recording: classroomSessionRecordingUrl(reference, sessionDomain),
+            recordingsApi: room ? sessionUiUrl(`/api/v1/rooms/${encodeURIComponent(room)}/recordings`, sessionDomain) : null,
+            playback: room ? sessionUiUrl(`/view/playback/${encodeURIComponent(room)}`, sessionDomain) : null,
+            compositionManifest: composition ? sessionUiUrl(`/api/v1/mixed-media/${encodeURIComponent(composition)}/manifest`, this.client.config.domains.drm) : null,
+        };
+    }
     /** Returns Session UI and recording URLs, using the configured Session domain when available. */
     classroomSessionLinks(reference: T.ClassroomSessionRoomReference, sessionBaseUrl = this.client.config.domains.session): T.ClassroomSessionLinks {
         return {

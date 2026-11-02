@@ -1,0 +1,13 @@
+import type { LmsApi, CertificateListQuery, ClassroomSession, ClassroomSessionMediaLinks } from '../packages/lms/dist/index.js';
+import type { DrmApi, CompositionPreviewResponse } from '../packages/drm/dist/index.js';
+declare const lms: LmsApi;
+declare const drm: DrmApi;
+declare const row: ClassroomSession;
+const filters: CertificateListQuery = { profile_search: 'علی', student_user_id: 'uuid', certificate_type: 'template-uuid', status: 'issued', has_grade: true, issued_from: '2026-01-01T00:00:00Z', 'page[number]': 1 };
+void lms.certificates.list(filters);
+void lms.operations.certificateIndexCertificateGet(filters);
+const links: ClassroomSessionMediaLinks = lms.classroomSessionMediaLinks(row);
+void links;
+void lms.examDelivery("attempt-id");
+const preview: Promise<CompositionPreviewResponse> = drm.classroomSessionComposition(row).then(response => response.data);
+void preview;

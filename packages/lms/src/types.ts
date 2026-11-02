@@ -1,4 +1,4 @@
-import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, ResourceListResponse, ResourceResponse } from "@faiber/sdk-core";
+import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, PageQuery, ResourceListResponse, ResourceResponse } from "@faiber/sdk-core";
 export interface TransferUserDataInput { from_user_id: string; to_user_id: string }
 export interface EducationalTransferCounts {
   classroom_enrollments: number; attendance: number; homework_assignments: number;
@@ -108,6 +108,7 @@ export interface ClassroomCourseSession extends JsonObject {
     session_type_id: string | null;
     duration_minutes: number | null;
     status: string;
+    drm_mixed_media_id: string | null;
 }
 
 /** Classroom session returned by list, today, create, show, and update operations. */
@@ -219,6 +220,71 @@ export type ExamBank = Exam;
 export type ExamBankItem = ExamQuestion;
 export type HomeworkQuestion = import("./operations.types.js").HomeworkShowQuestionGetResponseData;
 export type HomeworkBankItem = HomeworkQuestion;
+/** Filters are combined before pagination and never broaden the caller's record scope.
+ * Date bounds are inclusive RFC3339 timestamps with an explicit timezone.
+ * certificate_template_id identifies the certificate type; certificate_type is its alias.
+ */
+export interface CertificateListQuery extends PageQuery {
+    "page[number]"?: number | null;
+    "page[size]"?: number | null;
+    page_number?: number;
+    page_size?: number;
+    user_id?: string;
+    student_user_id?: string;
+    course_id?: string;
+    classroom_id?: string;
+    certificate_template_id?: string;
+    certificate_type?: string;
+    grade_id?: string;
+    issued_by?: string;
+    public_id?: string;
+    status?: CertificateStatus;
+    /** Literal, case-insensitive title, verification code, legacy code or public ID search. */
+    search?: string;
+    /** Student name (including localized names), email, phone, national code, short ID or user ID. */
+    profile_search?: string;
+    verification_code?: string;
+    legacy_code?: string;
+    issued_from?: string;
+    issued_to?: string;
+    created_from?: string;
+    created_to?: string;
+    updated_from?: string;
+    updated_to?: string;
+    revoked_from?: string;
+    revoked_to?: string;
+    has_media?: boolean;
+    has_grade?: boolean;
+    revoked?: boolean;
+}
+
+/** Discovery paths, not signed media URLs or authorization grants. Resolve Session paths
+ * against domains.session and the manifest path against domains.drm. Destinations enforce access.
+ */
+export interface ClassroomSessionMedia extends JsonObject {
+    recording_view_path: string | null;
+    recordings_api_path: string | null;
+    playback_view_path: string | null;
+    drm_mixed_media_id: string | null;
+    drm_manifest_path: string | null;
+}
+
+/** A classroom row carrying media discovery data. */
+export interface ClassroomSessionMediaReference {
+    session_room_id: string | null;
+    media?: ClassroomSessionMedia;
+    course_session?: ClassroomCourseSession | null;
+}
+
+/** URLs for table actions; null means no room/composition is linked, not a permission decision. */
+export interface ClassroomSessionMediaLinks {
+    room: string | null;
+    recording: string | null;
+    recordingsApi: string | null;
+    playback: string | null;
+    compositionManifest: string | null;
+}
+
 export type CertificateStatus = "draft" | "issued" | "revoked" | (string & {});
 export type CertificateTemplateStatus = "active" | "inactive" | (string & {});
 export type CertificateFieldKey = "title" | "student_name" | "course_name" | "classroom_name" | "final_score" | "passing_mark" | "grade_name" | "issued_at" | "verification_code";

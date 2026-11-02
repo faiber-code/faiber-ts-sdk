@@ -270,3 +270,13 @@ managed mode; this replaces the former score configuration contract. See the
 Chat adds typed connector/document/history operations and authenticated speech
 and assistant NDJSON streams. Applications consume these generic SDK APIs;
 product navigation, presentation and local state belong in application code.
+
+### LMS certificate filtering and session previews
+
+`sdk.lms.certificates.list()` supports typed student/profile, template/type, status, course,
+classroom, issuer, identifier, date-range and media/grade/revocation filters. Session rows
+include media discovery paths; `sdk.lms.classroomSessionMediaLinks(row)` resolves them for
+archive/playback table actions. `sdk.drm.classroomSessionComposition(row)` fetches a linked
+composition manifest using DRM permissions, independently of session type or schedule.
+Authorized exam reviewers can inspect answer keys during active attempts; students remain
+redacted until the attempt ends. See the LMS and DRM package guides for examples and access rules.

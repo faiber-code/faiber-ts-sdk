@@ -258,6 +258,7 @@ function unwrap(raw, wrapper) {
 function tsType(raw, query = false, input = false) {
   const type = raw.replace(/\s+/g, " ").trim();
   const facadeType = {
+    SessionMediaResponse: 'import("./types.js").ClassroomSessionMedia',
     ClassroomCourseSessionResponse: 'import("./types.js").ClassroomCourseSession',
     ClassroomSessionTypeResponse: 'import("./types.js").ClassroomSessionType',
   }[type];

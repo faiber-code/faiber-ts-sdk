@@ -436,7 +436,7 @@ export const lmsReviewedOperationContracts = {
     "auth": "IDP route metadata: lms:exam:update; trusted gateway identity plus any handler-local checks apply"
   },
   "lms:GET /api/v1/exams/attempts/{id}/delivery": {
-    "purpose": "Read attempt delivery records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.",
+    "purpose": "Read questions, saved answers and grading. Authorized administrators and assigned reviewers see answer keys during active attempts; candidates remain redacted until the attempt ends. Missing or out-of-scope attempts return 404.",
     "auth": "IDP route metadata: lms:exam:read; trusted gateway identity plus any handler-local checks apply"
   },
   "lms:POST /api/v1/exams/attempts/{id}/start": {
@@ -583,7 +583,8 @@ export const lmsReviewedOperationContracts = {
     "auth": "IDP route metadata: lms:certificate:update; trusted gateway identity plus any handler-local checks apply"
   },
   "lms:GET /api/v1/certificates": {
-    "purpose": "List certificate records through the mounted LMS certificate::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).",
+    "query": 'import("./types.js").CertificateListQuery',
+    "purpose": "Filter certificates by student/profile search, template (certificate type), status, course/classroom, issuer, identifiers, inclusive RFC3339 date ranges and media/grade/revocation presence before pagination. Returns data.data and data.meta; own access remains limited to issued certificates owned by the caller. Invalid ranges return 422; Profile outages during search return 502.",
     "auth": "IDP route metadata: lms:certificate:read; trusted gateway identity plus any handler-local checks apply"
   },
   "lms:POST /api/v1/certificates": {

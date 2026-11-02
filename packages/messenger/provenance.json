@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-messenger",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "source_revisions": {
     "messenger": {
       "directory": "infera-messenger",
@@ -17,7 +17,7 @@
     "packages/messenger/src/types.ts": "eba79eb275b74bfa040330a66fa45aa36c13751918c9d6221e53d8966bf05f18"
   },
   "capability_review_sha256": "f67864c287fbd792023c1b8afcbccb6892e87646f18558e63fac46b0256c059e",
-  "source_pin_file_sha256": "efdba2e27a09010b74612963651516ab924fe69d57a12bfb7081decf1d2bd384",
+  "source_pin_file_sha256": "2cf8bcf9d4699ecaa519e9c3743bbfba87881b51a874a899cb5a0fd3e24880fe",
   "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
   "public_contract": {
     "kind": "source-extracted-http",

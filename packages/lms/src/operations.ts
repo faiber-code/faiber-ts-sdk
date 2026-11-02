@@ -124,7 +124,7 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.SessionGetSelfGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/self` });
   }
   /**
-   * List certificate records through the mounted LMS certificate::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
+   * Filter certificates by student/profile search, template (certificate type), status, course/classroom, issuer, identifiers, inclusive RFC3339 date ranges and media/grade/revocation presence before pagination. Returns data.data and data.meta; own access remains limited to issued certificates owned by the caller. Invalid ranges return 422; Profile outages during search return 502.
    * Calls `GET /api/v1/certificates` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -1183,7 +1183,7 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.ExamSaveAttemptAnswerPutResponse, T.ExamSaveAttemptAnswerPutInput>({ ...options, method: "PUT", url: `/api/v1/exams/attempts/${encodeURIComponent(id)}/answers/${encodeURIComponent(position)}`, data: data });
   }
   /**
-   * Read attempt delivery records through the mounted LMS exam::routes handler. Missing resource identifiers return 404; optional scalar null members follow the Rust request model semantics.
+   * Read questions, saved answers and grading. Authorized administrators and assigned reviewers see answer keys during active attempts; candidates remain redacted until the attempt ends. Missing or out-of-scope attempts return 404.
    * Calls `GET /api/v1/exams/attempts/{id}/delivery` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

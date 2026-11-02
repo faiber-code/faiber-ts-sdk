@@ -60,10 +60,7 @@ export interface SessionGetSelfGetResponse extends ApiEnvelope<SessionGetSelfGet
 }
 
 /** Backend query type: PaginationQuery. */
-export interface CertificateIndexCertificateGetQuery extends QueryParams {
-  "page[number]"?: number | null;
-  "page[size]"?: number | null;
-}
+export type CertificateIndexCertificateGetQuery = import("./types.js").CertificateListQuery;
 /** Backend response type: crate::models::PagedResult<models::CertificateResponse>. */
 export type CertificateIndexCertificateGetResponse = import("./types.js").CertificateListResponse;
 
@@ -680,6 +677,7 @@ export interface ClassroomIndexSessionGetResponseItemCourseSession extends JsonO
   "session_type_id": string | null;
   "duration_minutes": number | null;
   "status": string;
+  "drm_mixed_media_id": string | null;
 }
 export interface ClassroomIndexSessionGetResponseItemSessionType extends JsonObject {
   "id": string;
@@ -701,6 +699,13 @@ export interface ClassroomIndexSessionGetResponseItemTeacherProfile extends Json
   "national_code": string | null;
   "phone": string | null;
   "gender": string | null;
+}
+export interface ClassroomIndexSessionGetResponseItemMedia extends JsonObject {
+  "recording_view_path": string | null;
+  "recordings_api_path": string | null;
+  "playback_view_path": string | null;
+  "drm_mixed_media_id": string | null;
+  "drm_manifest_path": string | null;
 }
 export interface ClassroomIndexSessionGetResponseItem extends JsonObject {
   "id": string;
@@ -725,6 +730,7 @@ export interface ClassroomIndexSessionGetResponseItem extends JsonObject {
   "session_lifecycle_status": string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
+  "media": ClassroomIndexSessionGetResponseItemMedia;
   "starts_at": string | null;
   "ends_at": string | null;
   "status": string;
@@ -773,6 +779,7 @@ export interface ClassroomStoreSessionPostResponseDataCourseSession extends Json
   "session_type_id": string | null;
   "duration_minutes": number | null;
   "status": string;
+  "drm_mixed_media_id": string | null;
 }
 export interface ClassroomStoreSessionPostResponseDataSessionType extends JsonObject {
   "id": string;
@@ -794,6 +801,13 @@ export interface ClassroomStoreSessionPostResponseDataTeacherProfile extends Jso
   "national_code": string | null;
   "phone": string | null;
   "gender": string | null;
+}
+export interface ClassroomStoreSessionPostResponseDataMedia extends JsonObject {
+  "recording_view_path": string | null;
+  "recordings_api_path": string | null;
+  "playback_view_path": string | null;
+  "drm_mixed_media_id": string | null;
+  "drm_manifest_path": string | null;
 }
 export interface ClassroomStoreSessionPostResponseData extends JsonObject {
   "id": string;
@@ -818,6 +832,7 @@ export interface ClassroomStoreSessionPostResponseData extends JsonObject {
   "session_lifecycle_status": string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
+  "media": ClassroomStoreSessionPostResponseDataMedia;
   "starts_at": string | null;
   "ends_at": string | null;
   "status": string;
@@ -841,6 +856,7 @@ export interface ClassroomShowSessionGetResponseDataCourseSession extends JsonOb
   "session_type_id": string | null;
   "duration_minutes": number | null;
   "status": string;
+  "drm_mixed_media_id": string | null;
 }
 export interface ClassroomShowSessionGetResponseDataSessionType extends JsonObject {
   "id": string;
@@ -862,6 +878,13 @@ export interface ClassroomShowSessionGetResponseDataTeacherProfile extends JsonO
   "national_code": string | null;
   "phone": string | null;
   "gender": string | null;
+}
+export interface ClassroomShowSessionGetResponseDataMedia extends JsonObject {
+  "recording_view_path": string | null;
+  "recordings_api_path": string | null;
+  "playback_view_path": string | null;
+  "drm_mixed_media_id": string | null;
+  "drm_manifest_path": string | null;
 }
 export interface ClassroomShowSessionGetResponseData extends JsonObject {
   "id": string;
@@ -886,6 +909,7 @@ export interface ClassroomShowSessionGetResponseData extends JsonObject {
   "session_lifecycle_status": string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
+  "media": ClassroomShowSessionGetResponseDataMedia;
   "starts_at": string | null;
   "ends_at": string | null;
   "status": string;
@@ -925,6 +949,7 @@ export interface ClassroomUpdateSessionPatchResponseDataCourseSession extends Js
   "session_type_id": string | null;
   "duration_minutes": number | null;
   "status": string;
+  "drm_mixed_media_id": string | null;
 }
 export interface ClassroomUpdateSessionPatchResponseDataSessionType extends JsonObject {
   "id": string;
@@ -946,6 +971,13 @@ export interface ClassroomUpdateSessionPatchResponseDataTeacherProfile extends J
   "national_code": string | null;
   "phone": string | null;
   "gender": string | null;
+}
+export interface ClassroomUpdateSessionPatchResponseDataMedia extends JsonObject {
+  "recording_view_path": string | null;
+  "recordings_api_path": string | null;
+  "playback_view_path": string | null;
+  "drm_mixed_media_id": string | null;
+  "drm_manifest_path": string | null;
 }
 export interface ClassroomUpdateSessionPatchResponseData extends JsonObject {
   "id": string;
@@ -970,6 +1002,7 @@ export interface ClassroomUpdateSessionPatchResponseData extends JsonObject {
   "session_lifecycle_status": string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
+  "media": ClassroomUpdateSessionPatchResponseDataMedia;
   "starts_at": string | null;
   "ends_at": string | null;
   "status": string;
@@ -1069,6 +1102,7 @@ export interface ClassroomIndexTodaySessionsGetResponseItemCourseSession extends
   "session_type_id": string | null;
   "duration_minutes": number | null;
   "status": string;
+  "drm_mixed_media_id": string | null;
 }
 export interface ClassroomIndexTodaySessionsGetResponseItemSessionType extends JsonObject {
   "id": string;
@@ -1090,6 +1124,13 @@ export interface ClassroomIndexTodaySessionsGetResponseItemTeacherProfile extend
   "national_code": string | null;
   "phone": string | null;
   "gender": string | null;
+}
+export interface ClassroomIndexTodaySessionsGetResponseItemMedia extends JsonObject {
+  "recording_view_path": string | null;
+  "recordings_api_path": string | null;
+  "playback_view_path": string | null;
+  "drm_mixed_media_id": string | null;
+  "drm_manifest_path": string | null;
 }
 export interface ClassroomIndexTodaySessionsGetResponseItem extends JsonObject {
   "id": string;
@@ -1114,6 +1155,7 @@ export interface ClassroomIndexTodaySessionsGetResponseItem extends JsonObject {
   "session_lifecycle_status": string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
+  "media": ClassroomIndexTodaySessionsGetResponseItemMedia;
   "starts_at": string | null;
   "ends_at": string | null;
   "status": string;

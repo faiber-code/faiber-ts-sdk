@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-drm",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "source_revisions": {
     "drm": {
       "directory": "infera-drm",
@@ -9,14 +9,14 @@
     }
   },
   "package_source_sha256": {
-    "packages/drm/src/index.ts": "3ecf750f5b191e635a3f310ae90c8b63058337a7c05856d66ba1c31bf942841f",
+    "packages/drm/src/index.ts": "dfdb37fb188d148d8dcb97d9a943a7695ec75b8aecdfed4cc740e57dba2e4b95",
     "packages/drm/src/operations.ts": "5ffb79aadebf85042bb5679a4d294013d0d4cc3f74c4982883c4ad12ba933eeb",
     "packages/drm/src/operations.types.ts": "eee8afbc852d3b43cc4500af8aad3a22b52be90469a3572d364cd13793d58a92",
-    "packages/drm/src/types.ts": "34536fb8a397e9f1cdc6ad2eeb5e39a6e9f0d66b1470fb62b4d57c918d498b3a",
+    "packages/drm/src/types.ts": "c04fa061186c42ad5d12c161215cc7fcc8f192d7bca0435930dfe4eaaaafc5fe",
     "packages/drm/src/wire.types.ts": "9c3984b2896d52fce3d21d77343fef1d5e86304b3758ea18bc0342f6dfcc739c"
   },
   "capability_review_sha256": "e2e8fcfe2ddb596976f05d8e43e40f233909001db12147074df69575aa5bc4c9",
-  "source_pin_file_sha256": "efdba2e27a09010b74612963651516ab924fe69d57a12bfb7081decf1d2bd384",
+  "source_pin_file_sha256": "2cf8bcf9d4699ecaa519e9c3743bbfba87881b51a874a899cb5a0fd3e24880fe",
   "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
   "public_contract": {
     "kind": "source-extracted-http",

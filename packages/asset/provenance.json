@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-asset",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "source_revisions": {
     "asset": {
       "directory": "infera-asset",
@@ -20,7 +20,7 @@
     "packages/asset/src/types.ts": "53d89e1644808d1b66f19dc5088213a2c3208ef6b402c9deffc5dd6e647fd0f5"
   },
   "capability_review_sha256": "27f2fbaa5a58b96d9a7f7666f0b7cb9a9145a5a76c67c5876e965859da092237",
-  "source_pin_file_sha256": "efdba2e27a09010b74612963651516ab924fe69d57a12bfb7081decf1d2bd384",
+  "source_pin_file_sha256": "2cf8bcf9d4699ecaa519e9c3743bbfba87881b51a874a899cb5a0fd3e24880fe",
   "http_contract_file_sha256": "51b31c5b860f67e27039e14e1ba761c5680771d9a035d6a87ede7389b05364ed",
   "public_contract": {
     "kind": "source-extracted-http",
