@@ -318,7 +318,7 @@ export class CrmOperations extends ServiceApi {
     return this.client.request<T.ApiFindOfficeLeadGetResponse>({ ...options, method: "GET", url: `/api/v1/integration/office/leads/find`, params });
   }
   /**
-   * List bare nondeleted workspace lead records with UUID cursor and q/pipeline/stage/status/team/owner/statuses/profile/active date filters. statuses is comma-separated. Caller-only unless crm:admin or crm:lead:read_all. Limit defaults 50, clamped 1..100; UUID cursor remains id > cursor even with task_priority/created_at/created_at_desc sorting.
+   * List nondeleted workspace lead records enriched with nullable profile/creator/owner/course/classroom/term summaries; LMS summaries require explicit lms:course:read/lms:classroom:read. Query with UUID cursor and q/pipeline/stage/status/team/owner/statuses/profile/active date filters. statuses is comma-separated. Caller-only unless crm:admin or crm:lead:read_all. Limit defaults 50, clamped 1..100; UUID cursor remains id > cursor even with task_priority/created_at/created_at_desc sorting.
    * Calls `GET /api/v1/leads` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -340,7 +340,7 @@ export class CrmOperations extends ServiceApi {
     return this.client.request<T.ApiCreateLeadPostResponse, T.ApiCreateLeadPostInput>({ ...options, method: "POST", url: `/api/v1/leads`, data: data });
   }
   /**
-   * Read a nondeleted workspace lead visible to the caller and enrich a nullable remote profile using column or legacy custom_data.profile_id; missing/invisible leads return 404.
+   * Read a nondeleted workspace lead visible to the caller with nullable profile, creator, owner, course, classroom and term summaries; missing/invisible leads return 404.
    * Calls `GET /api/v1/leads/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -431,7 +431,7 @@ export class CrmOperations extends ServiceApi {
     return this.client.request<T.ApiMoveLeadStagePatchResponse, T.ApiMoveLeadStagePatchInput>({ ...options, method: "PATCH", url: `/api/v1/leads/${encodeURIComponent(id)}/stage`, data: data });
   }
   /**
-   * Alias of the full lead list with exactly the same filters, ownership restrictions and bare Lead response model; no extra profile enrichment.
+   * Alias of the full lead list with exactly the same filters, ownership restrictions and enriched LeadResponse model, including profile, creator, owner, course, classroom and term. LMS summaries require lms:course:read/lms:classroom:read; missing links, permission or upstream data produce null.
    * Calls `GET /api/v1/leads/light` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -549,17 +549,17 @@ export class CrmOperations extends ServiceApi {
     return this.client.request<T.ApiCreateSourcePostResponse, T.ApiCreateSourcePostInput>({ ...options, method: "POST", url: `/api/v1/sources`, data: data });
   }
   /**
-   * Calculate caller-assigned workflow daily quotas from backlog and priority, completed-today counts and extra work in UTC. Default total allocation limit is 50; no assigned/actionable workflows returns empty totals and all_tasks_done:true.
+   * Calculate caller-assigned workflow daily quotas from backlog and priority, completed-today counts and extra work in UTC. Default total allocation limit is 50; explicit crm:admin or crm:stats:read_all includes all workspace workflows; no visible/actionable workflows returns empty totals and all_tasks_done:true.
    * Calls `GET /api/v1/stats/daily` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: crm:admin or any one of crm:stats:read, crm:stats:read_own.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: crm:admin or any one of crm:stats:read, crm:stats:read_all, crm:stats:read_own.
    */
   apiDailyStatsGet(options?: RequestOptions) {
     return this.client.request<T.ApiDailyStatsGetResponse>({ ...options, method: "GET", url: `/api/v1/stats/daily` });
   }
   /**
-   * Aggregate total/active/inactive leads for caller-assigned nondeleted lead workflows; active status uses custom_data.is_active_status, default true.
+   * Aggregate total/active/inactive leads for visible nondeleted lead workflows (all workspace workflows for explicit crm:admin or crm:stats:read_all); active status uses custom_data.is_active_status, default true.
    * Calls `GET /api/v1/stats/lead` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
@@ -569,7 +569,7 @@ export class CrmOperations extends ServiceApi {
     return this.client.request<T.ApiLeadStatsGetResponse>({ ...options, method: "GET", url: `/api/v1/stats/lead` });
   }
   /**
-   * List nondeleted task rows by ascending UUID; filters cursor/status/profile_id and due_at via active_from/active_to. Caller-only unless crm:admin or crm:task:read_all. Limit defaults 50, clamped 1..100.
+   * List nondeleted task rows with nullable profile, creator and assignee summaries by ascending UUID; filters cursor/status/profile_id and due_at via active_from/active_to. Caller-only unless crm:admin or crm:task:read_all. Limit defaults 50, clamped 1..100.
    * Calls `GET /api/v1/tasks` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -971,11 +971,11 @@ export class CrmOperations extends ServiceApi {
     return this.client.request<T.ApiUpdateWorkflowNodeRoutePatchResponse, T.ApiUpdateWorkflowNodeRoutePatchInput>({ ...options, method: "PATCH", url: `/api/v1/workflows/${encodeURIComponent(workflowId)}/nodes/${encodeURIComponent(nodeId)}`, data: data });
   }
   /**
-   * List nondeleted workflows assigned to the caller directly or through legacy/current team membership, ordered by priority; includes inactive entries.
+   * List nondeleted workflows assigned to the caller directly or through legacy/current team membership, ordered by priority; includes inactive entries. Explicit crm:admin or workflow:read_all sees all workspace workflows.
    * Calls `GET /api/v1/workflows/member-based` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: crm:admin or any one of crm:pipeline:read, workflow:read, workflow:read_own.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: crm:admin or any one of crm:pipeline:read, workflow:read, workflow:read_all, workflow:read_own.
    */
   apiMemberWorkflowsGet(options?: RequestOptions) {
     return this.client.request<T.ApiMemberWorkflowsGetResponse>({ ...options, method: "GET", url: `/api/v1/workflows/member-based` });

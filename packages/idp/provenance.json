@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-idp",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "source_revisions": {
     "idp": {
       "directory": "infera-idp",
@@ -21,8 +21,8 @@
     "packages/idp/src/visibility.ts": "518eea6a95fe65134c35007760b3cab2438704696999c54f3c139d0ec0d8ad93"
   },
   "capability_review_sha256": "8ee5e21c8c47c329209a68516ef164a58309ebe97829ca2582d0ee3ca8e0b83d",
-  "source_pin_file_sha256": "387911b20ba5bed7b90ff4457f462e52fe9201a4b41d75391d45548a82c5947c",
-  "http_contract_file_sha256": "ab0b79b93a80256159f224084a1de38702f8eeefb7974f524fa0d5eabf31c09b",
+  "source_pin_file_sha256": "6320978c058ccedb2894b9ac8793b23fa9fa87c87ac31d2ba6e0dd51a9ab3381",
+  "http_contract_file_sha256": "14a550457372d6ef1dc8eca20c0a873d6ebc778417f4276f764e6c066d9f9b92",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 117,

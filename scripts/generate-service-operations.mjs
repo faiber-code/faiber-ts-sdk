@@ -407,6 +407,14 @@ function renderedFields(files, module, raw, seen = new Set(), query = false, dec
     const nested = query ? renderedFields(files, module, valueRaw, nextSeen, true, declarations, base, declared, input) : [];
     if (nested.length) return nested.map(item => ({ ...item, name: `${field.name}[${item.name}]`, optional: optional || item.optional }));
     let renderedType = tsType(valueRaw, query, input);
+    // CRM serializes these explicitly projected LMS objects as JsonValue in Rust.
+    // Keep their reviewed wire fields typed instead of exposing arbitrary JSON.
+    const crmSummary = !input && name === "LeadResponse"
+      && resolved.file.path.endsWith("infera-crm/src/api/types.rs")
+      ? ({ course: "CrmCourseSummary", classroom: "CrmClassroomSummary", term: "CrmTermSummary" })[field.name]
+      : undefined;
+    if (crmSummary) renderedType = `import("./types.js").${crmSummary}`;
+
     if (module === "classroom" && field.name === "weekly_schedule" && !query) {
       renderedType = base.endsWith("Input")
         ? 'import("./types.js").ClassroomWeeklyScheduleRuleInput[]'

@@ -8,7 +8,7 @@ export class CrmApi extends ServiceApi {
 
   context(options?: RequestOptions) { return this.operations.apiContextGet(options); }
   listPipelines(options?: RequestOptions) { return this.operations.apiPipelinesGet(options); }
-  /** Returns only workflows assigned directly to the caller or through their teams, ordered by priority. */
+  /** Returns workflows visible through membership or explicit admin/read-all permission, ordered by priority. */
   listMemberWorkflows(options?: RequestOptions) { return this.operations.apiMemberWorkflowsGet(options); }
   /** Updates workflow name, priority, guidance, quota, flags, actions, and creation policy with optimistic locking. */
   updatePipeline(id: Identifier, data: O.ApiUpdatePipelinePatchInput, options?: RequestOptions<O.ApiUpdatePipelinePatchInput>) { return this.operations.apiUpdatePipelinePatch(id, data, options); }

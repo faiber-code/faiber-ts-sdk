@@ -35,3 +35,22 @@ async function stats() {
   return { count, total };
 }
 void stats;
+
+async function enrichedReads() {
+  const page = await api.listLightLeads();
+  const lead = page.data.data.items[0]!;
+  const course: string | undefined = lead.course?.name;
+  const duration: string | null | undefined = lead.course?.duration;
+  const term: string | undefined = lead.term?.title;
+  const session: number | undefined = lead.classroom?.current_session;
+  const owner: string | null | undefined = lead.owner?.user_id;
+  const creator: string | null | undefined = lead.creator?.user_id;
+  const detail = await api.operations.apiLeadGet('id');
+  const sameCourse: string | undefined = detail.data.data.course?.name;
+  const tasks = await api.operations.apiTasksGet();
+  const assignee: string | null | undefined = tasks.data.data.items[0]?.assignee?.user_id;
+  // @ts-expect-error An LMS course projection is not an untyped JSON bag.
+  const invalid: number = lead.course?.name;
+  return { course, duration, term, session, owner, creator, sameCourse, assignee, invalid };
+}
+void enrichedReads;

@@ -35,7 +35,7 @@ The configured IDP token provider forwards Bearer authorization; `withCredential
 
 The package exposes 92 mounted HTTP operations through `api.operations`, including singular/plural workflow compatibility routes, health/readiness and the two explicit API not-found boundaries. Concise methods on `api` cover common workflows. Source coverage does not certify native execution or gateway policy. The separate `/mcp` summary-evidence mount uses the RMCP protocol and signed summary-run grants; it is not a typed REST business operation in this package. Static dashboard assets use the server's frontend fallback.
 
-Most business routes return `{ data, meta: { request_id } }`. Health, readiness and Office lookup use `{ status, message, data }`; readiness returns HTTP 503 when database or broker is unavailable. Lead list/create/update responses contain bare lead records. `getLead` additionally returns a nullable remote `profile`; remote enrichment may be unavailable. Lists return `{items,next_cursor}` inside data, with scalar `cursor` and `limit` (default 50, clamped 1–100). Lead `statuses` is comma-separated. Custom lead sort still compares UUID cursor using `id > cursor`, so it is not a chronological cursor guarantee. Workflow/node/worklog collections return arrays; workflow and node lists include inactive nondeleted rows.
+Most business routes return `{ data, meta: { request_id } }`. Health, readiness and Office lookup use `{ status, message, data }`; readiness returns HTTP 503 when database or broker is unavailable. `listLeads`, `listLightLeads`, and `getLead` return nullable `profile`, `creator`, `owner`, `course`, `classroom`, and `term` summaries. `listTasks` returns nullable `profile`, `creator`, and `assignee`. Create/update and board responses retain their bare record contracts. Missing links, upstream data or LMS read permissions produce null summaries without removing CRM records. Lists return `{items,next_cursor}` inside data, with scalar `cursor` and `limit` (default 50, clamped 1–100). Lead `statuses` is comma-separated. Custom lead sort still compares UUID cursor using `id > cursor`, so it is not a chronological cursor guarantee. Workflow/node/worklog collections return arrays; workflow and node lists include inactive nondeleted rows.
 
 Mutations that document `Idempotency-Key` require a nonempty header up to 128 characters. Keys identify submissions and duplicate submissions return 409; they do not replay successful responses. Company/contact/lead/deal updates, stage/assignment updates, task status, team deletion and pipeline/workspace patches use a version. Workflow updates accept version but do not enforce it, and node updates have no version field. Ordinary optional patch nulls preserve values. Workflow `team_id`, `hint`, `actions` and node `sla_minutes`, `actions` distinguish omitted values from explicit nulls, which clear fields. Record assignment replaces both owner/team; omitted IDs clear them.
 
@@ -56,3 +56,18 @@ try {
 The API not-found diagnostics `operations.routerApiNotFoundAny(method)` and `operations.routerApiPathNotFoundAny("obsolete/items", method)` return structured 404 without modifying CRM data. HEAD has no body and CORS can answer OPTIONS with empty 200. For deliberate diagnostics, supply `validateStatus` and check for a body. Wildcard diagnostics reject registered API paths, traversal, percent escapes, query/fragment syntax and backslashes locally. CONNECT requires an explicit tunnel-capable Axios adapter.
 
 Use [@faiber/faiber-ts-sdk](https://www.npmjs.com/package/@faiber/faiber-ts-sdk) to configure multiple Faiber services together.
+
+## Embedded lead information
+
+```ts
+const { data: { data: page } } = await api.listLightLeads({ limit: 25 });
+for (const lead of page.items) {
+  console.log(lead.profile?.first_name, lead.creator?.phone);
+  console.log(lead.course?.name, lead.classroom?.name, lead.term?.title);
+  console.log(lead.classroom?.current_session, lead.classroom?.total_sessions);
+}
+```
+
+Use the returned objects directly; do not overwrite `profile` with `null` or issue one profile/LMS request per lead. `term` is the LMS course category, and course duration is a nullable string. The backend resolves both UUID and legacy numeric LMS links in metadata. Course and classroom summaries additionally require the caller's `lms:course:read` and `lms:classroom:read` permissions; a CRM admin permission does not replace these LMS grants. Existing bearer/cookie authentication, cancellation signals and Axios response metadata apply unchanged.
+
+Exported types include `CrmLead`, `CrmProfileSummary`, `CrmCourseSummary`, `CrmClassroomSummary`, `CrmTermSummary`, and `CrmTaskView`. `CrmLeadRecord` and `CrmTask` remain the bare mutation models. Through the full SDK, use the same methods on `faiber.crm` and types under `CrmService`.

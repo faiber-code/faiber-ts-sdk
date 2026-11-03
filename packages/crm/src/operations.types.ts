@@ -575,7 +575,7 @@ export type ApiFindOfficeLeadGetResponse = import("./types.js").CrmOfficeLeadRes
 
 /** Backend query type: ListQuery. */
 export type ApiLeadsGetQuery = import("./contracts.types.js").CrmLeadListQuery;
-/** Backend response type: ListData<Lead>. */
+/** Backend response type: ListData<LeadResponse>. */
 export type ApiLeadsGetResponse = import("./types.js").CrmLeadListResponse;
 
 /** Backend request type: CreateLead. */
@@ -652,6 +652,30 @@ export interface ApiLeadGetResponseDataProfile extends JsonObject {
   "employee_type": string | null;
   "avatar": string | null;
 }
+export interface ApiLeadGetResponseDataCreator extends JsonObject {
+  "id": string;
+  "user_id": string | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "status": string | null;
+  "employee_type": string | null;
+  "avatar": string | null;
+}
+export interface ApiLeadGetResponseDataOwner extends JsonObject {
+  "id": string;
+  "user_id": string | null;
+  "email": string | null;
+  "phone": string | null;
+  "national_code": string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "status": string | null;
+  "employee_type": string | null;
+  "avatar": string | null;
+}
 export interface ApiLeadGetResponseData extends JsonObject {
   "id": string;
   "pipeline_id": string;
@@ -685,6 +709,11 @@ export interface ApiLeadGetResponseData extends JsonObject {
   "created_at": string;
   "updated_at": string;
   "profile": ApiLeadGetResponseDataProfile | null;
+  "creator": ApiLeadGetResponseDataCreator | null;
+  "owner": ApiLeadGetResponseDataOwner | null;
+  "course": import("./types.js").CrmCourseSummary | null;
+  "classroom": import("./types.js").CrmClassroomSummary | null;
+  "term": import("./types.js").CrmTermSummary | null;
 }
 export type ApiLeadGetResponse = import("./types.js").CrmApiResponse<ApiLeadGetResponseData>;
 
@@ -854,7 +883,7 @@ export type ApiMoveLeadStagePatchResponse = import("./types.js").CrmApiResponse<
 
 /** Backend query type: ListQuery. */
 export type ApiLightLeadsGetQuery = import("./contracts.types.js").CrmLeadListQuery;
-/** Backend response type: ListData<Lead>. */
+/** Backend response type: ListData<LeadResponse>. */
 export type ApiLightLeadsGetResponse = import("./types.js").CrmLeadListResponse;
 
 /** Backend response type: Vec<PipelineWithStages>. */
@@ -977,7 +1006,7 @@ export type ApiLeadStatsGetResponse = import("./types.js").CrmLeadStatsResponse;
 
 /** Backend query type: ListQuery. */
 export type ApiTasksGetQuery = import("./contracts.types.js").CrmTaskListQuery;
-/** Backend response type: ListData<Task>. */
+/** Backend response type: ListData<TaskResponse>. */
 export type ApiTasksGetResponse = import("./types.js").CrmTaskListResponse;
 
 /** Backend request type: CreateTask. */

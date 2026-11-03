@@ -3500,7 +3500,7 @@
       ],
       "source": "infera-crm/src/api/routes.rs",
       "query": "ListQuery",
-      "response": "ListData<Lead>",
+      "response": "ListData<LeadResponse>",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -3662,7 +3662,7 @@
       "permissions": [],
       "source": "infera-crm/src/api/routes.rs",
       "query": "ListQuery",
-      "response": "ListData<Lead>",
+      "response": "ListData<LeadResponse>",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -3827,7 +3827,8 @@
       "handler": "daily_stats",
       "permissions": [
         "crm:stats:read",
-        "crm:stats:read_own"
+        "crm:stats:read_own",
+        "crm:stats:read_all"
       ],
       "source": "infera-crm/src/api/routes.rs",
       "handlerModule": "dashboard",
@@ -3866,7 +3867,7 @@
       "source": "infera-crm/src/api/routes.rs",
       "handlerModule": "operations",
       "query": "ListQuery",
-      "response": "ListData<Task>",
+      "response": "ListData<TaskResponse>",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -4450,7 +4451,8 @@
       "permissions": [
         "crm:pipeline:read",
         "workflow:read",
-        "workflow:read_own"
+        "workflow:read_own",
+        "workflow:read_all"
       ],
       "source": "infera-crm/src/api/routes.rs",
       "handlerModule": "dashboard",

@@ -1,4 +1,4 @@
-// Reviewed directly against CRM 77e2e4a7660e007aefef81e27337476c6d748cac; native execution remains separately scoped.
+// Reviewed directly against CRM 05df60696dfcb2a214abf6cd9184f80c1642f1a1; native execution remains separately scoped.
 export const crmReviewedOperationContracts = {
   "crm:GET /": {
     "purpose": "Read process liveness and package version in the legacy status/message/data envelope; no dependency probe.",
@@ -147,16 +147,16 @@ export const crmReviewedOperationContracts = {
     "auth": "crm:admin or any one of crm:pipeline:update"
   },
   "crm:GET /api/v1/workflows/member-based": {
-    "purpose": "List nondeleted workflows assigned to the caller directly or through legacy/current team membership, ordered by priority; includes inactive entries.",
-    "auth": "crm:admin or any one of crm:pipeline:read, workflow:read, workflow:read_own"
+    "purpose": "List nondeleted workflows assigned to the caller directly or through legacy/current team membership, ordered by priority; includes inactive entries. Explicit crm:admin or workflow:read_all sees all workspace workflows.",
+    "auth": "crm:admin or any one of crm:pipeline:read, workflow:read, workflow:read_all, workflow:read_own"
   },
   "crm:GET /api/v1/stats/daily": {
-    "purpose": "Calculate caller-assigned workflow daily quotas from backlog and priority, completed-today counts and extra work in UTC. Default total allocation limit is 50; no assigned/actionable workflows returns empty totals and all_tasks_done:true.",
-    "auth": "crm:admin or any one of crm:stats:read, crm:stats:read_own",
+    "purpose": "Calculate caller-assigned workflow daily quotas from backlog and priority, completed-today counts and extra work in UTC. Default total allocation limit is 50; explicit crm:admin or crm:stats:read_all includes all workspace workflows; no visible/actionable workflows returns empty totals and all_tasks_done:true.",
+    "auth": "crm:admin or any one of crm:stats:read, crm:stats:read_all, crm:stats:read_own",
     "response": "import(\"./types.js\").CrmDailyStatsResponse"
   },
   "crm:GET /api/v1/stats/lead": {
-    "purpose": "Aggregate total/active/inactive leads for caller-assigned nondeleted lead workflows; active status uses custom_data.is_active_status, default true.",
+    "purpose": "Aggregate total/active/inactive leads for visible nondeleted lead workflows (all workspace workflows for explicit crm:admin or crm:stats:read_all); active status uses custom_data.is_active_status, default true.",
     "auth": "crm:admin or any one of crm:stats:read, crm:stats:read_all, crm:stats:read_own",
     "response": "import(\"./types.js\").CrmLeadStatsResponse"
   },
@@ -209,7 +209,7 @@ export const crmReviewedOperationContracts = {
     "auth": "crm:admin or any one of crm:workflow_assignment:manage"
   },
   "crm:GET /api/v1/tasks": {
-    "purpose": "List nondeleted task rows by ascending UUID; filters cursor/status/profile_id and due_at via active_from/active_to. Caller-only unless crm:admin or crm:task:read_all. Limit defaults 50, clamped 1..100.",
+    "purpose": "List nondeleted task rows with nullable profile, creator and assignee summaries by ascending UUID; filters cursor/status/profile_id and due_at via active_from/active_to. Caller-only unless crm:admin or crm:task:read_all. Limit defaults 50, clamped 1..100.",
     "auth": "crm:admin or any one of crm:task:read, crm:task:read_all, crm:task:read_own",
     "query": "import(\"./contracts.types.js\").CrmTaskListQuery"
   },
@@ -314,12 +314,12 @@ export const crmReviewedOperationContracts = {
     "input": "import(\"./contracts.types.js\").CrmContactUpdateInput"
   },
   "crm:GET /api/v1/leads/light": {
-    "purpose": "Alias of the full lead list with exactly the same filters, ownership restrictions and bare Lead response model; no extra profile enrichment.",
+    "purpose": "Alias of the full lead list with exactly the same filters, ownership restrictions and enriched LeadResponse model, including profile, creator, owner, course, classroom and term. LMS summaries require lms:course:read/lms:classroom:read; missing links, permission or upstream data produce null.",
     "auth": "crm:admin or any one of crm:lead:read, crm:lead:read_all, crm:lead:read_own (delegates to the full lead-list handler)",
     "query": "import(\"./contracts.types.js\").CrmLeadListQuery"
   },
   "crm:GET /api/v1/leads": {
-    "purpose": "List bare nondeleted workspace lead records with UUID cursor and q/pipeline/stage/status/team/owner/statuses/profile/active date filters. statuses is comma-separated. Caller-only unless crm:admin or crm:lead:read_all. Limit defaults 50, clamped 1..100; UUID cursor remains id > cursor even with task_priority/created_at/created_at_desc sorting.",
+    "purpose": "List nondeleted workspace lead records enriched with nullable profile/creator/owner/course/classroom/term summaries; LMS summaries require explicit lms:course:read/lms:classroom:read. Query with UUID cursor and q/pipeline/stage/status/team/owner/statuses/profile/active date filters. statuses is comma-separated. Caller-only unless crm:admin or crm:lead:read_all. Limit defaults 50, clamped 1..100; UUID cursor remains id > cursor even with task_priority/created_at/created_at_desc sorting.",
     "auth": "crm:admin or any one of crm:lead:read, crm:lead:read_all, crm:lead:read_own",
     "query": "import(\"./contracts.types.js\").CrmLeadListQuery"
   },
@@ -328,7 +328,7 @@ export const crmReviewedOperationContracts = {
     "auth": "crm:admin or any one of crm:lead:create"
   },
   "crm:GET /api/v1/leads/{id}": {
-    "purpose": "Read a nondeleted workspace lead visible to the caller and enrich a nullable remote profile using column or legacy custom_data.profile_id; missing/invisible leads return 404.",
+    "purpose": "Read a nondeleted workspace lead visible to the caller with nullable profile, creator, owner, course, classroom and term summaries; missing/invisible leads return 404.",
     "auth": "crm:admin or any one of crm:lead:read, crm:lead:read_all, crm:lead:read_own"
   },
   "crm:PATCH /api/v1/leads/{id}": {

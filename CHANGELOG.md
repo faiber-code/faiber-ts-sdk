@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.4.0 — 2026-11-03
+
+- Type embedded CRM lead profiles, owners, creators, courses, classrooms and terms across list, light-list and detail reads.
+- Type embedded task profiles, creators and assignees without changing bare mutation or board responses.
+- Document permission-scoped LMS enrichment, null behavior and explicit dashboard read-all visibility.
+- Synchronize CRM source contracts with deployed main revision `05df606`.
+
 ## 1.2.0 — 2026-10-24
 
 - Add `lms.classroomCalendar` and `lms.operations.classroomCalendarGet` for complete daily and weekly calendars in one authenticated request.

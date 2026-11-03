@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-ts-sdk",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "source_revisions": {
     "asset": {
       "directory": "infera-asset",
@@ -13,7 +13,7 @@
     },
     "crm": {
       "directory": "infera-crm",
-      "revision": "77e2e4a7660e007aefef81e27337476c6d748cac"
+      "revision": "05df60696dfcb2a214abf6cd9184f80c1642f1a1"
     },
     "drm": {
       "directory": "infera-drm",
@@ -85,8 +85,8 @@
     "packages/sdk/src/index.ts": "ab1a01f057600af7a036b6196df0ece7214e9db9b652fc8f415598cf600fa3e0"
   },
   "capability_review_sha256": null,
-  "source_pin_file_sha256": "387911b20ba5bed7b90ff4457f462e52fe9201a4b41d75391d45548a82c5947c",
-  "http_contract_file_sha256": "ab0b79b93a80256159f224084a1de38702f8eeefb7974f524fa0d5eabf31c09b",
+  "source_pin_file_sha256": "6320978c058ccedb2894b9ac8793b23fa9fa87c87ac31d2ba6e0dd51a9ab3381",
+  "http_contract_file_sha256": "14a550457372d6ef1dc8eca20c0a873d6ebc778417f4276f764e6c066d9f9b92",
   "public_contract": {
     "kind": "shared-client-or-facade"
   },

@@ -6,9 +6,9 @@ export type CrmPipeline = CrmPipelineWithStages;
 export type CrmTeam = O.ApiTeamsGetResponseItem;
 export type CrmCompany = O.ApiCompanyGetResponseData;
 export type CrmContact = O.ApiContactGetResponseData;
-/** Bare lead returned by list, create, update, assignment and stage operations. */
+/** Bare lead returned by create, update, assignment, stage and board operations. */
 export type CrmLeadRecord = O.ApiCreateLeadPostResponseData;
-/** Lead detail enriches the bare record with a nullable remote profile. */
+/** Lead reads enrich the bare record with nullable profiles and LMS summaries. */
 export type CrmLead = O.ApiLeadGetResponseData;
 /** Backward-compatible name for the current production lead view. */
 export type Lead = CrmLead;
@@ -80,9 +80,9 @@ export interface CrmListData<T extends JsonObject> extends JsonObject {
 
 export type CrmCompanyListResponse = CrmApiResponse<CrmListData<CrmCompany>>;
 export type CrmContactListResponse = CrmApiResponse<CrmListData<CrmContact>>;
-export type CrmLeadListResponse = CrmApiResponse<CrmListData<CrmLeadRecord>>;
+export type CrmLeadListResponse = CrmApiResponse<CrmListData<CrmLead>>;
 export type CrmDealListResponse = CrmApiResponse<CrmListData<CrmDeal>>;
-export type CrmTaskListResponse = CrmApiResponse<CrmListData<CrmTask>>;
+export type CrmTaskListResponse = CrmApiResponse<CrmListData<CrmTaskView>>;
 export type CrmActivityListResponse = CrmApiResponse<CrmListData<CrmActivity>>;
 
 export interface CrmPipelineStage extends JsonObject {
@@ -247,3 +247,45 @@ export interface CrmWorkflowLeadStats extends JsonObject {
 }
 export interface CrmLeadStats extends JsonObject { total: number; active: number; inactive: number; workflows: CrmWorkflowLeadStats[] }
 export type CrmLeadStatsResponse = CrmApiResponse<CrmLeadStats>;
+
+/** Profile summary embedded by CRM; never requires a separate SDK lookup. */
+export type CrmProfileSummary = O.ApiLeadGetResponseDataProfile;
+/** Course category used as the term in Accounting and LMS. */
+export interface CrmTermSummary extends JsonObject {
+  id: string;
+  name: string;
+  title: string;
+  description: string | null;
+}
+/** Permission-scoped LMS course projection, not the full LMS course model. */
+export interface CrmCourseSummary extends JsonObject {
+  id: string;
+  legacy_id: number | null;
+  name: string;
+  title: string | null;
+  category_id: string | null;
+  category: CrmTermSummary | null;
+  status: string;
+  cover_url: string | null;
+  duration: string | null;
+}
+/** Permission-scoped classroom projection with current session counts. */
+export interface CrmClassroomSummary extends JsonObject {
+  id: string;
+  legacy_id: number | null;
+  course_id: string;
+  name: string;
+  code: string | null;
+  status: string;
+  starts_at: string | null;
+  ends_at: string | null;
+  current_session: number;
+  total_sessions: number;
+  classroom_type_id: string | null;
+}
+/** Task list view; mutation responses continue to use the bare CrmTask contract. */
+export interface CrmTaskView extends CrmTask {
+  profile: CrmProfileSummary | null;
+  creator: CrmProfileSummary | null;
+  assignee: CrmProfileSummary | null;
+}

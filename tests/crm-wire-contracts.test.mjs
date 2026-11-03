@@ -65,3 +65,28 @@ test('CRM raw health and nullable Office legacy payloads remain unwrapped', asyn
   assert.deepEqual((await api.findOfficeLead({ profile_id: 'profile', foreign_key: 'external', flags: 'a,b' })).data, office);
   assert.deepEqual(seen[1].params, { profile_id: 'profile', foreign_key: 'external', flags: 'a,b' });
 });
+
+test('enriched lead and task reads preserve nested data with one authenticated request per call', async () => {
+  const { api, seen, replies } = fixture();
+  const person = { id: 'profile', user_id: 'user', first_name: { fa: 'نام', en: 'Name' }, phone: null };
+  const lead = { id: 'lead', profile: person, creator: person, owner: person,
+    course: { id: 'course', name: 'Course', duration: '12 weeks' },
+    classroom: { id: 'classroom', current_session: 3, total_sessions: 12 },
+    term: { id: 'term', title: 'Term' } };
+  const page = { data: { items: [lead], next_cursor: null }, meta: { request_id: 'enriched' } };
+  replies.set('/api/v1/leads', page);
+  replies.set('/api/v1/leads/light', page);
+  replies.set('/api/v1/leads/lead', { data: lead, meta: page.meta });
+  const signal = new AbortController().signal;
+  assert.deepEqual((await api.listLeads({}, { signal })).data, page);
+  assert.deepEqual((await api.operations.apiLightLeadsGet({}, { signal })).data, page);
+  assert.deepEqual((await api.getLead('lead', { signal })).data.data, lead);
+  const task = { id: 'task', profile: null, creator: person, assignee: person };
+  replies.set('/api/v1/tasks', { data: { items: [task], next_cursor: null }, meta: page.meta });
+  assert.deepEqual((await api.listTasks({}, { signal })).data.data.items[0], task);
+  assert.equal(seen.length, 4);
+  assert.ok(seen.every(config => config.signal === signal && config.headers.get('Authorization') === 'Bearer crm-wire-token' && config.withCredentials));
+  const missing = { ...lead, profile: null, course: null, classroom: null, term: null };
+  replies.set('/api/v1/leads/lead', { data: missing, meta: page.meta });
+  assert.deepEqual((await api.operations.apiLeadGet('lead')).data.data, missing);
+});

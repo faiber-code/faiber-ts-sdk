@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-lms",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "source_revisions": {
     "lms": {
       "directory": "infera-lms",
@@ -22,8 +22,8 @@
     "packages/lms/src/wire.types.ts": "097042cdc470246ae70be80f0fd55ce48d77e58c75c659b49636cf3dc8b3560c"
   },
   "capability_review_sha256": "7c7e8a13f29df9943d0381d80b19a70c64ddb0a761922f66143f1df35a11b60f",
-  "source_pin_file_sha256": "387911b20ba5bed7b90ff4457f462e52fe9201a4b41d75391d45548a82c5947c",
-  "http_contract_file_sha256": "ab0b79b93a80256159f224084a1de38702f8eeefb7974f524fa0d5eabf31c09b",
+  "source_pin_file_sha256": "6320978c058ccedb2894b9ac8793b23fa9fa87c87ac31d2ba6e0dd51a9ab3381",
+  "http_contract_file_sha256": "14a550457372d6ef1dc8eca20c0a873d6ebc778417f4276f764e6c066d9f9b92",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 187,
