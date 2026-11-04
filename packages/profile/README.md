@@ -74,7 +74,7 @@ await api.educationInformation(idpUserUuid, {
   attendance_mode: dependencies.attendance_mode[0].id,
   level: "beginner",
   referral_source: dependencies.referral_source[0]?.id ?? null,
-  referrer_uuid: null,
+  referrer_uuid: referrerUserId,
   description: "Learner notes",
 });
 await api.customTypes.create({ name: "job", value_type: "select", options: ["بیکار"] });
@@ -134,6 +134,16 @@ After retrieving eligible member IDs from Task, call `profile.resolvePeople({ us
 Personal information includes `job`, a nullable job title. Pass `{ job: "Software engineer" }` to `sdk.profile.personalInformation(userId, ...)`; pass `{ job: null }` to clear it. Omitting `job` preserves the saved value. Profile detail and list responses also include `job`, and general profile patch operations accept it.
 
 ### Dynamic profile filters
+
+Profile listings expose `birthday`, `created_at`, and `referrer_uuid`. The referrer
+field holds the referring user's IDP UUID. To set it, call
+`api.educationInformation(userId, { referrer_uuid: referrerUserId })`. Pass
+`null` to clear the referrer.
+
+Use `api.operations.profileSearchSearchPost({ search: "Ava", include: ["properties"] })`
+for the combined search endpoint. Every hit includes `core`, including the three
+listing fields above. The `include` array selects the optional `properties` and
+`services` sections. Omit it to return both.
 
 `listProfiles` and all role-list operation queries, including
 `ProfileStudentIndexGetQuery`, accept bracket filters, repeated date ranges and

@@ -79,16 +79,18 @@ export interface ProfileLocalizedName extends JsonObject { fa: string | null; en
  * The backend validates object-ness only and preserves arbitrary members and value kinds.
  */
 export type ProfileDynamicObject = JsonObject;
-/** Core search snapshot built by profile_search::rebuild::build_core_json. */
+/** Live core fields. Some fields are only returned with unrestricted access. */
 export interface ProfileSearchCore extends JsonObject {
-  email: string | null; phone: string | null; national_code: string | null; national_number: string | null;
+  email: string | null; phone: string | null; national_code: string | null; national_number?: string | null;
   first_name_fa: string | null; first_name_en: string | null; last_name_fa: string | null; last_name_en: string | null;
-  birthday: string | null; nationality: string | null; religion: string | null; gender: string | null;
+  birthday: string | null; nationality?: string | null; religion?: string | null; gender?: string | null;
   attendance_mode: string | null; level: string | null; education_id: string | null;
-  referral_source: string | null; referrer_uuid: string | null; description: string | null;
-  marital: string | null; nickname: string | null; country_id: string | null; province_id: string | null;
-  city_id: string | null; status: string; employee_type: string | null; has_active_enrollment: boolean;
-  created_at: string; updated_at: string | null;
+  /** IDP user UUID of the referrer. */
+  referrer_uuid: string | null;
+  referral_source?: string | null; description?: string | null;
+  marital?: string | null; nickname?: string | null; country_id?: string | null; province_id?: string | null;
+  city_id?: string | null; status: string; employee_type: string | null; has_active_enrollment: boolean;
+  created_at: string; updated_at?: string | null;
 }
 export type ProfileRuleComparison = "eq" | "ne" | "gt" | "gte" | "lt" | "lte" | "exists" | "contains" | "in";
 /** Validated lifecycle AST. Extra JSON members are preserved by the backend. Null/{} match all. */
@@ -279,7 +281,14 @@ export interface ProfileChatProfile extends JsonObject {
 
 export interface ProfileChatContext extends JsonObject { profile: ProfileChatProfile; properties: import("./types.js").ProfileProperties }
 export interface ProfileSession extends JsonObject { user_id: string; roles: string[]; permissions: string[]; profile: import("./types.js").Profile }
-export interface ProfileSearchHit extends JsonObject { short_id: string; profile_id:string; user_id:string; core?:ProfileSearchCore|null; properties?:ProfileDynamicObject|null; services?:ProfileDynamicObject|null }
+export interface ProfileSearchHit extends JsonObject {
+  short_id: string;
+  profile_id: string;
+  user_id: string;
+  core: ProfileSearchCore;
+  properties?: ProfileDynamicObject | null;
+  services?: ProfileDynamicObject | null;
+}
 export interface ProfileSearchData extends JsonObject { results:ProfileSearchHit[] }
 export interface ProfileSearchResponse extends ApiEnvelope<ProfileSearchData> {meta:import("./types.js").ProfilePaginationMeta}
 

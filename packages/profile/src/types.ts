@@ -39,12 +39,17 @@ export interface Profile extends JsonObject {
     national_code?: string | null;
     first_name: import("./wire.types.js").ProfileLocalizedName | null;
     last_name: import("./wire.types.js").ProfileLocalizedName | null;
+    /** Birth date in YYYY-MM-DD format. */
+    birthday: string | null;
+    /** Profile creation timestamp. */
+    created_at: string;
     gender: string | null;
     job: string | null;
     education_id: string | null;
     attendance_mode: string | null;
     level: string | null;
     referral_source: string | null;
+    /** IDP user UUID of the referrer. */
     referrer_uuid: string | null;
     description: string | null;
     /** Latest Office projection; null means unavailable, not zero. */
