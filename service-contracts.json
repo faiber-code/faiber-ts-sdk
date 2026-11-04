@@ -9553,14 +9553,61 @@
     },
     {
       "method": "POST",
+      "path": "/api/v1/classrooms/{id}/users/{user_id}/move",
+      "module": "classroom",
+      "handler": "move_classroom_user",
+      "permissions": [
+        "lms:classroom:update"
+      ],
+      "source": "infera-lms/src/classroom/routes.rs",
+      "body": "models::MoveClassroomUserRequest",
+      "pathParam": "(Uuid, Uuid)",
+      "response": "models::ClassroomUserResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
       "path": "/api/v1/classrooms/batch",
       "module": "integration",
       "handler": "batch_classrooms",
-      "permissions": [],
+      "permissions": [
+        "lms:classroom:read"
+      ],
       "source": "infera-lms/src/integration/routes.rs",
       "handlerModule": "office",
       "body": "IdBatch",
       "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/classrooms/display",
+      "module": "classroom",
+      "handler": "snapshot",
+      "permissions": [
+        "lms:display:read"
+      ],
+      "source": "infera-lms/src/classroom/routes.rs",
+      "handlerModule": "display",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/classrooms/display",
+      "module": "classroom",
+      "handler": "authorize",
+      "permissions": [
+        "lms:display:read"
+      ],
+      "source": "infera-lms/src/classroom/routes.rs",
+      "handlerModule": "display",
+      "body": "SocketAuthorization",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -9724,7 +9771,9 @@
       "path": "/api/v1/classrooms/users/current",
       "module": "integration",
       "handler": "current_classroom_users",
-      "permissions": [],
+      "permissions": [
+        "lms:classroom:read"
+      ],
       "source": "infera-lms/src/integration/routes.rs",
       "handlerModule": "office",
       "response": "Value",
@@ -9737,7 +9786,9 @@
       "path": "/api/v1/classrooms/users/dropout-eligibility",
       "module": "integration",
       "handler": "dropout_eligibility",
-      "permissions": [],
+      "permissions": [
+        "lms:classroom:read"
+      ],
       "source": "infera-lms/src/integration/routes.rs",
       "handlerModule": "office",
       "body": "UserIdBatch",
@@ -10268,7 +10319,9 @@
       "path": "/api/v1/courses/batch",
       "module": "integration",
       "handler": "batch_courses",
-      "permissions": [],
+      "permissions": [
+        "lms:course:read"
+      ],
       "source": "infera-lms/src/integration/routes.rs",
       "handlerModule": "office",
       "body": "IdBatch",
@@ -10419,7 +10472,9 @@
       "path": "/api/v1/courses/successors/batch",
       "module": "integration",
       "handler": "batch_course_successors",
-      "permissions": [],
+      "permissions": [
+        "lms:course:read"
+      ],
       "source": "infera-lms/src/integration/routes.rs",
       "handlerModule": "office",
       "body": "IdBatch",
@@ -11280,7 +11335,10 @@
       "path": "/api/v1/integration/legacy-ids/resolve",
       "module": "integration",
       "handler": "resolve_legacy_ids",
-      "permissions": [],
+      "permissions": [
+        "lms:course:read",
+        "lms:classroom:read"
+      ],
       "source": "infera-lms/src/integration/routes.rs",
       "handlerModule": "office",
       "body": "LegacyIdBatch",

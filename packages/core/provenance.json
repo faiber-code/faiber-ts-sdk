@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/sdk-core",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "source_revisions": {
     "asset": {
       "directory": "infera-asset",
@@ -33,7 +33,7 @@
     },
     "lms": {
       "directory": "infera-lms",
-      "revision": "c24b8e68a051d9330ff8f3360bf6677ddb723a2d"
+      "revision": "850511b8ce9f8dac7cf51c883c4f6dbcf2335574"
     },
     "messenger": {
       "directory": "infera-messenger",
@@ -93,8 +93,8 @@
     "packages/core/src/types.ts": "fee1c4b8f5ed4de92276be41d10a13ada5361c24ed80656029a4cf5e3e940afa"
   },
   "capability_review_sha256": null,
-  "source_pin_file_sha256": "d8b06854d6492314586bc945e79380f43bbebb3563c88e93becda95a5922f057",
-  "http_contract_file_sha256": "c57954810f9f7e99a69949774cdef9d88f2d87aeeefec807176f4ca30e4c199f",
+  "source_pin_file_sha256": "f7cd3c0266a8e91ea1f8dcd90ece687064a49ad60e85bf0f7116ff691f919a12",
+  "http_contract_file_sha256": "c8a1349f783d88a2bb4ddd31eebabc85889f4e45eed5f79695b8474e39db2b54",
   "public_contract": {
     "kind": "shared-client-or-facade"
   },

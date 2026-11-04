@@ -68,7 +68,7 @@
       "mounted_via": [
         {
           "path": "infera-lms/src/main.rs",
-          "line": 86,
+          "line": 89,
           "function": "run_server"
         },
         {
@@ -96,12 +96,12 @@
       "mounted_via": [
         {
           "path": "infera-lms/src/main.rs",
-          "line": 86,
+          "line": 89,
           "function": "run_server"
         },
         {
           "path": "infera-lms/src/router.rs",
-          "line": 180,
+          "line": 181,
           "function": "routes"
         }
       ]
@@ -119,12 +119,12 @@
       "mounted_via": [
         {
           "path": "infera-lms/src/main.rs",
-          "line": 86,
+          "line": 89,
           "function": "run_server"
         },
         {
           "path": "infera-lms/src/router.rs",
-          "line": 180,
+          "line": 181,
           "function": "routes"
         }
       ]

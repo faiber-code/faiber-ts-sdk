@@ -555,6 +555,7 @@ export interface ClassroomIndexClassroomUsersGetResponseItem extends JsonObject 
   "profile": ClassroomIndexClassroomUsersGetResponseItemProfile | null;
   "score": number | null;
   "status": string;
+  "session_access": JsonValue | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -595,6 +596,7 @@ export interface ClassroomEnrollClassroomUserPostResponseData extends JsonObject
   "profile": ClassroomEnrollClassroomUserPostResponseDataProfile | null;
   "score": number | null;
   "status": string;
+  "session_access": JsonValue | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -627,10 +629,40 @@ export interface ClassroomUpdateClassroomUserPatchResponseData extends JsonObjec
   "profile": ClassroomUpdateClassroomUserPatchResponseDataProfile | null;
   "score": number | null;
   "status": string;
+  "session_access": JsonValue | null;
   "created_at": string;
   "updated_at": string;
 }
 export interface ClassroomUpdateClassroomUserPatchResponse extends ApiEnvelope<ClassroomUpdateClassroomUserPatchResponseData> {
+}
+
+/** Backend request type: models::MoveClassroomUserRequest. */
+export interface ClassroomMoveClassroomUserPostInput extends JsonObject {
+  "to_classroom_id": string;
+}
+/** Backend response type: models::ClassroomUserResponse. */
+export interface ClassroomMoveClassroomUserPostResponseDataProfile extends JsonObject {
+  "user_id": string;
+  "short_id"?: string | null;
+  "first_name": JsonValue | null;
+  "last_name": JsonValue | null;
+  "email": string | null;
+  "national_code": string | null;
+  "phone": string | null;
+  "gender": string | null;
+}
+export interface ClassroomMoveClassroomUserPostResponseData extends JsonObject {
+  "id": string;
+  "classroom_id": string;
+  "user_id": string;
+  "profile": ClassroomMoveClassroomUserPostResponseDataProfile | null;
+  "score": number | null;
+  "status": string;
+  "session_access": JsonValue | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export interface ClassroomMoveClassroomUserPostResponse extends ApiEnvelope<ClassroomMoveClassroomUserPostResponseData> {
 }
 
 /** Backend request type: IdBatch. */
@@ -640,6 +672,14 @@ export interface IntegrationBatchClassroomsPostInput extends JsonObject {
 /** Backend response type: Value. */
 export type IntegrationBatchClassroomsPostResponseData = import("./wire.types.js").LmsBatchClassrooms;
 export type IntegrationBatchClassroomsPostResponse = ApiEnvelope<import("./wire.types.js").LmsBatchClassrooms>;
+
+/** Backend response type: api. */
+export type DisplaySnapshotGetResponse = import("./display.types.js").LmsDisplaySnapshot;
+
+/** Backend request type: SocketAuthorization. */
+export type DisplayAuthorizePostInput = import("./display.types.js").LmsDisplayAuthorizeInput;
+/** Backend response type: api. */
+export type DisplayAuthorizePostResponse = import("./display.types.js").LmsDisplayAuthorizeResponse;
 
 /** Backend response type: Vec<models::ClassroomSessionTypeResponse>. */
 export interface ClassroomIndexSessionTypesGetResponseItem extends JsonObject {

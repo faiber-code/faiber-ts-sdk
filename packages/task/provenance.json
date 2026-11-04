@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-task",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "source_revisions": {
     "task": {
       "directory": "infera-task",
@@ -25,8 +25,8 @@
     "packages/task/src/workspace.ts": "6873fb559d167e05ca8480ad6890f1732735f36cad30b197610d21829ff8b851"
   },
   "capability_review_sha256": "85188e40cb1f2779d5890227f2516570be241833019be34247d0adecc6b9670b",
-  "source_pin_file_sha256": "d8b06854d6492314586bc945e79380f43bbebb3563c88e93becda95a5922f057",
-  "http_contract_file_sha256": "c57954810f9f7e99a69949774cdef9d88f2d87aeeefec807176f4ca30e4c199f",
+  "source_pin_file_sha256": "f7cd3c0266a8e91ea1f8dcd90ece687064a49ad60e85bf0f7116ff691f919a12",
+  "http_contract_file_sha256": "c8a1349f783d88a2bb4ddd31eebabc85889f4e45eed5f79695b8474e39db2b54",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 184,

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-knowledge",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "source_revisions": {
     "knowledge": {
       "directory": "infera-knowledge",
@@ -15,8 +15,8 @@
     "packages/knowledge/src/types.ts": "22826a730f9c11b5fc2d7500b2f21b48e4a04ec8b7a8d68423af144f2bceb2c3"
   },
   "capability_review_sha256": "ca0e61e77470bc3948b150b3d01a9997a7d40618c44e1681591095cfc582b3f4",
-  "source_pin_file_sha256": "d8b06854d6492314586bc945e79380f43bbebb3563c88e93becda95a5922f057",
-  "http_contract_file_sha256": "c57954810f9f7e99a69949774cdef9d88f2d87aeeefec807176f4ca30e4c199f",
+  "source_pin_file_sha256": "f7cd3c0266a8e91ea1f8dcd90ece687064a49ad60e85bf0f7116ff691f919a12",
+  "http_contract_file_sha256": "c8a1349f783d88a2bb4ddd31eebabc85889f4e45eed5f79695b8474e39db2b54",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 84,

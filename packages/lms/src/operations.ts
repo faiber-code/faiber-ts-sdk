@@ -375,15 +375,49 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.ClassroomUpdateClassroomUserPatchResponse, T.ClassroomUpdateClassroomUserPatchInput>({ ...options, method: "PATCH", url: `/api/v1/classrooms/${encodeURIComponent(id)}/users/${encodeURIComponent(userId)}`, data: data });
   }
   /**
+   * Performs the move classroom user operation for the classroom capability.
+   * Calls `POST /api/v1/classrooms/{id}/users/{user_id}/move` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param userId Backend path identifier `user_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:update.
+   */
+  classroomMoveClassroomUserPost(id: Identifier, userId: Identifier, data: T.ClassroomMoveClassroomUserPostInput, options?: RequestOptions<T.ClassroomMoveClassroomUserPostInput>) {
+    return this.client.request<T.ClassroomMoveClassroomUserPostResponse, T.ClassroomMoveClassroomUserPostInput>({ ...options, method: "POST", url: `/api/v1/classrooms/${encodeURIComponent(id)}/users/${encodeURIComponent(userId)}/move`, data: data });
+  }
+  /**
    * Batch classrooms records through the mounted LMS integration::routes handler.
    * Calls `POST /api/v1/classrooms/batch` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
    */
   integrationBatchClassroomsPost(data: T.IntegrationBatchClassroomsPostInput, options?: RequestOptions<T.IntegrationBatchClassroomsPostInput>) {
     return this.client.request<T.IntegrationBatchClassroomsPostResponse, T.IntegrationBatchClassroomsPostInput>({ ...options, method: "POST", url: `/api/v1/classrooms/batch`, data: data });
+  }
+  /**
+   * Read the cached current-day monitor projection and private socket configuration. Returns raw JSON with no-store; excludes student identities and room credentials. Server defines timezone and day. Returns 503 when disabled or not ready. Fetch after subscribing or reconnecting to recover gaps; do not poll.
+   * Calls `GET /api/v1/classrooms/display` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:display:read.
+   */
+  displaySnapshotGet(options?: RequestOptions) {
+    return this.client.request<T.DisplaySnapshotGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/display` });
+  }
+  /**
+   * Authorize a read-only private monitor subscription with a Pusher socket ID and the exact channel returned by the snapshot. Returns raw auth JSON; 403 for another channel or malformed socket ID, 503 when disabled. This does not grant classroom or mutation access.
+   * Calls `POST /api/v1/classrooms/display` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:display:read.
+   */
+  displayAuthorizePost(data: T.DisplayAuthorizePostInput, options?: RequestOptions<T.DisplayAuthorizePostInput>) {
+    return this.client.request<T.DisplayAuthorizePostResponse, T.DisplayAuthorizePostInput>({ ...options, method: "POST", url: `/api/v1/classrooms/display`, data: data });
   }
   /**
    * List session types records through the mounted LMS classroom::routes handler. Returns data.data rows and data.meta pagination (page 1, size 20 by default, maximum 100).
@@ -502,7 +536,7 @@ export class LmsOperations extends ServiceApi {
    * Calls `GET /api/v1/classrooms/users/current` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
    */
   integrationCurrentClassroomUsersGet(options?: RequestOptions) {
     return this.client.request<T.IntegrationCurrentClassroomUsersGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/users/current` });
@@ -513,7 +547,7 @@ export class LmsOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
    */
   integrationDropoutEligibilityPost(data: T.IntegrationDropoutEligibilityPostInput, options?: RequestOptions<T.IntegrationDropoutEligibilityPostInput>) {
     return this.client.request<T.IntegrationDropoutEligibilityPostResponse, T.IntegrationDropoutEligibilityPostInput>({ ...options, method: "POST", url: `/api/v1/classrooms/users/dropout-eligibility`, data: data });
@@ -909,7 +943,7 @@ export class LmsOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:read.
    */
   integrationBatchCoursesPost(data: T.IntegrationBatchCoursesPostInput, options?: RequestOptions<T.IntegrationBatchCoursesPostInput>) {
     return this.client.request<T.IntegrationBatchCoursesPostResponse, T.IntegrationBatchCoursesPostInput>({ ...options, method: "POST", url: `/api/v1/courses/batch`, data: data });
@@ -1019,7 +1053,7 @@ export class LmsOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:read.
    */
   integrationBatchCourseSuccessorsPost(data: T.IntegrationBatchCourseSuccessorsPostInput, options?: RequestOptions<T.IntegrationBatchCourseSuccessorsPostInput>) {
     return this.client.request<T.IntegrationBatchCourseSuccessorsPostResponse, T.IntegrationBatchCourseSuccessorsPostInput>({ ...options, method: "POST", url: `/api/v1/courses/successors/batch`, data: data });
@@ -1664,7 +1698,7 @@ export class LmsOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:read, lms:classroom:read.
    */
   integrationResolveLegacyIdsPost(data: T.IntegrationResolveLegacyIdsPostInput, options?: RequestOptions<T.IntegrationResolveLegacyIdsPostInput>) {
     return this.client.request<T.IntegrationResolveLegacyIdsPostResponse, T.IntegrationResolveLegacyIdsPostInput>({ ...options, method: "POST", url: `/api/v1/integration/legacy-ids/resolve`, data: data });

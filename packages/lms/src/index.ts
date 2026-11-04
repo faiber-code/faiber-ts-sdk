@@ -379,3 +379,5 @@ export type { LmsBranding as BrandingShowGetResponseData, LmsBranding as Brandin
 export * from "./wire.types.js";
 
 export * from "./calendar.types.js";
+
+export * from "./display.types.js";

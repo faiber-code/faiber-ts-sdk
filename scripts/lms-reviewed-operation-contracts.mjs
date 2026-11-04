@@ -1,5 +1,16 @@
 // Source-reviewed LMS corrections at 1a557957; no native execution is certified here.
 export const lmsReviewedOperationContracts = {
+  "lms:GET /api/v1/classrooms/display": {
+    methodName: "displaySnapshotGet", typeBase: "DisplaySnapshotGet",
+    response: 'import("./display.types.js").LmsDisplaySnapshot', auth: "lms:display:read",
+    purpose: "Read the cached current-day monitor projection and private socket configuration. Returns raw JSON with no-store; excludes student identities and room credentials. Server defines timezone and day. Returns 503 when disabled or not ready. Fetch after subscribing or reconnecting to recover gaps; do not poll.",
+  },
+  "lms:POST /api/v1/classrooms/display": {
+    methodName: "displayAuthorizePost", typeBase: "DisplayAuthorizePost",
+    input: 'import("./display.types.js").LmsDisplayAuthorizeInput',
+    response: 'import("./display.types.js").LmsDisplayAuthorizeResponse', auth: "lms:display:read",
+    purpose: "Authorize a read-only private monitor subscription with a Pusher socket ID and the exact channel returned by the snapshot. Returns raw auth JSON; 403 for another channel or malformed socket ID, 503 when disabled. This does not grant classroom or mutation access.",
+  },
   "lms:DELETE /api/v1/certificates/{id}": {
     response: 'import("./wire.types.js").LmsEmptyMutationResponse',
     auth: "lms:certificate:delete",

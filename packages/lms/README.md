@@ -540,3 +540,9 @@ grading to authorized administrators and assigned reviewers while an attempt is 
 Students still receive redacted keys until completion/expiry/cancellation. This uses the
 existing `lms:exam:read` or scoped `lms:exam:read_own` checks and assignment relationships,
 never a role name or a client-supplied reviewer flag. `passed` remains final-result-only.
+
+### Private lobby displays
+
+Use `lms.operations.displaySnapshotGet()` for the server-configured current-day display. It requires `lms:display:read`, returns raw snapshot JSON (no envelope), and excludes student identities and room credentials. Authorize the returned private channel with `displayAuthorizePost({ socket_id, channel_name })`. The password or access token must never be embedded in a page URL or browser bundle.
+
+Subscribe to `snapshot.socket.event`, fetch a snapshot once after subscription, then apply `LmsDisplayPatch` parts atomically against `base_version`. Ignore already-applied versions. Recover from incomplete parts, version gaps, and reconnects with a fresh snapshot; do not poll. The server fixes timezone/day and returns 503 if the display is disabled or not ready. Student count changes and session lifecycle updates are pushed after committed LMS changes. Staff names are refreshed with the next LMS projection refresh or day rollover.
