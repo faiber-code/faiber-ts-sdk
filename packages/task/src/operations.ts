@@ -399,6 +399,42 @@ export class TaskOperations extends ServiceApi {
     return this.client.request<T.CommunityProxyPostApiV1CommunityPeopleIdMessagesResponse>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/messages` });
   }
   /**
+   * delete a message within the authenticated conversation. Edit/delete require sender ownership and current version. Reactions set an absolute enabled state. Privacy and blocks are enforced; stale versions return 409. Preserve request IDs on retry.
+   * Calls `POST /api/v1/community/people/{id}/messages/{message_id}/delete` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param messageId Backend path identifier `message_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityProxyPostApiV1CommunityPeopleIdMessagesMessageIdDelete(id: Identifier, messageId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyPostApiV1CommunityPeopleIdMessagesMessageIdDeleteResponse>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/messages/${encodeURIComponent(messageId)}/delete` });
+  }
+  /**
+   * edit a message within the authenticated conversation. Edit/delete require sender ownership and current version. Reactions set an absolute enabled state. Privacy and blocks are enforced; stale versions return 409. Preserve request IDs on retry.
+   * Calls `POST /api/v1/community/people/{id}/messages/{message_id}/edit` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param messageId Backend path identifier `message_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityProxyPostApiV1CommunityPeopleIdMessagesMessageIdEdit(id: Identifier, messageId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyPostApiV1CommunityPeopleIdMessagesMessageIdEditResponse>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/messages/${encodeURIComponent(messageId)}/edit` });
+  }
+  /**
+   * reaction a message within the authenticated conversation. Edit/delete require sender ownership and current version. Reactions set an absolute enabled state. Privacy and blocks are enforced; stale versions return 409. Preserve request IDs on retry.
+   * Calls `POST /api/v1/community/people/{id}/messages/{message_id}/reaction` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param messageId Backend path identifier `message_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent.
+   */
+  communityProxyPostApiV1CommunityPeopleIdMessagesMessageIdReaction(id: Identifier, messageId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CommunityProxyPostApiV1CommunityPeopleIdMessagesMessageIdReactionResponse>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/messages/${encodeURIComponent(messageId)}/reaction` });
+  }
+  /**
    * Events. Raw SSE invalidate/changed frames, no JSON envelope; permission rechecked per event and keepalive every 15 seconds. Reconnect and refetch current snapshots; no replay cursor.
    * Calls `GET /api/v1/events` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

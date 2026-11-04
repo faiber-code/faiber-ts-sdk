@@ -17,7 +17,7 @@ function fixture(data,status=200){
 
 test('Social immutable source review covers every mounted operation with named models',()=>{
  const routes=JSON.parse(readFileSync(new URL('../service-contracts.json',import.meta.url))).social;
- assert.equal(routes.length,139);
+ assert.equal(routes.length,142);
  const reviewed={...socialReviewedOperationContracts,...Object.fromEntries(Object.entries(communityContracts).filter(([key])=>key.startsWith('social:')))};
  assert.deepEqual(Object.keys(reviewed).sort(),routes.map(e=>`social:${e.method} ${e.path}`).sort());
  for(const e of routes){const c=reviewed[`social:${e.method} ${e.path}`];assert.ok(c.auth);assert.ok(c.purpose);assert.ok(c.response);if(e.body)assert.ok(c.input);if(e.query)assert.ok(c.query);}

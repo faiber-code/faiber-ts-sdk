@@ -351,6 +351,21 @@ export type CommunitySendPostInput = import("./community.js").CommunityMessageIn
 /** Backend response type: Value. */
 export type CommunitySendPostResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityMessage>;
 
+/** Backend request type: Delete. */
+export type CommunityDeletePostInput = import("./community.js").CommunityMessageDeleteInput;
+/** Backend response type: Value. */
+export type CommunityDeletePostResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityMessage>;
+
+/** Backend request type: Edit. */
+export type CommunityEditPostInput = import("./community.js").CommunityMessageEditInput;
+/** Backend response type: Value. */
+export type CommunityEditPostResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityMessage>;
+
+/** Backend request type: Reaction. */
+export type CommunityReactPostInput = import("./community.js").CommunityMessageReactionInput;
+/** Backend response type: Value. */
+export type CommunityReactPostResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityMessage>;
+
 /** Backend response type: no-content. */
 export type DiscoveryUnfollowDeleteResponse = void;
 

@@ -961,6 +961,45 @@ export class SocialOperations extends ServiceApi {
     return this.client.request<T.CommunitySendPostResponse, T.CommunitySendPostInput>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/messages`, data: data });
   }
   /**
+   * delete a message within the authenticated conversation. Edit/delete require sender ownership and current version. Reactions set an absolute enabled state. Privacy and blocks are enforced; stale versions return 409. Preserve request IDs on retry.
+   * Calls `POST /api/v1/community/people/{id}/messages/{message_id}/delete` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param messageId Backend path identifier `message_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:messages:delete.
+   */
+  communityDeletePost(id: Identifier, messageId: Identifier, data: T.CommunityDeletePostInput, options?: RequestOptions<T.CommunityDeletePostInput>) {
+    return this.client.request<T.CommunityDeletePostResponse, T.CommunityDeletePostInput>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/messages/${encodeURIComponent(messageId)}/delete`, data: data });
+  }
+  /**
+   * edit a message within the authenticated conversation. Edit/delete require sender ownership and current version. Reactions set an absolute enabled state. Privacy and blocks are enforced; stale versions return 409. Preserve request IDs on retry.
+   * Calls `POST /api/v1/community/people/{id}/messages/{message_id}/edit` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param messageId Backend path identifier `message_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:messages:edit.
+   */
+  communityEditPost(id: Identifier, messageId: Identifier, data: T.CommunityEditPostInput, options?: RequestOptions<T.CommunityEditPostInput>) {
+    return this.client.request<T.CommunityEditPostResponse, T.CommunityEditPostInput>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/messages/${encodeURIComponent(messageId)}/edit`, data: data });
+  }
+  /**
+   * reaction a message within the authenticated conversation. Edit/delete require sender ownership and current version. Reactions set an absolute enabled state. Privacy and blocks are enforced; stale versions return 409. Preserve request IDs on retry.
+   * Calls `POST /api/v1/community/people/{id}/messages/{message_id}/reaction` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param messageId Backend path identifier `message_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:community:messages:react.
+   */
+  communityReactPost(id: Identifier, messageId: Identifier, data: T.CommunityReactPostInput, options?: RequestOptions<T.CommunityReactPostInput>) {
+    return this.client.request<T.CommunityReactPostResponse, T.CommunityReactPostInput>({ ...options, method: "POST", url: `/api/v1/community/people/${encodeURIComponent(id)}/messages/${encodeURIComponent(messageId)}/reaction`, data: data });
+  }
+  /**
    * Remove the current actor follow edge; returns204 even when no edge existed.
    * Calls `DELETE /api/v1/follow/{kind}/{id}` through the shared IDP-aware Faiber client.
    * @param kind Backend path identifier `kind`.

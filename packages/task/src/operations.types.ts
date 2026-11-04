@@ -148,6 +148,15 @@ export type CommunityProxyGetApiV1CommunityPeopleIdMessagesResponse = import("./
 /** Backend response type: raw-response. */
 export type CommunityProxyPostApiV1CommunityPeopleIdMessagesResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityMessage>;
 
+/** Backend response type: raw-response. */
+export type CommunityProxyPostApiV1CommunityPeopleIdMessagesMessageIdDeleteResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityMessage>;
+
+/** Backend response type: raw-response. */
+export type CommunityProxyPostApiV1CommunityPeopleIdMessagesMessageIdEditResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityMessage>;
+
+/** Backend response type: raw-response. */
+export type CommunityProxyPostApiV1CommunityPeopleIdMessagesMessageIdReactionResponse = import("./community.js").CommunityResponse<import("./community.js").CommunityMessage>;
+
 /** Backend response type: stream. */
 export type RoutesEventsGetResponse = import("./types.js").TaskEventStreamBody;
 

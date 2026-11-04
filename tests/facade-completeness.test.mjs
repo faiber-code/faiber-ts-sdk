@@ -82,7 +82,7 @@ test("generated contracts have exact route coverage, named outputs, and complete
     total += endpoints.length;
   }
   // Reviewed snapshot includes the Asset ledger and Task/Chat integrations.
-  assert.equal(total, 1812);
+  assert.equal(total, 1818);
 });
 
 test("every published workspace package includes developer documentation", async () => {

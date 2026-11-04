@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/sdk-core",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "source_revisions": {
     "asset": {
       "directory": "infera-asset",
@@ -61,7 +61,7 @@
     },
     "social": {
       "directory": "infera-social",
-      "revision": "e195c74690944ae44babc955f2d99ab45fb91227"
+      "revision": "b2f9cedfe6a117bd2dd027e44bdecce3a4f97408"
     },
     "state": {
       "directory": "infera-state",
@@ -69,7 +69,7 @@
     },
     "task": {
       "directory": "infera-task",
-      "revision": "e5ac25e830c8c380c2631020b287679a9e8421c2"
+      "revision": "ca6d9ab92f57922f3690bccce5973d6aa72457e8"
     },
     "version": {
       "directory": "infera_version",
@@ -93,8 +93,8 @@
     "packages/core/src/types.ts": "fee1c4b8f5ed4de92276be41d10a13ada5361c24ed80656029a4cf5e3e940afa"
   },
   "capability_review_sha256": null,
-  "source_pin_file_sha256": "6320978c058ccedb2894b9ac8793b23fa9fa87c87ac31d2ba6e0dd51a9ab3381",
-  "http_contract_file_sha256": "14a550457372d6ef1dc8eca20c0a873d6ebc778417f4276f764e6c066d9f9b92",
+  "source_pin_file_sha256": "d8b06854d6492314586bc945e79380f43bbebb3563c88e93becda95a5922f057",
+  "http_contract_file_sha256": "c57954810f9f7e99a69949774cdef9d88f2d87aeeefec807176f4ca30e4c199f",
   "public_contract": {
     "kind": "shared-client-or-facade"
   },

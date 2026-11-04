@@ -37,3 +37,17 @@ for(const service of ['social','task'])test(`${service} generated community oper
  await api.operations.communityMeGet();await api.operations.communityInterestPost('contact/id',{enabled:false});await api.operations.communityGiftPost('contact/id',{request_id:'stable',gift_id:'heart'});
  assert.equal(requests[0].url,'/api/v1/community/me');assert.equal(requests[1].url,'/api/v1/community/people/contact%2Fid/interest');assert.equal(requests[2].url,'/api/v1/community/people/contact%2Fid/gifts');
 });
+for(const service of ['social','task'])test(`${service} message actions preserve versions, retry identity and cancellation`,async()=>{
+ const {client,requests}=fixture(service),api=new CommunityApi(client),signal=new AbortController().signal;
+ await api.send('peer',{request_id:'send',body:'🙂',reply_to:'parent'},{signal});
+ await api.editMessage('peer/id','message/id',{request_id:'edit',version:2,body:'updated'},{signal});
+ await api.deleteMessage('peer/id','message/id',{request_id:'delete',version:3},{signal});
+ await api.reactToMessage('peer/id','message/id',{emoji:'❤️',enabled:false},{signal});
+ assert.equal(JSON.parse(requests[0].data).reply_to,'parent');
+ for(const [i,action] of ['edit','delete','reaction'].entries()){
+  assert.equal(requests[i+1].url,`/api/v1/community/people/peer%2Fid/messages/message%2Fid/${action}`);
+  assert.equal(requests[i+1].signal,signal);assert.equal(requests[i+1].headers.get('Authorization'),'Bearer test-token');
+ }
+ assert.deepEqual(JSON.parse(requests[1].data),{request_id:'edit',version:2,body:'updated'});
+ assert.deepEqual(JSON.parse(requests[3].data),{emoji:'❤️',enabled:false});
+});

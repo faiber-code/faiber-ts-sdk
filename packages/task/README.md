@@ -255,3 +255,9 @@ versions, conflicting retries, limits or missing configuration 409. Do not infer
 that a deployed service supports these endpoints from the SDK version alone.
 The community service and its AI billing configuration must be rolled out before
 production use. Task additionally requires its community forwarding feature.
+
+### Community message actions
+
+`CommunityApi.send(peerId, { request_id, body, reply_to })` can quote a message in the same conversation. `editMessage` and `deleteMessage` require the sender's identity, a stable `request_id` and the current message `version`. Deletion retains a tombstone and clears the body and reactions. `reactToMessage(peerId, messageId, { emoji: '❤️', enabled: true })` sets the caller's reaction; repeated requests cannot duplicate it. All methods accept Axios options, including `signal`, and return the full Axios response.
+
+Both profiles must remain public and unblocked. Social requires `social:community:messages:edit`, `:delete`, or `:react`; Task uses its admission permission and forwards an explicit action to Social. Access failures return 403/404, stale versions return 409. Refresh before retrying a conflicting edit; never silently overwrite newer content.

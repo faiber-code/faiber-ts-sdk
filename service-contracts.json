@@ -21188,6 +21188,51 @@
       "formUrlEncoded": false
     },
     {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/messages/{message_id}/delete",
+      "module": "community",
+      "handler": "delete",
+      "permissions": [],
+      "source": "infera-social/src/community/mod.rs",
+      "handlerModule": "message_actions",
+      "body": "Delete",
+      "pathParam": "(Uuid, Uuid)",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/messages/{message_id}/edit",
+      "module": "community",
+      "handler": "edit",
+      "permissions": [],
+      "source": "infera-social/src/community/mod.rs",
+      "handlerModule": "message_actions",
+      "body": "Edit",
+      "pathParam": "(Uuid, Uuid)",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/messages/{message_id}/reaction",
+      "module": "community",
+      "handler": "react",
+      "permissions": [],
+      "source": "infera-social/src/community/mod.rs",
+      "handlerModule": "message_actions",
+      "body": "Reaction",
+      "pathParam": "(Uuid, Uuid)",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "DELETE",
       "path": "/api/v1/follow/{kind}/{id}",
       "module": "discovery",
@@ -22962,6 +23007,45 @@
     {
       "method": "POST",
       "path": "/api/v1/community/people/{id}/messages",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/messages/{message_id}/delete",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/messages/{message_id}/edit",
+      "module": "community",
+      "handler": "proxy",
+      "permissions": [
+        "task:access:use; Task global admission and TASK_COMMUNITY_ENABLED; Social enforces caller scope and consent"
+      ],
+      "source": "infera-task/src/campaigns/bridge.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/community/people/{id}/messages/{message_id}/reaction",
       "module": "community",
       "handler": "proxy",
       "permissions": [

@@ -57,7 +57,7 @@
   },
   "social": {
     "directory": "infera-social",
-    "revision": "e195c74690944ae44babc955f2d99ab45fb91227"
+    "revision": "b2f9cedfe6a117bd2dd027e44bdecce3a4f97408"
   },
   "state": {
     "directory": "infera-state",
@@ -65,7 +65,7 @@
   },
   "task": {
     "directory": "infera-task",
-    "revision": "e5ac25e830c8c380c2631020b287679a9e8421c2"
+    "revision": "ca6d9ab92f57922f3690bccce5973d6aa72457e8"
   },
   "version": {
     "directory": "infera_version",
