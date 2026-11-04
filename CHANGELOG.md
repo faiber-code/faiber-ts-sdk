@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.5.0 — 2026-11-04
+
+- Expose birth dates, creation timestamps and referrer user IDs in profile listings and search results.
+- Type the live core data returned for every profile search hit.
+
 ## 2.4.0 — 2026-11-03
 
 - Type embedded CRM lead profiles, owners, creators, courses, classrooms and terms across list, light-list and detail reads.
