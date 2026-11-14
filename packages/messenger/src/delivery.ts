@@ -15,9 +15,17 @@ export interface InboxStreamEvent {sequence:number;notification_id:number;payloa
 export interface InboxStreamPage {events:InboxStreamEvent[];cursor:number;has_more:boolean}
 export interface InboxStreamQuery extends QueryParams {cursor?:number;wait_seconds?:number}
 export interface NotificationUnreadCount {unread_count:number}
-export interface PushDeviceInput {application_id:string;installation_id:string;platform:'android'|'ios';token:string;locale:string}
+export interface PushDeviceInput {application_id:string;installation_id:string;platform:'android'|'ios'|'web';token?:string;locale:string}
 export interface PushDevice {id:string}
 export interface PushDeviceRevocation {revoked:true}
+export type DeviceDeliveryTransport = 'socket' | 'firebase' | 'pull';
+export interface DevicePresenceInput { socket_connected:boolean }
+export interface DevicePresence { lease_seconds:number }
+export interface PendingDeviceNotification { delivery_id:string;receipt_token:string;notification_id:string;recipient_id:string;title:string;body:string;path:string|null;destination:JsonValue }
+export interface PendingDeviceNotifications { items:PendingDeviceNotification[];has_more:boolean }
+export interface DeviceReceiptInput { delivery_id:string;receipt_token:string;transport:DeviceDeliveryTransport }
+export interface DeviceReceipt { acknowledged:true }
+export interface NotificationDeviceDelivery { target_devices:number;delivered_devices:number;provider_accepted_devices:number;delivered:boolean }
 /** Self-scoped inbox delivery requires the current self-read permission in the native message namespace (legacy notification:self:read forwarded alias). Mobile device handlers declare notification:self:read and require an actor; explicit self_inbox_user filtering applies to inbox polling/counts. */
 export class MessengerDeliveryApi extends ServiceApi {
  /** Initialize cursor, then load the inbox snapshot, then resume from that cursor. A 410 requires resynchronization. Default timeout is 35 seconds for the server's 25-second wait; AbortSignal cancels normally. */
@@ -26,6 +34,14 @@ export class MessengerDeliveryApi extends ServiceApi {
  unreadCount(options?:RequestOptions){return this.client.get<ApiEnvelope<NotificationUnreadCount>>('/api/v1/notifications/me/unread-count',undefined,options);}
  /** Register or refresh this authenticated installation. Reuse its installation UUID; token changes and account switching are supported. 409 denotes device limit/conflict. */
  registerDevice(input:PushDeviceInput,options?:RequestOptions<PushDeviceInput>){return this.client.post<ApiEnvelope<PushDevice>,PushDeviceInput>('/api/v1/push/devices',input,options);}
+ /** Renew this owned installation's 60-second socket lease only after subscription succeeds. Requires notification:self:read; 404 means registration expired or was revoked. */
+ presence(id:string,input:DevicePresenceInput,options?:RequestOptions<DevicePresenceInput>){return this.client.post<ApiEnvelope<DevicePresence>,DevicePresenceInput>(`/api/v1/push/devices/${encodeURIComponent(id)}/presence`,input,options);}
+ /** Recover up to 100 unacknowledged device deliveries, oldest first. Requires notification:self:read; display and acknowledge each item before requesting the next page. */
+ pending(id:string,options?:RequestOptions){return this.client.get<ApiEnvelope<PendingDeviceNotifications>>(`/api/v1/push/devices/${encodeURIComponent(id)}/pending`,undefined,options);}
+ /** Idempotent transport receipt, separate from read state. The per-delivery capability authorizes only this acknowledgement; 401 means invalid/expired capability. Never acknowledge provider acceptance as device receipt. */
+ acknowledge(input:DeviceReceiptInput,options?:RequestOptions<DeviceReceiptInput>){return this.client.post<ApiEnvelope<DeviceReceipt>,DeviceReceiptInput>('/api/v1/push/receipts',input,options);}
+ /** Recipient-only aggregate over active target installations. Provider acceptance is reported separately. Requires notification:self:read; inaccessible notifications return 404. */
+ deliveryStatus(id:number,options?:RequestOptions){return this.client.get<ApiEnvelope<NotificationDeviceDelivery>>(`/api/v1/notifications/me/${encodeURIComponent(id)}/delivery`,undefined,options);}
  /** Revoke an owned installation before logout. Other users' registrations remain inaccessible. */
  revokeDevice(id:string,options?:RequestOptions){return this.client.delete<ApiEnvelope<PushDeviceRevocation>>(`/api/v1/push/devices/${encodeURIComponent(id)}`,options);}
 }

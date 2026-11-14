@@ -1,4 +1,4 @@
-// Direct immutable Messenger handler/model/repository review; native acceptance pending.
+// Reviewed against mounted Messenger handlers, including per-device receipts.
 export const messengerReviewedOperationContracts = {
   "messenger:GET /health": {
     "response": "import(\"./types.js\").MessengerHealthResponse",
@@ -209,7 +209,7 @@ export const messengerReviewedOperationContracts = {
   "messenger:POST /api/v1/push/devices": {
     "input": "import(\"./delivery.js\").PushDeviceInput",
     "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./delivery.js\").PushDevice>",
-    "purpose": "Register an authenticated mobile installation UUID for an approved application; platform android/ios, token length 20..4096, locale length <=32. Unknown fields reject; invalid values are 400, per-user/application limit 10 or conflict is 409. Reusing a token/installation can transfer registration after account switch. Returns HTTP 200 id.",
+    "purpose": "Register or refresh an authenticated installation UUID for android, ios or web. Optional token enables Firebase; absent token retains socket/pull recovery. Account transfer removes prior-user queued deliveries. At most ten active devices per application/user in 30 days; conflict returns 409, invalid input 400, unavailable storage 503.",
     "auth": "Authenticated IDP context; notification:self:read"
   },
   "messenger:DELETE /api/v1/push/devices/{id}": {
@@ -254,5 +254,27 @@ export const messengerReviewedOperationContracts = {
     "response": "import(\"./types.js\").SubscribeChannelResponse",
     "purpose": "Insert or update subscribed for the explicit numeric channel_id and user_id. This service route has no IDP permission macro or actor-ownership check; gateway authority must restrict callers. Returns data {} (HTTP 200).",
     "auth": "No handler permission macro; ingress authentication/authorization remains deployment-defined"
+  },
+  "messenger:POST /api/v1/push/devices/{id}/presence": {
+    "input": "import(\"./delivery.js\").DevicePresenceInput",
+    "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./delivery.js\").DevicePresence>",
+    "purpose": "Renew the owned installation socket lease for 60 seconds after an authenticated subscription. Requires notification:self:read; missing or other-user devices return 404.",
+    "auth": "Authenticated IDP context; notification:self:read"
+  },
+  "messenger:GET /api/v1/push/devices/{id}/pending": {
+    "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./delivery.js\").PendingDeviceNotifications>",
+    "purpose": "Recover up to 100 unacknowledged deliveries for an owned device, oldest first, within the 24-hour alert window. Read/deleted/expired notifications are excluded. Acknowledge before requesting the next page; missing or other-user devices return 404.",
+    "auth": "Authenticated IDP context; notification:self:read"
+  },
+  "messenger:POST /api/v1/push/receipts": {
+    "input": "import(\"./delivery.js\").DeviceReceiptInput",
+    "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./delivery.js\").DeviceReceipt>",
+    "purpose": "Idempotently acknowledge one delivery using its unpredictable receipt capability. This public capability route exposes no inbox data. Invalid or expired capabilities return 401; transport must be socket, firebase or pull.",
+    "auth": "Per-delivery receipt capability; no session required"
+  },
+  "messenger:GET /api/v1/notifications/me/{id}/delivery": {
+    "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./delivery.js\").NotificationDeviceDelivery>",
+    "purpose": "Read recipient-only aggregate receipt status across active target devices. Provider acceptance is separate from delivery. Missing or other-user notifications return 404.",
+    "auth": "Authenticated IDP context; notification:self:read"
   }
 };

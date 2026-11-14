@@ -7,8 +7,8 @@ import { messengerReviewedOperationContracts } from '../scripts/messenger-review
 const cases = JSON.parse(await readFile(new URL('./messenger-reviewed-operation-cases.json', import.meta.url)));
 const inventory = JSON.parse(await readFile(new URL('../contracts/service-capabilities/messenger.json', import.meta.url)));
 // Adapter regressions verify SDK wire construction/response preservation, not native runtime behavior.
-test('Messenger reviewed ledger and adapter matrix cover all 47 mounted operations', () => {
- assert.equal(cases.length, 47);
+test('Messenger reviewed ledger and adapter matrix cover all 51 mounted operations', () => {
+ assert.equal(cases.length, 51);
  assert.deepEqual(cases.map(c => c.operation).sort(), inventory.operations.map(o => o.id).sort());
  assert.deepEqual(Object.keys(messengerReviewedOperationContracts).sort(), cases.map(c => `messenger:${c.operation}`).sort());
 });

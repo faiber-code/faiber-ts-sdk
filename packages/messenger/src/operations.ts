@@ -175,6 +175,17 @@ export class MessengerOperations extends ServiceApi {
     return this.client.request<T.NotificationNotificationsMyInboxGetResponse>({ ...options, method: "GET", url: `/api/v1/notifications/me`, params });
   }
   /**
+   * Read recipient-only aggregate receipt status across active target devices. Provider acceptance is separate from delivery. Missing or other-user notifications return 404.
+   * Calls `GET /api/v1/notifications/me/{id}/delivery` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Authenticated IDP context; notification:self:read.
+   */
+  deviceDeliverySummaryGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.DeviceDeliverySummaryGetResponse>({ ...options, method: "GET", url: `/api/v1/notifications/me/${encodeURIComponent(id)}/delivery` });
+  }
+  /**
    * Update current actor read/important state independently; absent body marks read. Return recipient-safe copy. Requires non-nil actor and self-read permission; missing/other-recipient/deleted record is 404.
    * Calls `PATCH /api/v1/notifications/me/{id}/read` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -250,7 +261,7 @@ export class MessengerOperations extends ServiceApi {
     return this.client.request<T.NotificationNotificationsRealtimeConfigGetResponse>({ ...options, method: "GET", url: `/api/v1/notifications/realtime/config` });
   }
   /**
-   * Register an authenticated mobile installation UUID for an approved application; platform android/ios, token length 20..4096, locale length <=32. Unknown fields reject; invalid values are 400, per-user/application limit 10 or conflict is 409. Reusing a token/installation can transfer registration after account switch. Returns HTTP 200 id.
+   * Register or refresh an authenticated installation UUID for android, ios or web. Optional token enables Firebase; absent token retains socket/pull recovery. Account transfer removes prior-user queued deliveries. At most ten active devices per application/user in 30 days; conflict returns 409, invalid input 400, unavailable storage 503.
    * Calls `POST /api/v1/push/devices` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -270,6 +281,40 @@ export class MessengerOperations extends ServiceApi {
    */
   mobilePushRevokeDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.MobilePushRevokeDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/push/devices/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Recover up to 100 unacknowledged deliveries for an owned device, oldest first, within the 24-hour alert window. Read/deleted/expired notifications are excluded. Acknowledge before requesting the next page; missing or other-user devices return 404.
+   * Calls `GET /api/v1/push/devices/{id}/pending` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Authenticated IDP context; notification:self:read.
+   */
+  deviceDeliveryPendingGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.DeviceDeliveryPendingGetResponse>({ ...options, method: "GET", url: `/api/v1/push/devices/${encodeURIComponent(id)}/pending` });
+  }
+  /**
+   * Renew the owned installation socket lease for 60 seconds after an authenticated subscription. Requires notification:self:read; missing or other-user devices return 404.
+   * Calls `POST /api/v1/push/devices/{id}/presence` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Authenticated IDP context; notification:self:read.
+   */
+  deviceDeliveryPresencePost(id: Identifier, data: T.DeviceDeliveryPresencePostInput, options?: RequestOptions<T.DeviceDeliveryPresencePostInput>) {
+    return this.client.request<T.DeviceDeliveryPresencePostResponse, T.DeviceDeliveryPresencePostInput>({ ...options, method: "POST", url: `/api/v1/push/devices/${encodeURIComponent(id)}/presence`, data: data });
+  }
+  /**
+   * Idempotently acknowledge one delivery using its unpredictable receipt capability. This public capability route exposes no inbox data. Invalid or expired capabilities return 401; transport must be socket, firebase or pull.
+   * Calls `POST /api/v1/push/receipts` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed handler payload, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Per-delivery receipt capability; no session required.
+   */
+  deviceDeliveryReceiptPost(data: T.DeviceDeliveryReceiptPostInput, options?: RequestOptions<T.DeviceDeliveryReceiptPostInput>) {
+    return this.client.request<T.DeviceDeliveryReceiptPostResponse, T.DeviceDeliveryReceiptPostInput>({ ...options, method: "POST", url: `/api/v1/push/receipts`, data: data });
   }
   /**
    * List provider services without pagination. options is always null; encrypted credentials are never read back. Does not invoke provider network calls.

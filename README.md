@@ -290,3 +290,19 @@ and gifts. `AssetService.DoEconomyApi` manages versioned reward settings using
 IDP coin-settings permissions. Community operations are also available through
 the complete generated `operations` surfaces. Refer to the Task, Social and
 Asset package guides for consent gates, retry semantics and deployment requirements.
+
+### Reliable notification delivery
+
+`@faiber/faiber-messenger` exports `startDeviceDelivery` for an authenticated installation.
+It serializes socket-triggered recovery and periodic polling, accepts an abort-aware display
+callback, and acknowledges the same per-device receipt across transports. Register each
+web or native installation with `messenger.delivery.registerDevice`, pass a Firebase token
+when available, and stop the runtime on logout. Set socket presence only after an
+authenticated subscription succeeds. Persist deduplication by `delivery_id` in the device's
+notification adapter; return `false` when it cannot receive or display the notification.
+See the [Messenger guide](packages/messenger/README.md) for the complete workflow.
+
+Firebase acceptance is distinct from device delivery. `deliveryStatus` reports complete
+only after all active targeted devices acknowledge. Acknowledging delivery does not mark
+the notification read. Service workers and native background adapters can submit the
+unpredictable per-delivery receipt without persisting an account access token.

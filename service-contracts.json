@@ -12114,6 +12114,21 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/notifications/me/{id}/delivery",
+      "module": "device_delivery",
+      "handler": "summary",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/device_delivery.rs",
+      "pathParam": "i64",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "PATCH",
       "path": "/api/v1/notifications/me/{id}/read",
       "module": "notification",
@@ -12241,6 +12256,50 @@
       ],
       "source": "infera-messenger/src/mobile_push.rs",
       "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/push/devices/{id}/pending",
+      "module": "device_delivery",
+      "handler": "pending",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/device_delivery.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/push/devices/{id}/presence",
+      "module": "device_delivery",
+      "handler": "presence",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/device_delivery.rs",
+      "body": "Presence",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/push/receipts",
+      "module": "device_delivery",
+      "handler": "receipt",
+      "permissions": [],
+      "source": "infera-messenger/src/device_delivery.rs",
+      "body": "Receipt",
       "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,

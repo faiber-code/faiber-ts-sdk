@@ -22,12 +22,13 @@
       "fetch_exit": 0,
       "fetch_error": null,
       "head": "7360ff93ae3f4ff36b7b79e15db8a15ea09e881d",
-      "origin_main": "d5b722e2fad3a0585cdc5a24742bfbc6f52118bf",
-      "fetched_head": "d5b722e2fad3a0585cdc5a24742bfbc6f52118bf",
+      "origin_main": "8b16e1becd3646b5fbca2726976b0643bbb74558",
+      "fetched_head": "8b16e1becd3646b5fbca2726976b0643bbb74558",
       "working_status": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M migration/src/lib.rs\n M panel/src/i18n.ts\n M panel/src/main.tsx\n M src/lib.rs\n M src/main.rs\n M src/models.rs\n M src/routes.rs\n M src/service.rs\n M src/workspace_answers.rs\n M src/workspace_assistant.rs\n?? migration/src/m20261003_000013_media_retention.rs\n?? migration/src/m20261007_000015_asset_interactions.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? panel/src/MediaRetentionPage.tsx\n?? shared/\n?? src/asset_economy.rs\n?? src/fitness.rs\n?? src/media_retention.rs\n?? src/product_plans.rs\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql\n?? src/workspace_json.rs",
-      "selected_sdk_revision": "7de27e4843cd7fb394a7590b49d4b78fdc0a0c9a",
+      "selected_sdk_revision": "8b16e1becd3646b5fbca2726976b0643bbb74558",
       "main_is_ancestor_of_selected_sdk": true,
-      "seconds": 1.046
+      "seconds": 1.046,
+      "verified_at": "2026-11-14"
     },
     "crm": {
       "service": "crm",
@@ -113,12 +114,13 @@
       "fetch_exit": 0,
       "fetch_error": null,
       "head": "0038f19eb1d78b744b3d9829c1a05331657a9fa4",
-      "origin_main": "0eb2143fae39dee3e0543abaac59ea1aaaed771c",
-      "fetched_head": "0eb2143fae39dee3e0543abaac59ea1aaaed771c",
+      "origin_main": "5e6963aa2ffab0ad4f5e18161544143229af08be",
+      "fetched_head": "5e6963aa2ffab0ad4f5e18161544143229af08be",
       "working_status": "M Cargo.lock\n M Cargo.toml\n M migration/src/lib.rs\n M src/lib.rs\n M src/main.rs\n M src/notification/channels/push.rs\n M src/router.rs\n?? migration/src/m20260923_000011_web_push.rs\n?? src/web_push.rs",
-      "selected_sdk_revision": "0eb2143fae39dee3e0543abaac59ea1aaaed771c",
+      "selected_sdk_revision": "5e6963aa2ffab0ad4f5e18161544143229af08be",
       "main_is_ancestor_of_selected_sdk": true,
-      "seconds": 1.03
+      "seconds": 1.03,
+      "verified_at": "2026-11-14"
     },
     "modules": {
       "service": "modules",
@@ -178,12 +180,13 @@
       "fetch_exit": 0,
       "fetch_error": null,
       "head": "edefa6463fe1877661cc62ef4752515262c71e00",
-      "origin_main": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
-      "fetched_head": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
+      "origin_main": "9b48d3d274e0068d5ef3f3554ac46ecda3baf90f",
+      "fetched_head": "9b48d3d274e0068d5ef3f3554ac46ecda3baf90f",
       "working_status": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M migration/src/lib.rs\n M src/broker.rs\n D src/integration/lms.rs\n M src/integration/mod.rs\n M src/likekit.rs\n M src/main.rs\n M src/room/asset_actions.rs\n M src/room/methods.rs\n M src/room/moderation.rs\n M src/room/routes.rs\n M src/router.rs\n M view/src/api.ts\n M view/src/main.tsx\n?? migration/src/m20261007_000021_asset_interactions.rs\n?? migration/src/m20261007_000022_asset_outbox_retry.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? shared/\n?? src/asset_economy.rs\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql",
-      "selected_sdk_revision": "815652f36cda3bb5c1c7ac6d4c0b8dafd58640c5",
+      "selected_sdk_revision": "7a395d7149a2d4c03d3e1d4746b69919a52cbb05",
       "main_is_ancestor_of_selected_sdk": true,
-      "seconds": 1.13
+      "seconds": 1.13,
+      "verified_at": "2026-11-14"
     },
     "social": {
       "service": "social",

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "@faiber/faiber-crm",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "source_revisions": {
     "crm": {
       "directory": "infera-crm",
@@ -16,8 +16,8 @@
     "packages/crm/src/types.ts": "a7f76317f3a0062efb3d937d6b9180269385c6b58d3868f71589d28b5f72e9cf"
   },
   "capability_review_sha256": "960e955229cfc2979d5035b9b7ff6fd25dfcec40e47ba6fe3a1157fa9583bc08",
-  "source_pin_file_sha256": "f7cd3c0266a8e91ea1f8dcd90ece687064a49ad60e85bf0f7116ff691f919a12",
-  "http_contract_file_sha256": "c8a1349f783d88a2bb4ddd31eebabc85889f4e45eed5f79695b8474e39db2b54",
+  "source_pin_file_sha256": "611883598c323bc366b4aac01af4fb087e0b3e3a824b5e5b0d29bc94fbdf6aa7",
+  "http_contract_file_sha256": "1c143d185829525f0ce9e4d39b5e3587cc8b8b4c3273a3ede0fbbfecb5c36783",
   "public_contract": {
     "kind": "source-extracted-http",
     "operation_count": 92,

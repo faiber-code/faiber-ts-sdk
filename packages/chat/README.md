@@ -410,3 +410,9 @@ Published assistant-contract metadata may include a `WorkspaceReadPolicy` under
 or answer clear read-only lookups directly. Note queries require a selected space;
 ambiguous matches retain the assistant's normal tools, editing, and approval flow.
 Only trusted published configuration supplies these rules, never message inputs.
+
+Conversation summaries may include `participants`, with each peer's user ID and nullable
+`first_name_fa`, `last_name_fa`, `first_name_en`, and `last_name_en`. Use the preferred locale
+and fall back to the other locale or your generic participant label. Names are resolved
+under the caller's Profile permissions; unavailable profiles do not block the conversation
+list. Older Chat deployments omit this optional field. No email or phone data is included.

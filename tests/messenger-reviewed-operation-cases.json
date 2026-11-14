@@ -1163,5 +1163,94 @@
       "message": "ok",
       "data": {}
     }
+  },
+  {
+    "operation": "GET /api/v1/notifications/me/{id}/delivery",
+    "name": "deviceDeliverySummaryGet",
+    "method": "GET",
+    "path": "/api/v1/notifications/me/2/delivery",
+    "args": [
+      2
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "target_devices": 2,
+        "delivered_devices": 1,
+        "provider_accepted_devices": 1,
+        "delivered": false
+      }
+    }
+  },
+  {
+    "operation": "GET /api/v1/push/devices/{id}/pending",
+    "name": "deviceDeliveryPendingGet",
+    "method": "GET",
+    "path": "/api/v1/push/devices/98b8a76c-b2af-4b73-b13b-9f0ffed9ae3f/pending",
+    "args": [
+      "98b8a76c-b2af-4b73-b13b-9f0ffed9ae3f"
+    ],
+    "body": null,
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "items": [],
+        "has_more": false
+      }
+    }
+  },
+  {
+    "operation": "POST /api/v1/push/devices/{id}/presence",
+    "name": "deviceDeliveryPresencePost",
+    "method": "POST",
+    "path": "/api/v1/push/devices/98b8a76c-b2af-4b73-b13b-9f0ffed9ae3f/presence",
+    "args": [
+      "98b8a76c-b2af-4b73-b13b-9f0ffed9ae3f",
+      {
+        "socket_connected": true
+      }
+    ],
+    "body": {
+      "socket_connected": true
+    },
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "lease_seconds": 60
+      }
+    }
+  },
+  {
+    "operation": "POST /api/v1/push/receipts",
+    "name": "deviceDeliveryReceiptPost",
+    "method": "POST",
+    "path": "/api/v1/push/receipts",
+    "args": [
+      {
+        "delivery_id": "98b8a76c-b2af-4b73-b13b-9f0ffed9ae3f",
+        "receipt_token": "98b8a76c-b2af-4b73-b13b-9f0ffed9ae3f",
+        "transport": "socket"
+      }
+    ],
+    "body": {
+      "delivery_id": "98b8a76c-b2af-4b73-b13b-9f0ffed9ae3f",
+      "receipt_token": "98b8a76c-b2af-4b73-b13b-9f0ffed9ae3f",
+      "transport": "socket"
+    },
+    "query": null,
+    "response": {
+      "status": "success",
+      "message": "ok",
+      "data": {
+        "acknowledged": true
+      }
+    }
   }
 ]

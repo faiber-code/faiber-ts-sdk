@@ -1,6 +1,8 @@
 import { ServiceApi, type QueryParams, type RequestOptions, type JsonValue } from '@faiber/sdk-core';
 export interface PersonalChatResponse<T> {status:'success';data:T;meta:null}
-export interface ConversationSummary {id:string;title:JsonValue;kind:string;last_sequence:number;last_read_sequence:number;unread_count:number}
+/** Minimal caller-authorized display projection; private directory fields are never included. Null names preserve chat availability when the directory is unavailable. */
+export interface ChatParticipantProfile {user_id:string;first_name_fa:string|null;last_name_fa:string|null;first_name_en:string|null;last_name_en:string|null}
+export interface ConversationSummary {id:string;title:JsonValue;kind:string;last_sequence:number;last_read_sequence:number;unread_count:number;participants?:ChatParticipantProfile[]}
 export interface ConversationSummaryPage {items:ConversationSummary[];next_cursor:string|null}
 export interface ConversationSummaryQuery extends QueryParams {cursor?:string;limit?:number}
 export interface ChatUnreadCount {unread_count:number}

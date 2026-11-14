@@ -105,3 +105,47 @@ try { await pending; } catch (error) {
 ```
 
 Use [`@faiber/faiber-ts-sdk`](https://www.npmjs.com/package/@faiber/faiber-ts-sdk) for multiple Faiber services under one configuration.
+
+### Device delivery across sockets, Firebase and pull
+
+Register one stable installation UUID with `messenger.delivery.registerDevice`.
+The optional `token` is an FCM registration token; omit it for an installation
+that currently supports only socket/pull. Platforms are `web`, `android`, and
+`ios`. Re-register after token refresh or account change, and revoke before logout.
+
+`startDeviceDelivery` is a runtime-neutral queue consumer exported by
+`@faiber/faiber-messenger` (also `MessengerService` in the complete facade):
+
+```ts
+const runtime = startDeviceDelivery({
+  api: messenger.delivery,
+  deviceId: registration.data.data.id,
+  userId: currentUser.id,
+  deliver: async (item, transport, signal) => {
+    // Persist deduplication by item.delivery_id across all notification transports.
+    // Return true only once this client has accepted the item into its inbox/display.
+    return presentNotification(item, transport, signal);
+  },
+  onError: reportRecoverableDeliveryFailure,
+});
+// Drive these from the authenticated socket subscription, not just TCP connection.
+runtime.setSocketConnected(true);
+// Every socket event / foreground Firebase message is a recovery hint.
+runtime.notify();
+// On logout, stop first, then revokeDevice while the session is still available.
+runtime.stop();
+```
+
+Socket leases expire after 60 seconds. Connected installations have a short
+acknowledgement window before Firebase fallback. The durable pending queue repairs
+missed socket hints and Firebase failures. Android background scheduling is subject
+to OS limits; browsers do not guarantee periodic execution when closed.
+
+A Firebase HTTP success is **provider acceptance**, not device delivery. The
+`deliveryStatus` response becomes delivered only after every active target device
+acknowledges. A receipt is distinct from reading the notification. Active targets
+are installations seen within 30 days; external alert recovery is limited to 24 hours.
+Background workers can acknowledge using the unpredictable per-delivery receipt
+capability without storing the user's session. Keep receipt tokens private, bind
+background display to the current account, and never put a Firebase server key
+in client code. Receive/display permission prompts must follow a user action.

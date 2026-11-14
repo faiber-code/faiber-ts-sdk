@@ -109,6 +109,9 @@ export type NotificationNotificationsMyInboxGetQuery = import("./types.js").Mess
 /** Backend response type: crate::models::PagedResult<InboxItem>. */
 export type NotificationNotificationsMyInboxGetResponse = import("./types.js").InboxResponse;
 
+/** Backend response type: Value. */
+export type DeviceDeliverySummaryGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").NotificationDeviceDelivery>;
+
 /** Backend request type: InboxStateInput. */
 export type NotificationNotificationsMyMarkReadPatchInput = import("./types.js").InboxStateInput;
 /** Backend response type: InboxItem. */
@@ -145,6 +148,19 @@ export type MobilePushRegisterPostResponse = import("@faiber/sdk-core").ApiEnvel
 
 /** Backend response type: Value. */
 export type MobilePushRevokeDeleteResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").PushDeviceRevocation>;
+
+/** Backend response type: Value. */
+export type DeviceDeliveryPendingGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").PendingDeviceNotifications>;
+
+/** Backend request type: Presence. */
+export type DeviceDeliveryPresencePostInput = import("./delivery.js").DevicePresenceInput;
+/** Backend response type: Value. */
+export type DeviceDeliveryPresencePostResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").DevicePresence>;
+
+/** Backend request type: Receipt. */
+export type DeviceDeliveryReceiptPostInput = import("./delivery.js").DeviceReceiptInput;
+/** Backend response type: Value. */
+export type DeviceDeliveryReceiptPostResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").DeviceReceipt>;
 
 /** Backend response type: Vec<ServiceResponse>. */
 export type ServiceServicesIndexGetResponse = import("./types.js").ProviderListResponse;
