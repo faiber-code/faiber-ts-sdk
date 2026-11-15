@@ -24,6 +24,28 @@ export class IdpApi extends ServiceApi {
         url.searchParams.set('redirect',redirect);if(intent==='link')url.searchParams.set('intent',intent);return url.href;
     }
 
+    /** Prepare a provider-link navigation using the current authenticated session.
+     * Exchanges the active Bearer/cookie session for an existing single-use browser
+     * handoff; access and refresh tokens are never placed in a navigation URL.
+     * Navigate immediately and never log or persist the returned URL.
+     * @param provider Configured provider key.
+     * @param redirect Approved return URL; token-login first returns to this IDP's link route.
+     * @param origin Canonical identity origin where OAuth state cookies are stored.
+     * @param options Cancellation and transport options for the authenticated handoff request.
+     * @throws AxiosError when the current session is invalid; TypeError for an invalid origin/response.
+     */
+    async authenticatedCustomOauthLinkUrl(provider:string,redirect:string,origin:string,options?:RequestOptions){
+        const base=new URL(origin);
+        if(base.username||base.password||base.search||base.hash||(base.protocol!=="https:"&&!(["localhost","127.0.0.1","[::1]"].includes(base.hostname)&&base.protocol==="http:")))throw new TypeError("Invalid identity origin");
+        const link=this.customOauthUrl(provider,redirect,'link',base.href);
+        const response=await this.operations.authGenerateOneTimeTokenRoutePost(options);
+        const token=response.data.data?.token;
+        if(typeof token!=="string"||!token)throw new TypeError("Missing one-time session transfer");
+        const url=new URL(`${base.href.replace(/\/+$/,'')}/api/v1/auth/token-login`);
+        url.searchParams.set('token',token);url.searchParams.set('redirect',link);
+        return url.href;
+    }
+
     /** Build a PKCE authorization navigation URL for an exactly registered redirect.
      * Tokens are obtained separately with operations.oidcTokenPost, never from the URL.
      * @param input Registered public client, callback, state and S256 challenge.

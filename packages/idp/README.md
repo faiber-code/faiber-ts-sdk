@@ -188,3 +188,14 @@ it to a browser. It returns the standard envelope with `user_id` and
 or active account is insufficient: the current contact must match a recorded
 successful OTP or explicit verified assertion from a trusted OAuth provider.
 Changing contacts invalidates the old match. Treat outages as unverified.
+
+### Linking a provider from a bearer-token app
+
+A browser navigation cannot forward an Authorization header. Use
+`authenticatedCustomOauthLinkUrl(provider, redirect, canonicalIdpOrigin)` with an
+already authenticated client, then navigate immediately to its result. It uses
+the existing single-use session transfer before starting `intent=link`; access
+and refresh tokens are never included in the navigation URL. Do not log or store
+that URL. The final redirect must be approved by the IDP. Local apps should return
+through their registered PKCE authorization callback, then restore the profile
+route. A callback marker alone does not prove linking: reload linked identities.
