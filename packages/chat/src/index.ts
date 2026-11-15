@@ -1,3 +1,5 @@
+import {ChatStudioApi} from './studio.js';
+export * from './studio.js';
 import {ChatStreamingApi} from './streaming.js';
 import {ChatIntegrationsApi} from './integrations.js';
 import { PersonalChatApi } from "./personal.js";
@@ -9,6 +11,7 @@ import type * as O from "./operations.types.js";
 import { ChatOperations } from "./operations.js";
 const id = (value: Identifier) => encodeURIComponent(value);
 export class ChatApi extends ServiceApi {
+ readonly studio=new ChatStudioApi(this.client);
  readonly streaming=new ChatStreamingApi(this.client);
  readonly integrations=new ChatIntegrationsApi(this.client);
   readonly personal = new PersonalChatApi(this.client);

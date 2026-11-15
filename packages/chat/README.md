@@ -416,3 +416,18 @@ Conversation summaries may include `participants`, with each peer's user ID and 
 and fall back to the other locale or your generic participant label. Names are resolved
 under the caller's Profile permissions; unavailable profiles do not block the conversation
 list. Older Chat deployments omit this optional field. No email or phone data is included.
+
+### Studio image generation
+
+`chat.studio.models()` reports the connected Faiber account's image availability
+and refundable reservation. After confirming that amount, call
+`chat.studio.generate({ request_id, prompt, model_id, confirmed_cost, currency,
+size: '1024x1024', images: [] })`; preserve the UUID `request_id` on retries.
+Poll `chat.studio.run(id)` and fetch `chat.studio.image(id)` only after completion.
+`chat.studio.cancel(id)` requests cancellation. All methods use the configured
+`FaiberClient` authentication and accept normal request options/abort signals.
+The account needs Studio media consent, `chat:ai`, and the corresponding
+`chat:studio:read`, `chat:studio:generate`, or `chat:studio:cancel` permission.
+Unavailable models and changed pricing must be resolved before submission.
+Image bytes are artifacts, not text context. Original videos belong exclusively
+in the authenticated device-local engine workflow.
