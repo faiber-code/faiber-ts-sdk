@@ -6,8 +6,9 @@ export interface StudioImageRequest {request_id:string;prompt:string;model_id:st
 export interface StudioImageRun {id:string;status:'queued'|'running'|'completed'|'failed'|'cancelled';progress:number;model:string;error:string|null;estimated_cost:number|null;actual_cost:number|null}
 export interface StudioImageContent {mime_type:'image/png'|'image/jpeg'|'image/webp';data_base64:string;provider:string;model:string}
 export interface StudioResponse<T>{data:T}
-/** User-owned metered image generation. Requires a connected Faiber account with
- * Studio media consent; provider credentials remain on the server. */
+/** First-party metered image generation using the same authenticated client as
+ * Chat/LLM/STT/TTS. No task-MCP connector or media OAuth grant is required.
+ * Provider credentials, project billing and user credit settlement stay on the server. */
 export class ChatStudioApi extends ServiceApi{
  /** Inspect live pricing/availability. Requires chat:ai + chat:studio:read. */
  models(options?:RequestOptions){return this.client.get<StudioResponse<StudioImageCatalog>>('/api/v1/studio/image-models',undefined,options)}

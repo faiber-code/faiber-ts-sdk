@@ -24,6 +24,19 @@ export class IdpApi extends ServiceApi {
         url.searchParams.set('redirect',redirect);if(intent==='link')url.searchParams.set('intent',intent);return url.href;
     }
 
+    /** Build a PKCE authorization navigation URL for an exactly registered redirect.
+     * Tokens are obtained separately with operations.oidcTokenPost, never from the URL.
+     * @param input Registered public client, callback, state and S256 challenge.
+     * @param origin Canonical identity origin; navigation uses its first-party session.
+     */
+    authorizationUrl(input:import('./operations.types.js').OidcAuthorizeGetQuery,origin?:string){
+        const base=origin??this.client.axios.defaults.baseURL;
+        if(!base)throw new TypeError('An absolute identity origin is required');
+        const url=new URL(`${base.replace(/\/+$/,'')}/oauth2/authorize`);
+        for(const [key,value]of Object.entries(input))if(value!=null)url.searchParams.set(key,String(value));
+        return url.href;
+    }
+
   readonly contactVerification = new ContactVerificationApi(this.client);
     readonly visibility = new IdpVisibilityApi(this.client);
     readonly authority = new IdpAuthorityApi(this.client);
