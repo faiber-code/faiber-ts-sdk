@@ -1,12 +1,18 @@
 /** Local device transport. Pairing secrets never enter Infera cloud transport. */
-export interface EngineSource {media_id:string;name:string;sha256:string;duration:string;streams:EngineStream[]}
+export interface EngineSource {media_id:string;kind?:'video'|'audio'|'image';name:string;sha256:string;duration:string;streams:EngineStream[]}
 export interface EngineStream {codec_type:string;codec_name:string;width?:number;height?:number}
 export interface EngineSession {session_id:string;sources:EngineSource[]}
-export interface EngineClip {media_id:string;start:number;duration:number;crop?:[number,number,number,number];brightness?:number;contrast?:number;saturation?:number;gain?:number;fade_in?:number;fade_out?:number}
-export interface EngineTimeline {size:[number,number];fps:number;clips:EngineClip[]}
+export type EngineTransition='cut'|'fade'|'wipeleft'|'wiperight'|'slideleft'|'slideright'|'circleopen'|'circleclose'|'fadeblack'|'fadewhite';
+export type EngineEffect='none'|'grayscale'|'sepia'|'vignette'|'soft_blur';
+export interface EngineClip {speed?:number;effect?:EngineEffect;transition?:{kind:EngineTransition;duration:number};media_id:string;start:number;duration:number;crop?:[number,number,number,number];brightness?:number;contrast?:number;saturation?:number;gain?:number;fade_in?:number;fade_out?:number}
+export interface EngineAudioTrack {media_id:string;start:number;duration:number;at:number;gain?:number;fade_in?:number;fade_out?:number}
+export interface EngineFrameRequest {media_id:string;start?:number;duration?:number;fps?:2|10;overview?:boolean}
+export interface EngineFrames {media_id:string;frames:EngineFrame[];coverage:string}
+export interface EngineAudioPreview {media_id:string;start:number;duration:number;artifact:string;bytes:number}
+export interface EngineTimeline {audio?:EngineAudioTrack[];size:[number,number];fps:number;clips:EngineClip[]}
 export interface EngineProject {project_id:string;revision:number;timeline:EngineTimeline;duration:number;sources:Record<string,string>}
-export interface EngineJob {job_id:string;status:'queued'|'running'|'completed'|'failed';artifact?:string;sha256?:string;duration?:number;error?:string;quality_review?:'pending'}
-export interface EngineCapabilities {protocol:string;mode:string;supported:string[];unavailable:string[];video_to_llm:false}
+export interface EngineJob {job_id:string;status:'queued'|'running'|'completed'|'failed'|'cancelling'|'cancelled';progress?:{stage:string;completed:number;total:number};artifact?:string;sha256?:string;duration?:number;error?:string;quality_review?:'pending'}
+export interface EngineCapabilities {protocol:string;mode:string;supported:string[];unavailable:string[];video_to_llm:false;transitions?:EngineTransition[];effects?:EngineEffect[];max_frames?:number;max_timeline_seconds?:number}
 export interface EngineModelCapabilities {image_to_3d:boolean;adapter:string|null;network:string;rigging:false;production_approved:false}
 export interface EngineModelJob {job_id:string;status:'queued'|'running'|'completed'|'failed'|'cancelling'|'cancelled';artifact?:string;sha256?:string;error?:string;production_approved?:false;rig_approved?:false;validation?:{status:string;meshes:number;vertices:number;triangles:number;scope:string}}
 export interface EngineHealth {protocol:'faiber.engine.local.v1';originals:'device';max_video_bytes:number}
@@ -44,6 +50,21 @@ export class LocalEngineClient {
   if(rpc.id!==id||rpc.error||rpc.result?.isError||!rpc.result?.structuredContent)throw Error('Engine operation failed. Check capabilities, source and revision.');
   return rpc.result.structuredContent as T;
  }
+ /** Create a local multi-source session. Sources must be explicitly selected by the user. */
+ async openSession(options:EngineRequestOptions={}):Promise<EngineSession>{return (await this.#request('/sessions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({empty:true})},options)).json()}
+ /** Copy selected video, audio or image to the paired loopback host. Never uses cloud transport. */
+ async addMedia(session:string,mediaId:string,file:Blob,options:EngineRequestOptions={}):Promise<EngineSource>{
+  if(!/^[A-Za-z0-9_-]{1,80}$/.test(mediaId)||!file.size||file.size>2*1024**3)throw Error('Invalid selected source');
+  return (await this.#request(`/sessions/${this.#id(session)}/sources/${mediaId}`,{method:'POST',headers:{'Content-Type':file.type},body:file},options)).json();
+ }
+ /** Read bounded frame previews for a local contact sheet: overview or up to 16 frames at 2/10 fps. */
+ frames(session:string,request:EngineFrameRequest,options:EngineRequestOptions={}):Promise<EngineFrames>{return this.#call(session,'engine_frames',request,options)}
+ /** Extract at most 30 seconds locally; caller explicitly decides whether to transcribe it. */
+ audioPreview(session:string,mediaId:string,start:number,duration:number,options:EngineRequestOptions={}):Promise<EngineAudioPreview>{return this.#call(session,'engine_audio_preview',{media_id:mediaId,start,duration},options)}
+ /** Stop an actual local export. Poll job until cancelled or completed. */
+ cancel(session:string,jobId:string,options:EngineRequestOptions={}):Promise<EngineJob>{return this.#call(session,'engine_cancel',{job_id:jobId},options)}
+ /** Read the latest saved revision for undo/review. */
+ project(session:string,projectId:string,options:EngineRequestOptions={}):Promise<EngineProject>{return this.#call(session,'engine_project_get',{project_id:projectId},options)}
  /** Read capabilities before issuing edits; unavailable operations must not be presented as executed. */
  capabilities(session:string,options:EngineRequestOptions={}):Promise<EngineCapabilities>{return this.#call(session,'engine_capabilities',{},options)}
  /** Save a validated immutable revision. Updates require the current revision. */
@@ -69,7 +90,7 @@ export class LocalEngineClient {
  async modelArtifact(id:string,options:EngineRequestOptions={}):Promise<Blob>{return (await this.#request(`/models/${this.#id(id)}/artifact`,{},options)).blob()}
  /** Download a local artifact with authentication, then use a revocable browser object URL. */
  async artifact(session:string,name:string,options:EngineRequestOptions={}):Promise<Blob>{
-  if(!/^[a-f0-9-]+\.(mp4|jpg|png|glb)$/.test(name))throw Error('Invalid artifact');
+  if(!/^[a-f0-9-]+\.(mp4|jpg|png|glb|wav)$/.test(name))throw Error('Invalid artifact');
   return (await this.#request(`/sessions/${this.#id(session)}/artifacts/${name}`,{},options)).blob();
  }
 }
