@@ -9,7 +9,7 @@ export interface EngineAudioTrack {media_id:string;start:number;duration:number;
 export interface EngineFrameRequest {media_id:string;start?:number;duration?:number;fps?:2|10;overview?:boolean}
 export interface EngineFrames {media_id:string;frames:EngineFrame[];coverage:string}
 export interface EngineAudioPreview {media_id:string;start:number;duration:number;artifact:string;bytes:number}
-export interface EngineTimeline {audio?:EngineAudioTrack[];size:[number,number];fps:number;clips:EngineClip[]}
+export interface EngineTimeline {constraints?:{max_duration?:number;ordered_media_ids?:string[]};audio?:EngineAudioTrack[];size:[number,number];fps:number;clips:EngineClip[]}
 export interface EngineProject {project_id:string;revision:number;timeline:EngineTimeline;duration:number;sources:Record<string,string>}
 export interface EngineJob {job_id:string;status:'queued'|'running'|'completed'|'failed'|'cancelling'|'cancelled';progress?:{stage:string;completed:number;total:number};artifact?:string;sha256?:string;duration?:number;error?:string;quality_review?:'pending'}
 export interface EngineCapabilities {protocol:string;mode:string;supported:string[];unavailable:string[];video_to_llm:false;transitions?:EngineTransition[];effects?:EngineEffect[];max_frames?:number;max_timeline_seconds?:number}
