@@ -11,7 +11,7 @@
   "package_source_sha256": {
     "packages/chat/src/assistant-voice.ts": "2646fbad3ad189bfad58dc1d2c3713cdf4169b78cea3f9f0a89396c976b2083b",
     "packages/chat/src/bridge-contracts.ts": "9695d483aab622b625e7e11ff755fb07a1e6e86c26103480354fd109b961d73e",
-    "packages/chat/src/index.ts": "aad6033e612c204bc2620086d10eb485f070b72228a817610c174488287a1652",
+    "packages/chat/src/index.ts": "82a09238976ffad5fa420fa0d9aa0d894372230f3148646ae40ec342eaed036f",
     "packages/chat/src/integrations.ts": "30ccd5b57ea07f94d4959dd9352e42e9ad9f60679d57cf75b8f9ea68a5d9dc34",
     "packages/chat/src/learning.ts": "362ca67a1e763cfb8c8e2d9105330b1f61622f4e916d1b77b5257387fa54691f",
     "packages/chat/src/operations.ts": "7294d5a39a9c17b922f8961c6037a5b7c96805a2c5cd30e84d3a00ea2f4fbd13",
@@ -22,6 +22,7 @@
     "packages/chat/src/speech-playback.ts": "90f32542a3e6cf392782538b66244d87186f023de73092b2b74470c85b92da46",
     "packages/chat/src/speech-recorder.ts": "695af79a049dc07658aeb7e3001b0c8cc09757232f8f5fdde19cd782a0e1efeb",
     "packages/chat/src/streaming.ts": "5560cc68fbc531c600a1b12db7838c637ba495b3497cccec04c60fc0f904a697",
+    "packages/chat/src/studio.ts": "229393c91c4714db847544f2b8e34323a99e6c5b3254b063fd594cee2c7e6bf2",
     "packages/chat/src/types.ts": "d6ef5f1cd94b79098960bdb8c5827747b70c54be05b9102602bed081e7c9d419",
     "packages/chat/src/workspace-read-policy.ts": "65213bb8bf9b2301920689dafc9487d07df140f244a0f5a3488b2605d5278ca2",
     "packages/chat/src/workspace.ts": "45eb9ff1377297fe499f113c51f7e981db2c7f969230ec31aabacee46e89961d"

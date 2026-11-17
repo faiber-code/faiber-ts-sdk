@@ -11,7 +11,7 @@
   "package_source_sha256": {
     "packages/idp/src/authority.ts": "771caff551a474f09b7a2cf429dccbd5c1c5c9c8ca970b4668f03a99b5d94344",
     "packages/idp/src/contracts.types.ts": "4898b0cd715c9509f57fa9cce06b3139bfeec1e0f0c4dc8effade5e8b8b6301d",
-    "packages/idp/src/index.ts": "bdc01da5b5bd95d561c5385ceacf42a0389c92bbe3907233a58276e67d5adbc2",
+    "packages/idp/src/index.ts": "7f35f18bfca3cbc58b8b58c46dc12d71338843756b9752998b5521eca40b8c12",
     "packages/idp/src/memberships.ts": "ba3c661e38eec353e2df2ce5f28b41fb2275fed59a0d2ac7680030809088aecf",
     "packages/idp/src/operations.ts": "82e7a7862baa5def015b73312312d4048737fcfa31f1b0a1afd11c0604ea705b",
     "packages/idp/src/operations.types.ts": "4b6cdd60ead5876619b21cf41ef2820f77f50a39df64cf099dd982c5e0d37183",

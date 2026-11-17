@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-engine",
+  "version": "2.8.0",
+  "source_revisions": {},
+  "package_source_sha256": {
+    "packages/engine/src/index.ts": "870a87551d5fa284b5defe46ca32d4146b9b36e4fc0bffa8d347f2982fda0706"
+  },
+  "capability_review_sha256": null,
+  "source_pin_file_sha256": "611883598c323bc366b4aac01af4fb087e0b3e3a824b5e5b0d29bc94fbdf6aa7",
+  "http_contract_file_sha256": "1c143d185829525f0ce9e4d39b5e3587cc8b8b4c3273a3ede0fbbfecb5c36783",
+  "public_contract": {
+    "kind": "shared-client-or-facade"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

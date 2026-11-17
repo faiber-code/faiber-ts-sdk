@@ -431,3 +431,17 @@ The account needs Studio media consent, `chat:ai`, and the corresponding
 Unavailable models and changed pricing must be resolved before submission.
 Image bytes are artifacts, not text context. Original videos belong exclusively
 in the authenticated device-local engine workflow.
+
+### AI video generation
+
+Use `client.studio.videoModels()` to discover enabled models and per-second prices.
+Start an asynchronous job with `studio.generateVideo({request_id, prompt, model_id,
+seconds: 4, size: '1280x720'})`, poll `studio.videoRun(id)`, and download the completed
+MP4 with `studio.videoContent(id)`. These operations use the configured Faiber token
+or cookie transport. Reads require `chat:ai` and `chat:studio:read`; submission also
+requires `chat:studio:generate`. The server checks credit and reserves the current
+price automatically. Keep the same request UUID and identical inputs when retrying
+an interrupted submission; use a new UUID only for an explicitly retryable terminal
+failure. Provider keys are never accepted from the browser. Original editing videos
+stay local; the optional generation reference accepts only an image. The APIs retain
+Axios responses and accept request options including cancellation signals.
