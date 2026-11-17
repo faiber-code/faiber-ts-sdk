@@ -33,3 +33,14 @@ reduce total duration. `save()` returns a revision; `export()` renders that revi
 Poll `job()` for actual stage progress, and use `cancel()` to stop a running export.
 Cancellation is complete only after a terminal job status. A completed artifact
 still requires human picture/sound review. Local sessions expire with the host.
+
+### Optional restoration
+
+Discover `capabilities(session)` before requesting restoration. Supported engines accept
+`stabilization`, `video_denoise`, and `audio_denoise` on clips with levels `off`,
+`light`, `standard`, or `strong`. Audio tracks also accept `audio_denoise`.
+Use `sharpen` between 0 and 1, clockwise `rotate` (0/90/180/270), and `flip`
+(`none`/`horizontal`/`vertical`). Crops apply after orientation. Unsupported
+controls or out-of-range values reject the edit before rendering. These settings
+are off by default; stabilization cannot reconstruct missing detail or rolling
+shutter, and denoising is not voice isolation. Review the exported media.

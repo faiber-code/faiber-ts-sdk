@@ -2,10 +2,25 @@
 export interface EngineSource {media_id:string;kind?:'video'|'audio'|'image';name:string;sha256:string;duration:string;streams:EngineStream[]}
 export interface EngineStream {codec_type:string;codec_name:string;width?:number;height?:number}
 export interface EngineSession {session_id:string;sources:EngineSource[]}
-export type EngineTransition='cut'|'fade'|'wipeleft'|'wiperight'|'slideleft'|'slideright'|'circleopen'|'circleclose'|'fadeblack'|'fadewhite';
+export type EngineTransition='cut'|'fade'|'wipeleft'|'wiperight'|'slideleft'|'slideright'|'circleopen'|'circleclose'|'fadeblack'|'fadewhite'|'wipeup'|'wipedown'|'slideup'|'slidedown';
 export type EngineEffect='none'|'grayscale'|'sepia'|'vignette'|'soft_blur';
-export interface EngineClip {speed?:number;effect?:EngineEffect;transition?:{kind:EngineTransition;duration:number};media_id:string;start:number;duration:number;crop?:[number,number,number,number];brightness?:number;contrast?:number;saturation?:number;gain?:number;fade_in?:number;fade_out?:number}
-export interface EngineAudioTrack {media_id:string;start:number;duration:number;at:number;gain?:number;fade_in?:number;fade_out?:number}
+/** Optional bounded restoration; availability must be discovered from capabilities. */
+export type EngineRestorationLevel='off'|'light'|'standard'|'strong';
+export interface EngineRestoration {
+ /** Reduces camera shake with mirrored edges; not blur or rolling-shutter repair. */
+ stabilization?:EngineRestorationLevel;
+ /** Spatial/temporal noise reduction; strong levels may soften texture. */
+ video_denoise?:EngineRestorationLevel;
+ /** Reduces rumble and steady noise. Does not isolate a speaker. */
+ audio_denoise?:EngineRestorationLevel;
+ /** Bounded edge sharpening from 0 through 1. */
+ sharpen?:number;
+ /** Clockwise rotation before normalized crop coordinates are applied. */
+ rotate?:0|90|180|270;
+ flip?:'none'|'horizontal'|'vertical';
+}
+export interface EngineClip extends EngineRestoration {speed?:number;effect?:EngineEffect;transition?:{kind:EngineTransition;duration:number};media_id:string;start:number;duration:number;crop?:[number,number,number,number];brightness?:number;contrast?:number;saturation?:number;gain?:number;fade_in?:number;fade_out?:number}
+export interface EngineAudioTrack {audio_denoise?:EngineRestorationLevel;media_id:string;start:number;duration:number;at:number;gain?:number;fade_in?:number;fade_out?:number}
 export interface EngineFrameRequest {media_id:string;start?:number;duration?:number;fps?:2|10;overview?:boolean}
 export interface EngineFrames {media_id:string;frames:EngineFrame[];coverage:string}
 export interface EngineAudioPreview {media_id:string;start:number;duration:number;artifact:string;bytes:number}
