@@ -227,3 +227,5 @@ export * from './integrations.js';
 export * from "./bridge-contracts.js";
 
 export * from "./community.js";
+
+export * from "./marketplace.js";

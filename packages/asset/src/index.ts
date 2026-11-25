@@ -117,3 +117,5 @@ export * from "./do-dox.js";
 export * from './dox.js';
 
 export * from "./ledger-contracts.js";
+
+export * from "./marketplace.js";
