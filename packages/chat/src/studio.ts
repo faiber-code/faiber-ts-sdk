@@ -6,10 +6,29 @@ export interface StudioImageRequest {request_id:string;prompt:string;model_id:st
 export interface StudioImageRun {id:string;status:'queued'|'running'|'completed'|'failed'|'cancelled';progress:number;model:string;error:string|null;estimated_cost:number|null;actual_cost:number|null}
 export interface StudioImageContent {mime_type:'image/png'|'image/jpeg'|'image/webp';data_base64:string;provider:string;model:string}
 export interface StudioResponse<T>{data:T}
-export interface StudioVideoModel {id:string;label:string;model:string;seconds:number[];sizes:('1280x720'|'720x1280')[];requires_reference:boolean;unit_price:number;currency:string;available:boolean}
+export interface StudioVideoModel {id:string;label:string;model:string;seconds:number[];sizes:('1280x720'|'720x1280')[];requires_reference:boolean;unit_price:number;currency:string;available:boolean;features?:{audio:boolean;dialogue:boolean;detail:boolean;silent:boolean}}
 export interface StudioVideoCatalog {models:StudioVideoModel[]}
-export interface StudioVideoRequest {request_id:string;prompt:string;model_id:string;seconds:number;size:'1280x720'|'720x1280';image?:Pick<StudioImageReference,'mime_type'|'data_base64'>}
-export interface StudioVideoRun {id:string;status:'queued'|'running'|'completed'|'failed';progress:number;model:string;seconds:number;size:string;estimated_cost:number;actual_cost:number|null;error:string|null;retryable:boolean}
+export interface StudioVideoRequest {request_id:string;prompt:string;model_id:string;seconds:number;size:'1280x720'|'720x1280';image?:Pick<StudioImageReference,'mime_type'|'data_base64'>;options?:{silent?:boolean;detail?:boolean;draft?:boolean}}
+export interface StudioVideoRun {id:string;status:'queued'|'running'|'completed'|'failed';progress:number;model:string;seconds:number;size:string;estimated_cost:number;actual_cost:number|null;error:string|null;retryable:boolean;mime_type?:'audio/mpeg'|'video/mp4'}
+export type StudioAudioMode = 'music'|'effect'|'voice'|'dub';
+export interface StudioAudioOptions {
+ seconds?:number;
+ style?:string;
+ voice?:'narrator'|'warm'|'calm'|'bright';
+ instrumental?:boolean;
+ precision?:boolean;
+ looped?:boolean;
+ source_url?:string;
+ target_language?:'fa'|'en'|'ar'|'tr'|'de'|'fr'|'es';
+}
+export interface StudioAudioRequest {
+ request_id:string;
+ mode:StudioAudioMode;
+ prompt:string;
+ options:StudioAudioOptions;
+ confirmed_cost?:number;
+}
+export interface StudioAudioQuote {model:string;estimated_cost:number;currency:'IRR';available:boolean;mime_type:'audio/mpeg'|'video/mp4'}
 /** First-party metered image generation using the same authenticated client as
  * Chat/LLM/STT/TTS. No task-MCP connector or media OAuth grant is required.
  * Provider credentials, project billing and user credit settlement stay on the server. */
@@ -23,6 +42,20 @@ export class ChatStudioApi extends ServiceApi{
  videoRun(id:string,options?:RequestOptions){return this.client.get<StudioResponse<StudioVideoRun>>(`/api/v1/studio/videos/${encodeURIComponent(id)}`,undefined,options)}
  /** Download a completed MP4 for attachment storage. Requires chat:studio:read. */
  videoContent(id:string,options?:RequestOptions){return this.client.get<Blob>(`/api/v1/studio/videos/${encodeURIComponent(id)}/content`,undefined,{responseType:'blob',timeout:180000,...options})}
+ /** Price audio from its mode and parameters without submitting a provider render. */
+ quoteAudio(input:StudioAudioRequest,options?:RequestOptions<StudioAudioRequest>){
+  return this.client.post<StudioResponse<StudioAudioQuote>,StudioAudioRequest>('/api/v1/studio/audio/quote',input,options);
+ }
+ /** Submit against the confirmed quote. Reuse request_id and inputs after timeouts. */
+ generateAudio(input:StudioAudioRequest,options?:RequestOptions<StudioAudioRequest>){
+  return this.client.post<StudioResponse<StudioVideoRun>,StudioAudioRequest>('/api/v1/studio/audio',input,options);
+ }
+ audioRun(id:string,options?:RequestOptions){
+  return this.client.get<StudioResponse<StudioVideoRun>>(`/api/v1/studio/audio/${encodeURIComponent(id)}`,undefined,options);
+ }
+ audioContent(id:string,options?:RequestOptions){
+  return this.client.get<Blob>(`/api/v1/studio/audio/${encodeURIComponent(id)}/content`,undefined,{responseType:'blob',timeout:180000,...options});
+ }
  /** Inspect live pricing/availability. Requires chat:ai + chat:studio:read. */
  models(options?:RequestOptions){return this.client.get<StudioResponse<StudioImageCatalog>>('/api/v1/studio/image-models',undefined,options)}
  /** Submit using the exact current server quote; apps may start automatically. Requires chat:studio:generate.
